@@ -1,18 +1,18 @@
 {
-  "build_id": "BUILD-20261008T201702Z-10543",
-  "stamp": "20261008T201702Z",
+  "run": "20261008T202334Z-14829",
+  "stamp": "20261008T202334Z",
   "modules": [
-    {"name": "module_01_auto_executor", "pass": 0, "fail": 0, "tree_hash": "fd8351a1dcbe1a41a86e898f1978eea49b8546b51359305ad2a8adb261bd6762"},
-    {"name": "module_02_contract_builder", "pass": 0, "fail": 0, "tree_hash": "4557fcd32a704d504f5a06aa2128249e229d8330de82dc322c9b85aa146543be"},
-    {"name": "module_03_escrow_controller", "pass": 0, "fail": 0, "tree_hash": "e83ba79d0a7217590ef50bdd17ebf9efea05ca3c5f10bd645e16899f17d6faec"},
-    {"name": "module_12_delivery_receipt", "pass": 0, "fail": 0, "tree_hash": "3266277a1f6691ac3a29ea36b740619cbe025011ea2c5bc57d473b8775d49741"},
-    {"name": "module_13_dual_backend", "pass": 0, "fail": 0, "tree_hash": "d497da88a2670bc8c3d6f6326b8b01006615666795e535331eae9654b7840c97"},
-    {"name": "module_14_watchdog", "pass": 0, "fail": 0, "tree_hash": "593ae91b81b65fc7a82297a266ae006e4dbf891aaad586cbb0ecf99fcfbc614e"},
-    {"name": "module_15_true100_aggregator", "pass": 0, "fail": 0, "tree_hash": "526444af860c3b189f91b25e115abd7ed2d1081793af3c8e19b61db2abf91073"},
-    {"name": "module_16_final_authorization_release_gate", "pass": 0, "fail": 0, "tree_hash": "ee9e40d1ac024c7735ea01bca07173c57d1eabe5d7c3e809b8bdbde24cc3f888"},
-    {"name": "module_17_cybra_license_contract_menu", "pass": 0, "fail": 0, "tree_hash": "41ee51c56507da9d7b5b82e00f11b6ccb97119e42f19b14a255fc2a4583ca688"},
-    {"name": "module_18_license_payment_router", "pass": 0, "fail": 0, "tree_hash": "dac993d28de783521bc30d55a74f8b703c1fa954386536f1e2602ec51cba7a36"},
-    {"name": "module_19_contract_tui_menu", "pass": 0, "fail": 0, "tree_hash": "e55c21bec1ae7d9d8fb074644e5a4aef9f90394e93ca9ddf99edee0235ad97ab"}
+    {"name":"module_01_auto_executor","pass":0,"fail":0,"tree":"fd8351a1dcbe1a41a86e898f1978eea49b8546b51359305ad2a8adb261bd6762"},
+    {"name":"module_02_contract_builder","pass":0,"fail":0,"tree":"4557fcd32a704d504f5a06aa2128249e229d8330de82dc322c9b85aa146543be"},
+    {"name":"module_03_escrow_controller","pass":0,"fail":0,"tree":"e83ba79d0a7217590ef50bdd17ebf9efea05ca3c5f10bd645e16899f17d6faec"},
+    {"name":"module_12_delivery_receipt","pass":0,"fail":0,"tree":"3266277a1f6691ac3a29ea36b740619cbe025011ea2c5bc57d473b8775d49741"},
+    {"name":"module_13_dual_backend","pass":0,"fail":0,"tree":"d497da88a2670bc8c3d6f6326b8b01006615666795e535331eae9654b7840c97"},
+    {"name":"module_14_watchdog","pass":0,"fail":0,"tree":"593ae91b81b65fc7a82297a266ae006e4dbf891aaad586cbb0ecf99fcfbc614e"},
+    {"name":"module_15_true100_aggregator","pass":0,"fail":0,"tree":"526444af860c3b189f91b25e115abd7ed2d1081793af3c8e19b61db2abf91073"},
+    {"name":"module_16_final_authorization_release_gate","pass":0,"fail":0,"tree":"ee9e40d1ac024c7735ea01bca07173c57d1eabe5d7c3e809b8bdbde24cc3f888"},
+    {"name":"module_17_cybra_license_contract_menu","pass":0,"fail":0,"tree":"41ee51c56507da9d7b5b82e00f11b6ccb97119e42f19b14a255fc2a4583ca688"},
+    {"name":"module_18_license_payment_router","pass":0,"fail":0,"tree":"dac993d28de783521bc30d55a74f8b703c1fa954386536f1e2602ec51cba7a36"},
+    {"name":"module_19_contract_tui_menu","pass":0,"fail":0,"tree":"824ffde073ff5d41f32451317bcdda97342caf6cd483eb2dc574899c445a265a"}
   ],
   "module_count": 11,
   "license_recipient": "0x66434c5501242ccC71b5a39C765892921624B66c"

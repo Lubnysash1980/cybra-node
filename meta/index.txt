@@ -1,17 +1,17 @@
 # CYBRA NODE INDEX
-# BUILD_ID=BUILD-20261008T201702Z-10543
-# STAMP=20261008T201702Z
+# RUN=20261008T202334Z-14829
+# STAMP=20261008T202334Z
 #
-MODULE                                        PASS         TREE_HASH       
+MODULE                                        STATUS         TREE_HASH         
 --------------------------------------------------------------------
-module_01_auto_executor                       P=0 F=0      fd8351a1dcbe1a41
-module_02_contract_builder                    P=0 F=0      4557fcd32a704d50
-module_03_escrow_controller                   P=0 F=0      e83ba79d0a721759
-module_12_delivery_receipt                    P=0 F=0      3266277a1f6691ac
-module_13_dual_backend                        P=0 F=0      d497da88a2670bc8
-module_14_watchdog                            P=0 F=0      593ae91b81b65fc7
-module_15_true100_aggregator                  P=0 F=0      526444af860c3b18
-module_16_final_authorization_release_gate    P=0 F=0      ee9e40d1ac024c77
-module_17_cybra_license_contract_menu         P=0 F=0      41ee51c56507da9d
-module_18_license_payment_router              P=0 F=0      dac993d28de78352
-module_19_contract_tui_menu                   P=0 F=0      e55c21bec1ae7d9d
+module_01_auto_executor                       P=0 F=0        fd8351a1dcbe1a41  
+module_02_contract_builder                    P=0 F=0        4557fcd32a704d50  
+module_03_escrow_controller                   P=0 F=0        e83ba79d0a721759  
+module_12_delivery_receipt                    P=0 F=0        3266277a1f6691ac  
+module_13_dual_backend                        P=0 F=0        d497da88a2670bc8  
+module_14_watchdog                            P=0 F=0        593ae91b81b65fc7  
+module_15_true100_aggregator                  P=0 F=0        526444af860c3b18  
+module_16_final_authorization_release_gate    P=0 F=0        ee9e40d1ac024c77  
+module_17_cybra_license_contract_menu         P=0 F=0        41ee51c56507da9d  
+module_18_license_payment_router              P=0 F=0        dac993d28de78352  
+module_19_contract_tui_menu                   P=0 F=0        824ffde073ff5d41  
