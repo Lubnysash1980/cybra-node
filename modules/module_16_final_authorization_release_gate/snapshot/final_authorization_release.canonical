@@ -1,0 +1,22 @@
+CYBRA MODULE 16 — FINAL AUTHORIZATION & RELEASE GATE
+
+01. Module 16 does not replace modules 01–15.
+02. TRUE_100_CANDIDATE is required before release.
+03. Final user authorization is mandatory.
+04. Release requires both candidate and authorization.
+05. Opening a link is not authorization.
+06. Connecting a wallet is not authorization.
+07. TEST evidence cannot become LIVE evidence.
+08. No automatic release.
+09. No automatic transaction.
+10. No auto MetaMask signature.
+11. The controller cannot manufacture a signature.
+12. The controller cannot manufacture TRUE_100.
+13. Context mismatch blocks release.
+14. Wrong chain blocks release.
+15. Wrong recipient blocks release.
+16. Wrong amount blocks release.
+17. Wrong terms blocks release.
+18. Double release is permanently blocked.
+19. Frozen snapshots must not be modified.
+20. Any correction creates a new PATCH_ID.

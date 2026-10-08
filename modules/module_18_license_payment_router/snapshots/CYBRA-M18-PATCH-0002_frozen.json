@@ -1,0 +1,18 @@
+{
+  "snapshot_type": "FROZEN",
+  "module_id": 18,
+  "module_name": "CYBRA_LICENSE_PAYMENT_ROUTER",
+  "patch_id": "CYBRA-M18-PATCH-0002",
+  "network": "BSC_MAINNET",
+  "chain_id": 56,
+  "license_percent": 1,
+  "license_bps": 100,
+  "license_recipient": "0x66434c5501242ccC71b5a39C765892921624B66c",
+  "payment_context_hash": "2c072205bbd521d74706cc8d9050de26d31c4c856c17fc20c55e89e35d18f7e5",
+  "auto_payment": false,
+  "auto_transaction": false,
+  "auto_release": false,
+  "real_transaction_sent": false,
+  "global_true_100": false,
+  "frozen": true
+}

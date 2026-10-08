@@ -1,0 +1,37 @@
+CYBRA MODULE 12 — DELIVERY / RECEIPT CONTROLLER
+PATCH_ID=CYBRA-M12-PATCH-0001
+
+1. DELIVERY IS A REQUIRED CONDITION.
+2. DELIVERY EVIDENCE IS REQUIRED.
+3. BUYER RECEIPT IS A REQUIRED CONDITION.
+4. Every delivery evidence record MUST identify the exact ORDER_ID.
+5. Every delivery evidence record MUST match the exact ORDER_HASH.
+6. Every delivery evidence record MUST match the exact TERMS_HASH.
+7. Every delivery evidence record MUST identify the expected BUYER_ADDRESS.
+8. Every delivery evidence record MUST identify the expected SELLER_ADDRESS.
+9. Every buyer receipt MUST identify the exact ORDER_ID.
+10. Every buyer receipt MUST match the exact ORDER_HASH.
+11. Every buyer receipt MUST match the exact TERMS_HASH.
+12. Every buyer receipt MUST identify the expected BUYER_ADDRESS.
+13. Evidence MUST contain a unique evidence ID.
+14. Evidence MUST contain a timestamp.
+15. Evidence integrity MUST be independently checked.
+16. Missing evidence means WAITING/BLOCKED.
+17. Invalid evidence means FALSE/RETRY.
+18. Mismatched evidence means FALSE/RETRY.
+19. Delivery confirmation MUST NOT by itself authorize escrow release.
+20. Buyer receipt MUST NOT by itself authorize escrow release.
+21. Delivery confirmation MUST NOT create GLOBAL_TRUE_100.
+22. Buyer receipt MUST NOT create GLOBAL_TRUE_100.
+23. This controller MUST NOT manufacture delivery evidence.
+24. This controller MUST NOT manufacture a buyer receipt.
+25. This controller MUST NOT sign for buyer or seller.
+26. This controller MUST NOT authorize LIVE mode.
+27. This controller MUST NOT send a real blockchain transaction.
+28. Escrow release requires the independent escrow controller and final authorization.
+29. Corrections MUST create a new PATCH_ID.
+30. Frozen snapshots MUST NOT be silently modified.
+31. TEST evidence MUST NOT automatically become LIVE evidence.
+32. Evidence from another ORDER_ID MUST NEVER satisfy this order.
+33. Evidence with another TERMS_HASH MUST NEVER satisfy this order.
+34. A buyer receipt from another wallet MUST NEVER satisfy the buyer receipt requirement.

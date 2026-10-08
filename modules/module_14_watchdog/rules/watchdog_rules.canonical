@@ -1,0 +1,31 @@
+CYBRA MODULE 14 — WATCHDOG / SYSTEM HEALTH CONTROLLER
+PATCH_ID=CYBRA-M14-PATCH-0001
+
+1. The watchdog verifies system health; it does not create business truth.
+2. A valid heartbeat is required.
+3. Heartbeat age MUST NOT exceed HEARTBEAT_MAX_AGE_SECONDS.
+4. Critical process health MUST be available.
+5. Redis health MUST be verified when Redis is configured as required.
+6. Backend A health MUST be independently verified.
+7. Backend B health MUST be independently verified.
+8. Backend A health MUST NOT substitute for Backend B health.
+9. Backend B health MUST NOT substitute for Backend A health.
+10. State freshness MUST be verified.
+11. Stale state means FALSE/RETRY.
+12. Missing health evidence means WAITING/BLOCKED.
+13. Watchdog failure MUST NOT be converted into TRUE.
+14. Watchdog failure MUST NOT authorize escrow release.
+15. Watchdog failure MUST NOT authorize final release.
+16. Watchdog failure MUST NOT authorize LIVE.
+17. Watchdog MUST NOT sign a transaction.
+18. Watchdog MUST NOT create a MetaMask signature.
+19. Watchdog MUST NOT manufacture backend evidence.
+20. Watchdog MUST NOT manufacture delivery evidence.
+21. Watchdog MUST NOT manufacture buyer receipt evidence.
+22. Watchdog MUST NOT establish GLOBAL_TRUE_100 by itself.
+23. Watchdog PASS is only one required condition of the complete CYBRA state.
+24. A successful watchdog check does not prove the business transaction itself.
+25. TEST health evidence MUST NOT automatically become LIVE evidence.
+26. Any correction MUST create a new PATCH_ID.
+27. Frozen snapshots MUST NOT be silently modified.
+28. Real transactions remain disabled in this controller.

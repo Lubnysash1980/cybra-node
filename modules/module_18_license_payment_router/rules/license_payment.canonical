@@ -1,0 +1,52 @@
+CYBRA MODULE 18 — LICENSE PAYMENT ROUTER
+
+01. CYBRA license rate is 100 basis points.
+02. 100 basis points equals 1%.
+03. License amount is calculated deterministically.
+04. Contract amount is an input to the calculation.
+05. License recipient must be explicitly configured.
+06. An unset recipient blocks payment preparation.
+07. Payment context must identify the contract.
+08. Payment context must identify the order.
+09. Payment context must identify the terms.
+10. Payment context must identify chain ID.
+11. Payment context must identify contract amount.
+12. Payment context must identify license rate.
+13. Payment context must identify license amount.
+14. Payment context must identify recipient.
+15. Payment context must be hashed.
+16. Frozen payment context cannot be silently changed.
+17. Frozen recipient cannot be silently changed.
+18. Frozen amount cannot be silently changed.
+19. Frozen license rate cannot be silently changed.
+20. Double license payment is blocked.
+21. License payment does not establish TRUE_100.
+22. License payment does not authorize escrow release.
+23. License payment does not replace buyer signature.
+24. License payment does not replace seller signature.
+25. License payment does not replace delivery evidence.
+26. License payment does not replace buyer receipt.
+27. License payment does not replace backend consensus.
+28. License payment does not replace watchdog confirmation.
+29. License payment does not replace final authorization.
+30. TEST mode cannot automatically send blockchain transactions.
+31. MetaMask signing remains a user action.
+32. The router cannot manufacture a wallet signature.
+33. The router cannot manufacture authorization.
+34. The router cannot change contract terms.
+35. The router cannot redirect a frozen payment.
+36. The router cannot execute escrow release.
+37. Payment preparation is distinct from payment execution.
+38. A prepared transaction is not a completed transaction.
+39. A simulated payment is not a real payment.
+40. Real execution requires explicit user authorization.
+41. Real execution requires final verification of recipient.
+42. Real execution requires final verification of chain.
+43. Real execution requires final verification of amount.
+44. Real execution requires final verification of payment context.
+45. Corrections require a new PATCH_ID.
+46. Previous frozen snapshots remain immutable.
+47. Real transaction execution is disabled in TEST.
+48. GLOBAL_TRUE_100 is not manufactured by this module.
+49. Module TRUE_100 means this module's tests are complete.
+50. License fee is a software license fee and not a guarantee of contract performance.

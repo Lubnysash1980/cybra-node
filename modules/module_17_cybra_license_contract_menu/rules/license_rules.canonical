@@ -1,0 +1,52 @@
+CYBRA MODULE 17 — LICENSE & CONTRACT MENU CONTROLLER
+
+01. CYBRA license rate is 100 basis points.
+02. 100 basis points equals 1 percent.
+03. License calculation uses the frozen contract amount.
+04. License amount = contract amount × 1%.
+05. License calculation must be deterministic.
+06. License payer must be explicitly identified.
+07. License recipient must be explicitly identified.
+08. License context must identify the contract.
+09. License context must identify the order.
+10. License context must identify the terms.
+11. License context must identify chain ID.
+12. License context must identify the license rate.
+13. License context must identify the license amount.
+14. License context must be hashable.
+15. License context hash must remain auditable.
+16. License rate cannot silently change after freeze.
+17. Contract amount cannot silently change after freeze.
+18. License recipient cannot silently change after freeze.
+19. License payer cannot silently change after freeze.
+20. Double license charge is blocked.
+21. A license payment does not establish TRUE_100.
+22. A license payment does not authorize release.
+23. A license payment does not replace buyer signature.
+24. A license payment does not replace seller signature.
+25. A license payment does not replace delivery evidence.
+26. A license payment does not replace buyer receipt.
+27. A license payment does not replace backend consensus.
+28. A license payment does not replace watchdog confirmation.
+29. A license payment does not replace final authorization.
+30. TEST mode cannot automatically send a license transaction.
+31. TEST mode cannot automatically send a release transaction.
+32. The controller cannot manufacture a user signature.
+33. The controller cannot manufacture wallet authorization.
+34. MetaMask interaction remains a user action.
+35. The menu is an interface/controller layer.
+36. The menu cannot bypass contract security.
+37. The menu cannot bypass TRUE_100.
+38. The menu cannot bypass escrow.
+39. The menu cannot bypass final authorization.
+40. Menu state must remain auditable.
+41. Frozen state requires a new PATCH_ID for changes.
+42. Corrections create new evidence.
+43. Previous frozen snapshots remain immutable.
+44. Real transaction execution is disabled in TEST.
+45. GLOBAL_TRUE_100 remains false in this module.
+46. Module TRUE_100 means the module's own required tests are complete.
+47. License fee must not be represented as a guaranteed return.
+48. License fee must not be represented as a guarantee of contract performance.
+49. Exact fee calculation must be independently verifiable.
+50. Any rounding policy must be explicit.

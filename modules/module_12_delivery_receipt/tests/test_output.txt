@@ -1,0 +1,9 @@
+============================================================
+ CYBRA MODULE 12
+ DELIVERY / RECEIPT CONTROLLER
+ TEST SUITE
+============================================================
+[PASS] Initial delivery/receipt state is BLOCKED
+[PASS] Missing delivery evidence => WAITING
+[PASS] Missing buyer receipt => WAITING
+/data/data/com.termux/files/home/CYBRA/modules/module_12_delivery_receipt/tests/run_tests.sh: line 77: BUYER: unbound variable

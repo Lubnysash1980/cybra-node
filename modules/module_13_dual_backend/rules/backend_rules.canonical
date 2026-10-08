@@ -1,0 +1,34 @@
+CYBRA MODULE 13 — DUAL BACKEND CONSENSUS CONTROLLER
+PATCH_ID=CYBRA-M13-PATCH-0001
+
+1. Backend A is independently required.
+2. Backend B is independently required.
+3. Backend A confirmation MUST be separate from Backend B confirmation.
+4. One backend MUST NOT confirm for both backend roles.
+5. Backend A MUST provide a state hash.
+6. Backend B MUST provide a state hash.
+7. Backend A and Backend B state hashes MUST be identical.
+8. Backend confirmations MUST reference the exact ORDER_HASH.
+9. Backend confirmations MUST reference the exact TERMS_HASH.
+10. Backend confirmations MUST reference the exact CHAIN_ID.
+11. Backend confirmations MUST reference the exact CONTRACT_ADDRESS.
+12. Missing Backend A confirmation means WAITING/BLOCKED.
+13. Missing Backend B confirmation means WAITING/BLOCKED.
+14. Missing state hash means WAITING/BLOCKED.
+15. Different state hashes mean FALSE/RETRY.
+16. Different order hashes mean FALSE/RETRY.
+17. Different terms hashes mean FALSE/RETRY.
+18. Different chain IDs mean FALSE/RETRY.
+19. Different contract addresses mean FALSE/RETRY.
+20. Matching hashes alone MUST NOT establish GLOBAL_TRUE_100.
+21. Backend consensus MUST NOT release escrow.
+22. Backend consensus MUST NOT authorize final release.
+23. Backend consensus MUST NOT authorize LIVE.
+24. Backend consensus MUST NOT send a blockchain transaction.
+25. Backend A MUST NOT manufacture Backend B evidence.
+26. Backend B MUST NOT manufacture Backend A evidence.
+27. TEST evidence MUST NOT automatically become LIVE evidence.
+28. Evidence corrections MUST create a new PATCH_ID.
+29. Frozen snapshots MUST NOT be silently modified.
+30. The controller reports consensus only for its own module.
+31. GLOBAL_TRUE_100 remains controlled by the complete CYBRA state machine.

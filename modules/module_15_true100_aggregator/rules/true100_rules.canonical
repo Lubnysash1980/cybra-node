@@ -1,0 +1,38 @@
+CYBRA MODULE 15 — TRUE_100 AGGREGATOR CONTROLLER
+PATCH_ID=CYBRA-M15-PATCH-0001
+
+1. TRUE_100 means 100% of all required conditions are confirmed.
+2. 0–99% MUST NOT be TRUE_100.
+3. Missing required evidence MUST prevent TRUE_100.
+4. Invalid required evidence MUST prevent TRUE_100.
+5. Conflicting evidence MUST prevent TRUE_100.
+6. A single failed required module MUST prevent TRUE_100.
+7. A single pending required module MUST prevent TRUE_100.
+8. Required signatures MUST be independently confirmed.
+9. Required delivery evidence MUST be independently confirmed.
+10. Required buyer receipt MUST be independently confirmed.
+11. Required Backend A confirmation MUST be present.
+12. Required Backend B confirmation MUST be present.
+13. Backend A/B state hashes MUST match where required.
+14. Required watchdog condition MUST be PASS.
+15. Required rules/state hashes MUST match.
+16. TRUE_100 MUST NOT be created by percentage rounding.
+17. 99.99% MUST NOT be treated as 100%.
+18. A missing condition MUST remain missing.
+19. A conflict MUST remain a conflict until independently resolved.
+20. Hypothesis MUST NOT be converted into evidence.
+21. Inference MUST NOT be converted into evidence.
+22. TEST evidence MUST NOT automatically become LIVE evidence.
+23. TRUE_100 does not itself authorize escrow release.
+24. TRUE_100 does not itself authorize LIVE.
+25. TRUE_100 does not itself send a blockchain transaction.
+26. Final release requires explicit final authorization.
+27. The aggregator MUST NOT manufacture evidence.
+28. The aggregator MUST NOT manufacture signatures.
+29. The aggregator MUST NOT manufacture backend confirmations.
+30. The aggregator MUST NOT manufacture delivery or receipt evidence.
+31. Every correction MUST create a new PATCH_ID.
+32. Frozen snapshots MUST NOT be silently modified.
+33. GLOBAL_TRUE_100 belongs to the complete CYBRA state machine.
+34. Module 15 may report a TRUE_100 candidate only when every required gate is independently satisfied.
+35. A TRUE_100 candidate MUST remain FALSE if any required gate is unresolved.
