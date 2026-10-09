@@ -278,13 +278,19 @@ print_menu() {
 '
 
     printf '%s
-' "${C_CYAN}  ─── PII MASK ───${C_RESET}"
-    printf "  %s ${C_BOLD}[15]${C_RESET} Експорт PII-masked
-" "$(cybra_icon $(h_pii_export))"
-    printf "  %s ${C_BOLD}[16]${C_RESET} Експорт усіх + git
-" "$(cybra_icon $(h_pii_git))"
-    printf "  %s ${C_BOLD}[17]${C_RESET} Перевірити PII хеш
-" "$(cybra_icon $(h_pii_verify))"
+' "${C_CYAN}  ─── PII / CURRENCY ───${C_RESET}"
+    printf '  🟢 ${C_BOLD}[15]${C_RESET} Експорт PII-masked
+'
+    printf '  🟢 ${C_BOLD}[16]${C_RESET} Експорт + git
+'
+    printf '  🟢 ${C_BOLD}[17]${C_RESET} Перевірити PII хеш
+'
+    printf '  🟢 ${C_BOLD}[22]${C_RESET} Курси валют
+'
+    printf '  🟢 ${C_BOLD}[23]${C_RESET} Оновити курс
+'
+    printf '  🟢 ${C_BOLD}[24]${C_RESET} Конвертер
+'
     printf '
 '
 
@@ -302,18 +308,85 @@ print_menu() {
 '
 
     printf '%s
-' "${C_CYAN}  ─── ВАЛЮТИ ───${C_RESET}"
-    printf "  %s ${C_BOLD}[22]${C_RESET} Показати курси
-" "$(cybra_icon $(h_rates_show))"
-    printf "  %s ${C_BOLD}[23]${C_RESET} Оновити курс
-" "$(cybra_icon $(h_rates_update))"
-    printf "  %s ${C_BOLD}[24]${C_RESET} Конвертер
-" "$(cybra_icon $(h_rates_convert))"
+' "${C_GREEN}  ─── ADDRESS BOOK ───${C_RESET}"
+    printf '  🟢 ${C_BOLD}[50]${C_RESET} Додати адресу
+'
+    printf '  🟢 ${C_BOLD}[51]${C_RESET} Список адрес
+'
+    printf '  🟢 ${C_BOLD}[52]${C_RESET} Історія адрес
+'
     printf '
 '
 
     printf '%s
-' "${C_CYAN}  ─── СИСТЕМА ───${C_RESET}"
+' "${C_GREEN}  ─── INTEGRATIONS ───${C_RESET}"
+    printf '  🟢 ${C_BOLD}[53]${C_RESET} QR-код для лінку
+'
+    printf '  🟢 ${C_BOLD}[54]${C_RESET} Telegram — налаштувати
+'
+    printf '  🟢 ${C_BOLD}[55]${C_RESET} Telegram — тест
+'
+    printf '  🟢 ${C_BOLD}[56]${C_RESET} Webhook — список
+'
+    printf '  🟢 ${C_BOLD}[57]${C_RESET} Webhook — додати
+'
+    printf '
+'
+
+    printf '%s
+' "${C_GREEN}  ─── EXPORT / BACKUP ───${C_RESET}"
+    printf '  🟢 ${C_BOLD}[58]${C_RESET} CSV — контракти
+'
+    printf '  🟢 ${C_BOLD}[59]${C_RESET} CSV — ledger
+'
+    printf '  🟢 ${C_BOLD}[60]${C_RESET} TXT — звіт контракту
+'
+    printf '  🟢 ${C_BOLD}[61]${C_RESET} Backup — локальний
+'
+    printf '  🟢 ${C_BOLD}[62]${C_RESET} Backup — в хмару (rclone)
+'
+    printf '
+'
+
+    printf '%s
+' "${C_GREEN}  ─── MULTI-CHAIN ───${C_RESET}"
+    printf '  🟢 ${C_BOLD}[63]${C_RESET} Список мереж
+'
+    printf '  🟢 ${C_BOLD}[64]${C_RESET} Сканер-tx link
+'
+    printf '
+'
+
+    printf '%s
+' "${C_RED}  ─── DISPUTE / AUDIT ───${C_RESET}"
+    printf '  🟢 ${C_BOLD}[65]${C_RESET} Відкрити спір
+'
+    printf '  🟢 ${C_BOLD}[66]${C_RESET} Список спорів
+'
+    printf '  🟢 ${C_BOLD}[67]${C_RESET} Голосувати
+'
+    printf '  🟢 ${C_BOLD}[68]${C_RESET} Audit log — показати
+'
+    printf '  🟢 ${C_BOLD}[69]${C_RESET} Audit log — перевірити
+'
+    printf '
+'
+
+    printf '%s
+' "${C_RED}  ─── DOCUMENT SCANNER ───${C_RESET}"
+    printf '  🟢 ${C_BOLD}[70]${C_RESET} Сфотографувати
+'
+    printf '  🟢 ${C_BOLD}[71]${C_RESET} OCR (фото → текст)
+'
+    printf '  🟢 ${C_BOLD}[72]${C_RESET} PDF → текст
+'
+    printf '  🟢 ${C_BOLD}[73]${C_RESET} Повний pipeline
+'
+    printf '
+'
+
+    printf '%s
+' "${C_MAGENTA}  ─── SYSTEM ───${C_RESET}"
     printf "  %s ${C_BOLD}[30]${C_RESET} Preflight
 " "$(cybra_icon $(h_preflight))"
     printf "  %s ${C_BOLD}[31]${C_RESET} Self-heal
@@ -326,32 +399,32 @@ print_menu() {
 '
 
     printf '%s
-' "${C_MAGENTA}  ─── AI (офлайн) ───${C_RESET}"
-    printf "  %s ${C_BOLD}[40]${C_RESET} AI Аналіз контракту
-" "$(cybra_icon $(h_ai_review))"
-    printf "  %s ${C_BOLD}[41]${C_RESET} AI Парсинг рахунку
-" "$(cybra_icon $(h_ai_parse))"
-    printf "  %s ${C_BOLD}[42]${C_RESET} AI Генерація умов
-" "$(cybra_icon $(h_ai_terms))"
-    printf "  %s ${C_BOLD}[43]${C_RESET} AI Допомога при помилці
-" "$(cybra_icon $(h_ai_help))"
-    printf "  %s ${C_BOLD}[44]${C_RESET} AI Вільне питання
-" "$(cybra_icon $(h_ai_ask))"
-    printf "  %s ${C_BOLD}[45]${C_RESET} AI Task Bar
-" "$(cybra_icon $(h_ai_bar))"
+' "${C_MAGENTA}  ─── AI ───${C_RESET}"
+    printf '  🟢 ${C_BOLD}[40]${C_RESET} AI Аналіз
+'
+    printf '  🟢 ${C_BOLD}[41]${C_RESET} AI Парсинг рахунку
+'
+    printf '  🟢 ${C_BOLD}[42]${C_RESET} AI Генерація умов
+'
+    printf '  🟢 ${C_BOLD}[43]${C_RESET} AI Допомога
+'
+    printf '  🟢 ${C_BOLD}[44]${C_RESET} AI Питання
+'
+    printf '  🟢 ${C_BOLD}[45]${C_RESET} AI Task Bar
+'
     printf '
 '
 
     printf '%s
 ' "${C_MAGENTA}  ─── AI EVOLUTION ───${C_RESET}"
-    printf "  %s ${C_BOLD}[46]${C_RESET} AI Executor — повний запуск
-" "$(cybra_icon $(h_ai_exec_full))"
-    printf "  %s ${C_BOLD}[47]${C_RESET} AI Executor — scan
-" "$(cybra_icon $(h_ai_exec_scan))"
-    printf "  %s ${C_BOLD}[48]${C_RESET} AI Executor — apply
-" "$(cybra_icon $(h_ai_exec_apply))"
-    printf "  %s ${C_BOLD}[49]${C_RESET} AI Executor — список
-" "$(cybra_icon $(h_ai_exec_list))"
+    printf '  🟢 ${C_BOLD}[46]${C_RESET} Executor — повний
+'
+    printf '  🟢 ${C_BOLD}[47]${C_RESET} Executor — scan
+'
+    printf '  🟢 ${C_BOLD}[48]${C_RESET} Executor — apply
+'
+    printf '  🟢 ${C_BOLD}[49]${C_RESET} Executor — список
+'
     printf '
 '
 
@@ -716,6 +789,107 @@ action_hardening() {
 # Main loop
 # ------------------------------------------------------------
 
+action_addr_add() {
+    printf 'Назва (name):  '; read -r N
+    printf 'Адреса (0x...): '; read -r A
+    printf 'Тег [user]:     '; read -r T
+    T="${T:-user}"
+    bash "$HOME/CYBRA/modules/module_25_address_book/bin/address_book.sh" 2>/dev/null
+    source "$HOME/CYBRA/modules/module_25_address_book/bin/address_book.sh"
+    ab_add "$N" "$A" "$T"
+    read -r _
+}
+action_addr_list()   { source "$HOME/CYBRA/modules/module_25_address_book/bin/address_book.sh"; ab_list; read -r _; }
+action_addr_history(){ source "$HOME/CYBRA/modules/module_25_address_book/bin/address_book.sh"; ab_history; read -r _; }
+
+action_qr() {
+    source "$HOME/CYBRA/modules/module_26_qr_codes/bin/qr.sh"
+    printf 'CONTRACT_ID: '; read -r C
+    printf 'ROLE [BUYER]: '; read -r R
+    R="${R:-BUYER}"
+    qr_gen_link "$C" "$R"
+    read -r _
+}
+action_tg_setup() {
+    source "$HOME/CYBRA/modules/module_27_telegram_bot/bin/tg.sh"
+    printf 'Bot Token:  '; read -r T
+    printf 'Chat ID:    '; read -r C
+    tg_set_token "$T"
+    tg_set_chat "$C"
+    echo "Налаштовано"
+    read -r _
+}
+action_tg_test() { source "$HOME/CYBRA/modules/module_27_telegram_bot/bin/tg.sh"; tg_test; read -r _; }
+
+action_wh_list() { source "$HOME/CYBRA/modules/module_32_webhook/bin/webhook.sh"; wh_list; read -r _; }
+action_wh_add() {
+    source "$HOME/CYBRA/modules/module_32_webhook/bin/webhook.sh"
+    printf 'Name:   '; read -r N
+    printf 'URL:    '; read -r U
+    printf 'Events [*]: '; read -r E
+    E="${E:-*}"
+    wh_add "$N" "$U" "$E"
+    read -r _
+}
+
+action_exp_csv()  { source "$HOME/CYBRA/modules/module_28_export/bin/export.sh"; exp_contracts_csv; read -r _; }
+action_exp_ledger(){ source "$HOME/CYBRA/modules/module_28_export/bin/export.sh"; exp_ledger_csv; read -r _; }
+action_exp_report(){
+    source "$HOME/CYBRA/modules/module_28_export/bin/export.sh"
+    printf 'CONTRACT_ID: '; read -r C
+    exp_txt_report "$C"; read -r _
+}
+
+action_bk_local() { source "$HOME/CYBRA/modules/module_29_backup/bin/backup.sh"; bk_local; read -r _; }
+action_bk_cloud() { source "$HOME/CYBRA/modules/module_29_backup/bin/backup.sh"; bk_cloud; read -r _; }
+
+action_chains()   { source "$HOME/CYBRA/modules/module_30_multichain/bin/multichain.sh"; mc_list; read -r _; }
+action_scan_tx() {
+    source "$HOME/CYBRA/modules/module_30_multichain/bin/multichain.sh"
+    printf 'CHAIN [BSC]: '; read -r C; C="${C:-BSC}"
+    printf 'TX hash: '; read -r T
+    mc_tx_link "$C" "$T"; read -r _
+}
+
+action_dp_open() {
+    source "$HOME/CYBRA/modules/module_31_dispute_resolver/bin/dispute.sh"
+    printf 'CONTRACT_ID: '; read -r C
+    printf 'OPENED_BY (wallet): '; read -r B
+    printf 'REASON: '; read -r R
+    D="$(dp_open "$C" "$B" "$R")"
+    echo "Opened: $D"; read -r _
+}
+action_dp_list() { source "$HOME/CYBRA/modules/module_31_dispute_resolver/bin/dispute.sh"; dp_list; read -r _; }
+action_dp_vote() {
+    source "$HOME/CYBRA/modules/module_31_dispute_resolver/bin/dispute.sh"
+    printf 'DISPUTE_ID: '; read -r D
+    printf 'VOTER [BUYER|SELLER|ARBITER]: '; read -r V
+    printf 'VOTE [REFUND|RELEASE]: '; read -r O
+    dp_vote "$D" "$V" "$O"; read -r _
+}
+
+action_audit_show() { source "$HOME/CYBRA/modules/module_33_audit_log/bin/audit.sh"; au_show; read -r _; }
+action_audit_verify(){ source "$HOME/CYBRA/modules/module_33_audit_log/bin/audit.sh"; au_verify; read -r _; }
+
+action_scan_photo() {
+    source "$HOME/CYBRA/modules/module_34_doc_scanner/bin/scanner.sh"
+    sc_photo; read -r _
+}
+action_scan_ocr() {
+    source "$HOME/CYBRA/modules/module_34_doc_scanner/bin/scanner.sh"
+    printf 'File path: '; read -r F
+    sc_ocr "$F"; read -r _
+}
+action_scan_pdf() {
+    source "$HOME/CYBRA/modules/module_34_doc_scanner/bin/scanner.sh"
+    printf 'PDF path: '; read -r F
+    sc_pdf_to_text "$F"; read -r _
+}
+action_scan_full() {
+    source "$HOME/CYBRA/modules/module_34_doc_scanner/bin/scanner.sh"
+    sc_scan_pipeline; read -r _
+}
+
 while true; do
     print_header
     print_menu
@@ -763,6 +937,30 @@ while true; do
         47) action_ai_executor_scan ;;
         48) action_ai_executor_apply ;;
         49) action_ai_executor_list ;;
+        50) action_addr_add ;;
+        51) action_addr_list ;;
+        52) action_addr_history ;;
+        53) action_qr ;;
+        54) action_tg_setup ;;
+        55) action_tg_test ;;
+        56) action_wh_list ;;
+        57) action_wh_add ;;
+        58) action_exp_csv ;;
+        59) action_exp_ledger ;;
+        60) action_exp_report ;;
+        61) action_bk_local ;;
+        62) action_bk_cloud ;;
+        63) action_chains ;;
+        64) action_scan_tx ;;
+        65) action_dp_open ;;
+        66) action_dp_list ;;
+        67) action_dp_vote ;;
+        68) action_audit_show ;;
+        69) action_audit_verify ;;
+        70) action_scan_photo ;;
+        71) action_scan_ocr ;;
+        72) action_scan_pdf ;;
+        73) action_scan_full ;;
         0|q|Q|exit|quit)
             printf "%s
 " "${C_GREEN}До побачення.${C_RESET}"
