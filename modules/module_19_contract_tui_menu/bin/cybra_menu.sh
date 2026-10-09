@@ -26,32 +26,89 @@ print_menu() {
 }
 
 action_create_contract() {
-    printf '%s\n' "${C_BOLD}--- Створити контракт ---${C_RESET}"
+    printf '%s
+' "${C_BOLD}--- Створити контракт ---${C_RESET}"
+    printf '%s
+' "${C_GREY}Сума вказується в одиницях токена (наприклад 100 або 100.5)${C_RESET}"
+    printf '%s
+' "${C_GREY}Decimals: 18 (BEP-20 стандарт), 6 (USDT), 8 (WBTC) і т.д.${C_RESET}"
+    printf '
+'
 
     printf 'BUYER wallet:  '; read -r BUYER
     printf 'SELLER wallet: '; read -r SELLER
-    printf 'AMOUNT (wei):  '; read -r AMOUNT
-    printf 'TOKEN (адреса або BNB): '; read -r TOKEN
-    TOKEN="${TOKEN:-BNB}"
+    printf 'AMOUNT (в токенах): '; read -r AMOUNT_RAW
+    printf 'TOKEN address (0x...): '; read -r TOKEN
+    printf 'TOKEN_DECIMALS [18]: '; read -r DECIMALS
+    DECIMALS="${DECIMALS:-18}"
 
-    if [ -z "$BUYER" ] || [ -z "$SELLER" ] || [ -z "$AMOUNT" ]; then
-        printf '%s\n' "${C_RED}Помилка: BUYER, SELLER, AMOUNT обов'\''язкові${C_RESET}"
+    if [ -z "$BUYER" ] || [ -z "$SELLER" ] || [ -z "$AMOUNT_RAW" ] || [ -z "$TOKEN" ]; then
+        printf '%s
+' "${C_RED}Помилка: всі поля обов'''язкові${C_RESET}"
         return 1
     fi
+
+    if ! [[ "$DECIMALS" =~ ^[0-9]+$ ]]; then
+        printf '%s
+' "${C_RED}Помилка: decimals має бути цілим (0-18)${C_RESET}"
+        return 1
+    fi
+
+    # --- Конвертація ---
+    AMOUNT="$(cybra_amount_to_wei "$AMOUNT_RAW" "$DECIMALS")"
+    if [ -z "$AMOUNT" ] || [ "$AMOUNT" = "0" ]; then
+        printf '%s
+' "${C_RED}Помилка: невірний формат суми ($AMOUNT_RAW)${C_RESET}"
+        return 1
+    fi
+
+    printf '
+%s
+' "${C_GREY}Конвертовано: $AMOUNT_RAW $TOKEN (decimals=$DECIMALS) → $AMOUNT wei${C_RESET}"
+    printf '
+'
 
     local cid
     cid="$(cybra_contract_create "$BUYER" "$SELLER" "$AMOUNT" "$TOKEN")"
 
     if [ -z "$cid" ]; then
-        printf '%s\n' "${C_RED}Помилка створення контракту${C_RESET}"
+        printf '%s
+' "${C_RED}Помилка створення контракту${C_RESET}"
         return 1
     fi
 
-    printf '%s\n' "${C_GREEN}OK: контракт створено${C_RESET}"
-    printf 'ID: %s\n' "$cid"
-    printf 'Ліцензія: %s wei (%s%%)\n' \
-        "$(cybra_calc_license "$AMOUNT")" "$LICENSE_PERCENT"
-    printf 'Отримувач ліцензії: %s\n' "$LICENSE_RECIPIENT"
+    local cf="$(cybra_contract_path "$cid")"
+
+    printf '%s
+' "${C_GREEN}OK: контракт створено${C_RESET}"
+    printf 'ID:              %s
+' "$cid"
+    printf 'TOKEN:           %s (decimals=%s)
+' "$TOKEN" "$DECIMALS"
+    printf 'AMOUNT:          %s wei (= %s токенів)
+' "$AMOUNT" "$AMOUNT_RAW"
+    printf '
+'
+    printf 'LICENSE_A (1%%):  %s wei
+' "$(grep '^LICENSE_A_WEI=' "$cf" | cut -d= -f2)"
+    printf 'LICENSE_B (1%%):  %s wei
+' "$(grep '^LICENSE_B_WEI=' "$cf" | cut -d= -f2)"
+    printf 'CREATION  (1%%):  %s wei
+' "$(grep '^CREATION_FEE_WEI=' "$cf" | cut -d= -f2)"
+    printf 'TOTAL (3%%):      %s wei
+' "$(grep '^LICENSE_TOTAL_WEI=' "$cf" | cut -d= -f2)"
+    printf 'NET SELLER:      %s wei
+' "$(grep '^NET_WEI=' "$cf" | cut -d= -f2)"
+    printf '
+'
+    printf 'Отримувачі ліцензій:
+'
+    printf '  A: %s
+' "${LICENSE_A_RECIPIENT}"
+    printf '  B: %s
+' "${LICENSE_B_RECIPIENT}"
+    printf '  C: %s
+' "${CREATION_FEE_RECIPIENT}"
 }
 
 action_list_contracts() {

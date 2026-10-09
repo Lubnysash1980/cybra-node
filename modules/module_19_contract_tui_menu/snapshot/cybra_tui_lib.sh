@@ -82,6 +82,7 @@ cybra_contract_exists() { [ -f "$(cybra_contract_path "$1")" ]; }
 
 cybra_contract_create() {
     local buyer="$1" seller="$2" amount="$3" token="$4"
+    local decimals="${5:-18}"
 
     [ -z "$buyer" ] && { echo "ERROR: buyer required" >&2; return 1; }
     [ -z "$seller" ] && { echo "ERROR: seller required" >&2; return 1; }
@@ -106,6 +107,7 @@ PATCH_ID=CYBRA-M19-PATCH-0002
 BUYER=$buyer
 SELLER=$seller
 TOKEN=$token
+TOKEN_DECIMALS=$decimals
 
 AMOUNT_WEI=$amount
 LICENSE_A_WEI=$la
@@ -232,3 +234,51 @@ CREATION_LICENSE_LEDGER="$CYBRA_CREATION_LEDGER"
 LICENSE_LEDGER="$CYBRA_LICENSE_LEDGER"
 LICENSE_LEDGER_B="$CYBRA_LICENSE_LEDGER_B"
 export CREATION_LICENSE_LEDGER LICENSE_LEDGER LICENSE_LEDGER_B
+
+# ------------------------------------------------------------
+# AMOUNT CONVERTER: human → wei (з decimals)
+# ------------------------------------------------------------
+
+cybra_amount_to_wei() {
+    local input="$1"
+    local decimals="${2:-18}"
+
+    # Якщо чисте ціле і decimals=0 — повертаємо як є
+    if [[ "$input" =~ ^[0-9]+$ ]]; then
+        # Якщо decimals=18 і число < 1e6 — ймовірно це wei вже
+        if [ "$decimals" = "18" ] && [ "${#input}" -ge 15 ]; then
+            echo "$input"
+            return 0
+        fi
+        # Інакше — множимо на 10^decimals
+        local mult="1"
+        local i=0
+        while [ "$i" -lt "$decimals" ]; do
+            mult="${mult}0"
+            i=$((i+1))
+        done
+        echo $(( input * 10**decimals )) 2>/dev/null || echo "$input$mult"
+        return 0
+    fi
+
+    # Десятковий формат
+    if [[ "$input" =~ ^[0-9]+\.[0-9]+$ ]]; then
+        local whole="${input%.*}"
+        local frac="${input#*.}"
+
+        while [ "${#frac}" -lt "$decimals" ]; do
+            frac="${frac}0"
+        done
+        frac="${frac:0:$decimals}"
+
+        [ -z "$whole" ] && whole="0"
+        local result="${whole}${frac}"
+        result="$(printf '%s' "$result" | sed 's/^0*//')"
+        [ -z "$result" ] && result="0"
+        echo "$result"
+        return 0
+    fi
+
+    echo "0"
+    return 1
+}
