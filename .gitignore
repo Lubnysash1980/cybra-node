@@ -1,0 +1,7 @@
+*.bak.*
+*.log
+*.test.log
+test_output.txt
+test_output.sha256
+__pycache__/
+.DS_Store
