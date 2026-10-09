@@ -6,7 +6,6 @@ CYBRA_CONTRACTS="$CYBRA_MOD19_ROOT/contracts"
 CYBRA_LINKS="$CYBRA_MOD19_ROOT/links"
 CYBRA_DEBUG="$CYBRA_MOD19_ROOT/evidence/debug.log"
 CYBRA_LICENSE_LEDGER="$CYBRA_MOD19_ROOT/evidence/license_ledger.txt"
-CYBRA_LICENSE_LEDGER_B="$CYBRA_MOD19_ROOT/evidence/license_ledger_b.txt"
 
 LICENSE_RECIPIENT="0x66434c5501242ccC71b5a39C765892921624B66c"
 LICENSE_PERCENT=1
@@ -68,61 +67,6 @@ cybra_calc_license() {
     echo $(( amount * LICENSE_PERCENT / 100 ))
 }
 
-
-# ------------------------------------------------------------
-# CREATION FEE
-# ------------------------------------------------------------
-
-cybra_calc_creation_fee() {
-    local amount="$1"
-
-    if ! [[ "$amount" =~ ^[0-9]+$ ]]; then
-        echo "0"
-        return 1
-    fi
-
-    local fixed="${CREATION_FEE_FIXED_WEI:-0}"
-    local percent="${CREATION_FEE_PERCENT:-1}"
-    local minf="${CREATION_FEE_MIN_WEI:-0}"
-    local maxf="${CREATION_FEE_MAX_WEI:-0}"
-
-    local var_fee=$(( amount * percent / 100 ))
-    local total=$(( fixed + var_fee ))
-
-    if [ "$minf" -gt 0 ] && [ "$total" -lt "$minf" ]; then
-        total="$minf"
-    fi
-    if [ "$maxf" -gt 0 ] && [ "$total" -gt "$maxf" ]; then
-        total="$maxf"
-    fi
-
-    echo "$total"
-}
-
-cybra_creation_license_record() {
-    local contract_id="$1"
-    local amount="$2"
-    local creation_fee="$3"
-    local buyer="$4"
-
-    printf '%s | %s | %s | %s | %s | %s
-'         "$(cybra_now)"         "$contract_id"         "$buyer"         "$amount"         "$creation_fee"         "$CREATION_FEE_RECIPIENT"         >> "$CREATION_LICENSE_LEDGER"
-
-    printf '%s | contract=%s buyer=%s amount=%s fee=%s recipient=%s
-'         "$(cybra_now)"         "$contract_id"         "$buyer"         "$amount"         "$creation_fee"         "$CREATION_FEE_RECIPIENT"         >> "$CREATION_LICENSE_LOG"
-
-    cybra_log "CREATION_LICENSE contract=$contract_id fee=$creation_fee"
-
-    # --- Git export ---
-    if [ "${CREATION_LICENSE_LOGGED_TO_GIT:-FALSE}" = "TRUE" ]; then
-        local gdir="$HOME/CYBRA/git_module/meta/creation_licenses"
-        mkdir -p "$gdir"
-        cp "$CREATION_LICENSE_LEDGER" "$gdir/ledger.txt"
-        printf '%s
-' "$(sha256sum "$CREATION_LICENSE_LEDGER" | awk '{print $1}')"             > "$gdir/ledger.sha256"
-    fi
-}
-
 cybra_license_record() {
     local contract_id="$1"
     local amount="$2"
@@ -173,11 +117,8 @@ cybra_contract_create() {
     fi
 
     local contract_id="C-$(date -u +%Y%m%d%H%M%S)-$(cybra_rand_id)"
-    local license_a="$(cybra_calc_license "$amount")"
-    local license_b="$(cybra_calc_license "$amount")"
-    local creation_fee="$(cybra_calc_creation_fee "$amount")"
-    local license_total=$(( license_a + license_b + creation_fee ))
-    local net=$(( amount - license_total ))
+    local license="$(cybra_calc_license "$amount")"
+    local net=$(( amount - license ))
     local now="$(cybra_now)"
 
     local f="$(cybra_contract_path "$contract_id")"
@@ -192,35 +133,12 @@ SELLER=$seller
 TOKEN=$token
 
 AMOUNT_WEI=$amount
-
-# === DUAL-LICENSE v2 ===
-LICENSE_A_WEI=$license_a
-LICENSE_A_PERCENT=1
-LICENSE_A_BPS=100
-LICENSE_A_RECIPIENT=$LICENSE_A_RECIPIENT
-
-LICENSE_B_WEI=$license_b
-LICENSE_B_PERCENT=1
-LICENSE_B_BPS=100
-LICENSE_B_RECIPIENT=$LICENSE_B_RECIPIENT
-
-# === CREATION LICENSE ===
-CREATION_FEE_WEI=$creation_fee
-CREATION_FEE_PERCENT=${CREATION_FEE_PERCENT:-1}
-CREATION_FEE_FIXED_WEI=${CREATION_FEE_FIXED_WEI:-0}
-CREATION_FEE_RECIPIENT=$CREATION_FEE_RECIPIENT
-CREATION_FEE_BUYER=$buyer
-CREATION_FEE_FROZEN=TRUE
-
-LICENSE_TOTAL_WEI=$license_total
+LICENSE_WEI=$license
 NET_WEI=$net
-DUAL_LICENSE_FROZEN=TRUE
 
-# Legacy
-LICENSE_WEI=$license_a
 LICENSE_PERCENT=1
 LICENSE_BPS=100
-LICENSE_RECIPIENT=$LICENSE_A_RECIPIENT
+LICENSE_RECIPIENT=$LICENSE_RECIPIENT
 LICENSE_FROZEN=TRUE
 
 CHAIN_ID=56
@@ -249,13 +167,10 @@ REAL_TRANSACTION_SENT=FALSE
 GLOBAL_TRUE_100=FALSE
 EOF
 
-    # Подвійна ліцензія — в два ledger-и
-    cybra_license_record "$contract_id" "$amount" "$license_a" "$license_b"
+    # Ліцензія — в ledger
+    cybra_license_record "$contract_id" "$amount" "$license"
 
-    # Creation license
-    cybra_creation_license_record "$contract_id" "$amount" "$creation_fee" "$buyer"
-
-    cybra_log "CONTRACT_CREATED id=$contract_id buyer=$buyer seller=$seller amount=$amount license_A=$license_a license_B=$license_b creation_fee=$creation_fee"
+    cybra_log "CONTRACT_CREATED id=$contract_id buyer=$buyer seller=$seller amount=$amount license=$license"
 
     echo "$contract_id"
 }

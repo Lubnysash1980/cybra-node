@@ -120,30 +120,6 @@ grep -q '^DUAL_LICENSE_FROZEN=TRUE' "$CF"     && ok "Dual-license frozen" || fai
 TOTAL_TEST="$(cybra_calc_license 10000)"
 [ "$TOTAL_TEST" = "100" ]     && ok "Single calc 10000 → 100" || fail "Single calc"
 
-# 28 — creation fee enabled
-[ "$CREATION_FEE_ENABLED" = "TRUE" ]     && ok "Creation fee enabled" || fail "Creation fee"
-
-# 29 — creation recipient
-[ "$CREATION_FEE_RECIPIENT" = "0x66434c5501242ccC71b5a39C765892921624B66c" ]     && ok "Creation recipient" || fail "Creation recipient"
-
-# 30 — creation fee calc (1% від 10000 = 100)
-[ "$(cybra_calc_creation_fee 10000)" = "100" ]     && ok "Creation fee calc 10000 → 100" || fail "Creation fee calc"
-
-# 31 — creation ledger exists
-[ -f "$CREATION_LICENSE_LEDGER" ]     && ok "Creation ledger exists" || fail "Creation ledger"
-
-# 32 — contract has CREATION_FEE_WEI
-grep -q '^CREATION_FEE_WEI=' "$CF"     && ok "Contract CREATION_FEE_WEI" || fail "CREATION_FEE_WEI"
-
-# 33 — contract has CREATION_FEE_RECIPIENT
-grep -q '^CREATION_FEE_RECIPIENT=' "$CF"     && ok "Contract CREATION_FEE_RECIPIENT" || fail "CREATION_FEE_RECIPIENT"
-
-# 34 — contract has CREATION_FEE_FROZEN
-grep -q '^CREATION_FEE_FROZEN=TRUE' "$CF"     && ok "Contract CREATION_FEE_FROZEN" || fail "CREATION_FEE_FROZEN"
-
-# 35 — git export creation ledger
-[ -d "$HOME/CYBRA/git_module/meta/creation_licenses" ]     && ok "Git export creation licenses" || warn "Git export not done yet"
-
 # 15 — rules hash
 EXPECTED="$(sha256sum "$MOD/evidence/tui_rules.txt" | awk "{print \$1}")"
 SAVED="$(cat "$MOD/evidence/rules.sha256")"
