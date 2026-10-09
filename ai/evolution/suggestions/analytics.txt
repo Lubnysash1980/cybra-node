@@ -1,0 +1,14 @@
+NAME: module_24_analytics
+TYPE: FEATURE
+PRIORITY: MEDIUM
+RISK: LOW
+DESC: Аналітика в реальному часі:
+      - кількість контрактів/день
+      - оборот/тиждень/місяць
+      - топ-контрагенти
+      - середня сума
+      - conversion rate
+      - chart/графіки в терміналі
+IMPACT: business intelligence
+DEPENDS: module_19
+SAFE: TRUE — read-only

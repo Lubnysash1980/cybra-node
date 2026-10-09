@@ -1,0 +1,13 @@
+NAME: module_22_notifications
+TYPE: FEATURE
+PRIORITY: HIGH
+RISK: LOW
+DESC: Система повідомлень через Telegram/Email/SMS.
+      Сповіщає покупця/продавця про:
+      - створення контракту
+      - новий лінк для підтвердження
+      - наближення timeout (48h, 24h, 12h, 1h)
+      - refund
+IMPACT: +50% response rate
+DEPENDS: module_19 (TUI), module_18 (license)
+SAFE: TRUE — additive

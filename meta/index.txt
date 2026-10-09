@@ -1,8 +1,7 @@
 # CYBRA NODE INDEX
-RUN=20261009T112711Z-19306
-STAMP=20261009T112711Z
-
-MODULE                                        STATUS         TREE              
+# UPDATED=2026-10-09T12:15:53Z
+#
+MODULE                                        STATUS         TREE_HASH         
 --------------------------------------------------------------------
 module_01_auto_executor                       P=9 F=0        fd8351a1dcbe1a41  
 module_02_contract_builder                    P=0 F=0        4557fcd32a704d50  
@@ -14,5 +13,5 @@ module_15_true100_aggregator                  P=14 F=0       526444af860c3b18
 module_16_final_authorization_release_gate    P=14 F=0       ee9e40d1ac024c77  
 module_17_cybra_license_contract_menu         P=20 F=0       41ee51c56507da9d  
 module_18_license_payment_router              P=20 F=0       dac993d28de78352  
-module_19_contract_tui_menu                   P=37 F=0       4ee41c349f47fd19  
-module_20_evolution_guard                     P=15 F=3       ffd56057b71650be  
+module_19_contract_tui_menu                   P=37 F=0       f746895160397bf5  
+module_20_evolution_guard                     P=17 F=1       6c342e2a7a1eca69  

@@ -1,5 +1,9 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
+source "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_health.sh" 2>/dev/null || true
+
+source "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_local_ai.sh" 2>/dev/null || true
+
 CYBRA_MOD19_ROOT="$HOME/CYBRA/modules/module_19_contract_tui_menu"
 source "$CYBRA_MOD19_ROOT/bin/cybra_tui_lib.sh"
 
@@ -110,36 +114,305 @@ action_verify_pii() {
     [ "$computed" = "$EXPECTED" ] && printf '%s\n' "${C_GREEN}MATCH${C_RESET}" || printf '%s\n' "${C_RED}MISMATCH${C_RESET}"
 }
 
-print_header() {
-    clear 2>/dev/null || printf '\033[2J\033[H'
-    printf '%s\n' "${C_BOLD}${C_CYAN}============================================================${C_RESET}"
-    printf '%s\n' "${C_BOLD}${C_CYAN}        CYBRA CONTRACT MANAGER — TUI v1.0${C_RESET}"
-    printf '%s\n' "${C_BOLD}${C_CYAN}============================================================${C_RESET}"
-    printf '%s\n' "${C_GREY}  CHAIN: BSC (56)   LICENSE: 1%   RECIPIENT: ${LICENSE_RECIPIENT:0:10}...${C_RESET}"
+action_buyer_final_decision() {
+    printf '%s\n' "${C_BOLD}--- Фінальне рішення покупця ---${C_RESET}"
+    printf 'CONTRACT_ID: '; read -r CID
+    [ ! -f "$(cybra_contract_path "$CID")" ] && { printf '%s\n' "${C_RED}Not found${C_RESET}"; return 1; }
+
+    cybra_refund_status "$CID"
     printf '\n'
+    printf 'Рішення [CONFIRMED/REJECTED]: '; read -r DEC
+    printf 'Wallet покупця (для перевірки): '; read -r W
+
+    cybra_buyer_final_decision "$CID" "$DEC" "$W"
+}
+
+action_check_timeouts() {
+    printf '%s\n' "${C_BOLD}--- Перевірка timeout всіх контрактів ---${C_RESET}"
+    cybra_check_all_refunds
+}
+
+action_refund_status() {
+    printf 'CONTRACT_ID: '; read -r CID
+    cybra_refund_status "$CID"
+}
+
+action_add_term() {
+    printf 'CONTRACT_ID: '; read -r CID
+    printf 'Додаткова умова: '; read -r TERM
+    cybra_add_custom_term "$CID" "$TERM"
+}
+
+action_show_rates() {
+    source "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_tui_lib.sh"
+    cybra_show_rates
+}
+
+action_update_rate() {
+    printf 'RATE_KEY (наприклад RATE_USD_UAH): '; read -r KEY
+    printf 'VALUE: '; read -r VAL
+    local rf="$HOME/CYBRA/modules/module_19_contract_tui_menu/state/rates.env"
+    if grep -q "^${KEY}=" "$rf"; then
+        sed -i "s|^${KEY}=.*|${KEY}=${VAL}|" "$rf"
+    else
+        printf '%s=%s\n' "$KEY" "$VAL" >> "$rf"
+    fi
+    printf '%s\n' "${C_GREEN}OK${C_RESET}"
+}
+
+action_convert() {
+    source "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_tui_lib.sh"
+    printf 'Сума: '; read -r AMT
+    printf 'З валюти (USD/UAH/EUR/CYBRA): '; read -r FROM
+    printf 'У валюту (USD/UAH/EUR/CYBRA): '; read -r TO
+
+    FROM="$(printf '%s' "$FROM" | tr '[:lower:]' '[:upper:]')"
+    TO="$(printf '%s' "$TO" | tr '[:lower:]' '[:upper:]')"
+
+    case "${FROM}_${TO}" in
+        *_CYBRA)
+            local wei="$(cybra_currency_to_cybra "$AMT" "$FROM" 18)"
+            local dec="$(awk -v w="$wei" 'BEGIN { printf "%.6f", w / 1000000000000000000 }')"
+            printf '  %s %s = %s CYBRA (wei: %s)\n' "$AMT" "$FROM" "$dec" "$wei"
+            ;;
+        CYBRA_*)
+            printf '  Введи wei: '; read -r WEI
+            local res="$(cybra_cybra_to_currency "$WEI" "$TO" 18)"
+            printf '  %s wei = %s %s\n' "$WEI" "$res" "$TO"
+            ;;
+        *)
+            printf '  Пряма конвертація не підтримується, використовуй через USD\n'
+            ;;
+    esac
+}
+
+action_preflight() {
+    source "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_preflight.sh"
+    cybra_preflight
+}
+
+action_self_heal() {
+    source "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_self_heal.sh"
+    cybra_self_heal
+}
+
+action_dual_verify() {
+    source "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_tui_lib.sh"
+    printf 'CONTRACT_ID: '; read -r CID
+    printf 'Computed hash...\n'
+    cybra_contract_compute_dual_hash "$CID" >/dev/null
+    local v="$(cybra_contract_verify_dual "$CID")"
+    printf 'Result: %s\n' "$v"
+}
+
+action_ownership() {
+    source "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_tui_lib.sh"
+    cybra_ownership_scan
+}
+
+print_header() {
+    clear 2>/dev/null || printf '[2J[H'
+
+    local SYS=$(h_system 2>/dev/null)
+    local ICON_SYS=$(cybra_icon "$SYS")
+    local LABEL_SYS=$(cybra_icon_label "$SYS")
+
+    local n_mod=$(h_stat_modules 2>/dev/null)
+    local n_con=$(h_stat_contracts 2>/dev/null)
+    local n_lnk=$(h_stat_links 2>/dev/null)
+    local now=$(date -u '+%Y-%m-%d %H:%M:%S UTC')
+
+    printf '%s
+' "${C_BOLD}${C_CYAN}════════════════════════════════════════════════════════════${C_RESET}"
+    printf '%s
+' "${C_BOLD}${C_CYAN}              CYBRA CONTRACT MANAGER — TUI v1.1${C_RESET}"
+    printf '%s
+' "${C_BOLD}${C_CYAN}════════════════════════════════════════════════════════════${C_RESET}"
+    printf '  %s %s  │  BSC(56)  │  1%%+1%%+1%% license
+' "$ICON_SYS" "$LABEL_SYS"
+    printf '  %s modules  │  %s contracts  │  %s links
+' "$n_mod" "$n_con" "$n_lnk"
+    printf '%s
+' "  ${C_GREY}🕐 $now${C_RESET}"
+    printf '%s
+' "${C_GREY}────────────────────────────────────────────────────────────${C_RESET}"
+    printf '
+'
 }
 
 print_menu() {
-    printf '%s\n' "  ${C_BOLD}[1]${C_RESET}  Створити новий контракт"
-    printf '%s\n' "  ${C_BOLD}[2]${C_RESET}  Список усіх контрактів"
-    printf '%s\n' "  ${C_BOLD}[3]${C_RESET}  Статус контракту"
-    printf '%s\n' "  ${C_BOLD}[4]${C_RESET}  Згенерувати лінки"
-    printf '%s\n' "  ${C_BOLD}[5]${C_RESET}  Підтвердити лінк"
-    printf '%s\n' "  ${C_BOLD}[6]${C_RESET}  Debug"
-    printf '%s\n' "  ${C_BOLD}[7]${C_RESET}  DUAL-LICENSE ledger"
-    printf '%s\n' "  ${C_BOLD}[8]${C_RESET}  CREATION-LICENSE ledger"
-    printf '%s\n' "  ${C_BOLD}[9]${C_RESET}  Hardening"
-    printf '%s\n' "${C_CYAN}  ── INVOICE ──${C_RESET}"
-    printf '%s\n' "  ${C_BOLD}[11]${C_RESET} Створити INVOICE"
-    printf '%s\n' "  ${C_BOLD}[12]${C_RESET} Додати позицію"
-    printf '%s\n' "  ${C_BOLD}[13]${C_RESET} Показати INVOICE"
-    printf '%s\n' "  ${C_BOLD}[14]${C_RESET} Фіналізувати INVOICE"
-    printf '%s\n' "${C_CYAN}  ── PII MASK ──${C_RESET}"
-    printf '%s\n' "  ${C_BOLD}[15]${C_RESET} Експорт контракту (PII)"
-    printf '%s\n' "  ${C_BOLD}[16]${C_RESET} Експорт усіх (PII + git)"
-    printf '%s\n' "  ${C_BOLD}[17]${C_RESET} Перевірити PII хеш"
-    printf '%s\n' "  ${C_BOLD}[0]${C_RESET}  Вихід"
-    printf '\n'
+    printf '%s
+' "${C_BOLD}  ─── ОСНОВНЕ ───${C_RESET}"
+    printf "  %s ${C_BOLD}[1]${C_RESET}  Створити контракт
+" "$(cybra_icon $(h_create))"
+    printf "  %s ${C_BOLD}[2]${C_RESET}  Список контрактів
+" "$(cybra_icon $(h_list))"
+    printf "  %s ${C_BOLD}[3]${C_RESET}  Статус контракту
+" "$(cybra_icon $(h_status))"
+    printf "  %s ${C_BOLD}[4]${C_RESET}  Згенерувати лінки
+" "$(cybra_icon $(h_links_gen))"
+    printf "  %s ${C_BOLD}[5]${C_RESET}  Підтвердити лінк
+" "$(cybra_icon $(h_links_confirm))"
+    printf "  %s ${C_BOLD}[6]${C_RESET}  Debug
+" "$(cybra_icon $(h_debug))"
+    printf "  %s ${C_BOLD}[7]${C_RESET}  DUAL-LICENSE ledger
+" "$(cybra_icon $(h_ledger_a))"
+    printf "  %s ${C_BOLD}[8]${C_RESET}  CREATION-LICENSE ledger
+" "$(cybra_icon $(h_ledger_b))"
+    printf "  %s ${C_BOLD}[9]${C_RESET}  Hardening
+" "$(cybra_icon $(h_hardening))"
+    printf '
+'
+
+    printf '%s
+' "${C_CYAN}  ─── INVOICE ───${C_RESET}"
+    printf "  %s ${C_BOLD}[11]${C_RESET} Створити INVOICE
+" "$(cybra_icon $(h_invoice_create))"
+    printf "  %s ${C_BOLD}[12]${C_RESET} Додати позицію
+" "$(cybra_icon $(h_invoice_line))"
+    printf "  %s ${C_BOLD}[13]${C_RESET} Показати INVOICE
+" "$(cybra_icon $(h_invoice_show))"
+    printf "  %s ${C_BOLD}[14]${C_RESET} Фіналізувати INVOICE
+" "$(cybra_icon $(h_invoice_final))"
+    printf '
+'
+
+    printf '%s
+' "${C_CYAN}  ─── PII MASK ───${C_RESET}"
+    printf "  %s ${C_BOLD}[15]${C_RESET} Експорт PII-masked
+" "$(cybra_icon $(h_pii_export))"
+    printf "  %s ${C_BOLD}[16]${C_RESET} Експорт усіх + git
+" "$(cybra_icon $(h_pii_git))"
+    printf "  %s ${C_BOLD}[17]${C_RESET} Перевірити PII хеш
+" "$(cybra_icon $(h_pii_verify))"
+    printf '
+'
+
+    printf '%s
+' "${C_CYAN}  ─── REFUND ───${C_RESET}"
+    printf "  %s ${C_BOLD}[18]${C_RESET} Фінальне рішення покупця
+" "$(cybra_icon $(h_refund_decision))"
+    printf "  %s ${C_BOLD}[19]${C_RESET} Перевірити timeout
+" "$(cybra_icon $(h_refund_timeout))"
+    printf "  %s ${C_BOLD}[20]${C_RESET} Статус refund
+" "$(cybra_icon $(h_refund_status))"
+    printf "  %s ${C_BOLD}[21]${C_RESET} Додати умову
+" "$(cybra_icon $(h_refund_term))"
+    printf '
+'
+
+    printf '%s
+' "${C_CYAN}  ─── ВАЛЮТИ ───${C_RESET}"
+    printf "  %s ${C_BOLD}[22]${C_RESET} Показати курси
+" "$(cybra_icon $(h_rates_show))"
+    printf "  %s ${C_BOLD}[23]${C_RESET} Оновити курс
+" "$(cybra_icon $(h_rates_update))"
+    printf "  %s ${C_BOLD}[24]${C_RESET} Конвертер
+" "$(cybra_icon $(h_rates_convert))"
+    printf '
+'
+
+    printf '%s
+' "${C_CYAN}  ─── СИСТЕМА ───${C_RESET}"
+    printf "  %s ${C_BOLD}[30]${C_RESET} Preflight
+" "$(cybra_icon $(h_preflight))"
+    printf "  %s ${C_BOLD}[31]${C_RESET} Self-heal
+" "$(cybra_icon $(h_self_heal))"
+    printf "  %s ${C_BOLD}[32]${C_RESET} Dual-backend verify
+" "$(cybra_icon $(h_dual_verify))"
+    printf "  %s ${C_BOLD}[33]${C_RESET} Ownership scan
+" "$(cybra_icon $(h_ownership))"
+    printf '
+'
+
+    printf '%s
+' "${C_MAGENTA}  ─── AI (офлайн) ───${C_RESET}"
+    printf "  %s ${C_BOLD}[40]${C_RESET} AI Аналіз контракту
+" "$(cybra_icon $(h_ai_review))"
+    printf "  %s ${C_BOLD}[41]${C_RESET} AI Парсинг рахунку
+" "$(cybra_icon $(h_ai_parse))"
+    printf "  %s ${C_BOLD}[42]${C_RESET} AI Генерація умов
+" "$(cybra_icon $(h_ai_terms))"
+    printf "  %s ${C_BOLD}[43]${C_RESET} AI Допомога при помилці
+" "$(cybra_icon $(h_ai_help))"
+    printf "  %s ${C_BOLD}[44]${C_RESET} AI Вільне питання
+" "$(cybra_icon $(h_ai_ask))"
+    printf "  %s ${C_BOLD}[45]${C_RESET} AI Task Bar
+" "$(cybra_icon $(h_ai_bar))"
+    printf '
+'
+
+    printf '%s
+' "${C_MAGENTA}  ─── AI EVOLUTION ───${C_RESET}"
+    printf "  %s ${C_BOLD}[46]${C_RESET} AI Executor — повний запуск
+" "$(cybra_icon $(h_ai_exec_full))"
+    printf "  %s ${C_BOLD}[47]${C_RESET} AI Executor — scan
+" "$(cybra_icon $(h_ai_exec_scan))"
+    printf "  %s ${C_BOLD}[48]${C_RESET} AI Executor — apply
+" "$(cybra_icon $(h_ai_exec_apply))"
+    printf "  %s ${C_BOLD}[49]${C_RESET} AI Executor — список
+" "$(cybra_icon $(h_ai_exec_list))"
+    printf '
+'
+
+    printf '%s
+' "  ${C_GREY}🟢 ready  🟡 warning  🔴 error${C_RESET}"
+    printf '
+'
+    printf '%s
+' "  ${C_BOLD}[0]${C_RESET}  Вихід"
+    printf '
+'
+}
+
+action_ai_executor_full() {
+    "$HOME/CYBRA/ai/cybra_ai_executor.sh" full
+}
+action_ai_executor_scan() {
+    "$HOME/CYBRA/ai/cybra_ai_executor.sh" scan
+}
+action_ai_executor_apply() {
+    "$HOME/CYBRA/ai/cybra_ai_executor.sh" apply
+}
+action_ai_executor_list() {
+    "$HOME/CYBRA/ai/cybra_ai_executor.sh" list
+}
+
+action_ai_review() {
+    action_list_contracts
+    printf 'CONTRACT_ID: '; read -r CID
+    [ -z "$CID" ] && return 1
+    local_ai_review_contract "$CID"
+}
+
+action_ai_parse_invoice() {
+    local_ai_parse_invoice
+}
+
+action_ai_generate_terms() {
+    action_list_contracts
+    printf 'CONTRACT_ID: '; read -r CID
+    [ -z "$CID" ] && return 1
+    local_ai_generate_terms "$CID"
+}
+
+action_ai_help_error() {
+    printf 'Помилка (встав текст): '
+    read -r ERR
+    [ -z "$ERR" ] && return 1
+    local_ai_help_error "$ERR"
+}
+
+action_ai_ask() {
+    printf 'Питання: '
+    read -r Q
+    [ -z "$Q" ] && return 1
+    local_ai_answer "$Q"
+}
+
+action_ai_taskbar() {
+    printf '%sЗапускаю AI Task Bar...%s\n\n' "${C_CYAN:-}" "${C_RESET:-}"
+    "$HOME/CYBRA/CYBRA_AI_TASK_BAR.sh"
 }
 
 action_create_contract() {
@@ -225,7 +498,13 @@ action_create_contract() {
     printf '  B: %s
 ' "${LICENSE_B_RECIPIENT}"
     printf '  C: %s
-' "${CREATION_FEE_RECIPIENT}"
+
+    # --- AUTO AI REVIEW ---
+    if [ -f "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_local_ai.sh" ]; then
+        printf '\n%s═══ AUTO AI REVIEW ═══%s\n' "${C_CYAN:-}" "${C_RESET:-}"
+        source "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_local_ai.sh" 2>/dev/null
+        local_ai_review_contract "$cid" 2>/dev/null || true
+    fi' "${CREATION_FEE_RECIPIENT}"
 }
 
 action_list_contracts() {
@@ -463,6 +742,27 @@ while true; do
         15) action_export_masked ;;
         16) action_export_all_masked ;;
         17) action_verify_pii ;;
+        18) action_buyer_final_decision ;;
+        19) action_check_timeouts ;;
+        20) action_refund_status ;;
+        21) action_add_term ;;
+        22) action_show_rates ;;
+        23) action_update_rate ;;
+        24) action_convert ;;
+        30) action_preflight ;;
+        31) action_self_heal ;;
+        32) action_dual_verify ;;
+        33) action_ownership ;;
+        40) action_ai_review ;;
+        41) action_ai_parse_invoice ;;
+        42) action_ai_generate_terms ;;
+        43) action_ai_help_error ;;
+        44) action_ai_ask ;;
+        45) action_ai_taskbar ;;
+        46) action_ai_executor_full ;;
+        47) action_ai_executor_scan ;;
+        48) action_ai_executor_apply ;;
+        49) action_ai_executor_list ;;
         0|q|Q|exit|quit)
             printf "%s
 " "${C_GREEN}До побачення.${C_RESET}"

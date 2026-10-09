@@ -1,0 +1,10 @@
+NAME: module_21_fiat_gateway
+TYPE: FEATURE
+PRIORITY: MEDIUM
+RISK: LOW
+DESC: Шлюз для прийому фіатних платежів (UAH/USD/EUR)
+      через сторонніх провайдерів (LiqPay, Fondy, Stripe).
+      Покупець платить фіатом, CYBRA конвертує в токени через oracles.
+IMPACT: +30% usability для не-крипто користувачів
+DEPENDS: module_19 (TUI), module_20 (Evolution Guard)
+SAFE: TRUE — не руйнує існуюче, додає новий шар

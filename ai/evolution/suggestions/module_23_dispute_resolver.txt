@@ -1,0 +1,12 @@
+NAME: module_23_dispute_resolver
+TYPE: FEATURE
+PRIORITY: HIGH
+RISK: MEDIUM
+DESC: Механізм вирішення спорів:
+      - арбітр (3rd party)
+      - multi-sig (2 з 3)
+      - голосування сторін
+      - time-locked escrow
+IMPACT: +80% trust для великих сум
+DEPENDS: module_03 (escrow)
+SAFE: TRUE — не руйнує існуючий flow

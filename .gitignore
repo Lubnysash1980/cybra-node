@@ -5,3 +5,5 @@ test_output.txt
 test_output.sha256
 __pycache__/
 .DS_Store
+backups/
+node_modules/

@@ -1,0 +1,13 @@
+NAME: contract_templates
+TYPE: ENHANCEMENT
+PRIORITY: MEDIUM
+RISK: LOW
+DESC: Шаблони контрактів:
+      - типовий купівля-продаж
+      - оренда
+      - послуги
+      - підписка
+      Користувач обирає шаблон → TUI заповнює поля
+IMPACT: -70% часу на створення
+DEPENDS: module_19
+SAFE: TRUE — additive

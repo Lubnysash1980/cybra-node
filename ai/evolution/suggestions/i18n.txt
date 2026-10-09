@@ -1,0 +1,13 @@
+NAME: i18n_support
+TYPE: ENHANCEMENT
+PRIORITY: LOW
+RISK: LOW
+DESC: Мульти-мова TUI:
+      - UA (default)
+      - EN
+      - RU
+      - PL
+      Автоматично обирає за LANG
+IMPACT: global reach
+DEPENDS: module_19
+SAFE: TRUE — additive

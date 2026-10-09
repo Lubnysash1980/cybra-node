@@ -1,0 +1,12 @@
+NAME: test_coverage_expansion
+TYPE: QUALITY
+PRIORITY: HIGH
+RISK: LOW
+DESC: Розширити test coverage:
+      - деякі модулі без self-tests
+      - додати edge cases
+      - додати integration tests
+      - fuzzing для input validation
+IMPACT: +stability
+DEPENDS: all modules
+SAFE: TRUE — additive

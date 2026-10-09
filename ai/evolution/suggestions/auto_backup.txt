@@ -1,0 +1,12 @@
+NAME: cybra_auto_backup
+TYPE: SAFETY
+PRIORITY: HIGH
+RISK: LOW
+DESC: Автоматичний backup всієї CYBRA системи:
+      - daily tar.gz архів
+      - 30 днів ротації
+      - SHA-256 integrity
+      - відновлення однією командою
+IMPACT: захист від втрати даних
+DEPENDS: none
+SAFE: TRUE — additive

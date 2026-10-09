@@ -1,0 +1,13 @@
+NAME: tokens_registry
+TYPE: ENHANCEMENT
+PRIORITY: MEDIUM
+RISK: LOW
+DESC: Реєстр підтримуваних токенів з decimals:
+      - USDT (BEP-20): 0x55d3..., decimals=18
+      - BUSD: 0xe9e7..., decimals=18
+      - WBTC: 0x7130..., decimals=8
+      - CAKE: 0x0e09..., decimals=18
+      Автоматично підставляє decimals у TUI.
+IMPACT: усуває ручне введення decimals
+DEPENDS: module_19
+SAFE: TRUE — additive

@@ -1,0 +1,12 @@
+NAME: qr_codes
+TYPE: UX
+PRIORITY: MEDIUM
+RISK: LOW
+DESC: Генерація QR-кодів для посилань:
+      - BUYER лінк → QR
+      - SELLER лінк → QR
+      - RECEIPT лінк → QR
+      Сканування телефоном → підтвердження
+IMPACT: швидше підтвердження
+DEPENDS: module_19
+SAFE: TRUE — additive
