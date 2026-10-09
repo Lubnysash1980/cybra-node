@@ -961,6 +961,30 @@ while true; do
         71) action_scan_ocr ;;
         72) action_scan_pdf ;;
         73) action_scan_full ;;
+        50) action_addr_add ;;
+        51) action_addr_list ;;
+        52) action_addr_history ;;
+        53) action_qr ;;
+        54) action_tg_setup ;;
+        55) action_tg_test ;;
+        56) action_wh_list ;;
+        57) action_wh_add ;;
+        58) action_exp_csv ;;
+        59) action_exp_ledger ;;
+        60) action_exp_report ;;
+        61) action_bk_local ;;
+        62) action_bk_cloud ;;
+        63) action_chains ;;
+        64) action_scan_tx ;;
+        65) action_dp_open ;;
+        66) action_dp_list ;;
+        67) action_dp_vote ;;
+        68) action_audit_show ;;
+        69) action_audit_verify ;;
+        70) action_scan_photo ;;
+        71) action_scan_ocr ;;
+        72) action_scan_pdf ;;
+        73) action_scan_full ;;
         0|q|Q|exit|quit)
             printf "%s
 " "${C_GREEN}До побачення.${C_RESET}"
