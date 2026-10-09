@@ -279,18 +279,18 @@ print_menu() {
 
     printf '%s
 ' "${C_CYAN}  ─── PII / CURRENCY ───${C_RESET}"
-    printf '  🟢 ${C_BOLD}[15]${C_RESET} Експорт PII-masked
-'
-    printf '  🟢 ${C_BOLD}[16]${C_RESET} Експорт + git
-'
-    printf '  🟢 ${C_BOLD}[17]${C_RESET} Перевірити PII хеш
-'
-    printf '  🟢 ${C_BOLD}[22]${C_RESET} Курси валют
-'
-    printf '  🟢 ${C_BOLD}[23]${C_RESET} Оновити курс
-'
-    printf '  🟢 ${C_BOLD}[24]${C_RESET} Конвертер
-'
+    printf "  🟢 ${C_BOLD}[15]${C_RESET} Експорт PII-masked
+"
+    printf "  🟢 ${C_BOLD}[16]${C_RESET} Експорт + git
+"
+    printf "  🟢 ${C_BOLD}[17]${C_RESET} Перевірити PII хеш
+"
+    printf "  🟢 ${C_BOLD}[22]${C_RESET} Курси валют
+"
+    printf "  🟢 ${C_BOLD}[23]${C_RESET} Оновити курс
+"
+    printf "  🟢 ${C_BOLD}[24]${C_RESET} Конвертер
+"
     printf '
 '
 
@@ -309,79 +309,79 @@ print_menu() {
 
     printf '%s
 ' "${C_GREEN}  ─── ADDRESS BOOK ───${C_RESET}"
-    printf '  🟢 ${C_BOLD}[50]${C_RESET} Додати адресу
-'
-    printf '  🟢 ${C_BOLD}[51]${C_RESET} Список адрес
-'
-    printf '  🟢 ${C_BOLD}[52]${C_RESET} Історія адрес
-'
+    printf "  🟢 ${C_BOLD}[50]${C_RESET} Додати адресу
+"
+    printf "  🟢 ${C_BOLD}[51]${C_RESET} Список адрес
+"
+    printf "  🟢 ${C_BOLD}[52]${C_RESET} Історія адрес
+"
     printf '
 '
 
     printf '%s
 ' "${C_GREEN}  ─── INTEGRATIONS ───${C_RESET}"
-    printf '  🟢 ${C_BOLD}[53]${C_RESET} QR-код для лінку
-'
-    printf '  🟢 ${C_BOLD}[54]${C_RESET} Telegram — налаштувати
-'
-    printf '  🟢 ${C_BOLD}[55]${C_RESET} Telegram — тест
-'
-    printf '  🟢 ${C_BOLD}[56]${C_RESET} Webhook — список
-'
-    printf '  🟢 ${C_BOLD}[57]${C_RESET} Webhook — додати
-'
+    printf "  🟢 ${C_BOLD}[53]${C_RESET} QR-код для лінку
+"
+    printf "  🟢 ${C_BOLD}[54]${C_RESET} Telegram — налаштувати
+"
+    printf "  🟢 ${C_BOLD}[55]${C_RESET} Telegram — тест
+"
+    printf "  🟢 ${C_BOLD}[56]${C_RESET} Webhook — список
+"
+    printf "  🟢 ${C_BOLD}[57]${C_RESET} Webhook — додати
+"
     printf '
 '
 
     printf '%s
 ' "${C_GREEN}  ─── EXPORT / BACKUP ───${C_RESET}"
-    printf '  🟢 ${C_BOLD}[58]${C_RESET} CSV — контракти
-'
-    printf '  🟢 ${C_BOLD}[59]${C_RESET} CSV — ledger
-'
-    printf '  🟢 ${C_BOLD}[60]${C_RESET} TXT — звіт контракту
-'
-    printf '  🟢 ${C_BOLD}[61]${C_RESET} Backup — локальний
-'
-    printf '  🟢 ${C_BOLD}[62]${C_RESET} Backup — в хмару (rclone)
-'
+    printf "  🟢 ${C_BOLD}[58]${C_RESET} CSV — контракти
+"
+    printf "  🟢 ${C_BOLD}[59]${C_RESET} CSV — ledger
+"
+    printf "  🟢 ${C_BOLD}[60]${C_RESET} TXT — звіт контракту
+"
+    printf "  🟢 ${C_BOLD}[61]${C_RESET} Backup — локальний
+"
+    printf "  🟢 ${C_BOLD}[62]${C_RESET} Backup — в хмару (rclone)
+"
     printf '
 '
 
     printf '%s
 ' "${C_GREEN}  ─── MULTI-CHAIN ───${C_RESET}"
-    printf '  🟢 ${C_BOLD}[63]${C_RESET} Список мереж
-'
-    printf '  🟢 ${C_BOLD}[64]${C_RESET} Сканер-tx link
-'
+    printf "  🟢 ${C_BOLD}[63]${C_RESET} Список мереж
+"
+    printf "  🟢 ${C_BOLD}[64]${C_RESET} Сканер-tx link
+"
     printf '
 '
 
     printf '%s
 ' "${C_RED}  ─── DISPUTE / AUDIT ───${C_RESET}"
-    printf '  🟢 ${C_BOLD}[65]${C_RESET} Відкрити спір
-'
-    printf '  🟢 ${C_BOLD}[66]${C_RESET} Список спорів
-'
-    printf '  🟢 ${C_BOLD}[67]${C_RESET} Голосувати
-'
-    printf '  🟢 ${C_BOLD}[68]${C_RESET} Audit log — показати
-'
-    printf '  🟢 ${C_BOLD}[69]${C_RESET} Audit log — перевірити
-'
+    printf "  🟢 ${C_BOLD}[65]${C_RESET} Відкрити спір
+"
+    printf "  🟢 ${C_BOLD}[66]${C_RESET} Список спорів
+"
+    printf "  🟢 ${C_BOLD}[67]${C_RESET} Голосувати
+"
+    printf "  🟢 ${C_BOLD}[68]${C_RESET} Audit log — показати
+"
+    printf "  🟢 ${C_BOLD}[69]${C_RESET} Audit log — перевірити
+"
     printf '
 '
 
     printf '%s
 ' "${C_RED}  ─── DOCUMENT SCANNER ───${C_RESET}"
-    printf '  🟢 ${C_BOLD}[70]${C_RESET} Сфотографувати
-'
-    printf '  🟢 ${C_BOLD}[71]${C_RESET} OCR (фото → текст)
-'
-    printf '  🟢 ${C_BOLD}[72]${C_RESET} PDF → текст
-'
-    printf '  🟢 ${C_BOLD}[73]${C_RESET} Повний pipeline
-'
+    printf "  🟢 ${C_BOLD}[70]${C_RESET} Сфотографувати
+"
+    printf "  🟢 ${C_BOLD}[71]${C_RESET} OCR (фото → текст)
+"
+    printf "  🟢 ${C_BOLD}[72]${C_RESET} PDF → текст
+"
+    printf "  🟢 ${C_BOLD}[73]${C_RESET} Повний pipeline
+"
     printf '
 '
 
@@ -400,31 +400,31 @@ print_menu() {
 
     printf '%s
 ' "${C_MAGENTA}  ─── AI ───${C_RESET}"
-    printf '  🟢 ${C_BOLD}[40]${C_RESET} AI Аналіз
-'
-    printf '  🟢 ${C_BOLD}[41]${C_RESET} AI Парсинг рахунку
-'
-    printf '  🟢 ${C_BOLD}[42]${C_RESET} AI Генерація умов
-'
-    printf '  🟢 ${C_BOLD}[43]${C_RESET} AI Допомога
-'
-    printf '  🟢 ${C_BOLD}[44]${C_RESET} AI Питання
-'
-    printf '  🟢 ${C_BOLD}[45]${C_RESET} AI Task Bar
-'
+    printf "  🟢 ${C_BOLD}[40]${C_RESET} AI Аналіз
+"
+    printf "  🟢 ${C_BOLD}[41]${C_RESET} AI Парсинг рахунку
+"
+    printf "  🟢 ${C_BOLD}[42]${C_RESET} AI Генерація умов
+"
+    printf "  🟢 ${C_BOLD}[43]${C_RESET} AI Допомога
+"
+    printf "  🟢 ${C_BOLD}[44]${C_RESET} AI Питання
+"
+    printf "  🟢 ${C_BOLD}[45]${C_RESET} AI Task Bar
+"
     printf '
 '
 
     printf '%s
 ' "${C_MAGENTA}  ─── AI EVOLUTION ───${C_RESET}"
-    printf '  🟢 ${C_BOLD}[46]${C_RESET} Executor — повний
-'
-    printf '  🟢 ${C_BOLD}[47]${C_RESET} Executor — scan
-'
-    printf '  🟢 ${C_BOLD}[48]${C_RESET} Executor — apply
-'
-    printf '  🟢 ${C_BOLD}[49]${C_RESET} Executor — список
-'
+    printf "  🟢 ${C_BOLD}[46]${C_RESET} Executor — повний
+"
+    printf "  🟢 ${C_BOLD}[47]${C_RESET} Executor — scan
+"
+    printf "  🟢 ${C_BOLD}[48]${C_RESET} Executor — apply
+"
+    printf "  🟢 ${C_BOLD}[49]${C_RESET} Executor — список
+"
     printf '
 '
 
