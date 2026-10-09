@@ -897,6 +897,49 @@ action_scan_full() {
     sc_scan_pipeline; read -r _
 }
 
+# ═══ MODULE 35 — GUARDIAN ═══
+GD_LIB="$HOME/CYBRA/modules/module_35_cybra_guardian/bin/guardian.sh"
+
+action_gd_state()        { source "$GD_LIB"; gd_check_state; read -r _; }
+action_gd_100()          {
+    source "$GD_LIB"
+    gd_check_state >/dev/null 2>&1
+    local p="$(cat "$GUARD_EV/state_pct.txt" 2>/dev/null || echo 0)"
+    if [ "$p" -eq 100 ]; then
+        printf '%s✓ 100%% STATE%s\n' "${GR:-}" "${Z:-}"
+    else
+        printf '%s✗ %s%% — потрібно відновлення%s\n' "${RD:-}" "$p" "${Z:-}"
+    fi
+    read -r _
+}
+action_gd_register()     {
+    source "$GD_LIB"
+    printf 'Ім\'я / назва:      '; read -r N
+    printf 'ID номер (ЄДРПОУ/ІПН): '; read -r I
+    printf 'Wallet (0x...):     '; read -r W
+    printf 'Biometric (опц.):   '; read -r B
+    gd_register "$N" "$I" "$W" "${B:-none}"
+    read -r _
+}
+action_gd_show()         { source "$GD_LIB"; gd_show_identity; read -r _; }
+action_gd_verify()       {
+    source "$GD_LIB"
+    printf 'Ім\'я:               '; read -r N
+    printf 'ID номер:           '; read -r I
+    printf 'Wallet:             '; read -r W
+    printf 'Biometric (опц.):   '; read -r B
+    gd_verify "$N" "$I" "$W" "${B:-none}"
+    read -r _
+}
+action_gd_device()       { source "$GD_LIB"; gd_device_info; read -r _; }
+action_gd_snapshot()     { source "$GD_LIB"; gd_recovery_snapshot; read -r _; }
+action_gd_restore_git()  { source "$GD_LIB"; gd_recovery_from_git; read -r _; }
+action_gd_restore_snap() { source "$GD_LIB"; gd_recovery_from_snapshot; read -r _; }
+action_gd_auto()         { source "$GD_LIB"; gd_auto_recover; read -r _; }
+action_gd_actions()      { tail -30 "$HOME/CYBRA/modules/module_35_cybra_guardian/evidence/actions.log" 2>/dev/null; read -r _; }
+action_gd_log_verify()   { source "$GD_LIB"; gd_log_verify; read -r _; }
+
+
 while true; do
     print_header
     print_menu
@@ -992,6 +1035,18 @@ while true; do
         71) action_scan_ocr ;;
         72) action_scan_pdf ;;
         73) action_scan_full ;;
+        80) action_gd_state ;;
+        81) action_gd_100 ;;
+        82) action_gd_register ;;
+        83) action_gd_show ;;
+        84) action_gd_verify ;;
+        85) action_gd_device ;;
+        86) action_gd_snapshot ;;
+        87) action_gd_restore_git ;;
+        88) action_gd_restore_snap ;;
+        89) action_gd_auto ;;
+        90) action_gd_actions ;;
+        91) action_gd_log_verify ;;
         0|q|Q|exit|quit)
             printf "%s
 " "${C_GREEN}До побачення.${C_RESET}"
