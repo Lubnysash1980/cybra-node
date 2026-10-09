@@ -1,5 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# CYBRA TUI Library — спільні функції
+# CYBRA TUI Library — canonical
 
 CYBRA_MOD19_ROOT="$HOME/CYBRA/modules/module_19_contract_tui_menu"
 CYBRA_CONTRACTS="$CYBRA_MOD19_ROOT/contracts"
@@ -7,391 +7,228 @@ CYBRA_LINKS="$CYBRA_MOD19_ROOT/links"
 CYBRA_DEBUG="$CYBRA_MOD19_ROOT/evidence/debug.log"
 CYBRA_LICENSE_LEDGER="$CYBRA_MOD19_ROOT/evidence/license_ledger.txt"
 CYBRA_LICENSE_LEDGER_B="$CYBRA_MOD19_ROOT/evidence/license_ledger_b.txt"
+CYBRA_CREATION_LEDGER="$CYBRA_MOD19_ROOT/evidence/creation_license_ledger.txt"
 
-LICENSE_RECIPIENT="0x66434c5501242ccC71b5a39C765892921624B66c"
-LICENSE_PERCENT=1
+LICENSE_A_RECIPIENT="0x66434c5501242ccC71b5a39C765892921624B66c"
+LICENSE_A_PERCENT=1
+LICENSE_A_BPS=100
 
-mkdir -p "$CYBRA_CONTRACTS" "$CYBRA_LINKS" \
-         "$(dirname "$CYBRA_DEBUG")" \
-         "$(dirname "$CYBRA_LICENSE_LEDGER")"
+LICENSE_B_RECIPIENT="0x66434c5501242ccC71b5a39C765892921624B66c"
+LICENSE_B_PERCENT=1
+LICENSE_B_BPS=100
 
-# ------------------------------------------------------------
-# Кольори (якщо підтримує термінал)
-# ------------------------------------------------------------
+DUAL_LICENSE_ENABLED=TRUE
+
+LICENSE_RECIPIENT="$LICENSE_A_RECIPIENT"
+LICENSE_PERCENT="$LICENSE_A_PERCENT"
+
+CREATION_FEE_ENABLED=TRUE
+CREATION_FEE_RECIPIENT="0x66434c5501242ccC71b5a39C765892921624B66c"
+CREATION_FEE_PERCENT=1
+CREATION_FEE_BPS=100
+CREATION_FEE_FIXED_WEI=0
+CREATION_FEE_MIN_WEI=0
+CREATION_FEE_MAX_WEI=0
+
+mkdir -p "$CYBRA_CONTRACTS" "$CYBRA_LINKS" "$(dirname "$CYBRA_DEBUG")"
+
+[ -f "$CYBRA_LICENSE_LEDGER" ] || touch "$CYBRA_LICENSE_LEDGER"
+[ -f "$CYBRA_LICENSE_LEDGER_B" ] || touch "$CYBRA_LICENSE_LEDGER_B"
+[ -f "$CYBRA_CREATION_LEDGER" ] || touch "$CYBRA_CREATION_LEDGER"
 
 if [ -t 1 ]; then
-    C_RESET=$'\033[0m'
-    C_BOLD=$'\033[1m'
-    C_RED=$'\033[31m'
-    C_GREEN=$'\033[32m'
-    C_YELLOW=$'\033[33m'
-    C_BLUE=$'\033[34m'
-    C_CYAN=$'\033[36m'
-    C_GREY=$'\033[90m'
+    C_RESET=$'\033[0m'; C_BOLD=$'\033[1m'
+    C_RED=$'\033[31m'; C_GREEN=$'\033[32m'
+    C_YELLOW=$'\033[33m'; C_BLUE=$'\033[34m'
+    C_CYAN=$'\033[36m'; C_GREY=$'\033[90m'
 else
-    C_RESET=""; C_BOLD=""; C_RED=""; C_GREEN=""; C_YELLOW=""; C_BLUE=""; C_CYAN=""; C_GREY=""
+    C_RESET=""; C_BOLD=""; C_RED=""; C_GREEN=""
+    C_YELLOW=""; C_BLUE=""; C_CYAN=""; C_GREY=""
 fi
 
-# ------------------------------------------------------------
-# Утиліти
-# ------------------------------------------------------------
-
-cybra_now() {
-    date -u +%Y-%m-%dT%H:%M:%SZ
-}
-
-cybra_log() {
-    printf '%s | %s\n' "$(cybra_now)" "$*" >> "$CYBRA_DEBUG"
-}
-
-cybra_hash() {
-    sha256sum | awk '{print $1}'
-}
-
-cybra_rand_id() {
-    # 16 hex символів
-    head -c 8 /dev/urandom | od -An -tx1 | tr -d ' \n'
-}
-
-# ------------------------------------------------------------
-# Ліцензія
-# ------------------------------------------------------------
+cybra_now() { date -u +%Y-%m-%dT%H:%M:%SZ; }
+cybra_log() { printf '%s | %s\n' "$(cybra_now)" "$*" >> "$CYBRA_DEBUG"; }
+cybra_hash() { sha256sum | awk '{print $1}'; }
+cybra_rand_id() { head -c 8 /dev/urandom | od -An -tx1 | tr -d ' \n'; }
 
 cybra_calc_license() {
     local amount="$1"
-    # amount у wei/найменших одиницях
-    # 1% = amount * 100 / 10000
-    if ! [[ "$amount" =~ ^[0-9]+$ ]]; then
-        echo "0"
-        return 1
-    fi
-    echo $(( amount * LICENSE_PERCENT / 100 ))
+    [[ "$amount" =~ ^[0-9]+$ ]] || { echo 0; return 1; }
+    echo $(( amount * LICENSE_A_PERCENT / 100 ))
 }
-
-
-# ------------------------------------------------------------
-# CREATION FEE
-# ------------------------------------------------------------
 
 cybra_calc_creation_fee() {
     local amount="$1"
-
-    if ! [[ "$amount" =~ ^[0-9]+$ ]]; then
-        echo "0"
-        return 1
-    fi
-
-    local fixed="${CREATION_FEE_FIXED_WEI:-0}"
-    local percent="${CREATION_FEE_PERCENT:-1}"
-    local minf="${CREATION_FEE_MIN_WEI:-0}"
-    local maxf="${CREATION_FEE_MAX_WEI:-0}"
-
-    local var_fee=$(( amount * percent / 100 ))
-    local total=$(( fixed + var_fee ))
-
-    if [ "$minf" -gt 0 ] && [ "$total" -lt "$minf" ]; then
-        total="$minf"
-    fi
-    if [ "$maxf" -gt 0 ] && [ "$total" -gt "$maxf" ]; then
-        total="$maxf"
-    fi
-
-    echo "$total"
-}
-
-cybra_creation_license_record() {
-    local contract_id="$1"
-    local amount="$2"
-    local creation_fee="$3"
-    local buyer="$4"
-
-    printf '%s | %s | %s | %s | %s | %s
-'         "$(cybra_now)"         "$contract_id"         "$buyer"         "$amount"         "$creation_fee"         "$CREATION_FEE_RECIPIENT"         >> "$CREATION_LICENSE_LEDGER"
-
-    printf '%s | contract=%s buyer=%s amount=%s fee=%s recipient=%s
-'         "$(cybra_now)"         "$contract_id"         "$buyer"         "$amount"         "$creation_fee"         "$CREATION_FEE_RECIPIENT"         >> "$CREATION_LICENSE_LOG"
-
-    cybra_log "CREATION_LICENSE contract=$contract_id fee=$creation_fee"
-
-    # --- Git export ---
-    if [ "${CREATION_LICENSE_LOGGED_TO_GIT:-FALSE}" = "TRUE" ]; then
-        local gdir="$HOME/CYBRA/git_module/meta/creation_licenses"
-        mkdir -p "$gdir"
-        cp "$CREATION_LICENSE_LEDGER" "$gdir/ledger.txt"
-        printf '%s
-' "$(sha256sum "$CREATION_LICENSE_LEDGER" | awk '{print $1}')"             > "$gdir/ledger.sha256"
-    fi
+    [[ "$amount" =~ ^[0-9]+$ ]] || { echo 0; return 1; }
+    local var=$(( amount * CREATION_FEE_PERCENT / 100 ))
+    echo $(( CREATION_FEE_FIXED_WEI + var ))
 }
 
 cybra_license_record() {
-    local contract_id="$1"
-    local amount="$2"
-    local license="$3"
-
-    printf '%s | %s | %s | %s | %s\n' \
-        "$(cybra_now)" \
-        "$contract_id" \
-        "$amount" \
-        "$license" \
-        "$LICENSE_RECIPIENT" \
-        >> "$CYBRA_LICENSE_LEDGER"
-
-    cybra_log "LICENSE_RECORDED contract=$contract_id amount=$amount license=$license"
+    local cid="$1" amt="$2" la="$3" lb="$4"
+    printf '%s | %s | A | %s | %s | %s\n' "$(cybra_now)" "$cid" "$amt" "$la" "$LICENSE_A_RECIPIENT" >> "$CYBRA_LICENSE_LEDGER"
+    printf '%s | %s | B | %s | %s | %s\n' "$(cybra_now)" "$cid" "$amt" "$lb" "$LICENSE_B_RECIPIENT" >> "$CYBRA_LICENSE_LEDGER_B"
+    cybra_log "LICENSE_RECORDED $cid A=$la B=$lb"
 }
 
-# ------------------------------------------------------------
-# Контракт
-# ------------------------------------------------------------
-
-cybra_contract_path() {
-    echo "$CYBRA_CONTRACTS/$1.env"
+cybra_creation_license_record() {
+    local cid="$1" amt="$2" fee="$3" buyer="$4"
+    printf '%s | %s | %s | %s | %s | %s\n' "$(cybra_now)" "$cid" "$buyer" "$amt" "$fee" "$CREATION_FEE_RECIPIENT" >> "$CYBRA_CREATION_LEDGER"
+    cybra_log "CREATION_LICENSE $cid fee=$fee"
 }
 
-cybra_contract_exists() {
-    [ -f "$(cybra_contract_path "$1")" ]
-}
+cybra_contract_path() { echo "$CYBRA_CONTRACTS/$1.env"; }
+cybra_contract_exists() { [ -f "$(cybra_contract_path "$1")" ]; }
 
 cybra_contract_create() {
-    local buyer="$1"
-    local seller="$2"
-    local amount="$3"
-    local token="$4"
+    local buyer="$1" seller="$2" amount="$3" token="$4"
 
-    if [ -z "$buyer" ] || [ -z "$seller" ] || [ -z "$amount" ]; then
-        echo "ERROR: buyer, seller, amount required"
-        return 1
-    fi
+    [ -z "$buyer" ] && { echo "ERROR: buyer required" >&2; return 1; }
+    [ -z "$seller" ] && { echo "ERROR: seller required" >&2; return 1; }
+    [ -z "$amount" ] && { echo "ERROR: amount required" >&2; return 1; }
+    [ "$buyer" = "$seller" ] && { echo "ERROR: buyer=seller" >&2; return 1; }
+    [[ "$amount" =~ ^[0-9]+$ ]] && [ "$amount" -gt 0 ] || { echo "ERROR: amount>0" >&2; return 1; }
 
-    if [ "$buyer" = "$seller" ]; then
-        echo "ERROR: buyer and seller must be different"
-        return 1
-    fi
-
-    if ! [[ "$amount" =~ ^[0-9]+$ ]] || [ "$amount" -le 0 ]; then
-        echo "ERROR: amount must be positive integer"
-        return 1
-    fi
-
-    local contract_id="C-$(date -u +%Y%m%d%H%M%S)-$(cybra_rand_id)"
-    local license_a="$(cybra_calc_license "$amount")"
-    local license_b="$(cybra_calc_license "$amount")"
-    local creation_fee="$(cybra_calc_creation_fee "$amount")"
-    local license_total=$(( license_a + license_b + creation_fee ))
-    local net=$(( amount - license_total ))
+    local cid="C-$(date -u +%Y%m%d%H%M%S)-$(cybra_rand_id)"
+    local la="$(cybra_calc_license "$amount")"
+    local lb="$(cybra_calc_license "$amount")"
+    local cf="$(cybra_calc_creation_fee "$amount")"
+    local total=$(( la + lb + cf ))
+    local net=$(( amount - total ))
     local now="$(cybra_now)"
+    local f="$CYBRA_CONTRACTS/$cid.env"
 
-    local f="$(cybra_contract_path "$contract_id")"
-
-    cat > "$f" <<EOF
-CONTRACT_ID=$contract_id
+    cat > "$f" <<CTR
+CONTRACT_ID=$cid
 CREATED_AT=$now
-PATCH_ID=CYBRA-M19-PATCH-0001
+PATCH_ID=CYBRA-M19-PATCH-0002
 
 BUYER=$buyer
 SELLER=$seller
 TOKEN=$token
 
 AMOUNT_WEI=$amount
-
-# === DUAL-LICENSE v2 ===
-LICENSE_A_WEI=$license_a
+LICENSE_A_WEI=$la
 LICENSE_A_PERCENT=1
 LICENSE_A_BPS=100
 LICENSE_A_RECIPIENT=$LICENSE_A_RECIPIENT
-
-LICENSE_B_WEI=$license_b
+LICENSE_B_WEI=$lb
 LICENSE_B_PERCENT=1
 LICENSE_B_BPS=100
 LICENSE_B_RECIPIENT=$LICENSE_B_RECIPIENT
-
-# === CREATION LICENSE ===
-CREATION_FEE_WEI=$creation_fee
-CREATION_FEE_PERCENT=${CREATION_FEE_PERCENT:-1}
-CREATION_FEE_FIXED_WEI=${CREATION_FEE_FIXED_WEI:-0}
+CREATION_FEE_WEI=$cf
+CREATION_FEE_PERCENT=$CREATION_FEE_PERCENT
+CREATION_FEE_FIXED_WEI=$CREATION_FEE_FIXED_WEI
 CREATION_FEE_RECIPIENT=$CREATION_FEE_RECIPIENT
 CREATION_FEE_BUYER=$buyer
 CREATION_FEE_FROZEN=TRUE
-
-LICENSE_TOTAL_WEI=$license_total
+LICENSE_TOTAL_WEI=$total
 NET_WEI=$net
 DUAL_LICENSE_FROZEN=TRUE
 
-# Legacy
-LICENSE_WEI=$license_a
-LICENSE_PERCENT=1
-LICENSE_BPS=100
-LICENSE_RECIPIENT=$LICENSE_A_RECIPIENT
-LICENSE_FROZEN=TRUE
-
 CHAIN_ID=56
 NETWORK=BSC_MAINNET
-
 STAGE=DRAFT
 STATUS=CREATED
-
 BUYER_CONFIRMED=FALSE
 SELLER_CONFIRMED=FALSE
 RECEIPT_CONFIRMED=FALSE
-
 BUYER_CONFIRMED_AT=
 SELLER_CONFIRMED_AT=
 RECEIPT_CONFIRMED_AT=
-
 BUYER_LINK_ID=
 SELLER_LINK_ID=
 RECEIPT_LINK_ID=
-
 BUYER_LINK_HASH=
 SELLER_LINK_HASH=
 RECEIPT_LINK_HASH=
-
 REAL_TRANSACTION_SENT=FALSE
 GLOBAL_TRUE_100=FALSE
-EOF
+CTR
 
-    # Подвійна ліцензія — в два ledger-и
-    cybra_license_record "$contract_id" "$amount" "$license_a" "$license_b"
+    cybra_license_record "$cid" "$amount" "$la" "$lb"
+    cybra_creation_license_record "$cid" "$amount" "$cf" "$buyer"
+    cybra_log "CONTRACT_CREATED $cid"
 
-    # Creation license
-    cybra_creation_license_record "$contract_id" "$amount" "$creation_fee" "$buyer"
-
-    cybra_log "CONTRACT_CREATED id=$contract_id buyer=$buyer seller=$seller amount=$amount license_A=$license_a license_B=$license_b creation_fee=$creation_fee"
-
-    echo "$contract_id"
+    echo "$cid"
 }
 
-# ------------------------------------------------------------
-# Лінки
-# ------------------------------------------------------------
-
-cybra_link_path() {
-    echo "$CYBRA_LINKS/$1.link"
-}
+cybra_link_path() { echo "$CYBRA_LINKS/$1.link"; }
 
 cybra_link_generate() {
-    local contract_id="$1"
-    local role="$2"     # BUYER | SELLER | RECEIPT
+    local cid="$1" role="$2"
 
-    if ! cybra_contract_exists "$contract_id"; then
-        echo "ERROR: contract not found"
-        return 1
-    fi
+    cybra_contract_exists "$cid" || { echo "ERROR: contract not found" >&2; return 1; }
+    case "$role" in BUYER|SELLER|RECEIPT) ;; *) echo "ERROR: role" >&2; return 1 ;; esac
 
-    case "$role" in
-        BUYER|SELLER|RECEIPT) ;;
-        *) echo "ERROR: role must be BUYER|SELLER|RECEIPT"; return 1 ;;
-    esac
-
-    local link_id="L-$role-$(cybra_rand_id)"
+    local lid="L-$role-$(cybra_rand_id)"
     local now="$(cybra_now)"
-    local payload="CYBRA|$contract_id|$role|$now|$link_id"
-    local link_hash="$(printf '%s' "$payload" | cybra_hash)"
+    local payload="CYBRA|$cid|$role|$now|$lid"
+    local lh="$(printf '%s' "$payload" | cybra_hash)"
+    local lf="$CYBRA_LINKS/$lid.link"
 
-    local lf="$(cybra_link_path "$link_id")"
-
-    cat > "$lf" <<EOF
-LINK_ID=$link_id
-CONTRACT_ID=$contract_id
+    cat > "$lf" <<LNK
+LINK_ID=$lid
+CONTRACT_ID=$cid
 ROLE=$role
 CREATED_AT=$now
 STATUS=PENDING
-LINK_HASH=$link_hash
+LINK_HASH=$lh
 LINK_PAYLOAD=$payload
 CONFIRMED_AT=
 CONFIRMED_BY=
-EOF
+LNK
 
-    # Оновлюємо контракт — записуємо link_id
-    local cf="$(cybra_contract_path "$contract_id")"
-
+    local cf="$CYBRA_CONTRACTS/$cid.env"
     case "$role" in
-        BUYER)
-            sed -i "s|^BUYER_LINK_ID=.*|BUYER_LINK_ID=$link_id|" "$cf"
-            sed -i "s|^BUYER_LINK_HASH=.*|BUYER_LINK_HASH=$link_hash|" "$cf"
-            ;;
-        SELLER)
-            sed -i "s|^SELLER_LINK_ID=.*|SELLER_LINK_ID=$link_id|" "$cf"
-            sed -i "s|^SELLER_LINK_HASH=.*|SELLER_LINK_HASH=$link_hash|" "$cf"
-            ;;
-        RECEIPT)
-            sed -i "s|^RECEIPT_LINK_ID=.*|RECEIPT_LINK_ID=$link_id|" "$cf"
-            sed -i "s|^RECEIPT_LINK_HASH=.*|RECEIPT_LINK_HASH=$link_hash|" "$cf"
-            ;;
+        BUYER)   sed -i "s|^BUYER_LINK_ID=.*|BUYER_LINK_ID=$lid|" "$cf"; sed -i "s|^BUYER_LINK_HASH=.*|BUYER_LINK_HASH=$lh|" "$cf" ;;
+        SELLER)  sed -i "s|^SELLER_LINK_ID=.*|SELLER_LINK_ID=$lid|" "$cf"; sed -i "s|^SELLER_LINK_HASH=.*|SELLER_LINK_HASH=$lh|" "$cf" ;;
+        RECEIPT) sed -i "s|^RECEIPT_LINK_ID=.*|RECEIPT_LINK_ID=$lid|" "$cf"; sed -i "s|^RECEIPT_LINK_HASH=.*|RECEIPT_LINK_HASH=$lh|" "$cf" ;;
     esac
+    grep -q '^STAGE=DRAFT' "$cf" && sed -i "s|^STAGE=DRAFT|STAGE=LINKED|" "$cf"
 
-    # Змінюємо stage
-    if grep -q '^STAGE=DRAFT' "$cf"; then
-        sed -i "s|^STAGE=DRAFT|STAGE=LINKED|" "$cf"
-    fi
-
-    cybra_log "LINK_GENERATED contract=$contract_id role=$role link_id=$link_id hash=$link_hash"
-
-    echo "$link_id"
+    cybra_log "LINK_GENERATED $cid $role $lid"
+    echo "$lid"
 }
 
 cybra_link_confirm() {
-    local link_id="$1"
-    local confirmer="$2"
-
-    local lf="$(cybra_link_path "$link_id")"
-    if [ ! -f "$lf" ]; then
-        echo "ERROR: link not found"
-        return 1
-    fi
+    local lid="$1" who="$2"
+    local lf="$CYBRA_LINKS/$lid.link"
+    [ -f "$lf" ] || { echo "ERROR: link not found" >&2; return 1; }
 
     local status="$(grep '^STATUS=' "$lf" | cut -d= -f2)"
-    if [ "$status" = "CONFIRMED" ]; then
-        echo "ERROR: link already confirmed"
-        return 1
-    fi
+    [ "$status" = "CONFIRMED" ] && { echo "ERROR: already confirmed" >&2; return 1; }
 
-    local contract_id="$(grep '^CONTRACT_ID=' "$lf" | cut -d= -f2)"
+    local cid="$(grep '^CONTRACT_ID=' "$lf" | cut -d= -f2)"
     local role="$(grep '^ROLE=' "$lf" | cut -d= -f2)"
     local now="$(cybra_now)"
 
     sed -i "s|^STATUS=.*|STATUS=CONFIRMED|" "$lf"
     sed -i "s|^CONFIRMED_AT=.*|CONFIRMED_AT=$now|" "$lf"
-    sed -i "s|^CONFIRMED_BY=.*|CONFIRMED_BY=$confirmer|" "$lf"
+    sed -i "s|^CONFIRMED_BY=.*|CONFIRMED_BY=$who|" "$lf"
 
-    # Оновлюємо контракт
-    local cf="$(cybra_contract_path "$contract_id")"
-
+    local cf="$CYBRA_CONTRACTS/$cid.env"
     case "$role" in
-        BUYER)
-            sed -i "s|^BUYER_CONFIRMED=.*|BUYER_CONFIRMED=TRUE|" "$cf"
-            sed -i "s|^BUYER_CONFIRMED_AT=.*|BUYER_CONFIRMED_AT=$now|" "$cf"
-            if grep -q '^STAGE=LINKED' "$cf"; then
-                sed -i "s|^STAGE=LINKED|STAGE=BUYER_OK|" "$cf"
-            fi
-            ;;
-        SELLER)
-            sed -i "s|^SELLER_CONFIRMED=.*|SELLER_CONFIRMED=TRUE|" "$cf"
-            sed -i "s|^SELLER_CONFIRMED_AT=.*|SELLER_CONFIRMED_AT=$now|" "$cf"
-            if grep -q '^STAGE=BUYER_OK' "$cf"; then
-                sed -i "s|^STAGE=BUYER_OK|STAGE=SELLER_OK|" "$cf"
-            fi
-            ;;
-        RECEIPT)
-            sed -i "s|^RECEIPT_CONFIRMED=.*|RECEIPT_CONFIRMED=TRUE|" "$cf"
-            sed -i "s|^RECEIPT_CONFIRMED_AT=.*|RECEIPT_CONFIRMED_AT=$now|" "$cf"
-            if grep -q '^STAGE=SELLER_OK' "$cf"; then
-                sed -i "s|^STAGE=SELLER_OK|STAGE=RECEIPT_OK|" "$cf"
-            fi
-            ;;
+        BUYER)   sed -i "s|^BUYER_CONFIRMED=.*|BUYER_CONFIRMED=TRUE|" "$cf"; sed -i "s|^BUYER_CONFIRMED_AT=.*|BUYER_CONFIRMED_AT=$now|" "$cf"; grep -q '^STAGE=LINKED' "$cf" && sed -i "s|^STAGE=LINKED|STAGE=BUYER_OK|" "$cf" ;;
+        SELLER)  sed -i "s|^SELLER_CONFIRMED=.*|SELLER_CONFIRMED=TRUE|" "$cf"; sed -i "s|^SELLER_CONFIRMED_AT=.*|SELLER_CONFIRMED_AT=$now|" "$cf"; grep -q '^STAGE=BUYER_OK' "$cf" && sed -i "s|^STAGE=BUYER_OK|STAGE=SELLER_OK|" "$cf" ;;
+        RECEIPT) sed -i "s|^RECEIPT_CONFIRMED=.*|RECEIPT_CONFIRMED=TRUE|" "$cf"; sed -i "s|^RECEIPT_CONFIRMED_AT=.*|RECEIPT_CONFIRMED_AT=$now|" "$cf"; grep -q '^STAGE=SELLER_OK' "$cf" && sed -i "s|^STAGE=SELLER_OK|STAGE=RECEIPT_OK|" "$cf" ;;
     esac
 
-    # Перевіряємо чи COMPLETE
     local b="$(grep '^BUYER_CONFIRMED=' "$cf" | cut -d= -f2)"
     local s="$(grep '^SELLER_CONFIRMED=' "$cf" | cut -d= -f2)"
     local r="$(grep '^RECEIPT_CONFIRMED=' "$cf" | cut -d= -f2)"
-
     if [ "$b" = "TRUE" ] && [ "$s" = "TRUE" ] && [ "$r" = "TRUE" ]; then
         sed -i "s|^STAGE=.*|STAGE=COMPLETE|" "$cf"
         sed -i "s|^STATUS=.*|STATUS=COMPLETE|" "$cf"
-        cybra_log "CONTRACT_COMPLETE id=$contract_id"
+        cybra_log "CONTRACT_COMPLETE $cid"
     fi
 
-    cybra_log "LINK_CONFIRMED link_id=$link_id role=$role by=$confirmer"
-
-    echo "OK: $role confirmed for $contract_id"
+    cybra_log "LINK_CONFIRMED $lid $role by=$who"
+    echo "OK: $role confirmed for $cid"
 }
+
+# Aliases для тестів
+CREATION_LICENSE_LEDGER="$CYBRA_CREATION_LEDGER"
+LICENSE_LEDGER="$CYBRA_LICENSE_LEDGER"
+LICENSE_LEDGER_B="$CYBRA_LICENSE_LEDGER_B"
+export CREATION_LICENSE_LEDGER LICENSE_LEDGER LICENSE_LEDGER_B
