@@ -282,3 +282,311 @@ cybra_amount_to_wei() {
     echo "0"
     return 1
 }
+
+# ============================================================
+# PII MASKING — SHA-256 для експорту
+# ============================================================
+
+# Маска для PII: NAME, IPN, EDRPOU, ADDRESS
+# Salt фіксований — щоб hash був детермінований (для перевірки)
+
+CYBRA_PII_SALT="CYBRA_PII_SALT_v1_2026"
+
+cybra_pii_hash() {
+    local value="$1"
+    [ -z "$value" ] && { echo "EMPTY"; return; }
+    printf '%s|%s' "$CYBRA_PII_SALT" "$value" | sha256sum | awk '{print $1}'
+}
+
+# --- Короткий хеш для відображення (перші 16 символів) ---
+cybra_pii_short() {
+    local value="$1"
+    [ -z "$value" ] && { echo "EMPTY"; return; }
+    local h="$(cybra_pii_hash "$value")"
+    echo "${h:0:16}"
+}
+
+# --- Повний хеш для машинної перевірки ---
+cybra_pii_full() {
+    local value="$1"
+    cybra_pii_hash "$value"
+}
+
+# ------------------------------------------------------------
+# Експорт контракту з маскованими PII
+# ------------------------------------------------------------
+cybra_export_masked() {
+    local cid="$1"
+    local out_dir="${2:-$HOME/CYBRA/public/contracts}"
+
+    local f="$CYBRA_CONTRACTS/$cid.env"
+    [ ! -f "$f" ] && {
+        echo "ERROR: contract not found" >&2
+        return 1
+    }
+
+    mkdir -p "$out_dir"
+
+    local buyer_name="$(grep '^BUYER_NAME=' "$f" | cut -d= -f2-)"
+    local buyer_ipn="$(grep '^BUYER_IPN=' "$f" | cut -d= -f2-)"
+    local seller_name="$(grep '^SELLER_NAME=' "$f" | cut -d= -f2-)"
+    local seller_edrpou="$(grep '^SELLER_EDRPOU=' "$f" | cut -d= -f2-)"
+
+    local buyer_name_hash="$(cybra_pii_hash "$buyer_name")"
+    local buyer_ipn_hash="$(cybra_pii_hash "$buyer_ipn")"
+    local seller_name_hash="$(cybra_pii_hash "$seller_name")"
+    local seller_edrpou_hash="$(cybra_pii_hash "$seller_edrpou")"
+
+    # --- Masked .env ---
+    local out_env="$out_dir/$cid.masked.env"
+    sed \
+        -e "s|^BUYER_NAME=.*|BUYER_NAME=sha256:$buyer_name_hash|" \
+        -e "s|^BUYER_IPN=.*|BUYER_IPN=sha256:$buyer_ipn_hash|" \
+        -e "s|^SELLER_NAME=.*|SELLER_NAME=sha256:$seller_name_hash|" \
+        -e "s|^SELLER_EDRPOU=.*|SELLER_EDRPOU=sha256:$seller_edrpou_hash|" \
+        "$f" > "$out_env"
+
+    # --- Masked .parties ---
+    if [ -f "$CYBRA_CONTRACTS/$cid.parties" ]; then
+        sed \
+            -e "s|^name=.*|name=sha256:$buyer_name_hash|" \
+            -e "s|^ipn=.*|ipn=sha256:$buyer_ipn_hash|" \
+            "$CYBRA_CONTRACTS/$cid.parties" \
+            | awk -v sn="$seller_name_hash" -v se="$seller_edrpou_hash" '
+                /^\[SELLER\]/ { seller=1 }
+                seller && /^name=/ { print "name=sha256:"sn; next }
+                seller && /^edrpou=/ { print "edrpou=sha256:"se; next }
+                { print }
+            ' > "$out_dir/$cid.masked.parties"
+    fi
+
+    # --- Masked .lines (товари — це не PII, копіюємо як є) ---
+    [ -f "$CYBRA_CONTRACTS/$cid.lines" ] && \
+        cp "$CYBRA_CONTRACTS/$cid.lines" "$out_dir/$cid.masked.lines"
+
+    # --- Masked .terms (умови — публічні) ---
+    [ -f "$CYBRA_CONTRACTS/$cid.terms" ] && \
+        cp "$CYBRA_CONTRACTS/$cid.terms" "$out_dir/$cid.masked.terms"
+
+    # --- PII manifest (для перевірки при потребі) ---
+    cat > "$out_dir/$cid.pii_manifest" <<PIINFO
+# PII MASK MANIFEST
+# CONTRACT_ID=$cid
+# MASKED_AT=$(cybra_now)
+# ALGORITHM=sha256
+# SALT_FINGERPRINT=$(printf '%s' "$CYBRA_PII_SALT" | sha256sum | awk '{print $1}' | head -c 16)
+
+[BUYER]
+name_hash=$buyer_name_hash
+ipn_hash=$buyer_ipn_hash
+
+[SELLER]
+name_hash=$seller_name_hash
+edrpou_hash=$seller_edrpou_hash
+
+# Для верифікації: cybra_pii_hash "ПІБ" → повинно співпасти
+PIINFO
+
+    # --- Хеш експорту ---
+    (
+        cd "$out_dir" || exit 1
+        sha256sum "$cid.masked."* 2>/dev/null
+    ) > "$out_dir/$cid.export.sha256"
+
+    local export_hash="$(sha256sum "$out_dir/$cid.export.sha256" | awk '{print $1}')"
+
+    cybra_log "PII_EXPORT $cid export_hash=$export_hash"
+
+    printf '%s\n' "$export_hash"
+}
+
+# ------------------------------------------------------------
+# Масовий експорт всіх контрактів
+# ------------------------------------------------------------
+cybra_export_all_masked() {
+    local out_dir="${1:-$HOME/CYBRA/public/contracts}"
+    mkdir -p "$out_dir"
+
+    local count=0
+    for f in "$CYBRA_CONTRACTS"/*.env; do
+        [ -f "$f" ] || continue
+        local cid="$(basename "$f" .env)"
+        local h="$(cybra_export_masked "$cid" "$out_dir")"
+        printf '  %s → %s\n' "$cid" "${h:0:16}..."
+        count=$((count+1))
+    done
+
+    printf '\n Експортовано: %d контрактів\n' "$count"
+    printf ' Шлях: %s\n' "$out_dir"
+}
+
+# ------------------------------------------------------------
+# Перевірка: чи PII співпадає з хешем
+# ------------------------------------------------------------
+cybra_pii_verify() {
+    local value="$1"
+    local expected_hash="$2"
+    local computed="$(cybra_pii_hash "$value")"
+
+    if [ "$computed" = "$expected_hash" ]; then
+        echo "MATCH"
+        return 0
+    else
+        echo "MISMATCH"
+        return 1
+    fi
+}
+
+# ============================================================
+# PII MASKING — SHA-256 для експорту
+# ============================================================
+
+# Маска для PII: NAME, IPN, EDRPOU, ADDRESS
+# Salt фіксований — щоб hash був детермінований (для перевірки)
+
+CYBRA_PII_SALT="CYBRA_PII_SALT_v1_2026"
+
+cybra_pii_hash() {
+    local value="$1"
+    [ -z "$value" ] && { echo "EMPTY"; return; }
+    printf '%s|%s' "$CYBRA_PII_SALT" "$value" | sha256sum | awk '{print $1}'
+}
+
+# --- Короткий хеш для відображення (перші 16 символів) ---
+cybra_pii_short() {
+    local value="$1"
+    [ -z "$value" ] && { echo "EMPTY"; return; }
+    local h="$(cybra_pii_hash "$value")"
+    echo "${h:0:16}"
+}
+
+# --- Повний хеш для машинної перевірки ---
+cybra_pii_full() {
+    local value="$1"
+    cybra_pii_hash "$value"
+}
+
+# ------------------------------------------------------------
+# Експорт контракту з маскованими PII
+# ------------------------------------------------------------
+cybra_export_masked() {
+    local cid="$1"
+    local out_dir="${2:-$HOME/CYBRA/public/contracts}"
+
+    local f="$CYBRA_CONTRACTS/$cid.env"
+    [ ! -f "$f" ] && {
+        echo "ERROR: contract not found" >&2
+        return 1
+    }
+
+    mkdir -p "$out_dir"
+
+    local buyer_name="$(grep '^BUYER_NAME=' "$f" | cut -d= -f2-)"
+    local buyer_ipn="$(grep '^BUYER_IPN=' "$f" | cut -d= -f2-)"
+    local seller_name="$(grep '^SELLER_NAME=' "$f" | cut -d= -f2-)"
+    local seller_edrpou="$(grep '^SELLER_EDRPOU=' "$f" | cut -d= -f2-)"
+
+    local buyer_name_hash="$(cybra_pii_hash "$buyer_name")"
+    local buyer_ipn_hash="$(cybra_pii_hash "$buyer_ipn")"
+    local seller_name_hash="$(cybra_pii_hash "$seller_name")"
+    local seller_edrpou_hash="$(cybra_pii_hash "$seller_edrpou")"
+
+    # --- Masked .env ---
+    local out_env="$out_dir/$cid.masked.env"
+    sed \
+        -e "s|^BUYER_NAME=.*|BUYER_NAME=sha256:$buyer_name_hash|" \
+        -e "s|^BUYER_IPN=.*|BUYER_IPN=sha256:$buyer_ipn_hash|" \
+        -e "s|^SELLER_NAME=.*|SELLER_NAME=sha256:$seller_name_hash|" \
+        -e "s|^SELLER_EDRPOU=.*|SELLER_EDRPOU=sha256:$seller_edrpou_hash|" \
+        "$f" > "$out_env"
+
+    # --- Masked .parties ---
+    if [ -f "$CYBRA_CONTRACTS/$cid.parties" ]; then
+        sed \
+            -e "s|^name=.*|name=sha256:$buyer_name_hash|" \
+            -e "s|^ipn=.*|ipn=sha256:$buyer_ipn_hash|" \
+            "$CYBRA_CONTRACTS/$cid.parties" \
+            | awk -v sn="$seller_name_hash" -v se="$seller_edrpou_hash" '
+                /^\[SELLER\]/ { seller=1 }
+                seller && /^name=/ { print "name=sha256:"sn; next }
+                seller && /^edrpou=/ { print "edrpou=sha256:"se; next }
+                { print }
+            ' > "$out_dir/$cid.masked.parties"
+    fi
+
+    # --- Masked .lines (товари — це не PII, копіюємо як є) ---
+    [ -f "$CYBRA_CONTRACTS/$cid.lines" ] && \
+        cp "$CYBRA_CONTRACTS/$cid.lines" "$out_dir/$cid.masked.lines"
+
+    # --- Masked .terms (умови — публічні) ---
+    [ -f "$CYBRA_CONTRACTS/$cid.terms" ] && \
+        cp "$CYBRA_CONTRACTS/$cid.terms" "$out_dir/$cid.masked.terms"
+
+    # --- PII manifest (для перевірки при потребі) ---
+    cat > "$out_dir/$cid.pii_manifest" <<PIINFO
+# PII MASK MANIFEST
+# CONTRACT_ID=$cid
+# MASKED_AT=$(cybra_now)
+# ALGORITHM=sha256
+# SALT_FINGERPRINT=$(printf '%s' "$CYBRA_PII_SALT" | sha256sum | awk '{print $1}' | head -c 16)
+
+[BUYER]
+name_hash=$buyer_name_hash
+ipn_hash=$buyer_ipn_hash
+
+[SELLER]
+name_hash=$seller_name_hash
+edrpou_hash=$seller_edrpou_hash
+
+# Для верифікації: cybra_pii_hash "ПІБ" → повинно співпасти
+PIINFO
+
+    # --- Хеш експорту ---
+    (
+        cd "$out_dir" || exit 1
+        sha256sum "$cid.masked."* 2>/dev/null
+    ) > "$out_dir/$cid.export.sha256"
+
+    local export_hash="$(sha256sum "$out_dir/$cid.export.sha256" | awk '{print $1}')"
+
+    cybra_log "PII_EXPORT $cid export_hash=$export_hash"
+
+    printf '%s\n' "$export_hash"
+}
+
+# ------------------------------------------------------------
+# Масовий експорт всіх контрактів
+# ------------------------------------------------------------
+cybra_export_all_masked() {
+    local out_dir="${1:-$HOME/CYBRA/public/contracts}"
+    mkdir -p "$out_dir"
+
+    local count=0
+    for f in "$CYBRA_CONTRACTS"/*.env; do
+        [ -f "$f" ] || continue
+        local cid="$(basename "$f" .env)"
+        local h="$(cybra_export_masked "$cid" "$out_dir")"
+        printf '  %s → %s\n' "$cid" "${h:0:16}..."
+        count=$((count+1))
+    done
+
+    printf '\n Експортовано: %d контрактів\n' "$count"
+    printf ' Шлях: %s\n' "$out_dir"
+}
+
+# ------------------------------------------------------------
+# Перевірка: чи PII співпадає з хешем
+# ------------------------------------------------------------
+cybra_pii_verify() {
+    local value="$1"
+    local expected_hash="$2"
+    local computed="$(cybra_pii_hash "$value")"
+
+    if [ "$computed" = "$expected_hash" ]; then
+        echo "MATCH"
+        return 0
+    else
+        echo "MISMATCH"
+        return 1
+    fi
+}

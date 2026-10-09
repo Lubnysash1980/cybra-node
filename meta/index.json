@@ -1,6 +1,6 @@
 {
-  "run": "20261009T111702Z-14870",
-  "stamp": "20261009T111702Z",
+  "run": "20261009T112711Z-19306",
+  "stamp": "20261009T112711Z",
   "modules": [
     {"name":"module_01_auto_executor","pass":9,"fail":0,"tree":"fd8351a1dcbe1a41a86e898f1978eea49b8546b51359305ad2a8adb261bd6762"},
     {"name":"module_02_contract_builder","pass":0,"fail":0,"tree":"4557fcd32a704d504f5a06aa2128249e229d8330de82dc322c9b85aa146543be"},
@@ -12,10 +12,11 @@
     {"name":"module_16_final_authorization_release_gate","pass":14,"fail":0,"tree":"ee9e40d1ac024c7735ea01bca07173c57d1eabe5d7c3e809b8bdbde24cc3f888"},
     {"name":"module_17_cybra_license_contract_menu","pass":20,"fail":0,"tree":"41ee51c56507da9d7b5b82e00f11b6ccb97119e42f19b14a255fc2a4583ca688"},
     {"name":"module_18_license_payment_router","pass":20,"fail":0,"tree":"dac993d28de783521bc30d55a74f8b703c1fa954386536f1e2602ec51cba7a36"},
-    {"name":"module_19_contract_tui_menu","pass":37,"fail":0,"tree":"b9e3701efdb4751ada81de6f24a424082cfbedc7e5715eb46ab9fbda8fc58b55"},
+    {"name":"module_19_contract_tui_menu","pass":37,"fail":0,"tree":"4ee41c349f47fd1949f67fac597093ae46cc6e595b1cc22578af5a89cfa067f3"},
     {"name":"module_20_evolution_guard","pass":15,"fail":3,"tree":"ffd56057b71650be08cdf7e1d10a489066419c7b70909c33a1ac884c894993e2"}
   ],
   "module_count": 12,
+  "evo_test": {"pass": 12, "fail": 3},
   "license_recipient": "0x66434c5501242ccC71b5a39C765892921624B66c",
   "policy": "STRICT_NON_DEGRADATION_3PCT"
 }

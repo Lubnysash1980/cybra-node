@@ -3,113 +3,6 @@
 CYBRA_MOD19_ROOT="$HOME/CYBRA/modules/module_19_contract_tui_menu"
 source "$CYBRA_MOD19_ROOT/bin/cybra_tui_lib.sh"
 
-action_create_invoice() {
-    printf '%s\n' "${C_BOLD}--- Створити INVOICE-контракт ---${C_RESET}"
-    printf '%s\n' "${C_GREY}Повний рахунок: сторони + позиції + умови + 3 лінки${C_RESET}"
-    printf '\n'
-
-    printf 'ПІБ покупця:    '; read -r BUYER_NAME
-    printf 'ІПН покупця:    '; read -r BUYER_IPN
-    printf 'Wallet покупця: '; read -r BUYER_WALLET
-
-    printf 'Назва продавця: '; read -r SELLER_NAME
-    printf 'ЄДРПОУ:         '; read -r SELLER_EDRPOU
-    printf 'Wallet продавця: '; read -r SELLER_WALLET
-
-    printf 'Номер рахунку:  '; read -r INV_NO
-    printf 'Дата рахунку:   '; read -r INV_DATE
-    printf 'Сума в токені:  '; read -r AMOUNT_RAW
-    printf 'Token contract: '; read -r TOKEN
-    printf 'Decimals [18]:  '; read -r DECIMALS
-    DECIMALS="${DECIMALS:-18}"
-
-    AMOUNT="$(cybra_amount_to_wei "$AMOUNT_RAW" "$DECIMALS")"
-
-    if [ -z "$BUYER_NAME" ] || [ -z "$SELLER_NAME" ] || [ -z "$AMOUNT" ] || [ "$AMOUNT" = "0" ]; then
-        printf '%s\n' "${C_RED}Помилка: всі поля обов'язкові${C_RESET}"
-        return 1
-    fi
-
-    local cid
-    cid="$(cybra_contract_create_invoice \
-        "$BUYER_NAME" "$BUYER_IPN" "$BUYER_WALLET" \
-        "$SELLER_NAME" "$SELLER_EDRPOU" "$SELLER_WALLET" \
-        "$INV_NO" "$INV_DATE" "$AMOUNT" "$TOKEN" "$DECIMALS" 20)"
-
-    if [ -z "$cid" ]; then
-        printf '%s\n' "${C_RED}Не вдалось створити${C_RESET}"; return 1
-    fi
-
-    printf '\n%s\n' "${C_GREEN}OK: створено $cid${C_RESET}"
-    printf 'CONTRACT_ID: %s\n' "$cid"
-}
-
-action_add_line() {
-    printf 'CONTRACT_ID: '; read -r CID
-    [ ! -f "$(cybra_contract_path "$CID")" ] && {
-        printf '%s\n' "${C_RED}Контракт не знайдено${C_RESET}"; return 1
-    }
-    printf 'Код:      '; read -r CODE
-    printf 'Назва:    '; read -r NAME
-    printf 'Кількість: '; read -r QTY
-    printf 'Ціна:     '; read -r PRICE
-    local sum
-    sum="$(cybra_invoice_add_line "$CID" "$CODE" "$NAME" "$QTY" "$PRICE")"
-    printf '%s\n' "${C_GREEN}Додано: $NAME x$QTY = $sum${C_RESET}"
-}
-
-action_show_invoice() {
-    printf 'CONTRACT_ID: '; read -r CID
-    cybra_invoice_show "$CID"
-}
-
-action_finalize_invoice() {
-    printf 'CONTRACT_ID: '; read -r CID
-    local result
-    result="$(cybra_invoice_finalize "$CID")"
-    [ $? -ne 0 ] && { printf '%s\n' "${C_RED}$result${C_RESET}"; return 1; }
-    printf '%s\n' "${C_GREEN}OK: finalized${C_RESET}"
-    printf '%s\n' "$result"
-}
-
-action_export_masked() {
-    printf 'CONTRACT_ID: '; read -r CID
-    [ -z "$CID" ] && return 1
-    [ ! -f "$(cybra_contract_path "$CID")" ] && {
-        printf '%s\n' "${C_RED}Контракт не знайдено${C_RESET}"; return 1
-    }
-    local out_dir="$HOME/CYBRA/public/contracts"
-    local h="$(cybra_export_masked "$CID" "$out_dir")"
-    printf '%s\n' "${C_GREEN}OK: PII-masked export${C_RESET}"
-    printf '  Export hash: %s\n' "$h"
-    printf '  Path: %s\n' "$out_dir"
-}
-
-action_export_all_masked() {
-    local out_dir="$HOME/CYBRA/public/contracts"
-    printf '%s\n' "${C_BOLD}--- Експорт усіх контрактів (PII-masked) ---${C_RESET}"
-    cybra_export_all_masked "$out_dir"
-    if [ -d "$HOME/CYBRA/git_module/.git" ]; then
-        printf '\nПуш у git? [y/N]: '; read -r PUSH_ANS
-        if [ "$PUSH_ANS" = "y" ] || [ "$PUSH_ANS" = "Y" ]; then
-            mkdir -p "$HOME/CYBRA/git_module/contracts"
-            cp -r "$out_dir"/* "$HOME/CYBRA/git_module/contracts/" 2>/dev/null || true
-            cd "$HOME/CYBRA/git_module" || return 1
-            git add -A
-            git commit -m "PII-masked contracts $(date -u +%Y%m%dT%H%M%SZ)" 2>/dev/null || true
-            git push 2>&1 | tail -3
-        fi
-    fi
-}
-
-action_verify_pii() {
-    printf 'Значення: '; read -r VALUE
-    printf 'Hash:     '; read -r EXPECTED
-    local computed="$(cybra_pii_hash "$VALUE")"
-    printf 'Computed: %s\n' "$computed"
-    [ "$computed" = "$EXPECTED" ] && printf '%s\n' "${C_GREEN}MATCH${C_RESET}" || printf '%s\n' "${C_RED}MISMATCH${C_RESET}"
-}
-
 print_header() {
     clear 2>/dev/null || printf '\033[2J\033[H'
     printf '%s\n' "${C_BOLD}${C_CYAN}============================================================${C_RESET}"
@@ -120,25 +13,15 @@ print_header() {
 }
 
 print_menu() {
-    printf '%s\n' "  ${C_BOLD}[1]${C_RESET}  Створити новий контракт"
-    printf '%s\n' "  ${C_BOLD}[2]${C_RESET}  Список усіх контрактів"
-    printf '%s\n' "  ${C_BOLD}[3]${C_RESET}  Статус контракту"
-    printf '%s\n' "  ${C_BOLD}[4]${C_RESET}  Згенерувати лінки"
-    printf '%s\n' "  ${C_BOLD}[5]${C_RESET}  Підтвердити лінк"
-    printf '%s\n' "  ${C_BOLD}[6]${C_RESET}  Debug"
-    printf '%s\n' "  ${C_BOLD}[7]${C_RESET}  DUAL-LICENSE ledger"
-    printf '%s\n' "  ${C_BOLD}[8]${C_RESET}  CREATION-LICENSE ledger"
-    printf '%s\n' "  ${C_BOLD}[9]${C_RESET}  Hardening"
-    printf '%s\n' "${C_CYAN}  ── INVOICE ──${C_RESET}"
-    printf '%s\n' "  ${C_BOLD}[11]${C_RESET} Створити INVOICE"
-    printf '%s\n' "  ${C_BOLD}[12]${C_RESET} Додати позицію"
-    printf '%s\n' "  ${C_BOLD}[13]${C_RESET} Показати INVOICE"
-    printf '%s\n' "  ${C_BOLD}[14]${C_RESET} Фіналізувати INVOICE"
-    printf '%s\n' "${C_CYAN}  ── PII MASK ──${C_RESET}"
-    printf '%s\n' "  ${C_BOLD}[15]${C_RESET} Експорт контракту (PII)"
-    printf '%s\n' "  ${C_BOLD}[16]${C_RESET} Експорт усіх (PII + git)"
-    printf '%s\n' "  ${C_BOLD}[17]${C_RESET} Перевірити PII хеш"
-    printf '%s\n' "  ${C_BOLD}[0]${C_RESET}  Вихід"
+    printf '%s\n' "  ${C_BOLD}[1]${C_RESET} Створити новий контракт"
+    printf '%s\n' "  ${C_BOLD}[2]${C_RESET} Список усіх контрактів"
+    printf '%s\n' "  ${C_BOLD}[3]${C_RESET} Статус контракту"
+    printf '%s\n' "  ${C_BOLD}[4]${C_RESET} Згенерувати лінки (BUYER / SELLER / RECEIPT)"
+    printf '%s\n' "  ${C_BOLD}[5]${C_RESET} Підтвердити лінк"
+    printf '%s\n' "  ${C_BOLD}[6]${C_RESET} Debug — повний лог контракту"
+    printf '%s\n' "  ${C_BOLD}[7]${C_RESET} Ліцензійний реєстр (1% з усіх контрактів)"
+    printf '%s\n' "  ${C_BOLD}[8]${C_RESET} Hardening — перевірка системи"
+    printf '%s\n' "  ${C_BOLD}[0]${C_RESET} Вихід"
     printf '\n'
 }
 
@@ -453,24 +336,16 @@ while true; do
         4) action_generate_links ;;
         5) action_confirm_link ;;
         6) action_debug ;;
-        7) action_dual_license_ledger ;;
-        8) action_creation_license ;;
-        9) action_hardening ;;
-        11) action_create_invoice ;;
-        12) action_add_line ;;
-        13) action_show_invoice ;;
-        14) action_finalize_invoice ;;
-        15) action_export_masked ;;
-        16) action_export_all_masked ;;
-        17) action_verify_pii ;;
+        7) action_license_ledger ;;
+        8) action_hardening ;;
+        9) action_dual_license_ledger ;;
+        10) action_creation_license ;;
         0|q|Q|exit|quit)
-            printf "%s
-" "${C_GREEN}До побачення.${C_RESET}"
+            printf '%s\n' "${C_GREEN}До побачення.${C_RESET}"
             exit 0
             ;;
         *)
-            printf "%s
-" "${C_RED}Невідома опція.${C_RESET}"
+            printf '%s\n' "${C_RED}Невідома опція.${C_RESET}"
             ;;
     esac
 
