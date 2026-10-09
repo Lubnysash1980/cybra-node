@@ -484,8 +484,15 @@ action_ai_ask() {
 }
 
 action_ai_taskbar() {
-    printf '%sЗапускаю AI Task Bar...%s\n\n' "${C_CYAN:-}" "${C_RESET:-}"
-    "$HOME/CYBRA/CYBRA_AI_TASK_BAR.sh"
+    if [ -x "$HOME/CYBRA/CYBRA_AI_TASK_BAR.sh" ]; then
+        "$HOME/CYBRA/CYBRA_AI_TASK_BAR.sh"
+    else
+        printf '%s%s%s
+' "${C_RED:-}" "AI Task Bar не знайдено" "${C_RESET:-}"
+        printf 'Запусти: cybra_self_heal
+'
+        read -r _
+    fi
 }
 
 action_create_contract() {
