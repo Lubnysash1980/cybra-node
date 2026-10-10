@@ -164,6 +164,11 @@ REAL_TRANSACTION_SENT=FALSE
 GLOBAL_TRUE_100=FALSE
 CTR
 
+    # --- AUTO-DUAL-HASH ---
+    if declare -f cybra_contract_compute_dual_hash >/dev/null 2>&1; then
+        cybra_contract_compute_dual_hash "$cid" >/dev/null 2>&1 || true
+    fi
+
     cybra_license_record "$cid" "$amount" "$la" "$lb"
     cybra_creation_license_record "$cid" "$amount" "$cf" "$buyer"
     cybra_log "CONTRACT_CREATED $cid"
