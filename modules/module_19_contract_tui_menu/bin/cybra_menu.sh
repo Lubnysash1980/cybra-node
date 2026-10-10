@@ -581,10 +581,17 @@ action_create_contract() {
 
     # --- AUTO AI REVIEW ---
     if [ -f "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_local_ai.sh" ]; then
-        printf '\n%s═══ AUTO AI REVIEW ═══%s\n' "${C_CYAN:-}" "${C_RESET:-}"
+        printf "\n═══ AUTO AI REVIEW ═══\n"
         source "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_local_ai.sh" 2>/dev/null
         local_ai_review_contract "$cid" 2>/dev/null || true
-    fi' "${CREATION_FEE_RECIPIENT}"
+    fi
+
+    # --- AUTO-AUTOSAVE ---
+    if [ -x "$HOME/CYBRA/modules/module_35_cybra_guardian/bin/autosave.sh" ]; then
+        source "$HOME/CYBRA/modules/module_35_cybra_guardian/bin/autosave.sh"
+        as_save_all "$cid" 2>/dev/null || true
+    fi
+
 }
 
 action_list_contracts() {
@@ -914,8 +921,8 @@ action_gd_100()          {
 }
 action_gd_register()     {
     source "$GD_LIB"
-    printf 'Ім\'я / назва:      '; read -r N
-    printf 'ID номер (ЄДРПОУ/ІПН): '; read -r I
+    printf "Ім'я / назва:      "; read -r N
+    printf "ID номер (ЄДРПОУ/ІПН): "; read -r I
     printf 'Wallet (0x...):     '; read -r W
     printf 'Biometric (опц.):   '; read -r B
     gd_register "$N" "$I" "$W" "${B:-none}"
@@ -924,7 +931,7 @@ action_gd_register()     {
 action_gd_show()         { source "$GD_LIB"; gd_show_identity; read -r _; }
 action_gd_verify()       {
     source "$GD_LIB"
-    printf 'Ім\'я:               '; read -r N
+    printf "Ім'я:               "; read -r N
     printf 'ID номер:           '; read -r I
     printf 'Wallet:             '; read -r W
     printf 'Biometric (опц.):   '; read -r B
