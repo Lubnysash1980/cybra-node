@@ -1,0 +1,40 @@
+#!/data/data/com.termux/files/usr/bin/bash
+source "$HOME/CYBRA/modules/module_20_evolution_guard/bin/cybra_evolution.sh"
+
+case "${1:-check}" in
+    check)
+        echo "=== EVOLUTION GUARD — CHECK ==="
+        evo_check_all
+        ;;
+    snapshot)
+        evo_snapshot
+        ;;
+    approve)
+        evo_approve "$2"
+        ;;
+    reject)
+        evo_reject "$2" "$3"
+        ;;
+    freeze)
+        evo_freeze
+        ;;
+    unfreeze)
+        evo_unfreeze
+        ;;
+    frozen)
+        if evo_is_frozen; then
+            echo "FROZEN"
+        else
+            echo "OK"
+        fi
+        ;;
+    ledger)
+        cat "$HOME/CYBRA/evolution/evolution_ledger.txt" 2>/dev/null || echo "(empty)"
+        ;;
+    blocked)
+        cat "$HOME/CYBRA/evolution/blocked.log" 2>/dev/null || echo "(empty)"
+        ;;
+    *)
+        echo "Usage: cybra_evo {check|snapshot|approve <mod>|reject <mod>|freeze|unfreeze|frozen|ledger|blocked}"
+        ;;
+esac

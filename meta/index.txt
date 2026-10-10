@@ -1,17 +1,29 @@
 # CYBRA NODE INDEX
-# UPDATED=2026-10-09T12:15:53Z
-#
-MODULE                                        STATUS         TREE_HASH         
+RUN=20261010T070549Z-11341
+STAMP=20261010T070549Z
+
+MODULE                                        STATUS         TREE              
 --------------------------------------------------------------------
-module_01_auto_executor                       P=9 F=0        fd8351a1dcbe1a41  
-module_02_contract_builder                    P=0 F=0        4557fcd32a704d50  
-module_03_escrow_controller                   P=0 F=0        e83ba79d0a721759  
-module_12_delivery_receipt                    P=18 F=0       3266277a1f6691ac  
-module_13_dual_backend                        P=18 F=0       d497da88a2670bc8  
-module_14_watchdog                            P=18 F=0       593ae91b81b65fc7  
-module_15_true100_aggregator                  P=14 F=0       526444af860c3b18  
-module_16_final_authorization_release_gate    P=14 F=0       ee9e40d1ac024c77  
-module_17_cybra_license_contract_menu         P=20 F=0       41ee51c56507da9d  
-module_18_license_payment_router              P=20 F=0       dac993d28de78352  
-module_19_contract_tui_menu                   P=37 F=0       f746895160397bf5  
-module_20_evolution_guard                     P=17 F=1       6c342e2a7a1eca69  
+module_01_auto_executor                       OK             8695cee0d75d157a  
+module_02_contract_builder                    OK             28b982420a142f53  
+module_03_escrow_controller                   OK             12e2fbb31d67e25d  
+module_12_delivery_receipt                    OK             dc75a5c10bc1b186  
+module_13_dual_backend                        OK             9ad452d6a019fe83  
+module_14_watchdog                            OK             7232aabcf8d003ca  
+module_15_true100_aggregator                  OK             a865931a86be30e7  
+module_16_final_authorization_release_gate    OK             ee9e40d1ac024c77  
+module_17_cybra_license_contract_menu         OK             1b884d37a72b48ab  
+module_18_license_payment_router              OK             dc4ca2769ac67b0f  
+module_19_contract_tui_menu                   OK             bebb8c75f50f3264  
+module_20_evolution_guard                     OK             fc05a5544aa7636a  
+module_25_address_book                        OK             fd29bfaf22c21100  
+module_26_qr_codes                            OK             d54425e832563463  
+module_27_telegram_bot                        OK             19b10a4c4f481faf  
+module_28_export                              OK             92700b6aba745d01  
+module_29_backup                              OK             80ab388e254abbab  
+module_30_multichain                          OK             3726fea04cb45c52  
+module_31_dispute_resolver                    OK             b6b6a27dd00a45a8  
+module_32_webhook                             OK             bf925cfedb68ecd4  
+module_33_audit_log                           OK             740d448f30b9c797  
+module_34_doc_scanner                         OK             0dc531205cb75a0b  
+module_35_cybra_guardian                      OK             7ac5ef960db2e95c  

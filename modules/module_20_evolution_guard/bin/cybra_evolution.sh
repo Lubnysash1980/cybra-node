@@ -229,7 +229,7 @@ evo_check_all() {
     local fail=0
 
     # Створюємо тимчасовий канал для логу блокувань
-    local block_log="/tmp/evo_block_reasons_$$"
+    local block_log="$HOME/.cache/evo_block_$$"
     : > "$block_log"
 
     for d in "$MODULES"/*/; do

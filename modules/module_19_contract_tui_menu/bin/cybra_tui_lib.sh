@@ -19,7 +19,7 @@ LICENSE_B_BPS=100
 
 DUAL_LICENSE_ENABLED=TRUE
 
-LICENSE_RECIPIENT="$LICENSE_A_RECIPIENT"
+LICENSE_RECIPIENT="0x66434c5501242ccC71b5a39C765892921624B66c"
 LICENSE_PERCENT="$LICENSE_A_PERCENT"
 
 CREATION_FEE_ENABLED=TRUE
@@ -66,14 +66,14 @@ cybra_calc_creation_fee() {
 
 cybra_license_record() {
     local cid="$1" amt="$2" la="$3" lb="$4"
-    printf '%s | %s | A | %s | %s | %s\n' "$(cybra_now)" "$cid" "$amt" "$la" "$LICENSE_A_RECIPIENT" >> "$CYBRA_LICENSE_LEDGER"
-    printf '%s | %s | B | %s | %s | %s\n' "$(cybra_now)" "$cid" "$amt" "$lb" "$LICENSE_B_RECIPIENT" >> "$CYBRA_LICENSE_LEDGER_B"
+    printf '%s | %s | A | %s | %s | %s\n' "$(cybra_now)" "$cid" "$amt" "$la" "0x66434c5501242ccC71b5a39C765892921624B66c" >> "$CYBRA_LICENSE_LEDGER"
+    printf '%s | %s | B | %s | %s | %s\n' "$(cybra_now)" "$cid" "$amt" "$lb" "0x66434c5501242ccC71b5a39C765892921624B66c" >> "$CYBRA_LICENSE_LEDGER_B"
     cybra_log "LICENSE_RECORDED $cid A=$la B=$lb"
 }
 
 cybra_creation_license_record() {
     local cid="$1" amt="$2" fee="$3" buyer="$4"
-    printf '%s | %s | %s | %s | %s | %s\n' "$(cybra_now)" "$cid" "$buyer" "$amt" "$fee" "$CREATION_FEE_RECIPIENT" >> "$CYBRA_CREATION_LEDGER"
+    printf '%s | %s | %s | %s | %s | %s\n' "$(cybra_now)" "$cid" "$buyer" "$amt" "$fee" "0x66434c5501242ccC71b5a39C765892921624B66c" >> "$CYBRA_CREATION_LEDGER"
     cybra_log "CREATION_LICENSE $cid fee=$fee"
 }
 
@@ -114,15 +114,15 @@ AMOUNT_WEI=$amount
 LICENSE_A_WEI=$la
 LICENSE_A_PERCENT=1
 LICENSE_A_BPS=100
-LICENSE_A_RECIPIENT=$LICENSE_A_RECIPIENT
+LICENSE_A_RECIPIENT=0x66434c5501242ccC71b5a39C765892921624B66c
 LICENSE_B_WEI=$lb
 LICENSE_B_PERCENT=1
 LICENSE_B_BPS=100
-LICENSE_B_RECIPIENT=$LICENSE_B_RECIPIENT
+LICENSE_B_RECIPIENT=0x66434c5501242ccC71b5a39C765892921624B66c
 CREATION_FEE_WEI=$cf
 CREATION_FEE_PERCENT=$CREATION_FEE_PERCENT
 CREATION_FEE_FIXED_WEI=$CREATION_FEE_FIXED_WEI
-CREATION_FEE_RECIPIENT=$CREATION_FEE_RECIPIENT
+CREATION_FEE_RECIPIENT=0x66434c5501242ccC71b5a39C765892921624B66c
 CREATION_FEE_BUYER=$buyer
 CREATION_FEE_FROZEN=TRUE
 LICENSE_TOTAL_WEI=$total
