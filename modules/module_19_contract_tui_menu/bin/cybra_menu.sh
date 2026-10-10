@@ -122,7 +122,7 @@ action_buyer_final_decision() {
     cybra_refund_status "$CID"
     printf '\n'
     printf 'Рішення [CONFIRMED/REJECTED]: '; read -r DEC
-    printf 'Wallet покупця (для перевірки): '; read -r W
+    printf "Wallet покупця (для перевірки): "; read -r W
 
     cybra_buyer_final_decision "$CID" "$DEC" "$W"
 }
@@ -149,7 +149,7 @@ action_show_rates() {
 }
 
 action_update_rate() {
-    printf 'RATE_KEY (наприклад RATE_USD_UAH): '; read -r KEY
+    printf "RATE_KEY (наприклад RATE_USD_UAH): "; read -r KEY
     printf 'VALUE: '; read -r VAL
     local rf="$HOME/CYBRA/modules/module_19_contract_tui_menu/state/rates.env"
     if grep -q "^${KEY}=" "$rf"; then
@@ -163,8 +163,8 @@ action_update_rate() {
 action_convert() {
     source "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_tui_lib.sh"
     printf 'Сума: '; read -r AMT
-    printf 'З валюти (USD/UAH/EUR/CYBRA): '; read -r FROM
-    printf 'У валюту (USD/UAH/EUR/CYBRA): '; read -r TO
+    printf "З валюти (USD/UAH/EUR/CYBRA): "; read -r FROM
+    printf "У валюту (USD/UAH/EUR/CYBRA): "; read -r TO
 
     FROM="$(printf '%s' "$FROM" | tr '[:lower:]' '[:upper:]')"
     TO="$(printf '%s' "$TO" | tr '[:lower:]' '[:upper:]')"
@@ -173,7 +173,7 @@ action_convert() {
         *_CYBRA)
             local wei="$(cybra_currency_to_cybra "$AMT" "$FROM" 18)"
             local dec="$(awk -v w="$wei" 'BEGIN { printf "%.6f", w / 1000000000000000000 }')"
-            printf '  %s %s = %s CYBRA (wei: %s)\n' "$AMT" "$FROM" "$dec" "$wei"
+            printf "  %s %s = %s CYBRA (wei: %s)\n" "$AMT" "$FROM" "$dec" "$wei"
             ;;
         CYBRA_*)
             printf '  Введи wei: '; read -r WEI
@@ -228,8 +228,8 @@ print_header() {
 ' "${C_BOLD}${C_CYAN}              CYBRA CONTRACT MANAGER — TUI v1.1${C_RESET}"
     printf '%s
 ' "${C_BOLD}${C_CYAN}════════════════════════════════════════════════════════════${C_RESET}"
-    printf '  %s %s  │  BSC(56)  │  1%%+1%%+1%% license
-' "$ICON_SYS" "$LABEL_SYS"
+    printf "  %s %s  │  BSC(56)  │  1%%+1%%+1%% license
+" "$ICON_SYS" "$LABEL_SYS"
     printf '  %s modules  │  %s contracts  │  %s links
 ' "$n_mod" "$n_con" "$n_lnk"
     printf '%s
@@ -470,7 +470,7 @@ action_ai_generate_terms() {
 }
 
 action_ai_help_error() {
-    printf 'Помилка (встав текст): '
+    printf "Помилка (встав текст): "
     read -r ERR
     [ -z "$ERR" ] && return 1
     local_ai_help_error "$ERR"
@@ -507,8 +507,8 @@ action_create_contract() {
 
     printf 'BUYER wallet:  '; read -r BUYER
     printf 'SELLER wallet: '; read -r SELLER
-    printf 'AMOUNT (в токенах): '; read -r AMOUNT_RAW
-    printf 'TOKEN address (0x...): '; read -r TOKEN
+    printf "AMOUNT (в токенах): "; read -r AMOUNT_RAW
+    printf "TOKEN address (0x...): "; read -r TOKEN
     printf 'TOKEN_DECIMALS [18]: '; read -r DECIMALS
     DECIMALS="${DECIMALS:-18}"
 
@@ -553,20 +553,20 @@ action_create_contract() {
 ' "${C_GREEN}OK: контракт створено${C_RESET}"
     printf 'ID:              %s
 ' "$cid"
-    printf 'TOKEN:           %s (decimals=%s)
-' "$TOKEN" "$DECIMALS"
-    printf 'AMOUNT:          %s wei (= %s токенів)
-' "$AMOUNT" "$AMOUNT_RAW"
+    printf "TOKEN:           %s (decimals=%s)
+" "$TOKEN" "$DECIMALS"
+    printf "AMOUNT:          %s wei (= %s токенів)
+" "$AMOUNT" "$AMOUNT_RAW"
     printf '
 '
-    printf 'LICENSE_A (1%%):  %s wei
-' "$(grep '^LICENSE_A_WEI=' "$cf" | cut -d= -f2)"
-    printf 'LICENSE_B (1%%):  %s wei
-' "$(grep '^LICENSE_B_WEI=' "$cf" | cut -d= -f2)"
-    printf 'CREATION  (1%%):  %s wei
-' "$(grep '^CREATION_FEE_WEI=' "$cf" | cut -d= -f2)"
-    printf 'TOTAL (3%%):      %s wei
-' "$(grep '^LICENSE_TOTAL_WEI=' "$cf" | cut -d= -f2)"
+    printf "LICENSE_A (1%%):  %s wei
+" "$(grep '^LICENSE_A_WEI=' "$cf" | cut -d= -f2)"
+    printf "LICENSE_B (1%%):  %s wei
+" "$(grep '^LICENSE_B_WEI=' "$cf" | cut -d= -f2)"
+    printf "CREATION  (1%%):  %s wei
+" "$(grep '^CREATION_FEE_WEI=' "$cf" | cut -d= -f2)"
+    printf "TOTAL (3%%):      %s wei
+" "$(grep '^LICENSE_TOTAL_WEI=' "$cf" | cut -d= -f2)"
     printf 'NET SELLER:      %s wei
 ' "$(grep '^NET_WEI=' "$cf" | cut -d= -f2)"
     printf '
@@ -577,7 +577,14 @@ action_create_contract() {
 ' "${LICENSE_A_RECIPIENT}"
     printf '  B: %s
 ' "${LICENSE_B_RECIPIENT}"
-    printf '  C: %s
+    printf "  C: %s
+
+
+    # --- AUTO-AUTOSAVE ---
+    if [ -x \"$HOME/CYBRA/modules/module_35_cybra_guardian/bin/autosave.sh\" ]; then
+        source \"$HOME/CYBRA/modules/module_35_cybra_guardian/bin/autosave.sh\"
+        as_save_all \"$cid\" 2>/dev/null || true
+    fi
 
     # --- AUTO AI REVIEW ---
     if [ -f "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_local_ai.sh" ]; then
@@ -595,7 +602,7 @@ action_create_contract() {
 }
 
 action_list_contracts() {
-    printf '%s\n' "${C_BOLD}--- Список контрактів ---${C_RESET}"
+    printf "%s\n' "${C_BOLD}--- Список контрактів ---${C_RESET}"
     printf '\n'
 
     local found=0
@@ -681,7 +688,7 @@ action_generate_links() {
 
 action_confirm_link() {
     printf 'LINK_ID: '; read -r LID
-    printf 'CONFIRMED_BY (wallet): '; read -r WHO
+    printf "CONFIRMED_BY (wallet): "; read -r WHO
 
     if [ -z "$LID" ] || [ -z "$WHO" ]; then
         printf '%s\n' "${C_RED}Помилка: LINK_ID і CONFIRMED_BY обов'\''язкові${C_RESET}"
@@ -804,8 +811,8 @@ action_hardening() {
 # ------------------------------------------------------------
 
 action_addr_add() {
-    printf 'Назва (name):  '; read -r N
-    printf 'Адреса (0x...): '; read -r A
+    printf "Назва (name):  "; read -r N
+    printf "Адреса (0x...): "; read -r A
     printf 'Тег [user]:     '; read -r T
     T="${T:-user}"
     bash "$HOME/CYBRA/modules/module_25_address_book/bin/address_book.sh" 2>/dev/null
@@ -868,7 +875,7 @@ action_scan_tx() {
 action_dp_open() {
     source "$HOME/CYBRA/modules/module_31_dispute_resolver/bin/dispute.sh"
     printf 'CONTRACT_ID: '; read -r C
-    printf 'OPENED_BY (wallet): '; read -r B
+    printf "OPENED_BY (wallet): "; read -r B
     printf 'REASON: '; read -r R
     D="$(dp_open "$C" "$B" "$R")"
     echo "Opened: $D"; read -r _
@@ -923,8 +930,8 @@ action_gd_register()     {
     source "$GD_LIB"
     printf "Ім'я / назва:      "; read -r N
     printf "ID номер (ЄДРПОУ/ІПН): "; read -r I
-    printf 'Wallet (0x...):     '; read -r W
-    printf 'Biometric (опц.):   '; read -r B
+    printf "Wallet (0x...):     "; read -r W
+    printf "Biometric (опц.):   "; read -r B
     gd_register "$N" "$I" "$W" "${B:-none}"
     read -r _
 }
@@ -934,7 +941,7 @@ action_gd_verify()       {
     printf "Ім'я:               "; read -r N
     printf 'ID номер:           '; read -r I
     printf 'Wallet:             '; read -r W
-    printf 'Biometric (опц.):   '; read -r B
+    printf "Biometric (опц.):   "; read -r B
     gd_verify "$N" "$I" "$W" "${B:-none}"
     read -r _
 }
