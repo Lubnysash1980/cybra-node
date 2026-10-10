@@ -122,7 +122,7 @@ action_buyer_final_decision() {
     cybra_refund_status "$CID"
     printf '\n'
     printf 'Рішення [CONFIRMED/REJECTED]: '; read -r DEC
-    echo "Wallet покупця (для перевірки): "; read -r W
+    printf 'Wallet покупця (для перевірки): '; read -r W
 
     cybra_buyer_final_decision "$CID" "$DEC" "$W"
 }
@@ -149,7 +149,7 @@ action_show_rates() {
 }
 
 action_update_rate() {
-    echo "RATE_KEY (наприклад RATE_USD_UAH): "; read -r KEY
+    printf 'RATE_KEY (наприклад RATE_USD_UAH): '; read -r KEY
     printf 'VALUE: '; read -r VAL
     local rf="$HOME/CYBRA/modules/module_19_contract_tui_menu/state/rates.env"
     if grep -q "^${KEY}=" "$rf"; then
@@ -163,8 +163,8 @@ action_update_rate() {
 action_convert() {
     source "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_tui_lib.sh"
     printf 'Сума: '; read -r AMT
-    echo "З валюти (USD/UAH/EUR/CYBRA): "; read -r FROM
-    echo "У валюту (USD/UAH/EUR/CYBRA): "; read -r TO
+    printf 'З валюти (USD/UAH/EUR/CYBRA): '; read -r FROM
+    printf 'У валюту (USD/UAH/EUR/CYBRA): '; read -r TO
 
     FROM="$(printf '%s' "$FROM" | tr '[:lower:]' '[:upper:]')"
     TO="$(printf '%s' "$TO" | tr '[:lower:]' '[:upper:]')"
@@ -173,7 +173,7 @@ action_convert() {
         *_CYBRA)
             local wei="$(cybra_currency_to_cybra "$AMT" "$FROM" 18)"
             local dec="$(awk -v w="$wei" 'BEGIN { printf "%.6f", w / 1000000000000000000 }')"
-            echo "  %s %s = %s CYBRA (wei: %s)\n" "$AMT" "$FROM" "$dec" "$wei"
+            printf '  %s %s = %s CYBRA (wei: %s)\n' "$AMT" "$FROM" "$dec" "$wei"
             ;;
         CYBRA_*)
             printf '  Введи wei: '; read -r WEI
@@ -228,8 +228,8 @@ print_header() {
 ' "${C_BOLD}${C_CYAN}              CYBRA CONTRACT MANAGER — TUI v1.1${C_RESET}"
     printf '%s
 ' "${C_BOLD}${C_CYAN}════════════════════════════════════════════════════════════${C_RESET}"
-    echo "  %s %s  │  BSC(56)  │  1%%+1%%+1%% license
-" "$ICON_SYS" "$LABEL_SYS"
+    printf '  %s %s  │  BSC(56)  │  1%%+1%%+1%% license
+' "$ICON_SYS" "$LABEL_SYS"
     printf '  %s modules  │  %s contracts  │  %s links
 ' "$n_mod" "$n_con" "$n_lnk"
     printf '%s
@@ -279,17 +279,17 @@ print_menu() {
 
     printf '%s
 ' "${C_CYAN}  ─── PII / CURRENCY ───${C_RESET}"
-    echo "  🟢 ${C_BOLD}[15]${C_RESET} Експорт PII-masked
+    printf "  🟢 ${C_BOLD}[15]${C_RESET} Експорт PII-masked
 "
-    echo "  🟢 ${C_BOLD}[16]${C_RESET} Експорт + git
+    printf "  🟢 ${C_BOLD}[16]${C_RESET} Експорт + git
 "
-    echo "  🟢 ${C_BOLD}[17]${C_RESET} Перевірити PII хеш
+    printf "  🟢 ${C_BOLD}[17]${C_RESET} Перевірити PII хеш
 "
-    echo "  🟢 ${C_BOLD}[22]${C_RESET} Курси валют
+    printf "  🟢 ${C_BOLD}[22]${C_RESET} Курси валют
 "
-    echo "  🟢 ${C_BOLD}[23]${C_RESET} Оновити курс
+    printf "  🟢 ${C_BOLD}[23]${C_RESET} Оновити курс
 "
-    echo "  🟢 ${C_BOLD}[24]${C_RESET} Конвертер
+    printf "  🟢 ${C_BOLD}[24]${C_RESET} Конвертер
 "
     printf '
 '
@@ -309,78 +309,78 @@ print_menu() {
 
     printf '%s
 ' "${C_GREEN}  ─── ADDRESS BOOK ───${C_RESET}"
-    echo "  🟢 ${C_BOLD}[50]${C_RESET} Додати адресу
+    printf "  🟢 ${C_BOLD}[50]${C_RESET} Додати адресу
 "
-    echo "  🟢 ${C_BOLD}[51]${C_RESET} Список адрес
+    printf "  🟢 ${C_BOLD}[51]${C_RESET} Список адрес
 "
-    echo "  🟢 ${C_BOLD}[52]${C_RESET} Історія адрес
+    printf "  🟢 ${C_BOLD}[52]${C_RESET} Історія адрес
 "
     printf '
 '
 
     printf '%s
 ' "${C_GREEN}  ─── INTEGRATIONS ───${C_RESET}"
-    echo "  🟢 ${C_BOLD}[53]${C_RESET} QR-код для лінку
+    printf "  🟢 ${C_BOLD}[53]${C_RESET} QR-код для лінку
 "
-    echo "  🟢 ${C_BOLD}[54]${C_RESET} Telegram — налаштувати
+    printf "  🟢 ${C_BOLD}[54]${C_RESET} Telegram — налаштувати
 "
-    echo "  🟢 ${C_BOLD}[55]${C_RESET} Telegram — тест
+    printf "  🟢 ${C_BOLD}[55]${C_RESET} Telegram — тест
 "
-    echo "  🟢 ${C_BOLD}[56]${C_RESET} Webhook — список
+    printf "  🟢 ${C_BOLD}[56]${C_RESET} Webhook — список
 "
-    echo "  🟢 ${C_BOLD}[57]${C_RESET} Webhook — додати
+    printf "  🟢 ${C_BOLD}[57]${C_RESET} Webhook — додати
 "
     printf '
 '
 
     printf '%s
 ' "${C_GREEN}  ─── EXPORT / BACKUP ───${C_RESET}"
-    echo "  🟢 ${C_BOLD}[58]${C_RESET} CSV — контракти
+    printf "  🟢 ${C_BOLD}[58]${C_RESET} CSV — контракти
 "
-    echo "  🟢 ${C_BOLD}[59]${C_RESET} CSV — ledger
+    printf "  🟢 ${C_BOLD}[59]${C_RESET} CSV — ledger
 "
-    echo "  🟢 ${C_BOLD}[60]${C_RESET} TXT — звіт контракту
+    printf "  🟢 ${C_BOLD}[60]${C_RESET} TXT — звіт контракту
 "
-    echo "  🟢 ${C_BOLD}[61]${C_RESET} Backup — локальний
+    printf "  🟢 ${C_BOLD}[61]${C_RESET} Backup — локальний
 "
-    echo "  🟢 ${C_BOLD}[62]${C_RESET} Backup — в хмару (rclone)
+    printf "  🟢 ${C_BOLD}[62]${C_RESET} Backup — в хмару (rclone)
 "
     printf '
 '
 
     printf '%s
 ' "${C_GREEN}  ─── MULTI-CHAIN ───${C_RESET}"
-    echo "  🟢 ${C_BOLD}[63]${C_RESET} Список мереж
+    printf "  🟢 ${C_BOLD}[63]${C_RESET} Список мереж
 "
-    echo "  🟢 ${C_BOLD}[64]${C_RESET} Сканер-tx link
+    printf "  🟢 ${C_BOLD}[64]${C_RESET} Сканер-tx link
 "
     printf '
 '
 
     printf '%s
 ' "${C_RED}  ─── DISPUTE / AUDIT ───${C_RESET}"
-    echo "  🟢 ${C_BOLD}[65]${C_RESET} Відкрити спір
+    printf "  🟢 ${C_BOLD}[65]${C_RESET} Відкрити спір
 "
-    echo "  🟢 ${C_BOLD}[66]${C_RESET} Список спорів
+    printf "  🟢 ${C_BOLD}[66]${C_RESET} Список спорів
 "
-    echo "  🟢 ${C_BOLD}[67]${C_RESET} Голосувати
+    printf "  🟢 ${C_BOLD}[67]${C_RESET} Голосувати
 "
-    echo "  🟢 ${C_BOLD}[68]${C_RESET} Audit log — показати
+    printf "  🟢 ${C_BOLD}[68]${C_RESET} Audit log — показати
 "
-    echo "  🟢 ${C_BOLD}[69]${C_RESET} Audit log — перевірити
+    printf "  🟢 ${C_BOLD}[69]${C_RESET} Audit log — перевірити
 "
     printf '
 '
 
     printf '%s
 ' "${C_RED}  ─── DOCUMENT SCANNER ───${C_RESET}"
-    echo "  🟢 ${C_BOLD}[70]${C_RESET} Сфотографувати
+    printf "  🟢 ${C_BOLD}[70]${C_RESET} Сфотографувати
 "
-    echo "  🟢 ${C_BOLD}[71]${C_RESET} OCR (фото → текст)
+    printf "  🟢 ${C_BOLD}[71]${C_RESET} OCR (фото → текст)
 "
-    echo "  🟢 ${C_BOLD}[72]${C_RESET} PDF → текст
+    printf "  🟢 ${C_BOLD}[72]${C_RESET} PDF → текст
 "
-    echo "  🟢 ${C_BOLD}[73]${C_RESET} Повний pipeline
+    printf "  🟢 ${C_BOLD}[73]${C_RESET} Повний pipeline
 "
     printf '
 '
@@ -400,30 +400,30 @@ print_menu() {
 
     printf '%s
 ' "${C_MAGENTA}  ─── AI ───${C_RESET}"
-    echo "  🟢 ${C_BOLD}[40]${C_RESET} AI Аналіз
+    printf "  🟢 ${C_BOLD}[40]${C_RESET} AI Аналіз
 "
-    echo "  🟢 ${C_BOLD}[41]${C_RESET} AI Парсинг рахунку
+    printf "  🟢 ${C_BOLD}[41]${C_RESET} AI Парсинг рахунку
 "
-    echo "  🟢 ${C_BOLD}[42]${C_RESET} AI Генерація умов
+    printf "  🟢 ${C_BOLD}[42]${C_RESET} AI Генерація умов
 "
-    echo "  🟢 ${C_BOLD}[43]${C_RESET} AI Допомога
+    printf "  🟢 ${C_BOLD}[43]${C_RESET} AI Допомога
 "
-    echo "  🟢 ${C_BOLD}[44]${C_RESET} AI Питання
+    printf "  🟢 ${C_BOLD}[44]${C_RESET} AI Питання
 "
-    echo "  🟢 ${C_BOLD}[45]${C_RESET} AI Task Bar
+    printf "  🟢 ${C_BOLD}[45]${C_RESET} AI Task Bar
 "
     printf '
 '
 
     printf '%s
 ' "${C_MAGENTA}  ─── AI EVOLUTION ───${C_RESET}"
-    echo "  🟢 ${C_BOLD}[46]${C_RESET} Executor — повний
+    printf "  🟢 ${C_BOLD}[46]${C_RESET} Executor — повний
 "
-    echo "  🟢 ${C_BOLD}[47]${C_RESET} Executor — scan
+    printf "  🟢 ${C_BOLD}[47]${C_RESET} Executor — scan
 "
-    echo "  🟢 ${C_BOLD}[48]${C_RESET} Executor — apply
+    printf "  🟢 ${C_BOLD}[48]${C_RESET} Executor — apply
 "
-    echo "  🟢 ${C_BOLD}[49]${C_RESET} Executor — список
+    printf "  🟢 ${C_BOLD}[49]${C_RESET} Executor — список
 "
     printf '
 '
@@ -470,7 +470,7 @@ action_ai_generate_terms() {
 }
 
 action_ai_help_error() {
-    echo "Помилка (встав текст): "
+    printf 'Помилка (встав текст): '
     read -r ERR
     [ -z "$ERR" ] && return 1
     local_ai_help_error "$ERR"
@@ -507,8 +507,8 @@ action_create_contract() {
 
     printf 'BUYER wallet:  '; read -r BUYER
     printf 'SELLER wallet: '; read -r SELLER
-    echo "AMOUNT (в токенах): "; read -r AMOUNT_RAW
-    echo "TOKEN address (0x...): "; read -r TOKEN
+    printf 'AMOUNT (в токенах): '; read -r AMOUNT_RAW
+    printf 'TOKEN address (0x...): '; read -r TOKEN
     printf 'TOKEN_DECIMALS [18]: '; read -r DECIMALS
     DECIMALS="${DECIMALS:-18}"
 
@@ -553,20 +553,20 @@ action_create_contract() {
 ' "${C_GREEN}OK: контракт створено${C_RESET}"
     printf 'ID:              %s
 ' "$cid"
-    echo "TOKEN:           %s (decimals=%s)
-" "$TOKEN" "$DECIMALS"
-    echo "AMOUNT:          %s wei (= %s токенів)
-" "$AMOUNT" "$AMOUNT_RAW"
+    printf 'TOKEN:           %s (decimals=%s)
+' "$TOKEN" "$DECIMALS"
+    printf 'AMOUNT:          %s wei (= %s токенів)
+' "$AMOUNT" "$AMOUNT_RAW"
     printf '
 '
-    echo "LICENSE_A (1%%):  %s wei
-" "$(grep '^LICENSE_A_WEI=' "$cf" | cut -d= -f2)"
-    echo "LICENSE_B (1%%):  %s wei
-" "$(grep '^LICENSE_B_WEI=' "$cf" | cut -d= -f2)"
-    echo "CREATION  (1%%):  %s wei
-" "$(grep '^CREATION_FEE_WEI=' "$cf" | cut -d= -f2)"
-    echo "TOTAL (3%%):      %s wei
-" "$(grep '^LICENSE_TOTAL_WEI=' "$cf" | cut -d= -f2)"
+    printf 'LICENSE_A (1%%):  %s wei
+' "$(grep '^LICENSE_A_WEI=' "$cf" | cut -d= -f2)"
+    printf 'LICENSE_B (1%%):  %s wei
+' "$(grep '^LICENSE_B_WEI=' "$cf" | cut -d= -f2)"
+    printf 'CREATION  (1%%):  %s wei
+' "$(grep '^CREATION_FEE_WEI=' "$cf" | cut -d= -f2)"
+    printf 'TOTAL (3%%):      %s wei
+' "$(grep '^LICENSE_TOTAL_WEI=' "$cf" | cut -d= -f2)"
     printf 'NET SELLER:      %s wei
 ' "$(grep '^NET_WEI=' "$cf" | cut -d= -f2)"
     printf '
@@ -577,24 +577,17 @@ action_create_contract() {
 ' "${LICENSE_A_RECIPIENT}"
     printf '  B: %s
 ' "${LICENSE_B_RECIPIENT}"
-    printf "  C: %s
-
-
-    # --- AUTO-AUTOSAVE ---
-    if [ -x \"$HOME/CYBRA/modules/module_35_cybra_guardian/bin/autosave.sh\" ]; then
-        source \"$HOME/CYBRA/modules/module_35_cybra_guardian/bin/autosave.sh\"
-        as_save_all \"$cid\" 2>/dev/null || true
-    fi
+    printf '  C: %s
 
     # --- AUTO AI REVIEW ---
     if [ -f "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_local_ai.sh" ]; then
-        printf "\n═══ AUTO AI REVIEW ═══\n"
+        printf '\n%s═══ AUTO AI REVIEW ═══%s\n' "${C_CYAN:-}" "${C_RESET:-}"
         source "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_local_ai.sh" 2>/dev/null
         local_ai_review_contract "$cid" 2>/dev/null || true
-    fi
-
-    # --- AUTO-AUTOSAVE ---
+    fi' "${CREATION_FEE_RECIPIENT}"
+    # AUTO-AUTOSAVE (Guardian)
     if [ -x "$HOME/CYBRA/modules/module_35_cybra_guardian/bin/autosave.sh" ]; then
+        printf "\n"
         source "$HOME/CYBRA/modules/module_35_cybra_guardian/bin/autosave.sh"
         as_save_all "$cid" 2>/dev/null || true
     fi
@@ -602,7 +595,7 @@ action_create_contract() {
 }
 
 action_list_contracts() {
-    printf "%s\n' "${C_BOLD}--- Список контрактів ---${C_RESET}"
+    printf '%s\n' "${C_BOLD}--- Список контрактів ---${C_RESET}"
     printf '\n'
 
     local found=0
@@ -688,7 +681,7 @@ action_generate_links() {
 
 action_confirm_link() {
     printf 'LINK_ID: '; read -r LID
-    echo "CONFIRMED_BY (wallet): "; read -r WHO
+    printf 'CONFIRMED_BY (wallet): '; read -r WHO
 
     if [ -z "$LID" ] || [ -z "$WHO" ]; then
         printf '%s\n' "${C_RED}Помилка: LINK_ID і CONFIRMED_BY обов'\''язкові${C_RESET}"
@@ -811,8 +804,8 @@ action_hardening() {
 # ------------------------------------------------------------
 
 action_addr_add() {
-    echo "Назва (name):  "; read -r N
-    echo "Адреса (0x...): "; read -r A
+    printf 'Назва (name):  '; read -r N
+    printf 'Адреса (0x...): '; read -r A
     printf 'Тег [user]:     '; read -r T
     T="${T:-user}"
     bash "$HOME/CYBRA/modules/module_25_address_book/bin/address_book.sh" 2>/dev/null
@@ -875,7 +868,7 @@ action_scan_tx() {
 action_dp_open() {
     source "$HOME/CYBRA/modules/module_31_dispute_resolver/bin/dispute.sh"
     printf 'CONTRACT_ID: '; read -r C
-    echo "OPENED_BY (wallet): "; read -r B
+    printf 'OPENED_BY (wallet): '; read -r B
     printf 'REASON: '; read -r R
     D="$(dp_open "$C" "$B" "$R")"
     echo "Opened: $D"; read -r _
@@ -929,9 +922,9 @@ action_gd_100()          {
 action_gd_register()     {
     source "$GD_LIB"
     printf "Ім'я / назва:      "; read -r N
-    echo "ID номер (ЄДРПОУ/ІПН): "; read -r I
-    echo "Wallet (0x...):     "; read -r W
-    echo "Biometric (опц.):   "; read -r B
+    printf "ID номер (ЄДРПОУ/ІПН): "; read -r I
+    printf 'Wallet (0x...):     '; read -r W
+    printf 'Biometric (опц.):   '; read -r B
     gd_register "$N" "$I" "$W" "${B:-none}"
     read -r _
 }
@@ -941,7 +934,7 @@ action_gd_verify()       {
     printf "Ім'я:               "; read -r N
     printf 'ID номер:           '; read -r I
     printf 'Wallet:             '; read -r W
-    echo "Biometric (опц.):   "; read -r B
+    printf 'Biometric (опц.):   '; read -r B
     gd_verify "$N" "$I" "$W" "${B:-none}"
     read -r _
 }
