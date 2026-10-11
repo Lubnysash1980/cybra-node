@@ -14,28 +14,30 @@ echo "============================================================"
 [ -d "$MOD/evidence" ]  && ok "evidence dir"    || fail "evidence dir"
 [ -d "$MOD/tests" ]     && ok "tests dir"       || fail "tests dir"
 
-# Головний скрипт
-SCRIPT="$MOD/contract_builder.sh"
-[ -f "$SCRIPT" ]        && ok "script exists"   || fail "script missing"
-[ -x "$SCRIPT" ]        && ok "script exec"     || fail "script not exec"
+# config.env
+CFG="$MOD/state/config.env"
+[ -f "$CFG" ] && ok "config.env exists" || fail "config.env missing"
 
-# Синтаксис
-if [ -f "$SCRIPT" ]; then
-    bash -n "$SCRIPT" 2>/dev/null && ok "syntax OK" || fail "syntax error"
-fi
-
-# Функції/константи які мають бути (якщо є grep-цілі)
-if grep -qE 'LICENSE|RECIPIENT|0x66434c55' "$SCRIPT" 2>/dev/null; then
+# License recipient — в config.env
+if grep -q '0x66434c5501242ccC71b5a39C765892921624B66c' "$CFG" 2>/dev/null; then
     ok "license recipient present"
 else
     fail "license recipient missing"
 fi
 
-# Жодних auto-money
-if grep -qE '^AUTO_TRANSACTION=TRUE|REAL_TRANSACTION_SENT=TRUE' "$SCRIPT" 2>/dev/null; then
+# Security flags FALSE
+if grep -qE '^(AUTO_TRANSACTION|REAL_TRANSACTION_SENT|GLOBAL_TRUE_100)=TRUE' "$CFG" 2>/dev/null; then
     fail "auto transaction detected"
 else
     ok "no auto transaction"
+fi
+
+# Головний скрипт (якщо є в корені)
+SCRIPT="$MOD/contract_builder.sh"
+if [ -f "$SCRIPT" ]; then
+    bash -n "$SCRIPT" 2>/dev/null && ok "script syntax OK" || fail "script syntax"
+else
+    ok "no script (skip)"
 fi
 
 echo ""

@@ -527,7 +527,7 @@ print_menu() {
     printf '  🟢 %s[24]%s Конвертер\n' "$C_BOLD" "$C_RESET"
     printf '\n'
 
-    printf '%s\n' "${C_MAGENTA}  ─── СИСТЕМА ───${C_RESET}"
+    printf '%s\n' "${C_CYAN}  ─── СИСТЕМА ───${C_RESET}"
     printf '  🟢 %s[30]%s Preflight\n' "$C_BOLD" "$C_RESET"
     printf '  🟢 %s[31]%s Self-heal\n' "$C_BOLD" "$C_RESET"
     printf '  🟢 %s[32]%s Dual-backend verify\n' "$C_BOLD" "$C_RESET"
@@ -592,7 +592,16 @@ print_menu() {
     printf '  🟢 %s[73]%s Повний pipeline\n' "$C_BOLD" "$C_RESET"
     printf '\n'
 
-    printf '%s\n' "${C_RED}  ─── GUARDIAN (100%% state) ───${C_RESET}"
+    printf '%s\n' "${C_MAGENTA}  ─── РОЗШИРЕНІ ───${C_RESET}"
+    printf '  🟢 %s[74]%s Пошук контракту\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[75]%s Auto-fill контракту\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[76]%s AI прогін умов\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[77]%s Перевірка платежів\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[78]%s Додаткові умови\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[79]%s Watchdog (супервізор)\n' "$C_BOLD" "$C_RESET"
+    printf '\n'
+
+    printf '%s\n' "${C_RED}  ─── GUARDIAN (100% state) ───${C_RESET}"
     printf '  🟢 %s[80]%s Стан системи\n' "$C_BOLD" "$C_RESET"
     printf '  🟢 %s[81]%s Перевірка 100%%\n' "$C_BOLD" "$C_RESET"
     printf '  🟢 %s[82]%s Зареєструвати особу\n' "$C_BOLD" "$C_RESET"
@@ -607,25 +616,85 @@ print_menu() {
     printf '  🟢 %s[91]%s Log verify\n' "$C_BOLD" "$C_RESET"
     printf '\n'
 
-    printf '%s\n' "${C_RED}  ─── AUTOSAVE (multi-channel) ───${C_RESET}"
+    printf '%s\n' "${C_RED}  ─── AUTOSAVE ───${C_RESET}"
     printf '  🟢 %s[92]%s Зберегти контракт\n' "$C_BOLD" "$C_RESET"
     printf '  🟢 %s[93]%s Статус autosave\n' "$C_BOLD" "$C_RESET"
     printf '  🟢 %s[94]%s Останні архіви\n' "$C_BOLD" "$C_RESET"
     printf '  🟢 %s[95]%s Відновити контракт\n' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[96]%s Setup email\n' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[97]%s Setup cloud\n' "$C_BOLD" "$C_RESET"
+    printf '\n'
+
+    printf '%s\n' "${C_RED}  ─── EVO CONTROLLERS ───${C_RESET}"
+    printf '  🟢 %s[96]%s EVO7 (7 рівнів)\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[97]%s EVO CONTROLLER (4 SHA)\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[98]%s Parawatch (фон)\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[99]%s AUTOPATCH\n' "$C_BOLD" "$C_RESET"
     printf '\n'
 
     printf '%s\n' "  ${C_GREY}🟢 ready  🟡 warning  🔴 error${C_RESET}"
     printf '\n'
-    printf '  %s[0]%s  Вихід\n' "$C_BOLD" "$C_RESET"
-    printf '\n'
+    printf '  %s[0]%s  Вихід\n\n' "$C_BOLD" "$C_RESET"
 }
 
 # ─── Main loop ───
 
 action_evo7() {
     "$HOME/CYBRA/bin/cybra_evo7" menu
+}
+
+
+action_evo_ctl() {
+    "$HOME/CYBRA/bin/cybra_evo_ctl" run
+    read -r _
+}
+
+action_parawatch() {
+    printf '  [1] Status\n'
+    printf '  [2] Start (фон)\n'
+    printf '  [3] Stop\n'
+    printf '  [4] Once\n'
+    printf 'Вибір: '
+    read -r pw
+    case "$pw" in
+        1) "$HOME/CYBRA/bin/cybra_parawatch" status; read -r _ ;;
+        2) "$HOME/CYBRA/bin/cybra_parawatch" start; read -r _ ;;
+        3) "$HOME/CYBRA/bin/cybra_parawatch" stop; read -r _ ;;
+        4) "$HOME/CYBRA/bin/cybra_parawatch" once; read -r _ ;;
+    esac
+}
+
+action_autopatch_menu() {
+    printf '  [1] Dry-run\n'
+    printf '  [2] Патчити все\n'
+    printf '  [3] Тільки контракти\n'
+    printf 'Вибір: '
+    read -r ap
+    case "$ap" in
+        1) "$HOME/CYBRA/bin/cybra_autopatch" check; read -r _ ;;
+        2) "$HOME/CYBRA/bin/cybra_autopatch" all; read -r _ ;;
+        3) "$HOME/CYBRA/bin/cybra_autopatch" contracts; read -r _ ;;
+    esac
+}
+
+
+action_watchdog() {
+    printf '  [1] Status\n'
+    printf '  [2] Start (фон)\n'
+    printf '  [3] Stop\n'
+    printf '  [4] Once\n'
+    printf 'Вибір: '
+    read -r wd
+    case "$wd" in
+        1) "$HOME/CYBRA/bin/cybra_watchdog" status; read -r _ ;;
+        2) "$HOME/CYBRA/bin/cybra_watchdog" start; read -r _ ;;
+        3) "$HOME/CYBRA/bin/cybra_watchdog" stop; read -r _ ;;
+        4) "$HOME/CYBRA/bin/cybra_watchdog" once; read -r _ ;;
+    esac
+}
+
+
+action_boot() {
+    "$HOME/CYBRA/bin/cybra_boot"
+    read -r _
 }
 
 
@@ -697,6 +766,12 @@ while true; do
         71) action_scan_ocr ;;
         72) action_scan_pdf ;;
         73) action_scan_full ;;
+        74) action_search_contract ;;
+        75) action_autofill_contract ;;
+        76) action_ai_terms ;;
+        77) action_check_payment ;;
+        78) action_custom_terms ;;
+        79) action_watchdog ;;
         80) action_gd_state ;;
         81) action_gd_100 ;;
         82) action_gd_register ;;
@@ -713,8 +788,12 @@ while true; do
         93) action_as_status ;;
         94) action_as_recent ;;
         95) action_as_restore ;;
-        96) action_as_setup_email ;;
-        97) action_as_setup_cloud ;;
+        96) action_evo7 ;;
+        97) action_evo_ctl ;;
+        98) action_parawatch ;;
+        99) action_autopatch_menu ;;
+
+
         0|q|Q|exit|quit)
             printf '%s\n' "${C_GREEN}До побачення.${C_RESET}"
             exit 0
