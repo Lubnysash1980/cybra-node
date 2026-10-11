@@ -1,29 +1,25 @@
-# CYBRA NODE INDEX
-RUN=20261010T070549Z-11341
-STAMP=20261010T070549Z
-
-MODULE                                        STATUS         TREE              
---------------------------------------------------------------------
-module_01_auto_executor                       OK             8695cee0d75d157a  
-module_02_contract_builder                    OK             28b982420a142f53  
-module_03_escrow_controller                   OK             12e2fbb31d67e25d  
-module_12_delivery_receipt                    OK             dc75a5c10bc1b186  
-module_13_dual_backend                        OK             9ad452d6a019fe83  
-module_14_watchdog                            OK             7232aabcf8d003ca  
-module_15_true100_aggregator                  OK             a865931a86be30e7  
-module_16_final_authorization_release_gate    OK             ee9e40d1ac024c77  
-module_17_cybra_license_contract_menu         OK             1b884d37a72b48ab  
-module_18_license_payment_router              OK             dc4ca2769ac67b0f  
-module_19_contract_tui_menu                   OK             bebb8c75f50f3264  
-module_20_evolution_guard                     OK             fc05a5544aa7636a  
-module_25_address_book                        OK             fd29bfaf22c21100  
-module_26_qr_codes                            OK             d54425e832563463  
-module_27_telegram_bot                        OK             19b10a4c4f481faf  
-module_28_export                              OK             92700b6aba745d01  
-module_29_backup                              OK             80ab388e254abbab  
-module_30_multichain                          OK             3726fea04cb45c52  
-module_31_dispute_resolver                    OK             b6b6a27dd00a45a8  
-module_32_webhook                             OK             bf925cfedb68ecd4  
-module_33_audit_log                           OK             740d448f30b9c797  
-module_34_doc_scanner                         OK             0dc531205cb75a0b  
-module_35_cybra_guardian                      OK             7ac5ef960db2e95c  
+# CYBRA NODE
+# 2026-10-11T09:50:05Z
+module_01_auto_executor 71f73ea3e4452ee6
+module_02_contract_builder 5617181517472a76
+module_03_escrow_controller f973e7e56bc63c02
+module_12_delivery_receipt 383d29cfd72654e1
+module_13_dual_backend 0ee4b863dc9fa648
+module_14_watchdog 8f43279c93fabc30
+module_15_true100_aggregator 2e4825d2c73f3b4d
+module_16_final_authorization_release_gate d787af8685a870e6
+module_17_cybra_license_contract_menu 01c95dd6c41dfb4f
+module_18_license_payment_router 91413b4854f8c26a
+module_19_contract_tui_menu c4090ec833c9fa5e
+module_20_evolution_guard 503a65c3ed875bf5
+module_25_address_book f64f285b53b9128c
+module_26_qr_codes d11d31fd87e998e6
+module_27_telegram_bot 9860df5a075be660
+module_28_export aba1b98b79cdfbaa
+module_29_backup e107d51b7ae0ed0c
+module_30_multichain f617a9003dee07f0
+module_31_dispute_resolver 39da544a19f019a4
+module_32_webhook 73677c6643ff9931
+module_33_audit_log b310470fb2005d8e
+module_34_doc_scanner 9a6bfe818af6b682
+module_35_cybra_guardian b5ee5466178ad1c0

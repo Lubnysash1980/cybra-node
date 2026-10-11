@@ -1,9 +1,10 @@
-*.bak.*
 *.log
 *.test.log
-test_output.txt
-test_output.sha256
-__pycache__/
-.DS_Store
+*.bak.*
+*.pid
+*.tar.gz
+logs/
 backups/
-node_modules/
+hashes/
+audit/
+__pycache__/

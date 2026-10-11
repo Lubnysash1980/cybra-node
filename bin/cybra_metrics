@@ -1,0 +1,73 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# CYBRA METRICS — Prometheus-формат
+
+ROOT="$HOME/CYBRA"
+MODULES="$ROOT/modules"
+AUDIT="$ROOT/audit"
+
+mod_pass() {
+    local m="$1"
+    local t="$(ls -t "$AUDIT"/*_"${m}".test.log 2>/dev/null | head -1)"
+    [ ! -f "$t" ] && { echo 0; return; }
+    local p="$(grep -c '\[PASS\]' "$t" 2>/dev/null | head -1 | tr -dc '0-9')"
+    [ -z "$p" ] && p=0
+    [ "$p" -eq 0 ] && p="$(grep -oE 'PASS=[0-9]+' "$t" 2>/dev/null | tail -1 | cut -d= -f2)"
+    [ -z "$p" ] && p=0
+    echo "$p"
+}
+
+mod_fail() {
+    local m="$1"
+    local t="$(ls -t "$AUDIT"/*_"${m}".test.log 2>/dev/null | head -1)"
+    [ ! -f "$t" ] && { echo 0; return; }
+    local f="$(grep -c '\[FAIL\]' "$t" 2>/dev/null | head -1 | tr -dc '0-9')"
+    [ -z "$f" ] && f=0
+    echo "$f"
+}
+
+SHOW=0
+OUT_FILE="$ROOT/metrics.txt"
+
+for arg in "$@"; do
+    case "$arg" in
+        -v|--verbose) SHOW=1 ;;
+        *) OUT_FILE="$arg" ;;
+    esac
+done
+
+{
+    echo "# CYBRA metrics"
+    echo "# generated $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+    echo ""
+
+    for d in "$MODULES"/*/; do
+        [ -d "$d" ] || continue
+        m="$(basename "$d")"
+        case "$m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue ;; esac
+        p="$(mod_pass "$m")"
+        f="$(mod_fail "$m")"
+        echo "cybra_module_pass{module=\"$m\"} $p"
+        echo "cybra_module_fail{module=\"$m\"} $f"
+    done
+    echo ""
+    echo "cybra_modules_total $(ls -d "$MODULES"/*/ 2>/dev/null | wc -l)"
+    echo "cybra_contracts_total $(ls "$MODULES/module_19_contract_tui_menu/contracts"/*.env 2>/dev/null | wc -l)"
+    echo "cybra_links_total $(ls "$MODULES/module_19_contract_tui_menu/links"/*.link 2>/dev/null | wc -l)"
+    echo ""
+    wd=0; ec=0; pw=0
+    [ -f "$ROOT/.watchdog.pid" ] && kill -0 "$(cat "$ROOT/.watchdog.pid")" 2>/dev/null && wd=1
+    [ -f "$ROOT/.evo_ctl.pid" ] && kill -0 "$(cat "$ROOT/.evo_ctl.pid")" 2>/dev/null && ec=1
+    [ -f "$ROOT/.parawatch.pid" ] && kill -0 "$(cat "$ROOT/.parawatch.pid")" 2>/dev/null && pw=1
+    echo "cybra_watchdog_running $wd"
+    echo "cybra_evo_ctl_running $ec"
+    echo "cybra_parawatch_running $pw"
+    echo ""
+    echo "cybra_last_metrics_timestamp $(date +%s)"
+} > "$OUT_FILE"
+
+if [ "$SHOW" = "1" ]; then
+    cat "$OUT_FILE"
+else
+    echo "OK: $OUT_FILE"
+    echo "  $(wc -l < "$OUT_FILE") lines"
+fi
