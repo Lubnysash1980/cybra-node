@@ -629,7 +629,7 @@ print_menu() {
     printf '  🟢 %s[98]%s Parawatch (фон)\n' "$C_BOLD" "$C_RESET"
     printf '  🟢 %s[99]%s AUTOPATCH\n' "$C_BOLD" "$C_RESET"
     printf '\n'
-    printf '%s\\n' "${C_MAGENTA}  ─── NODE / HASH / SYSTEM ───${C_RESET}"
+    printf '%s\n'  "${C_MAGENTA}  ─── NODE / HASH / SYSTEM ───${C_RESET}"
     printf '  🟢 %s[100]%s Node manager\n' "$C_BOLD" "$C_RESET"
     printf '  🟢 %s[101]%s Hash ecosystem (5 layers)\n' "$C_BOLD" "$C_RESET"
     printf '  🟢 %s[102]%s Binmix daemon\n' "$C_BOLD" "$C_RESET"
