@@ -637,6 +637,7 @@ print_menu() {
     printf '  🟢 %s[104]%s HTTP panel\n' "$C_BOLD" "$C_RESET"
     printf '  🟢 %s[105]%s Schedule (cron)\n' "$C_BOLD" "$C_RESET"
     printf '  🟢 %s[106]%s Cleanup (ротація)\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[107]%s Autopilot (авто-оновлення)\n' "$C_BOLD" "$C_RESET"
     printf '\n'
 
     printf '%s\n' "  ${C_GREY}🟢 ready  🟡 warning  🔴 error${C_RESET}"
@@ -835,6 +836,24 @@ action_node() {
 }
 
 
+action_autopilot() {
+    printf '  [1] Status\n'
+    printf '  [2] Start (фон)\n'
+    printf '  [3] Stop\n'
+    printf '  [4] One cycle\n'
+    printf '  [5] Log\n'
+    printf 'Вибір: '
+    read -r ap
+    case "$ap" in
+        1) "$HOME/CYBRA/bin/cybra_autopilot" status 2>&1; read -r _ ;;
+        2) "$HOME/CYBRA/bin/cybra_autopilot" start 2>&1; read -r _ ;;
+        3) "$HOME/CYBRA/bin/cybra_autopilot" stop 2>&1; read -r _ ;;
+        4) "$HOME/CYBRA/bin/cybra_autopilot" once 2>&1; read -r _ ;;
+        5) tail -30 "$HOME/CYBRA/logs/autopilot.log" 2>/dev/null; read -r _ ;;
+    esac
+}
+
+
 while true; do
     print_header
     print_menu
@@ -936,6 +955,7 @@ while true; do
         104) action_http ;;
         105) action_schedule ;;
         106) action_cleanup ;;
+        107) action_autopilot ;;
 
 
         0|q|Q|exit|quit)
