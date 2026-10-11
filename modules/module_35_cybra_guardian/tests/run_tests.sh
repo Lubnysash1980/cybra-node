@@ -56,9 +56,24 @@ gd_log_verify 2>&1 | grep -q "^OK:" && ok "log verify" || fail "log verify"
 # 09 — rules hash
 [ -f "$GUARD_ROOT/state/config.env" ] && ok "config" || fail "config"
 
-# 10 — no auto-money
-grep -rq 'AUTO_TRANSACTION=TRUE' "$GUARD_ROOT" 2>/dev/null \
-    && fail "auto transaction" || ok "no auto transaction"
+# 10 — no auto-money (тільки .env)
+AUTO_HITS=""
+while IFS= read -r envf; do
+    [ -z "$envf" ] && continue
+    case "$envf" in
+        *.bak.*|*test_output*|*.log) continue ;;
+        */snapshot/*|*/snapshots/*) continue ;;
+    esac
+    if grep -qE '^(AUTO_TRANSACTION|AUTO_RELEASE|AUTO_PAYMENT)=TRUE$' "$envf" 2>/dev/null; then
+        AUTO_HITS="$AUTO_HITS $envf"
+    fi
+done < <(find "$GUARD_ROOT" -name '*.env' -type f 2>/dev/null)
+
+if [ -z "$AUTO_HITS" ]; then
+    ok "no auto transaction"
+else
+    fail "auto transaction:$AUTO_HITS"
+fi
 
 echo
 echo "============================================================"

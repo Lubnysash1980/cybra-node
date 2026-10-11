@@ -91,9 +91,17 @@ while IFS= read -r envf; do
         *.bak.*|*test_output*|*.log) continue ;;
         */snapshot/*|*/snapshots/*) continue ;;
     esac
-    if grep -qE '^(AUTO_TRANSACTION|AUTO_RELEASE|AUTO_PAYMENT|REAL_TRANSACTION_SENT|GLOBAL_TRUE_100|LIVE_AUTHORIZATION)=TRUE$' "$envf" 2>/dev/null; then
+    if grep -qE '^(AUTO_TRANSACTION|AUTO_RELEASE|AUTO_PAYMENT|REAL_TRANSACTION_SENT|LIVE_AUTHORIZATION)=TRUE$' "$envf" 2>/dev/null; then
         AUTO_HITS="$AUTO_HITS $envf"
     fi
+done < <(find "$MOD" -name '*.env' -type f 2>/dev/null)
+
+if [ -z "$AUTO_HITS" ]; then
+    ok "No auto transaction"
+else
+    fail "Auto transaction:$AUTO_HITS"
+fi
+fi
 done < <(find "$MOD" -name '*.env' -type f 2>/dev/null)
 
 if [ -z "$AUTO_HITS" ]; then

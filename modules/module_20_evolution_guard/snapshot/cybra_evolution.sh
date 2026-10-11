@@ -71,20 +71,19 @@ evo_within_tolerance() {
     local new="$2"
     local tol="${3:-3}"
 
-    [ -z "$old" ] || [ -z "$new" ] && return 1
-    [ "$old" = "0" ] && [ "$new" = "0" ] && return 0
+    [ -z "$old" ] && return 1
+    [ -z "$new" ] && return 1
 
-    # ПРАВИЛО 1: покращення (new > old) — ЗАВЖДИ OK
-    # ПРАВИЛО 2: рівність (new == old) — OK
-    if [ "$new" -ge "$old" ]; then
-        return 0
-    fi
+    # Equal — OK
+    [ "$old" = "$new" ] && return 0
 
-    # ПРАВИЛО 3: деградація (new < old) — тільки в межах tol%
-    if [ "$old" -eq 0 ]; then
-        return 1
-    fi
+    # old=0, new>0 — це не improvement, це додавання нової метрики з нуля → BLOCKED
+    [ "$old" -eq 0 ] && return 1
 
+    # Improvement (new > old) — OK
+    [ "$new" -gt "$old" ] && return 0
+
+    # Degradation (new < old) — тільки в межах tol%
     local diff=$(( old - new ))
     local allowed=$(( old * tol / 100 ))
     [ "$allowed" -lt 1 ] && allowed=1
@@ -229,7 +228,7 @@ evo_check_all() {
     local fail=0
 
     # Створюємо тимчасовий канал для логу блокувань
-    local block_log="/tmp/evo_block_reasons_$$"
+    local block_log="$HOME/.cache/evo_block_$$"
     : > "$block_log"
 
     for d in "$MODULES"/*/; do
