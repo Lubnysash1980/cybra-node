@@ -730,6 +730,102 @@ action_import() {
 }
 
 
+
+# ═══ SYSTEM (76-79) ═══
+action_metrics() {
+    "$HOME/CYBRA/bin/cybra_metrics" -v 2>&1 | head -40
+    read -r _
+}
+
+action_http() {
+    printf '  [1] Status\n'
+    printf '  [2] Start (фон)\n'
+    printf '  [3] Stop\n'
+    printf '  [4] Test\n'
+    printf 'Вибір: '
+    read -r h
+    case "$h" in
+        1) "$HOME/CYBRA/bin/cybra_http" status 2>&1; read -r _ ;;
+        2) "$HOME/CYBRA/bin/cybra_http" start 2>&1; read -r _ ;;
+        3) "$HOME/CYBRA/bin/cybra_http" stop 2>&1; read -r _ ;;
+        4) "$HOME/CYBRA/bin/cybra_http" test 2>&1; read -r _ ;;
+    esac
+}
+
+action_schedule() {
+    printf '  [1] Status\n'
+    printf '  [2] Start\n'
+    printf '  [3] Stop\n'
+    printf '  [4] List rules\n'
+    printf 'Вибір: '
+    read -r sc
+    case "$sc" in
+        1) "$HOME/CYBRA/bin/cybra_schedule" status 2>&1; read -r _ ;;
+        2) "$HOME/CYBRA/bin/cybra_schedule" start 2>&1; read -r _ ;;
+        3) "$HOME/CYBRA/bin/cybra_schedule" stop 2>&1; read -r _ ;;
+        4) "$HOME/CYBRA/bin/cybra_schedule" list 2>&1; read -r _ ;;
+    esac
+}
+
+action_cleanup() {
+    "$HOME/CYBRA/bin/cybra_cleanup" 2>&1
+    read -r _
+}
+
+action_binmix() {
+    printf '  [1] Status\n'
+    printf '  [2] Start\n'
+    printf '  [3] Stop\n'
+    printf '  [4] Snapshot\n'
+    printf '  [5] Chain\n'
+    printf '  [6] Log\n'
+    printf 'Вибір: '
+    read -r bm
+    case "$bm" in
+        1) "$HOME/CYBRA/bin/cybra_binmix" status 2>&1; read -r _ ;;
+        2) "$HOME/CYBRA/bin/cybra_binmix" start 2>&1; read -r _ ;;
+        3) "$HOME/CYBRA/bin/cybra_binmix" stop 2>&1; read -r _ ;;
+        4) "$HOME/CYBRA/bin/cybra_binmix" snapshot 2>&1; read -r _ ;;
+        5) "$HOME/CYBRA/bin/cybra_binmix" chain 2>&1; read -r _ ;;
+        6) "$HOME/CYBRA/bin/cybra_binmix" log 2>&1 | tail -15; read -r _ ;;
+    esac
+}
+
+action_hash_eco() {
+    printf '  [1] Run (5 layers)\n'
+    printf '  [2] List snapshots\n'
+    printf '  [3] Push\n'
+    printf '  [4] Cleanup\n'
+    printf 'Вибір: '
+    read -r he
+    case "$he" in
+        1) "$HOME/CYBRA/cybra_hash.sh" layers 2>&1; read -r _ ;;
+        2) "$HOME/CYBRA/cybra_hash.sh" list 2>&1 | head -20; read -r _ ;;
+        3) "$HOME/CYBRA/cybra_hash.sh" push 2>&1; read -r _ ;;
+        4) "$HOME/CYBRA/cybra_hash.sh" cleanup 2>&1; read -r _ ;;
+    esac
+}
+
+action_node() {
+    printf '  [1] Check\n'
+    printf '  [2] Fix\n'
+    printf '  [3] Test\n'
+    printf '  [4] Sync\n'
+    printf '  [5] Push\n'
+    printf '  [6] Run all\n'
+    printf 'Вибір: '
+    read -r nd
+    case "$nd" in
+        1) "$HOME/CYBRA/cybra_node.sh" check 2>&1; read -r _ ;;
+        2) "$HOME/CYBRA/cybra_node.sh" fix 2>&1; read -r _ ;;
+        3) "$HOME/CYBRA/cybra_node.sh" test 2>&1; read -r _ ;;
+        4) "$HOME/CYBRA/cybra_node.sh" sync 2>&1; read -r _ ;;
+        5) "$HOME/CYBRA/cybra_node.sh" push 2>&1; read -r _ ;;
+        6) "$HOME/CYBRA/cybra_node.sh" run 2>&1; read -r _ ;;
+    esac
+}
+
+
 while true; do
     print_header
     print_menu
@@ -800,6 +896,13 @@ while true; do
         73) action_scan_full ;;
         74) action_search_contract ;;
         75) action_autofill_contract ;;
+        76) action_metrics ;;
+        77) action_http ;;
+        78) action_schedule ;;
+        79) action_cleanup ;;
+        70) action_binmix ;;
+        69) action_hash_eco ;;
+        68) action_node ;;
         76) action_ai_terms ;;
         77) action_check_payment ;;
         78) action_custom_terms ;;
