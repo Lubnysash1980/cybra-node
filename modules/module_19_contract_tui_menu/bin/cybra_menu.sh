@@ -629,6 +629,15 @@ print_menu() {
     printf '  🟢 %s[98]%s Parawatch (фон)\n' "$C_BOLD" "$C_RESET"
     printf '  🟢 %s[99]%s AUTOPATCH\n' "$C_BOLD" "$C_RESET"
     printf '\n'
+    printf '%s\\n' "${C_MAGENTA}  ─── NODE / HASH / SYSTEM ───${C_RESET}"
+    printf '  🟢 %s[100]%s Node manager\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[101]%s Hash ecosystem (5 layers)\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[102]%s Binmix daemon\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[103]%s Metrics (Prometheus)\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[104]%s HTTP panel\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[105]%s Schedule (cron)\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[106]%s Cleanup (ротація)\n' "$C_BOLD" "$C_RESET"
+    printf '\n'
 
     printf '%s\n' "  ${C_GREY}🟢 ready  🟡 warning  🔴 error${C_RESET}"
     printf '\n'
@@ -896,13 +905,6 @@ while true; do
         73) action_scan_full ;;
         74) action_search_contract ;;
         75) action_autofill_contract ;;
-        76) action_metrics ;;
-        77) action_http ;;
-        78) action_schedule ;;
-        79) action_cleanup ;;
-        70) action_binmix ;;
-        69) action_hash_eco ;;
-        68) action_node ;;
         76) action_ai_terms ;;
         77) action_check_payment ;;
         78) action_custom_terms ;;
@@ -927,6 +929,13 @@ while true; do
         97) action_evo_ctl ;;
         98) action_parawatch ;;
         99) action_autopatch_menu ;;
+        100) action_node ;;
+        101) action_hash_eco ;;
+        102) action_binmix ;;
+        103) action_metrics ;;
+        104) action_http ;;
+        105) action_schedule ;;
+        106) action_cleanup ;;
 
 
         0|q|Q|exit|quit)
