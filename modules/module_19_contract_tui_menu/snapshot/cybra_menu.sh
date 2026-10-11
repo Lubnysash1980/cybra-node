@@ -629,6 +629,15 @@ print_menu() {
     printf '  🟢 %s[98]%s Parawatch (фон)\n' "$C_BOLD" "$C_RESET"
     printf '  🟢 %s[99]%s AUTOPATCH\n' "$C_BOLD" "$C_RESET"
     printf '\n'
+    printf '%s\\n' "${C_MAGENTA}  ─── NODE / HASH / SYSTEM ───${C_RESET}"
+    printf '  🟢 %s[100]%s Node manager\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[101]%s Hash ecosystem (5 layers)\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[102]%s Binmix daemon\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[103]%s Metrics (Prometheus)\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[104]%s HTTP panel\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[105]%s Schedule (cron)\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[106]%s Cleanup (ротація)\n' "$C_BOLD" "$C_RESET"
+    printf '\n'
 
     printf '%s\n' "  ${C_GREY}🟢 ready  🟡 warning  🔴 error${C_RESET}"
     printf '\n'
@@ -730,6 +739,102 @@ action_import() {
 }
 
 
+
+# ═══ SYSTEM (76-79) ═══
+action_metrics() {
+    "$HOME/CYBRA/bin/cybra_metrics" -v 2>&1 | head -40
+    read -r _
+}
+
+action_http() {
+    printf '  [1] Status\n'
+    printf '  [2] Start (фон)\n'
+    printf '  [3] Stop\n'
+    printf '  [4] Test\n'
+    printf 'Вибір: '
+    read -r h
+    case "$h" in
+        1) "$HOME/CYBRA/bin/cybra_http" status 2>&1; read -r _ ;;
+        2) "$HOME/CYBRA/bin/cybra_http" start 2>&1; read -r _ ;;
+        3) "$HOME/CYBRA/bin/cybra_http" stop 2>&1; read -r _ ;;
+        4) "$HOME/CYBRA/bin/cybra_http" test 2>&1; read -r _ ;;
+    esac
+}
+
+action_schedule() {
+    printf '  [1] Status\n'
+    printf '  [2] Start\n'
+    printf '  [3] Stop\n'
+    printf '  [4] List rules\n'
+    printf 'Вибір: '
+    read -r sc
+    case "$sc" in
+        1) "$HOME/CYBRA/bin/cybra_schedule" status 2>&1; read -r _ ;;
+        2) "$HOME/CYBRA/bin/cybra_schedule" start 2>&1; read -r _ ;;
+        3) "$HOME/CYBRA/bin/cybra_schedule" stop 2>&1; read -r _ ;;
+        4) "$HOME/CYBRA/bin/cybra_schedule" list 2>&1; read -r _ ;;
+    esac
+}
+
+action_cleanup() {
+    "$HOME/CYBRA/bin/cybra_cleanup" 2>&1
+    read -r _
+}
+
+action_binmix() {
+    printf '  [1] Status\n'
+    printf '  [2] Start\n'
+    printf '  [3] Stop\n'
+    printf '  [4] Snapshot\n'
+    printf '  [5] Chain\n'
+    printf '  [6] Log\n'
+    printf 'Вибір: '
+    read -r bm
+    case "$bm" in
+        1) "$HOME/CYBRA/bin/cybra_binmix" status 2>&1; read -r _ ;;
+        2) "$HOME/CYBRA/bin/cybra_binmix" start 2>&1; read -r _ ;;
+        3) "$HOME/CYBRA/bin/cybra_binmix" stop 2>&1; read -r _ ;;
+        4) "$HOME/CYBRA/bin/cybra_binmix" snapshot 2>&1; read -r _ ;;
+        5) "$HOME/CYBRA/bin/cybra_binmix" chain 2>&1; read -r _ ;;
+        6) "$HOME/CYBRA/bin/cybra_binmix" log 2>&1 | tail -15; read -r _ ;;
+    esac
+}
+
+action_hash_eco() {
+    printf '  [1] Run (5 layers)\n'
+    printf '  [2] List snapshots\n'
+    printf '  [3] Push\n'
+    printf '  [4] Cleanup\n'
+    printf 'Вибір: '
+    read -r he
+    case "$he" in
+        1) "$HOME/CYBRA/cybra_hash.sh" layers 2>&1; read -r _ ;;
+        2) "$HOME/CYBRA/cybra_hash.sh" list 2>&1 | head -20; read -r _ ;;
+        3) "$HOME/CYBRA/cybra_hash.sh" push 2>&1; read -r _ ;;
+        4) "$HOME/CYBRA/cybra_hash.sh" cleanup 2>&1; read -r _ ;;
+    esac
+}
+
+action_node() {
+    printf '  [1] Check\n'
+    printf '  [2] Fix\n'
+    printf '  [3] Test\n'
+    printf '  [4] Sync\n'
+    printf '  [5] Push\n'
+    printf '  [6] Run all\n'
+    printf 'Вибір: '
+    read -r nd
+    case "$nd" in
+        1) "$HOME/CYBRA/cybra_node.sh" check 2>&1; read -r _ ;;
+        2) "$HOME/CYBRA/cybra_node.sh" fix 2>&1; read -r _ ;;
+        3) "$HOME/CYBRA/cybra_node.sh" test 2>&1; read -r _ ;;
+        4) "$HOME/CYBRA/cybra_node.sh" sync 2>&1; read -r _ ;;
+        5) "$HOME/CYBRA/cybra_node.sh" push 2>&1; read -r _ ;;
+        6) "$HOME/CYBRA/cybra_node.sh" run 2>&1; read -r _ ;;
+    esac
+}
+
+
 while true; do
     print_header
     print_menu
@@ -824,6 +929,13 @@ while true; do
         97) action_evo_ctl ;;
         98) action_parawatch ;;
         99) action_autopatch_menu ;;
+        100) action_node ;;
+        101) action_hash_eco ;;
+        102) action_binmix ;;
+        103) action_metrics ;;
+        104) action_http ;;
+        105) action_schedule ;;
+        106) action_cleanup ;;
 
 
         0|q|Q|exit|quit)
