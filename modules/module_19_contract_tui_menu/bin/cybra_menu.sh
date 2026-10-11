@@ -698,6 +698,38 @@ action_boot() {
 }
 
 
+action_web() {
+    printf '  [1] Status\n'
+    printf '  [2] Start (фон)\n'
+    printf '  [3] Stop\n'
+    printf '  [4] Restart\n'
+    printf 'Вибір: '
+    read -r w
+    case "$w" in
+        1) "$HOME/CYBRA/bin/cybra_web" status; read -r _ ;;
+        2) "$HOME/CYBRA/bin/cybra_web" start; read -r _ ;;
+        3) "$HOME/CYBRA/bin/cybra_web" stop; read -r _ ;;
+        4) "$HOME/CYBRA/bin/cybra_web" restart; read -r _ ;;
+    esac
+}
+
+action_export() {
+    printf 'Файл [~/cybra_export.tar.gz]: '
+    read -r OUT
+    [ -z "$OUT" ] && OUT="$HOME/cybra_export.tar.gz"
+    "$HOME/CYBRA/bin/cybra_export" "$OUT"
+    read -r _
+}
+
+action_import() {
+    printf 'Файл архіву: '
+    read -r IN
+    [ -z "$IN" ] && return
+    "$HOME/CYBRA/bin/cybra_import" "$IN"
+    read -r _
+}
+
+
 while true; do
     print_header
     print_menu
