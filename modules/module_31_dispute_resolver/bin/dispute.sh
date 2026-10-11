@@ -31,14 +31,17 @@ dp_vote() {
         *) echo "ERR: voter must be BUYER|SELLER|ARBITER"; return 1 ;;
     esac
 
-    local nline
-    nline="$(echo "$line" | awk -F'|' -v v="$voter" -v x="$vote" '{
-        if (v=="BUYER") $6=x;
-        else if (v=="SELLER") $7=x;
-        else if (v=="ARBITER") $8=x;
-        print $0
-    }' OFS='|')"
-    sed -i "s|^$line$|$nline|" "$DB"
+    # Запис через awk (без sed — бо | конфліктує)
+    awk -F'|' -v did="$did" -v v="$voter" -v x="$vote" '
+        BEGIN { OFS="|" }
+        $1 == did {
+            if (v == "BUYER")    $6 = x
+            else if (v == "SELLER")  $7 = x
+            else if (v == "ARBITER") $8 = x
+        }
+        { print }
+    ' "$DB" > "$DB.tmp" && mv "$DB.tmp" "$DB"
+
     echo "OK: vote recorded"
     dp_check "$did"
 }
@@ -62,8 +65,15 @@ dp_check() {
     fi
 
     if [ "$votes_ok" -ge 2 ] && [ -n "$result" ] && [ "$result" != "PENDING" ]; then
-        local nline="$(echo "$line" | awk -F'|' -v st="RESOLVED_$result" -v ts="$(date -u +%FT%TZ)" '{ $9=st; $11=ts; print $0 }' OFS='|')"
-        sed -i "s|^$line$|$nline|" "$DB"
+        awk -F'|' -v did="$did" -v st="RESOLVED_$result" -v ts="$(date -u +%FT%TZ)" '
+            BEGIN { OFS="|" }
+            $1 == did {
+                $9 = st
+                $11 = ts
+            }
+            { print }
+        ' "$DB" > "$DB.tmp" && mv "$DB.tmp" "$DB"
+
         echo "RESOLVED: $result"
     fi
 }

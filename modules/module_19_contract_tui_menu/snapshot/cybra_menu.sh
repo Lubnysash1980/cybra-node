@@ -623,6 +623,12 @@ print_menu() {
 }
 
 # ─── Main loop ───
+
+action_evo7() {
+    "$HOME/CYBRA/bin/cybra_evo7" menu
+}
+
+
 while true; do
     print_header
     print_menu
