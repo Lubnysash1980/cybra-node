@@ -1,9 +1,11 @@
 # CYBRA NODE
-# 2026-10-13T21:33:57Z
+# 2026-10-14T21:10:10Z
 
 module_01_auto_executor p=9 f=0 71f73ea3e4452ee6
 module_02_contract_builder p=8 f=0 b01d73eed9e3e4aa
 module_03_escrow_controller p=9 f=0 f973e7e56bc63c02
+module_114_autonode p=0 f=0 NOHASH
+module_121_parlament p=0 f=0 NOHASH
 module_12_delivery_receipt p=18 f=0 37b506793276b927
 module_13_dual_backend p=18 f=0 ac2afcb93b0d9430
 module_14_watchdog p=1 f=0 fdb5d798c0b606b1
@@ -11,7 +13,7 @@ module_15_true100_aggregator p=14 f=0 e189fd8f5a23c8de
 module_16_final_authorization_release_gate p=14 f=0 fadd5d6bf59b36c1
 module_17_cybra_license_contract_menu p=18 f=2 61e583062f987578
 module_18_license_payment_router p=20 f=0 914f29a2c2e059f3
-module_19_contract_tui_menu p=36 f=0 c4515e1d31efd938
+module_19_contract_tui_menu p=36 f=0 3eff6a4b6803cdc5
 module_20_evolution_guard p=16 f=0 504218f917559635
 module_25_address_book p=4 f=0 42d02139386cc1fe
 module_26_qr_codes p=0 f=1 d11d31fd87e998e6
