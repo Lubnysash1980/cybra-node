@@ -1,7 +1,7 @@
 {
   "status": "health_checked",
-  "time": 1792011632.8346956,
-  "time_iso": "2026-10-15T00:00:32+0300",
+  "time": 1792011683.0918229,
+  "time_iso": "2026-10-15T00:01:23+0300",
   "checks": {
     "redis_ping": false,
     "redis_committee": false,
@@ -97,5 +97,5 @@
     "manual_OWNER_approval_required": true
   },
   "ok": false,
-  "double_sha": "7dcfa47521c6df35b17b81b1ba5354cf359c041420cd6160c979a56b7ec30a88"
+  "double_sha": "001c42506bc18c264159a0d0e34bca884265c7dfbc9c2a9dfc85c741332fd33c"
 }
