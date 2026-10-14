@@ -1,10 +1,46 @@
-*.log
-*.test.log
-*.bak.*
-*.pid
-*.tar.gz
-logs/
-backups/
-hashes/
-audit/
+# --- Python ---
 __pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# --- Node / pm2 ---
+node_modules/
+.pm2/
+*.log
+
+# --- Секрети / токени ---
+.env
+*.env
+*token*
+*secret*
+credentials.json
+cybra_set_token.sh
+
+# --- Дані, які змінюються постійно ---
+# (розкоментуй, якщо НЕ хочеш комітити історію)
+# logs/
+# *.log
+# backups/
+# modules/module_121_parlament/chain.json
+# modules/module_121_parlament/parliament.json
+# modules/module_121_parlament/parliament_ledger.json
+# modules/module_121_parlament/parliament_audit.json
+# modules/module_19_contract_tui_menu/backups/
+# modules/module_19_contract_tui_menu/snapshot/
+# .binmix/
+
+# --- Termux ---
+.termux/
+*.pid
+nohup.out
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+*~

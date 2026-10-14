@@ -1,5 +1,5 @@
 ═══ CYBRA GUARDIAN — 100% STATE CHECK ═══
-Time: 2026-10-11T07:56:15Z
+Time: 2026-10-13T21:29:26Z
 
   [OK]   dir: CYBRA
   [OK]   dir: modules
@@ -7,8 +7,8 @@ Time: 2026-10-11T07:56:15Z
   [OK]   dir: evolution
   [OK]   dir: audit
   [OK]   module: module_01_auto_executor
-  [WARN] module: module_02_contract_builder (no tests)
-  [WARN] module: module_03_escrow_controller (no tests)
+  [OK]   module: module_02_contract_builder
+  [OK]   module: module_03_escrow_controller
   [OK]   module: module_12_delivery_receipt
   [OK]   module: module_13_dual_backend
   [OK]   module: module_14_watchdog
@@ -32,8 +32,8 @@ Time: 2026-10-11T07:56:15Z
   [OK]   file: cybra_mega_hardening.sh
   [OK]   file: .owner
   [OK]   file: CYBRA_AI_TASK_BAR.sh
-  [OK]   git repo
-  [OK]   identity vault
+  [FAIL] git repo
+  [WARN] identity vault (не зареєстровано)
 
 --- SUMMARY ---
 Total: 33

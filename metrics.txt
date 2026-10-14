@@ -1,0 +1,59 @@
+# CYBRA metrics
+# generated 2026-10-13T20:37:22Z
+
+cybra_module_pass{module="module_01_auto_executor"} 0
+cybra_module_fail{module="module_01_auto_executor"} 0
+cybra_module_pass{module="module_02_contract_builder"} 0
+cybra_module_fail{module="module_02_contract_builder"} 0
+cybra_module_pass{module="module_03_escrow_controller"} 0
+cybra_module_fail{module="module_03_escrow_controller"} 0
+cybra_module_pass{module="module_12_delivery_receipt"} 0
+cybra_module_fail{module="module_12_delivery_receipt"} 0
+cybra_module_pass{module="module_13_dual_backend"} 0
+cybra_module_fail{module="module_13_dual_backend"} 0
+cybra_module_pass{module="module_14_watchdog"} 0
+cybra_module_fail{module="module_14_watchdog"} 0
+cybra_module_pass{module="module_15_true100_aggregator"} 0
+cybra_module_fail{module="module_15_true100_aggregator"} 0
+cybra_module_pass{module="module_16_final_authorization_release_gate"} 0
+cybra_module_fail{module="module_16_final_authorization_release_gate"} 0
+cybra_module_pass{module="module_17_cybra_license_contract_menu"} 0
+cybra_module_fail{module="module_17_cybra_license_contract_menu"} 0
+cybra_module_pass{module="module_18_license_payment_router"} 0
+cybra_module_fail{module="module_18_license_payment_router"} 0
+cybra_module_pass{module="module_19_contract_tui_menu"} 0
+cybra_module_fail{module="module_19_contract_tui_menu"} 0
+cybra_module_pass{module="module_20_evolution_guard"} 0
+cybra_module_fail{module="module_20_evolution_guard"} 0
+cybra_module_pass{module="module_25_address_book"} 0
+cybra_module_fail{module="module_25_address_book"} 0
+cybra_module_pass{module="module_26_qr_codes"} 0
+cybra_module_fail{module="module_26_qr_codes"} 0
+cybra_module_pass{module="module_27_telegram_bot"} 0
+cybra_module_fail{module="module_27_telegram_bot"} 0
+cybra_module_pass{module="module_28_export"} 0
+cybra_module_fail{module="module_28_export"} 0
+cybra_module_pass{module="module_29_backup"} 0
+cybra_module_fail{module="module_29_backup"} 0
+cybra_module_pass{module="module_30_multichain"} 0
+cybra_module_fail{module="module_30_multichain"} 0
+cybra_module_pass{module="module_31_dispute_resolver"} 0
+cybra_module_fail{module="module_31_dispute_resolver"} 0
+cybra_module_pass{module="module_32_webhook"} 0
+cybra_module_fail{module="module_32_webhook"} 0
+cybra_module_pass{module="module_33_audit_log"} 0
+cybra_module_fail{module="module_33_audit_log"} 0
+cybra_module_pass{module="module_34_doc_scanner"} 0
+cybra_module_fail{module="module_34_doc_scanner"} 0
+cybra_module_pass{module="module_35_cybra_guardian"} 0
+cybra_module_fail{module="module_35_cybra_guardian"} 0
+
+cybra_modules_total 23
+cybra_contracts_total 83
+cybra_links_total 210
+
+cybra_watchdog_running 1
+cybra_evo_ctl_running 1
+cybra_parawatch_running 1
+
+cybra_last_metrics_timestamp 1791923844

@@ -927,10 +927,7 @@ while true; do
         76) action_ai_terms ;;
         77) action_check_payment ;;
         78) action_custom_terms ;;
-        88) action_metrics ;;
-        89) action_http ;;
-        90) action_schedule ;;
-        87) action_cleanup ;;
+        79) action_watchdog ;;
         80) action_gd_state ;;
         81) action_gd_100 ;;
         82) action_gd_register ;;
