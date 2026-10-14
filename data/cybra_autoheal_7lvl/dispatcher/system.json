@@ -1,0 +1,25 @@
+{
+  "system_id": "SEAL_DISPATCHER",
+  "role": "task_distribution_and_seal",
+  "status": "active",
+  "flow": [
+    "health_check",
+    "repair_task",
+    "seal_task",
+    "AI block inbox",
+    "task-block",
+    "closed SHA bridge",
+    "pool mining",
+    "report/proof"
+  ],
+  "safety": {
+    "private_keys": false,
+    "seed_phrase": false,
+    "automatic_real_payment": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "created_at": 1792011631.8126721,
+  "created_at_iso": "2026-10-15T00:00:31+0300",
+  "double_sha": "60aba3b059db46cf3187196c258fa98a9e5eaaf3d0d19f939454fdb37c2536ce"
+}

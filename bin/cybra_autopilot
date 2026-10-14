@@ -1,0 +1,172 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# cybra_autopilot — автопілот CYBRA (періодичне самооновлення)
+# Команди: status | start | stop | cycle | log
+
+CYBRA="$HOME/CYBRA"
+DIR="$CYBRA/.autopilot"
+PID_FILE="$DIR/autopilot.pid"
+STATE_FILE="$DIR/state.json"
+LOG_FILE="$CYBRA/logs/autopilot.log"
+CYCLE_INTERVAL=900          # секунд між циклами (15 хв)
+
+mkdir -p "$DIR" "$(dirname "$LOG_FILE")"
+
+now() { date -u +"%Y-%m-%dT%H:%M:%SZ"; }
+ts_human() { date -u +"%Y-%m-%d %H:%M:%S UTC"; }
+
+is_running() {
+    [ -f "$PID_FILE" ] || return 1
+    local pid
+    pid=$(cat "$PID_FILE" 2>/dev/null)
+    [ -n "$pid" ] && kill -0 "$pid" 2>/dev/null
+}
+
+log_msg() { echo "[$(now)] $*" >> "$LOG_FILE"; }
+
+# ---------- один цикл ----------
+run_cycle() {
+    local ts
+    ts=$(ts_human)
+    log_msg "=== CYCLE START ==="
+
+    local actions=0
+
+    # 1) Preflight: базові перевірки
+    if [ -x "$CYBRA/bin/cybra_systems" ]; then
+        "$CYBRA/bin/cybra_systems" check >> "$LOG_FILE" 2>&1 && actions=$((actions+1))
+    fi
+
+    # 2) Autoheal: спроба виправити проблеми
+    if [ -x "$CYBRA/bin/cybra-autoheal" ]; then
+        "$CYBRA/bin/cybra-autoheal" >> "$LOG_FILE" 2>&1 && actions=$((actions+1))
+    fi
+
+    # 3) Self-heal через TUI (якщо є окремий скрипт)
+    if [ -x "$CYBRA/bin/cybra_hard_fix.sh" ]; then
+        "$CYBRA/bin/cybra_hard_fix.sh" --quiet >> "$LOG_FILE" 2>&1 && actions=$((actions+1))
+    fi
+
+    # 4) Autogit (якщо є)
+    if [ -x "$CYBRA/bin/cybra_autogit.sh" ]; then
+        "$CYBRA/bin/cybra_autogit.sh" >> "$LOG_FILE" 2>&1 && actions=$((actions+1))
+    fi
+
+    # 5) Snapshot стану
+    local next_ts
+    next_ts=$(( $(date +%s) + CYCLE_INTERVAL ))
+    cat > "$STATE_FILE" <<EOF
+{
+  "ts": "$ts",
+  "last_cycle": $(date +%s),
+  "next_cycle": $next_ts,
+  "cycle_interval": $CYCLE_INTERVAL,
+  "pid": $$,
+  "actions_run": $actions,
+  "status": "ok"
+}
+EOF
+
+    log_msg "=== CYCLE END (actions=$actions) ==="
+    echo "$actions"
+}
+
+# ---------- команди ----------
+cmd_status() {
+    echo "═══ AUTOPILOT ═══"
+    if is_running; then
+        echo "  🟢 Status : RUNNING (pid=$(cat "$PID_FILE"))"
+    else
+        echo "  🔴 Status : STOPPED"
+    fi
+    echo "  ⏱  Interval: ${CYCLE_INTERVAL}s"
+    echo "  📁 Dir    : $DIR"
+    echo "  📝 Log    : $LOG_FILE"
+    if [ -f "$STATE_FILE" ]; then
+        echo "  ─── State ───"
+        if command -v python3 >/dev/null 2>&1; then
+            python3 -c "
+import json, time, sys
+try:
+    s = json.load(open('$STATE_FILE'))
+except Exception as e:
+    print('  (не читається:', e, ')'); sys.exit(0)
+now = int(time.time())
+last = s.get('last_cycle', 0)
+nxt  = s.get('next_cycle', 0)
+print(f\"  Last cycle : {s.get('ts','?')}\")
+print(f\"  Actions    : {s.get('actions_run','?')}\")
+if nxt:
+    left = max(0, nxt - now)
+    print(f\"  Next in    : {left}s\")
+"
+        else
+            cat "$STATE_FILE"
+        fi
+    else
+        echo "  (state.json ще не створено)"
+    fi
+    echo "  🕐 $(ts_human)"
+}
+
+cmd_start() {
+    if is_running; then
+        echo "⚠️  Autopilot вже працює (pid=$(cat "$PID_FILE"))"
+        return 0
+    fi
+    echo "▶ Запуск autopilot (інтервал ${CYCLE_INTERVAL}s)…"
+    (
+        while true; do
+            run_cycle > /dev/null
+            sleep "$CYCLE_INTERVAL"
+        done
+    ) > /dev/null 2>&1 &
+    echo $! > "$PID_FILE"
+    sleep 1
+    log_msg "daemon started pid=$(cat "$PID_FILE")"
+    echo "✅ Autopilot запущено (pid=$(cat "$PID_FILE"))"
+}
+
+cmd_stop() {
+    if ! is_running; then
+        echo "⚠️  Autopilot не запущено"
+        return 0
+    fi
+    local pid
+    pid=$(cat "$PID_FILE")
+    kill "$pid" 2>/dev/null
+    sleep 1
+    kill -9 "$pid" 2>/dev/null
+    # прибираємо нащадків циклу, якщо лишились
+    pkill -P "$pid" 2>/dev/null
+    rm -f "$PID_FILE"
+    log_msg "daemon stopped pid=$pid"
+    echo "🛑 Autopilot зупинено (pid=$pid)"
+}
+
+cmd_cycle() {
+    echo "▶ Один цикл autopilot…"
+    local n
+    n=$(run_cycle)
+    echo "✅ Цикл завершено. Actions: $n"
+    echo "   Дивись: tail -30 $LOG_FILE"
+}
+
+cmd_log() {
+    if [ ! -f "$LOG_FILE" ]; then
+        echo "  (лог порожній: $LOG_FILE)"
+        return 0
+    fi
+    tail -30 "$LOG_FILE"
+}
+
+case "${1:-}" in
+    status) cmd_status ;;
+    start)  cmd_start ;;
+    stop)   cmd_stop ;;
+    cycle)  cmd_cycle ;;
+    log)    cmd_log ;;
+    *)
+        echo "Usage: cybra_autopilot {status|start|stop|cycle|log}"
+        exit 1
+        ;;
+esac

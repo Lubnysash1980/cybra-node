@@ -1,0 +1,101 @@
+{
+  "status": "health_checked",
+  "time": 1792011632.8346956,
+  "time_iso": "2026-10-15T00:00:32+0300",
+  "checks": {
+    "redis_ping": false,
+    "redis_committee": false,
+    "cybra_finance_bin": true,
+    "cybra_autoheal_bin": true,
+    "payment_requisites": false,
+    "kybra_valid": false,
+    "finance_committees": false,
+    "market_collector": false,
+    "price_gate": false,
+    "closed_sha_bridge": false,
+    "kibra_stats": false,
+    "cold_finance_report": false,
+    "kybra_valid_report": false,
+    "payment_requisites_report": false,
+    "five_committees_report": false,
+    "autoheal_report": false,
+    "parliament_failed_zero": true
+  },
+  "levels": [
+    {
+      "level": "L1_REDIS_HEALTH",
+      "name": "Redis Health Level",
+      "ok": false,
+      "bad": [
+        "redis_ping"
+      ]
+    },
+    {
+      "level": "L2_BINARY_HEALTH",
+      "name": "Binary Health Level",
+      "ok": true,
+      "bad": []
+    },
+    {
+      "level": "L3_FINANCE_DATA_HEALTH",
+      "name": "Finance Data Health Level",
+      "ok": false,
+      "bad": [
+        "cold_finance_report",
+        "payment_requisites_report"
+      ]
+    },
+    {
+      "level": "L4_WALLET_REQUISITES_HEALTH",
+      "name": "Wallet Requisites Health Level",
+      "ok": false,
+      "bad": [
+        "kybra_valid",
+        "kybra_valid_report"
+      ]
+    },
+    {
+      "level": "L5_PARLIAMENT_TASK_HEALTH",
+      "name": "Parliament Task Health Level",
+      "ok": false,
+      "bad": [
+        "closed_sha_bridge"
+      ]
+    },
+    {
+      "level": "L6_MARKET_SAFETY_HEALTH",
+      "name": "Market Safety Health Level",
+      "ok": false,
+      "bad": [
+        "price_gate",
+        "market_collector"
+      ]
+    },
+    {
+      "level": "L7_SEAL_DISPATCHER_HEALTH",
+      "name": "Seal Dispatcher Health Level",
+      "ok": false,
+      "bad": [
+        "autoheal_report_first_run_or_missing"
+      ]
+    }
+  ],
+  "queues": {
+    "repair_queue": 0,
+    "seal_queue": 0,
+    "block_inbox": 0,
+    "task_block_mempool": 0,
+    "pool_mining_blocks": 0,
+    "parliament_queue": 0,
+    "parliament_failed": 0
+  },
+  "safety": {
+    "private_keys": false,
+    "seed_phrase": false,
+    "automatic_real_payment": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "ok": false,
+  "double_sha": "7dcfa47521c6df35b17b81b1ba5354cf359c041420cd6160c979a56b7ec30a88"
+}
