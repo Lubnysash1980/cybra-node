@@ -1,5 +1,5 @@
 ═══ CYBRA GUARDIAN — 100% STATE CHECK ═══
-Time: 2026-10-13T21:35:17Z
+Time: 2026-10-14T21:11:31Z
 
   [OK]   dir: CYBRA
   [OK]   dir: modules
@@ -9,6 +9,8 @@ Time: 2026-10-13T21:35:17Z
   [OK]   module: module_01_auto_executor
   [OK]   module: module_02_contract_builder
   [OK]   module: module_03_escrow_controller
+  [WARN] module: module_114_autonode (no tests)
+  [WARN] module: module_121_parlament (no tests)
   [OK]   module: module_12_delivery_receipt
   [OK]   module: module_13_dual_backend
   [OK]   module: module_14_watchdog
@@ -36,6 +38,6 @@ Time: 2026-10-13T21:35:17Z
   [WARN] identity vault (не зареєстровано)
 
 --- SUMMARY ---
-Total: 33
+Total: 35
 OK:    31
-Pct:   93%
+Pct:   88%
