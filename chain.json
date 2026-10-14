@@ -1,0 +1,156 @@
+[
+  {
+    "index": 0,
+    "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "task": "Genesis",
+    "layers": "{\"logic\": \"\", \"analysis\": \"\", \"search\": \"\"}",
+    "result": "",
+    "nonce": 0,
+    "quality": 100,
+    "miner": "genesis",
+    "public_key": "",
+    "signature": "",
+    "timestamp": 1791986617.3944535,
+    "difficulty": 2,
+    "hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "metadata": {
+      "version": "1.0",
+      "symbol": "CYB",
+      "network": "devnet",
+      "uuid": "genesis"
+    },
+    "transactions": []
+  },
+  {
+    "index": 1,
+    "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "task": "Parliament vote: python parliament_contract.py --auto --count 5       # 5 вип",
+    "layers": "{\"logic\": \"proposal=c1830faa9f90\", \"analysis\": \"yes=6, no=2, abstain=1\", \"search\": \"status=passed\"}",
+    "result": "{\"text\": \"python parliament_contract.py --auto --count 5       # 5 випадкових пропозицій\\rpython parliament_contract.py --propose \\\"AI повинен мати права\\\" --deadline 30\\rpython parliament_contract.py --list                 # стан парламенту\", \"author\": \"AI_003\", \"status\": \"passed\", \"created\": \"2026-10-14T14:02:37.347492Z\", \"deadline\": 1791986617.3475122, \"yes\": 6, \"no\": 2, \"abstain\": 1, \"tallied_at\": \"2026-10-14T14:03:37.380168Z\"}",
+    "nonce": 234,
+    "quality": 100,
+    "miner": "parliament_ai",
+    "public_key": "",
+    "signature": "02d5dc3610732d780a066811baf3302a",
+    "timestamp": 1791986617.3946686,
+    "difficulty": 2,
+    "hash": "004cc0dab58b2685a12a7e492a43f6ac94870740f72b1149c22069b1e0ba524c",
+    "metadata": {
+      "version": "1.0",
+      "symbol": "CYB",
+      "network": "devnet",
+      "uuid": "35164a37b9e4b42c"
+    },
+    "transactions": []
+  },
+  {
+    "index": 2,
+    "prev_hash": "004cc0dab58b2685a12a7e492a43f6ac94870740f72b1149c22069b1e0ba524c",
+    "task": "Parliament vote: Прийняти закон про штучний інтелект",
+    "layers": "{\"logic\": \"proposal=c2de08cf3705\", \"analysis\": \"yes=5, no=3, abstain=1\", \"search\": \"status=passed\"}",
+    "result": "{\"text\": \"Прийняти закон про штучний інтелект\", \"author\": \"AI_004\", \"status\": \"passed\", \"created\": \"2026-10-14T14:03:37.409706Z\", \"deadline\": 1791986677.4097335, \"yes\": 5, \"no\": 3, \"abstain\": 1, \"tallied_at\": \"2026-10-14T14:04:37.429556Z\"}",
+    "nonce": 19,
+    "quality": 100,
+    "miner": "parliament_ai",
+    "public_key": "",
+    "signature": "02d5dc3610732d780a066811baf3302a",
+    "timestamp": 1791986677.4443238,
+    "difficulty": 2,
+    "hash": "00366cd96c60125f8172932fc02a1eb5b54a584e1d3c38b54d49ceaedfd3569e",
+    "metadata": {
+      "version": "1.0",
+      "symbol": "CYB",
+      "network": "devnet",
+      "uuid": "47ad87943d312fac"
+    },
+    "transactions": []
+  },
+  {
+    "index": 3,
+    "prev_hash": "00366cd96c60125f8172932fc02a1eb5b54a584e1d3c38b54d49ceaedfd3569e",
+    "task": "Parliament vote: Запровадити green energy для data-центрів",
+    "layers": "{\"logic\": \"proposal=67a58be316c1\", \"analysis\": \"yes=4, no=5, abstain=0\", \"search\": \"status=rejected\"}",
+    "result": "{\"text\": \"Запровадити green energy для data-центрів\", \"author\": \"AI_005\", \"status\": \"rejected\", \"created\": \"2026-10-14T14:08:37.790851Z\", \"deadline\": 1791986977.7908797, \"yes\": 4, \"no\": 5, \"abstain\": 0, \"tallied_at\": \"2026-10-14T14:09:37.829873Z\"}",
+    "nonce": 336,
+    "quality": 100,
+    "miner": "parliament_ai",
+    "public_key": "",
+    "signature": "02d5dc3610732d780a066811baf3302a",
+    "timestamp": 1791986977.8356428,
+    "difficulty": 2,
+    "hash": "00519f1bcc3f14744a367f41056fd59e50721fec137ebd4b15b50227b2f1999f",
+    "metadata": {
+      "version": "1.0",
+      "symbol": "CYB",
+      "network": "devnet",
+      "uuid": "51def398beff9a79"
+    },
+    "transactions": []
+  },
+  {
+    "index": 4,
+    "prev_hash": "00519f1bcc3f14744a367f41056fd59e50721fec137ebd4b15b50227b2f1999f",
+    "task": "Parliament vote: Підвищити податок на великі технологічні компанії",
+    "layers": "{\"logic\": \"proposal=dd1f3bd216cf\", \"analysis\": \"yes=4, no=4, abstain=1\", \"search\": \"status=tie\"}",
+    "result": "{\"text\": \"Підвищити податок на великі технологічні компанії\", \"author\": \"AI_004\", \"status\": \"tie\", \"created\": \"2026-10-14T14:09:37.845853Z\", \"deadline\": 1791987037.8458667, \"yes\": 4, \"no\": 4, \"abstain\": 1, \"tallied_at\": \"2026-10-14T14:10:37.887002Z\"}",
+    "nonce": 67,
+    "quality": 100,
+    "miner": "parliament_ai",
+    "public_key": "",
+    "signature": "02d5dc3610732d780a066811baf3302a",
+    "timestamp": 1791987037.8997066,
+    "difficulty": 2,
+    "hash": "002ea8703fac5da176b5714dc95c07264e9aeb36ae64b51257fdf80227d31edf",
+    "metadata": {
+      "version": "1.0",
+      "symbol": "CYB",
+      "network": "devnet",
+      "uuid": "25233396f76d982d"
+    },
+    "transactions": []
+  },
+  {
+    "index": 5,
+    "prev_hash": "002ea8703fac5da176b5714dc95c07264e9aeb36ae64b51257fdf80227d31edf",
+    "task": "Parliament vote: фолд\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b",
+    "layers": "{\"logic\": \"proposal=fb0942506896\", \"analysis\": \"yes=4, no=5, abstain=0\", \"search\": \"status=rejected\"}",
+    "result": "{\"text\": \"фолд\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\\b\", \"author\": \"AI_001\", \"status\": \"rejected\", \"created\": \"2026-10-14T14:11:27.785829Z\", \"deadline\": 1791987147.7858489, \"yes\": 4, \"no\": 5, \"abstain\": 0, \"tallied_at\": \"2026-10-14T14:12:27.836495Z\"}",
+    "nonce": 314,
+    "quality": 100,
+    "miner": "parliament_ai",
+    "public_key": "",
+    "signature": "02d5dc3610732d780a066811baf3302a",
+    "timestamp": 1791987147.8415735,
+    "difficulty": 2,
+    "hash": "00af5d76820e349d849785b5f124e6f8bd58a426f8faf8ea25795d479c85e586",
+    "metadata": {
+      "version": "1.0",
+      "symbol": "CYB",
+      "network": "devnet",
+      "uuid": "1f33f542ac43d686"
+    },
+    "transactions": []
+  },
+  {
+    "index": 6,
+    "prev_hash": "00af5d76820e349d849785b5f124e6f8bd58a426f8faf8ea25795d479c85e586",
+    "task": "Parliament vote: Запровадити green energy для data-центрів",
+    "layers": "{\"logic\": \"proposal=98a9ca84671a\", \"analysis\": \"yes=4, no=4, abstain=1\", \"search\": \"status=tie\"}",
+    "result": "{\"text\": \"Запровадити green energy для data-центрів\", \"author\": \"AI_006\", \"status\": \"tie\", \"created\": \"2026-10-14T14:12:27.849950Z\", \"deadline\": 1791987207.8499632, \"yes\": 4, \"no\": 4, \"abstain\": 1, \"tallied_at\": \"2026-10-14T14:13:27.886498Z\"}",
+    "nonce": 118,
+    "quality": 100,
+    "miner": "parliament_ai",
+    "public_key": "",
+    "signature": "02d5dc3610732d780a066811baf3302a",
+    "timestamp": 1791987207.9060047,
+    "difficulty": 2,
+    "hash": "00a25444ea498ce1bc8b388efcf36ac6241bfefb52474a3ca208f84c35fe7774",
+    "metadata": {
+      "version": "1.0",
+      "symbol": "CYB",
+      "network": "devnet",
+      "uuid": "abc6299614045f86"
+    },
+    "transactions": []
+  }
+]

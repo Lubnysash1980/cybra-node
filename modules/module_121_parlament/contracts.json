@@ -1,0 +1,79 @@
+[
+  {
+    "contract_type": "invoice",
+    "document_number": "РБ0518-00742",
+    "date": "2026-10-06",
+    "valid_until": "2026-10-07",
+    "supplier": {
+      "name": "ТОВ \"КОМФІ ТРЕЙД\"",
+      "edrpou": "36962487",
+      "iban": "UA893052990000026002050009988",
+      "bank": "АТ КБ \"ПРИВАТБАНК\"",
+      "mfo": "305299",
+      "ipn": "369624804639",
+      "address": "49100, м. Дніпро, бул. Слави, 6 Б, кімната 413",
+      "phone": "0800 303 505"
+    },
+    "buyer": {
+      "name": "Грабовський Олександр Миколайович",
+      "ipn": "2937002115",
+      "phone": "380663181676"
+    },
+    "shipment_address": "м. Київ, Дарницький район, вулиця Мишуги Олександра, буд. 4",
+    "items": [
+      {
+        "code": "3984343",
+        "description": "Смартфон Samsung Galaxy Fold 8 16/1Tb Graphite (SM-F971BZKNSЕК)",
+        "quantity": 1,
+        "unit": "шт.",
+        "vat_rate": "20%",
+        "price_without_vat": 81748.33,
+        "amount": 81748.33
+      },
+      {
+        "code": "3909742",
+        "description": "Послуга «Comfy Upgrade 2 роки»",
+        "quantity": 1,
+        "unit": "шт.",
+        "vat_rate": "20%",
+        "price_without_vat": 24525.0,
+        "amount": 24525.0
+      },
+      {
+        "code": "2908219",
+        "description": "Мережевий зарядний пристрій Samsung Trio 65W 2 Type-C+USB Black (EP-T6530NBEGEU)",
+        "quantity": 1,
+        "unit": "шт.",
+        "vat_rate": "20%",
+        "price_without_vat": 2040.83,
+        "amount": 2040.83
+      },
+      {
+        "code": "3799926",
+        "description": "Батарея мобільна Pitaka Aramid Fiber Magnetic Qi2 5 000mAh Sunset (PBQ2402)",
+        "quantity": 1,
+        "unit": "шт.",
+        "vat_rate": "20%",
+        "price_without_vat": 3332.5,
+        "amount": 3332.5
+      },
+      {
+        "code": "4061288",
+        "description": "Чохол для смартфону Pitaka Edge Ultra-Slim Case Twill Black/Grey for Samsung Galaxy Z Fold 8 (FBWFOLD8)",
+        "quantity": 1,
+        "unit": "шт.",
+        "vat_rate": "20%",
+        "price_without_vat": 2915.83,
+        "amount": 2915.83
+      }
+    ],
+    "totals": {
+      "sum_without_vat": 114562.49,
+      "vat_amount": 22912.51,
+      "sum_with_vat": 137475.0
+    },
+    "signatory": "Касир Шматова Єва Володимирівна",
+    "created_at": "2026-10-14T17:18:20.805814Z",
+    "status": "created"
+  }
+]

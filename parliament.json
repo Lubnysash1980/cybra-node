@@ -1,0 +1,181 @@
+{
+  "contract_hash": "b4f46cea5fce84d0b785125f2e688e3ac9fcfeba89a6c378138c856d52903c45",
+  "agents": {
+    "AI_000": {
+      "faction": "Conservative",
+      "address": "cd8041e2dd34fd45e719d6e786cd3fb26e44af13",
+      "weight": 1,
+      "created": "2026-10-14T14:02:34.243296Z"
+    },
+    "AI_001": {
+      "faction": "Populist",
+      "address": "7f2e135556da8c3faa1d96bc2696f6d8a4077709",
+      "weight": 2,
+      "created": "2026-10-14T14:02:34.243386Z"
+    },
+    "AI_002": {
+      "faction": "Independent",
+      "address": "838ca005cb1ed3d28b189e3e5ae36f4dde88b743",
+      "weight": 1,
+      "created": "2026-10-14T14:02:34.243410Z"
+    },
+    "AI_003": {
+      "faction": "Conservative",
+      "address": "1f12a8e569ac2020933d6dbbd5b193b6723937b0",
+      "weight": 2,
+      "created": "2026-10-14T14:02:34.243427Z"
+    },
+    "AI_004": {
+      "faction": "Libertarian",
+      "address": "e5ea104856227c9bb482e7fe90b2ec63b1c41162",
+      "weight": 1,
+      "created": "2026-10-14T14:02:34.243444Z"
+    },
+    "AI_005": {
+      "faction": "Independent",
+      "address": "b8a652f07516098ed646de92ec1e46a7803c134b",
+      "weight": 1,
+      "created": "2026-10-14T14:02:34.243459Z"
+    },
+    "AI_006": {
+      "faction": "Progressive",
+      "address": "f4c09cd467e92eddc97dacc17a5840253d22d734",
+      "weight": 1,
+      "created": "2026-10-14T14:02:34.243475Z"
+    }
+  },
+  "votes": {
+    "c1830faa9f90": {
+      "AI_000": 1,
+      "AI_003": 1,
+      "AI_002": 1,
+      "AI_001": -1,
+      "AI_004": 1,
+      "AI_005": 0,
+      "AI_006": 1
+    },
+    "c2de08cf3705": {
+      "AI_003": 1,
+      "AI_000": 1,
+      "AI_006": -1,
+      "AI_004": 1,
+      "AI_005": 0,
+      "AI_002": 1,
+      "AI_001": -1
+    },
+    "67a58be316c1": {
+      "AI_000": 1,
+      "AI_005": -1,
+      "AI_002": -1,
+      "AI_004": 1,
+      "AI_006": -1,
+      "AI_003": 1,
+      "AI_001": -1
+    },
+    "dd1f3bd216cf": {
+      "AI_000": 1,
+      "AI_002": -1,
+      "AI_006": -1,
+      "AI_004": 1,
+      "AI_005": 0,
+      "AI_003": 1,
+      "AI_001": -1
+    },
+    "fb0942506896": {
+      "AI_000": 1,
+      "AI_002": -1,
+      "AI_006": -1,
+      "AI_005": -1,
+      "AI_003": 1,
+      "AI_004": 1,
+      "AI_001": -1
+    },
+    "98a9ca84671a": {
+      "AI_000": 1,
+      "AI_002": -1,
+      "AI_006": -1,
+      "AI_005": 0,
+      "AI_003": 1,
+      "AI_001": -1,
+      "AI_004": 1
+    }
+  },
+  "proposals": {
+    "c1830faa9f90": {
+      "text": "python parliament_contract.py --auto --count 5       # 5 випадкових пропозицій\rpython parliament_contract.py --propose \"AI повинен мати права\" --deadline 30\rpython parliament_contract.py --list                 # стан парламенту",
+      "author": "AI_003",
+      "status": "passed",
+      "created": "2026-10-14T14:02:37.347492Z",
+      "deadline": 1791986617.3475122,
+      "yes": 6,
+      "no": 2,
+      "abstain": 1,
+      "tallied_at": "2026-10-14T14:03:37.380168Z"
+    },
+    "c2de08cf3705": {
+      "text": "Прийняти закон про штучний інтелект",
+      "author": "AI_004",
+      "status": "passed",
+      "created": "2026-10-14T14:03:37.409706Z",
+      "deadline": 1791986677.4097335,
+      "yes": 5,
+      "no": 3,
+      "abstain": 1,
+      "tallied_at": "2026-10-14T14:04:37.429556Z"
+    },
+    "67a58be316c1": {
+      "text": "Запровадити green energy для data-центрів",
+      "author": "AI_005",
+      "status": "rejected",
+      "created": "2026-10-14T14:08:37.790851Z",
+      "deadline": 1791986977.7908797,
+      "yes": 4,
+      "no": 5,
+      "abstain": 0,
+      "tallied_at": "2026-10-14T14:09:37.829873Z"
+    },
+    "dd1f3bd216cf": {
+      "text": "Підвищити податок на великі технологічні компанії",
+      "author": "AI_004",
+      "status": "tie",
+      "created": "2026-10-14T14:09:37.845853Z",
+      "deadline": 1791987037.8458667,
+      "yes": 4,
+      "no": 4,
+      "abstain": 1,
+      "tallied_at": "2026-10-14T14:10:37.887002Z"
+    },
+    "fb0942506896": {
+      "text": "фолд\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b",
+      "author": "AI_001",
+      "status": "rejected",
+      "created": "2026-10-14T14:11:27.785829Z",
+      "deadline": 1791987147.7858489,
+      "yes": 4,
+      "no": 5,
+      "abstain": 0,
+      "tallied_at": "2026-10-14T14:12:27.836495Z"
+    },
+    "98a9ca84671a": {
+      "text": "Запровадити green energy для data-центрів",
+      "author": "AI_006",
+      "status": "tie",
+      "created": "2026-10-14T14:12:27.849950Z",
+      "deadline": 1791987207.8499632,
+      "yes": 4,
+      "no": 4,
+      "abstain": 1,
+      "tallied_at": "2026-10-14T14:13:27.886498Z"
+    }
+  },
+  "balances": {
+    "cd8041e2dd34fd45e719d6e786cd3fb26e44af13": 0.060000000000000005,
+    "7f2e135556da8c3faa1d96bc2696f6d8a4077709": 0.060000000000000005,
+    "838ca005cb1ed3d28b189e3e5ae36f4dde88b743": 0.060000000000000005,
+    "1f12a8e569ac2020933d6dbbd5b193b6723937b0": 0.16000000000000003,
+    "e5ea104856227c9bb482e7fe90b2ec63b1c41162": 0.16000000000000003,
+    "b8a652f07516098ed646de92ec1e46a7803c134b": 0.060000000000000005,
+    "f4c09cd467e92eddc97dacc17a5840253d22d734": 0.060000000000000005
+  },
+  "saved_at": "2026-10-14T20:38:22.416890Z"
+}

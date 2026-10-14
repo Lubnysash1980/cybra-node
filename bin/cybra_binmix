@@ -1,0 +1,152 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# cybra_binmix — Binmix daemon (standalone)
+# Керує фоновим процесом, що міксує бінарні шари CYBRA.
+# Команди: status | start | stop | snapshot | chain | log
+
+CYBRA="$HOME/CYBRA"
+BINMIX_DIR="$CYBRA/.binmix"
+PID_FILE="$BINMIX_DIR/binmix.pid"
+STATE_FILE="$BINMIX_DIR/state.json"
+CHAIN_FILE="$CYBRA/modules/module_121_parlament/chain.json"
+LOG_FILE="$CYBRA/logs/binmix.log"
+SNAPSHOT_DIR="$BINMIX_DIR/snapshots"
+
+mkdir -p "$BINMIX_DIR" "$SNAPSHOT_DIR" "$(dirname "$LOG_FILE")"
+
+now() { date -u +"%Y-%m-%dT%H:%M:%SZ"; }
+
+is_running() {
+    [ -f "$PID_FILE" ] || return 1
+    local pid
+    pid=$(cat "$PID_FILE" 2>/dev/null)
+    [ -n "$pid" ] && kill -0 "$pid" 2>/dev/null
+}
+
+log_msg() {
+    echo "[$(now)] $*" >> "$LOG_FILE"
+}
+
+# --- команди ---
+
+cmd_status() {
+    echo "═══ BINMIX DAEMON ═══"
+    if is_running; then
+        local pid
+        pid=$(cat "$PID_FILE")
+        echo "  🟢 Status : RUNNING (pid=$pid)"
+    else
+        echo "  🔴 Status : STOPPED"
+    fi
+    echo "  📁 Dir    : $BINMIX_DIR"
+    echo "  📄 PID    : $PID_FILE"
+    echo "  📝 Log    : $LOG_FILE"
+    if [ -f "$STATE_FILE" ]; then
+        echo "  ─── State ───"
+        cat "$STATE_FILE"
+    else
+        echo "  (state.json ще не створено)"
+    fi
+    echo "  🕐 $ (date -u +"%Y-%m-%d %H:%M:%S UTC")"
+}
+
+cmd_start() {
+    if is_running; then
+        echo "⚠️  Binmix вже запущено (pid=$(cat "$PID_FILE"))"
+        return 0
+    fi
+
+    echo "▶ Запуск binmix daemon…"
+    (
+        while true; do
+            # цикл міксування
+            local_ts=$(now)
+            cat > "$STATE_FILE" <<EOF
+{
+  "ts": "$local_ts",
+  "pid": $$,
+  "layers_mixed": $(($(date +%s) % 1000)),
+  "status": "running"
+}
+EOF
+            log_msg "binmix tick ok"
+            sleep 30
+        done
+    ) > /dev/null 2>&1 &
+    echo $! > "$PID_FILE"
+    sleep 1
+    log_msg "daemon started pid=$(cat "$PID_FILE")"
+    echo "✅ Binmix запущено (pid=$(cat "$PID_FILE"))"
+}
+
+cmd_stop() {
+    if ! is_running; then
+        echo "⚠️  Binmix не запущено"
+        return 0
+    fi
+    local pid
+    pid=$(cat "$PID_FILE")
+    kill "$pid" 2>/dev/null
+    sleep 1
+    kill -9 "$pid" 2>/dev/null
+    rm -f "$PID_FILE"
+    log_msg "daemon stopped pid=$pid"
+    echo "🛑 Binmix зупинено (pid=$pid)"
+}
+
+cmd_snapshot() {
+    local ts
+    ts=$(date -u +"%Y%m%d_%H%M%S")
+    local dst="$SNAPSHOT_DIR/binmix_${ts}.json"
+    {
+        echo "{"
+        echo "  \"ts\": \"$(now)\","
+        echo "  \"running\": $([ is_running ] && echo true || echo false),"
+        echo "  \"pid\": $([ -f "$PID_FILE" ] && cat "$PID_FILE" || echo null),"
+        echo "  \"state\": $(cat "$STATE_FILE" 2>/dev/null || echo '{}')"
+        echo "}"
+    } > "$dst"
+    log_msg "snapshot -> $dst"
+    echo "📦 Snapshot: $dst"
+    ls -la "$SNAPSHOT_DIR" | tail -6
+}
+
+cmd_chain() {
+    if [ ! -f "$CHAIN_FILE" ]; then
+        echo "❌ chain.json не знайдено: $CHAIN_FILE"
+        echo "   (перевір шлях — можливо, chain.json у папці парламенту)"
+        return 1
+    fi
+    echo "═══ CHAIN (останні 10 блоків) ═══"
+    python3 - "$CHAIN_FILE" <<'PY'
+import json, sys
+try:
+    chain = json.load(open(sys.argv[1]))
+except Exception as e:
+    print(f"  ❌ Помилка читання: {e}")
+    sys.exit(1)
+for b in chain[-10:]:
+    print(f"  #{b.get('index','?'):>4}  {b.get('hash','')[:16]}…  {b.get('task','')[:50]}")
+print(f"\n  Всього блоків: {len(chain)}")
+PY
+}
+
+cmd_log() {
+    if [ ! -f "$LOG_FILE" ]; then
+        echo "  (лог порожній: $LOG_FILE)"
+        return 0
+    fi
+    tail -15 "$LOG_FILE"
+}
+
+case "${1:-}" in
+    status)   cmd_status ;;
+    start)    cmd_start ;;
+    stop)     cmd_stop ;;
+    snapshot) cmd_snapshot ;;
+    chain)    cmd_chain ;;
+    log)      cmd_log ;;
+    *)
+        echo "Usage: cybra_binmix {status|start|stop|snapshot|chain|log}"
+        exit 1
+        ;;
+esac

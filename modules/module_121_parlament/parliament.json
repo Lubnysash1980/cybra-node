@@ -1,0 +1,61 @@
+{
+  "contract_hash": "cc78e8ad7c2f085a1b80bc04b3b5d83aba248a50f64858eb97201db0f6163a5d",
+  "network": "BSC(56)",
+  "license": "1%+1%+1%",
+  "agents": {
+    "AI_000": {
+      "faction": "Libertarian",
+      "address": "58f85e2092583c365a8cbe03b1380aec59eca68b",
+      "weight": 2,
+      "created": "2026-10-14 14:13:55 UTC"
+    },
+    "AI_001": {
+      "faction": "Libertarian",
+      "address": "5f036b393a9c9e985b9c7c4583a14dc5b4b6c312",
+      "weight": 2,
+      "created": "2026-10-14 14:13:55 UTC"
+    },
+    "AI_002": {
+      "faction": "Technocratic",
+      "address": "0b0c0dc3a40a214c6f8885f649068c3da065a466",
+      "weight": 1,
+      "created": "2026-10-14 14:13:55 UTC"
+    },
+    "AI_003": {
+      "faction": "Conservative",
+      "address": "94addb043542596c9dfa3c4a514e703479465502",
+      "weight": 1,
+      "created": "2026-10-14 14:13:55 UTC"
+    },
+    "AI_004": {
+      "faction": "Green",
+      "address": "2d69963904e4ead118c2c91b48ef0b3b1eb379d6",
+      "weight": 3,
+      "created": "2026-10-14 14:13:55 UTC"
+    },
+    "AI_005": {
+      "faction": "Green",
+      "address": "6b2384ee05ccc25b126bb85dfe67e54fe5ff83af",
+      "weight": 1,
+      "created": "2026-10-14 14:13:55 UTC"
+    },
+    "AI_006": {
+      "faction": "Green",
+      "address": "34498537db2fa565d34487c2d993a355b6622476",
+      "weight": 3,
+      "created": "2026-10-14 14:13:55 UTC"
+    }
+  },
+  "votes": {},
+  "proposals": {},
+  "balances": {
+    "58f85e2092583c365a8cbe03b1380aec59eca68b": 0.0,
+    "5f036b393a9c9e985b9c7c4583a14dc5b4b6c312": 0.0,
+    "0b0c0dc3a40a214c6f8885f649068c3da065a466": 0.0,
+    "94addb043542596c9dfa3c4a514e703479465502": 0.0,
+    "2d69963904e4ead118c2c91b48ef0b3b1eb379d6": 0.0,
+    "6b2384ee05ccc25b126bb85dfe67e54fe5ff83af": 0.0,
+    "34498537db2fa565d34487c2d993a355b6622476": 0.0
+  },
+  "saved_at": "2026-10-14 14:13:55 UTC"
+}
