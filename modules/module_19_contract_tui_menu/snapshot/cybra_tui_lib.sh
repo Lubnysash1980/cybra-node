@@ -3039,3 +3039,224 @@ cybra_ownership_register() {
     return 0
 }
 
+
+# ============================================================
+# RATES & CURRENCY CONVERSION
+# ============================================================
+
+CYBRA_RATES_FILE="$CYBRA_MOD19_ROOT/state/rates.env"
+[ -f "$CYBRA_RATES_FILE" ] && source "$CYBRA_RATES_FILE"
+
+cybra_rate_get() {
+    local from="$1" to="$2"
+    local varname="RATE_${from}_${to}"
+    eval "echo \"\${$varname:-0}\""
+}
+
+cybra_currency_to_usd() {
+    local amount="$1" currency="$2"
+    currency="$(printf '%s' "$currency" | tr '[:lower:]' '[:upper:]')"
+
+    case "$currency" in
+        USD) echo "$amount"; return ;;
+    esac
+
+    local rate="$(cybra_rate_get "$currency" "USD")"
+    [ "$rate" = "0" ] && { echo "0"; return 1; }
+
+    # Використовуємо awk для float
+    awk -v a="$amount" -v r="$rate" 'BEGIN { printf "%.8f", a * r }'
+}
+
+cybra_usd_to_currency() {
+    local amount="$1" currency="$2"
+    currency="$(printf '%s' "$currency" | tr '[:lower:]' '[:upper:]')"
+
+    case "$currency" in
+        USD) echo "$amount"; return ;;
+    esac
+
+    local rate="$(cybra_rate_get "USD" "$currency")"
+    [ "$rate" = "0" ] && { echo "0"; return 1; }
+
+    awk -v a="$amount" -v r="$rate" 'BEGIN { printf "%.8f", a * r }'
+}
+
+cybra_currency_to_cybra() {
+    local amount="$1" currency="$2" decimals="${3:-18}"
+    currency="$(printf '%s' "$currency" | tr '[:lower:]' '[:upper:]')"
+
+    local usd="$(cybra_currency_to_usd "$amount" "$currency")"
+    [ -z "$usd" ] || [ "$usd" = "0" ] && { echo "0"; return 1; }
+
+    local cybra_rate="$(cybra_rate_get "USD" "CYBRA")"
+    [ "$cybra_rate" = "0" ] && { echo "0"; return 1; }
+
+    # cybra_amount (в одиницях токена) = usd * rate_USD_CYBRA
+    local cybra_amount="$(awk -v u="$usd" -v r="$cybra_rate" 'BEGIN { printf "%.10f", u * r }')"
+
+    # Конвертуємо в wei
+    cybra_amount_to_wei "$cybra_amount" "$decimals"
+}
+
+cybra_cybra_to_currency() {
+    local cybra_wei="$1" currency="$2" decimals="${3:-18}"
+    currency="$(printf '%s' "$currency" | tr '[:lower:]' '[:upper:]')"
+
+    # wei → токен (ділимо на 10^decimals)
+    local mult=1
+    local i=0
+    while [ "$i" -lt "$decimals" ]; do mult="${mult}0"; i=$((i+1)); done
+
+    local cybra_amount="$(awk -v w="$cybra_wei" -v m="$mult" 'BEGIN { printf "%.10f", w / m }')"
+
+    local usd_rate="$(cybra_rate_get "CYBRA" "USD")"
+    local usd="$(awk -v c="$cybra_amount" -v r="$usd_rate" 'BEGIN { printf "%.8f", c * r }')"
+
+    if [ "$currency" = "USD" ]; then
+        echo "$usd"
+        return
+    fi
+
+    cybra_usd_to_currency "$usd" "$currency"
+}
+
+cybra_show_rates() {
+    printf -- '===== CYBRA RATES =====\n'
+    printf '%-8s %-8s %s\n' "FROM" "TO" "RATE"
+    printf -- '----\n'
+    for k in $(grep '^RATE_' "$CYBRA_RATES_FILE" 2>/dev/null | cut -d= -f1); do
+        local v="$(grep "^$k=" "$CYBRA_RATES_FILE" | cut -d= -f2-)"
+        printf '%-30s %s\n' "$k" "$v"
+    done
+    printf -- '=======================\n'
+}
+
+
+# ============================================================
+# DUAL-BACKEND для контрактів
+# ============================================================
+
+cybra_contract_compute_dual_hash() {
+    local cid="$1"
+    local f="$CYBRA_CONTRACTS/$cid.env"
+    [ ! -f "$f" ] && return 1
+
+    # BACKEND_A: hash від core контракту (без службових полів)
+    local a_input="$CYBRA_CONTRACTS/$cid.backend_a.input"
+    grep -E '^(CONTRACT_ID|BUYER|SELLER|AMOUNT_WEI|TOKEN|CHAIN_ID|LICENSE_A_WEI|LICENSE_B_WEI|CREATION_FEE_WEI|NET_WEI)=' \
+        "$f" | LC_ALL=C sort > "$a_input"
+    local a_hash="$(sha256sum "$a_input" | awk '{print $1}')"
+
+    # BACKEND_B: hash від lines + terms + parties (metadata)
+    local b_input="$CYBRA_CONTRACTS/$cid.backend_b.input"
+    {
+        [ -f "$CYBRA_CONTRACTS/$cid.lines" ] && cat "$CYBRA_CONTRACTS/$cid.lines"
+        printf '\n---\n'
+        [ -f "$CYBRA_CONTRACTS/$cid.terms" ] && cat "$CYBRA_CONTRACTS/$cid.terms"
+        printf '\n---\n'
+        [ -f "$CYBRA_CONTRACTS/$cid.parties" ] && cat "$CYBRA_CONTRACTS/$cid.parties"
+    } > "$b_input"
+    local b_hash="$(sha256sum "$b_input" | awk '{print $1}')"
+
+    # Dual
+    local dual="$(printf '%s\n%s\n' "$a_hash" "$b_hash" | sha256sum | awk '{print $1}')"
+
+    # Запис в контракт
+    sed -i "s|^BACKEND_A_HASH=.*|BACKEND_A_HASH=$a_hash|" "$f" 2>/dev/null || \
+        printf 'BACKEND_A_HASH=%s\n' "$a_hash" >> "$f"
+    sed -i "s|^BACKEND_B_HASH=.*|BACKEND_B_HASH=$b_hash|" "$f" 2>/dev/null || \
+        printf 'BACKEND_B_HASH=%s\n' "$b_hash" >> "$f"
+    sed -i "s|^DUAL_HASH=.*|DUAL_HASH=$dual|" "$f" 2>/dev/null || \
+        printf 'DUAL_HASH=%s\n' "$dual" >> "$f"
+
+    printf '%s\n' "$dual"
+}
+
+cybra_contract_verify_dual() {
+    local cid="$1"
+    local f="$CYBRA_CONTRACTS/$cid.env"
+    [ ! -f "$f" ] && { echo "NOT_FOUND"; return 1; }
+
+    local expected="$(grep -m1 '^DUAL_HASH=' "$f" | cut -d= -f2-)"
+    [ -z "$expected" ] && { echo "NO_HASH"; return 1; }
+
+    # Перерахувати
+    local a_input="$CYBRA_CONTRACTS/$cid.backend_a.input"
+    local b_input="$CYBRA_CONTRACTS/$cid.backend_b.input"
+    [ ! -f "$a_input" ] || [ ! -f "$b_input" ] && { echo "NO_INPUT"; return 1; }
+
+    local a="$(sha256sum "$a_input" | awk '{print $1}')"
+    local b="$(sha256sum "$b_input" | awk '{print $1}')"
+    local computed="$(printf '%s\n%s\n' "$a" "$b" | sha256sum | awk '{print $1}')"
+
+    if [ "$computed" = "$expected" ]; then
+        echo "MATCH"
+        return 0
+    else
+        echo "MISMATCH"
+        return 1
+    fi
+}
+
+
+# ============================================================
+# AUTO-DETECT OWNERSHIP
+# ============================================================
+
+cybra_is_own_file() {
+    local file="$1"
+    local manifest="$CYBRA_MOD19_ROOT/state/ownership.manifest"
+    [ ! -f "$manifest" ] && return 1
+
+    # Отримуємо відносний шлях від module root
+    local rel="${file#$CYBRA_MOD19_ROOT/}"
+
+    while IFS= read -r pattern; do
+        [ -z "$pattern" ] && continue
+        [ "${pattern:0:1}" = "#" ] && continue
+
+        case "$pattern" in
+            *'*'*)
+                # glob pattern
+                case "$rel" in
+                    $pattern) return 0 ;;
+                esac
+                ;;
+            *)
+                [ "$rel" = "$pattern" ] && return 0
+                ;;
+        esac
+    done < "$manifest"
+
+    return 1
+}
+
+cybra_ownership_scan() {
+    printf '=== OWNERSHIP SCAN ===\n'
+    local own=0
+    local foreign=0
+
+    find "$CYBRA_MOD19_ROOT" -type f 2>/dev/null | while IFS= read -r f; do
+        if cybra_is_own_file "$f"; then
+            printf '  [OWN]     %s\n' "${f#$CYBRA_MOD19_ROOT/}"
+            own=$((own+1))
+        else
+            printf '  [FOREIGN] %s\n' "${f#$CYBRA_MOD19_ROOT/}"
+            foreign=$((foreign+1))
+        fi
+    done
+
+    printf -- '--------------------\n'
+}
+
+cybra_ownership_register() {
+    local file="$1"
+    local rel="${file#$CYBRA_MOD19_ROOT/}"
+    local manifest="$CYBRA_MOD19_ROOT/state/ownership.manifest"
+
+    grep -qxF "$rel" "$manifest" 2>/dev/null && return 0
+    printf '%s\n' "$rel" >> "$manifest"
+    return 0
+}
+
