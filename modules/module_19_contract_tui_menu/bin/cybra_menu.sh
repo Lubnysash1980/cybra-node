@@ -1098,6 +1098,501 @@ action_autopilot() {
 }
 
 
+
+# ─── GENERIC ACTIONS (заглушки) ───
+action_generic_10() {
+    echo "Пункт [10] в розробці"
+    read -r _
+}
+action_generic_25() {
+    echo "Пункт [25] в розробці"
+    read -r _
+}
+action_generic_26() {
+    echo "Пункт [26] в розробці"
+    read -r _
+}
+action_generic_27() {
+    echo "Пункт [27] в розробці"
+    read -r _
+}
+action_generic_28() {
+    echo "Пункт [28] в розробці"
+    read -r _
+}
+action_generic_29() {
+    echo "Пункт [29] в розробці"
+    read -r _
+}
+action_generic_34() {
+    echo "Пункт [34] в розробці"
+    read -r _
+}
+action_generic_35() {
+    echo "Пункт [35] в розробці"
+    read -r _
+}
+action_generic_36() {
+    echo "Пункт [36] в розробці"
+    read -r _
+}
+action_generic_37() {
+    echo "Пункт [37] в розробці"
+    read -r _
+}
+action_generic_38() {
+    echo "Пункт [38] в розробці"
+    read -r _
+}
+action_generic_39() {
+    echo "Пункт [39] в розробці"
+    read -r _
+}
+action_generic_40() {
+    echo "Пункт [40] в розробці"
+    read -r _
+}
+action_generic_41() {
+    echo "Пункт [41] в розробці"
+    read -r _
+}
+action_generic_42() {
+    echo "Пункт [42] в розробці"
+    read -r _
+}
+action_generic_43() {
+    echo "Пункт [43] в розробці"
+    read -r _
+}
+action_generic_44() {
+    echo "Пункт [44] в розробці"
+    read -r _
+}
+action_generic_45() {
+    echo "Пункт [45] в розробці"
+    read -r _
+}
+action_generic_46() {
+    echo "Пункт [46] в розробці"
+    read -r _
+}
+action_generic_47() {
+    echo "Пункт [47] в розробці"
+    read -r _
+}
+action_generic_48() {
+    echo "Пункт [48] в розробці"
+    read -r _
+}
+action_generic_49() {
+    echo "Пункт [49] в розробці"
+    read -r _
+}
+action_generic_50() {
+    echo "Пункт [50] в розробці"
+    read -r _
+}
+action_generic_51() {
+    echo "Пункт [51] в розробці"
+    read -r _
+}
+action_generic_52() {
+    echo "Пункт [52] в розробці"
+    read -r _
+}
+action_generic_53() {
+    echo "Пункт [53] в розробці"
+    read -r _
+}
+action_generic_54() {
+    echo "Пункт [54] в розробці"
+    read -r _
+}
+action_generic_55() {
+    echo "Пункт [55] в розробці"
+    read -r _
+}
+action_generic_56() {
+    echo "Пункт [56] в розробці"
+    read -r _
+}
+action_generic_57() {
+    echo "Пункт [57] в розробці"
+    read -r _
+}
+action_generic_58() {
+    echo "Пункт [58] в розробці"
+    read -r _
+}
+action_generic_59() {
+    echo "Пункт [59] в розробці"
+    read -r _
+}
+action_generic_60() {
+    echo "Пункт [60] в розробці"
+    read -r _
+}
+action_generic_61() {
+    echo "Пункт [61] в розробці"
+    read -r _
+}
+action_generic_62() {
+    echo "Пункт [62] в розробці"
+    read -r _
+}
+action_generic_63() {
+    echo "Пункт [63] в розробці"
+    read -r _
+}
+action_generic_64() {
+    echo "Пункт [64] в розробці"
+    read -r _
+}
+action_generic_65() {
+    echo "Пункт [65] в розробці"
+    read -r _
+}
+action_generic_66() {
+    echo "Пункт [66] в розробці"
+    read -r _
+}
+action_generic_67() {
+    echo "Пункт [67] в розробці"
+    read -r _
+}
+action_generic_68() {
+    echo "Пункт [68] в розробці"
+    read -r _
+}
+action_generic_69() {
+    echo "Пункт [69] в розробці"
+    read -r _
+}
+action_generic_70() {
+    echo "Пункт [70] в розробці"
+    read -r _
+}
+action_generic_71() {
+    echo "Пункт [71] в розробці"
+    read -r _
+}
+action_generic_72() {
+    echo "Пункт [72] в розробці"
+    read -r _
+}
+action_generic_73() {
+    echo "Пункт [73] в розробці"
+    read -r _
+}
+action_generic_74() {
+    echo "Пункт [74] в розробці"
+    read -r _
+}
+action_generic_75() {
+    echo "Пункт [75] в розробці"
+    read -r _
+}
+action_generic_76() {
+    echo "Пункт [76] в розробці"
+    read -r _
+}
+action_generic_77() {
+    echo "Пункт [77] в розробці"
+    read -r _
+}
+action_generic_78() {
+    echo "Пункт [78] в розробці"
+    read -r _
+}
+action_generic_79() {
+    echo "Пункт [79] в розробці"
+    read -r _
+}
+action_generic_80() {
+    echo "Пункт [80] в розробці"
+    read -r _
+}
+action_generic_81() {
+    echo "Пункт [81] в розробці"
+    read -r _
+}
+action_generic_82() {
+    echo "Пункт [82] в розробці"
+    read -r _
+}
+action_generic_83() {
+    echo "Пункт [83] в розробці"
+    read -r _
+}
+action_generic_84() {
+    echo "Пункт [84] в розробці"
+    read -r _
+}
+action_generic_85() {
+    echo "Пункт [85] в розробці"
+    read -r _
+}
+action_generic_86() {
+    echo "Пункт [86] в розробці"
+    read -r _
+}
+action_generic_87() {
+    echo "Пункт [87] в розробці"
+    read -r _
+}
+action_generic_88() {
+    echo "Пункт [88] в розробці"
+    read -r _
+}
+action_generic_89() {
+    echo "Пункт [89] в розробці"
+    read -r _
+}
+action_generic_90() {
+    echo "Пункт [90] в розробці"
+    read -r _
+}
+action_generic_91() {
+    echo "Пункт [91] в розробці"
+    read -r _
+}
+action_generic_92() {
+    echo "Пункт [92] в розробці"
+    read -r _
+}
+action_generic_93() {
+    echo "Пункт [93] в розробці"
+    read -r _
+}
+action_generic_94() {
+    echo "Пункт [94] в розробці"
+    read -r _
+}
+action_generic_95() {
+    echo "Пункт [95] в розробці"
+    read -r _
+}
+action_generic_96() {
+    echo "Пункт [96] в розробці"
+    read -r _
+}
+action_generic_97() {
+    echo "Пункт [97] в розробці"
+    read -r _
+}
+action_generic_98() {
+    echo "Пункт [98] в розробці"
+    read -r _
+}
+action_generic_99() {
+    echo "Пункт [99] в розробці"
+    read -r _
+}
+action_generic_100() {
+    echo "Пункт [100] в розробці"
+    read -r _
+}
+action_generic_101() {
+    echo "Пункт [101] в розробці"
+    read -r _
+}
+action_generic_102() {
+    echo "Пункт [102] в розробці"
+    read -r _
+}
+action_generic_103() {
+    echo "Пункт [103] в розробці"
+    read -r _
+}
+action_generic_104() {
+    echo "Пункт [104] в розробці"
+    read -r _
+}
+action_generic_105() {
+    echo "Пункт [105] в розробці"
+    read -r _
+}
+action_generic_106() {
+    echo "Пункт [106] в розробці"
+    read -r _
+}
+action_generic_107() {
+    echo "Пункт [107] в розробці"
+    read -r _
+}
+action_generic_108() {
+    echo "Пункт [108] в розробці"
+    read -r _
+}
+action_generic_109() {
+    echo "Пункт [109] в розробці"
+    read -r _
+}
+action_generic_110() {
+    echo "Пункт [110] в розробці"
+    read -r _
+}
+action_generic_111() {
+    echo "Пункт [111] в розробці"
+    read -r _
+}
+action_generic_112() {
+    echo "Пункт [112] в розробці"
+    read -r _
+}
+action_generic_113() {
+    echo "Пункт [113] в розробці"
+    read -r _
+}
+action_generic_114() {
+    echo "Пункт [114] в розробці"
+    read -r _
+}
+action_generic_115() {
+    echo "Пункт [115] в розробці"
+    read -r _
+}
+action_generic_116() {
+    echo "Пункт [116] в розробці"
+    read -r _
+}
+action_generic_117() {
+    echo "Пункт [117] в розробці"
+    read -r _
+}
+action_generic_118() {
+    echo "Пункт [118] в розробці"
+    read -r _
+}
+action_generic_119() {
+    echo "Пункт [119] в розробці"
+    read -r _
+}
+action_generic_120() {
+    echo "Пункт [120] в розробці"
+    read -r _
+}
+action_generic_121() {
+    echo "Пункт [121] в розробці"
+    read -r _
+}
+action_generic_122() {
+    echo "Пункт [122] в розробці"
+    read -r _
+}
+action_generic_123() {
+    echo "Пункт [123] в розробці"
+    read -r _
+}
+action_generic_124() {
+    echo "Пункт [124] в розробці"
+    read -r _
+}
+action_generic_125() {
+    echo "Пункт [125] в розробці"
+    read -r _
+}
+action_generic_126() {
+    echo "Пункт [126] в розробці"
+    read -r _
+}
+action_generic_127() {
+    echo "Пункт [127] в розробці"
+    read -r _
+}
+action_generic_128() {
+    echo "Пункт [128] в розробці"
+    read -r _
+}
+action_generic_129() {
+    echo "Пункт [129] в розробці"
+    read -r _
+}
+action_generic_130() {
+    echo "Пункт [130] в розробці"
+    read -r _
+}
+action_generic_131() {
+    echo "Пункт [131] в розробці"
+    read -r _
+}
+action_generic_132() {
+    echo "Пункт [132] в розробці"
+    read -r _
+}
+action_generic_133() {
+    echo "Пункт [133] в розробці"
+    read -r _
+}
+action_generic_134() {
+    echo "Пункт [134] в розробці"
+    read -r _
+}
+action_generic_135() {
+    echo "Пункт [135] в розробці"
+    read -r _
+}
+action_generic_136() {
+    echo "Пункт [136] в розробці"
+    read -r _
+}
+action_generic_137() {
+    echo "Пункт [137] в розробці"
+    read -r _
+}
+action_generic_138() {
+    echo "Пункт [138] в розробці"
+    read -r _
+}
+action_generic_139() {
+    echo "Пункт [139] в розробці"
+    read -r _
+}
+action_generic_140() {
+    echo "Пункт [140] в розробці"
+    read -r _
+}
+action_generic_141() {
+    echo "Пункт [141] в розробці"
+    read -r _
+}
+action_generic_142() {
+    echo "Пункт [142] в розробці"
+    read -r _
+}
+action_generic_143() {
+    echo "Пункт [143] в розробці"
+    read -r _
+}
+action_generic_144() {
+    echo "Пункт [144] в розробці"
+    read -r _
+}
+action_generic_145() {
+    echo "Пункт [145] в розробці"
+    read -r _
+}
+action_generic_146() {
+    echo "Пункт [146] в розробці"
+    read -r _
+}
+action_generic_147() {
+    echo "Пункт [147] в розробці"
+    read -r _
+}
+action_generic_148() {
+    echo "Пункт [148] в розробці"
+    read -r _
+}
+action_generic_149() {
+    echo "Пункт [149] в розробці"
+    read -r _
+}
+action_generic_150() {
+    echo "Пункт [150] в розробці"
+    read -r _
+}
+
 while true; do
     print_header
     print_menu
@@ -1137,6 +1632,129 @@ while true; do
 " "${C_GREEN}До побачення.${C_RESET}"
             exit 0
             ;;
+        10) action_generic_10 ;;
+        25) action_generic_25 ;;
+        26) action_generic_26 ;;
+        27) action_generic_27 ;;
+        28) action_generic_28 ;;
+        29) action_generic_29 ;;
+        34) action_generic_34 ;;
+        35) action_generic_35 ;;
+        36) action_generic_36 ;;
+        37) action_generic_37 ;;
+        38) action_generic_38 ;;
+        39) action_generic_39 ;;
+        40) action_generic_40 ;;
+        41) action_generic_41 ;;
+        42) action_generic_42 ;;
+        43) action_generic_43 ;;
+        44) action_generic_44 ;;
+        45) action_generic_45 ;;
+        46) action_generic_46 ;;
+        47) action_generic_47 ;;
+        48) action_generic_48 ;;
+        49) action_generic_49 ;;
+        50) action_generic_50 ;;
+        51) action_generic_51 ;;
+        52) action_generic_52 ;;
+        53) action_generic_53 ;;
+        54) action_generic_54 ;;
+        55) action_generic_55 ;;
+        56) action_generic_56 ;;
+        57) action_generic_57 ;;
+        58) action_generic_58 ;;
+        59) action_generic_59 ;;
+        60) action_generic_60 ;;
+        61) action_generic_61 ;;
+        62) action_generic_62 ;;
+        63) action_generic_63 ;;
+        64) action_generic_64 ;;
+        65) action_generic_65 ;;
+        66) action_generic_66 ;;
+        67) action_generic_67 ;;
+        68) action_generic_68 ;;
+        69) action_generic_69 ;;
+        70) action_generic_70 ;;
+        71) action_generic_71 ;;
+        72) action_generic_72 ;;
+        73) action_generic_73 ;;
+        74) action_generic_74 ;;
+        75) action_generic_75 ;;
+        76) action_generic_76 ;;
+        77) action_generic_77 ;;
+        78) action_generic_78 ;;
+        79) action_generic_79 ;;
+        80) action_generic_80 ;;
+        81) action_generic_81 ;;
+        82) action_generic_82 ;;
+        83) action_generic_83 ;;
+        84) action_generic_84 ;;
+        85) action_generic_85 ;;
+        86) action_generic_86 ;;
+        87) action_generic_87 ;;
+        88) action_generic_88 ;;
+        89) action_generic_89 ;;
+        90) action_generic_90 ;;
+        91) action_generic_91 ;;
+        92) action_generic_92 ;;
+        93) action_generic_93 ;;
+        94) action_generic_94 ;;
+        95) action_generic_95 ;;
+        96) action_generic_96 ;;
+        97) action_generic_97 ;;
+        98) action_generic_98 ;;
+        99) action_generic_99 ;;
+        100) action_generic_100 ;;
+        101) action_generic_101 ;;
+        102) action_generic_102 ;;
+        103) action_generic_103 ;;
+        104) action_generic_104 ;;
+        105) action_generic_105 ;;
+        106) action_generic_106 ;;
+        107) action_generic_107 ;;
+        108) action_generic_108 ;;
+        109) action_generic_109 ;;
+        110) action_generic_110 ;;
+        111) action_generic_111 ;;
+        112) action_generic_112 ;;
+        113) action_generic_113 ;;
+        114) action_generic_114 ;;
+        115) action_generic_115 ;;
+        116) action_generic_116 ;;
+        117) action_generic_117 ;;
+        118) action_generic_118 ;;
+        119) action_generic_119 ;;
+        120) action_generic_120 ;;
+        121) action_generic_121 ;;
+        122) action_generic_122 ;;
+        123) action_generic_123 ;;
+        124) action_generic_124 ;;
+        125) action_generic_125 ;;
+        126) action_generic_126 ;;
+        127) action_generic_127 ;;
+        128) action_generic_128 ;;
+        129) action_generic_129 ;;
+        130) action_generic_130 ;;
+        131) action_generic_131 ;;
+        132) action_generic_132 ;;
+        133) action_generic_133 ;;
+        134) action_generic_134 ;;
+        135) action_generic_135 ;;
+        136) action_generic_136 ;;
+        137) action_generic_137 ;;
+        138) action_generic_138 ;;
+        139) action_generic_139 ;;
+        140) action_generic_140 ;;
+        141) action_generic_141 ;;
+        142) action_generic_142 ;;
+        143) action_generic_143 ;;
+        144) action_generic_144 ;;
+        145) action_generic_145 ;;
+        146) action_generic_146 ;;
+        147) action_generic_147 ;;
+        148) action_generic_148 ;;
+        149) action_generic_149 ;;
+        150) action_generic_150 ;;
         *)
             printf "%s
 " "${C_RED}Невідома опція.${C_RESET}"
