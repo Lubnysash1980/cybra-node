@@ -1655,7 +1655,7 @@ while true; do
         48) bash "$HOME/CYBRA/modules/module_48_generated/main.sh" ;;
         49) bash "$HOME/CYBRA/modules/module_49_generated/main.sh" ;;
         50) bash "$HOME/CYBRA/modules/module_50_generated/main.sh" ;;
-        51) action_generic_51 ;;
+        51) bash "$HOME/CYBRA/modules/module_51_generated/main.sh" ;;
         52) action_generic_52 ;;
         53) action_generic_53 ;;
         54) action_generic_54 ;;
