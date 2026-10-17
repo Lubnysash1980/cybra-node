@@ -1,0 +1,175 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# cybra_invoice_lib.sh — бібліотека для invoice-функцій меню
+# Використовується з cybra_menu.sh через 'source'
+CYBRA_PYTHON="/data/data/com.termux/files/usr/bin/python3"
+
+
+CYBRA_INVOICE_DIR="${CYBRA_INVOICE_DIR:-$HOME/CYBRA/modules/module_19_contract_tui_menu/contracts}"
+mkdir -p "$CYBRA_INVOICE_DIR"
+
+# ─── 1. Створити INVOICE ───
+# Виклик: cybra_contract_create_invoice BUYER IPN WALLET SELLER EDRPOU SELLER_WALLET NUMBER DATE AMOUNT TOKEN [DECIMALS] [VAT]
+cybra_contract_create_invoice() {
+    local buyer="$1" ipn="$2" buyer_wallet="$3"
+    local seller="$4" edrpou="$5" seller_wallet="$6"
+    local number="$7" date="$8" amount="$9"
+    local token="${10}" decimals="${11:-18}" vat="${12:-20}"
+
+    if [ -z "$buyer" ] || [ -z "$number" ] || [ -z "$amount" ]; then
+        echo "ERROR: buyer, number, amount обов'язкові" >&2
+        return 1
+    fi
+
+    local ts id file
+    ts=$(date -u +%Y%m%dT%H%M%SZ)
+    id="INV-${ts}-$$"
+    file="$CYBRA_INVOICE_DIR/${id}.json"
+
+    /data/data/com.termux/files/usr/bin/python3 - "$file" "$id" "$buyer" "$ipn" "$buyer_wallet" \
+              "$seller" "$edrpou" "$seller_wallet" \
+              "$number" "$date" "$amount" "$token" "$decimals" "$vat" <<'PY'
+import json, sys, datetime
+(file_, id_, buyer, ipn, bw, seller, edrpou, sw,
+ number, date, amount, token, decimals, vat) = sys.argv[1:15]
+
+def f(x):
+    try: return float(x)
+    except: return 0.0
+
+amount_f = f(amount)
+vat_f = float(vat)
+
+inv = {
+    "id": id_,
+    "type": "invoice",
+    "status": "draft",
+    "number": number,
+    "date": date,
+    "created": datetime.datetime.utcnow().isoformat() + "Z",
+    "buyer": {"name": buyer, "ipn": ipn, "wallet": bw},
+    "seller": {"name": seller, "edrpou": edrpou, "wallet": sw},
+    "token": {"symbol": token, "decimals": int(decimals)},
+    "totals": {
+        "sum_with_vat": round(amount_f, 2),
+        "vat": round(amount_f * vat_f / (100 + vat_f), 2),
+        "sum_without_vat": round(amount_f - amount_f * vat_f / (100 + vat_f), 2),
+        "vat_rate": vat_f
+    },
+    "items": []
+}
+with open(file_, "w", encoding="utf-8") as fp:
+    json.dump(inv, fp, indent=2, ensure_ascii=False)
+PY
+    if [ $? -ne 0 ] || [ ! -f "$file" ]; then
+        echo "ERROR: не вдалось створити $file" >&2
+        return 1
+    fi
+
+    echo "$id"
+    return 0
+}
+
+# ─── 2. Додати позицію ───
+# Виклик: cybra_invoice_add_line CONTRACT_ID CODE NAME QTY PRICE
+cybra_invoice_add_line() {
+    local id="$1" code="$2" name="$3" qty="$4" price="$5"
+
+    if [ -z "$id" ] || [ -z "$name" ] || [ -z "$qty" ] || [ -z "$price" ]; then
+        echo "ERROR: id, name, qty, price обов'язкові" >&2
+        return 1
+    fi
+
+    local file="$CYBRA_INVOICE_DIR/${id}.json"
+    if [ ! -f "$file" ]; then
+        echo "ERROR: invoice $id не знайдено ($file)" >&2
+        return 1
+    fi
+
+    /data/data/com.termux/files/usr/bin/python3 - "$file" "$code" "$name" "$qty" "$price" <<'PY'
+import json, sys
+file_, code, name, qty, price = sys.argv[1:6]
+inv = json.load(open(file_))
+
+q = float(qty)
+p = float(price)
+line_total = round(q * p, 2)
+vat_rate = inv["totals"].get("vat_rate", 20)
+line_vat = round(line_total * vat_rate / (100 + vat_rate), 2)
+
+inv["items"].append({
+    "code": code,
+    "name": name,
+    "qty": q,
+    "price": p,
+    "line_total": line_total,
+    "line_vat": line_vat,
+})
+
+# перерахунок totals з позицій
+total_with_vat = round(sum(i["line_total"] for i in inv["items"]), 2)
+total_vat      = round(sum(i["line_vat"]   for i in inv["items"]), 2)
+inv["totals"]["sum_with_vat"]      = total_with_vat
+inv["totals"]["vat"]               = total_vat
+inv["totals"]["sum_without_vat"]   = round(total_with_vat - total_vat, 2)
+
+json.dump(inv, open(file_, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
+print(f"OK: {name} x{q} = {line_total}")
+PY
+}
+
+# ─── 3. Показати INVOICE ───
+cybra_invoice_show() {
+    local id="$1"
+    local file="$CYBRA_INVOICE_DIR/${id}.json"
+    if [ ! -f "$file" ]; then
+        echo "ERROR: $id не знайдено"
+        return 1
+    fi
+
+    /data/data/com.termux/files/usr/bin/python3 - "$file" <<'PY'
+import json, sys
+inv = json.load(open(sys.argv[1]))
+print()
+print("═" * 60)
+print(f"  РАХУНОК № {inv.get('number','?')}  від {inv.get('date','?')}")
+print("═" * 60)
+print(f"  ID:       {inv['id']}")
+print(f"  Статус:   {inv.get('status','?')}")
+print(f"  Покупець: {inv['buyer']['name']} (ІПН {inv['buyer']['ipn']})")
+print(f"  Продавець:{inv['seller']['name']} ({inv['seller']['edrpou']})")
+print("─" * 60)
+print(f"  {'#':<3} {'Код':<10} {'Назва':<32} {'К-сть':>6} {'Сума':>12}")
+print("─" * 60)
+for i, it in enumerate(inv.get("items", []), 1):
+    print(f"  {i:<3} {it.get('code',''):<10} {it.get('name','')[:32]:<32} {it.get('qty',0):>6} {it.get('line_total',0):>12.2f}")
+print("─" * 60)
+t = inv["totals"]
+print(f"  Сума без ПДВ: {t['sum_without_vat']:>12.2f} грн")
+print(f"  ПДВ ({t.get('vat_rate',20):.0f}%):    {t['vat']:>12.2f} грн")
+print(f"  ВСЬОГО:       {t['sum_with_vat']:>12.2f} грн")
+print("═" * 60)
+PY
+}
+
+# ─── 4. Фіналізувати ───
+cybra_invoice_finalize() {
+    local id="$1"
+    local file="$CYBRA_INVOICE_DIR/${id}.json"
+    if [ ! -f "$file" ]; then
+        echo "ERROR: $id не знайдено"
+        return 1
+    fi
+
+    /data/data/com.termux/files/usr/bin/python3 - "$file" <<'PY'
+import json, sys, datetime
+file_ = sys.argv[1]
+inv = json.load(open(file_))
+if not inv.get("items"):
+    print("ERROR: не можна фіналізувати порожній рахунок")
+    sys.exit(1)
+inv["status"] = "complete"
+inv["finalized_at"] = datetime.datetime.utcnow().isoformat() + "Z"
+json.dump(inv, open(file_, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
+print(f"✅ INVOICE {inv['number']} → COMPLETE")
+PY
+}
