@@ -489,40 +489,404 @@ print_header() {
 
 # ─── MENU (усі секції) ───
 print_menu() {
-    printf '%s\n' "  ${C_BOLD}[1]${C_RESET}  Створити контракт"
-    printf '%s\n' "  ${C_BOLD}[2]${C_RESET}  Список контрактів"
-    printf '%s\n' "  ${C_BOLD}[3]${C_RESET}  Статус контракту"
-    printf '%s\n' "  ${C_BOLD}[4]${C_RESET}  Згенерувати лінки"
-    printf '%s\n' "  ${C_BOLD}[5]${C_RESET}  Підтвердити лінк"
-    printf '%s\n' "  ${C_BOLD}[6]${C_RESET}  Debug"
-    printf '%s\n' "  ${C_BOLD}[7]${C_RESET}  DUAL-LICENSE ledger"
-    printf '%s\n' "  ${C_BOLD}[8]${C_RESET}  CREATION-LICENSE ledger"
-    printf '%s\n' "  ${C_BOLD}[9]${C_RESET}  Hardening"
-    printf '%s\n' "${C_CYAN}  ── INVOICE ──${C_RESET}"
-    printf '%s\n' "  ${C_BOLD}[11]${C_RESET} Створити INVOICE"
-    printf '%s\n' "  ${C_BOLD}[12]${C_RESET} Додати позицію"
-    printf '%s\n' "  ${C_BOLD}[13]${C_RESET} Показати INVOICE"
-    printf '%s\n' "  ${C_BOLD}[14]${C_RESET} Фіналізувати INVOICE"
-    printf '%s\n' "${C_CYAN}  ── REFUND ──${C_RESET}"
-    printf '%s\n' "  ${C_BOLD}[18]${C_RESET} Фінальне рішення покупця"
-    printf '%s\n' "  ${C_BOLD}[19]${C_RESET} Перевірити timeout"
-    printf '%s\n' "  ${C_BOLD}[20]${C_RESET} Статус refund"
-    printf '%s\n' "  ${C_BOLD}[21]${C_RESET} Додати умову"
-    printf '%s\n' "${C_CYAN}  ── PII ──${C_RESET}"
-    printf '%s\n' "  ${C_BOLD}[15]${C_RESET} Експорт PII-masked"
-    printf '%s\n' "  ${C_BOLD}[16]${C_RESET} Експорт усіх + git"
-    printf '%s\n' "  ${C_BOLD}[17]${C_RESET} Перевірити PII хеш"
-    printf '%s\n' "${C_CYAN}  ── CURRENCY ──${C_RESET}"
-    printf '%s\n' "  ${C_BOLD}[22]${C_RESET} Показати курси валют"
-    printf '%s\n' "  ${C_BOLD}[23]${C_RESET} Оновити курс"
-    printf '%s\n' "  ${C_BOLD}[24]${C_RESET} Конвертер валют"
-    printf '%s\n' "${C_CYAN}  ── SYSTEM ──${C_RESET}"
-    printf '%s\n' "  ${C_BOLD}[30]${C_RESET} Preflight (перевірка)"
-    printf '%s\n' "  ${C_BOLD}[31]${C_RESET} Self-heal (автовідновлення)"
-    printf '%s\n' "  ${C_BOLD}[32]${C_RESET} Dual-backend verify"
-    printf '%s\n' "  ${C_BOLD}[33]${C_RESET} Ownership scan"
-    printf '%s\n' "  ${C_BOLD}[0]${C_RESET}  Вихід"
-    printf '\n'
+    printf '%s
+' "${C_BOLD}  ─── ОСНОВНЕ ───${C_RESET}"
+    printf '  🟢 %s[1]%s  Створити контракт
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[2]%s  Список контрактів
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[3]%s  Статус контракту
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[4]%s  Згенерувати лінки
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[5]%s  Підтвердити лінк
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[6]%s  Debug
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[7]%s  DUAL-LICENSE ledger
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[8]%s  CREATION-LICENSE ledger
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[9]%s  Hardening
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "${C_CYAN}  ─── INVOICE ───${C_RESET}"
+    printf '  🟢 %s[10]%s Підписати INVOICE (продавець)
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[11]%s Створити INVOICE
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[12]%s Додати позицію
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[13]%s Показати INVOICE
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[14]%s Фіналізувати INVOICE
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "${C_CYAN}  ─── PII MASK ───${C_RESET}"
+    printf '  🟢 %s[15]%s Експорт PII-masked
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[16]%s Експорт усіх + git
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[17]%s Перевірити PII хеш
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "${C_CYAN}  ─── REFUND ───${C_RESET}"
+    printf '  🟢 %s[18]%s Фінальне рішення покупця
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[19]%s Перевірити timeout
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[20]%s Статус refund
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[21]%s Додати умову
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "${C_CYAN}  ─── ВАЛЮТИ ───${C_RESET}"
+    printf '  🟢 %s[22]%s Показати курси
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[23]%s Оновити курс
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[24]%s Конвертер
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "${C_CYAN}  ─── СИСТЕМА ───${C_RESET}"
+    printf '  🟢 %s[30]%s Preflight
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[31]%s Self-heal
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[32]%s Dual-backend verify
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[33]%s Ownership scan
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "${C_MAGENTA}  ─── AI (офлайн) ───${C_RESET}"
+    printf '  🟢 %s[40]%s AI Аналіз
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[41]%s AI Парсинг рахунку
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[42]%s AI Генерація умов
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[43]%s AI Допомога
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[44]%s AI Вільне питання
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[45]%s AI Task Bar
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "${C_MAGENTA}  ─── AI EVOLUTION ───${C_RESET}"
+    printf '  🟢 %s[46]%s Executor — повний
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[47]%s Executor — scan
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[48]%s Executor — apply
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[49]%s Executor — список
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "${C_GREEN}  ─── ADDRESS BOOK ───${C_RESET}"
+    printf '  🟢 %s[50]%s Додати адресу
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[51]%s Список адрес
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[52]%s Історія адрес
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "${C_GREEN}  ─── INTEGRATIONS ───${C_RESET}"
+    printf '  🟢 %s[53]%s QR-код
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[54]%s Telegram — setup
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[55]%s Telegram — test
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[56]%s Webhook — список
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[57]%s Webhook — додати
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "${C_GREEN}  ─── EXPORT / BACKUP ───${C_RESET}"
+    printf '  🟢 %s[58]%s CSV — контракти
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[59]%s CSV — ledger
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[60]%s TXT — звіт
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[61]%s Backup — локальний
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[62]%s Backup — хмара
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "${C_GREEN}  ─── MULTI-CHAIN ───${C_RESET}"
+    printf '  🟢 %s[63]%s Список мереж
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[64]%s Сканер-tx
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "${C_RED}  ─── DISPUTE / AUDIT ───${C_RESET}"
+    printf '  🟢 %s[65]%s Відкрити спір
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[66]%s Список спорів
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[67]%s Голосувати
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[68]%s Audit log
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[69]%s Audit — перевірити
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "${C_RED}  ─── DOCUMENT SCANNER ───${C_RESET}"
+    printf '  🟢 %s[70]%s Сфотографувати
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[71]%s OCR
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[72]%s PDF → текст
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[73]%s Повний pipeline
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "${C_MAGENTA}  ─── РОЗШИРЕНІ ───${C_RESET}"
+    printf '  🟢 %s[74]%s Пошук контракту
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[75]%s Auto-fill контракту
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[76]%s AI прогін умов
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[77]%s Перевірка платежів
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[78]%s Додаткові умови
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[79]%s Watchdog (супервізор)
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "${C_RED}  ─── GUARDIAN (100% state) ───${C_RESET}"
+    printf '  🟢 %s[80]%s Стан системи
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[81]%s Перевірка 100%%
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[82]%s Зареєструвати особу
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[83]%s Показати особу
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[84]%s Перевірити особу
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[85]%s Пристрій
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[86]%s Snapshot
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[87]%s Відновити з git
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[88]%s Відновити з snapshot
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[89]%s AUTO-recovery
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[90]%s Action log
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[91]%s Log verify
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "${C_RED}  ─── AUTOSAVE ───${C_RESET}"
+    printf '  🟢 %s[92]%s Зберегти контракт
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[93]%s Статус autosave
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[94]%s Останні архіви
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[95]%s Відновити контракт
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "${C_RED}  ─── EVO CONTROLLERS ───${C_RESET}"
+    printf '  🟢 %s[96]%s EVO7 (7 рівнів)
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[97]%s EVO CONTROLLER (4 SHA)
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[98]%s Parawatch (фон)
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[99]%s AUTOPATCH
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "${C_MAGENTA}  ─── NODE / HASH / SYSTEM ───${C_RESET}"
+    printf '  🟢 %s[100]%s Node manager
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[101]%s Hash ecosystem (5 layers)
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[102]%s Binmix daemon
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[103]%s Metrics (Prometheus)
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[104]%s HTTP panel
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[105]%s Schedule (cron)
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[106]%s Cleanup (ротація)
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[107]%s Autopilot (авто-оновлення)
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "  ${C_BOLD}─── NODE/HASH ───${C_RESET}"
+    printf '  🟢 %s[121]%s parlament
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[120]%s ai guardian
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[119]%s qr sign
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[118]%s net health
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[117]%s tx lookup
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[116]%s gas monitor
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[115]%s rpc bench
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[114]%s autonode
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[113]%s metamask batch
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[112]%s metamask deeplink
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[111]%s metamask settings
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[110]%s metamask history
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[109]%s metamask verify
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[108]%s metamask sign
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "  ${C_BOLD}─── METAMASK ───${C_RESET}"
+    printf '  🟢 %s[124]%s timelock
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[123]%s multisig
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[122]%s contract validator
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "  ${C_BOLD}─── ADVANCED ───${C_RESET}"
+    printf '  🟢 %s[140]%s analytics
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[139]%s reputation
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[138]%s arbitration
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[137]%s escrow
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[136]%s templates
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[135]%s walletconnect
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[134]%s discord
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[133]%s tokens
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[132]%s compliance
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[131]%s kyc
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[130]%s test suite
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[129]%s voice
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[128]%s dashboard
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[126]%s zk
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[125]%s anchor
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "  ${C_BOLD}─── ORCHESTRATOR ───${C_RESET}"
+    printf '  🟢 %s[150]%s Custom Scripts
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[149]%s Advanced Analytics
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[148]%s Multisig UI
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[147]%s On-chain Reputation v2
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[146]%s Merkle Batching
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[145]%s IPFS Pinning
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[144]%s Bitcoin Lightning
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[143]%s Email Notifications
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[142]%s Invoice PDF Export
+' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[141]%s Portfolio Tracker
+' "$C_BOLD" "$C_RESET"
+    printf '
+'
+
+    printf '%s
+' "  ${C_GREY}🟢 ready  🟡 warning  🔴 error${C_RESET}"
+    printf '
+'
+    printf '  %s[0]%s  Вихід
+
+' "$C_BOLD" "$C_RESET"
 }
 
 # ─── Main loop ───
