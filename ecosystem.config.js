@@ -6,8 +6,7 @@ module.exports = {
       args: ["/data/data/com.termux/files/home/CYBRA/bin/cybra_autonode_main"],
       interpreter: "node",
       cwd: "/data/data/com.termux/files/home/CYBRA",
-      autorestart: true,
-      cron_restart: "*/15 * * * *"
+      autorestart: true
     },
     {
       name: "cybra-autonode-cybra",
@@ -15,8 +14,14 @@ module.exports = {
       args: ["/data/data/com.termux/files/home/CYBRA/bin/cybra_autonode_cybra"],
       interpreter: "node",
       cwd: "/data/data/com.termux/files/home/CYBRA",
-      autorestart: true,
-      cron_restart: "*/15 * * * *"
+      autorestart: true
+    },
+    {
+      name: "cybra-parliament-worker",
+      script: "/data/data/com.termux/files/home/CYBRA/parliament_auto_worker.sh",
+      interpreter: "bash",
+      cwd: "/data/data/com.termux/files/home/CYBRA",
+      autorestart: true
     }
   ]
 };
