@@ -404,7 +404,7 @@
     },
     "51": {
       "id": 51,
-      "status": "in_progress",
+      "status": "implemented",
       "target_module": "module_51_*",
       "function": "action_51",
       "priority": "low",
@@ -412,7 +412,7 @@
     },
     "52": {
       "id": 52,
-      "status": "stub",
+      "status": "in_progress",
       "target_module": "module_52_*",
       "function": "action_52",
       "priority": "low",
