@@ -9,10 +9,19 @@ cd "$NODE_DIR" || exit 1
 log "=== Node @cybra Start ==="
 
 while true; do
+    log "--- Cycle ---"
+    
+    # 1. Перевірка EVO
     if [ ! -f "index.json" ]; then
-        log "EVO: немає index.json, робимо локальний rollback"
+        log "EVO: немає index.json, робимо rollback"
         git reset --hard HEAD --quiet 2>/dev/null
         git clean -fd --quiet 2>/dev/null
+    fi
+    
+    # 2. Створюємо снапшот (якщо є hash_eco)
+    if [ -x "$CYBRA_HOME/bin/cybra_hash_eco" ]; then
+        "$CYBRA_HOME/bin/cybra_hash_eco" snapshot >/dev/null 2>&1
+        log "EVO: снапшот створено"
     fi
     
     log "EVO: 100% — нода @cybra стабільна"

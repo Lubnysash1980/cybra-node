@@ -8,11 +8,19 @@ cd "$CYBRA_HOME" || exit 1
 log "=== Node Main Start ==="
 
 while true; do
-    # Перевірка файлів
+    log "--- Cycle ---"
+    
+    # 1. Перевірка EVO
     if [ ! -f "lib/cybra_invoice_lib.sh" ]; then
-        log "EVO: немає lib, робимо локальний rollback"
+        log "EVO: немає lib, робимо rollback"
         git reset --hard HEAD --quiet 2>/dev/null
         git clean -fd --quiet 2>/dev/null
+    fi
+    
+    # 2. Створюємо снапшот (якщо є hash_eco)
+    if [ -x "$CYBRA_HOME/bin/cybra_hash_eco" ]; then
+        "$CYBRA_HOME/bin/cybra_hash_eco" snapshot >/dev/null 2>&1
+        log "EVO: снапшот створено"
     fi
     
     log "EVO: 100% — система в нормі"
