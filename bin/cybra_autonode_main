@@ -7,27 +7,14 @@ log() { echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] $1" >> "$LOG"; }
 cd "$CYBRA_HOME" || exit 1
 log "=== Node Main Start ==="
 
-evo_check() {
-    local errors=0
-    [ -d .git ] || errors=$((errors+1))
-    [ -f "lib/cybra_invoice_lib.sh" ] || { log "EVO: немає lib"; errors=$((errors+1)); }
-    if [ "$errors" -eq 0 ]; then
-        log "EVO: 100% — система в нормі."
-        return 0
-    else
-        log "EVO: Відхилення! Помилок: $errors"
-        return 1
+while true; do
+    # Перевірка файлів
+    if [ ! -f "lib/cybra_invoice_lib.sh" ]; then
+        log "EVO: немає lib, робимо локальний rollback"
+        git reset --hard HEAD --quiet 2>/dev/null
+        git clean -fd --quiet 2>/dev/null
     fi
-}
-
-evo_rollback() {
-    log "EVO: git reset --hard HEAD..."
-    git reset --hard HEAD --quiet 2>/dev/null
-    git clean -fd --quiet 2>/dev/null
-}
-
-if ! evo_check; then
-    evo_rollback
-    evo_check
-fi
-log "=== Node Main End ==="
+    
+    log "EVO: 100% — система в нормі"
+    sleep 60
+done

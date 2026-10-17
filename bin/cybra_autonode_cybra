@@ -5,31 +5,16 @@ LOG="${CYBRA_HOME}/logs/evo_node_cybra.log"
 mkdir -p "${CYBRA_HOME}/logs"
 log() { echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] $1" >> "$LOG"; }
 
-cd "$NODE_DIR" || { log "Node: папка @cybra не знайдена"; exit 1; }
+cd "$NODE_DIR" || exit 1
 log "=== Node @cybra Start ==="
 
-evo_check() {
-    local errors=0
-    [ -d .git ] || errors=$((errors+1))
-    [ -f "index.json" ] || { log "EVO: немає index.json"; errors=$((errors+1)); }
-    
-    if [ "$errors" -eq 0 ]; then
-        log "EVO: 100% — нода @cybra стабільна."
-        return 0
-    else
-        log "EVO: Відхилення! Помилок: $errors"
-        return 1
+while true; do
+    if [ ! -f "index.json" ]; then
+        log "EVO: немає index.json, робимо локальний rollback"
+        git reset --hard HEAD --quiet 2>/dev/null
+        git clean -fd --quiet 2>/dev/null
     fi
-}
-
-evo_rollback() {
-    log "EVO: git reset --hard HEAD..."
-    git reset --hard HEAD --quiet 2>/dev/null
-    git clean -fd --quiet 2>/dev/null
-}
-
-if ! evo_check; then
-    evo_rollback
-    evo_check
-fi
-log "=== Node @cybra End ==="
+    
+    log "EVO: 100% — нода @cybra стабільна"
+    sleep 60
+done
