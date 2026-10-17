@@ -1681,7 +1681,7 @@ while true; do
         74) bash "$HOME/CYBRA/modules/module_74_generated/main.sh" ;;
         75) bash "$HOME/CYBRA/modules/module_75_generated/main.sh" ;;
         76) bash "$HOME/CYBRA/modules/module_76_generated/main.sh" ;;
-        77) action_generic_77 ;;
+        77) bash "$HOME/CYBRA/modules/module_77_generated/main.sh" ;;
         78) action_generic_78 ;;
         79) action_generic_79 ;;
         80) action_generic_80 ;;
