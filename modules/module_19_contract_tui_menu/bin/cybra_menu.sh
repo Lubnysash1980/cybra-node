@@ -1632,10 +1632,10 @@ while true; do
 " "${C_GREEN}До побачення.${C_RESET}"
             exit 0
             ;;
-        10) action_generic_10 ;;
-        25) action_generic_25 ;;
-        26) action_generic_26 ;;
-        27) action_generic_27 ;;
+        10) bash "$HOME/CYBRA/modules/module_10_generated/main.sh" ;;
+        25) bash "$HOME/CYBRA/modules/module_25_generated/main.sh" ;;
+        26) bash "$HOME/CYBRA/modules/module_26_generated/main.sh" ;;
+        27) bash "$HOME/CYBRA/modules/module_27_generated/main.sh" ;;
         28) action_generic_28 ;;
         29) action_generic_29 ;;
         34) action_generic_34 ;;

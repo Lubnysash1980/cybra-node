@@ -1,0 +1,1206 @@
+{
+  "version": "1.0",
+  "description": "CYBRA HIDL - Interface mapping for TUI and EVO",
+  "menu_items": {
+    "1": {
+      "id": 1,
+      "status": "implemented",
+      "target_module": "module_1_*",
+      "function": "action_1",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "2": {
+      "id": 2,
+      "status": "implemented",
+      "target_module": "module_2_*",
+      "function": "action_2",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "3": {
+      "id": 3,
+      "status": "implemented",
+      "target_module": "module_3_*",
+      "function": "action_3",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "4": {
+      "id": 4,
+      "status": "implemented",
+      "target_module": "module_4_*",
+      "function": "action_4",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "5": {
+      "id": 5,
+      "status": "implemented",
+      "target_module": "module_5_*",
+      "function": "action_5",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "6": {
+      "id": 6,
+      "status": "implemented",
+      "target_module": "module_6_*",
+      "function": "action_6",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "7": {
+      "id": 7,
+      "status": "implemented",
+      "target_module": "module_7_*",
+      "function": "action_7",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "8": {
+      "id": 8,
+      "status": "implemented",
+      "target_module": "module_8_*",
+      "function": "action_8",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "9": {
+      "id": 9,
+      "status": "implemented",
+      "target_module": "module_9_*",
+      "function": "action_9",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "10": {
+      "id": 10,
+      "status": "in_progress",
+      "target_module": "module_10_*",
+      "function": "action_10",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "11": {
+      "id": 11,
+      "status": "implemented",
+      "target_module": "module_11_*",
+      "function": "action_11",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "12": {
+      "id": 12,
+      "status": "implemented",
+      "target_module": "module_12_*",
+      "function": "action_12",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "13": {
+      "id": 13,
+      "status": "implemented",
+      "target_module": "module_13_*",
+      "function": "action_13",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "14": {
+      "id": 14,
+      "status": "implemented",
+      "target_module": "module_14_*",
+      "function": "action_14",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "15": {
+      "id": 15,
+      "status": "implemented",
+      "target_module": "module_15_*",
+      "function": "action_15",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "16": {
+      "id": 16,
+      "status": "implemented",
+      "target_module": "module_16_*",
+      "function": "action_16",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "17": {
+      "id": 17,
+      "status": "implemented",
+      "target_module": "module_17_*",
+      "function": "action_17",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "18": {
+      "id": 18,
+      "status": "implemented",
+      "target_module": "module_18_*",
+      "function": "action_18",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "19": {
+      "id": 19,
+      "status": "implemented",
+      "target_module": "module_19_*",
+      "function": "action_19",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "20": {
+      "id": 20,
+      "status": "implemented",
+      "target_module": "module_20_*",
+      "function": "action_20",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "21": {
+      "id": 21,
+      "status": "implemented",
+      "target_module": "module_21_*",
+      "function": "action_21",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "22": {
+      "id": 22,
+      "status": "implemented",
+      "target_module": "module_22_*",
+      "function": "action_22",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "23": {
+      "id": 23,
+      "status": "implemented",
+      "target_module": "module_23_*",
+      "function": "action_23",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "24": {
+      "id": 24,
+      "status": "implemented",
+      "target_module": "module_24_*",
+      "function": "action_24",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "25": {
+      "id": 25,
+      "status": "in_progress",
+      "target_module": "module_25_*",
+      "function": "action_25",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "26": {
+      "id": 26,
+      "status": "in_progress",
+      "target_module": "module_26_*",
+      "function": "action_26",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "27": {
+      "id": 27,
+      "status": "in_progress",
+      "target_module": "module_27_*",
+      "function": "action_27",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "28": {
+      "id": 28,
+      "status": "stub",
+      "target_module": "module_28_*",
+      "function": "action_28",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "29": {
+      "id": 29,
+      "status": "stub",
+      "target_module": "module_29_*",
+      "function": "action_29",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "30": {
+      "id": 30,
+      "status": "implemented",
+      "target_module": "module_30_*",
+      "function": "action_30",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "31": {
+      "id": 31,
+      "status": "implemented",
+      "target_module": "module_31_*",
+      "function": "action_31",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "32": {
+      "id": 32,
+      "status": "implemented",
+      "target_module": "module_32_*",
+      "function": "action_32",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "33": {
+      "id": 33,
+      "status": "implemented",
+      "target_module": "module_33_*",
+      "function": "action_33",
+      "priority": "low",
+      "evo_score": 100
+    },
+    "34": {
+      "id": 34,
+      "status": "stub",
+      "target_module": "module_34_*",
+      "function": "action_34",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "35": {
+      "id": 35,
+      "status": "stub",
+      "target_module": "module_35_*",
+      "function": "action_35",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "36": {
+      "id": 36,
+      "status": "stub",
+      "target_module": "module_36_*",
+      "function": "action_36",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "37": {
+      "id": 37,
+      "status": "stub",
+      "target_module": "module_37_*",
+      "function": "action_37",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "38": {
+      "id": 38,
+      "status": "stub",
+      "target_module": "module_38_*",
+      "function": "action_38",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "39": {
+      "id": 39,
+      "status": "stub",
+      "target_module": "module_39_*",
+      "function": "action_39",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "40": {
+      "id": 40,
+      "status": "stub",
+      "target_module": "module_40_*",
+      "function": "action_40",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "41": {
+      "id": 41,
+      "status": "stub",
+      "target_module": "module_41_*",
+      "function": "action_41",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "42": {
+      "id": 42,
+      "status": "stub",
+      "target_module": "module_42_*",
+      "function": "action_42",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "43": {
+      "id": 43,
+      "status": "stub",
+      "target_module": "module_43_*",
+      "function": "action_43",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "44": {
+      "id": 44,
+      "status": "stub",
+      "target_module": "module_44_*",
+      "function": "action_44",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "45": {
+      "id": 45,
+      "status": "stub",
+      "target_module": "module_45_*",
+      "function": "action_45",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "46": {
+      "id": 46,
+      "status": "stub",
+      "target_module": "module_46_*",
+      "function": "action_46",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "47": {
+      "id": 47,
+      "status": "stub",
+      "target_module": "module_47_*",
+      "function": "action_47",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "48": {
+      "id": 48,
+      "status": "stub",
+      "target_module": "module_48_*",
+      "function": "action_48",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "49": {
+      "id": 49,
+      "status": "stub",
+      "target_module": "module_49_*",
+      "function": "action_49",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "50": {
+      "id": 50,
+      "status": "stub",
+      "target_module": "module_50_*",
+      "function": "action_50",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "51": {
+      "id": 51,
+      "status": "stub",
+      "target_module": "module_51_*",
+      "function": "action_51",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "52": {
+      "id": 52,
+      "status": "stub",
+      "target_module": "module_52_*",
+      "function": "action_52",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "53": {
+      "id": 53,
+      "status": "stub",
+      "target_module": "module_53_*",
+      "function": "action_53",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "54": {
+      "id": 54,
+      "status": "stub",
+      "target_module": "module_54_*",
+      "function": "action_54",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "55": {
+      "id": 55,
+      "status": "stub",
+      "target_module": "module_55_*",
+      "function": "action_55",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "56": {
+      "id": 56,
+      "status": "stub",
+      "target_module": "module_56_*",
+      "function": "action_56",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "57": {
+      "id": 57,
+      "status": "stub",
+      "target_module": "module_57_*",
+      "function": "action_57",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "58": {
+      "id": 58,
+      "status": "stub",
+      "target_module": "module_58_*",
+      "function": "action_58",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "59": {
+      "id": 59,
+      "status": "stub",
+      "target_module": "module_59_*",
+      "function": "action_59",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "60": {
+      "id": 60,
+      "status": "stub",
+      "target_module": "module_60_*",
+      "function": "action_60",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "61": {
+      "id": 61,
+      "status": "stub",
+      "target_module": "module_61_*",
+      "function": "action_61",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "62": {
+      "id": 62,
+      "status": "stub",
+      "target_module": "module_62_*",
+      "function": "action_62",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "63": {
+      "id": 63,
+      "status": "stub",
+      "target_module": "module_63_*",
+      "function": "action_63",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "64": {
+      "id": 64,
+      "status": "stub",
+      "target_module": "module_64_*",
+      "function": "action_64",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "65": {
+      "id": 65,
+      "status": "stub",
+      "target_module": "module_65_*",
+      "function": "action_65",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "66": {
+      "id": 66,
+      "status": "stub",
+      "target_module": "module_66_*",
+      "function": "action_66",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "67": {
+      "id": 67,
+      "status": "stub",
+      "target_module": "module_67_*",
+      "function": "action_67",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "68": {
+      "id": 68,
+      "status": "stub",
+      "target_module": "module_68_*",
+      "function": "action_68",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "69": {
+      "id": 69,
+      "status": "stub",
+      "target_module": "module_69_*",
+      "function": "action_69",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "70": {
+      "id": 70,
+      "status": "stub",
+      "target_module": "module_70_*",
+      "function": "action_70",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "71": {
+      "id": 71,
+      "status": "stub",
+      "target_module": "module_71_*",
+      "function": "action_71",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "72": {
+      "id": 72,
+      "status": "stub",
+      "target_module": "module_72_*",
+      "function": "action_72",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "73": {
+      "id": 73,
+      "status": "stub",
+      "target_module": "module_73_*",
+      "function": "action_73",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "74": {
+      "id": 74,
+      "status": "stub",
+      "target_module": "module_74_*",
+      "function": "action_74",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "75": {
+      "id": 75,
+      "status": "stub",
+      "target_module": "module_75_*",
+      "function": "action_75",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "76": {
+      "id": 76,
+      "status": "stub",
+      "target_module": "module_76_*",
+      "function": "action_76",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "77": {
+      "id": 77,
+      "status": "stub",
+      "target_module": "module_77_*",
+      "function": "action_77",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "78": {
+      "id": 78,
+      "status": "stub",
+      "target_module": "module_78_*",
+      "function": "action_78",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "79": {
+      "id": 79,
+      "status": "stub",
+      "target_module": "module_79_*",
+      "function": "action_79",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "80": {
+      "id": 80,
+      "status": "stub",
+      "target_module": "module_80_*",
+      "function": "action_80",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "81": {
+      "id": 81,
+      "status": "stub",
+      "target_module": "module_81_*",
+      "function": "action_81",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "82": {
+      "id": 82,
+      "status": "stub",
+      "target_module": "module_82_*",
+      "function": "action_82",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "83": {
+      "id": 83,
+      "status": "stub",
+      "target_module": "module_83_*",
+      "function": "action_83",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "84": {
+      "id": 84,
+      "status": "stub",
+      "target_module": "module_84_*",
+      "function": "action_84",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "85": {
+      "id": 85,
+      "status": "stub",
+      "target_module": "module_85_*",
+      "function": "action_85",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "86": {
+      "id": 86,
+      "status": "stub",
+      "target_module": "module_86_*",
+      "function": "action_86",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "87": {
+      "id": 87,
+      "status": "stub",
+      "target_module": "module_87_*",
+      "function": "action_87",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "88": {
+      "id": 88,
+      "status": "stub",
+      "target_module": "module_88_*",
+      "function": "action_88",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "89": {
+      "id": 89,
+      "status": "stub",
+      "target_module": "module_89_*",
+      "function": "action_89",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "90": {
+      "id": 90,
+      "status": "stub",
+      "target_module": "module_90_*",
+      "function": "action_90",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "91": {
+      "id": 91,
+      "status": "stub",
+      "target_module": "module_91_*",
+      "function": "action_91",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "92": {
+      "id": 92,
+      "status": "stub",
+      "target_module": "module_92_*",
+      "function": "action_92",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "93": {
+      "id": 93,
+      "status": "stub",
+      "target_module": "module_93_*",
+      "function": "action_93",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "94": {
+      "id": 94,
+      "status": "stub",
+      "target_module": "module_94_*",
+      "function": "action_94",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "95": {
+      "id": 95,
+      "status": "stub",
+      "target_module": "module_95_*",
+      "function": "action_95",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "96": {
+      "id": 96,
+      "status": "stub",
+      "target_module": "module_96_*",
+      "function": "action_96",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "97": {
+      "id": 97,
+      "status": "stub",
+      "target_module": "module_97_*",
+      "function": "action_97",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "98": {
+      "id": 98,
+      "status": "stub",
+      "target_module": "module_98_*",
+      "function": "action_98",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "99": {
+      "id": 99,
+      "status": "stub",
+      "target_module": "module_99_*",
+      "function": "action_99",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "100": {
+      "id": 100,
+      "status": "stub",
+      "target_module": "module_100_*",
+      "function": "action_100",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "101": {
+      "id": 101,
+      "status": "stub",
+      "target_module": "module_101_*",
+      "function": "action_101",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "102": {
+      "id": 102,
+      "status": "stub",
+      "target_module": "module_102_*",
+      "function": "action_102",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "103": {
+      "id": 103,
+      "status": "stub",
+      "target_module": "module_103_*",
+      "function": "action_103",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "104": {
+      "id": 104,
+      "status": "stub",
+      "target_module": "module_104_*",
+      "function": "action_104",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "105": {
+      "id": 105,
+      "status": "stub",
+      "target_module": "module_105_*",
+      "function": "action_105",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "106": {
+      "id": 106,
+      "status": "stub",
+      "target_module": "module_106_*",
+      "function": "action_106",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "107": {
+      "id": 107,
+      "status": "stub",
+      "target_module": "module_107_*",
+      "function": "action_107",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "108": {
+      "id": 108,
+      "status": "stub",
+      "target_module": "module_108_*",
+      "function": "action_108",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "109": {
+      "id": 109,
+      "status": "stub",
+      "target_module": "module_109_*",
+      "function": "action_109",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "110": {
+      "id": 110,
+      "status": "stub",
+      "target_module": "module_110_*",
+      "function": "action_110",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "111": {
+      "id": 111,
+      "status": "stub",
+      "target_module": "module_111_*",
+      "function": "action_111",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "112": {
+      "id": 112,
+      "status": "stub",
+      "target_module": "module_112_*",
+      "function": "action_112",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "113": {
+      "id": 113,
+      "status": "stub",
+      "target_module": "module_113_*",
+      "function": "action_113",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "114": {
+      "id": 114,
+      "status": "stub",
+      "target_module": "module_114_*",
+      "function": "action_114",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "115": {
+      "id": 115,
+      "status": "stub",
+      "target_module": "module_115_*",
+      "function": "action_115",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "116": {
+      "id": 116,
+      "status": "stub",
+      "target_module": "module_116_*",
+      "function": "action_116",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "117": {
+      "id": 117,
+      "status": "stub",
+      "target_module": "module_117_*",
+      "function": "action_117",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "118": {
+      "id": 118,
+      "status": "stub",
+      "target_module": "module_118_*",
+      "function": "action_118",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "119": {
+      "id": 119,
+      "status": "stub",
+      "target_module": "module_119_*",
+      "function": "action_119",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "120": {
+      "id": 120,
+      "status": "stub",
+      "target_module": "module_120_*",
+      "function": "action_120",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "121": {
+      "id": 121,
+      "status": "stub",
+      "target_module": "module_121_*",
+      "function": "action_121",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "122": {
+      "id": 122,
+      "status": "stub",
+      "target_module": "module_122_*",
+      "function": "action_122",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "123": {
+      "id": 123,
+      "status": "stub",
+      "target_module": "module_123_*",
+      "function": "action_123",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "124": {
+      "id": 124,
+      "status": "stub",
+      "target_module": "module_124_*",
+      "function": "action_124",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "125": {
+      "id": 125,
+      "status": "stub",
+      "target_module": "module_125_*",
+      "function": "action_125",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "126": {
+      "id": 126,
+      "status": "stub",
+      "target_module": "module_126_*",
+      "function": "action_126",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "127": {
+      "id": 127,
+      "status": "stub",
+      "target_module": "module_127_*",
+      "function": "action_127",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "128": {
+      "id": 128,
+      "status": "stub",
+      "target_module": "module_128_*",
+      "function": "action_128",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "129": {
+      "id": 129,
+      "status": "stub",
+      "target_module": "module_129_*",
+      "function": "action_129",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "130": {
+      "id": 130,
+      "status": "stub",
+      "target_module": "module_130_*",
+      "function": "action_130",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "131": {
+      "id": 131,
+      "status": "stub",
+      "target_module": "module_131_*",
+      "function": "action_131",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "132": {
+      "id": 132,
+      "status": "stub",
+      "target_module": "module_132_*",
+      "function": "action_132",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "133": {
+      "id": 133,
+      "status": "stub",
+      "target_module": "module_133_*",
+      "function": "action_133",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "134": {
+      "id": 134,
+      "status": "stub",
+      "target_module": "module_134_*",
+      "function": "action_134",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "135": {
+      "id": 135,
+      "status": "stub",
+      "target_module": "module_135_*",
+      "function": "action_135",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "136": {
+      "id": 136,
+      "status": "stub",
+      "target_module": "module_136_*",
+      "function": "action_136",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "137": {
+      "id": 137,
+      "status": "stub",
+      "target_module": "module_137_*",
+      "function": "action_137",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "138": {
+      "id": 138,
+      "status": "stub",
+      "target_module": "module_138_*",
+      "function": "action_138",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "139": {
+      "id": 139,
+      "status": "stub",
+      "target_module": "module_139_*",
+      "function": "action_139",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "140": {
+      "id": 140,
+      "status": "stub",
+      "target_module": "module_140_*",
+      "function": "action_140",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "141": {
+      "id": 141,
+      "status": "stub",
+      "target_module": "module_141_*",
+      "function": "action_141",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "142": {
+      "id": 142,
+      "status": "stub",
+      "target_module": "module_142_*",
+      "function": "action_142",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "143": {
+      "id": 143,
+      "status": "stub",
+      "target_module": "module_143_*",
+      "function": "action_143",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "144": {
+      "id": 144,
+      "status": "stub",
+      "target_module": "module_144_*",
+      "function": "action_144",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "145": {
+      "id": 145,
+      "status": "stub",
+      "target_module": "module_145_*",
+      "function": "action_145",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "146": {
+      "id": 146,
+      "status": "stub",
+      "target_module": "module_146_*",
+      "function": "action_146",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "147": {
+      "id": 147,
+      "status": "stub",
+      "target_module": "module_147_*",
+      "function": "action_147",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "148": {
+      "id": 148,
+      "status": "stub",
+      "target_module": "module_148_*",
+      "function": "action_148",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "149": {
+      "id": 149,
+      "status": "stub",
+      "target_module": "module_149_*",
+      "function": "action_149",
+      "priority": "low",
+      "evo_score": 10
+    },
+    "150": {
+      "id": 150,
+      "status": "stub",
+      "target_module": "module_150_*",
+      "function": "action_150",
+      "priority": "low",
+      "evo_score": 10
+    }
+  }
+}
