@@ -11,6 +11,17 @@ while true; do
     log "--- Cycle ---"
     
     # 1. Перевірка EVO
+    # SANDBOX CHECK
+    SB="$CYBRA_HOME/sandbox"
+    if [ -d "$SB" ]; then
+        SIZE=$(du -sb "$SB" 2>/dev/null | awk '{print $1}' || echo 0)
+        LIMIT=$((65 * 1024 * 1024))
+        if [ "$SIZE" -ge "$LIMIT" ]; then
+            log "SANDBOX: переповнено ($((SIZE/1024/1024)) МБ), очищаю"
+            "$SB/sandbox_cleanup.sh" 2>/dev/null || true
+        fi
+    fi
+    
     if [ ! -f "lib/cybra_invoice_lib.sh" ]; then
         log "EVO: немає lib, робимо rollback"
         git reset --hard HEAD --quiet 2>/dev/null
