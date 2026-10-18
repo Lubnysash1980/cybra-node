@@ -1,0 +1,537 @@
+{
+  "timestamp": "20261018T062942Z",
+  "evo_state_pct": 100,
+  "modules": [
+    {
+      "name": "module_01_auto_executor",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_02_contract_builder",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_03_escrow_controller",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_108_metamask_sign",
+      "hash": "f078b8e9922a546990b8864cd07e8e24db675e558064b23f8ba7e4dc40d98c0e",
+      "size": 429
+    },
+    {
+      "name": "module_109_metamask_verify",
+      "hash": "6e39046d0e7abc97707280048fb6784a229d3b5bc7f982eeaa2bf679cc46bf5f",
+      "size": 433
+    },
+    {
+      "name": "module_10_generated",
+      "hash": "46612f9ab7ba6c5f880f3cabc69fb5481e89bfe94567614d094f790462c5ea0e",
+      "size": 240
+    },
+    {
+      "name": "module_110_metamask_history",
+      "hash": "eb772171baaa9476e56ae180b7454ac458a7eeefa222df9d0f4b57c0c7275efb",
+      "size": 435
+    },
+    {
+      "name": "module_111_invoice",
+      "hash": "973561cb808423a5eabf64815f74be2fa54879e15e44f6aa696db8663e081749",
+      "size": 417
+    },
+    {
+      "name": "module_112_metamask_deeplink",
+      "hash": "2861c513d06cff48ed6267d75609a9faf5cf2d404921ca76903daf0704af7590",
+      "size": 437
+    },
+    {
+      "name": "module_113_metamask_batch",
+      "hash": "213e7e306d07a919d9de4380ed2fe9b8b8036b23ee77964bf80836734e8f1752",
+      "size": 431
+    },
+    {
+      "name": "module_114_autonode",
+      "hash": "273769bceb88125f3f65169731ddaaa52e0a25ab36f2ddd88832a3aad6980c97",
+      "size": 419
+    },
+    {
+      "name": "module_115_rpc_bench",
+      "hash": "fa431ab678ca86ac17541570d69c540d405b7c5f4b7bfc3173ad87bb34595834",
+      "size": 421
+    },
+    {
+      "name": "module_116_gas_monitor",
+      "hash": "64059092dcea0790ae0ec7b91543193cb489ee0a9f0f2f1b58edda75bd39e1cf",
+      "size": 425
+    },
+    {
+      "name": "module_117_tx_lookup",
+      "hash": "dd7dacab85bbb74d2bd7601ff070194a094fcb9c9b6b31eb905a24e5f84fd23b",
+      "size": 421
+    },
+    {
+      "name": "module_118_net_health",
+      "hash": "411b86196871620e47e64a751be9c894c64adf324dbac752d293a302beddbc42",
+      "size": 423
+    },
+    {
+      "name": "module_119_qr_sign",
+      "hash": "fc4f2a4a53543908fa6311a7b8fbadb0de45ae6c947ca16da06eb2218a6d4786",
+      "size": 417
+    },
+    {
+      "name": "module_11_generated",
+      "hash": "0d414151e6a94287ac55ed3bb6ac9c5647364115460f3a6bd3cf78ba5a366c0c",
+      "size": 217
+    },
+    {
+      "name": "module_120_ai_guardian",
+      "hash": "d3f9e6d1c9f735ec1ffd2c401a2f0e4459cec9bbeb002e4fee8dd110875a464f",
+      "size": 425
+    },
+    {
+      "name": "module_121_parlament",
+      "hash": "94cb640673a44f396444a9741407e5a96fef0d606f02ebe3bcf28c477a212896",
+      "size": 421
+    },
+    {
+      "name": "module_122_contract_validator",
+      "hash": "4d24dcd8da89044543ecb7193b33177c1e9a66955593f7f3e11d54bdc59afdcf",
+      "size": 439
+    },
+    {
+      "name": "module_123_multisig",
+      "hash": "0a3776fa1ae6fb608553a4d273312f92a14559de09e23494a09299b18eec3e33",
+      "size": 419
+    },
+    {
+      "name": "module_124_timelock",
+      "hash": "da62da86147f837be488d01ee0b5b5a1a13a83fa52cbf247bb007a5ccafcb83a",
+      "size": 419
+    },
+    {
+      "name": "module_125_anchor",
+      "hash": "af7b730293b41b263c1bf0902bc8185b55d4ab533c82d8cef6dae7af8b8f4ab5",
+      "size": 415
+    },
+    {
+      "name": "module_126_zk",
+      "hash": "896886d1d7dfaacb84909dcbfbfb904b6679195ae9f7582572c5dbfb0093176c",
+      "size": 407
+    },
+    {
+      "name": "module_128_dashboard",
+      "hash": "ed3b68383d510ebbe8aca2194582fd8d19b9d3cfbcf611c6c78dce45859b66f7",
+      "size": 421
+    },
+    {
+      "name": "module_129_voice",
+      "hash": "59b118a6f316c47a3d075eea97ca0e930e0fb3dfb096b223fbf5dbb3d3114d32",
+      "size": 413
+    },
+    {
+      "name": "module_12_delivery_receipt",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_12_generated",
+      "hash": "929819a9e1c08b286894a0925f4d5c53daa300d182698a7b0d0c84c27e6be7fe",
+      "size": 226
+    },
+    {
+      "name": "module_130_test_suite",
+      "hash": "c370fa0e7a2c59009e3a0d25251f134669ff188980d0b4d746c4c5cee2e967b3",
+      "size": 423
+    },
+    {
+      "name": "module_131_kyc",
+      "hash": "721fc84cfc801659accaea9b8374992302f8de6adb93991dcef27ddd7dc748af",
+      "size": 409
+    },
+    {
+      "name": "module_132_compliance",
+      "hash": "5b72b426979bebebd4dad4eae4dd568d34b52a8d8f49f5e9d19134412b41d14b",
+      "size": 423
+    },
+    {
+      "name": "module_133_tokens",
+      "hash": "669fab37d31cd18638ebf09fc403925cc182f0f2f6a4c1db636d7ecd4f930e8b",
+      "size": 415
+    },
+    {
+      "name": "module_134_discord",
+      "hash": "0acf1ff2ef5894d5d7c50164518d9f3145d355921d4ce159278b3b45b7500913",
+      "size": 417
+    },
+    {
+      "name": "module_135_walletconnect",
+      "hash": "798273efa1199fdb4e78305b67a85d4affbfc3191df9d75a07e38bff3618a0e4",
+      "size": 429
+    },
+    {
+      "name": "module_136_templates",
+      "hash": "83dcc1c645d300b45a3e723fd92e55db08758863af22a36b1a7ae493a7f911b6",
+      "size": 421
+    },
+    {
+      "name": "module_137_escrow",
+      "hash": "ae9c9e73080a0d6929b862cef8a07a7914b21f27bf8d472e2ce69b6cb9196584",
+      "size": 415
+    },
+    {
+      "name": "module_138_arbitration",
+      "hash": "39e73f467306e0f743b30c6f80a27e78e307beee3c085814b111a87f11f6dae2",
+      "size": 425
+    },
+    {
+      "name": "module_139_reputation",
+      "hash": "36dc74f8389c76e054517782604a4d4648125ae9d87832672232d035087ce0ad",
+      "size": 423
+    },
+    {
+      "name": "module_13_dual_backend",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_13_generated",
+      "hash": "17a951c81ec7d1832c06dd675374c5252ae5b16def47e1985c4295befaac69b0",
+      "size": 217
+    },
+    {
+      "name": "module_140_analytics",
+      "hash": "c328000bce78d357afcf23a12a581e30db990318438cdf2fc1566bd5b2b5fbb7",
+      "size": 421
+    },
+    {
+      "name": "module_141_portfolio",
+      "hash": "24e4a5320905c3a397ab2c67a05b66ea3b87a5812618b2d25a69570a3c69d3ed",
+      "size": 421
+    },
+    {
+      "name": "module_142_invoice_pdf",
+      "hash": "6c74a69851303cfe0a18fe67d892b238a533d798136ae69fc57d9967fc9b743c",
+      "size": 425
+    },
+    {
+      "name": "module_143_email",
+      "hash": "50dd19cf44e2df5ce4b2dbc53e113f507a5a9dd590a2c3f359eaaa0717ed1307",
+      "size": 413
+    },
+    {
+      "name": "module_144_lightning",
+      "hash": "265d530a788e48f7847ba61e3c404c6970ecf0bac96388857922a4599b4eab0e",
+      "size": 421
+    },
+    {
+      "name": "module_145_ipfs",
+      "hash": "9a70b8e025a19688e94d822e484252833ecf087e0ce5c91bf20194487186d2ea",
+      "size": 411
+    },
+    {
+      "name": "module_146_merkle",
+      "hash": "d1de5baa6187bc2390717a88dd2bfdfa871d6f0ab379b302ccee16e011d6fc52",
+      "size": 415
+    },
+    {
+      "name": "module_147_reputation_v2",
+      "hash": "bd0ec694ab145a202316a36ad639b82e89ef605801116320461898bbf3c4e92a",
+      "size": 429
+    },
+    {
+      "name": "module_148_multisig_ui",
+      "hash": "c00059e1260be0348efb343e849a0532b8cb5db1f537159efe5ae8aefe54e465",
+      "size": 425
+    },
+    {
+      "name": "module_149_analytics",
+      "hash": "0399ccb737f93087db47c99ee0149db82f80ffbbd870a34b3e733fbd9d9d3953",
+      "size": 421
+    },
+    {
+      "name": "module_14_generated",
+      "hash": "a33359a51ff70be09cc085843aba19ff9493fafcd596c0a9690c679db7017ce1",
+      "size": 225
+    },
+    {
+      "name": "module_14_watchdog",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_150_scripts",
+      "hash": "d9d39ae331c91865db37f40628d3e15238eb8bec16d1583fb37c9dce4eba55d2",
+      "size": 417
+    },
+    {
+      "name": "module_15_generated",
+      "hash": "661bea00d95c55b2cfba283f8cf4d4a9b8648c81e7e9d57724b267e304fb9464",
+      "size": 224
+    },
+    {
+      "name": "module_15_true100_aggregator",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_16_final_authorization_release_gate",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_16_generated",
+      "hash": "834b9b20eb5344de31d2b4808e4822348f7186b8ebfd4631f13dd0d2f1a85189",
+      "size": 228
+    },
+    {
+      "name": "module_17_cybra_license_contract_menu",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_17_generated",
+      "hash": "e549ff826047880fa7c75e5bf64daaf451b9eb4dc81ec4b995854d75284f3ba5",
+      "size": 230
+    },
+    {
+      "name": "module_18_generated",
+      "hash": "9c77549ede8dd2313a562a7c924daac17b80f0f98089a954d3b2488a68dc48f3",
+      "size": 245
+    },
+    {
+      "name": "module_18_license_payment_router",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_19_contract_tui_menu",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_19_generated",
+      "hash": "2e95a8a65bc3f55c017f7c06c020f71d2e62c429fd778eaa55cdc1019ade1082",
+      "size": 227
+    },
+    {
+      "name": "module_1_generated",
+      "hash": "a71bc4e850492287e18b6978ac1a39c22f3548b63d2433b4d9ecfbb72bbce06f",
+      "size": 247
+    },
+    {
+      "name": "module_20_evolution_guard",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_20_generated",
+      "hash": "725f0747c26a80346ec69d2a7871ec30c82fbf74d08f6f9e8e1cd70249db4937",
+      "size": 218
+    },
+    {
+      "name": "module_21_generated",
+      "hash": "e5ab9fabbaf31ee02e0d7430ac6b8d67f9aba29c4b5dc4d2ea4f025aa9646f2c",
+      "size": 222
+    },
+    {
+      "name": "module_22_generated",
+      "hash": "e8a291f3fea5f9bccbed403dc76849ae1308009af11d4045d80c707baeda7797",
+      "size": 199
+    },
+    {
+      "name": "module_23_generated",
+      "hash": "8550028950d3240ebf8ea33c7dd94ebed30b4192f6702c9e9a605a932e252bfa",
+      "size": 222
+    },
+    {
+      "name": "module_24_generated",
+      "hash": "026064f185ae5a955d005ef165b58b06b02714538684fecadf77b22c3627611c",
+      "size": 217
+    },
+    {
+      "name": "module_25_address_book",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_25_generated",
+      "hash": "d572fd3788e5fa11fa0801f9881859ac405b754207d980847b35072a007e638a",
+      "size": 219
+    },
+    {
+      "name": "module_26_generated",
+      "hash": "d572fd3788e5fa11fa0801f9881859ac405b754207d980847b35072a007e638a",
+      "size": 219
+    },
+    {
+      "name": "module_26_qr_codes",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_27_generated",
+      "hash": "d572fd3788e5fa11fa0801f9881859ac405b754207d980847b35072a007e638a",
+      "size": 219
+    },
+    {
+      "name": "module_27_telegram_bot",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_28_export",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_28_generated",
+      "hash": "d572fd3788e5fa11fa0801f9881859ac405b754207d980847b35072a007e638a",
+      "size": 219
+    },
+    {
+      "name": "module_29_backup",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_29_generated",
+      "hash": "d572fd3788e5fa11fa0801f9881859ac405b754207d980847b35072a007e638a",
+      "size": 219
+    },
+    {
+      "name": "module_2_generated",
+      "hash": "1c004714b9ec687515315088fa1c941f1004a9fb42f3bbf43d6ec1cad4aa05fa",
+      "size": 232
+    },
+    {
+      "name": "module_30_generated",
+      "hash": "ccdf6d54bc7ae6f6a3ca36858f1e1810047daa844b8d212849cbb41ef5a8d61e",
+      "size": 208
+    },
+    {
+      "name": "module_30_multichain",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_31_dispute_resolver",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_31_generated",
+      "hash": "07c7d274a5a2bef3e164ec1902d163f77c34bd948f7255f0d9b4076dfec66dca",
+      "size": 208
+    },
+    {
+      "name": "module_32_generated",
+      "hash": "a850853c1e7080b01ca93b9b0032e770c4fac90670759a5bfc91966dd4035cbe",
+      "size": 218
+    },
+    {
+      "name": "module_32_webhook",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_33_audit_log",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_33_generated",
+      "hash": "eb1915f7e10cd00ecbf02c9a15fe7829768bd69dec77f4f9939d5331671263ee",
+      "size": 213
+    },
+    {
+      "name": "module_34_doc_scanner",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_34_generated",
+      "hash": "d572fd3788e5fa11fa0801f9881859ac405b754207d980847b35072a007e638a",
+      "size": 219
+    },
+    {
+      "name": "module_35_cybra_guardian",
+      "hash": "missing",
+      "size": 0
+    },
+    {
+      "name": "module_35_generated",
+      "hash": "d572fd3788e5fa11fa0801f9881859ac405b754207d980847b35072a007e638a",
+      "size": 219
+    },
+    {
+      "name": "module_36_generated",
+      "hash": "d572fd3788e5fa11fa0801f9881859ac405b754207d980847b35072a007e638a",
+      "size": 219
+    },
+    {
+      "name": "module_37_generated",
+      "hash": "d572fd3788e5fa11fa0801f9881859ac405b754207d980847b35072a007e638a",
+      "size": 219
+    },
+    {
+      "name": "module_38_generated",
+      "hash": "d572fd3788e5fa11fa0801f9881859ac405b754207d980847b35072a007e638a",
+      "size": 219
+    },
+    {
+      "name": "module_39_generated",
+      "hash": "d572fd3788e5fa11fa0801f9881859ac405b754207d980847b35072a007e638a",
+      "size": 219
+    },
+    {
+      "name": "module_3_generated",
+      "hash": "1a87ec071b79e8da5ea7a6a9ee77fe649c3a59f2767183675a2aa5df3a809bab",
+      "size": 230
+    },
+    {
+      "name": "module_40_generated",
+      "hash": "8860fbf1e6d671029686889cf322374f6acc8f274df979b4ee31b1e7f82326fe",
+      "size": 271
+    },
+    {
+      "name": "module_41_generated",
+      "hash": "319b9e0ab863fd094908843790dad5c694b865425731b85fb41454ee5f9b504d",
+      "size": 288
+    },
+    {
+      "name": "module_4_generated",
+      "hash": "82f89d8d726da72c77040b155fcf5edfba15bc94a1744c709bdc7615537bde02",
+      "size": 247
+    },
+    {
+      "name": "module_5_generated",
+      "hash": "9f61cd081b9ab45d25836b9959670c5d39799b4c6938cc0f8508f2988e750c52",
+      "size": 247
+    },
+    {
+      "name": "module_6_generated",
+      "hash": "79c99458a1f3d7a1a3a311aa6952752febb0e5c0113a1a42bce4585f313d99b2",
+      "size": 247
+    },
+    {
+      "name": "module_7_generated",
+      "hash": "0052d7234e1311d90b87fbfb528c31f10919d0eb26407e473e6a80f741aca134",
+      "size": 247
+    },
+    {
+      "name": "module_8_generated",
+      "hash": "c29cfa2060f98a34eba81c1a322bc8d2859abc3fea5090bff2186f09d2da4923",
+      "size": 247
+    },
+    {
+      "name": "module_9_generated",
+      "hash": "630e29008a8e1a2757b481c86cc56b5f07be17cac566062ef24a1e4b089b264d",
+      "size": 208
+    }
+  ],
+  "total_modules": 106
+}
