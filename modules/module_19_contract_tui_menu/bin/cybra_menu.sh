@@ -1712,9 +1712,9 @@ while true; do
         105) bash "$HOME/CYBRA/modules/module_105_base/main.sh" ;;
         106) bash "$HOME/CYBRA/modules/module_106_base/main.sh" ;;
         107) bash "$HOME/CYBRA/modules/module_107_base/main.sh" ;;
-        108) bash "$HOME/CYBRA/modules/module_108_base/main.sh" ;;
-        109) bash "$HOME/CYBRA/modules/module_109_base/main.sh" ;;
-        110) bash "$HOME/CYBRA/modules/module_110_base/main.sh" ;;
+        108) python3 "$HOME/CYBRA/selfgen/selfgen_core.py" check; read -r _ ;;
+        109) bash "$HOME/CYBRA/brain/brain_menu.sh" ;;
+        110) bash "$HOME/CYBRA/evo/evo_menu.sh" ;;
         111) bash "$HOME/CYBRA/modules/module_111_base/main.sh" ;;
         112) bash "$HOME/CYBRA/modules/module_112_base/main.sh" ;;
         113) bash "$HOME/CYBRA/modules/module_113_base/main.sh" ;;
