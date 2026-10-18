@@ -69,9 +69,27 @@ action_list_contracts() {
 
 action_show_status() {
     printf 'CONTRACT_ID: '; read -r C
-    local f="$CYBRA_CONTRACTS/$C.env"
-    [ ! -f "$f" ] && { printf '%s\n' "${C_RED}Not found${C_RESET}"; read -r _; return 1; }
-    cat "$f" | sed 's/^/  /'
+    if [ -z "$C" ]; then
+        echo "❌ ID не вказано"
+        read -r _
+        return 1
+    fi
+    
+    source "$HOME/CYBRA/lib/cybra_invoice_lib.sh" 2>/dev/null
+    export CYBRA_INVOICE_DIR="$HOME/CYBRA/modules/module_19_contract_tui_menu/contracts"
+    
+    # Якщо це JSON (INVOICE) — показуємо красиву таблицю
+    if [ -f "$CYBRA_INVOICE_DIR/$C.json" ]; then
+        cybra_invoice_show "$C"
+    else
+        # Якщо ENV — показуємо як текст
+        local f="$CYBRA_CONTRACTS/$C.env"
+        if [ -f "$f" ]; then
+            cat "$f" | sed 's/^/  /'
+        else
+            echo "❌ Не знайдено: $C"
+        fi
+    fi
     read -r _
 }
 
