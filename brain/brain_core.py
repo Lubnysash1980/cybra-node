@@ -74,6 +74,16 @@ def execute(actions):
         elif a["type"] == "clean_conflicts":
             run("python3 ~/CYBRA/parliament_core/priority_manager.py clean")
 
+
+def auto_commit():
+    r = run("git status --porcelain", cwd=CYBRA)
+    if r.stdout.strip():
+        run("git add -A", cwd=CYBRA)
+        run(f"git commit -m 'brain: auto {datetime.now(timezone.utc).isoformat()}'", cwd=CYBRA)
+        run("git push origin main", cwd=CYBRA)
+        return len(r.stdout.splitlines())
+    return 0
+
 def daemon():
     log("Brain started.")
     state = load_state()
@@ -90,7 +100,8 @@ def daemon():
             save_state(state)
         except Exception as e:
             log(f"ERROR: {e}")
-        time.sleep(120)
+        auto_commit()
+        time.sleep(60)
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "daemon":

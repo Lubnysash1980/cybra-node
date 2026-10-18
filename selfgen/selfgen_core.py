@@ -128,7 +128,8 @@ def daemon():
             log(f"ERROR: {e}")
             
         auto_commit()
-        time.sleep(60)
+        auto_commit()
+        time.sleep(30)
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "daemon":
