@@ -772,7 +772,7 @@
     },
     "97": {
       "id": 97,
-      "status": "in_progress",
+      "status": "implemented",
       "target_module": "module_97_*",
       "function": "action_97",
       "priority": "low",
@@ -780,7 +780,7 @@
     },
     "98": {
       "id": 98,
-      "status": "stub",
+      "status": "in_progress",
       "target_module": "module_98_*",
       "function": "action_98",
       "priority": "low",
