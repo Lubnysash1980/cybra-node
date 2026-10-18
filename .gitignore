@@ -16,7 +16,6 @@ logs/
 .env
 
 # Symlinks (не всі git-и люблять)
-# modules/*.symlink
 
 # Тимчасове
 *.tmp
@@ -39,3 +38,5 @@ nodes/*/logs/
 nodes/*/state/
 hashes/snapshots/
 logs/
+run/
+backup/
