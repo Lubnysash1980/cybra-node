@@ -1,8 +1,8 @@
 {
-  "updated": "2026-10-18T14:46:39.186737+00:00",
+  "updated": "2026-10-18T14:49:56.598351+00:00",
   "total_modules": 192,
   "unique_actions": 59,
-  "conflicts": 15,
+  "conflicts": 0,
   "modules": [
     {
       "name": "module_121_parlament",
@@ -558,51 +558,51 @@
       "name": "module_25_generated",
       "title": "module_25_generated",
       "action": "rates",
-      "status": "broken",
-      "base_score": 0,
-      "size": 219,
+      "status": "unknown",
+      "base_score": 30,
+      "size": 689,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_25_generated/main.sh",
-      "score": 2
+      "score": 32
     },
     {
       "name": "module_26_generated",
       "title": "module_26_generated",
       "action": "rates",
-      "status": "broken",
-      "base_score": 0,
-      "size": 219,
+      "status": "unknown",
+      "base_score": 30,
+      "size": 689,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_26_generated/main.sh",
-      "score": 2
+      "score": 32
     },
     {
       "name": "module_27_generated",
       "title": "module_27_generated",
       "action": "rates",
-      "status": "broken",
-      "base_score": 0,
-      "size": 219,
+      "status": "unknown",
+      "base_score": 30,
+      "size": 689,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_27_generated/main.sh",
-      "score": 2
+      "score": 32
     },
     {
       "name": "module_28_generated",
       "title": "module_28_generated",
       "action": "rates",
-      "status": "broken",
-      "base_score": 0,
-      "size": 219,
+      "status": "unknown",
+      "base_score": 30,
+      "size": 689,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_28_generated/main.sh",
-      "score": 2
+      "score": 32
     },
     {
       "name": "module_29_generated",
       "title": "module_29_generated",
       "action": "rates",
-      "status": "broken",
-      "base_score": 0,
-      "size": 219,
+      "status": "unknown",
+      "base_score": 30,
+      "size": 689,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_29_generated/main.sh",
-      "score": 2
+      "score": 32
     },
     {
       "name": "module_30_generated",
@@ -638,61 +638,61 @@
       "name": "module_34_generated",
       "title": "module_34_generated",
       "action": "rates",
-      "status": "broken",
-      "base_score": 0,
-      "size": 219,
+      "status": "unknown",
+      "base_score": 30,
+      "size": 689,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_34_generated/main.sh",
-      "score": 2
+      "score": 32
     },
     {
       "name": "module_35_generated",
       "title": "module_35_generated",
       "action": "rates",
-      "status": "broken",
-      "base_score": 0,
-      "size": 219,
+      "status": "unknown",
+      "base_score": 30,
+      "size": 689,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_35_generated/main.sh",
-      "score": 2
+      "score": 32
     },
     {
       "name": "module_36_generated",
       "title": "module_36_generated",
       "action": "rates",
-      "status": "broken",
-      "base_score": 0,
-      "size": 219,
+      "status": "unknown",
+      "base_score": 30,
+      "size": 689,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_36_generated/main.sh",
-      "score": 2
+      "score": 32
     },
     {
       "name": "module_37_generated",
       "title": "module_37_generated",
       "action": "rates",
-      "status": "broken",
-      "base_score": 0,
-      "size": 219,
+      "status": "unknown",
+      "base_score": 30,
+      "size": 689,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_37_generated/main.sh",
-      "score": 2
+      "score": 32
     },
     {
       "name": "module_38_generated",
       "title": "module_38_generated",
       "action": "rates",
-      "status": "broken",
-      "base_score": 0,
-      "size": 219,
+      "status": "unknown",
+      "base_score": 30,
+      "size": 689,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_38_generated/main.sh",
-      "score": 2
+      "score": 32
     },
     {
       "name": "module_39_generated",
       "title": "module_39_generated",
       "action": "rates",
-      "status": "broken",
-      "base_score": 0,
-      "size": 219,
+      "status": "unknown",
+      "base_score": 30,
+      "size": 689,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_39_generated/main.sh",
-      "score": 2
+      "score": 32
     },
     {
       "name": "module_51_generated",
@@ -2359,6 +2359,26 @@
           "score": 32
         },
         {
+          "name": "module_25_generated",
+          "score": 32
+        },
+        {
+          "name": "module_26_generated",
+          "score": 32
+        },
+        {
+          "name": "module_27_generated",
+          "score": 32
+        },
+        {
+          "name": "module_28_generated",
+          "score": 32
+        },
+        {
+          "name": "module_29_generated",
+          "score": 32
+        },
+        {
           "name": "module_30_generated",
           "score": 32
         },
@@ -2368,6 +2388,30 @@
         },
         {
           "name": "module_33_generated",
+          "score": 32
+        },
+        {
+          "name": "module_34_generated",
+          "score": 32
+        },
+        {
+          "name": "module_35_generated",
+          "score": 32
+        },
+        {
+          "name": "module_36_generated",
+          "score": 32
+        },
+        {
+          "name": "module_37_generated",
+          "score": 32
+        },
+        {
+          "name": "module_38_generated",
+          "score": 32
+        },
+        {
+          "name": "module_39_generated",
           "score": 32
         },
         {
@@ -2493,50 +2537,6 @@
         {
           "name": "module_9_generated",
           "score": 32
-        },
-        {
-          "name": "module_25_generated",
-          "score": 2
-        },
-        {
-          "name": "module_26_generated",
-          "score": 2
-        },
-        {
-          "name": "module_27_generated",
-          "score": 2
-        },
-        {
-          "name": "module_28_generated",
-          "score": 2
-        },
-        {
-          "name": "module_29_generated",
-          "score": 2
-        },
-        {
-          "name": "module_34_generated",
-          "score": 2
-        },
-        {
-          "name": "module_35_generated",
-          "score": 2
-        },
-        {
-          "name": "module_36_generated",
-          "score": 2
-        },
-        {
-          "name": "module_37_generated",
-          "score": 2
-        },
-        {
-          "name": "module_38_generated",
-          "score": 2
-        },
-        {
-          "name": "module_39_generated",
-          "score": 2
         }
       ],
       "total": 55
@@ -2946,643 +2946,5 @@
       "total": 1
     }
   },
-  "conflicts_detail": [
-    {
-      "action": "metamask",
-      "winner": "module_108_metamask_sign",
-      "winner_score": 32,
-      "others": [
-        {
-          "name": "module_109_metamask_verify",
-          "score": 32
-        },
-        {
-          "name": "module_110_metamask_history",
-          "score": 32
-        },
-        {
-          "name": "module_112_metamask_deeplink",
-          "score": 32
-        },
-        {
-          "name": "module_113_metamask_batch",
-          "score": 32
-        }
-      ]
-    },
-    {
-      "action": "invoice",
-      "winner": "module_10_base",
-      "winner_score": 70,
-      "others": [
-        {
-          "name": "module_11_base",
-          "score": 70
-        },
-        {
-          "name": "module_13_base",
-          "score": 70
-        },
-        {
-          "name": "module_14_base",
-          "score": 70
-        },
-        {
-          "name": "module_111_invoice",
-          "score": 32
-        },
-        {
-          "name": "module_142_invoice_pdf",
-          "score": 32
-        }
-      ]
-    },
-    {
-      "action": "node",
-      "winner": "module_100_base",
-      "winner_score": 70,
-      "others": [
-        {
-          "name": "module_114_autonode",
-          "score": 32
-        }
-      ]
-    },
-    {
-      "action": "qr",
-      "winner": "module_53_base",
-      "winner_score": 70,
-      "others": [
-        {
-          "name": "module_119_qr_sign",
-          "score": 32
-        }
-      ]
-    },
-    {
-      "action": "ai",
-      "winner": "module_40_base",
-      "winner_score": 70,
-      "others": [
-        {
-          "name": "module_41_base",
-          "score": 70
-        },
-        {
-          "name": "module_42_base",
-          "score": 70
-        },
-        {
-          "name": "module_43_base",
-          "score": 70
-        },
-        {
-          "name": "module_44_base",
-          "score": 70
-        },
-        {
-          "name": "module_45_base",
-          "score": 70
-        },
-        {
-          "name": "module_76_base",
-          "score": 70
-        },
-        {
-          "name": "module_120_ai_guardian",
-          "score": 32
-        },
-        {
-          "name": "module_143_email",
-          "score": 32
-        }
-      ]
-    },
-    {
-      "action": "contract",
-      "winner": "module_1_base",
-      "winner_score": 100,
-      "others": [
-        {
-          "name": "module_2_base",
-          "score": 100
-        },
-        {
-          "name": "module_3_base",
-          "score": 100
-        },
-        {
-          "name": "module_92_base",
-          "score": 70
-        },
-        {
-          "name": "module_95_base",
-          "score": 70
-        },
-        {
-          "name": "module_122_contract_validator",
-          "score": 32
-        }
-      ]
-    },
-    {
-      "action": "rates",
-      "winner": "module_22_base",
-      "winner_score": 70,
-      "others": [
-        {
-          "name": "module_23_base",
-          "score": 70
-        },
-        {
-          "name": "module_15_generated",
-          "score": 32
-        },
-        {
-          "name": "module_16_generated",
-          "score": 32
-        },
-        {
-          "name": "module_17_generated",
-          "score": 32
-        },
-        {
-          "name": "module_18_generated",
-          "score": 32
-        },
-        {
-          "name": "module_19_generated",
-          "score": 32
-        },
-        {
-          "name": "module_20_generated",
-          "score": 32
-        },
-        {
-          "name": "module_21_generated",
-          "score": 32
-        },
-        {
-          "name": "module_24_generated",
-          "score": 32
-        },
-        {
-          "name": "module_30_generated",
-          "score": 32
-        },
-        {
-          "name": "module_31_generated",
-          "score": 32
-        },
-        {
-          "name": "module_33_generated",
-          "score": 32
-        },
-        {
-          "name": "module_50_generated",
-          "score": 32
-        },
-        {
-          "name": "module_51_generated",
-          "score": 32
-        },
-        {
-          "name": "module_52_generated",
-          "score": 32
-        },
-        {
-          "name": "module_58_generated",
-          "score": 32
-        },
-        {
-          "name": "module_59_generated",
-          "score": 32
-        },
-        {
-          "name": "module_5_generated",
-          "score": 32
-        },
-        {
-          "name": "module_60_generated",
-          "score": 32
-        },
-        {
-          "name": "module_63_generated",
-          "score": 32
-        },
-        {
-          "name": "module_64_generated",
-          "score": 32
-        },
-        {
-          "name": "module_66_generated",
-          "score": 32
-        },
-        {
-          "name": "module_67_generated",
-          "score": 32
-        },
-        {
-          "name": "module_68_generated",
-          "score": 32
-        },
-        {
-          "name": "module_6_generated",
-          "score": 32
-        },
-        {
-          "name": "module_70_generated",
-          "score": 32
-        },
-        {
-          "name": "module_71_generated",
-          "score": 32
-        },
-        {
-          "name": "module_72_generated",
-          "score": 32
-        },
-        {
-          "name": "module_73_generated",
-          "score": 32
-        },
-        {
-          "name": "module_74_generated",
-          "score": 32
-        },
-        {
-          "name": "module_75_generated",
-          "score": 32
-        },
-        {
-          "name": "module_78_generated",
-          "score": 32
-        },
-        {
-          "name": "module_79_generated",
-          "score": 32
-        },
-        {
-          "name": "module_7_generated",
-          "score": 32
-        },
-        {
-          "name": "module_80_generated",
-          "score": 32
-        },
-        {
-          "name": "module_82_generated",
-          "score": 32
-        },
-        {
-          "name": "module_83_generated",
-          "score": 32
-        },
-        {
-          "name": "module_85_generated",
-          "score": 32
-        },
-        {
-          "name": "module_87_generated",
-          "score": 32
-        },
-        {
-          "name": "module_89_generated",
-          "score": 32
-        },
-        {
-          "name": "module_8_generated",
-          "score": 32
-        },
-        {
-          "name": "module_90_generated",
-          "score": 32
-        },
-        {
-          "name": "module_9_generated",
-          "score": 32
-        },
-        {
-          "name": "module_25_generated",
-          "score": 2
-        },
-        {
-          "name": "module_26_generated",
-          "score": 2
-        },
-        {
-          "name": "module_27_generated",
-          "score": 2
-        },
-        {
-          "name": "module_28_generated",
-          "score": 2
-        },
-        {
-          "name": "module_29_generated",
-          "score": 2
-        },
-        {
-          "name": "module_34_generated",
-          "score": 2
-        },
-        {
-          "name": "module_35_generated",
-          "score": 2
-        },
-        {
-          "name": "module_36_generated",
-          "score": 2
-        },
-        {
-          "name": "module_37_generated",
-          "score": 2
-        },
-        {
-          "name": "module_38_generated",
-          "score": 2
-        },
-        {
-          "name": "module_39_generated",
-          "score": 2
-        }
-      ]
-    },
-    {
-      "action": "executor",
-      "winner": "module_46_base",
-      "winner_score": 70,
-      "others": [
-        {
-          "name": "module_47_base",
-          "score": 70
-        },
-        {
-          "name": "module_48_base",
-          "score": 70
-        },
-        {
-          "name": "module_49_base",
-          "score": 70
-        }
-      ]
-    },
-    {
-      "action": "telegram",
-      "winner": "module_54_base",
-      "winner_score": 70,
-      "others": [
-        {
-          "name": "module_55_base",
-          "score": 70
-        }
-      ]
-    },
-    {
-      "action": "webhook",
-      "winner": "module_56_base",
-      "winner_score": 70,
-      "others": [
-        {
-          "name": "module_57_base",
-          "score": 70
-        }
-      ]
-    },
-    {
-      "action": "backup",
-      "winner": "module_61_base",
-      "winner_score": 70,
-      "others": [
-        {
-          "name": "module_62_base",
-          "score": 70
-        }
-      ]
-    },
-    {
-      "action": "validate",
-      "winner": "module_32_base",
-      "winner_score": 70,
-      "others": [
-        {
-          "name": "module_69_base",
-          "score": 70
-        },
-        {
-          "name": "module_77_base",
-          "score": 70
-        },
-        {
-          "name": "module_81_base",
-          "score": 70
-        },
-        {
-          "name": "module_84_base",
-          "score": 70
-        },
-        {
-          "name": "module_91_base",
-          "score": 70
-        }
-      ]
-    },
-    {
-      "action": "snapshot",
-      "winner": "module_86_base",
-      "winner_score": 70,
-      "others": [
-        {
-          "name": "module_88_base",
-          "score": 70
-        }
-      ]
-    },
-    {
-      "action": "evo",
-      "winner": "module_96_base",
-      "winner_score": 70,
-      "others": [
-        {
-          "name": "module_97_base",
-          "score": 70
-        }
-      ]
-    },
-    {
-      "action": "модуль",
-      "winner": "module_108_base",
-      "winner_score": 70,
-      "others": [
-        {
-          "name": "module_109_base",
-          "score": 70
-        },
-        {
-          "name": "module_110_base",
-          "score": 70
-        },
-        {
-          "name": "module_111_base",
-          "score": 70
-        },
-        {
-          "name": "module_112_base",
-          "score": 70
-        },
-        {
-          "name": "module_113_base",
-          "score": 70
-        },
-        {
-          "name": "module_114_base",
-          "score": 70
-        },
-        {
-          "name": "module_115_base",
-          "score": 70
-        },
-        {
-          "name": "module_116_base",
-          "score": 70
-        },
-        {
-          "name": "module_117_base",
-          "score": 70
-        },
-        {
-          "name": "module_118_base",
-          "score": 70
-        },
-        {
-          "name": "module_119_base",
-          "score": 70
-        },
-        {
-          "name": "module_120_base",
-          "score": 70
-        },
-        {
-          "name": "module_121_base",
-          "score": 70
-        },
-        {
-          "name": "module_122_base",
-          "score": 70
-        },
-        {
-          "name": "module_123_base",
-          "score": 70
-        },
-        {
-          "name": "module_124_base",
-          "score": 70
-        },
-        {
-          "name": "module_125_base",
-          "score": 70
-        },
-        {
-          "name": "module_126_base",
-          "score": 70
-        },
-        {
-          "name": "module_127_base",
-          "score": 70
-        },
-        {
-          "name": "module_128_base",
-          "score": 70
-        },
-        {
-          "name": "module_129_base",
-          "score": 70
-        },
-        {
-          "name": "module_130_base",
-          "score": 70
-        },
-        {
-          "name": "module_131_base",
-          "score": 70
-        },
-        {
-          "name": "module_132_base",
-          "score": 70
-        },
-        {
-          "name": "module_133_base",
-          "score": 70
-        },
-        {
-          "name": "module_134_base",
-          "score": 70
-        },
-        {
-          "name": "module_135_base",
-          "score": 70
-        },
-        {
-          "name": "module_136_base",
-          "score": 70
-        },
-        {
-          "name": "module_137_base",
-          "score": 70
-        },
-        {
-          "name": "module_138_base",
-          "score": 70
-        },
-        {
-          "name": "module_139_base",
-          "score": 70
-        },
-        {
-          "name": "module_140_base",
-          "score": 70
-        },
-        {
-          "name": "module_141_base",
-          "score": 70
-        },
-        {
-          "name": "module_142_base",
-          "score": 70
-        },
-        {
-          "name": "module_143_base",
-          "score": 70
-        },
-        {
-          "name": "module_144_base",
-          "score": 70
-        },
-        {
-          "name": "module_145_base",
-          "score": 70
-        },
-        {
-          "name": "module_146_base",
-          "score": 70
-        },
-        {
-          "name": "module_147_base",
-          "score": 70
-        },
-        {
-          "name": "module_148_base",
-          "score": 70
-        },
-        {
-          "name": "module_149_base",
-          "score": 70
-        },
-        {
-          "name": "module_150_base",
-          "score": 70
-        }
-      ]
-    }
-  ]
+  "conflicts_detail": []
 }
