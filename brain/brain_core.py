@@ -112,6 +112,17 @@ def execute(actions):
             run(f"python3 {SG} check")
 
 # ─── 4. ГОЛОВНИЙ ЦИКЛ ───
+
+def auto_commit():
+    """Автоматично комітить всі зміни в Git"""
+    r = run("git status --porcelain", cwd=CYBRA)
+    if r.stdout.strip():
+        run("git add -A", cwd=CYBRA)
+        run(f"git commit -m 'brain: auto-sync {datetime.now(timezone.utc).isoformat()}'", cwd=CYBRA)
+        run("git push origin main", cwd=CYBRA)
+        return len(r.stdout.splitlines())
+    return 0
+
 def daemon():
     log("Brain started. Monitoring system...")
     state = load_state()
@@ -121,6 +132,8 @@ def daemon():
         
         # Збір метрик
         metrics = collect_metrics()
+            committed = auto_commit()
+            if committed: log(f'AUTO-COMMIT: {committed} files')
         
         # Аналіз
         actions = decide(metrics)
