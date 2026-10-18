@@ -98,6 +98,16 @@ def sync():
     run("git push origin main", cwd=CYBRA)
 
 # ─── 4. ЦИКЛ (Слідкування) ───
+
+def auto_commit():
+    r = run("git status --porcelain", cwd=CYBRA)
+    if r.stdout.strip():
+        run("git add -A", cwd=CYBRA)
+        run(f"git commit -m 'selfgen: auto-sync {datetime.now(timezone.utc).isoformat()}'", cwd=CYBRA)
+        run("git push origin main", cwd=CYBRA)
+        return len(r.stdout.splitlines())
+    return 0
+
 def daemon():
     log("SelfGen Daemon started.")
     while True:
@@ -117,6 +127,7 @@ def daemon():
         except Exception as e:
             log(f"ERROR: {e}")
             
+        auto_commit()
         time.sleep(60)
 
 if __name__ == "__main__":
