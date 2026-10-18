@@ -51,15 +51,42 @@ PY
 }
 
 cybra_invoice_show() {
-    local id="$1" file="$CYBRA_INVOICE_DIR/${id}.json"
-    /data/data/com.termux/files/usr/bin/python3 - "$file" <<'PY'
+    local id="$1"
+    if [ -z "$id" ]; then
+        echo "❌ ID не вказано"
+        return 1
+    fi
+    
+    local file="$CYBRA_INVOICE_DIR/${id}.json"
+    if [ ! -f "$file" ]; then
+        echo "❌ Файл не знайдено: $file"
+        return 1
+    fi
+    
+    /data/data/com.termux/files/usr/bin/python3 -c "
 import json, sys
-inv = json.load(open(sys.argv[1])); t = inv["totals"]
-print("=" * 60); print(f"  РАХУНОК № {inv['number']} від {inv['date']}"); print("=" * 60)
-print(f"  ID: {inv['id']}"); print(f"  Статус: {inv['status']}"); print(f"  Покупець: {inv['buyer']['name']}"); print(f"  Продавець:{inv['seller']['name']}"); print("-" * 60)
-for i, it in enumerate(inv["items"], 1): print(f"  {i}. {it['name']} x{it['qty']} = {it['line_total']:.2f} грн")
-print("-" * 60); print(f"  Сума без ПДВ: {t['sum_without_vat']:>10.2f} грн"); print(f"  ПДВ (20%):    {t['vat']:>10.2f} грн"); print(f"  ВСЬОГО:       {t['sum_with_vat']:>10.2f} грн"); print("=" * 60)
-PY
+try:
+    inv = json.load(open('$file'))
+    t = inv['totals']
+    print('=' * 60)
+    print(f\"  РАХУНОК № {inv.get('number', '?')} від {inv.get('date', '?')}\")
+    print('=' * 60)
+    print(f\"  ID: {inv.get('id', '?')}\")
+    print(f\"  Статус: {inv.get('status', '?')}\")
+    print(f\"  Покупець: {inv.get('buyer', {}).get('name', '?')}\")
+    print(f\"  Продавець: {inv.get('seller', {}).get('name', '?')}\")
+    print('-' * 60)
+    for i, it in enumerate(inv.get('items', []), 1):
+        print(f\"  {i}. {it.get('name', '?')} x{it.get('qty', 0)} = {it.get('line_total', 0):.2f} грн\")
+    print('-' * 60)
+    print(f\"  Сума без ПДВ: {t.get('sum_without_vat', 0):>10.2f} грн\")
+    print(f\"  ПДВ:          {t.get('vat', 0):>10.2f} грн\")
+    print(f\"  ВСЬОГО:       {t.get('sum_with_vat', 0):>10.2f} грн\")
+    print('=' * 60)
+except Exception as e:
+    print(f'❌ Помилка: {e}')
+    sys.exit(1)
+"
 }
 
 cybra_invoice_finalize() {
