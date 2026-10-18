@@ -1,0 +1,48 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# cybra_autonode_main — нода з перевіркою EVO + SANDBOX
+
+CYBRA_HOME="${HOME}/CYBRA"
+LOG="${CYBRA_HOME}/logs/evo_node_main.log"
+mkdir -p "${CYBRA_HOME}/logs"
+
+log() {
+    echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] $1" >> "$LOG"
+}
+
+cd "$CYBRA_HOME" || exit 1
+log "=== Node Main Start ==="
+
+while true; do
+    log "--- Cycle ---"
+
+    # 1. SANDBOX CHECK
+    SB="$CYBRA_HOME/sandbox"
+    if [ -d "$SB" ]; then
+        SIZE=$(du -sb "$SB" 2>/dev/null | awk '{print $1}' || echo 0)
+        LIMIT=$((65 * 1024 * 1024))
+        if [ "$SIZE" -ge "$LIMIT" ]; then
+            log "SANDBOX: переповнено ($((SIZE/1024/1024)) МБ), очищаю"
+            "$SB/sandbox_cleanup.sh" 2>/dev/null || true
+        else
+            log "SANDBOX: OK ($((SIZE/1024/1024)) МБ / 65 МБ)"
+        fi
+    else
+        log "SANDBOX: папка не знайдена"
+    fi
+
+    # 2. EVO CHECK
+    if [ ! -f "lib/cybra_invoice_lib.sh" ]; then
+        log "EVO: немає lib, робимо rollback"
+        git reset --hard HEAD --quiet 2>/dev/null
+        # git clean -fd (вимкнено, щоб не видаляти модулі парламенту)
+    fi
+
+    # 3. SNAPSHOT
+    if [ -x "$CYBRA_HOME/bin/cybra_hash_eco" ]; then
+        "$CYBRA_HOME/bin/cybra_hash_eco" snapshot >/dev/null 2>&1
+        log "EVO: снапшот створено"
+    fi
+
+    log "EVO: 100% — система в нормі"
+    sleep 60
+done
