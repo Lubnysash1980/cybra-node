@@ -15,7 +15,7 @@ while true; do
     if [ ! -f "index.json" ]; then
         log "EVO: немає index.json, робимо rollback"
         git reset --hard HEAD --quiet 2>/dev/null
-        git clean -fd --quiet 2>/dev/null
+        # git clean -fd (вимкнено, щоб не видаляти модулі парламенту)
     fi
     
     # 2. Створюємо снапшот (якщо є hash_eco)
