@@ -111,3 +111,18 @@ for f in glob.glob(os.path.join(dir_, "INV-*.json")):
 print("ERROR: токен не знайдено"); sys.exit(1)
 PY
 }
+
+cybra_invoice_get_sign_link() {
+    local id="$1"
+    local file="$CYBRA_INVOICE_DIR/${id}.json"
+    if [ ! -f "$file" ]; then
+        echo "ERROR: файл $id не знайдено"
+        return 1
+    fi
+    local token=$(/data/data/com.termux/files/usr/bin/python3 -c "import json; print(json.load(open('$file')).get('sign_token',''))" 2>/dev/null)
+    if [ -z "$token" ]; then
+        echo "ERROR: токен не знайдено в $id"
+        return 1
+    fi
+    echo "cybra://sign/${token}"
+}
