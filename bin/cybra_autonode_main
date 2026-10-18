@@ -11,19 +11,20 @@ while true; do
     log "--- Cycle ---"
     
     # 1. Перевірка EVO
-    # SANDBOX CHECK
-    SB="$CYBRA_HOME/sandbox"
-    if [ -d "$SB" ]; then
-        SIZE=$(du -sb "$SB" 2>/dev/null | awk '{print $1}' || echo 0)
-        LIMIT=$((65 * 1024 * 1024))
-        if [ "$SIZE" -ge "$LIMIT" ]; then
-            log "SANDBOX: переповнено ($((SIZE/1024/1024)) МБ), очищаю"
-            "$SB/sandbox_cleanup.sh" 2>/dev/null || true
-        fi
+# SANDBOX CHECK
+SB="$CYBRA_HOME/sandbox"
+if [ -d "$SB" ]; then
+    SIZE=$(du -sb "$SB" 2>/dev/null | awk '{print $1}' || echo 0)
+    LIMIT=$((65 * 1024 * 1024))
+    if [ "$SIZE" -ge "$LIMIT" ]; then
+        log "SANDBOX: переповнено ($((SIZE/1024/1024)) МБ), очищаю"
+        "$SB/sandbox_cleanup.sh" 2>/dev/null || true
+    else
+        log "SANDBOX: OK ($((SIZE/1024/1024)) МБ / 65 МБ)"
     fi
-    
-    if [ ! -f "lib/cybra_invoice_lib.sh" ]; then
-        log "EVO: немає lib, робимо rollback"
+else
+    log "SANDBOX: папка не знайдена"
+fi
         git reset --hard HEAD --quiet 2>/dev/null
         # git clean -fd (вимкнено, щоб не видаляти модулі парламенту)
     fi
