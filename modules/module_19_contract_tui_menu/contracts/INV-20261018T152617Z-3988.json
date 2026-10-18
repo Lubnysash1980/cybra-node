@@ -19,10 +19,16 @@
     "decimals": 18
   },
   "totals": {
-    "sum_with_vat": 137475.0,
-    "vat": 22912.5,
-    "sum_without_vat": 114562.5,
-    "vat_rate": 20.0
+    "sum_uah": 137475.0,
+    "vat_uah": 22912.5,
+    "sum_without_vat_uah": 114562.5,
+    "currency": "UAH",
+    "payment_token": "CYBRA",
+    "payment_amount_cybra": 0.8064114,
+    "rate_cybra_uah": 170477.5,
+    "rate_cybra_usd": 3800.0,
+    "usd_uah": 44.8625,
+    "rate_updated_at": "live"
   },
   "items": [
     {
@@ -67,5 +73,7 @@
     }
   ],
   "sign_token": "3bad048577503285",
-  "status": "awaiting_seller_wallet"
+  "status": "awaiting_payment",
+  "payment_method": "token_transfer",
+  "payment_token_contract": "0x... (адреса контракту CYBRA в BSC, якщо є)"
 }

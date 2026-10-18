@@ -83,7 +83,7 @@ WALLET_HASH=$wallet_hash
 BIOMETRIC_HASH=$bio_hash
 DEVICE_FP=$dev_fp
 
-IDENTITY_SALT=$IDENTITY_SALT
+IDENTITY_SALT=$(head -c 16 /dev/urandom | od -An -tx1 | tr -d " \n")
 HASH_ALGO=sha256
 ID
 
@@ -104,17 +104,36 @@ ID
 
 # --- Verify identity ---
 gd_verify() {
-    local name="$1" id_num="$2" wallet="$3" bio="${4:-none}"
+    local name="${1:-}"
+    local id_num="${2:-}"
+    local wallet="${3:-}"
+    local bio="${4:-none}"
+
     local id_file="$GUARD_VAULT/identity.env"
     [ ! -f "$id_file" ] && { echo "ERR: no identity"; return 1; }
 
-    source "$id_file"
+    # Читаємо збережені хеші
+    local stored_name_hash stored_id_hash stored_wallet_hash stored_bio_hash
+    stored_name_hash="$(grep '^NAME_HASH=' "$id_file" 2>/dev/null | cut -d= -f2-)"
+    stored_id_hash="$(grep '^ID_HASH=' "$id_file" 2>/dev/null | cut -d= -f2-)"
+    stored_wallet_hash="$(grep '^WALLET_HASH=' "$id_file" 2>/dev/null | cut -d= -f2-)"
+    stored_bio_hash="$(grep '^BIOMETRIC_HASH=' "$id_file" 2>/dev/null | cut -d= -f2-)"
 
-    local name_ok id_ok wallet_ok bio_ok
-    [ "$(gd_hash "$name")" = "$NAME_HASH" ] && name_ok=1 || name_ok=0
-    [ "$(gd_hash "$id_num")" = "$ID_HASH" ] && id_ok=1 || id_ok=0
-    [ "$(gd_hash "$wallet")" = "$WALLET_HASH" ] && wallet_ok=1 || wallet_ok=0
-    [ "$(gd_hash "$bio")" = "$BIOMETRIC_HASH" ] && bio_ok=1 || bio_ok=0
+    [ -z "$stored_name_hash" ] && { echo "ERR: no NAME_HASH"; return 1; }
+
+    # Обчислюємо хеші введених даних
+    local cur_name_hash cur_id_hash cur_wallet_hash cur_bio_hash
+    cur_name_hash="$(gd_hash "$name")"
+    cur_id_hash="$(gd_hash "$id_num")"
+    cur_wallet_hash="$(gd_hash "$wallet")"
+    cur_bio_hash="$(gd_hash "$bio")"
+
+    # Порівнюємо
+    local name_ok=0 id_ok=0 wallet_ok=0 bio_ok=0
+    [ "$cur_name_hash" = "$stored_name_hash" ] && name_ok=1
+    [ "$cur_id_hash" = "$stored_id_hash" ] && id_ok=1
+    [ "$cur_wallet_hash" = "$stored_wallet_hash" ] && wallet_ok=1
+    [ "$cur_bio_hash" = "$stored_bio_hash" ] && bio_ok=1
 
     if [ "$name_ok" = "1" ] && [ "$id_ok" = "1" ] && [ "$wallet_ok" = "1" ]; then
         echo "OK: identity verified"
