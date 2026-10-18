@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-18T15:32:47.577736+00:00",
+  "updated": "2026-10-18T15:33:50.596719+00:00",
   "total_modules": 215,
   "unique_actions": 73,
   "conflicts": 15,
@@ -1600,9 +1600,9 @@
       "action": "rates",
       "status": "unknown",
       "base_score": 30,
-      "size": 228,
+      "size": 1193,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_78_generated/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_83_generated",
@@ -1610,9 +1610,9 @@
       "action": "rates",
       "status": "unknown",
       "base_score": 30,
-      "size": 226,
+      "size": 1193,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_83_generated/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_85_generated",
@@ -1620,9 +1620,9 @@
       "action": "rates",
       "status": "unknown",
       "base_score": 30,
-      "size": 215,
+      "size": 1193,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_85_generated/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_89_generated",
@@ -1630,9 +1630,9 @@
       "action": "rates",
       "status": "unknown",
       "base_score": 30,
-      "size": 212,
+      "size": 1193,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_89_generated/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_90_generated",
@@ -1640,9 +1640,9 @@
       "action": "rates",
       "status": "unknown",
       "base_score": 30,
-      "size": 209,
+      "size": 1193,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_90_generated/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_1_base",
@@ -2921,6 +2921,10 @@
           "score": 50
         },
         {
+          "name": "module_78_generated",
+          "score": 50
+        },
+        {
           "name": "module_79_generated",
           "score": 50
         },
@@ -2937,7 +2941,19 @@
           "score": 50
         },
         {
+          "name": "module_83_generated",
+          "score": 50
+        },
+        {
+          "name": "module_85_generated",
+          "score": 50
+        },
+        {
           "name": "module_87_generated",
+          "score": 50
+        },
+        {
+          "name": "module_89_generated",
           "score": 50
         },
         {
@@ -2945,28 +2961,12 @@
           "score": 50
         },
         {
-          "name": "module_9_generated",
+          "name": "module_90_generated",
           "score": 50
         },
         {
-          "name": "module_78_generated",
-          "score": 32
-        },
-        {
-          "name": "module_83_generated",
-          "score": 32
-        },
-        {
-          "name": "module_85_generated",
-          "score": 32
-        },
-        {
-          "name": "module_89_generated",
-          "score": 32
-        },
-        {
-          "name": "module_90_generated",
-          "score": 32
+          "name": "module_9_generated",
+          "score": 50
         }
       ],
       "total": 55
@@ -3717,6 +3717,10 @@
           "score": 50
         },
         {
+          "name": "module_78_generated",
+          "score": 50
+        },
+        {
           "name": "module_79_generated",
           "score": 50
         },
@@ -3733,7 +3737,19 @@
           "score": 50
         },
         {
+          "name": "module_83_generated",
+          "score": 50
+        },
+        {
+          "name": "module_85_generated",
+          "score": 50
+        },
+        {
           "name": "module_87_generated",
+          "score": 50
+        },
+        {
+          "name": "module_89_generated",
           "score": 50
         },
         {
@@ -3741,28 +3757,12 @@
           "score": 50
         },
         {
-          "name": "module_9_generated",
+          "name": "module_90_generated",
           "score": 50
         },
         {
-          "name": "module_78_generated",
-          "score": 32
-        },
-        {
-          "name": "module_83_generated",
-          "score": 32
-        },
-        {
-          "name": "module_85_generated",
-          "score": 32
-        },
-        {
-          "name": "module_89_generated",
-          "score": 32
-        },
-        {
-          "name": "module_90_generated",
-          "score": 32
+          "name": "module_9_generated",
+          "score": 50
         }
       ]
     },
