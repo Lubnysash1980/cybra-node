@@ -1700,7 +1700,7 @@ while true; do
         93) bash "$HOME/CYBRA/modules/module_93_generated/main.sh" ;;
         94) bash "$HOME/CYBRA/modules/module_94_generated/main.sh" ;;
         95) bash "$HOME/CYBRA/modules/module_95_generated/main.sh" ;;
-        96) action_generic_96 ;;
+        96) bash "$HOME/CYBRA/modules/module_96_generated/main.sh" ;;
         97) action_generic_97 ;;
         98) action_generic_98 ;;
         99) action_generic_99 ;;
