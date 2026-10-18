@@ -1633,7 +1633,7 @@ while true; do
             exit 0
             ;;
         10) bash "$HOME/CYBRA/modules/module_10_generated/main.sh" ;;
-        25) action_generic_25 ;;
+        25) bash "$HOME/CYBRA/modules/module_25_generated/main.sh" ;;
         26) action_generic_26 ;;
         27) action_generic_27 ;;
         28) action_generic_28 ;;
