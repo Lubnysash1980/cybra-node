@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-18T15:33:52.713245+00:00",
+  "updated": "2026-10-18T19:23:25.428120+00:00",
   "total_modules": 215,
   "unique_actions": 73,
   "conflicts": 15,
@@ -1696,13 +1696,13 @@
     },
     {
       "name": "module_13_base",
-      "title": "Показати INVOICE",
+      "title": "Показати INVOICE (без trap, щоб не було фальшивих помилок)",
       "action": "invoice",
-      "status": "base",
-      "base_score": 50,
-      "size": 1309,
+      "status": "unknown",
+      "base_score": 30,
+      "size": 953,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_13_base/main.sh",
-      "score": 70
+      "score": 40
     },
     {
       "name": "module_14_base",
@@ -2483,10 +2483,6 @@
           "score": 70
         },
         {
-          "name": "module_13_base",
-          "score": 70
-        },
-        {
           "name": "module_14_base",
           "score": 70
         },
@@ -2497,6 +2493,10 @@
         {
           "name": "module_142_invoice_pdf",
           "score": 50
+        },
+        {
+          "name": "module_13_base",
+          "score": 40
         }
       ],
       "total": 6
@@ -3515,10 +3515,6 @@
           "score": 70
         },
         {
-          "name": "module_13_base",
-          "score": 70
-        },
-        {
           "name": "module_14_base",
           "score": 70
         },
@@ -3529,6 +3525,10 @@
         {
           "name": "module_142_invoice_pdf",
           "score": 50
+        },
+        {
+          "name": "module_13_base",
+          "score": 40
         }
       ]
     },
