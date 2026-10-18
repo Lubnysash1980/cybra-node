@@ -804,7 +804,7 @@
     },
     "101": {
       "id": 101,
-      "status": "in_progress",
+      "status": "implemented",
       "target_module": "module_101_*",
       "function": "action_101",
       "priority": "low",
@@ -812,7 +812,7 @@
     },
     "102": {
       "id": 102,
-      "status": "stub",
+      "status": "in_progress",
       "target_module": "module_102_*",
       "function": "action_102",
       "priority": "low",
