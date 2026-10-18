@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-// CYBRA watchdog — if kill -> start_pm2 (Node.js версія для PM2)
-
 const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
@@ -18,7 +16,10 @@ function log(msg) {
 function countOnline() {
   try {
     const out = execSync('pm2 ls 2>/dev/null', { encoding: 'utf8' });
-    return (out.match(/online/g) || []).length;
+    // Рахуємо тільки рядки зі статусом online, ВИКЛЮЧАЮЧИ сам watchdog
+    return out.split('\n').filter(line =>
+      line.includes('online') && !line.includes('cybra-watchdog')
+    ).length;
   } catch (e) { return 0; }
 }
 
@@ -32,6 +33,7 @@ log(`=== Watchdog Start (interval=${INTERVAL_MS/1000}s, expected=${EXPECTED}) ==
 
 setInterval(() => {
   const online = countOnline();
+  log(`check: online(without watchdog)=${online}`);
   if (online < EXPECTED) {
     log(`ALERT: online=${online} < expected=${EXPECTED} — resurrect`);
     resurrect();
