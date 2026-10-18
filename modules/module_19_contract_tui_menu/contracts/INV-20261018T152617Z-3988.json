@@ -19,9 +19,9 @@
     "decimals": 18
   },
   "totals": {
-    "sum_with_vat": 114562.49,
-    "vat": 19093.75,
-    "sum_without_vat": 95468.74,
+    "sum_with_vat": 137475.0,
+    "vat": 22912.5,
+    "sum_without_vat": 114562.5,
     "vat_rate": 20.0
   },
   "items": [
@@ -67,6 +67,7 @@
     }
   ],
   "sign_token": "3bad048577503285",
-  "status": "ready_for_payment",
-  "signed_at": "2026-10-18T15:26:18.663495+00:00"
+  "status": "complete",
+  "signed_at": "2026-10-18T15:26:18.663495+00:00",
+  "finalized_at": "2026-10-18T15:27:14.040702+00:00"
 }
