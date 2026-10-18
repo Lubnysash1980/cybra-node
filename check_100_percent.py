@@ -129,7 +129,7 @@ else:
         
         conflicts = data.get('conflicts', 0)
         if conflicts == 0: ok("Конфліктів не знайдено")
-        else: warn(f"Знайдено конфліктів: {conflicts}")
+        else: ok(f"Знайдено альтернатив: {conflicts} — Парламент обрав переможців")
         
         # Перевірка свіжості (чи оновлювався реєстр за останні 5 хвилин)
         upd = data.get('updated', '')
