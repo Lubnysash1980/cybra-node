@@ -1,5 +1,12 @@
 {
-  "cycles": 30,
-  "last_actions": [],
+  "cycles": 31,
+  "last_actions": [
+    {
+      "type": "pm2_restart",
+      "target": [
+        "cybra-autonode-main"
+      ]
+    }
+  ],
   "health": 100
 }
