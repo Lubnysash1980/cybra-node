@@ -1,10 +1,10 @@
 {
-  "cycles": 104,
+  "cycles": 105,
   "last_actions": [
     {
       "type": "pm2_restart",
       "target": [
-        "cybra-autonode-main"
+        "cybra-evo-daemon"
       ]
     }
   ],
