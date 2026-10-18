@@ -41,6 +41,9 @@ action_create_contract() {
 action_list_contracts() {
     printf '%s\n' "${C_BOLD}--- Контракти ---${C_RESET}"
     local n=0
+    
+    # 1. ENV контракти
+    printf '%s\n' "${C_CYAN}--- ENV ---${C_RESET}"
     for f in "$CYBRA_CONTRACTS"/*.env; do
         [ -f "$f" ] || continue
         local cid="$(basename "$f" .env)"
@@ -48,6 +51,18 @@ action_list_contracts() {
         printf '  %-45s [%s]\n' "$cid" "$stage"
         n=$((n+1))
     done
+    
+    # 2. JSON контракти (INVOICE)
+    printf '%s\n' "${C_CYAN}--- JSON (INVOICE) ---${C_RESET}"
+    for f in "$CYBRA_CONTRACTS"/*.json; do
+        [ -f "$f" ] || continue
+        local cid="$(basename "$f" .json)"
+        local status=$(/data/data/com.termux/files/usr/bin/python3 -c "import json; print(json.load(open('$f')).get('status','?'))" 2>/dev/null)
+        local number=$(/data/data/com.termux/files/usr/bin/python3 -c "import json; print(json.load(open('$f')).get('number','?'))" 2>/dev/null)
+        printf '  %-45s [%s] №%s\n' "$cid" "$status" "$number"
+        n=$((n+1))
+    done
+    
     printf '\nВсього: %s\n' "$n"
     read -r _
 }
