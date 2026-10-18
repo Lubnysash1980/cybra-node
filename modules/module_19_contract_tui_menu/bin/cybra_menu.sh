@@ -1715,7 +1715,7 @@ while true; do
         108) python3 "$HOME/CYBRA/selfgen/selfgen_core.py" check; read -r _ ;;
         109) bash "$HOME/CYBRA/brain/brain_menu.sh" ;;
         110) bash "$HOME/CYBRA/evo/evo_menu.sh" ;;
-        111) bash "$HOME/CYBRA/modules/module_111_base/main.sh" ;;
+        111) bash "$HOME/CYBRA/lifecycle/lifecycle_menu.sh" ;;
         112) bash "$HOME/CYBRA/modules/module_112_base/main.sh" ;;
         113) bash "$HOME/CYBRA/modules/module_113_base/main.sh" ;;
         114) bash "$HOME/CYBRA/modules/module_114_base/main.sh" ;;
