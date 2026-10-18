@@ -909,10 +909,10 @@ action_parawatch() {
     printf 'Вибір: '
     read -r pw
     case "$pw" in
-        1) "$HOME/CYBRA/bin/cybra_parawatch" status; read -r _ ;;
-        2) "$HOME/CYBRA/bin/cybra_parawatch" start; read -r _ ;;
-        3) "$HOME/CYBRA/bin/cybra_parawatch" stop; read -r _ ;;
-        4) "$HOME/CYBRA/bin/cybra_parawatch" once; read -r _ ;;
+        1) bash "$HOME/CYBRA/modules/module_1_base/main.sh" ;;
+        2) bash "$HOME/CYBRA/modules/module_2_base/main.sh" ;;
+        3) bash "$HOME/CYBRA/modules/module_3_base/main.sh" ;;
+        4) bash "$HOME/CYBRA/modules/module_4_base/main.sh" ;;
     esac
 }
 
@@ -923,9 +923,9 @@ action_autopatch_menu() {
     printf 'Вибір: '
     read -r ap
     case "$ap" in
-        1) "$HOME/CYBRA/bin/cybra_autopatch" check; read -r _ ;;
-        2) "$HOME/CYBRA/bin/cybra_autopatch" all; read -r _ ;;
-        3) "$HOME/CYBRA/bin/cybra_autopatch" contracts; read -r _ ;;
+        1) bash "$HOME/CYBRA/modules/module_1_base/main.sh" ;;
+        2) bash "$HOME/CYBRA/modules/module_2_base/main.sh" ;;
+        3) bash "$HOME/CYBRA/modules/module_3_base/main.sh" ;;
     esac
 }
 
@@ -938,10 +938,10 @@ action_watchdog() {
     printf 'Вибір: '
     read -r wd
     case "$wd" in
-        1) "$HOME/CYBRA/bin/cybra_watchdog" status; read -r _ ;;
-        2) "$HOME/CYBRA/bin/cybra_watchdog" start; read -r _ ;;
-        3) "$HOME/CYBRA/bin/cybra_watchdog" stop; read -r _ ;;
-        4) "$HOME/CYBRA/bin/cybra_watchdog" once; read -r _ ;;
+        1) bash "$HOME/CYBRA/modules/module_1_base/main.sh" ;;
+        2) bash "$HOME/CYBRA/modules/module_2_base/main.sh" ;;
+        3) bash "$HOME/CYBRA/modules/module_3_base/main.sh" ;;
+        4) bash "$HOME/CYBRA/modules/module_4_base/main.sh" ;;
     esac
 }
 
@@ -960,10 +960,10 @@ action_web() {
     printf 'Вибір: '
     read -r w
     case "$w" in
-        1) "$HOME/CYBRA/bin/cybra_web" status; read -r _ ;;
-        2) "$HOME/CYBRA/bin/cybra_web" start; read -r _ ;;
-        3) "$HOME/CYBRA/bin/cybra_web" stop; read -r _ ;;
-        4) "$HOME/CYBRA/bin/cybra_web" restart; read -r _ ;;
+        1) bash "$HOME/CYBRA/modules/module_1_base/main.sh" ;;
+        2) bash "$HOME/CYBRA/modules/module_2_base/main.sh" ;;
+        3) bash "$HOME/CYBRA/modules/module_3_base/main.sh" ;;
+        4) bash "$HOME/CYBRA/modules/module_4_base/main.sh" ;;
     esac
 }
 
@@ -999,10 +999,10 @@ action_http() {
     printf 'Вибір: '
     read -r h
     case "$h" in
-        1) "$HOME/CYBRA/bin/cybra_http" status 2>&1; read -r _ ;;
-        2) "$HOME/CYBRA/bin/cybra_http" start 2>&1; read -r _ ;;
-        3) "$HOME/CYBRA/bin/cybra_http" stop 2>&1; read -r _ ;;
-        4) "$HOME/CYBRA/bin/cybra_http" test 2>&1; read -r _ ;;
+        1) bash "$HOME/CYBRA/modules/module_1_base/main.sh" ;;
+        2) bash "$HOME/CYBRA/modules/module_2_base/main.sh" ;;
+        3) bash "$HOME/CYBRA/modules/module_3_base/main.sh" ;;
+        4) bash "$HOME/CYBRA/modules/module_4_base/main.sh" ;;
     esac
 }
 
@@ -1014,10 +1014,10 @@ action_schedule() {
     printf 'Вибір: '
     read -r sc
     case "$sc" in
-        1) "$HOME/CYBRA/bin/cybra_schedule" status 2>&1; read -r _ ;;
-        2) "$HOME/CYBRA/bin/cybra_schedule" start 2>&1; read -r _ ;;
-        3) "$HOME/CYBRA/bin/cybra_schedule" stop 2>&1; read -r _ ;;
-        4) "$HOME/CYBRA/bin/cybra_schedule" list 2>&1; read -r _ ;;
+        1) bash "$HOME/CYBRA/modules/module_1_base/main.sh" ;;
+        2) bash "$HOME/CYBRA/modules/module_2_base/main.sh" ;;
+        3) bash "$HOME/CYBRA/modules/module_3_base/main.sh" ;;
+        4) bash "$HOME/CYBRA/modules/module_4_base/main.sh" ;;
     esac
 }
 
@@ -1036,12 +1036,12 @@ action_binmix() {
     printf 'Вибір: '
     read -r bm
     case "$bm" in
-        1) "$HOME/CYBRA/bin/cybra_binmix" status 2>&1; read -r _ ;;
-        2) "$HOME/CYBRA/bin/cybra_binmix" start 2>&1; read -r _ ;;
-        3) "$HOME/CYBRA/bin/cybra_binmix" stop 2>&1; read -r _ ;;
-        4) "$HOME/CYBRA/bin/cybra_binmix" snapshot 2>&1; read -r _ ;;
-        5) "$HOME/CYBRA/bin/cybra_binmix" chain 2>&1; read -r _ ;;
-        6) "$HOME/CYBRA/bin/cybra_binmix" log 2>&1 | tail -15; read -r _ ;;
+        1) bash "$HOME/CYBRA/modules/module_1_base/main.sh" ;;
+        2) bash "$HOME/CYBRA/modules/module_2_base/main.sh" ;;
+        3) bash "$HOME/CYBRA/modules/module_3_base/main.sh" ;;
+        4) bash "$HOME/CYBRA/modules/module_4_base/main.sh" ;;
+        5) bash "$HOME/CYBRA/modules/module_5_base/main.sh" ;;
+        6) bash "$HOME/CYBRA/modules/module_6_base/main.sh" ;;
     esac
 }
 
@@ -1053,10 +1053,10 @@ action_hash_eco() {
     printf 'Вибір: '
     read -r he
     case "$he" in
-        1) "$HOME/CYBRA/cybra_hash.sh" layers 2>&1; read -r _ ;;
-        2) "$HOME/CYBRA/cybra_hash.sh" list 2>&1 | head -20; read -r _ ;;
-        3) "$HOME/CYBRA/cybra_hash.sh" push 2>&1; read -r _ ;;
-        4) "$HOME/CYBRA/cybra_hash.sh" cleanup 2>&1; read -r _ ;;
+        1) bash "$HOME/CYBRA/modules/module_1_base/main.sh" ;;
+        2) bash "$HOME/CYBRA/modules/module_2_base/main.sh" ;;
+        3) bash "$HOME/CYBRA/modules/module_3_base/main.sh" ;;
+        4) bash "$HOME/CYBRA/modules/module_4_base/main.sh" ;;
     esac
 }
 
@@ -1070,12 +1070,12 @@ action_node() {
     printf 'Вибір: '
     read -r nd
     case "$nd" in
-        1) "$HOME/CYBRA/cybra_node.sh" check 2>&1; read -r _ ;;
-        2) "$HOME/CYBRA/cybra_node.sh" fix 2>&1; read -r _ ;;
-        3) "$HOME/CYBRA/cybra_node.sh" test 2>&1; read -r _ ;;
-        4) "$HOME/CYBRA/cybra_node.sh" sync 2>&1; read -r _ ;;
-        5) "$HOME/CYBRA/cybra_node.sh" push 2>&1; read -r _ ;;
-        6) "$HOME/CYBRA/cybra_node.sh" run 2>&1; read -r _ ;;
+        1) bash "$HOME/CYBRA/modules/module_1_base/main.sh" ;;
+        2) bash "$HOME/CYBRA/modules/module_2_base/main.sh" ;;
+        3) bash "$HOME/CYBRA/modules/module_3_base/main.sh" ;;
+        4) bash "$HOME/CYBRA/modules/module_4_base/main.sh" ;;
+        5) bash "$HOME/CYBRA/modules/module_5_base/main.sh" ;;
+        6) bash "$HOME/CYBRA/modules/module_6_base/main.sh" ;;
     esac
 }
 
@@ -1089,11 +1089,11 @@ action_autopilot() {
     printf 'Вибір: '
     read -r ap
     case "$ap" in
-        1) "$HOME/CYBRA/bin/cybra_autopilot" status 2>&1; read -r _ ;;
-        2) "$HOME/CYBRA/bin/cybra_autopilot" start 2>&1; read -r _ ;;
-        3) "$HOME/CYBRA/bin/cybra_autopilot" stop 2>&1; read -r _ ;;
-        4) "$HOME/CYBRA/bin/cybra_autopilot" once 2>&1; read -r _ ;;
-        5) tail -30 "$HOME/CYBRA/logs/autopilot.log" 2>/dev/null; read -r _ ;;
+        1) bash "$HOME/CYBRA/modules/module_1_base/main.sh" ;;
+        2) bash "$HOME/CYBRA/modules/module_2_base/main.sh" ;;
+        3) bash "$HOME/CYBRA/modules/module_3_base/main.sh" ;;
+        4) bash "$HOME/CYBRA/modules/module_4_base/main.sh" ;;
+        5) bash "$HOME/CYBRA/modules/module_5_base/main.sh" ;;
     esac
 }
 
@@ -1600,161 +1600,161 @@ while true; do
     read -r CHOICE
 
     case "$CHOICE" in
-        1) action_create_contract ;;
-        2) action_list_contracts ;;
-        3) action_show_status ;;
-        4) action_generate_links ;;
-        5) action_confirm_link ;;
-        6) action_debug ;;
-        7) action_dual_license_ledger ;;
-        8) action_creation_license ;;
-        9) action_hardening ;;
-        11) action_create_invoice ;;
-        12) action_add_line ;;
-        13) action_show_invoice ;;
-        14) action_finalize_invoice ;;
-        15) action_export_masked ;;
-        16) action_export_all_masked ;;
-        17) action_verify_pii ;;
-        18) action_buyer_final_decision ;;
-        19) action_check_timeouts ;;
-        20) action_refund_status ;;
-        21) action_add_term ;;
-        22) action_show_rates ;;
-        23) action_update_rate ;;
-        24) action_convert ;;
-        30) action_preflight ;;
-        31) action_self_heal ;;
-        32) action_dual_verify ;;
-        33) action_ownership ;;
+        1) bash "$HOME/CYBRA/modules/module_1_base/main.sh" ;;
+        2) bash "$HOME/CYBRA/modules/module_2_base/main.sh" ;;
+        3) bash "$HOME/CYBRA/modules/module_3_base/main.sh" ;;
+        4) bash "$HOME/CYBRA/modules/module_4_base/main.sh" ;;
+        5) bash "$HOME/CYBRA/modules/module_5_base/main.sh" ;;
+        6) bash "$HOME/CYBRA/modules/module_6_base/main.sh" ;;
+        7) bash "$HOME/CYBRA/modules/module_7_base/main.sh" ;;
+        8) bash "$HOME/CYBRA/modules/module_8_base/main.sh" ;;
+        9) bash "$HOME/CYBRA/modules/module_9_base/main.sh" ;;
+        11) bash "$HOME/CYBRA/modules/module_11_base/main.sh" ;;
+        12) bash "$HOME/CYBRA/modules/module_12_base/main.sh" ;;
+        13) bash "$HOME/CYBRA/modules/module_13_base/main.sh" ;;
+        14) bash "$HOME/CYBRA/modules/module_14_base/main.sh" ;;
+        15) bash "$HOME/CYBRA/modules/module_15_base/main.sh" ;;
+        16) bash "$HOME/CYBRA/modules/module_16_base/main.sh" ;;
+        17) bash "$HOME/CYBRA/modules/module_17_base/main.sh" ;;
+        18) bash "$HOME/CYBRA/modules/module_18_base/main.sh" ;;
+        19) bash "$HOME/CYBRA/modules/module_19_base/main.sh" ;;
+        20) bash "$HOME/CYBRA/modules/module_20_base/main.sh" ;;
+        21) bash "$HOME/CYBRA/modules/module_21_base/main.sh" ;;
+        22) bash "$HOME/CYBRA/modules/module_22_base/main.sh" ;;
+        23) bash "$HOME/CYBRA/modules/module_23_base/main.sh" ;;
+        24) bash "$HOME/CYBRA/modules/module_24_base/main.sh" ;;
+        30) bash "$HOME/CYBRA/modules/module_30_base/main.sh" ;;
+        31) bash "$HOME/CYBRA/modules/module_31_base/main.sh" ;;
+        32) bash "$HOME/CYBRA/modules/module_32_base/main.sh" ;;
+        33) bash "$HOME/CYBRA/modules/module_33_base/main.sh" ;;
         0|q|Q|exit|quit)
             printf "%s
 " "${C_GREEN}До побачення.${C_RESET}"
             exit 0
             ;;
-        10) bash "$HOME/CYBRA/modules/module_10_generated/main.sh" ;;
-        25) bash "$HOME/CYBRA/modules/module_25_generated/main.sh" ;;
-        26) bash "$HOME/CYBRA/modules/module_26_generated/main.sh" ;;
-        27) bash "$HOME/CYBRA/modules/module_27_generated/main.sh" ;;
-        28) bash "$HOME/CYBRA/modules/module_28_generated/main.sh" ;;
-        29) bash "$HOME/CYBRA/modules/module_29_generated/main.sh" ;;
-        34) bash "$HOME/CYBRA/modules/module_34_generated/main.sh" ;;
-        35) bash "$HOME/CYBRA/modules/module_35_generated/main.sh" ;;
-        36) bash "$HOME/CYBRA/modules/module_36_generated/main.sh" ;;
-        37) bash "$HOME/CYBRA/modules/module_37_generated/main.sh" ;;
-        38) bash "$HOME/CYBRA/modules/module_38_generated/main.sh" ;;
-        39) bash "$HOME/CYBRA/modules/module_39_generated/main.sh" ;;
-        40) bash "$HOME/CYBRA/modules/module_40_generated/main.sh" ;;
-        41) bash "$HOME/CYBRA/modules/module_41_generated/main.sh" ;;
-        42) bash "$HOME/CYBRA/modules/module_42_generated/main.sh" ;;
-        43) bash "$HOME/CYBRA/modules/module_43_generated/main.sh" ;;
-        44) bash "$HOME/CYBRA/modules/module_44_generated/main.sh" ;;
-        45) bash "$HOME/CYBRA/modules/module_45_generated/main.sh" ;;
-        46) bash "$HOME/CYBRA/modules/module_46_generated/main.sh" ;;
-        47) bash "$HOME/CYBRA/modules/module_47_generated/main.sh" ;;
-        48) bash "$HOME/CYBRA/modules/module_48_generated/main.sh" ;;
-        49) bash "$HOME/CYBRA/modules/module_49_generated/main.sh" ;;
-        50) bash "$HOME/CYBRA/modules/module_50_generated/main.sh" ;;
-        51) bash "$HOME/CYBRA/modules/module_51_generated/main.sh" ;;
-        52) bash "$HOME/CYBRA/modules/module_52_generated/main.sh" ;;
-        53) bash "$HOME/CYBRA/modules/module_53_generated/main.sh" ;;
-        54) bash "$HOME/CYBRA/modules/module_54_generated/main.sh" ;;
-        55) bash "$HOME/CYBRA/modules/module_55_generated/main.sh" ;;
-        56) bash "$HOME/CYBRA/modules/module_56_generated/main.sh" ;;
-        57) bash "$HOME/CYBRA/modules/module_57_generated/main.sh" ;;
-        58) bash "$HOME/CYBRA/modules/module_58_generated/main.sh" ;;
-        59) bash "$HOME/CYBRA/modules/module_59_generated/main.sh" ;;
-        60) bash "$HOME/CYBRA/modules/module_60_generated/main.sh" ;;
-        61) bash "$HOME/CYBRA/modules/module_61_generated/main.sh" ;;
-        62) bash "$HOME/CYBRA/modules/module_62_generated/main.sh" ;;
-        63) bash "$HOME/CYBRA/modules/module_63_generated/main.sh" ;;
-        64) bash "$HOME/CYBRA/modules/module_64_generated/main.sh" ;;
-        65) bash "$HOME/CYBRA/modules/module_65_generated/main.sh" ;;
-        66) bash "$HOME/CYBRA/modules/module_66_generated/main.sh" ;;
-        67) bash "$HOME/CYBRA/modules/module_67_generated/main.sh" ;;
-        68) bash "$HOME/CYBRA/modules/module_68_generated/main.sh" ;;
-        69) bash "$HOME/CYBRA/modules/module_69_generated/main.sh" ;;
-        70) bash "$HOME/CYBRA/modules/module_70_generated/main.sh" ;;
-        71) bash "$HOME/CYBRA/modules/module_71_generated/main.sh" ;;
-        72) bash "$HOME/CYBRA/modules/module_72_generated/main.sh" ;;
-        73) bash "$HOME/CYBRA/modules/module_73_generated/main.sh" ;;
-        74) bash "$HOME/CYBRA/modules/module_74_generated/main.sh" ;;
-        75) bash "$HOME/CYBRA/modules/module_75_generated/main.sh" ;;
-        76) bash "$HOME/CYBRA/modules/module_76_generated/main.sh" ;;
-        77) bash "$HOME/CYBRA/modules/module_77_generated/main.sh" ;;
-        78) bash "$HOME/CYBRA/modules/module_78_generated/main.sh" ;;
-        79) bash "$HOME/CYBRA/modules/module_79_generated/main.sh" ;;
-        80) bash "$HOME/CYBRA/modules/module_80_generated/main.sh" ;;
-        81) bash "$HOME/CYBRA/modules/module_81_generated/main.sh" ;;
-        82) bash "$HOME/CYBRA/modules/module_82_generated/main.sh" ;;
-        83) bash "$HOME/CYBRA/modules/module_83_generated/main.sh" ;;
-        84) bash "$HOME/CYBRA/modules/module_84_generated/main.sh" ;;
-        85) bash "$HOME/CYBRA/modules/module_85_generated/main.sh" ;;
-        86) bash "$HOME/CYBRA/modules/module_86_generated/main.sh" ;;
-        87) bash "$HOME/CYBRA/modules/module_87_generated/main.sh" ;;
-        88) bash "$HOME/CYBRA/modules/module_88_generated/main.sh" ;;
-        89) bash "$HOME/CYBRA/modules/module_89_generated/main.sh" ;;
-        90) bash "$HOME/CYBRA/modules/module_90_generated/main.sh" ;;
-        91) bash "$HOME/CYBRA/modules/module_91_generated/main.sh" ;;
-        92) action_generic_92 ;;
-        93) action_generic_93 ;;
-        94) action_generic_94 ;;
-        95) action_generic_95 ;;
-        96) action_generic_96 ;;
-        97) action_generic_97 ;;
-        98) action_generic_98 ;;
-        99) action_generic_99 ;;
-        100) action_generic_100 ;;
-        101) action_generic_101 ;;
-        102) action_generic_102 ;;
-        103) action_generic_103 ;;
-        104) action_generic_104 ;;
-        105) action_generic_105 ;;
-        106) action_generic_106 ;;
-        107) action_generic_107 ;;
-        108) action_generic_108 ;;
-        109) action_generic_109 ;;
-        110) action_generic_110 ;;
-        111) action_generic_111 ;;
-        112) action_generic_112 ;;
-        113) action_generic_113 ;;
-        114) action_generic_114 ;;
-        115) action_generic_115 ;;
-        116) action_generic_116 ;;
-        117) action_generic_117 ;;
-        118) action_generic_118 ;;
-        119) action_generic_119 ;;
-        120) action_generic_120 ;;
-        121) action_generic_121 ;;
-        122) action_generic_122 ;;
-        123) action_generic_123 ;;
-        124) action_generic_124 ;;
-        125) action_generic_125 ;;
-        126) action_generic_126 ;;
-        127) action_generic_127 ;;
-        128) action_generic_128 ;;
-        129) action_generic_129 ;;
-        130) action_generic_130 ;;
-        131) action_generic_131 ;;
-        132) action_generic_132 ;;
-        133) action_generic_133 ;;
-        134) action_generic_134 ;;
-        135) action_generic_135 ;;
-        136) action_generic_136 ;;
-        137) action_generic_137 ;;
-        138) action_generic_138 ;;
-        139) action_generic_139 ;;
-        140) action_generic_140 ;;
-        141) action_generic_141 ;;
-        142) action_generic_142 ;;
-        143) action_generic_143 ;;
-        144) action_generic_144 ;;
-        145) action_generic_145 ;;
-        146) action_generic_146 ;;
-        147) action_generic_147 ;;
-        148) action_generic_148 ;;
-        149) action_generic_149 ;;
-        150) action_generic_150 ;;
+        10) bash "$HOME/CYBRA/modules/module_10_base/main.sh" ;;
+        25) bash "$HOME/CYBRA/modules/module_25_base/main.sh" ;;
+        26) bash "$HOME/CYBRA/modules/module_26_base/main.sh" ;;
+        27) bash "$HOME/CYBRA/modules/module_27_base/main.sh" ;;
+        28) bash "$HOME/CYBRA/modules/module_28_base/main.sh" ;;
+        29) bash "$HOME/CYBRA/modules/module_29_base/main.sh" ;;
+        34) bash "$HOME/CYBRA/modules/module_34_base/main.sh" ;;
+        35) bash "$HOME/CYBRA/modules/module_35_base/main.sh" ;;
+        36) bash "$HOME/CYBRA/modules/module_36_base/main.sh" ;;
+        37) bash "$HOME/CYBRA/modules/module_37_base/main.sh" ;;
+        38) bash "$HOME/CYBRA/modules/module_38_base/main.sh" ;;
+        39) bash "$HOME/CYBRA/modules/module_39_base/main.sh" ;;
+        40) bash "$HOME/CYBRA/modules/module_40_base/main.sh" ;;
+        41) bash "$HOME/CYBRA/modules/module_41_base/main.sh" ;;
+        42) bash "$HOME/CYBRA/modules/module_42_base/main.sh" ;;
+        43) bash "$HOME/CYBRA/modules/module_43_base/main.sh" ;;
+        44) bash "$HOME/CYBRA/modules/module_44_base/main.sh" ;;
+        45) bash "$HOME/CYBRA/modules/module_45_base/main.sh" ;;
+        46) bash "$HOME/CYBRA/modules/module_46_base/main.sh" ;;
+        47) bash "$HOME/CYBRA/modules/module_47_base/main.sh" ;;
+        48) bash "$HOME/CYBRA/modules/module_48_base/main.sh" ;;
+        49) bash "$HOME/CYBRA/modules/module_49_base/main.sh" ;;
+        50) bash "$HOME/CYBRA/modules/module_50_base/main.sh" ;;
+        51) bash "$HOME/CYBRA/modules/module_51_base/main.sh" ;;
+        52) bash "$HOME/CYBRA/modules/module_52_base/main.sh" ;;
+        53) bash "$HOME/CYBRA/modules/module_53_base/main.sh" ;;
+        54) bash "$HOME/CYBRA/modules/module_54_base/main.sh" ;;
+        55) bash "$HOME/CYBRA/modules/module_55_base/main.sh" ;;
+        56) bash "$HOME/CYBRA/modules/module_56_base/main.sh" ;;
+        57) bash "$HOME/CYBRA/modules/module_57_base/main.sh" ;;
+        58) bash "$HOME/CYBRA/modules/module_58_base/main.sh" ;;
+        59) bash "$HOME/CYBRA/modules/module_59_base/main.sh" ;;
+        60) bash "$HOME/CYBRA/modules/module_60_base/main.sh" ;;
+        61) bash "$HOME/CYBRA/modules/module_61_base/main.sh" ;;
+        62) bash "$HOME/CYBRA/modules/module_62_base/main.sh" ;;
+        63) bash "$HOME/CYBRA/modules/module_63_base/main.sh" ;;
+        64) bash "$HOME/CYBRA/modules/module_64_base/main.sh" ;;
+        65) bash "$HOME/CYBRA/modules/module_65_base/main.sh" ;;
+        66) bash "$HOME/CYBRA/modules/module_66_base/main.sh" ;;
+        67) bash "$HOME/CYBRA/modules/module_67_base/main.sh" ;;
+        68) bash "$HOME/CYBRA/modules/module_68_base/main.sh" ;;
+        69) bash "$HOME/CYBRA/modules/module_69_base/main.sh" ;;
+        70) bash "$HOME/CYBRA/modules/module_70_base/main.sh" ;;
+        71) bash "$HOME/CYBRA/modules/module_71_base/main.sh" ;;
+        72) bash "$HOME/CYBRA/modules/module_72_base/main.sh" ;;
+        73) bash "$HOME/CYBRA/modules/module_73_base/main.sh" ;;
+        74) bash "$HOME/CYBRA/modules/module_74_base/main.sh" ;;
+        75) bash "$HOME/CYBRA/modules/module_75_base/main.sh" ;;
+        76) bash "$HOME/CYBRA/modules/module_76_base/main.sh" ;;
+        77) bash "$HOME/CYBRA/modules/module_77_base/main.sh" ;;
+        78) bash "$HOME/CYBRA/modules/module_78_base/main.sh" ;;
+        79) bash "$HOME/CYBRA/modules/module_79_base/main.sh" ;;
+        80) bash "$HOME/CYBRA/modules/module_80_base/main.sh" ;;
+        81) bash "$HOME/CYBRA/modules/module_81_base/main.sh" ;;
+        82) bash "$HOME/CYBRA/modules/module_82_base/main.sh" ;;
+        83) bash "$HOME/CYBRA/modules/module_83_base/main.sh" ;;
+        84) bash "$HOME/CYBRA/modules/module_84_base/main.sh" ;;
+        85) bash "$HOME/CYBRA/modules/module_85_base/main.sh" ;;
+        86) bash "$HOME/CYBRA/modules/module_86_base/main.sh" ;;
+        87) bash "$HOME/CYBRA/modules/module_87_base/main.sh" ;;
+        88) bash "$HOME/CYBRA/modules/module_88_base/main.sh" ;;
+        89) bash "$HOME/CYBRA/modules/module_89_base/main.sh" ;;
+        90) bash "$HOME/CYBRA/modules/module_90_base/main.sh" ;;
+        91) bash "$HOME/CYBRA/modules/module_91_base/main.sh" ;;
+        92) bash "$HOME/CYBRA/modules/module_92_base/main.sh" ;;
+        93) bash "$HOME/CYBRA/modules/module_93_base/main.sh" ;;
+        94) bash "$HOME/CYBRA/modules/module_94_base/main.sh" ;;
+        95) bash "$HOME/CYBRA/modules/module_95_base/main.sh" ;;
+        96) bash "$HOME/CYBRA/modules/module_96_base/main.sh" ;;
+        97) bash "$HOME/CYBRA/modules/module_97_base/main.sh" ;;
+        98) bash "$HOME/CYBRA/modules/module_98_base/main.sh" ;;
+        99) bash "$HOME/CYBRA/modules/module_99_base/main.sh" ;;
+        100) bash "$HOME/CYBRA/modules/module_100_base/main.sh" ;;
+        101) bash "$HOME/CYBRA/modules/module_101_base/main.sh" ;;
+        102) bash "$HOME/CYBRA/modules/module_102_base/main.sh" ;;
+        103) bash "$HOME/CYBRA/modules/module_103_base/main.sh" ;;
+        104) bash "$HOME/CYBRA/modules/module_104_base/main.sh" ;;
+        105) bash "$HOME/CYBRA/modules/module_105_base/main.sh" ;;
+        106) bash "$HOME/CYBRA/modules/module_106_base/main.sh" ;;
+        107) bash "$HOME/CYBRA/modules/module_107_base/main.sh" ;;
+        108) bash "$HOME/CYBRA/modules/module_108_base/main.sh" ;;
+        109) bash "$HOME/CYBRA/modules/module_109_base/main.sh" ;;
+        110) bash "$HOME/CYBRA/modules/module_110_base/main.sh" ;;
+        111) bash "$HOME/CYBRA/modules/module_111_base/main.sh" ;;
+        112) bash "$HOME/CYBRA/modules/module_112_base/main.sh" ;;
+        113) bash "$HOME/CYBRA/modules/module_113_base/main.sh" ;;
+        114) bash "$HOME/CYBRA/modules/module_114_base/main.sh" ;;
+        115) bash "$HOME/CYBRA/modules/module_115_base/main.sh" ;;
+        116) bash "$HOME/CYBRA/modules/module_116_base/main.sh" ;;
+        117) bash "$HOME/CYBRA/modules/module_117_base/main.sh" ;;
+        118) bash "$HOME/CYBRA/modules/module_118_base/main.sh" ;;
+        119) bash "$HOME/CYBRA/modules/module_119_base/main.sh" ;;
+        120) bash "$HOME/CYBRA/modules/module_120_base/main.sh" ;;
+        121) bash "$HOME/CYBRA/parliament_core/menu.sh" ;;
+        122) bash "$HOME/CYBRA/modules/module_122_base/main.sh" ;;
+        123) bash "$HOME/CYBRA/modules/module_123_base/main.sh" ;;
+        124) bash "$HOME/CYBRA/modules/module_124_base/main.sh" ;;
+        125) bash "$HOME/CYBRA/modules/module_125_base/main.sh" ;;
+        126) bash "$HOME/CYBRA/modules/module_126_base/main.sh" ;;
+        127) bash "$HOME/CYBRA/modules/module_127_base/main.sh" ;;
+        128) bash "$HOME/CYBRA/modules/module_128_base/main.sh" ;;
+        129) bash "$HOME/CYBRA/modules/module_129_base/main.sh" ;;
+        130) bash "$HOME/CYBRA/modules/module_130_base/main.sh" ;;
+        131) bash "$HOME/CYBRA/modules/module_131_base/main.sh" ;;
+        132) bash "$HOME/CYBRA/modules/module_132_base/main.sh" ;;
+        133) bash "$HOME/CYBRA/modules/module_133_base/main.sh" ;;
+        134) bash "$HOME/CYBRA/modules/module_134_base/main.sh" ;;
+        135) bash "$HOME/CYBRA/modules/module_135_base/main.sh" ;;
+        136) bash "$HOME/CYBRA/modules/module_136_base/main.sh" ;;
+        137) bash "$HOME/CYBRA/modules/module_137_base/main.sh" ;;
+        138) bash "$HOME/CYBRA/modules/module_138_base/main.sh" ;;
+        139) bash "$HOME/CYBRA/modules/module_139_base/main.sh" ;;
+        140) bash "$HOME/CYBRA/modules/module_140_base/main.sh" ;;
+        141) bash "$HOME/CYBRA/modules/module_141_base/main.sh" ;;
+        142) bash "$HOME/CYBRA/modules/module_142_base/main.sh" ;;
+        143) bash "$HOME/CYBRA/modules/module_143_base/main.sh" ;;
+        144) bash "$HOME/CYBRA/modules/module_144_base/main.sh" ;;
+        145) bash "$HOME/CYBRA/modules/module_145_base/main.sh" ;;
+        146) bash "$HOME/CYBRA/modules/module_146_base/main.sh" ;;
+        147) bash "$HOME/CYBRA/modules/module_147_base/main.sh" ;;
+        148) bash "$HOME/CYBRA/modules/module_148_base/main.sh" ;;
+        149) bash "$HOME/CYBRA/modules/module_149_base/main.sh" ;;
+        150) bash "$HOME/CYBRA/modules/module_150_base/main.sh" ;;
         *)
             printf "%s
 " "${C_RED}Невідома опція.${C_RESET}"

@@ -22,6 +22,14 @@ module.exports = {
       interpreter: "bash",
       cwd: "/data/data/com.termux/files/home/CYBRA",
       autorestart: true
+    },
+    {
+      name: "cybra-parliament-priority",
+      script: "/data/data/com.termux/files/home/CYBRA/parliament_core/priority_manager.py",
+      args: ["daemon"],
+      interpreter: "python3",
+      cwd: "/data/data/com.termux/files/home/CYBRA",
+      autorestart: true
     }
   ]
 };
