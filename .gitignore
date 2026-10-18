@@ -28,3 +28,14 @@ cybra-node/
 .binmix/
 .autopilot/
 .tests/
+
+# Brain / EVO / SelfGen runtime
+brain/logs/
+brain/state/
+evo/logs/
+evo/state/
+selfgen/logs/
+nodes/*/logs/
+nodes/*/state/
+hashes/snapshots/
+logs/
