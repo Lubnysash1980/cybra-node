@@ -1,0 +1,72 @@
+{
+  "id": "INV-20261018T152415Z-25672",
+  "type": "invoice",
+  "number": "РБ0518-00742",
+  "date": "06.10.2026",
+  "created": "2026-10-18T15:24:15.129836+00:00",
+  "buyer": {
+    "name": "Грабовський Олександр Миколайович",
+    "ipn": "2937002115",
+    "wallet": "0x29fA26FC5768Fe1E62160E021Fd3f88d92257A1F"
+  },
+  "seller": {
+    "name": "ТОВ \"КОМФІ ТРЕЙД\"",
+    "edrpou": "36962487",
+    "wallet": "0x29fA26FC5768Fe1E62160E021Fd3f88d92257A1F"
+  },
+  "token": {
+    "symbol": "CYBRA",
+    "decimals": 18
+  },
+  "totals": {
+    "sum_with_vat": 114562.49,
+    "vat": 19093.75,
+    "sum_without_vat": 95468.74,
+    "vat_rate": 20.0
+  },
+  "items": [
+    {
+      "code": "3984343",
+      "name": "Samsung Galaxy Fold 8 16/1Tb Graphite",
+      "qty": 1.0,
+      "price": 81748.33,
+      "line_total": 81748.33,
+      "line_vat": 13624.72
+    },
+    {
+      "code": "3909742",
+      "name": "Послуга Comfy Upgrade 2 роки",
+      "qty": 1.0,
+      "price": 24525.0,
+      "line_total": 24525.0,
+      "line_vat": 4087.5
+    },
+    {
+      "code": "2908219",
+      "name": "Samsung Trio 65W 2 Type-C+USB Black",
+      "qty": 1.0,
+      "price": 2040.83,
+      "line_total": 2040.83,
+      "line_vat": 340.14
+    },
+    {
+      "code": "3799926",
+      "name": "Pitaka Aramid Fiber Magnetic Qi2 5000mAh",
+      "qty": 1.0,
+      "price": 3332.5,
+      "line_total": 3332.5,
+      "line_vat": 555.42
+    },
+    {
+      "code": "4061288",
+      "name": "Pitaka Edge Ultra-Slim Case Z Fold 8",
+      "qty": 1.0,
+      "price": 2915.83,
+      "line_total": 2915.83,
+      "line_vat": 485.97
+    }
+  ],
+  "sign_token": "3bad048577503285",
+  "status": "ready_for_payment",
+  "signed_at": "2026-10-18T15:24:15.860584+00:00"
+}
