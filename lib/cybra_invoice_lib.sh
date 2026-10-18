@@ -5,20 +5,21 @@ mkdir -p "$CYBRA_INVOICE_DIR"
 cybra_contract_create_invoice() {
     local buyer="$1" ipn="$2" buyer_wallet="$3" seller="$4" edrpou="$5" seller_wallet="$6" number="$7" date="$8" amount_uah="$9" token="${10}"
     local file="$CYBRA_INVOICE_DIR/INV-$(date -u +%Y%m%dT%H%M%SZ)-$$.json"
-    
     /data/data/com.termux/files/usr/bin/python3 - "$file" "$buyer" "$ipn" "$buyer_wallet" "$seller" "$edrpou" "$seller_wallet" "$number" "$date" "$amount_uah" "$token" <<'PY'
 import json, sys, datetime, hashlib
 from decimal import Decimal, ROUND_HALF_UP
 def r2(x): return Decimal(str(x)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
 (file_, buyer, ipn, bw, seller, edrpou, sw, number, date, amount, token) = sys.argv[1:12]
 amount = Decimal(amount)
+# Правильна логіка: amount - це сума З ПДВ
 vat = r2(amount * Decimal(20) / Decimal(120))
+without_vat = amount - vat
 inv = {
     "id": file_.split("/")[-1].replace(".json", ""), "type": "invoice", "number": number, "date": date,
     "created": datetime.datetime.now(datetime.timezone.utc).isoformat(),
     "buyer": {"name": buyer, "ipn": ipn, "wallet": bw}, "seller": {"name": seller, "edrpou": edrpou, "wallet": sw},
     "token": {"symbol": token, "decimals": 18},
-    "totals": {"sum_with_vat": float(amount), "vat": float(vat), "sum_without_vat": float(amount - vat), "vat_rate": 20.0},
+    "totals": {"sum_with_vat": float(amount), "vat": float(vat), "sum_without_vat": float(without_vat), "vat_rate": 20.0},
     "items": [], "sign_token": hashlib.sha256(f"{number}{date}{amount}".encode()).hexdigest()[:16],
     "status": "awaiting_seller_wallet" if not sw else "draft"
 }
@@ -68,11 +69,6 @@ import json, sys, datetime
 inv = json.load(open(sys.argv[1])); inv["status"] = "complete"; inv["finalized_at"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
 json.dump(inv, open(sys.argv[1], "w", encoding="utf-8"), indent=2, ensure_ascii=False); print(f"✅ INVOICE {inv['number']} → COMPLETE")
 PY
-}
-
-cybra_invoice_get_sign_link() {
-    local id="$1" token=$(/data/data/com.termux/files/usr/bin/python3 -c "import json; print(json.load(open('$CYBRA_INVOICE_DIR/${id}.json')).get('sign_token',''))")
-    [ -n "$token" ] && echo "cybra://sign/${token}"
 }
 
 cybra_invoice_sign_seller() {
