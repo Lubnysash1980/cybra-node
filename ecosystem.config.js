@@ -13,6 +13,8 @@ module.exports = {
     { name: "cybra-node-4", script: "/data/data/com.termux/files/home/CYBRA/nodes/node_4/node_4.py", interpreter: "python3", cwd: "/data/data/com.termux/files/home/CYBRA", autorestart: true },
     { name: "cybra-node-5", script: "/data/data/com.termux/files/home/CYBRA/nodes/node_5/node_5.py", interpreter: "python3", cwd: "/data/data/com.termux/files/home/CYBRA", autorestart: true },
     { name: "cybra-node-6", script: "/data/data/com.termux/files/home/CYBRA/nodes/node_6/node_6.py", interpreter: "python3", cwd: "/data/data/com.termux/files/home/CYBRA", autorestart: true },
-    { name: "cybra-node-7", script: "/data/data/com.termux/files/home/CYBRA/nodes/node_7/node_7.py", interpreter: "python3", cwd: "/data/data/com.termux/files/home/CYBRA", autorestart: true }
+    { name: "cybra-node-7", script: "/data/data/com.termux/files/home/CYBRA/nodes/node_7/node_7.py", interpreter: "python3", cwd: "/data/data/com.termux/files/home/CYBRA", autorestart: true },
+    { name: "cybra-lifecycle", script: "/data/data/com.termux/files/home/CYBRA/lifecycle/lifecycle_manager.py", args: ["daemon"], interpreter: "python3", cwd: "/data/data/com.termux/files/home/CYBRA", autorestart: true },
+    { name: "cybra-autoresolver", script: "/data/data/com.termux/files/home/CYBRA/lifecycle/autoresolver.py", args: ["daemon"], interpreter: "python3", cwd: "/data/data/com.termux/files/home/CYBRA", autorestart: true }
   ]
 };

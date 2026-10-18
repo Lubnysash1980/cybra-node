@@ -1,18 +1,238 @@
 {
-  "updated": "2026-10-18T15:11:51.631563+00:00",
-  "total_modules": 192,
-  "unique_actions": 59,
+  "updated": "2026-10-18T15:17:13.096839+00:00",
+  "total_modules": 215,
+  "unique_actions": 73,
   "conflicts": 15,
   "modules": [
+    {
+      "name": "module_01_auto_executor",
+      "title": "module_01_auto_executor",
+      "action": "module01autoexecutor",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 828,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_01_auto_executor/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_02_contract_builder",
+      "title": "module_02_contract_builder",
+      "action": "contract",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 840,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_02_contract_builder/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_03_escrow_controller",
+      "title": "module_03_escrow_controller",
+      "action": "module03escrowcontroller",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 844,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_03_escrow_controller/main.sh",
+      "score": 40
+    },
     {
       "name": "module_121_parlament",
       "title": "module_121_parlament",
       "action": "parliament",
       "status": "unknown",
       "base_score": 30,
-      "size": 421,
+      "size": 1199,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_121_parlament/main.sh",
-      "score": 32
+      "score": 50
+    },
+    {
+      "name": "module_12_delivery_receipt",
+      "title": "module_12_delivery_receipt",
+      "action": "module12deliveryreceipt",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 840,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_12_delivery_receipt/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_13_dual_backend",
+      "title": "module_13_dual_backend",
+      "action": "module13dualbackend",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 824,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_13_dual_backend/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_14_watchdog",
+      "title": "module_14_watchdog",
+      "action": "module14watchdog",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 808,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_14_watchdog/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_15_true100_aggregator",
+      "title": "module_15_true100_aggregator",
+      "action": "module15true100aggregator",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 848,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_15_true100_aggregator/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_16_final_authorization_release_gate",
+      "title": "module_16_final_authorization_release_gate",
+      "action": "module16finalauthorizationreleasegate",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 904,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_16_final_authorization_release_gate/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_17_cybra_license_contract_menu",
+      "title": "module_17_cybra_license_contract_menu",
+      "action": "contract",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 884,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_17_cybra_license_contract_menu/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_18_license_payment_router",
+      "title": "module_18_license_payment_router",
+      "action": "module18licensepaymentrouter",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 864,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_18_license_payment_router/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_20_evolution_guard",
+      "title": "module_20_evolution_guard",
+      "action": "evo",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 836,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_20_evolution_guard/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_25_address_book",
+      "title": "module_25_address_book",
+      "action": "module25addressbook",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 824,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_25_address_book/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_26_qr_codes",
+      "title": "module_26_qr_codes",
+      "action": "qr",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 808,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_26_qr_codes/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_27_telegram_bot",
+      "title": "module_27_telegram_bot",
+      "action": "telegram",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 824,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_27_telegram_bot/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_28_export",
+      "title": "module_28_export",
+      "action": "module28export",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 800,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_28_export/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_29_backup",
+      "title": "module_29_backup",
+      "action": "backup",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 800,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_29_backup/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_30_multichain",
+      "title": "module_30_multichain",
+      "action": "ai",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 816,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_30_multichain/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_31_dispute_resolver",
+      "title": "module_31_dispute_resolver",
+      "action": "module31disputeresolver",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 840,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_31_dispute_resolver/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_32_webhook",
+      "title": "module_32_webhook",
+      "action": "webhook",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 804,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_32_webhook/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_33_audit_log",
+      "title": "module_33_audit_log",
+      "action": "module33auditlog",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 812,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_33_audit_log/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_34_doc_scanner",
+      "title": "module_34_doc_scanner",
+      "action": "module34docscanner",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 820,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_34_doc_scanner/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_35_cybra_guardian",
+      "title": "module_35_cybra_guardian",
+      "action": "module35cybraguardian",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 832,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_35_cybra_guardian/main.sh",
+      "score": 40
     },
     {
       "name": "module_108_metamask_sign",
@@ -20,9 +240,9 @@
       "action": "metamask",
       "status": "unknown",
       "base_score": 30,
-      "size": 429,
+      "size": 1242,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_108_metamask_sign/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_109_metamask_verify",
@@ -30,9 +250,9 @@
       "action": "metamask",
       "status": "unknown",
       "base_score": 30,
-      "size": 433,
+      "size": 1252,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_109_metamask_verify/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_110_metamask_history",
@@ -40,9 +260,9 @@
       "action": "metamask",
       "status": "unknown",
       "base_score": 30,
-      "size": 435,
+      "size": 1257,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_110_metamask_history/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_111_invoice",
@@ -50,9 +270,9 @@
       "action": "invoice",
       "status": "unknown",
       "base_score": 30,
-      "size": 417,
+      "size": 1187,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_111_invoice/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_112_metamask_deeplink",
@@ -60,9 +280,9 @@
       "action": "metamask",
       "status": "unknown",
       "base_score": 30,
-      "size": 437,
+      "size": 1262,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_112_metamask_deeplink/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_113_metamask_batch",
@@ -70,9 +290,9 @@
       "action": "metamask",
       "status": "unknown",
       "base_score": 30,
-      "size": 431,
+      "size": 1247,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_113_metamask_batch/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_114_autonode",
@@ -80,9 +300,9 @@
       "action": "node",
       "status": "unknown",
       "base_score": 30,
-      "size": 419,
+      "size": 1193,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_114_autonode/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_115_rpc_bench",
@@ -90,9 +310,9 @@
       "action": "module115rpcbench",
       "status": "unknown",
       "base_score": 30,
-      "size": 421,
+      "size": 1199,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_115_rpc_bench/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_116_gas_monitor",
@@ -100,9 +320,9 @@
       "action": "module116gasmonitor",
       "status": "unknown",
       "base_score": 30,
-      "size": 425,
+      "size": 1211,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_116_gas_monitor/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_117_tx_lookup",
@@ -110,9 +330,9 @@
       "action": "module117txlookup",
       "status": "unknown",
       "base_score": 30,
-      "size": 421,
+      "size": 1199,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_117_tx_lookup/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_118_net_health",
@@ -120,9 +340,9 @@
       "action": "module118nethealth",
       "status": "unknown",
       "base_score": 30,
-      "size": 423,
+      "size": 1205,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_118_net_health/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_119_qr_sign",
@@ -130,9 +350,9 @@
       "action": "qr",
       "status": "unknown",
       "base_score": 30,
-      "size": 417,
+      "size": 1237,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_119_qr_sign/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_120_ai_guardian",
@@ -140,9 +360,9 @@
       "action": "ai",
       "status": "unknown",
       "base_score": 30,
-      "size": 425,
+      "size": 1256,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_120_ai_guardian/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_122_contract_validator",
@@ -150,9 +370,9 @@
       "action": "contract",
       "status": "unknown",
       "base_score": 30,
-      "size": 439,
+      "size": 1246,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_122_contract_validator/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_123_multisig",
@@ -160,9 +380,9 @@
       "action": "module123multisig",
       "status": "unknown",
       "base_score": 30,
-      "size": 419,
+      "size": 1193,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_123_multisig/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_124_timelock",
@@ -170,9 +390,9 @@
       "action": "module124timelock",
       "status": "unknown",
       "base_score": 30,
-      "size": 419,
+      "size": 1193,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_124_timelock/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_125_anchor",
@@ -180,9 +400,9 @@
       "action": "module125anchor",
       "status": "unknown",
       "base_score": 30,
-      "size": 415,
+      "size": 1181,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_125_anchor/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_126_zk",
@@ -190,9 +410,9 @@
       "action": "module126zk",
       "status": "unknown",
       "base_score": 30,
-      "size": 407,
+      "size": 1157,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_126_zk/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_128_dashboard",
@@ -200,9 +420,9 @@
       "action": "module128dashboard",
       "status": "unknown",
       "base_score": 30,
-      "size": 421,
+      "size": 1199,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_128_dashboard/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_129_voice",
@@ -210,9 +430,9 @@
       "action": "module129voice",
       "status": "unknown",
       "base_score": 30,
-      "size": 413,
+      "size": 1175,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_129_voice/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_130_test_suite",
@@ -220,9 +440,9 @@
       "action": "module130testsuite",
       "status": "unknown",
       "base_score": 30,
-      "size": 423,
+      "size": 1205,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_130_test_suite/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_131_kyc",
@@ -230,9 +450,9 @@
       "action": "module131kyc",
       "status": "unknown",
       "base_score": 30,
-      "size": 409,
+      "size": 1163,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_131_kyc/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_132_compliance",
@@ -240,9 +460,9 @@
       "action": "module132compliance",
       "status": "unknown",
       "base_score": 30,
-      "size": 423,
+      "size": 1205,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_132_compliance/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_133_tokens",
@@ -250,9 +470,9 @@
       "action": "module133tokens",
       "status": "unknown",
       "base_score": 30,
-      "size": 415,
+      "size": 1181,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_133_tokens/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_134_discord",
@@ -260,9 +480,19 @@
       "action": "module134discord",
       "status": "unknown",
       "base_score": 30,
-      "size": 417,
+      "size": 1187,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_134_discord/main.sh",
-      "score": 32
+      "score": 50
+    },
+    {
+      "name": "module_19_contract_tui_menu",
+      "title": "module_19_contract_tui_menu",
+      "action": "contract",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 844,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_19_contract_tui_menu/main.sh",
+      "score": 40
     },
     {
       "name": "module_135_walletconnect",
@@ -270,9 +500,9 @@
       "action": "module135walletconnect",
       "status": "unknown",
       "base_score": 30,
-      "size": 429,
+      "size": 1223,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_135_walletconnect/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_136_templates",
@@ -280,9 +510,9 @@
       "action": "module136templates",
       "status": "unknown",
       "base_score": 30,
-      "size": 421,
+      "size": 1199,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_136_templates/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_137_escrow",
@@ -290,9 +520,9 @@
       "action": "module137escrow",
       "status": "unknown",
       "base_score": 30,
-      "size": 415,
+      "size": 1181,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_137_escrow/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_138_arbitration",
@@ -300,9 +530,9 @@
       "action": "module138arbitration",
       "status": "unknown",
       "base_score": 30,
-      "size": 425,
+      "size": 1211,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_138_arbitration/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_139_reputation",
@@ -310,9 +540,9 @@
       "action": "module139reputation",
       "status": "unknown",
       "base_score": 30,
-      "size": 423,
+      "size": 1205,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_139_reputation/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_143_email",
@@ -320,9 +550,9 @@
       "action": "ai",
       "status": "unknown",
       "base_score": 30,
-      "size": 413,
+      "size": 1226,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_143_email/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_140_analytics",
@@ -330,9 +560,9 @@
       "action": "module140analytics",
       "status": "unknown",
       "base_score": 30,
-      "size": 421,
+      "size": 1199,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_140_analytics/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_141_portfolio",
@@ -340,9 +570,9 @@
       "action": "module141portfolio",
       "status": "unknown",
       "base_score": 30,
-      "size": 421,
+      "size": 1199,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_141_portfolio/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_142_invoice_pdf",
@@ -350,9 +580,9 @@
       "action": "invoice",
       "status": "unknown",
       "base_score": 30,
-      "size": 425,
+      "size": 1207,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_142_invoice_pdf/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_144_lightning",
@@ -360,9 +590,9 @@
       "action": "module144lightning",
       "status": "unknown",
       "base_score": 30,
-      "size": 421,
+      "size": 1199,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_144_lightning/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_145_ipfs",
@@ -370,9 +600,9 @@
       "action": "module145ipfs",
       "status": "unknown",
       "base_score": 30,
-      "size": 411,
+      "size": 1169,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_145_ipfs/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_146_merkle",
@@ -380,9 +610,9 @@
       "action": "module146merkle",
       "status": "unknown",
       "base_score": 30,
-      "size": 415,
+      "size": 1181,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_146_merkle/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_147_reputation_v2",
@@ -390,9 +620,9 @@
       "action": "module147reputationv2",
       "status": "unknown",
       "base_score": 30,
-      "size": 429,
+      "size": 1223,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_147_reputation_v2/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_148_multisig_ui",
@@ -400,9 +630,9 @@
       "action": "module148multisigui",
       "status": "unknown",
       "base_score": 30,
-      "size": 425,
+      "size": 1211,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_148_multisig_ui/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_149_analytics",
@@ -1926,110 +2156,141 @@
     }
   ],
   "resolved": {
+    "module01autoexecutor": {
+      "winner": "module_01_auto_executor",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_01_auto_executor/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_01_auto_executor",
+      "standby": [],
+      "total": 1
+    },
+    "contract": {
+      "winner": "module_1_base",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_1_base/main.sh",
+      "winner_score": 100,
+      "winner_title": "Створити контракт",
+      "standby": [
+        {
+          "name": "module_2_base",
+          "score": 100
+        },
+        {
+          "name": "module_3_base",
+          "score": 100
+        },
+        {
+          "name": "module_92_base",
+          "score": 70
+        },
+        {
+          "name": "module_95_base",
+          "score": 70
+        },
+        {
+          "name": "module_122_contract_validator",
+          "score": 50
+        },
+        {
+          "name": "module_02_contract_builder",
+          "score": 40
+        },
+        {
+          "name": "module_17_cybra_license_contract_menu",
+          "score": 40
+        },
+        {
+          "name": "module_19_contract_tui_menu",
+          "score": 40
+        }
+      ],
+      "total": 9
+    },
+    "module03escrowcontroller": {
+      "winner": "module_03_escrow_controller",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_03_escrow_controller/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_03_escrow_controller",
+      "standby": [],
+      "total": 1
+    },
     "parliament": {
       "winner": "module_121_parlament",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_121_parlament/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_121_parlament",
       "standby": [],
       "total": 1
     },
-    "metamask": {
-      "winner": "module_108_metamask_sign",
-      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_108_metamask_sign/main.sh",
-      "winner_score": 32,
-      "winner_title": "module_108_metamask_sign",
-      "standby": [
-        {
-          "name": "module_109_metamask_verify",
-          "score": 32
-        },
-        {
-          "name": "module_110_metamask_history",
-          "score": 32
-        },
-        {
-          "name": "module_112_metamask_deeplink",
-          "score": 32
-        },
-        {
-          "name": "module_113_metamask_batch",
-          "score": 32
-        }
-      ],
-      "total": 5
+    "module12deliveryreceipt": {
+      "winner": "module_12_delivery_receipt",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_12_delivery_receipt/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_12_delivery_receipt",
+      "standby": [],
+      "total": 1
     },
-    "invoice": {
-      "winner": "module_10_base",
-      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_10_base/main.sh",
+    "module13dualbackend": {
+      "winner": "module_13_dual_backend",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_13_dual_backend/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_13_dual_backend",
+      "standby": [],
+      "total": 1
+    },
+    "module14watchdog": {
+      "winner": "module_14_watchdog",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_14_watchdog/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_14_watchdog",
+      "standby": [],
+      "total": 1
+    },
+    "module15true100aggregator": {
+      "winner": "module_15_true100_aggregator",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_15_true100_aggregator/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_15_true100_aggregator",
+      "standby": [],
+      "total": 1
+    },
+    "module16finalauthorizationreleasegate": {
+      "winner": "module_16_final_authorization_release_gate",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_16_final_authorization_release_gate/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_16_final_authorization_release_gate",
+      "standby": [],
+      "total": 1
+    },
+    "module18licensepaymentrouter": {
+      "winner": "module_18_license_payment_router",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_18_license_payment_router/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_18_license_payment_router",
+      "standby": [],
+      "total": 1
+    },
+    "evo": {
+      "winner": "module_96_base",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_96_base/main.sh",
       "winner_score": 70,
-      "winner_title": "Підписати INVOICE",
+      "winner_title": "EVO7",
       "standby": [
         {
-          "name": "module_11_base",
+          "name": "module_97_base",
           "score": 70
         },
         {
-          "name": "module_13_base",
-          "score": 70
-        },
-        {
-          "name": "module_14_base",
-          "score": 70
-        },
-        {
-          "name": "module_111_invoice",
-          "score": 32
-        },
-        {
-          "name": "module_142_invoice_pdf",
-          "score": 32
+          "name": "module_20_evolution_guard",
+          "score": 40
         }
       ],
-      "total": 6
+      "total": 3
     },
-    "node": {
-      "winner": "module_100_base",
-      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_100_base/main.sh",
-      "winner_score": 70,
-      "winner_title": "Node manager",
-      "standby": [
-        {
-          "name": "module_114_autonode",
-          "score": 32
-        }
-      ],
-      "total": 2
-    },
-    "module115rpcbench": {
-      "winner": "module_115_rpc_bench",
-      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_115_rpc_bench/main.sh",
-      "winner_score": 32,
-      "winner_title": "module_115_rpc_bench",
-      "standby": [],
-      "total": 1
-    },
-    "module116gasmonitor": {
-      "winner": "module_116_gas_monitor",
-      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_116_gas_monitor/main.sh",
-      "winner_score": 32,
-      "winner_title": "module_116_gas_monitor",
-      "standby": [],
-      "total": 1
-    },
-    "module117txlookup": {
-      "winner": "module_117_tx_lookup",
-      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_117_tx_lookup/main.sh",
-      "winner_score": 32,
-      "winner_title": "module_117_tx_lookup",
-      "standby": [],
-      "total": 1
-    },
-    "module118nethealth": {
-      "winner": "module_118_net_health",
-      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_118_net_health/main.sh",
-      "winner_score": 32,
-      "winner_title": "module_118_net_health",
+    "module25addressbook": {
+      "winner": "module_25_address_book",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_25_address_book/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_25_address_book",
       "standby": [],
       "total": 1
     },
@@ -2041,10 +2302,56 @@
       "standby": [
         {
           "name": "module_119_qr_sign",
-          "score": 32
+          "score": 50
+        },
+        {
+          "name": "module_26_qr_codes",
+          "score": 40
         }
       ],
-      "total": 2
+      "total": 3
+    },
+    "telegram": {
+      "winner": "module_54_base",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_54_base/main.sh",
+      "winner_score": 70,
+      "winner_title": "Telegram setup",
+      "standby": [
+        {
+          "name": "module_55_base",
+          "score": 70
+        },
+        {
+          "name": "module_27_telegram_bot",
+          "score": 40
+        }
+      ],
+      "total": 3
+    },
+    "module28export": {
+      "winner": "module_28_export",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_28_export/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_28_export",
+      "standby": [],
+      "total": 1
+    },
+    "backup": {
+      "winner": "module_61_base",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_61_base/main.sh",
+      "winner_score": 70,
+      "winner_title": "Backup локальний",
+      "standby": [
+        {
+          "name": "module_62_base",
+          "score": 70
+        },
+        {
+          "name": "module_29_backup",
+          "score": 40
+        }
+      ],
+      "total": 3
     },
     "ai": {
       "winner": "module_40_base",
@@ -2078,48 +2385,171 @@
         },
         {
           "name": "module_120_ai_guardian",
-          "score": 32
+          "score": 50
         },
         {
           "name": "module_143_email",
-          "score": 32
+          "score": 50
+        },
+        {
+          "name": "module_30_multichain",
+          "score": 40
         }
       ],
-      "total": 9
+      "total": 10
     },
-    "contract": {
-      "winner": "module_1_base",
-      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_1_base/main.sh",
-      "winner_score": 100,
-      "winner_title": "Створити контракт",
+    "module31disputeresolver": {
+      "winner": "module_31_dispute_resolver",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_31_dispute_resolver/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_31_dispute_resolver",
+      "standby": [],
+      "total": 1
+    },
+    "webhook": {
+      "winner": "module_56_base",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_56_base/main.sh",
+      "winner_score": 70,
+      "winner_title": "Webhook list",
       "standby": [
         {
-          "name": "module_2_base",
-          "score": 100
-        },
-        {
-          "name": "module_3_base",
-          "score": 100
-        },
-        {
-          "name": "module_92_base",
+          "name": "module_57_base",
           "score": 70
         },
         {
-          "name": "module_95_base",
+          "name": "module_32_webhook",
+          "score": 40
+        }
+      ],
+      "total": 3
+    },
+    "module33auditlog": {
+      "winner": "module_33_audit_log",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_33_audit_log/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_33_audit_log",
+      "standby": [],
+      "total": 1
+    },
+    "module34docscanner": {
+      "winner": "module_34_doc_scanner",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_34_doc_scanner/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_34_doc_scanner",
+      "standby": [],
+      "total": 1
+    },
+    "module35cybraguardian": {
+      "winner": "module_35_cybra_guardian",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_35_cybra_guardian/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_35_cybra_guardian",
+      "standby": [],
+      "total": 1
+    },
+    "metamask": {
+      "winner": "module_108_metamask_sign",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_108_metamask_sign/main.sh",
+      "winner_score": 50,
+      "winner_title": "module_108_metamask_sign",
+      "standby": [
+        {
+          "name": "module_109_metamask_verify",
+          "score": 50
+        },
+        {
+          "name": "module_110_metamask_history",
+          "score": 50
+        },
+        {
+          "name": "module_112_metamask_deeplink",
+          "score": 50
+        },
+        {
+          "name": "module_113_metamask_batch",
+          "score": 50
+        }
+      ],
+      "total": 5
+    },
+    "invoice": {
+      "winner": "module_10_base",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_10_base/main.sh",
+      "winner_score": 70,
+      "winner_title": "Підписати INVOICE",
+      "standby": [
+        {
+          "name": "module_11_base",
           "score": 70
         },
         {
-          "name": "module_122_contract_validator",
-          "score": 32
+          "name": "module_13_base",
+          "score": 70
+        },
+        {
+          "name": "module_14_base",
+          "score": 70
+        },
+        {
+          "name": "module_111_invoice",
+          "score": 50
+        },
+        {
+          "name": "module_142_invoice_pdf",
+          "score": 50
         }
       ],
       "total": 6
     },
+    "node": {
+      "winner": "module_100_base",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_100_base/main.sh",
+      "winner_score": 70,
+      "winner_title": "Node manager",
+      "standby": [
+        {
+          "name": "module_114_autonode",
+          "score": 50
+        }
+      ],
+      "total": 2
+    },
+    "module115rpcbench": {
+      "winner": "module_115_rpc_bench",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_115_rpc_bench/main.sh",
+      "winner_score": 50,
+      "winner_title": "module_115_rpc_bench",
+      "standby": [],
+      "total": 1
+    },
+    "module116gasmonitor": {
+      "winner": "module_116_gas_monitor",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_116_gas_monitor/main.sh",
+      "winner_score": 50,
+      "winner_title": "module_116_gas_monitor",
+      "standby": [],
+      "total": 1
+    },
+    "module117txlookup": {
+      "winner": "module_117_tx_lookup",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_117_tx_lookup/main.sh",
+      "winner_score": 50,
+      "winner_title": "module_117_tx_lookup",
+      "standby": [],
+      "total": 1
+    },
+    "module118nethealth": {
+      "winner": "module_118_net_health",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_118_net_health/main.sh",
+      "winner_score": 50,
+      "winner_title": "module_118_net_health",
+      "standby": [],
+      "total": 1
+    },
     "module123multisig": {
       "winner": "module_123_multisig",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_123_multisig/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_123_multisig",
       "standby": [],
       "total": 1
@@ -2127,7 +2557,7 @@
     "module124timelock": {
       "winner": "module_124_timelock",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_124_timelock/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_124_timelock",
       "standby": [],
       "total": 1
@@ -2135,7 +2565,7 @@
     "module125anchor": {
       "winner": "module_125_anchor",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_125_anchor/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_125_anchor",
       "standby": [],
       "total": 1
@@ -2143,7 +2573,7 @@
     "module126zk": {
       "winner": "module_126_zk",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_126_zk/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_126_zk",
       "standby": [],
       "total": 1
@@ -2151,7 +2581,7 @@
     "module128dashboard": {
       "winner": "module_128_dashboard",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_128_dashboard/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_128_dashboard",
       "standby": [],
       "total": 1
@@ -2159,7 +2589,7 @@
     "module129voice": {
       "winner": "module_129_voice",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_129_voice/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_129_voice",
       "standby": [],
       "total": 1
@@ -2167,7 +2597,7 @@
     "module130testsuite": {
       "winner": "module_130_test_suite",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_130_test_suite/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_130_test_suite",
       "standby": [],
       "total": 1
@@ -2175,7 +2605,7 @@
     "module131kyc": {
       "winner": "module_131_kyc",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_131_kyc/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_131_kyc",
       "standby": [],
       "total": 1
@@ -2183,7 +2613,7 @@
     "module132compliance": {
       "winner": "module_132_compliance",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_132_compliance/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_132_compliance",
       "standby": [],
       "total": 1
@@ -2191,7 +2621,7 @@
     "module133tokens": {
       "winner": "module_133_tokens",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_133_tokens/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_133_tokens",
       "standby": [],
       "total": 1
@@ -2199,7 +2629,7 @@
     "module134discord": {
       "winner": "module_134_discord",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_134_discord/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_134_discord",
       "standby": [],
       "total": 1
@@ -2207,7 +2637,7 @@
     "module135walletconnect": {
       "winner": "module_135_walletconnect",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_135_walletconnect/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_135_walletconnect",
       "standby": [],
       "total": 1
@@ -2215,7 +2645,7 @@
     "module136templates": {
       "winner": "module_136_templates",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_136_templates/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_136_templates",
       "standby": [],
       "total": 1
@@ -2223,7 +2653,7 @@
     "module137escrow": {
       "winner": "module_137_escrow",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_137_escrow/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_137_escrow",
       "standby": [],
       "total": 1
@@ -2231,7 +2661,7 @@
     "module138arbitration": {
       "winner": "module_138_arbitration",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_138_arbitration/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_138_arbitration",
       "standby": [],
       "total": 1
@@ -2239,7 +2669,7 @@
     "module139reputation": {
       "winner": "module_139_reputation",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_139_reputation/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_139_reputation",
       "standby": [],
       "total": 1
@@ -2247,7 +2677,7 @@
     "module140analytics": {
       "winner": "module_140_analytics",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_140_analytics/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_140_analytics",
       "standby": [],
       "total": 1
@@ -2255,7 +2685,7 @@
     "module141portfolio": {
       "winner": "module_141_portfolio",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_141_portfolio/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_141_portfolio",
       "standby": [],
       "total": 1
@@ -2263,7 +2693,7 @@
     "module144lightning": {
       "winner": "module_144_lightning",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_144_lightning/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_144_lightning",
       "standby": [],
       "total": 1
@@ -2271,7 +2701,7 @@
     "module145ipfs": {
       "winner": "module_145_ipfs",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_145_ipfs/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_145_ipfs",
       "standby": [],
       "total": 1
@@ -2279,7 +2709,7 @@
     "module146merkle": {
       "winner": "module_146_merkle",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_146_merkle/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_146_merkle",
       "standby": [],
       "total": 1
@@ -2287,7 +2717,7 @@
     "module147reputationv2": {
       "winner": "module_147_reputation_v2",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_147_reputation_v2/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_147_reputation_v2",
       "standby": [],
       "total": 1
@@ -2295,7 +2725,7 @@
     "module148multisigui": {
       "winner": "module_148_multisig_ui",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_148_multisig_ui/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_148_multisig_ui",
       "standby": [],
       "total": 1
@@ -2578,45 +3008,6 @@
       ],
       "total": 4
     },
-    "telegram": {
-      "winner": "module_54_base",
-      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_54_base/main.sh",
-      "winner_score": 70,
-      "winner_title": "Telegram setup",
-      "standby": [
-        {
-          "name": "module_55_base",
-          "score": 70
-        }
-      ],
-      "total": 2
-    },
-    "webhook": {
-      "winner": "module_56_base",
-      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_56_base/main.sh",
-      "winner_score": 70,
-      "winner_title": "Webhook list",
-      "standby": [
-        {
-          "name": "module_57_base",
-          "score": 70
-        }
-      ],
-      "total": 2
-    },
-    "backup": {
-      "winner": "module_61_base",
-      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_61_base/main.sh",
-      "winner_score": 70,
-      "winner_title": "Backup локальний",
-      "standby": [
-        {
-          "name": "module_62_base",
-          "score": 70
-        }
-      ],
-      "total": 2
-    },
     "validate": {
       "winner": "module_32_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_32_base/main.sh",
@@ -2666,19 +3057,6 @@
       "winner_title": "Останні архіви",
       "standby": [],
       "total": 1
-    },
-    "evo": {
-      "winner": "module_96_base",
-      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_96_base/main.sh",
-      "winner_score": 70,
-      "winner_title": "EVO7",
-      "standby": [
-        {
-          "name": "module_97_base",
-          "score": 70
-        }
-      ],
-      "total": 2
     },
     "binmix": {
       "winner": "module_102_base",
@@ -2948,63 +3326,56 @@
   },
   "conflicts_detail": [
     {
-      "action": "metamask",
-      "winner": "module_108_metamask_sign",
-      "winner_score": 32,
+      "action": "contract",
+      "winner": "module_1_base",
+      "winner_score": 100,
       "others": [
         {
-          "name": "module_109_metamask_verify",
-          "score": 32
+          "name": "module_2_base",
+          "score": 100
         },
         {
-          "name": "module_110_metamask_history",
-          "score": 32
+          "name": "module_3_base",
+          "score": 100
         },
         {
-          "name": "module_112_metamask_deeplink",
-          "score": 32
+          "name": "module_92_base",
+          "score": 70
         },
         {
-          "name": "module_113_metamask_batch",
-          "score": 32
+          "name": "module_95_base",
+          "score": 70
+        },
+        {
+          "name": "module_122_contract_validator",
+          "score": 50
+        },
+        {
+          "name": "module_02_contract_builder",
+          "score": 40
+        },
+        {
+          "name": "module_17_cybra_license_contract_menu",
+          "score": 40
+        },
+        {
+          "name": "module_19_contract_tui_menu",
+          "score": 40
         }
       ]
     },
     {
-      "action": "invoice",
-      "winner": "module_10_base",
+      "action": "evo",
+      "winner": "module_96_base",
       "winner_score": 70,
       "others": [
         {
-          "name": "module_11_base",
+          "name": "module_97_base",
           "score": 70
         },
         {
-          "name": "module_13_base",
-          "score": 70
-        },
-        {
-          "name": "module_14_base",
-          "score": 70
-        },
-        {
-          "name": "module_111_invoice",
-          "score": 32
-        },
-        {
-          "name": "module_142_invoice_pdf",
-          "score": 32
-        }
-      ]
-    },
-    {
-      "action": "node",
-      "winner": "module_100_base",
-      "winner_score": 70,
-      "others": [
-        {
-          "name": "module_114_autonode",
-          "score": 32
+          "name": "module_20_evolution_guard",
+          "score": 40
         }
       ]
     },
@@ -3015,7 +3386,41 @@
       "others": [
         {
           "name": "module_119_qr_sign",
-          "score": 32
+          "score": 50
+        },
+        {
+          "name": "module_26_qr_codes",
+          "score": 40
+        }
+      ]
+    },
+    {
+      "action": "telegram",
+      "winner": "module_54_base",
+      "winner_score": 70,
+      "others": [
+        {
+          "name": "module_55_base",
+          "score": 70
+        },
+        {
+          "name": "module_27_telegram_bot",
+          "score": 40
+        }
+      ]
+    },
+    {
+      "action": "backup",
+      "winner": "module_61_base",
+      "winner_score": 70,
+      "others": [
+        {
+          "name": "module_62_base",
+          "score": 70
+        },
+        {
+          "name": "module_29_backup",
+          "score": 40
         }
       ]
     },
@@ -3050,38 +3455,91 @@
         },
         {
           "name": "module_120_ai_guardian",
-          "score": 32
+          "score": 50
         },
         {
           "name": "module_143_email",
-          "score": 32
+          "score": 50
+        },
+        {
+          "name": "module_30_multichain",
+          "score": 40
         }
       ]
     },
     {
-      "action": "contract",
-      "winner": "module_1_base",
-      "winner_score": 100,
+      "action": "webhook",
+      "winner": "module_56_base",
+      "winner_score": 70,
       "others": [
         {
-          "name": "module_2_base",
-          "score": 100
-        },
-        {
-          "name": "module_3_base",
-          "score": 100
-        },
-        {
-          "name": "module_92_base",
+          "name": "module_57_base",
           "score": 70
         },
         {
-          "name": "module_95_base",
+          "name": "module_32_webhook",
+          "score": 40
+        }
+      ]
+    },
+    {
+      "action": "metamask",
+      "winner": "module_108_metamask_sign",
+      "winner_score": 50,
+      "others": [
+        {
+          "name": "module_109_metamask_verify",
+          "score": 50
+        },
+        {
+          "name": "module_110_metamask_history",
+          "score": 50
+        },
+        {
+          "name": "module_112_metamask_deeplink",
+          "score": 50
+        },
+        {
+          "name": "module_113_metamask_batch",
+          "score": 50
+        }
+      ]
+    },
+    {
+      "action": "invoice",
+      "winner": "module_10_base",
+      "winner_score": 70,
+      "others": [
+        {
+          "name": "module_11_base",
           "score": 70
         },
         {
-          "name": "module_122_contract_validator",
-          "score": 32
+          "name": "module_13_base",
+          "score": 70
+        },
+        {
+          "name": "module_14_base",
+          "score": 70
+        },
+        {
+          "name": "module_111_invoice",
+          "score": 50
+        },
+        {
+          "name": "module_142_invoice_pdf",
+          "score": 50
+        }
+      ]
+    },
+    {
+      "action": "node",
+      "winner": "module_100_base",
+      "winner_score": 70,
+      "others": [
+        {
+          "name": "module_114_autonode",
+          "score": 50
         }
       ]
     },
@@ -3328,39 +3786,6 @@
       ]
     },
     {
-      "action": "telegram",
-      "winner": "module_54_base",
-      "winner_score": 70,
-      "others": [
-        {
-          "name": "module_55_base",
-          "score": 70
-        }
-      ]
-    },
-    {
-      "action": "webhook",
-      "winner": "module_56_base",
-      "winner_score": 70,
-      "others": [
-        {
-          "name": "module_57_base",
-          "score": 70
-        }
-      ]
-    },
-    {
-      "action": "backup",
-      "winner": "module_61_base",
-      "winner_score": 70,
-      "others": [
-        {
-          "name": "module_62_base",
-          "score": 70
-        }
-      ]
-    },
-    {
       "action": "validate",
       "winner": "module_32_base",
       "winner_score": 70,
@@ -3394,17 +3819,6 @@
       "others": [
         {
           "name": "module_88_base",
-          "score": 70
-        }
-      ]
-    },
-    {
-      "action": "evo",
-      "winner": "module_96_base",
-      "winner_score": 70,
-      "others": [
-        {
-          "name": "module_97_base",
           "score": 70
         }
       ]
