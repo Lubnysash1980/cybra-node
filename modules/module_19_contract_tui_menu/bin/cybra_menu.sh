@@ -144,7 +144,16 @@ action_add_line() {
 
 action_show_invoice() {
     printf 'CONTRACT_ID: '; read -r C
-    cybra_invoice_show "$C" 2>/dev/null
+    if [ -z "$C" ]; then
+        echo "❌ ID не вказано"
+        read -r _
+        return 1
+    fi
+    
+    source "$HOME/CYBRA/lib/cybra_invoice_lib.sh" 2>/dev/null
+    export CYBRA_INVOICE_DIR="$HOME/CYBRA/modules/module_19_contract_tui_menu/contracts"
+    
+    cybra_invoice_show "$C"
     read -r _
 }
 
