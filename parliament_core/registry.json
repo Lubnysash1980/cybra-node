@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19T08:47:31.370415+00:00",
+  "updated": "2026-10-19T08:48:40.755104+00:00",
   "total_modules": 217,
   "unique_actions": 73,
   "conflicts": 15,
@@ -656,11 +656,11 @@
     },
     {
       "name": "module_151_ad_contract",
-      "title": "Реклама (Ad Contract) + SQLite + 7 рівнів",
+      "title": "module_151_ad_contract",
       "action": "contract",
       "status": "unknown",
       "base_score": 30,
-      "size": 2999,
+      "size": 3117,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_151_ad_contract/main.sh",
       "score": 42
     },
@@ -706,13 +706,13 @@
     },
     {
       "name": "module_152_rollback_evo",
-      "title": "Відкат до чистої ноти EVO",
+      "title": "module_152_rollback_evo",
       "action": "evo",
       "status": "unknown",
       "base_score": 30,
-      "size": 2455,
+      "size": 1217,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_152_rollback_evo/main.sh",
-      "score": 42
+      "score": 50
     },
     {
       "name": "module_9_generated",
@@ -2305,7 +2305,7 @@
         },
         {
           "name": "module_152_rollback_evo",
-          "score": 42
+          "score": 50
         },
         {
           "name": "module_20_evolution_guard",
@@ -3407,7 +3407,7 @@
         },
         {
           "name": "module_152_rollback_evo",
-          "score": 42
+          "score": 50
         },
         {
           "name": "module_20_evolution_guard",
