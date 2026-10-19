@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19T08:45:29.477638+00:00",
+  "updated": "2026-10-19T08:46:26.006416+00:00",
   "total_modules": 217,
   "unique_actions": 73,
   "conflicts": 15,
@@ -660,7 +660,7 @@
       "action": "contract",
       "status": "unknown",
       "base_score": 30,
-      "size": 2043,
+      "size": 3230,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_151_ad_contract/main.sh",
       "score": 42
     },
@@ -710,7 +710,7 @@
       "action": "evo",
       "status": "unknown",
       "base_score": 30,
-      "size": 1268,
+      "size": 2455,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_152_rollback_evo/main.sh",
       "score": 42
     },
