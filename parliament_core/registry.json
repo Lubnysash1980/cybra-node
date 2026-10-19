@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19T10:02:20.255103+00:00",
+  "updated": "2026-10-19T10:04:30.992949+00:00",
   "total_modules": 217,
   "unique_actions": 73,
   "conflicts": 15,
@@ -710,9 +710,9 @@
       "action": "evo",
       "status": "unknown",
       "base_score": 30,
-      "size": 2121,
+      "size": 1517,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_152_rollback_evo/main.sh",
-      "score": 50
+      "score": 42
     },
     {
       "name": "module_9_generated",
@@ -2304,12 +2304,12 @@
           "score": 70
         },
         {
-          "name": "module_152_rollback_evo",
+          "name": "module_20_evolution_guard",
           "score": 50
         },
         {
-          "name": "module_20_evolution_guard",
-          "score": 50
+          "name": "module_152_rollback_evo",
+          "score": 42
         }
       ],
       "total": 4
@@ -3406,12 +3406,12 @@
           "score": 70
         },
         {
-          "name": "module_152_rollback_evo",
+          "name": "module_20_evolution_guard",
           "score": 50
         },
         {
-          "name": "module_20_evolution_guard",
-          "score": 50
+          "name": "module_152_rollback_evo",
+          "score": 42
         }
       ]
     },
