@@ -14,18 +14,25 @@ sqlite3 "$DB" "CREATE TABLE IF NOT EXISTS ads (
 );"
 
 ad_create() {
-    echo ""
-    read -r -p "Що рекламуємо: " what
-    [ -z "$what" ] && { echo "❌ Порожньо"; return; }
-    read -r -p "Платформа (TikTok/FB/сайт): " platform
-    [ -z "$platform" ] && { echo "❌ Порожньо"; return; }
-    read -r -p "URL: " url
-    echo "$url" | grep -qE '^https?://' || { echo "❌ URL невалідний"; return; }
-    read -r -p "Обсяг (1-7): " volume
-    [ "$volume" -ge 1 ] 2>/dev/null && [ "$volume" -le 7 ] || { echo "❌ Обсяг 1-7"; return; }
+    local what platform url volume
+    if [ $# -ge 4 ]; then
+        what="$1"; platform="$2"; url="$3"; volume="$4"
+    else
+        echo ""
+        read -r -p "Що рекламуємо: " what
+        read -r -p "Платформа (TikTok/FB/сайт): " platform
+        read -r -p "URL: " url
+        read -r -p "Обсяг (1-7): " volume
+    fi
+
+    # валідація
+    [ -z "$what" ] && { echo "❌ Що рекламуємо — порожньо"; return 1; }
+    [ -z "$platform" ] && { echo "❌ Платформа — порожньо"; return 1; }
+    echo "$url" | grep -qE '^https?://' || { echo "❌ URL невалідний: '$url'"; return 1; }
+    echo "$volume" | grep -qE '^[1-7]$' || { echo "❌ Обсяг має бути 1-7, а не '$volume'"; return 1; }
+
     local price=$(echo "scale=4; $volume * 0.01" | bc 2>/dev/null || echo "0.01")
     local now=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-    # INSERT + отримання ID в одній команді
     local id=$(sqlite3 "$DB" "INSERT INTO ads (what,platform,url,volume,price_bnb,created_at) VALUES ('$what','$platform','$url',$volume,$price,'$now'); SELECT last_insert_rowid();")
     echo "✅ Реклама #$id | $price BNB | 50/50"
 }
@@ -45,7 +52,7 @@ ad_refund() {
 }
 
 case "$1" in
-    create) ad_create ;;
+    create) shift; ad_create "$@" ;;
     status) ad_status ;;
     refund) ad_refund ;;
     menu)
