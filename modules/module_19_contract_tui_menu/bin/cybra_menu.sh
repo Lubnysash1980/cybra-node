@@ -1669,6 +1669,8 @@ while true; do
         31) bash "$HOME/CYBRA/modules/module_31_base/main.sh" ;;
         32) bash "$HOME/CYBRA/modules/module_32_base/main.sh" ;;
         33) bash "$HOME/CYBRA/modules/module_33_base/main.sh" ;;
+        151) bash "$HOME/CYBRA/modules/module_151_ad_contract/main.sh" ;;
+        152) bash "$HOME/CYBRA/modules/module_152_rollback_evo/main.sh" ;;
         0|q|Q|exit|quit)
             printf "%s
 " "${C_GREEN}До побачення.${C_RESET}"
