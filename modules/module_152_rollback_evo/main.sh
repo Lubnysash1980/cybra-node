@@ -1,44 +1,70 @@
 #!/data/data/com.termux/files/usr/bin/bash
-
-# ─── BINMIX WRAP (65MB) ───
-CYBRA_W="$HOME/CYBRA"
-SANDBOX_W="$CYBRA_W/sandbox"
-LIMIT_W=$((65 * 1024 * 1024))
-mkdir -p "$SANDBOX_W"/{bin,tmp,keep,trash} 2>/dev/null
-SIZE_W=$(du -sb "$SANDBOX_W" 2>/dev/null | awk "{print \$1}" || echo 0)
-if [ "$SIZE_W" -ge "$LIMIT_W" ]; then
-    rm -rf "$SANDBOX_W"/trash/* "$SANDBOX_W"/tmp/* 2>/dev/null
-    [ -x "$SANDBOX_W/sandbox_cleanup.sh" ] && "$SANDBOX_W/sandbox_cleanup.sh" >/dev/null 2>&1
-fi
-BINMIX_W="$CYBRA_W/bin/cybra_binmix"
-[ -x "$BINMIX_W" ] && "$BINMIX_W" status >/dev/null 2>&1
-# ─── END BINMIX WRAP ───
-
-# МОДУЛЬ: module_152_rollback_evo
-# СТАТУС: READY (100% - auto-resolved)
-# ДАТА: 2026-10-19T11:36:26.379044+00:00
-
+# 152: ВІДКАТ EVO — повний 100%
 CYBRA="$HOME/CYBRA"
+BACKUP="$CYBRA/backup/evo_snapshot.tar.gz"
+LEVEL_FILE="$CYBRA/state/module_152.level"
 LOG="$CYBRA/logs/module_152_rollback_evo.log"
-mkdir -p "$(dirname "$LOG")"
+mkdir -p "$CYBRA/backup" "$CYBRA/state" "$CYBRA/logs"
+log() { echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] $1" >> "$LOG"; }
 
-# ─── ЗАХИСТ (TRAP ERR) ───
-log() { echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] $1" >> "$LOG"; }
-trap 'log "ERROR at line $LINENO"; echo "❌ Помилка. Лог: $LOG"' ERR
+level_now() { [ -f "$LEVEL_FILE" ] && cat "$LEVEL_FILE" || echo 1; }
+level_set() { echo "$1" > "$LEVEL_FILE"; log "LEVEL: $1"; }
+level1() { [ -d "$CYBRA" ] && return 0 || return 1; }
+level2() { command -v tar >/dev/null && return 0 || return 1; }
+level3() { [ -d "$CYBRA/evo" ] && return 0 || return 1; }
+level4() { [ -d "$CYBRA/.git" ] && return 0 || return 1; }
+level5() { [ -d "$CYBRA/sandbox" ] && return 0 || return 1; }
+level6() { [ -d "$CYBRA/modules" ] && return 0 || return 1; }
+level7() { [ -f "$BACKUP" ] || tar -czf "$BACKUP" -C "$CYBRA" evo bin data 2>/dev/null; return 0; }
+run_levels() {
+    local cur=$(level_now)
+    for i in 1 2 3 4 5 6 7; do
+        [ "$i" -lt "$cur" ] && continue
+        if "level$i"; then level_set "$i"; else return 0; fi
+    done
+}
 
-log "START: module_152_rollback_evo"
+snapshot() { tar -czf "$BACKUP" -C "$CYBRA" evo bin data 2>/dev/null; echo "✅ Snapshot: $BACKUP"; log "SNAPSHOT"; }
+restore() { [ -f "$BACKUP" ] || { echo "❌ Немає snapshot"; return 1; }; tar -xzf "$BACKUP" -C "$CYBRA" && echo "✅ Відновлено"; log "RESTORE"; }
+git_reset() { [ -d "$CYBRA/.git" ] || { echo "❌ Немає .git"; return 1; }; (cd "$CYBRA" && git reset --hard HEAD --quiet) && echo "✅ Git reset"; log "GIT RESET"; }
+clean() {
+    echo "⚠️  Відкат до чистої ноти EVO"
+    read -r -p "Підтвердити? (yes/no): " ok
+    [ "$ok" != "yes" ] && echo "скасовано" && return
+    snapshot
+    [ -d "$CYBRA/.git" ] && (cd "$CYBRA" && git reset --hard HEAD --quiet 2>/dev/null)
+    log "CLEAN"
+    echo "✅ Відкат виконано"
+}
+progress() {
+    echo "═══ ШЛЯХ ДО 100% ВІДКАТУ ═══"
+    local pct=0
+    [ -d "$CYBRA" ] && { echo "  [1] ✅ CYBRA"; pct=14; }
+    command -v tar >/dev/null && { echo "  [2] ✅ tar"; pct=28; }
+    [ -d "$CYBRA/evo" ] && { echo "  [3] ✅ EVO"; pct=42; }
+    [ -d "$CYBRA/.git" ] && { echo "  [4] ✅ .git"; pct=56; }
+    [ -d "$CYBRA/sandbox" ] && { echo "  [5] ✅ Sandbox"; pct=70; }
+    [ -d "$CYBRA/modules" ] && { echo "  [6] ✅ Modules"; pct=84; }
+    [ -f "$BACKUP" ] && { echo "  [7] ✅ Snapshot"; pct=100; }
+    echo "Стан: $pct%"
+}
 
-echo "════════════════════════════════════════════"
-echo "  МОДУЛЬ module_152_rollback_evo (100%)"
-echo "════════════════════════════════════════════"
-echo "  Статус: READY"
-echo "  Лог: $LOG"
-echo ""
-
-# ─── ЛОГІКА ───
-echo "  ✅ Модуль module_152_rollback_evo активний"
-
-echo "════════════════════════════════════════════"
-log "DONE: module_152_rollback_evo"
-read -r -p "Натисни Enter..." _
-exit 0
+run_levels
+case "${1:-menu}" in
+    snapshot) snapshot ;;
+    restore) restore ;;
+    git) git_reset ;;
+    clean) clean ;;
+    progress) progress ;;
+    menu|*)
+        while true; do
+            echo ""
+            echo "════ 152. ВІДКАТ EVO (рівень $(level_now)/7) ════"
+            echo "1) Snapshot  2) Відновити  3) Git reset  4) Відкат  5) Прогрес  0) Назад"
+            read -r -p "Вибір: " c
+            case "$c" in
+                1) snapshot ;; 2) restore ;; 3) git_reset ;; 4) clean ;;
+                5) progress ;; 0) exit 0 ;; *) echo "невідомо" ;;
+            esac
+        done ;;
+esac
