@@ -81,6 +81,11 @@ def get_logic(name):
 
 # ─── 3. ДОВЕДЕННЯ МОДУЛЯ ДО 100% ───
 def resolve_module(mod_name, reason):
+    # захист від перезапису
+    if (MODS / mod_name / ".protected").exists():
+        log(f"SKIP: {mod_name} (.protected)")
+        return False
+
     log(f"RESOLVING: {mod_name} (reason: {reason})")
     
     d = MODS / mod_name
