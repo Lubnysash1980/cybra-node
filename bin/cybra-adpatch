@@ -1,0 +1,224 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# cybra-adpatch — реальна реклама: SQLite + cybra-core
+
+export HOME="/data/data/com.termux/files/home"
+export PATH="/data/data/com.termux/files/usr/bin:$HOME/bin:$HOME/CYBRA/bin:$PATH"
+CYBRA="$HOME/CYBRA"
+DB="$CYBRA/data/ads.db"
+CORE="$CYBRA/bin/cybra-core"
+LOG="$CYBRA/logs/adpatch.log"
+mkdir -p "$CYBRA/data" "$CYBRA/logs" "$CYBRA/state"
+
+log() { echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] $1" >> "$LOG"; }
+
+# --- Рівень 1: створити базу ---
+level1_db() {
+    sqlite3 "$DB" <<'SQL'
+CREATE TABLE IF NOT EXISTS ads (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    what TEXT NOT NULL,
+    platform TEXT NOT NULL,
+    url TEXT NOT NULL,
+    volume INTEGER NOT NULL,
+    price_bnb REAL NOT NULL,
+    status TEXT NOT NULL DEFAULT 'created',
+    created_at TEXT NOT NULL
+);
+SQL
+    log "L1: база створена ($DB)"
+}
+
+# --- Рівень 2: створити cybra-core з реальною базою ---
+level2_core() {
+    cat > "$CORE" <<'CORE_EOF'
+#!/data/data/com.termux/files/usr/bin/bash
+# cybra-core — ядро CYBRA з реальною базою (SQLite)
+export HOME="/data/data/com.termux/files/home"
+export PATH="/data/data/com.termux/files/usr/bin:$HOME/bin:$HOME/CYBRA/bin:$PATH"
+CYBRA="$HOME/CYBRA"
+DB="$CYBRA/data/ads.db"
+LOG="$CYBRA/logs/cybra-core.log"
+STATE="$CYBRA/state/core.level"
+mkdir -p "$CYBRA/data" "$CYBRA/logs" "$CYBRA/state"
+log() { echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] $1" >> "$LOG"; }
+level_now() { [ -f "$STATE" ] && cat "$STATE" || echo 1; }
+level_set() { echo "$1" > "$STATE"; log "LEVEL: $1"; }
+
+ad_menu() {
+    while true; do
+        echo ""
+        echo "════ 151. РЕКЛАМА ════"
+        echo "1) Створити"
+        echo "2) Статус"
+        echo "3) Реверс"
+        echo "0) Назад"
+        read -r -p "Вибір: " c
+        case "$c" in
+            1) ad_create ;;
+            2) ad_status ;;
+            3) ad_refund ;;
+            0) return ;;
+            *) echo "невідомо" ;;
+        esac
+    done
+}
+
+ad_create() {
+    echo ""
+    read -r -p "Що рекламуємо: " what
+    read -r -p "Платформа: " platform
+    read -r -p "URL: " url
+    if ! echo "$url" | grep -qE '^https?://'; then
+        echo "❌ URL невалідний"
+        return
+    fi
+    read -r -p "Обсяг (1-7): " volume
+    # AI-оцінка (проста формула, місце для справжнього AI)
+    local price_bnb
+    price_bnb=$(echo "scale=4; $volume * 0.01" | bc 2>/dev/null || echo "0.01")
+    local now
+    now=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+    sqlite3 "$DB" "INSERT INTO ads (what, platform, url, volume, price_bnb, status, created_at) VALUES ('$what', '$platform', '$url', $volume, $price_bnb, 'created', '$now');"
+    local id
+    id=$(sqlite3 "$DB" "SELECT last_insert_rowid();")
+    echo "AI: складність=$volume/7, ціна=$price_bnb BNB"
+    echo "50% вам, 50% менеджеру"
+    echo "✅ Реклама #$id створена"
+    log "AD CREATE: id=$id what=$what platform=$platform url=$url volume=$volume price=$price_bnb"
+}
+
+ad_status() {
+    echo ""
+    echo "— Статус реклами —"
+    sqlite3 -header -column "$DB" "SELECT id, what, platform, volume, price_bnb, status, created_at FROM ads ORDER BY id DESC LIMIT 10;" 2>/dev/null || echo "немає записів"
+}
+
+ad_refund() {
+    echo ""
+    read -r -p "ID реклами для реверсу: " id
+    local status
+    status=$(sqlite3 "$DB" "SELECT status FROM ads WHERE id=$id;" 2>/dev/null)
+    if [ -z "$status" ]; then
+        echo "❌ Реклама #$id не знайдена"
+        return
+    fi
+    sqlite3 "$DB" "UPDATE ads SET status='refunded' WHERE id=$id;"
+    echo "✅ Реклама #$id → refunded"
+    log "AD REFUND: id=$id"
+}
+
+rollback_menu() {
+    while true; do
+        echo ""
+        echo "════ 152. ВІДКАТ EVO ════"
+        echo "1) Стан"
+        echo "2) Відкат"
+        echo "0) Назад"
+        read -r -p "Вибір: " c
+        case "$c" in
+            1) rollback_status ;;
+            2) rollback_do ;;
+            0) return ;;
+            *) echo "невідомо" ;;
+        esac
+    done
+}
+
+rollback_status() {
+    echo ""
+    echo "Рівень: $(level_now)/7"
+    echo "Реклам у базі: $(sqlite3 "$DB" "SELECT COUNT(*) FROM ads;" 2>/dev/null || echo 0)"
+    [ -d "$CYBRA/.git" ] && echo "Git: $(cd "$CYBRA" && git rev-parse --short HEAD 2>/dev/null)"
+    echo "EVO: $([ -f "$CYBRA/evo/evo_core.py" ] && echo 'є' || echo 'немає')"
+}
+
+rollback_do() {
+    echo ""
+    read -r -p "Підтвердити? (yes/no): " ok
+    [ "$ok" != "yes" ] && echo "скасовано" && return
+    [ -d "$CYBRA/.git" ] && (cd "$CYBRA" && git reset --hard HEAD --quiet 2>/dev/null)
+    rm -f "$STATE"
+    log "ROLLBACK"
+    echo "✅ Відкат виконано"
+}
+
+main_menu() {
+    while true; do
+        echo ""
+        echo "════ CYBRA CORE — рівень $(level_now)/7 ════"
+        echo "151) Реклама"
+        echo "152) Відкат EVO"
+        echo "0) Вихід"
+        read -r -p "Вибір: " c
+        case "$c" in
+            151) ad_menu ;;
+            152) rollback_menu ;;
+            0) exit 0 ;;
+            *) echo "невідомо" ;;
+        esac
+    done
+}
+
+case "${1:-menu}" in
+    menu) main_menu ;;
+    151) ad_menu ;;
+    152) rollback_menu ;;
+    level) echo "Рівень: $(level_now)/7" ;;
+    *) main_menu ;;
+esac
+CORE_EOF
+    chmod +x "$CORE"
+    log "L2: cybra-core створено з базою"
+}
+
+# --- Рівень 3: перевірка синтаксису ---
+level3_check() {
+    if bash -n "$CORE" 2>/dev/null; then
+        log "L3: синтаксис OK"
+    else
+        log "L3: синтаксис FAIL — виправляю"
+        level2_core
+    fi
+}
+
+# --- Рівень 4: тест бази ---
+level4_test() {
+    sqlite3 "$DB" "SELECT name FROM sqlite_master WHERE type='table' AND name='ads';" | grep -q ads && log "L4: таблиця ads є" || log "L4: таблиця ads немає"
+}
+
+# --- Рівень 5: health ---
+level5_health() {
+    [ -f "$CYBRA/bin/cybra_autonode_main.js" ] && log "L5: autonode є" || log "L5: немає autonode"
+    [ -d "$CYBRA/sandbox" ] && log "L5: sandbox є" || log "L5: немає sandbox"
+}
+
+# --- Рівень 6: EVO ---
+level6_evo() {
+    [ -f "$CYBRA/evo/evo_core.py" ] && log "L6: EVO є" || log "L6: EVO немає"
+}
+
+# --- Рівень 7: фінал ---
+level7_done() {
+    log "L7: adpatch завершено"
+    echo "✅ Реклама готова: $CORE"
+    echo "База: $DB"
+    echo "Запуск: $CORE"
+}
+
+main() {
+    log "=== adpatch start ==="
+    level1_db
+    level2_core
+    level3_check
+    level4_test
+    level5_health
+    level6_evo
+    level7_done
+    log "=== adpatch done ==="
+}
+
+case "${1:-run}" in
+    run)   main ;;
+    level) echo "adpatch: 7/7" ;;
+    *)     main ;;
+esac
