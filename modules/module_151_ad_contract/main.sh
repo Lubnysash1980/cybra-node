@@ -98,7 +98,8 @@ ad_status() {
 
 # ─── ОПЛАТА ───
 ad_pay() {
-    read -r -p "ID: " id; read -r -p "TX hash: " tx
+    local id tx
+    if [ $# -ge 2 ]; then id="$1"; tx="$2"; else read -r -p "ID: " id; read -r -p "TX hash: " tx; fi
     [ -z "$id" ] || [ -z "$tx" ] && return 1
     backup_db
     sqlite3 "$DB" "UPDATE ads SET stage=4, tx_hash='$tx', paid_bnb=price_bnb, status='paid' WHERE id=$id;" 2>/dev/null
@@ -153,7 +154,7 @@ case "${1:-menu}" in
     status) ad_status ;;
     backup) backup_db ;;
     restore) restore_db ;;
-    pay) ad_pay ;;
+    pay) shift; ad_pay "$@" ;;
     sign) ad_sign ;;
     complete) ad_complete ;;
     refund) ad_refund ;;
