@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 # cybra-core — ядро CYBRA
-# Пункт 151: Реклама (Ad Contract)
-# Пункт 152: Відкат системи до чистої ноти EVO
+# Pункт 151: Реклама
+# Pвнк ВіДКАТ ДО ЧИСТОЗ ���ОТИ �VO
 
 export HOME="/data/data/com.termux/files/home"
 export PREFIX="/data/data/com.termux/files/usr"
@@ -12,28 +12,28 @@ LOG="$CYBRA/logs/cybra-core.log"
 STATE="$CYBRA/state/core.level"
 mkdir -p "$CYBRA/logs" "$CYBRA/state"
 
-log() { echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] $1" >> "$LOG"; }
-level_now() { [ -f "$STATE" ] && cat "$STATE" || echo 1; }
+log() { echo "[$(date -u +"%Y-%m-%dT%%H:%M:%SZ")] $1" >> "$LOG"; }
+level_now() { [ -f "$STATE"
+] && cat "$STATE" || echo 1; }
 level_set() { echo "$1" > "$STATE"; log "LEVEL: $1"; }
 
-# ============================================================
-# ПУНКТ 151 — РЕКЛАМА
-# ============================================================
 ad_menu() {
-    echo ""
-    echo "════════ 151. РЕКЛАМА ════════"
-    echo "1) Створити рекламу"
-    echo "2) Статус реклами"
-    echo "3) Реверс коштів"
-    echo "0) Назад"
-    read -r -p "Вибір: " c
-    case "$c" in
-        1) ad_create ;;
-        2) ad_status ;;
-        3) ad_refund ;;
-        0) return ;;
-        *) echo "невідомо" ;;
-    esac
+    while true; do
+        echo ""
+        echo "======== 151. Реклама ========"
+        echo "1) створити рекламу"
+        echo "2) статус реклами"
+        echo "3) вернути коштів"
+        echo "0) Назад"
+        read -r -p "Вибір0: " c
+        case "$c" in
+            1) ad_create ;;
+            2) ad_status ;;
+            3) ad_refund ;;
+            0) return ;;
+            *) echo "невідомо" ;;
+        esac
+    done
 }
 
 ad_create() {
@@ -41,107 +41,4 @@ ad_create() {
     echo "— Створення реклами —"
     read -r -p "Що рекламуємо: " what
     read -r -p "Платформа (сайт/TikTok/FB): " platform
-    read -r -p "Посилання (URL): " url
-    # валідація
-    if ! echo "$url" | grep -qE '^https?://'; then
-        echo "❌ URL невалідний (має починатись з http:// або https://)"
-        return
-    fi
-    read -r -p "Обсяг (1-7): " volume
-    # AI оцінка складності (7 рівнів)
-    local price_bnb
-    price_bnb=$(echo "scale=4; $volume * 0.01" | bc 2>/dev/null || echo "0.01")
-    echo "AI оцінка: складність=$volume/7, ціна=${price_bnb} BNB"
-    echo "Контракт: 50% вам, 50% менеджеру"
-    echo "Двостороннє підписання: ваш гаманець + гаманець менеджера"
-    log "AD CREATE: what=$what platform=$platform url=$url volume=$volume price=$price_bnb"
-    echo "✅ Рекламу створено (запис у лог)"
-}
-
-ad_status() {
-    echo ""
-    echo "— Статус реклами —"
-    grep "AD CREATE" "$LOG" 2>/dev/null | tail -10 || echo "немає записів"
-}
-
-ad_refund() {
-    echo ""
-    echo "— Реверс коштів —"
-    echo "Якщо реклама не досягла рівня — решта коштів повертається менеджеру."
-    log "AD REFUND: ініційовано"
-    echo "✅ Реверс ініційовано (запис у лог)"
-}
-
-# ============================================================
-# ПУНКТ 152 — ВІДКАТ ДО ЧИСТОЇ НОТИ EVO
-# ============================================================
-rollback_menu() {
-    echo ""
-    echo "════════ 152. ВІДКАТ ДО ЧИСТОЇ НОТИ EVO ════════"
-    echo "1) Показати поточний стан"
-    echo "2) Відкат до чистої ноти"
-    echo "0) Назад"
-    read -r -p "Вибір: " c
-    case "$c" in
-        1) rollback_status ;;
-        2) rollback_do ;;
-        0) return ;;
-        *) echo "невідомо" ;;
-    esac
-}
-
-rollback_status() {
-    echo ""
-    echo "— Поточний стан —"
-    echo "Рівень ядра: $(level_now)/7"
-    if [ -d "$CYBRA/.git" ]; then
-        echo "Git: $(cd "$CYBRA" && git rev-parse --short HEAD 2>/dev/null || echo '?')"
-    fi
-    echo "EVO: $([ -f "$CYBRA/evo/evo_core.py" ] && echo 'є' || echo 'немає')"
-    echo "Sandbox: $([ -d "$CYBRA/sandbox" ] && echo 'є' || echo 'немає')"
-}
-
-rollback_do() {
-    echo ""
-    echo "⚠️  Відкат до чистої ноти EVO"
-    read -r -p "Підтвердити? (yes/no): " ok
-    [ "$ok" != "yes" ] && echo "скасовано" && return
-    # відкат до чистого стану
-    if [ -d "$CYBRA/.git" ]; then
-        (cd "$CYBRA" && git reset --hard HEAD --quiet 2>/dev/null) || true
-    fi
-    rm -f "$STATE"
-    log "ROLLBACK: до чистої ноти EVO"
-    echo "✅ Відкат виконано (стан скинуто)"
-}
-
-# ============================================================
-# ГОЛОВНЕ МЕНЮ
-# ============================================================
-main_menu() {
-    while true; do
-        echo ""
-        echo "════════════════════════════════"
-        echo "  CYBRA CORE — рівень $(level_now)/7"
-        echo "════════════════════════════════"
-        echo "  151) Реклама"
-        echo "  152) Відкат до чистої ноти EVO"
-        echo "  0)   Вихід"
-        read -r -p "Вибір: " c
-        case "$c" in
-            151) ad_menu ;;
-            152) rollback_menu ;;
-            0)   exit 0 ;;
-            *)   echo "невідомо" ;;
-        esac
-    done
-}
-
-# --- запуск ---
-case "${1:-menu}" in
-    menu)     main_menu ;;
-    151)      ad_menu ;;
-    152)      rollback_menu ;;
-    level)    echo "Рівень: $(level_now)/7" ;;
-    *)        main_menu ;;
-esac
+    read -r -p "Посилання (T���耈��ɰ(�����������������ɰ�����ɕ������y������輼��ѡ��(���������������v0�UI0�B�B�B�B�B�F[B�B�B�B䀣B�B�FP�B�B�FB�B�B�FB�FF<�B܁����輼�B�B�B�������輼� ��������ɕ��ɸ(������(����ɕ����Ȁ����B{B�FF?B̀�Ĵܤ耈�ٽ�յ�(�����������ɥ��}���(�����ɥ��}������������͍�����쀑ٽ�յ�������Ĉ�����������ؽ�ձ��������������Ĉ�(����������$�B�FF[B�B�B��FB�B�B�B�B�F[FFF0��ٽ�յ��ܰ�FF[B�B�����ɥ��}���
