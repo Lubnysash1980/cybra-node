@@ -1,0 +1,51 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# Шаблон 7-рівневого скрипта CYBRA
+# Кожен скрипт має свої 7 рівнів приєднання.
+# Якщо рівень не піднявся — скрипт зупиняється, не падає.
+
+export HOME="/data/data/com.termux/files/home"
+export PATH="/data/data/com.termux/files/usr/bin:$HOME/bin:$HOME/CYBRA/bin:$PATH"
+
+NAME="$(basename "$0")"
+LOG="$HOME/CYBRA/logs/$NAME.log"
+STATE="$HOME/CYBRA/state/$NAME.level"
+mkdir -p "$HOME/CYBRA/logs" "$HOME/CYBRA/state"
+
+log() { echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] $1" >> "$LOG"; }
+
+level_now() { [ -f "$STATE" ] && cat "$STATE" || echo 1; }
+level_set() { echo "$1" > "$STATE"; log "LEVEL: $1"; }
+
+# --- 7 рівнів: кожен наступний залежить від попереднього ---
+level1() { log "L1: базовий запуск"; return 0; }
+level2() { log "L2: перевірка середовища"; return 0; }
+level3() { log "L3: підключення до ядра"; return 0; }
+level4() { log "L4: health-check"; return 0; }
+level5() { log "L5: приєднання до EVO"; return 0; }
+level6() { log "L6: приєднання до контрактів"; return 0; }
+level7() { log "L7: повна екосистема"; return 0; }
+
+# --- послідовне підняття рівнів ---
+# Якщо рівень повертає != 0 — зупиняємось, не падаємо.
+run_levels() {
+    local cur
+    cur=$(level_now)
+    log "START з рівня $cur"
+    for i in 1 2 3 4 5 6 7; do
+        [ "$i" -lt "$cur" ] && continue
+        if "level$i"; then
+            level_set "$i"
+        else
+            log "STOP: рівень $i не піднявся, система на рівні $((i-1))"
+            return 0
+        fi
+    done
+    log "DONE: рівень 7/7"
+}
+
+case "${1:-run}" in
+    run)   run_levels ;;
+    level) echo "$NAME: $(level_now)/7" ;;
+    reset) rm -f "$STATE"; log "RESET"; echo "reset" ;;
+    *)     echo "usage: $NAME [run|level|reset]" ;;
+esac
