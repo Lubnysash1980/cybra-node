@@ -108,7 +108,8 @@ ad_pay() {
 
 # ─── ПІДПИС ───
 ad_sign() {
-    read -r -p "ID: " id
+    local id
+    if [ $# -ge 1 ]; then id="$1"; else read -r -p "ID: " id; fi
     [ -z "$id" ] && { echo "❌ ID порожній"; return 1; }
     local n=$(sqlite3 "$DB" "SELECT COUNT(*) FROM ads WHERE id=$id;" 2>/dev/null)
     [ "$n" = "0" ] && { echo "❌ #$id не знайдено"; return 1; }
@@ -118,7 +119,8 @@ ad_sign() {
 
 # ─── РЕЗУЛЬТАТ ───
 ad_complete() {
-    read -r -p "ID: " id
+    local id
+    if [ $# -ge 1 ]; then id="$1"; else read -r -p "ID: " id; fi
     [ -z "$id" ] && { echo "❌ ID порожній"; return 1; }
     local n=$(sqlite3 "$DB" "SELECT COUNT(*) FROM ads WHERE id=$id;" 2>/dev/null)
     [ "$n" = "0" ] && { echo "❌ #$id не знайдено"; return 1; }
@@ -155,8 +157,8 @@ case "${1:-menu}" in
     backup) backup_db ;;
     restore) restore_db ;;
     pay) shift; ad_pay "$@" ;;
-    sign) ad_sign ;;
-    complete) ad_complete ;;
+    sign) shift; ad_sign "$@" ;;
+    complete) shift; ad_complete "$@" ;;
     refund) ad_refund ;;
     progress) ad_progress ;;
     menu|*)
