@@ -55,9 +55,8 @@ run() {
 }
 
 case "${1:-run}" in
-    run|*) run "$@" ;;
     check) check_levels && echo "✅ levels OK" ;;
     state) echo "state: $(cat "$STATE" 2>/dev/null || echo 0)%" ;;
     set100) echo 100 > "$STATE"; echo "✅ state 100%" ;;
-    *) run "$@" ;;
+    run|*) run "$@" ;;
 esac
