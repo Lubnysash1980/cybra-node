@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-19T08:41:25.722236+00:00",
-  "total_modules": 215,
+  "updated": "2026-10-19T08:42:30.917940+00:00",
+  "total_modules": 217,
   "unique_actions": 73,
   "conflicts": 15,
   "modules": [
@@ -655,6 +655,16 @@
       "score": 50
     },
     {
+      "name": "module_151_ad_contract",
+      "title": "Реклама (Ad Contract) + SQLite",
+      "action": "contract",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 2043,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_151_ad_contract/main.sh",
+      "score": 42
+    },
+    {
       "name": "module_5_generated",
       "title": "module_5_generated",
       "action": "rates",
@@ -693,6 +703,16 @@
       "size": 1187,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_8_generated/main.sh",
       "score": 50
+    },
+    {
+      "name": "module_152_rollback_evo",
+      "title": "Відкат до чистої ноти EVO",
+      "action": "evo",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1268,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_152_rollback_evo/main.sh",
+      "score": 42
     },
     {
       "name": "module_9_generated",
@@ -2191,6 +2211,10 @@
           "score": 50
         },
         {
+          "name": "module_151_ad_contract",
+          "score": 42
+        },
+        {
           "name": "module_02_contract_builder",
           "score": 40
         },
@@ -2203,7 +2227,7 @@
           "score": 40
         }
       ],
-      "total": 9
+      "total": 10
     },
     "module03escrowcontroller": {
       "winner": "module_03_escrow_controller",
@@ -2280,11 +2304,15 @@
           "score": 70
         },
         {
+          "name": "module_152_rollback_evo",
+          "score": 42
+        },
+        {
           "name": "module_20_evolution_guard",
           "score": 40
         }
       ],
-      "total": 3
+      "total": 4
     },
     "module25addressbook": {
       "winner": "module_25_address_book",
@@ -3351,6 +3379,10 @@
           "score": 50
         },
         {
+          "name": "module_151_ad_contract",
+          "score": 42
+        },
+        {
           "name": "module_02_contract_builder",
           "score": 40
         },
@@ -3372,6 +3404,10 @@
         {
           "name": "module_97_base",
           "score": 70
+        },
+        {
+          "name": "module_152_rollback_evo",
+          "score": 42
         },
         {
           "name": "module_20_evolution_guard",
