@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19T10:00:10.801432+00:00",
+  "updated": "2026-10-19T10:01:15.691196+00:00",
   "total_modules": 217,
   "unique_actions": 73,
   "conflicts": 15,
@@ -660,9 +660,9 @@
       "action": "contract",
       "status": "unknown",
       "base_score": 30,
-      "size": 1211,
+      "size": 5218,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_151_ad_contract/main.sh",
-      "score": 50
+      "score": 47
     },
     {
       "name": "module_5_generated",
@@ -2215,16 +2215,16 @@
           "score": 50
         },
         {
-          "name": "module_151_ad_contract",
-          "score": 50
-        },
-        {
           "name": "module_17_cybra_license_contract_menu",
           "score": 50
         },
         {
           "name": "module_19_contract_tui_menu",
           "score": 50
+        },
+        {
+          "name": "module_151_ad_contract",
+          "score": 47
         }
       ],
       "total": 10
@@ -3383,16 +3383,16 @@
           "score": 50
         },
         {
-          "name": "module_151_ad_contract",
-          "score": 50
-        },
-        {
           "name": "module_17_cybra_license_contract_menu",
           "score": 50
         },
         {
           "name": "module_19_contract_tui_menu",
           "score": 50
+        },
+        {
+          "name": "module_151_ad_contract",
+          "score": 47
         }
       ]
     },
