@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19T20:16:39.130770+00:00",
+  "updated": "2026-10-19T20:17:44.195418+00:00",
   "total_modules": 217,
   "unique_actions": 152,
   "conflicts": 7,
@@ -710,9 +710,9 @@
       "action": "evo",
       "status": "unknown",
       "base_score": 30,
-      "size": 1798,
+      "size": 3189,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_152_rollback_evo/main.sh",
-      "score": 50
+      "score": 45
     },
     {
       "name": "module_9_generated",
@@ -2274,14 +2274,14 @@
       "total": 1
     },
     "evo": {
-      "winner": "module_152_rollback_evo",
-      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_152_rollback_evo/main.sh",
+      "winner": "module_20_evolution_guard",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_20_evolution_guard/main.sh",
       "winner_score": 50,
-      "winner_title": "module_152_rollback_evo",
+      "winner_title": "module_20_evolution_guard",
       "standby": [
         {
-          "name": "module_20_evolution_guard",
-          "score": 50
+          "name": "module_152_rollback_evo",
+          "score": 45
         }
       ],
       "total": 2
@@ -3686,12 +3686,12 @@
     },
     {
       "action": "evo",
-      "winner": "module_152_rollback_evo",
+      "winner": "module_20_evolution_guard",
       "winner_score": 50,
       "others": [
         {
-          "name": "module_20_evolution_guard",
-          "score": 50
+          "name": "module_152_rollback_evo",
+          "score": 45
         }
       ]
     },
