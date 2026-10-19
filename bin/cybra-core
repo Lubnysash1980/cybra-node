@@ -1,0 +1,85 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# cybra-core — ядро CYBRA: autoheal + watchdog + 7 рівнів складності
+# Приєднання до екосистеми одним "уколом". Не ламає існуюче.
+
+export HOME="/data/data/com.termux/files/home"
+export PREFIX="/data/data/com.termux/files/usr"
+export PATH="$PREFIX/bin:$HOME/bin:$HOME/CYBRA/bin:$PATH"
+
+CYBRA="$HOME/CYBRA"
+LOG="$CYBRA/logs/cybra-core.log"
+STATE="$CYBRA/state/core.level"
+mkdir -p "$CYBRA/logs" "$CYBRA/state"
+
+log() { echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] $1" >> "$LOG"; }
+
+# --- 7 рівнів складності приєднання ---
+# 1: ядро запущене
+# 2: autoheal активний
+# 3: watchdog активний (тільки сигнал)
+# 4: health-check налаштувань
+# 5: приєднання до EVO
+# 6: приєднання до контрактів (реклама)
+# 7: повна екосистема
+level_now() { [ -f "$STATE" ] && cat "$STATE" || echo 1; }
+level_set() { echo "$1" > "$STATE"; log "LEVEL: $1"; }
+
+# --- autoheal: підняти процеси, якщо їх менше 9 ---
+autoheal() {
+    local online
+    online=$(pm2 ls 2>/dev/null | grep -c "online" || echo 0)
+    if [ "$online" -lt 9 ]; then
+        log "AUTOHEAL: online=$online < 9 — resurrect"
+        cd "$CYBRA" && pm2 resurrect >/dev/null 2>&1
+    fi
+}
+
+# --- watchdog: тільки сигнал, без убивства ---
+watchdog() {
+    local online
+    online=$(pm2 ls 2>/dev/null | grep -c "online" || echo 0)
+    if [ "$online" -lt 9 ]; then
+        log "WATCHDOG: увага, online=$online"
+    fi
+}
+
+# --- health-check налаштувань ---
+health() {
+    [ -f "$CYBRA/bin/cybra_autonode_main.js" ] || log "HEALTH: немає autonode.js"
+    [ -d "$CYBRA/sandbox" ] || log "HEALTH: немає sandbox"
+    [ -f "$CYBRA/.git/config" ] && grep -q "origin" "$CYBRA/.git/config" || log "HEALTH: git origin?"
+}
+
+# --- приєднання до екосистеми (один укол) ---
+integrate() {
+    local lvl
+    lvl=$(level_now)
+    log "INTEGRATE: старт з рівня $lvl"
+
+    autoheal;  [ "$lvl" -lt 2 ] && level_set 2
+    watchdog;  [ "$lvl" -lt 3 ] && level_set 3
+    health;    [ "$lvl" -lt 4 ] && level_set 4
+
+    # EVO
+    if [ -f "$CYBRA/evo/evo_core.py" ]; then
+        [ "$lvl" -lt 5 ] && level_set 5
+    fi
+
+    # Контракти (реклама)
+    if [ -d "$CYBRA/modules" ]; then
+        [ "$lvl" -lt 6 ] && level_set 6
+    fi
+
+    [ "$lvl" -lt 7 ] && level_set 7
+    log "INTEGRATE: система на рівні $(level_now)/7"
+}
+
+# --- головний цикл ---
+case "${1:-integrate}" in
+    integrate) integrate ;;
+    heal)      autoheal ;;
+    watch)     watchdog ;;
+    health)    health ;;
+    level)     echo "Рівень: $(level_now)/7" ;;
+    *)         echo "usage: cybra-core [integrate|heal|watch|health|level]" ;;
+esac
