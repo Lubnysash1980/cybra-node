@@ -1,11 +1,12 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# cybra-core — ядро CYBRA (автостворено)
+# cybra-core — ядро CYBRA з реальною базою (SQLite)
 export HOME="/data/data/com.termux/files/home"
 export PATH="/data/data/com.termux/files/usr/bin:$HOME/bin:$HOME/CYBRA/bin:$PATH"
 CYBRA="$HOME/CYBRA"
+DB="$CYBRA/data/ads.db"
 LOG="$CYBRA/logs/cybra-core.log"
 STATE="$CYBRA/state/core.level"
-mkdir -p "$CYBRA/logs" "$CYBRA/state"
+mkdir -p "$CYBRA/data" "$CYBRA/logs" "$CYBRA/state"
 log() { echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] $1" >> "$LOG"; }
 level_now() { [ -f "$STATE" ] && cat "$STATE" || echo 1; }
 level_set() { echo "$1" > "$STATE"; log "LEVEL: $1"; }
@@ -28,6 +29,7 @@ ad_menu() {
         esac
     done
 }
+
 ad_create() {
     echo ""
     read -r -p "Що рекламуємо: " what
@@ -38,20 +40,38 @@ ad_create() {
         return
     fi
     read -r -p "Обсяг (1-7): " volume
-    echo "AI: складність=$volume/7, ціна=$volume*0.01 BNB"
+    # AI-оцінка (проста формула, місце для справжнього AI)
+    local price_bnb
+    price_bnb=$(echo "scale=4; $volume * 0.01" | bc 2>/dev/null || echo "0.01")
+    local now
+    now=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+    sqlite3 "$DB" "INSERT INTO ads (what, platform, url, volume, price_bnb, status, created_at) VALUES ('$what', '$platform', '$url', $volume, $price_bnb, 'created', '$now');"
+    local id
+    id=$(sqlite3 "$DB" "SELECT last_insert_rowid();")
+    echo "AI: складність=$volume/7, ціна=$price_bnb BNB"
     echo "50% вам, 50% менеджеру"
-    log "AD CREATE: $what | $platform | $url | $volume"
-    echo "✅ Створено"
+    echo "✅ Реклама #$id створена"
+    log "AD CREATE: id=$id what=$what platform=$platform url=$url volume=$volume price=$price_bnb"
 }
+
 ad_status() {
     echo ""
-    [ -f "$LOG" ] && grep "AD CREATE" "$LOG" | tail -10 || echo "немає записів"
+    echo "— Статус реклами —"
+    sqlite3 -header -column "$DB" "SELECT id, what, platform, volume, price_bnb, status, created_at FROM ads ORDER BY id DESC LIMIT 10;" 2>/dev/null || echo "немає записів"
 }
+
 ad_refund() {
     echo ""
-    echo "Реверс коштів менеджеру"
-    log "AD REFUND"
-    echo "✅ Ініційовано"
+    read -r -p "ID реклами для реверсу: " id
+    local status
+    status=$(sqlite3 "$DB" "SELECT status FROM ads WHERE id=$id;" 2>/dev/null)
+    if [ -z "$status" ]; then
+        echo "❌ Реклама #$id не знайдена"
+        return
+    fi
+    sqlite3 "$DB" "UPDATE ads SET status='refunded' WHERE id=$id;"
+    echo "✅ Реклама #$id → refunded"
+    log "AD REFUND: id=$id"
 }
 
 rollback_menu() {
@@ -70,12 +90,15 @@ rollback_menu() {
         esac
     done
 }
+
 rollback_status() {
     echo ""
     echo "Рівень: $(level_now)/7"
+    echo "Реклам у базі: $(sqlite3 "$DB" "SELECT COUNT(*) FROM ads;" 2>/dev/null || echo 0)"
     [ -d "$CYBRA/.git" ] && echo "Git: $(cd "$CYBRA" && git rev-parse --short HEAD 2>/dev/null)"
     echo "EVO: $([ -f "$CYBRA/evo/evo_core.py" ] && echo 'є' || echo 'немає')"
 }
+
 rollback_do() {
     echo ""
     read -r -p "Підтвердити? (yes/no): " ok
