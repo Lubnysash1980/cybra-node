@@ -1,29 +1,133 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# МОДУЛЬ: module_151_ad_contract
-# СТАТУС: READY (100% - auto-resolved)
-# ДАТА: 2026-10-19T10:11:38.978437+00:00
-
+# 151: Реклама — 7 рівнів, відкат, відновлення, еволюція
 CYBRA="$HOME/CYBRA"
-LOG="$CYBRA/logs/module_151_ad_contract.log"
-mkdir -p "$(dirname "$LOG")"
+DB="$CYBRA/data/ads.db"
+LEVEL_FILE="$CYBRA/state/module_151.level"
+BACKUP="$CYBRA/backup/ads.db.bak"
+mkdir -p "$CYBRA/data" "$CYBRA/logs" "$CYBRA/state" "$CYBRA/backup"
 
-# ─── ЗАХИСТ (TRAP ERR) ───
-log() { echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] $1" >> "$LOG"; }
-trap 'log "ERROR at line $LINENO"; echo "❌ Помилка. Лог: $LOG"' ERR
+sqlite3 "$DB" "CREATE TABLE IF NOT EXISTS ads (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  what TEXT, platform TEXT, url TEXT,
+  volume INTEGER, price_bnb REAL,
+  paid_bnb REAL DEFAULT 0,
+  stage INTEGER DEFAULT 1,
+  status TEXT DEFAULT 'created',
+  tx_hash TEXT,
+  created_at TEXT);" 2>/dev/null
 
-log "START: module_151_ad_contract"
+level_now() { [ -f "$LEVEL_FILE" ] && cat "$LEVEL_FILE" || echo 1; }
+level_set() { echo "$1" > "$LEVEL_FILE"; }
+level1() { [ -d "$CYBRA" ] && return 0 || return 1; }
+level2() { command -v sqlite3 >/dev/null && return 0 || return 1; }
+level3() { sqlite3 "$DB" "SELECT 1;" >/dev/null 2>&1 && return 0 || return 1; }
+level4() { [ -f "$DB" ] && return 0 || return 1; }
+level5() { [ -f "$CYBRA/evo/evo_core.py" ] && return 0 || return 1; }
+level6() { [ -d "$CYBRA/modules" ] && return 0 || return 1; }
+level7() { [ -d "$CYBRA/sandbox" ] && return 0 || return 1; }
+run_levels() {
+    local cur=$(level_now)
+    for i in 1 2 3 4 5 6 7; do
+        [ "$i" -lt "$cur" ] && continue
+        if "level$i"; then level_set "$i"; else return 0; fi
+    done
+}
 
-echo "════════════════════════════════════════════"
-echo "  МОДУЛЬ module_151_ad_contract (100%)"
-echo "════════════════════════════════════════════"
-echo "  Статус: READY"
-echo "  Лог: $LOG"
-echo ""
+# ─── відкат / відновлення ───
+backup_db() { cp "$DB" "$BACKUP" 2>/dev/null && echo "✅ Бекап: $BACKUP"; }
+restore_db() {
+    [ -f "$BACKUP" ] || { echo "❌ Немає бекапу"; return 1; }
+    cp "$BACKUP" "$DB" && echo "✅ Відновлено з $BACKUP"
+}
 
-# ─── ЛОГІКА ───
-read -p "ID: " c; echo "✅ Контракт $c активний"
+# ─── AI-оцінка ───
+ai_estimate() {
+    local what="$1" platform="$2" url="$3" volume=3
+    case "$(echo "$platform" | tr 'A-Z' 'a-z')" in
+        *tiktok*) volume=5 ;;
+        *facebook*|*fb*) volume=6 ;;
+        *instagram*|*inst*) volume=6 ;;
+        *youtube*) volume=7 ;;
+        *сайт*|*site*) volume=4 ;;
+    esac
+    [ ${#what} -gt 20 ] && volume=$((volume+1))
+    [ ${#what} -gt 50 ] && volume=$((volume+1))
+    echo "$url" | grep -qE '\.(com|io|org)' && volume=$((volume+1))
+    [ "$volume" -gt 7 ] && volume=7
+    [ "$volume" -lt 1 ] && volume=1
+    local price=$(echo "scale=4; $volume * 0.01" | bc 2>/dev/null || echo "0.01")
+    echo "$volume $price"
+}
 
-echo "════════════════════════════════════════════"
-log "DONE: module_151_ad_contract"
-read -r -p "Натисни Enter..." _
-exit 0
+ad_create() {
+    local what platform url volume price
+    if [ $# -ge 3 ]; then what="$1"; platform="$2"; url="$3"
+    else
+        read -r -p "Що рекламуємо: " what
+        [ -z "$what" ] && { echo "❌ порожньо"; return 1; }
+        read -r -p "Платформа: " platform
+        [ -z "$platform" ] && { echo "❌ порожньо"; return 1; }
+        read -r -p "URL: " url
+    fi
+    echo "$url" | grep -qE '^https?://' || { echo "❌ URL невалідний"; return 1; }
+    read volume price <<< "$(ai_estimate "$what" "$platform" "$url")"
+    backup_db
+    local now=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+    local id=$(sqlite3 "$DB" "INSERT INTO ads (what,platform,url,volume,price_bnb,created_at) VALUES ('$what','$platform','$url',$volume,$price,'$now'); SELECT last_insert_rowid();")
+    echo "🤖 AI: обсяг=$volume/7, ціна=$price BNB"
+    echo "✅ Реклама #$id (stage=1, оплата очікує)"
+}
+
+ad_pay() {
+    read -r -p "ID реклами: " id
+    read -r -p "TX hash: " tx
+    [ -z "$id" ] || [ -z "$tx" ] && { echo "❌"; return 1; }
+    backup_db
+    sqlite3 "$DB" "UPDATE ads SET stage=4, payment_status='paid', tx_hash='$tx', paid_bnb=price_bnb WHERE id=$id;" 2>/dev/null
+    echo "✅ #$id оплачено (stage=4)"
+}
+
+ad_status() {
+    echo ""
+    echo "ID  Що                Платформа  Ціна   Оплач  Прогрес"
+    sqlite3 -separator '|' "$DB" "SELECT id, substr(what,1,18), platform, price_bnb, paid_bnb, stage FROM ads ORDER BY id DESC LIMIT 10;" 2>/dev/null | while IFS='|' read -r id what plat price paid stage; do
+        local bar=""
+        for i in 1 2 3 4 5 6 7; do
+            if [ "$i" -le "$stage" ]; then bar="${bar}🟢"; else bar="${bar}⚪"; fi
+        done
+        printf "%-3s %-19s %-10s %-6s %-6s %s\n" "$id" "$what" "$plat" "$price" "$paid" "$bar"
+    done
+}
+
+ad_refund() {
+    read -r -p "ID: " id
+    backup_db
+    sqlite3 "$DB" "UPDATE ads SET status='refunded', stage=7 WHERE id=$id;" 2>/dev/null
+    echo "✅ #$id → refunded"
+}
+
+run_levels
+case "${1:-menu}" in
+    create) shift; ad_create "$@" ;;
+    status) ad_status ;;
+    backup) backup_db ;;
+    restore) restore_db ;;
+    menu|*)
+        while true; do
+            echo ""
+            echo "════ 151. РЕКЛАМА (рівень $(level_now)/7) ════"
+            echo "1) Створити  2) Статус  3) Оплатити  4) Реверс  5) Бекап  6) Відкат  0) Назад"
+            read -r -p "Вибір: " c
+            case "$c" in
+                1) ad_create ;;
+                2) ad_status ;;
+                3) ad_pay ;;
+                4) ad_refund ;;
+                5) backup_db ;;
+                6) restore_db ;;
+                0) exit 0 ;;
+                *) echo "невідомо" ;;
+            esac
+        done
+        ;;
+esac

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19T10:11:33.233109+00:00",
+  "updated": "2026-10-19T10:12:04.870041+00:00",
   "total_modules": 217,
   "unique_actions": 73,
   "conflicts": 15,
@@ -660,7 +660,7 @@
       "action": "contract",
       "status": "unknown",
       "base_score": 30,
-      "size": 5218,
+      "size": 5233,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_151_ad_contract/main.sh",
       "score": 47
     },
@@ -710,9 +710,9 @@
       "action": "evo",
       "status": "unknown",
       "base_score": 30,
-      "size": 1517,
+      "size": 1217,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_152_rollback_evo/main.sh",
-      "score": 42
+      "score": 50
     },
     {
       "name": "module_9_generated",
@@ -2304,12 +2304,12 @@
           "score": 70
         },
         {
-          "name": "module_20_evolution_guard",
+          "name": "module_152_rollback_evo",
           "score": 50
         },
         {
-          "name": "module_152_rollback_evo",
-          "score": 42
+          "name": "module_20_evolution_guard",
+          "score": 50
         }
       ],
       "total": 4
@@ -3406,12 +3406,12 @@
           "score": 70
         },
         {
-          "name": "module_20_evolution_guard",
+          "name": "module_152_rollback_evo",
           "score": 50
         },
         {
-          "name": "module_152_rollback_evo",
-          "score": 42
+          "name": "module_20_evolution_guard",
+          "score": 50
         }
       ]
     },
