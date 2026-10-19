@@ -150,6 +150,8 @@ case "${1:-}" in
         exit 1
         ;;
 
+esac
+
 # ─── 7 РІВНІВ СКЛАДНОСТІ ───
 LEVEL_FILE="/data/data/com.termux/files/home/CYBRA/state/cybra_binmix.level"
 level_now() { [ -f "$LEVEL_FILE" ] && cat "$LEVEL_FILE" || echo 1; }
