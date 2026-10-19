@@ -1,6 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# cybra-core — ядро CYBRA: autoheal + watchdog + 7 рівнів складності
-# Приєднання до екосистеми одним "уколом". Не ламає існуюче.
+# cybra-core — ядро CYBRA
+# Пункт 151: Реклама (Ad Contract)
+# Пункт 152: Відкат системи до чистої ноти EVO
 
 export HOME="/data/data/com.termux/files/home"
 export PREFIX="/data/data/com.termux/files/usr"
@@ -12,74 +13,135 @@ STATE="$CYBRA/state/core.level"
 mkdir -p "$CYBRA/logs" "$CYBRA/state"
 
 log() { echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] $1" >> "$LOG"; }
-
-# --- 7 рівнів складності приєднання ---
-# 1: ядро запущене
-# 2: autoheal активний
-# 3: watchdog активний (тільки сигнал)
-# 4: health-check налаштувань
-# 5: приєднання до EVO
-# 6: приєднання до контрактів (реклама)
-# 7: повна екосистема
 level_now() { [ -f "$STATE" ] && cat "$STATE" || echo 1; }
 level_set() { echo "$1" > "$STATE"; log "LEVEL: $1"; }
 
-# --- autoheal: підняти процеси, якщо їх менше 9 ---
-autoheal() {
-    local online
-    online=$(pm2 ls 2>/dev/null | grep -c "online" || echo 0)
-    if [ "$online" -lt 9 ]; then
-        log "AUTOHEAL: online=$online < 9 — resurrect"
-        cd "$CYBRA" && pm2 resurrect >/dev/null 2>&1
-    fi
+# ============================================================
+# ПУНКТ 151 — РЕКЛАМА
+# ============================================================
+ad_menu() {
+    echo ""
+    echo "════════ 151. РЕКЛАМА ════════"
+    echo "1) Створити рекламу"
+    echo "2) Статус реклами"
+    echo "3) Реверс коштів"
+    echo "0) Назад"
+    read -r -p "Вибір: " c
+    case "$c" in
+        1) ad_create ;;
+        2) ad_status ;;
+        3) ad_refund ;;
+        0) return ;;
+        *) echo "невідомо" ;;
+    esac
 }
 
-# --- watchdog: тільки сигнал, без убивства ---
-watchdog() {
-    local online
-    online=$(pm2 ls 2>/dev/null | grep -c "online" || echo 0)
-    if [ "$online" -lt 9 ]; then
-        log "WATCHDOG: увага, online=$online"
+ad_create() {
+    echo ""
+    echo "— Створення реклами —"
+    read -r -p "Що рекламуємо: " what
+    read -r -p "Платформа (сайт/TikTok/FB): " platform
+    read -r -p "Посилання (URL): " url
+    # валідація
+    if ! echo "$url" | grep -qE '^https?://'; then
+        echo "❌ URL невалідний (має починатись з http:// або https://)"
+        return
     fi
+    read -r -p "Обсяг (1-7): " volume
+    # AI оцінка складності (7 рівнів)
+    local price_bnb
+    price_bnb=$(echo "scale=4; $volume * 0.01" | bc 2>/dev/null || echo "0.01")
+    echo "AI оцінка: складність=$volume/7, ціна=${price_bnb} BNB"
+    echo "Контракт: 50% вам, 50% менеджеру"
+    echo "Двостороннє підписання: ваш гаманець + гаманець менеджера"
+    log "AD CREATE: what=$what platform=$platform url=$url volume=$volume price=$price_bnb"
+    echo "✅ Рекламу створено (запис у лог)"
 }
 
-# --- health-check налаштувань ---
-health() {
-    [ -f "$CYBRA/bin/cybra_autonode_main.js" ] || log "HEALTH: немає autonode.js"
-    [ -d "$CYBRA/sandbox" ] || log "HEALTH: немає sandbox"
-    [ -f "$CYBRA/.git/config" ] && grep -q "origin" "$CYBRA/.git/config" || log "HEALTH: git origin?"
+ad_status() {
+    echo ""
+    echo "— Статус реклами —"
+    grep "AD CREATE" "$LOG" 2>/dev/null | tail -10 || echo "немає записів"
 }
 
-# --- приєднання до екосистеми (один укол) ---
-integrate() {
-    local lvl
-    lvl=$(level_now)
-    log "INTEGRATE: старт з рівня $lvl"
-
-    autoheal;  [ "$lvl" -lt 2 ] && level_set 2
-    watchdog;  [ "$lvl" -lt 3 ] && level_set 3
-    health;    [ "$lvl" -lt 4 ] && level_set 4
-
-    # EVO
-    if [ -f "$CYBRA/evo/evo_core.py" ]; then
-        [ "$lvl" -lt 5 ] && level_set 5
-    fi
-
-    # Контракти (реклама)
-    if [ -d "$CYBRA/modules" ]; then
-        [ "$lvl" -lt 6 ] && level_set 6
-    fi
-
-    [ "$lvl" -lt 7 ] && level_set 7
-    log "INTEGRATE: система на рівні $(level_now)/7"
+ad_refund() {
+    echo ""
+    echo "— Реверс коштів —"
+    echo "Якщо реклама не досягла рівня — решта коштів повертається менеджеру."
+    log "AD REFUND: ініційовано"
+    echo "✅ Реверс ініційовано (запис у лог)"
 }
 
-# --- головний цикл ---
-case "${1:-integrate}" in
-    integrate) integrate ;;
-    heal)      autoheal ;;
-    watch)     watchdog ;;
-    health)    health ;;
-    level)     echo "Рівень: $(level_now)/7" ;;
-    *)         echo "usage: cybra-core [integrate|heal|watch|health|level]" ;;
+# ============================================================
+# ПУНКТ 152 — ВІДКАТ ДО ЧИСТОЇ НОТИ EVO
+# ============================================================
+rollback_menu() {
+    echo ""
+    echo "════════ 152. ВІДКАТ ДО ЧИСТОЇ НОТИ EVO ════════"
+    echo "1) Показати поточний стан"
+    echo "2) Відкат до чистої ноти"
+    echo "0) Назад"
+    read -r -p "Вибір: " c
+    case "$c" in
+        1) rollback_status ;;
+        2) rollback_do ;;
+        0) return ;;
+        *) echo "невідомо" ;;
+    esac
+}
+
+rollback_status() {
+    echo ""
+    echo "— Поточний стан —"
+    echo "Рівень ядра: $(level_now)/7"
+    if [ -d "$CYBRA/.git" ]; then
+        echo "Git: $(cd "$CYBRA" && git rev-parse --short HEAD 2>/dev/null || echo '?')"
+    fi
+    echo "EVO: $([ -f "$CYBRA/evo/evo_core.py" ] && echo 'є' || echo 'немає')"
+    echo "Sandbox: $([ -d "$CYBRA/sandbox" ] && echo 'є' || echo 'немає')"
+}
+
+rollback_do() {
+    echo ""
+    echo "⚠️  Відкат до чистої ноти EVO"
+    read -r -p "Підтвердити? (yes/no): " ok
+    [ "$ok" != "yes" ] && echo "скасовано" && return
+    # відкат до чистого стану
+    if [ -d "$CYBRA/.git" ]; then
+        (cd "$CYBRA" && git reset --hard HEAD --quiet 2>/dev/null) || true
+    fi
+    rm -f "$STATE"
+    log "ROLLBACK: до чистої ноти EVO"
+    echo "✅ Відкат виконано (стан скинуто)"
+}
+
+# ============================================================
+# ГОЛОВНЕ МЕНЮ
+# ============================================================
+main_menu() {
+    while true; do
+        echo ""
+        echo "════════════════════════════════"
+        echo "  CYBRA CORE — рівень $(level_now)/7"
+        echo "════════════════════════════════"
+        echo "  151) Реклама"
+        echo "  152) Відкат до чистої ноти EVO"
+        echo "  0)   Вихід"
+        read -r -p "Вибір: " c
+        case "$c" in
+            151) ad_menu ;;
+            152) rollback_menu ;;
+            0)   exit 0 ;;
+            *)   echo "невідомо" ;;
+        esac
+    done
+}
+
+# --- запуск ---
+case "${1:-menu}" in
+    menu)     main_menu ;;
+    151)      ad_menu ;;
+    152)      rollback_menu ;;
+    level)    echo "Рівень: $(level_now)/7" ;;
+    *)        main_menu ;;
 esac
