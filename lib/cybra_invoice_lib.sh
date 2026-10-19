@@ -79,9 +79,9 @@ try:
     for i, it in enumerate(inv.get('items', []), 1):
         print(f\"  {i}. {it.get('name', '?')} x{it.get('qty', 0)} = {it.get('line_total', 0):.2f} грн\")
     print('-' * 60)
-    print(f\"  Сума без ПДВ: {t.get('sum_without_vat', 0):>10.2f} грн\")
-    print(f\"  ПДВ:          {t.get('vat', 0):>10.2f} грн\")
-    print(f\"  ВСЬОГО:       {t.get('sum_with_vat', 0):>10.2f} грн\")
+    print(f"  Сума без ПДВ: {t.get('sum_without_vat_uah', t.get('sum_without_vat', 0)):>10.2f} грн")
+    print(f"  ПДВ:          {t.get('vat_uah', t.get('vat', 0)):>10.2f} грн")
+    print(f"  ВСЬОГО:       {t.get('sum_uah', t.get('sum_with_vat', 0)):>10.2f} грн")
     print('=' * 60)
 except Exception as e:
     print(f'❌ Помилка: {e}')
