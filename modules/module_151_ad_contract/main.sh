@@ -108,6 +108,9 @@ ad_pay() {
 # ─── ПІДПИС ───
 ad_sign() {
     read -r -p "ID: " id
+    [ -z "$id" ] && { echo "❌ ID порожній"; return 1; }
+    local n=$(sqlite3 "$DB" "SELECT COUNT(*) FROM ads WHERE id=$id;" 2>/dev/null)
+    [ "$n" = "0" ] && { echo "❌ #$id не знайдено"; return 1; }
     sqlite3 "$DB" "UPDATE ads SET stage=5, status='signed' WHERE id=$id;" 2>/dev/null
     echo "✅ #$id підписано (stage=5)"
 }
@@ -115,6 +118,9 @@ ad_sign() {
 # ─── РЕЗУЛЬТАТ ───
 ad_complete() {
     read -r -p "ID: " id
+    [ -z "$id" ] && { echo "❌ ID порожній"; return 1; }
+    local n=$(sqlite3 "$DB" "SELECT COUNT(*) FROM ads WHERE id=$id;" 2>/dev/null)
+    [ "$n" = "0" ] && { echo "❌ #$id не знайдено"; return 1; }
     sqlite3 "$DB" "UPDATE ads SET stage=7, status='completed' WHERE id=$id;" 2>/dev/null
     echo "✅ #$id завершено (результат)"
 }
