@@ -139,11 +139,17 @@ ad_refund() {
 ad_progress() {
     echo "═══ ШЛЯХ ДО 100% РЕКЛАМИ ═══"
     local pct=0
-    [ "$(sqlite3 "$DB" "SELECT COUNT(*) FROM ads;" 2>/dev/null || echo 0)" -gt 0 ] && { echo "  [1] ✅ Створено"; pct=20; }
-    [ "$(sqlite3 "$DB" "SELECT COUNT(*) FROM ads WHERE price_bnb>0;" 2>/dev/null || echo 0)" -gt 0 ] && { echo "  [2] ✅ Оцінено"; pct=40; }
-    [ "$(sqlite3 "$DB" "SELECT COUNT(*) FROM ads WHERE status='paid';" 2>/dev/null || echo 0)" -gt 0 ] && { echo "  [3] ✅ Оплачено"; pct=60; }
-    [ "$(sqlite3 "$DB" "SELECT COUNT(*) FROM ads WHERE status='signed';" 2>/dev/null || echo 0)" -gt 0 ] && { echo "  [4] ✅ Підписано"; pct=80; }
-    [ "$(sqlite3 "$DB" "SELECT COUNT(*) FROM ads WHERE status='completed';" 2>/dev/null || echo 0)" -gt 0 ] && { echo "  [5] ✅ Результат"; pct=100; }
+    local total=$(sqlite3 "$DB" "SELECT COUNT(*) FROM ads;" 2>/dev/null || echo 0)
+    [ "$total" -gt 0 ] && { echo "  [1] ✅ Створено"; pct=20; }
+    local est=$(sqlite3 "$DB" "SELECT COUNT(*) FROM ads WHERE price_bnb>0;" 2>/dev/null || echo 0)
+    [ "$est" -gt 0 ] && { echo "  [2] ✅ Оцінено"; pct=40; }
+    # оплачено: paid, signed, completed (усі, хто пройшов далі)
+    local paid=$(sqlite3 "$DB" "SELECT COUNT(*) FROM ads WHERE status IN ('paid','signed','completed');" 2>/dev/null || echo 0)
+    [ "$paid" -gt 0 ] && { echo "  [3] ✅ Оплачено"; pct=60; }
+    local signed=$(sqlite3 "$DB" "SELECT COUNT(*) FROM ads WHERE status IN ('signed','completed');" 2>/dev/null || echo 0)
+    [ "$signed" -gt 0 ] && { echo "  [4] ✅ Підписано"; pct=80; }
+    local completed=$(sqlite3 "$DB" "SELECT COUNT(*) FROM ads WHERE status='completed';" 2>/dev/null || echo 0)
+    [ "$completed" -gt 0 ] && { echo "  [5] ✅ Результат"; pct=100; }
     echo "Стан: $pct%"
 }
 
