@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19T19:33:19.270972+00:00",
+  "updated": "2026-10-19T19:34:24.260064+00:00",
   "total_modules": 217,
   "unique_actions": 152,
   "conflicts": 7,
@@ -1286,13 +1286,13 @@
     },
     {
       "name": "module_102_base",
-      "title": "module_102_base",
-      "action": "module102base",
+      "title": "Binmix + 65MB",
+      "action": "binmix",
       "status": "unknown",
       "base_score": 30,
-      "size": 1750,
+      "size": 1202,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_102_base/main.sh",
-      "score": 50
+      "score": 42
     },
     {
       "name": "module_103_base",
@@ -3059,11 +3059,11 @@
       "standby": [],
       "total": 1
     },
-    "module102base": {
+    "binmix": {
       "winner": "module_102_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_102_base/main.sh",
-      "winner_score": 50,
-      "winner_title": "module_102_base",
+      "winner_score": 42,
+      "winner_title": "Binmix + 65MB",
       "standby": [],
       "total": 1
     },
