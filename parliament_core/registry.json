@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19T09:06:20.643205+00:00",
+  "updated": "2026-10-19T09:07:25.116182+00:00",
   "total_modules": 217,
   "unique_actions": 73,
   "conflicts": 15,
@@ -656,13 +656,13 @@
     },
     {
       "name": "module_151_ad_contract",
-      "title": "module_151_ad_contract",
+      "title": "Реклама (Ad Contract) + SQLite + 7 рівнів",
       "action": "contract",
       "status": "unknown",
       "base_score": 30,
-      "size": 2115,
+      "size": 3140,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_151_ad_contract/main.sh",
-      "score": 50
+      "score": 42
     },
     {
       "name": "module_5_generated",
@@ -2215,16 +2215,16 @@
           "score": 50
         },
         {
-          "name": "module_151_ad_contract",
-          "score": 50
-        },
-        {
           "name": "module_17_cybra_license_contract_menu",
           "score": 50
         },
         {
           "name": "module_19_contract_tui_menu",
           "score": 50
+        },
+        {
+          "name": "module_151_ad_contract",
+          "score": 42
         }
       ],
       "total": 10
@@ -3383,16 +3383,16 @@
           "score": 50
         },
         {
-          "name": "module_151_ad_contract",
-          "score": 50
-        },
-        {
           "name": "module_17_cybra_license_contract_menu",
           "score": 50
         },
         {
           "name": "module_19_contract_tui_menu",
           "score": 50
+        },
+        {
+          "name": "module_151_ad_contract",
+          "score": 42
         }
       ]
     },
