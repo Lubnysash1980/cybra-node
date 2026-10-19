@@ -8,9 +8,12 @@ mkdir -p "$CYBRA/data" "$CYBRA/logs" "$CYBRA/state" "$CYBRA/backup"
 sqlite3 "$DB" "CREATE TABLE IF NOT EXISTS ads (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   what TEXT, platform TEXT, url TEXT,
-  volume INTEGER, price_bnb REAL, paid_bnb REAL DEFAULT 0,
-  stage INTEGER DEFAULT 1, status TEXT DEFAULT 'created',
-  tx_hash TEXT, created_at TEXT);" 2>/dev/null
+  volume INTEGER, price_bnb REAL,
+  status TEXT DEFAULT 'created', created_at TEXT);" 2>/dev/null
+# міграція: додати колонки, якщо їх немає
+for col in "paid_bnb REAL DEFAULT 0" "stage INTEGER DEFAULT 1" "tx_hash TEXT" "payment_status TEXT DEFAULT 'unpaid'"; do
+    sqlite3 "$DB" "ALTER TABLE ads ADD COLUMN $col;" 2>/dev/null
+done
 
 level_now() { [ -f "$LEVEL_FILE" ] && cat "$LEVEL_FILE" || echo 1; }
 level_set() { echo "$1" > "$LEVEL_FILE"; }
