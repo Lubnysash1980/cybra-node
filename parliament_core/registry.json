@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19T08:50:45.736598+00:00",
+  "updated": "2026-10-19T08:51:51.970428+00:00",
   "total_modules": 217,
   "unique_actions": 73,
   "conflicts": 15,
@@ -660,9 +660,9 @@
       "action": "contract",
       "status": "unknown",
       "base_score": 30,
-      "size": 3117,
+      "size": 1211,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_151_ad_contract/main.sh",
-      "score": 42
+      "score": 50
     },
     {
       "name": "module_5_generated",
@@ -2212,7 +2212,7 @@
         },
         {
           "name": "module_151_ad_contract",
-          "score": 42
+          "score": 50
         },
         {
           "name": "module_02_contract_builder",
@@ -3380,7 +3380,7 @@
         },
         {
           "name": "module_151_ad_contract",
-          "score": 42
+          "score": 50
         },
         {
           "name": "module_02_contract_builder",
