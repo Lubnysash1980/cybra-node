@@ -1,22 +1,1283 @@
 {
   "controllers": {
-    "cybra-controller": {
+    "module_01_auto_executor_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_01_auto_executor/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_01_auto_executor_main_sh.level"
+    },
+    "module_02_contract_builder_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_02_contract_builder/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_02_contract_builder_main_sh.level"
+    },
+    "module_03_escrow_controller_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_03_escrow_controller/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_03_escrow_controller_main_sh.level"
+    },
+    "module_100_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_100_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_100_base_main_sh.level"
+    },
+    "module_101_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_101_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_101_base_main_sh.level"
+    },
+    "module_102_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_102_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_102_base_main_sh.level"
+    },
+    "module_103_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_103_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_103_base_main_sh.level"
+    },
+    "module_104_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_104_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_104_base_main_sh.level"
+    },
+    "module_105_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_105_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_105_base_main_sh.level"
+    },
+    "module_106_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_106_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_106_base_main_sh.level"
+    },
+    "module_107_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_107_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_107_base_main_sh.level"
+    },
+    "module_108_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_108_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_108_base_main_sh.level"
+    },
+    "module_109_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_109_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_109_base_main_sh.level"
+    },
+    "module_10_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_10_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_10_base_main_sh.level"
+    },
+    "module_110_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_110_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_110_base_main_sh.level"
+    },
+    "module_111_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_111_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_111_base_main_sh.level"
+    },
+    "module_112_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_112_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_112_base_main_sh.level"
+    },
+    "module_113_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_113_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_113_base_main_sh.level"
+    },
+    "module_114_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_114_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_114_base_main_sh.level"
+    },
+    "module_115_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_115_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_115_base_main_sh.level"
+    },
+    "module_116_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_116_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_116_base_main_sh.level"
+    },
+    "module_117_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_117_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_117_base_main_sh.level"
+    },
+    "module_118_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_118_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_118_base_main_sh.level"
+    },
+    "module_119_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_119_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_119_base_main_sh.level"
+    },
+    "module_11_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_11_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_11_base_main_sh.level"
+    },
+    "module_120_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_120_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_120_base_main_sh.level"
+    },
+    "module_121_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_121_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_121_base_main_sh.level"
+    },
+    "module_122_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_122_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_122_base_main_sh.level"
+    },
+    "module_123_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_123_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_123_base_main_sh.level"
+    },
+    "module_124_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_124_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_124_base_main_sh.level"
+    },
+    "module_125_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_125_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_125_base_main_sh.level"
+    },
+    "module_126_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_126_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_126_base_main_sh.level"
+    },
+    "module_127_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_127_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_127_base_main_sh.level"
+    },
+    "module_128_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_128_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_128_base_main_sh.level"
+    },
+    "module_129_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_129_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_129_base_main_sh.level"
+    },
+    "module_12_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_12_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_12_base_main_sh.level"
+    },
+    "module_12_delivery_receipt_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_12_delivery_receipt/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_12_delivery_receipt_main_sh.level"
+    },
+    "module_130_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_130_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_130_base_main_sh.level"
+    },
+    "module_131_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_131_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_131_base_main_sh.level"
+    },
+    "module_132_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_132_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_132_base_main_sh.level"
+    },
+    "module_133_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_133_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_133_base_main_sh.level"
+    },
+    "module_134_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_134_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_134_base_main_sh.level"
+    },
+    "module_135_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_135_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_135_base_main_sh.level"
+    },
+    "module_136_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_136_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_136_base_main_sh.level"
+    },
+    "module_137_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_137_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_137_base_main_sh.level"
+    },
+    "module_138_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_138_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_138_base_main_sh.level"
+    },
+    "module_139_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_139_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_139_base_main_sh.level"
+    },
+    "module_13_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_13_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_13_base_main_sh.level"
+    },
+    "module_13_dual_backend_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_13_dual_backend/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_13_dual_backend_main_sh.level"
+    },
+    "module_140_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_140_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_140_base_main_sh.level"
+    },
+    "module_141_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_141_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_141_base_main_sh.level"
+    },
+    "module_142_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_142_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_142_base_main_sh.level"
+    },
+    "module_143_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_143_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_143_base_main_sh.level"
+    },
+    "module_144_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_144_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_144_base_main_sh.level"
+    },
+    "module_145_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_145_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_145_base_main_sh.level"
+    },
+    "module_146_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_146_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_146_base_main_sh.level"
+    },
+    "module_147_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_147_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_147_base_main_sh.level"
+    },
+    "module_148_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_148_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_148_base_main_sh.level"
+    },
+    "module_149_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_149_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_149_base_main_sh.level"
+    },
+    "module_14_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_14_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_14_base_main_sh.level"
+    },
+    "module_14_watchdog_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_14_watchdog/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_14_watchdog_main_sh.level"
+    },
+    "module_150_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_150_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_150_base_main_sh.level"
+    },
+    "module_15_true100_aggregator_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_15_true100_aggregator/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_15_true100_aggregator_main_sh.level"
+    },
+    "module_16_final_authorization_release_gate_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_16_final_authorization_release_gate/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_16_final_authorization_release_gate_main_sh.level"
+    },
+    "module_17_cybra_license_contract_menu_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_17_cybra_license_contract_menu/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_17_cybra_license_contract_menu_main_sh.level"
+    },
+    "module_18_license_payment_router_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_18_license_payment_router/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_18_license_payment_router_main_sh.level"
+    },
+    "module_19_contract_tui_menu_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_19_contract_tui_menu/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_19_contract_tui_menu_main_sh.level"
+    },
+    "module_1_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_1_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_1_base_main_sh.level"
+    },
+    "module_20_evolution_guard_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_20_evolution_guard/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_20_evolution_guard_main_sh.level"
+    },
+    "module_22_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_22_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_22_base_main_sh.level"
+    },
+    "module_23_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_23_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_23_base_main_sh.level"
+    },
+    "module_25_address_book_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_25_address_book/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_25_address_book_main_sh.level"
+    },
+    "module_26_qr_codes_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_26_qr_codes/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_26_qr_codes_main_sh.level"
+    },
+    "module_27_telegram_bot_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_27_telegram_bot/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_27_telegram_bot_main_sh.level"
+    },
+    "module_28_export_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_28_export/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_28_export_main_sh.level"
+    },
+    "module_29_backup_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_29_backup/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_29_backup_main_sh.level"
+    },
+    "module_2_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_2_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_2_base_main_sh.level"
+    },
+    "module_30_multichain_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_30_multichain/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_30_multichain_main_sh.level"
+    },
+    "module_31_dispute_resolver_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_31_dispute_resolver/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_31_dispute_resolver_main_sh.level"
+    },
+    "module_32_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_32_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_32_base_main_sh.level"
+    },
+    "module_32_webhook_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_32_webhook/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_32_webhook_main_sh.level"
+    },
+    "module_33_audit_log_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_33_audit_log/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_33_audit_log_main_sh.level"
+    },
+    "module_34_doc_scanner_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_34_doc_scanner/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_34_doc_scanner_main_sh.level"
+    },
+    "module_35_cybra_guardian_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_35_cybra_guardian/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_35_cybra_guardian_main_sh.level"
+    },
+    "module_3_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_3_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_3_base_main_sh.level"
+    },
+    "module_40_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_40_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_40_base_main_sh.level"
+    },
+    "module_41_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_41_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_41_base_main_sh.level"
+    },
+    "module_42_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_42_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_42_base_main_sh.level"
+    },
+    "module_43_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_43_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_43_base_main_sh.level"
+    },
+    "module_44_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_44_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_44_base_main_sh.level"
+    },
+    "module_45_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_45_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_45_base_main_sh.level"
+    },
+    "module_46_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_46_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_46_base_main_sh.level"
+    },
+    "module_47_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_47_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_47_base_main_sh.level"
+    },
+    "module_48_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_48_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_48_base_main_sh.level"
+    },
+    "module_49_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_49_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_49_base_main_sh.level"
+    },
+    "module_4_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_4_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_4_base_main_sh.level"
+    },
+    "module_53_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_53_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_53_base_main_sh.level"
+    },
+    "module_54_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_54_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_54_base_main_sh.level"
+    },
+    "module_55_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_55_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_55_base_main_sh.level"
+    },
+    "module_56_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_56_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_56_base_main_sh.level"
+    },
+    "module_57_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_57_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_57_base_main_sh.level"
+    },
+    "module_61_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_61_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_61_base_main_sh.level"
+    },
+    "module_62_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_62_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_62_base_main_sh.level"
+    },
+    "module_65_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_65_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_65_base_main_sh.level"
+    },
+    "module_69_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_69_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_69_base_main_sh.level"
+    },
+    "module_76_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_76_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_76_base_main_sh.level"
+    },
+    "module_77_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_77_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_77_base_main_sh.level"
+    },
+    "module_81_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_81_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_81_base_main_sh.level"
+    },
+    "module_84_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_84_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_84_base_main_sh.level"
+    },
+    "module_86_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_86_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_86_base_main_sh.level"
+    },
+    "module_88_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_88_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_88_base_main_sh.level"
+    },
+    "module_91_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_91_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_91_base_main_sh.level"
+    },
+    "module_92_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_92_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_92_base_main_sh.level"
+    },
+    "module_93_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_93_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_93_base_main_sh.level"
+    },
+    "module_94_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_94_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_94_base_main_sh.level"
+    },
+    "module_95_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_95_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_95_base_main_sh.level"
+    },
+    "module_96_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_96_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_96_base_main_sh.level"
+    },
+    "module_97_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_97_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_97_base_main_sh.level"
+    },
+    "module_98_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_98_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_98_base_main_sh.level"
+    },
+    "module_99_base_main_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_99_base/main.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/module_99_base_main_sh.level"
+    },
+    "bin_alert": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/alert",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_alert.level"
+    },
+    "bin_autostart_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/autostart.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_autostart_sh.level"
+    },
+    "bin_boot": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/boot",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_boot.level"
+    },
+    "bin_c3pct": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/c3pct",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_c3pct.level"
+    },
+    "bin_cctrl": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cctrl",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cctrl.level"
+    },
+    "bin_cdual": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cdual",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cdual.level"
+    },
+    "bin_cenf": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cenf",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cenf.level"
+    },
+    "bin_cent": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cent",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cent.level"
+    },
+    "bin_cleanup": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cleanup",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cleanup.level"
+    },
+    "bin_cpatch": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cpatch",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cpatch.level"
+    },
+    "bin_cybra": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra.level"
+    },
+    "bin_cybra-7level-template": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra-7level-template",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra-7level-template.level"
+    },
+    "bin_cybra-ad-module": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra-ad-module",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra-ad-module.level"
+    },
+    "bin_cybra-adpatch": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra-adpatch",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra-adpatch.level"
+    },
+    "bin_cybra-autoheal": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra-autoheal",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra-autoheal.level"
+    },
+    "bin_cybra-autopatch": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra-autopatch",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra-autopatch.level"
+    },
+    "bin_cybra-conformation8": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra-conformation8",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra-conformation8.level"
+    },
+    "bin_cybra-controller": {
       "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra-controller",
-      "purpose": "universal controller (evo + sandbox 65MB + run)",
       "levels": 7,
-      "status": "active"
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra-controller.level"
     },
-    "module_151_controller": {
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_151_ad_contract/controller.sh",
-      "purpose": "ad contract controller",
+    "bin_cybra-core": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra-core",
       "levels": 7,
-      "status": "active"
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra-core.level"
     },
-    "module_152_controller": {
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_152_rollback_evo/controller.sh",
-      "purpose": "rollback evo controller",
+    "bin_cybra-evolution-bin": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra-evolution-bin",
       "levels": 7,
-      "status": "active"
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra-evolution-bin.level"
+    },
+    "bin_cybra-finance-bin": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra-finance-bin",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra-finance-bin.level"
+    },
+    "bin_cybra-security-analytics": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra-security-analytics",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra-security-analytics.level"
+    },
+    "bin_cybra-watchdog_js": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra-watchdog.js",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra-watchdog_js.level"
+    },
+    "bin_cybra-watchdog_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra-watchdog.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra-watchdog_sh.level"
+    },
+    "bin_cybra_3pct": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_3pct",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_3pct.level"
+    },
+    "bin_cybra_ai": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_ai",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_ai.level"
+    },
+    "bin_cybra_ai_executor": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_ai_executor",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_ai_executor.level"
+    },
+    "bin_cybra_ai_executor_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_ai_executor.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_ai_executor_sh.level"
+    },
+    "bin_cybra_alert": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_alert",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_alert.level"
+    },
+    "bin_cybra_apply_change_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_apply_change.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_apply_change_sh.level"
+    },
+    "bin_cybra_approve_evolution_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_approve_evolution.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_approve_evolution_sh.level"
+    },
+    "bin_cybra_auto_all": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_auto_all",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_auto_all.level"
+    },
+    "bin_cybra_auto_all_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_auto_all.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_auto_all_sh.level"
+    },
+    "bin_cybra_auto_backup_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_auto_backup.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_auto_backup_sh.level"
+    },
+    "bin_cybra_auto_evolution_test_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_auto_evolution_test.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_auto_evolution_test_sh.level"
+    },
+    "bin_cybra_auto_verify_fix_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_auto_verify_fix.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_auto_verify_fix_sh.level"
+    },
+    "bin_cybra_autogit_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_autogit.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_autogit_sh.level"
+    },
+    "bin_cybra_autonode_cybra": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_autonode_cybra",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_autonode_cybra.level"
+    },
+    "bin_cybra_autonode_main": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_autonode_main",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_autonode_main.level"
+    },
+    "bin_cybra_autonode_main_js": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_autonode_main.js",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_autonode_main_js.level"
+    },
+    "bin_cybra_autopatch": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_autopatch",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_autopatch.level"
+    },
+    "bin_cybra_autopilot": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_autopilot",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_autopilot.level"
+    },
+    "bin_cybra_binmix": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_binmix",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_binmix.level"
+    },
+    "bin_cybra_boot": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_boot",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_boot.level"
+    },
+    "bin_cybra_build": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_build",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_build.level"
+    },
+    "bin_cybra_build_m20_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_build_m20.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_build_m20_sh.level"
+    },
+    "bin_cybra_cleanup": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_cleanup",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_cleanup.level"
+    },
+    "bin_cybra_contract_debug_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_contract_debug.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_contract_debug_sh.level"
+    },
+    "bin_cybra_contract_test_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_contract_test.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_contract_test_sh.level"
+    },
+    "bin_cybra_control": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_control",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_control.level"
+    },
+    "bin_cybra_creation_license_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_creation_license.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_creation_license_sh.level"
+    },
+    "bin_cybra_diagnose_fix_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_diagnose_fix.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_diagnose_fix_sh.level"
+    },
+    "bin_cybra_diagnose_menu_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_diagnose_menu.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_diagnose_menu_sh.level"
+    },
+    "bin_cybra_dual_evo": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_dual_evo",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_dual_evo.level"
+    },
+    "bin_cybra_dual_license_upgrade_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_dual_license_upgrade.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_dual_license_upgrade_sh.level"
+    },
+    "bin_cybra_enforce": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_enforce",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_enforce.level"
+    },
+    "bin_cybra_enterprise": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_enterprise",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_enterprise.level"
+    },
+    "bin_cybra_evo": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_evo",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_evo.level"
+    },
+    "bin_cybra_evo7": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_evo7",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_evo7.level"
+    },
+    "bin_cybra_evo_ctl": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_evo_ctl",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_evo_ctl.level"
+    },
+    "bin_cybra_export": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_export",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_export.level"
+    },
+    "bin_cybra_final_build_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_final_build.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_final_build_sh.level"
+    },
+    "bin_cybra_fix_m19_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_fix_m19.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_fix_m19_sh.level"
+    },
+    "bin_cybra_full_autofix_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_full_autofix.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_full_autofix_sh.level"
+    },
+    "bin_cybra_hard_fix_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_hard_fix.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_hard_fix_sh.level"
+    },
+    "bin_cybra_hash_eco": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_hash_eco",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_hash_eco.level"
+    },
+    "bin_cybra_http": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_http",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_http.level"
+    },
+    "bin_cybra_import": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_import",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_import.level"
+    },
+    "bin_cybra_metrics": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_metrics",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_metrics.level"
+    },
+    "bin_cybra_migrate_contracts_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_migrate_contracts.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_migrate_contracts_sh.level"
+    },
+    "bin_cybra_parawatch": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_parawatch",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_parawatch.level"
+    },
+    "bin_cybra_run_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_run.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_run_sh.level"
+    },
+    "bin_cybra_schedule": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_schedule",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_schedule.level"
+    },
+    "bin_cybra_seal_snapshot_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_seal_snapshot.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_seal_snapshot_sh.level"
+    },
+    "bin_cybra_set_token_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_set_token.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_set_token_sh.level"
+    },
+    "bin_cybra_status_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_status.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_status_sh.level"
+    },
+    "bin_cybra_systems": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_systems",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_systems.level"
+    },
+    "bin_cybra_systems_check_sh": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_systems_check.sh",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_systems_check_sh.level"
+    },
+    "bin_cybra_watchdog": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_watchdog",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_watchdog.level"
+    },
+    "bin_cybra_web": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_web",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_web.level"
+    },
+    "bin_cybra_web_server_py": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_web_server.py",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybra_web_server_py.level"
+    },
+    "bin_cybroncybra-env": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybroncybra-env",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_cybroncybra-env.level"
+    },
+    "bin_evo7": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/evo7",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_evo7.level"
+    },
+    "bin_evoctl": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/evoctl",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_evoctl.level"
+    },
+    "bin_export": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/export",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_export.level"
+    },
+    "bin_http": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/http",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_http.level"
+    },
+    "bin_import": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/import",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_import.level"
+    },
+    "bin_metrics": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/metrics",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_metrics.level"
+    },
+    "bin_pwatch": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/pwatch",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_pwatch.level"
+    },
+    "bin_run_node_js": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/run_node.js",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_run_node_js.level"
+    },
+    "bin_sched": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/sched",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_sched.level"
+    },
+    "bin_wd": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/wd",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_wd.level"
+    },
+    "bin_web": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/web",
+      "levels": 7,
+      "status": "active",
+      "level_file": "/data/data/com.termux/files/home/CYBRA/state/bin_web.level"
     }
-  }
+  },
+  "updated": "2026-10-19T12:00:56Z"
 }
