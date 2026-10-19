@@ -1,50 +1,39 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# МОДУЛЬ: module_152_rollback_evo
-# СТАТУС: READY (100% - auto-resolved)
-# ДАТА: 2026-10-19T08:48:16.269403+00:00
-
 CYBRA="$HOME/CYBRA"
-LOG="$CYBRA/logs/module_152_rollback_evo.log"
-mkdir -p "$(dirname "$LOG")"
+BACKUP="$CYBRA/backup/evo_snapshot.tar.gz"
+mkdir -p "$CYBRA/backup"
 
-# ─── ЗАХИСТ (TRAP ERR) ───
-log() { echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] $1" >> "$LOG"; }
-trap 'log "ERROR at line $LINENO"; echo "❌ Помилка. Лог: $LOG"' ERR
-
-log "START: module_152_rollback_evo"
-
-echo "════════════════════════════════════════════"
-echo "  МОДУЛЬ module_152_rollback_evo (100%)"
-echo "════════════════════════════════════════════"
-echo "  Статус: READY"
-echo "  Лог: $LOG"
-echo ""
-
-# ─── ЛОГІКА ───
-echo "  ✅ Модуль module_152_rollback_evo активний"
-
-echo "════════════════════════════════════════════"
-log "DONE: module_152_rollback_evo"
-read -r -p "Натисни Enter..." _
-
-# ─── 7 РІВНІВ СКЛАДНОСТІ ───
-LEVEL_FILE="/data/data/com.termux/files/home/CYBRA/state/main.sh.level"
-level_now() { [ -f "$LEVEL_FILE" ] && cat "$LEVEL_FILE" || echo 1; }
-level_set() { echo "$1" > "$LEVEL_FILE"; }
-level1() { [ -d "$HOME/CYBRA" ] && return 0 || return 1; }
-level2() { command -v bash >/dev/null && return 0 || return 1; }
-level3() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
-level4() { [ -d "$HOME/CYBRA/logs" ] && return 0 || return 1; }
-level5() { [ -f "$HOME/CYBRA/evo/evo_core.py" ] && return 0 || return 1; }
-level6() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
-level7() { [ -d "$HOME/CYBRA/sandbox" ] && return 0 || return 1; }
-run_levels() {
-    local cur=$(level_now)
-    for i in 1 2 3 4 5 6 7; do
-        [ "$i" -lt "$cur" ] && continue
-        if "level$i"; then level_set "$i"; else return 0; fi
-    done
+snapshot() { tar -czf "$BACKUP" -C "$CYBRA" evo bin data 2>/dev/null; echo "✅ Snapshot: $BACKUP"; }
+restore() { [ -f "$BACKUP" ] || { echo "❌ Немає snapshot"; return 1; }; tar -xzf "$BACKUP" -C "$CYBRA" && echo "✅ Відновлено"; }
+git_reset() { [ -d "$CYBRA/.git" ] || { echo "❌ Немає .git"; return 1; }; (cd "$CYBRA" && git reset --hard HEAD --quiet) && echo "✅ Git reset"; }
+clean() {
+    echo "⚠️  Відкат до чистої ноти EVO"
+    read -r -p "Підтвердити? (yes/no): " ok
+    [ "$ok" != "yes" ] && echo "скасовано" && return
+    snapshot
+    [ -d "$CYBRA/.git" ] && (cd "$CYBRA" && git reset --hard HEAD --quiet 2>/dev/null)
+    echo "✅ Відкат виконано"
 }
-run_levels
 
-exit 0
+case "${1:-menu}" in
+    snapshot) snapshot ;;
+    restore) restore ;;
+    git) git_reset ;;
+    clean) clean ;;
+    menu|*)
+        while true; do
+            echo ""
+            echo "════ 152. ВІДКАТ EVO ════"
+            echo "1) Snapshot  2) Відновити  3) Git reset  4) Відкат  0) Назад"
+            read -r -p "Вибір: " c
+            case "$c" in
+                1) snapshot ;;
+                2) restore ;;
+                3) git_reset ;;
+                4) clean ;;
+                0) exit 0 ;;
+                *) echo "невідомо" ;;
+            esac
+        done
+        ;;
+esac
