@@ -1,0 +1,24 @@
+{
+  "controllers": {
+    "cybra-controller": {
+      "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra-controller",
+      "purpose": "universal controller: evo check + sandbox 65MB + run script",
+      "used_by": ["menu", "executors", "modules"],
+      "levels": 7,
+      "status": "active"
+    },
+    "module_151_controller": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_151_ad_contract/controller.sh",
+      "purpose": "ad contract controller",
+      "levels": 7,
+      "status": "active"
+    },
+    "module_152_controller": {
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_152_rollback_evo/controller.sh",
+      "purpose": "rollback evo controller",
+      "levels": 7,
+      "status": "active"
+    }
+  },
+  "updated": "2026-10-19"
+}
