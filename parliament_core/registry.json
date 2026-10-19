@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19T09:23:44.957836+00:00",
+  "updated": "2026-10-19T09:24:42.757619+00:00",
   "total_modules": 217,
   "unique_actions": 73,
   "conflicts": 15,
@@ -656,11 +656,11 @@
     },
     {
       "name": "module_151_ad_contract",
-      "title": "module_151_ad_contract",
+      "title": "Реклама (Ad Contract) — робоча версія з AI-оцінкою",
       "action": "contract",
       "status": "unknown",
       "base_score": 30,
-      "size": 1211,
+      "size": 4750,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_151_ad_contract/main.sh",
       "score": 42
     },
