@@ -2,8 +2,7 @@
   "controllers": {
     "cybra-controller": {
       "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra-controller",
-      "purpose": "universal controller: evo check + sandbox 65MB + run script",
-      "used_by": ["menu", "executors", "modules"],
+      "purpose": "universal controller (evo + sandbox 65MB + run)",
       "levels": 7,
       "status": "active"
     },
@@ -19,6 +18,5 @@
       "levels": 7,
       "status": "active"
     }
-  },
-  "updated": "2026-10-19"
+  }
 }

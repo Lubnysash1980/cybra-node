@@ -228,27 +228,27 @@ while true; do
     printf '  Вибір: '
     read -r CHOICE
     case "$CHOICE" in
-        1) bash "$HOME/CYBRA/modules/module_1_base/main.sh" ;;
-        2) bash "$HOME/CYBRA/modules/module_2_base/main.sh" ;;
-        3) bash "$HOME/CYBRA/modules/module_3_base/main.sh" ;;
-        4) bash "$HOME/CYBRA/modules/module_4_base/main.sh" ;;
-        5) bash "$HOME/CYBRA/modules/module_5_base/main.sh" ;;
-        6) bash "$HOME/CYBRA/modules/module_6_base/main.sh" ;;
-        7) bash "$HOME/CYBRA/modules/module_7_base/main.sh" ;;
-        8) bash "$HOME/CYBRA/modules/module_8_base/main.sh" ;;
-        9) bash "$HOME/CYBRA/modules/module_9_base/main.sh" ;;
-        10|11|12|13|14) bash "$HOME/CYBRA/modules/module_${CHOICE}_base/main.sh" ;;
-        18|19|20|21) bash "$HOME/CYBRA/modules/module_${CHOICE}_base/main.sh" ;;
-        22|23|24) bash "$HOME/CYBRA/modules/module_${CHOICE}_base/main.sh" ;;
-        30|31|32|33) bash "$HOME/CYBRA/modules/module_${CHOICE}_base/main.sh" ;;
-        40|41|42|43|44|45|46|47|48|49) bash "$HOME/CYBRA/modules/module_${CHOICE}_base/main.sh" ;;
-        50|51|52|53|54|55|56|57) bash "$HOME/CYBRA/modules/module_${CHOICE}_base/main.sh" ;;
-        58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73) bash "$HOME/CYBRA/modules/module_${CHOICE}_base/main.sh" ;;
-        74|75|76|77|78|79|80|81|82|83|84|85|86|87|88|89|90|91|92|93|94|95|96|97|98|99) bash "$HOME/CYBRA/modules/module_${CHOICE}_base/main.sh" ;;
+        1) ~/CYBRA/bin/cybra-controller "$HOME/CYBRA/modules/module_1_base/main.sh" ;;
+        2) ~/CYBRA/bin/cybra-controller "$HOME/CYBRA/modules/module_2_base/main.sh" ;;
+        3) ~/CYBRA/bin/cybra-controller "$HOME/CYBRA/modules/module_3_base/main.sh" ;;
+        4) ~/CYBRA/bin/cybra-controller "$HOME/CYBRA/modules/module_4_base/main.sh" ;;
+        5) ~/CYBRA/bin/cybra-controller "$HOME/CYBRA/modules/module_5_base/main.sh" ;;
+        6) ~/CYBRA/bin/cybra-controller "$HOME/CYBRA/modules/module_6_base/main.sh" ;;
+        7) ~/CYBRA/bin/cybra-controller "$HOME/CYBRA/modules/module_7_base/main.sh" ;;
+        8) ~/CYBRA/bin/cybra-controller "$HOME/CYBRA/modules/module_8_base/main.sh" ;;
+        9) ~/CYBRA/bin/cybra-controller "$HOME/CYBRA/modules/module_9_base/main.sh" ;;
+        10|11|12|13|14) ~/CYBRA/bin/cybra-controller "$HOME/CYBRA/modules/module_${CHOICE}_base/main.sh" ;;
+        18|19|20|21) ~/CYBRA/bin/cybra-controller "$HOME/CYBRA/modules/module_${CHOICE}_base/main.sh" ;;
+        22|23|24) ~/CYBRA/bin/cybra-controller "$HOME/CYBRA/modules/module_${CHOICE}_base/main.sh" ;;
+        30|31|32|33) ~/CYBRA/bin/cybra-controller "$HOME/CYBRA/modules/module_${CHOICE}_base/main.sh" ;;
+        40|41|42|43|44|45|46|47|48|49) ~/CYBRA/bin/cybra-controller "$HOME/CYBRA/modules/module_${CHOICE}_base/main.sh" ;;
+        50|51|52|53|54|55|56|57) ~/CYBRA/bin/cybra-controller "$HOME/CYBRA/modules/module_${CHOICE}_base/main.sh" ;;
+        58|59|60|61|62|63|64|65|66|67|68|69|70|71|72|73) ~/CYBRA/bin/cybra-controller "$HOME/CYBRA/modules/module_${CHOICE}_base/main.sh" ;;
+        74|75|76|77|78|79|80|81|82|83|84|85|86|87|88|89|90|91|92|93|94|95|96|97|98|99) ~/CYBRA/bin/cybra-controller "$HOME/CYBRA/modules/module_${CHOICE}_base/main.sh" ;;
         100|101|102|103|104|105|106|107|108|109|110|111|112|113|114|115|116|117|118|119|120|121|122|123|124|125|126|127|128|129|130|131|132|133|134|135|136|137|138|139|140|141|142|143|144|145|146|147|148|149|150)
-            bash "$HOME/CYBRA/modules/module_${CHOICE}_base/main.sh" ;;
-        151) bash "$HOME/CYBRA/modules/module_151_ad_contract/main.sh" ;;
-        152) bash "$HOME/CYBRA/modules/module_152_rollback_evo/main.sh" ;;
+            ~/CYBRA/bin/cybra-controller "$HOME/CYBRA/modules/module_${CHOICE}_base/main.sh" ;;
+        151) ~/CYBRA/bin/cybra-controller "$HOME/CYBRA/modules/module_151_ad_contract/main.sh" ;;
+        152) ~/CYBRA/bin/cybra-controller "$HOME/CYBRA/modules/module_152_rollback_evo/main.sh" ;;
         0|q|Q|exit|quit) printf "%s\n" "${C_GREEN}До побачення.${C_RESET}"; exit 0 ;;
         *) printf "%s\n" "${C_RED}Невідома опція.${C_RESET}" ;;
     esac

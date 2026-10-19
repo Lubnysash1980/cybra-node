@@ -1,3 +1,9 @@
+
+# ─── ІНТЕГРАЦІЯ КОНТРОЛЕРІВ ───
+CONTROLLERS="$HOME/CYBRA/registry/controllers.json"
+if [ -f "$CONTROLLERS" ]; then
+    export CYBRA_CONTROLLERS="$CONTROLLERS"
+fi
 #!/data/data/com.termux/files/usr/bin/bash
 # ============================================================
 # CYBRA AI EXECUTOR
