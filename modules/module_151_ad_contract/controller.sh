@@ -1,4 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
+export HOME="/data/data/com.termux/files/home"
 # Контролер 151: перевіряє еволюцію, потім викликає main.sh
 CYBRA="$HOME/CYBRA"
 EVO_STATE="$CYBRA/evo/state/evo_state.json"
