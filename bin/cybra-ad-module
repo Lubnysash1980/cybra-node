@@ -1,7 +1,4 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# cybra-ad-module — додає рекламу (151) в існуючий TUI
-# База: SQLite. AI-оцінка: формула. Валідація URL. Реверс.
-
 export HOME="/data/data/com.termux/files/home"
 export PATH="/data/data/com.termux/files/usr/bin:$HOME/bin:$HOME/CYBRA/bin:$PATH"
 CYBRA="$HOME/CYBRA"
@@ -19,15 +16,17 @@ sqlite3 "$DB" "CREATE TABLE IF NOT EXISTS ads (
 ad_create() {
     echo ""
     read -r -p "Що рекламуємо: " what
-    read -r -p "Платформа: " platform
+    [ -z "$what" ] && { echo "❌ Порожньо"; return; }
+    read -r -p "Платформа (TikTok/FB/сайт): " platform
+    [ -z "$platform" ] && { echo "❌ Порожньо"; return; }
     read -r -p "URL: " url
     echo "$url" | grep -qE '^https?://' || { echo "❌ URL невалідний"; return; }
     read -r -p "Обсяг (1-7): " volume
     [ "$volume" -ge 1 ] 2>/dev/null && [ "$volume" -le 7 ] || { echo "❌ Обсяг 1-7"; return; }
     local price=$(echo "scale=4; $volume * 0.01" | bc 2>/dev/null || echo "0.01")
     local now=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-    sqlite3 "$DB" "INSERT INTO ads (what,platform,url,volume,price_bnb,created_at) VALUES ('$what','$platform','$url',$volume,$price,'$now');"
-    local id=$(sqlite3 "$DB" "SELECT last_insert_rowid();")
+    # INSERT + отримання ID в одній команді
+    local id=$(sqlite3 "$DB" "INSERT INTO ads (what,platform,url,volume,price_bnb,created_at) VALUES ('$what','$platform','$url',$volume,$price,'$now'); SELECT last_insert_rowid();")
     echo "✅ Реклама #$id | $price BNB | 50/50"
 }
 
@@ -39,6 +38,8 @@ ad_status() {
 ad_refund() {
     echo ""
     read -r -p "ID для реверсу: " id
+    local n=$(sqlite3 "$DB" "SELECT COUNT(*) FROM ads WHERE id=$id;")
+    [ "$n" = "0" ] && { echo "❌ #$id не знайдено"; return; }
     sqlite3 "$DB" "UPDATE ads SET status='refunded' WHERE id=$id;"
     echo "✅ #$id → refunded"
 }
