@@ -1,5 +1,5 @@
 ═══ CYBRA GUARDIAN — 100% STATE CHECK ═══
-Time: 2026-10-18T19:10:02Z
+Time: 2026-10-19T09:19:59Z
 
   [OK]   dir: CYBRA
   [OK]   dir: modules
@@ -110,6 +110,8 @@ Time: 2026-10-18T19:10:02Z
   [OK]   module: module_14_watchdog
   [WARN] module: module_150_base (no tests)
   [WARN] module: module_150_scripts (no tests)
+  [WARN] module: module_151_ad_contract (no tests)
+  [WARN] module: module_152_rollback_evo (no tests)
   [WARN] module: module_15_generated (no tests)
   [OK]   module: module_15_true100_aggregator
   [OK]   module: module_16_final_authorization_release_gate
@@ -144,6 +146,7 @@ Time: 2026-10-18T19:10:02Z
   [WARN] module: module_31_generated (no tests)
   [WARN] module: module_32_base (no tests)
   [OK]   module: module_32_webhook
+  [WARN] module: module_330_selfheal (no tests)
   [OK]   module: module_33_audit_log
   [WARN] module: module_33_generated (no tests)
   [OK]   module: module_34_doc_scanner
@@ -228,6 +231,6 @@ Time: 2026-10-18T19:10:02Z
   [OK]   identity vault
 
 --- SUMMARY ---
-Total: 225
+Total: 228
 OK:    32
 Pct:   14%
