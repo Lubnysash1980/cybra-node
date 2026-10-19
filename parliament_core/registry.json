@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19T19:05:07.713411+00:00",
+  "updated": "2026-10-19T19:06:12.984116+00:00",
   "total_modules": 217,
   "unique_actions": 73,
   "conflicts": 15,
@@ -1290,9 +1290,9 @@
       "action": "module102base",
       "status": "unknown",
       "base_score": 30,
-      "size": 229,
+      "size": 1169,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_102_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_103_base",
@@ -3089,7 +3089,7 @@
     "module102base": {
       "winner": "module_102_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_102_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_102_base",
       "standby": [],
       "total": 1
