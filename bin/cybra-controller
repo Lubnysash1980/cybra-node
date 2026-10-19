@@ -1,0 +1,55 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# Універсальний контролер CYBRA
+# Перевіряє: еволюція, рівень, бінарне середовище 65 МБ. Потім викликає дію.
+
+export HOME="/data/data/com.termux/files/home"
+CYBRA="$HOME/CYBRA"
+EVO_STATE="$CYBRA/evo/state/evo_state.json"
+SANDBOX="$CYBRA/sandbox"
+LOG="$CYBRA/logs/controller.log"
+mkdir -p "$CYBRA/logs"
+
+log() { echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] $1" >> "$LOG"; }
+
+# 1. Еволюція
+if [ -f "$EVO_STATE" ]; then
+    EVO_OK=$(python3 -c "import json; print(json.load(open('$EVO_STATE')).get('ok', True))" 2>/dev/null)
+    if [ "$EVO_OK" = "False" ]; then
+        log "BLOCK: evo not ok"
+        echo "⛔ Еволюція не пропустила"
+        exit 1
+    fi
+fi
+
+# 2. Бінарне середовище 65 МБ
+if [ ! -d "$SANDBOX" ]; then
+    log "CREATE: sandbox"
+    mkdir -p "$SANDBOX"/{bin,tmp,keep,trash,logs}
+    echo "  [✓] sandbox створено (65 МБ)"
+fi
+
+# 3. Перевірка розміру sandbox (не більше 65 МБ)
+SIZE=$(du -sb "$SANDBOX" 2>/dev/null | awk '{print $1}' || echo 0)
+LIMIT=$((65 * 1024 * 1024))
+if [ "$SIZE" -ge "$LIMIT" ]; then
+    log "CLEAN: sandbox $SIZE >= $LIMIT"
+    rm -rf "$SANDBOX"/trash/* "$SANDBOX"/tmp/* 2>/dev/null
+    [ -x "$SANDBOX/sandbox_cleanup.sh" ] && "$SANDBOX/sandbox_cleanup.sh" >/dev/null 2>&1
+fi
+
+# 4. Виклик дії
+ACTION="$1"
+shift
+if [ -z "$ACTION" ]; then
+    echo "usage: cybra-controller <script> [args]"
+    exit 1
+fi
+
+if [ ! -f "$ACTION" ]; then
+    log "FAIL: not found $ACTION"
+    echo "❌ Не знайдено: $ACTION"
+    exit 1
+fi
+
+log "RUN: $ACTION $*"
+exec bash "$ACTION" "$@"
