@@ -1,10 +1,10 @@
 {
-  "cycles": 911,
+  "cycles": 912,
   "last_actions": [
     {
       "type": "pm2_restart",
       "target": [
-        "cybra-evo-daemon"
+        "cybra-autoresolver"
       ]
     }
   ],
