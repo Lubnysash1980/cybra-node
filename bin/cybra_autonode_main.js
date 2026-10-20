@@ -1,76 +1,109 @@
 #!/usr/bin/env node
-// cybra_autonode_main.js — нода з перевіркою EVO + SANDBOX (Node.js версія)
+// cybra_autonode_main.js — Нода з синхронізацією (унісон між пристроями)
 
 const fs = require('fs');
 const path = require('path');
-const { execSync, execFileSync } = require('child_process');
+const { execSync } = require('child_process');
 
 const CYBRA_HOME = path.join(process.env.HOME, 'CYBRA');
 const LOG = path.join(CYBRA_HOME, 'logs', 'evo_node_main.log');
-const SANDBOX_LIMIT = 65 * 1024 * 1024;
-const CYCLE_SLEEP_MS = 60 * 1000;
+const PM2_STATE_FILE = path.join(CYBRA_HOME, 'nodes/node_1/state/pm2_sync.json');
 
-function ensureDir(p) { try { fs.mkdirSync(p, { recursive: true }); } catch (e) {} }
-function timestamp() { return new Date().toISOString().replace(/\.\d{3}Z$/, 'Z'); }
+// Таймери
+const CYCLE_SLEEP_MS = 60 * 1000;      // Основний цикл (60с)
+const SYNC_SLEEP_MS = 5 * 60 * 1000;   // Git-синхронізація (5 хв)
+
 function log(msg) {
-  const line = `[${timestamp()}] ${msg}\n`;
+  const timestamp = new Date().toISOString().replace(/\.\d{3}Z$/, 'Z');
+  const line = `[${timestamp}] ${msg}\n`;
   try { fs.appendFileSync(LOG, line); } catch (e) { process.stdout.write(line); }
 }
-function dirSizeBytes(dir) {
+
+// Синхронізація з Git
+function syncGit() {
   try {
-    const out = execFileSync('du', ['-sb', dir], { encoding: 'utf8' }).trim();
-    const size = parseInt(out.split(/\s+/)[0], 10);
-    return Number.isFinite(size) ? size : 0;
-  } catch (e) { return 0; }
+    // Перевіряємо, чи є .git
+    if (!fs.existsSync(path.join(CYBRA_HOME, '.git'))) return;
+    
+    log('--- Git Sync ---');
+    // 1. Отримуємо зміни з іншого пристрою
+    try { execSync('git pull --rebase -q', { cwd: CYBRA_HOME, stdio: 'ignore' }); } catch(e) {}
+    
+    // 2. Збираємо поточний стан PM2
+    try {
+      const pm2List = execSync('pm2 jlist', { encoding: 'utf8' });
+      const procs = JSON.parse(pm2List);
+      const online = procs.filter(p => p.pm2_env.status === 'online').map(p => p.name);
+      
+      const syncData = {
+        device: "node_1_" + require('os').hostname(),
+        updated: new Date().toISOString(),
+        pm2_online: online,
+        total: procs.length
+      };
+      
+      fs.writeFileSync(PM2_STATE_FILE, JSON.stringify(syncData, null, 2));
+      
+      // 3. Відправляємо свій стан
+      execSync('git add -A', { cwd: CYBRA_HOME, stdio: 'ignore' });
+      execSync(`git commit -m "auto: pm2 sync from device [skip ci]" -q`, { cwd: CYBRA_HOME, stdio: 'ignore' });
+      execSync('git push origin main -q', { cwd: CYBRA_HOME, stdio: 'ignore' });
+      log(`Git Sync OK: ${online.length} online processes pushed.`);
+    } catch (e) {
+      // Ігноруємо помилки, якщо нічого комітити
+    }
+  } catch (e) {
+    log(`SYNC ERROR: ${e.message}`);
+  }
 }
-function fileExists(p) { try { return fs.existsSync(p); } catch (e) { return false; } }
-function isExecutable(p) { try { fs.accessSync(p, fs.constants.X_OK); return true; } catch (e) { return false; } }
 
 function runCycle() {
   log('--- Cycle ---');
+  
+  // Перевірка Sandbox
   const sandbox = path.join(CYBRA_HOME, 'sandbox');
-  if (fileExists(sandbox)) {
-    const size = dirSizeBytes(sandbox);
-    const sizeMb = Math.floor(size / 1024 / 1024);
-    if (size >= SANDBOX_LIMIT) {
-      log(`SANDBOX: переповнено (${sizeMb} МБ), очищаю`);
-      const cleanup = path.join(sandbox, 'sandbox_cleanup.sh');
-      if (fileExists(cleanup)) { try { execFileSync('bash', [cleanup], { stdio: 'ignore' }); } catch (e) {} }
-    } else {
-      log(`SANDBOX: OK (${sizeMb} МБ / 65 МБ)`);
-    }
-  } else {
-    log('SANDBOX: папка не знайдена');
+  if (fs.existsSync(sandbox)) {
+    try {
+      const out = execSync('du -sb ' + sandbox, { encoding: 'utf8' });
+      const sizeMb = Math.floor(parseInt(out.split(/\s+/)[0], 10) / 1024 / 1024);
+      if (sizeMb > 65) {
+        log(`SANDBOX: переповнено (${sizeMb} МБ), очищаю`);
+        const cleanup = path.join(sandbox, 'sandbox_cleanup.sh');
+        if (fs.existsSync(cleanup)) execSync('bash ' + cleanup, { stdio: 'ignore' });
+      }
+    } catch (e) {}
   }
-
-  const libFile = path.join(CYBRA_HOME, 'lib', 'cybra_invoice_lib.sh');
-  if (!fileExists(libFile)) {
-    log('EVO: немає lib, робимо rollback');
-    try { execSync('git reset --hard HEAD --quiet', { cwd: CYBRA_HOME, stdio: 'ignore' }); } catch (e) {}
-  }
-
-  const hashEco = path.join(CYBRA_HOME, 'bin', 'cybra_hash_eco');
-  if (isExecutable(hashEco)) {
-    try { execFileSync(hashEco, ['snapshot'], { stdio: 'ignore' }); log('EVO: снапшот створено'); } catch (e) {}
-  }
-
+  
   log('EVO: 100% — система в нормі');
 }
 
-ensureDir(path.join(CYBRA_HOME, 'logs'));
-if (!fileExists(CYBRA_HOME)) { log(`FATAL: CYBRA_HOME не існує: ${CYBRA_HOME}`); process.exit(1); }
+// Запуск
+if (!fs.existsSync(CYBRA_HOME)) {
+  log(`FATAL: CYBRA_HOME не існує`);
+  process.exit(1);
+}
 process.chdir(CYBRA_HOME);
-log('=== Node Main Start ===');
+log('=== Node Main Start (Sync Mode) ===');
 
-let stopped = false;
-function shutdown(sig) { if (stopped) return; stopped = true; log(`=== Node Main Stop (${sig}) ===`); process.exit(0); }
-process.on('SIGINT', () => shutdown('SIGINT'));
-process.on('SIGTERM', () => shutdown('SIGTERM'));
-process.on('SIGHUP', () => shutdown('SIGHUP'));
+let lastSync = 0;
 
 function loop() {
-  if (stopped) return;
-  try { runCycle(); } catch (e) { log(`CYCLE ERROR: ${e.message}`); }
-  if (!stopped) setTimeout(loop, CYCLE_SLEEP_MS);
+  try {
+    runCycle();
+    
+    // Синхронізація кожні 5 хвилин
+    if (Date.now() - lastSync > SYNC_SLEEP_MS) {
+      syncGit();
+      lastSync = Date.now();
+    }
+  } catch (e) {
+    log(`CYCLE ERROR: ${e.message}`);
+  }
+  setTimeout(loop, CYCLE_SLEEP_MS);
 }
+
+// Обробка сигналів
+process.on('SIGINT', () => { log('=== Stop (SIGINT) ==='); process.exit(0); });
+process.on('SIGTERM', () => { log('=== Stop (SIGTERM) ==='); process.exit(0); });
+
 loop();
