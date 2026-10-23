@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-23T14:09:39.994795+00:00",
+  "updated": "2026-10-23T14:23:56.845182+00:00",
   "total_modules": 216,
   "unique_actions": 151,
   "conflicts": 7,
@@ -976,13 +976,13 @@
     },
     {
       "name": "module_149_analytics",
-      "title": "module_149_analytics",
-      "action": "module149analytics",
+      "title": "Аналітика системи (CYBRA Analytics)",
+      "action": "аналітика",
       "status": "unknown",
       "base_score": 30,
-      "size": 2684,
+      "size": 2479,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_149_analytics/main.sh",
-      "score": 50
+      "score": 42
     },
     {
       "name": "module_149_base",
@@ -2939,11 +2939,11 @@
       "standby": [],
       "total": 1
     },
-    "module149analytics": {
+    "аналітика": {
       "winner": "module_149_analytics",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_149_analytics/main.sh",
-      "winner_score": 50,
-      "winner_title": "module_149_analytics",
+      "winner_score": 42,
+      "winner_title": "Аналітика системи (CYBRA Analytics)",
       "standby": [],
       "total": 1
     },
