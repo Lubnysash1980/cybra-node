@@ -161,6 +161,9 @@ echo '  🟢 [157] Резерв 157'
 echo '  🟢 [158] Резерв 158'
 echo '  🟢 [159] Резерв 159'
 echo '  🟢 [160] FIDIC Контракти'
+echo '  🧬 [161] EvoSafe (Контроль 3%)'
+echo '  🧬 [162] Absolute State (Трекер 100%)'
+echo '  🧬 [163] 7 Levels (Рівні складності)'
 echo '  🛠️  [999] АВТО-РЕМОНТ'
 echo '  [0] Вихід'
 read -p 'Вибір: ' choice
@@ -325,6 +328,9 @@ case $choice in
   158) bash ~/CYBRA/modules/module_158_base/main.sh ;;
   159) bash ~/CYBRA/modules/module_159_base/main.sh ;;
   160) bash ~/CYBRA/modules/module_160_base/main.sh ;;
+  161) python3 ~/CYBRA/bin/cybra-evo-safe.py ;;
+  162) python3 ~/CYBRA/bin/cybra-absolute-state.py ;;
+  163) python3 ~/CYBRA/bin/cybra-7levels-pm2.py ;;
   999) python3 ~/CYBRA/bin/cybra-auto-repair.py ;;
   0) exit 0 ;;
   *) echo 'Невідома опція' ;;
