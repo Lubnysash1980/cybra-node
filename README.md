@@ -1,10 +1,16 @@
-# @cybra — CYBRA Node
+# CYBRA Token
 
-Глобальний індекс модулів CYBRA.
-Автооновлення через cybra_auto_evolution_test.sh.
+**CYBRA** is an AI-driven token on BNB Smart Chain.
 
-## Принципи
-- Non-degradation (3% tolerance) — Module 20
-- Ліцензія 1%+1%+1% → 0x66434c5501242ccC71b5a39C765892921624B66c
-- Dual-backend verification
-- PII masking на експорті
+- **Contract:** `0x74dA52028E42A37bc89E05c2fD5c52daBE4CB48f`
+- **Website:** [cybroncybra.com](https://cybroncybra.com)
+- **Logo:** [assets/cybra-logo.png](https://cybroncybra.com/assets/cybra-logo.png)
+- **Blockchain:** BSC (PancakeSwap V3 pools)
+- **Security:** Managed by Waze AI Security Agent (see [SECURITY.md](SECURITY.md))
+
+## Quick Links
+
+- [Token page](https://cybroncybra.com/token.html)
+- [GitHub Repository](https://github.com/Lubnysash1980/CYBRA)
+- [BscScan](https://bscscan.com/token/0x74dA52028E42A37bc89E05c2fD5c52daBE4CB48f)
+

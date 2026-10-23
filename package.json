@@ -1,0 +1,37 @@
+{
+  "type": "commonjs",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.6",
+    "@solana/spl-token": "^0.4.14",
+    "@solana/web3.js": "^1.95.5",
+    "bs58": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "ethers": "^6.17.0",
+    "node-fetch": "^2.6.7"
+  },
+  "name": "home",
+  "version": "1.0.0",
+  "description": "",
+  "main": "create_mint_2022.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lubnysash1980/CYBRA.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lubnysash1980/CYBRA/issues"
+  },
+  "homepage": "https://github.com/Lubnysash1980/CYBRA#readme",
+  "devDependencies": {
+    "solc": "^0.8.19"
+  }
+}

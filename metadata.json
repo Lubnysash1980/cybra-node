@@ -1,0 +1,19 @@
+{
+  "name": "IREN",
+  "symbol": "R",
+  "description": "Utility token IREN on Solana",
+  "image": "https://lubnysash1980.github.io/Alfapay/logo.png",
+  "external_url": "https://lubnysash1980.github.io/Alfapay/",
+  "attributes": [
+    { "trait_type": "Type", "value": "Fungible Token" }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://lubnysash1980.github.io/Alfapay/logo.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}
