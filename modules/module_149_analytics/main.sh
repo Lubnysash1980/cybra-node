@@ -1,16 +1,14 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# МОДУЛЬ 149: Аналітика системи (CYBRA Analytics)
-
+# МОДУЛЬ 149: Аналітика системи (Створено ШІ)
 CYBRA="$HOME/CYBRA"
 DB="$CYBRA/data/ads.db"
 FIDIC_DIR="$CYBRA/data/fidic"
 
 clear 2>/dev/null
 echo "════════════════════════════════════════════"
-echo "  [149] АНАЛІТИКА СИСТЕМИ"
+echo "  [149] АНАЛІТИКА СИСТЕМИ (AI MODULE)"
 echo "════════════════════════════════════════════"
 
-# 1. Аналітика PM2 (Моноліт)
 echo "─── 1. Процеси (PM2) ───"
 if command -v pm2 >/dev/null 2>&1; then
     pm2 ls | grep -E "cybra|name" | head -5
@@ -19,7 +17,6 @@ else
 fi
 echo ""
 
-# 2. Аналітика реклами (SQLite)
 echo "─── 2. Реклама (База даних) ───"
 if [ -f "$DB" ]; then
     TOTAL_ADS=$(sqlite3 "$DB" "SELECT COUNT(*) FROM ads;" 2>/dev/null || echo "0")
@@ -31,13 +28,10 @@ else
 fi
 echo ""
 
-# 3. Аналітика FIDIC
 echo "─── 3. FIDIC Контракти ───"
 if [ -d "$FIDIC_DIR" ]; then
     TOTAL_FIDIC=$(ls "$FIDIC_DIR"/*.json 2>/dev/null | wc -l)
     echo "Всього FIDIC контрактів: $TOTAL_FIDIC"
-    
-    # Виводимо статуси контрактів
     for f in "$FIDIC_DIR"/*.json; do
         if [ -f "$f" ]; then
             CID=$(basename "$f" .json)
@@ -50,8 +44,7 @@ else
 fi
 echo ""
 
-# 4. Синхронізація
-echo "─── 4. Синхронізація з Нодою ───"
+echo "─── 4. Синхронізація ───"
 cd "$CYBRA" || exit
 LAST_COMMIT=$(git log -1 --format="%h %s" 2>/dev/null)
 if [ -n "$LAST_COMMIT" ]; then
