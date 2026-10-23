@@ -219,6 +219,9 @@ print_menu() {
     printf '  🟢 %s[151]%s Реклама (Ad Contract)\n' "$C_BOLD" "$C_RESET"
     printf '  🟢 %s[152]%s Відкат до чистої ноти EVO\n\n' "$C_BOLD" "$C_RESET"
 
+    printf '  🟢 [154] Менеджер посилань (Тунель)\n'
+    printf '  🟢 [160] FIDIC Контракти\n'
+    printf '\n'
     printf '  %s[0]%s  Вихід\n\n' "$C_BOLD" "$C_RESET"
 }
 
@@ -249,6 +252,10 @@ while true; do
             ~/CYBRA/controllers/module-controller.sh "$HOME/CYBRA/modules/module_${CHOICE}_base/main.sh" ;;
         151) ~/CYBRA/controllers/module-controller.sh "$HOME/CYBRA/modules/module_151_ad_contract/main.sh" ;;
         152) ~/CYBRA/controllers/module-controller.sh "$HOME/CYBRA/modules/module_152_rollback_evo/main.sh" ;;
+        154) bash "$HOME/CYBRA/bin/cybra-link-manager.sh" ;;
+        160) bash "$HOME/CYBRA/bin/fidic-menu.sh" ;;
+        154) bash "$HOME/CYBRA/bin/cybra-link-manager.sh" ;;
+        160) bash "$HOME/CYBRA/bin/fidic-menu.sh" ;;
         0|q|Q|exit|quit) printf "%s\n" "${C_GREEN}До побачення.${C_RESET}"; exit 0 ;;
         *) printf "%s\n" "${C_RED}Невідома опція.${C_RESET}" ;;
     esac
