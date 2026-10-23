@@ -17,6 +17,7 @@ PROCESSES = [
     ("Autonode", CYBRA / "bin/cybra_autonode_main.js", "node", []),
     ("Parliament", CYBRA / "parliament_core/priority_manager.py", "python3", ["daemon"]),
     ("MainController", CYBRA / "bin/cybra-main-controller.py", "python3", []),
+    ("ClusterLB", CYBRA / "bin/cybra-cluster-lb.py", "python3", []),
     ("7Levels", CYBRA / "bin/cybra-7levels-pm2.py", "python3", [])
 ]
 
