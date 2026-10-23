@@ -1,0 +1,31 @@
+{
+  "fidic_cid": "",
+  "created_at": "2026-10-23T17:04:55Z",
+  "state": "BOQ_READY",
+  "general_conditions": {
+    "type": "Red Book",
+    "employer": "TBD",
+    "contractor": "TBD"
+  },
+  "boq": [],
+  "payment_terms": {
+    "currency": "UAH",
+    "milestones": [
+      {
+        "name": "Advance Payment",
+        "percent": 30,
+        "status": "pending"
+      },
+      {
+        "name": "Milestone 1",
+        "percent": 40,
+        "status": "pending"
+      },
+      {
+        "name": "Final Acceptance",
+        "percent": 30,
+        "status": "pending"
+      }
+    ]
+  }
+}
