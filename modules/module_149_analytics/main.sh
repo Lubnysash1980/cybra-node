@@ -1,65 +1,65 @@
 #!/data/data/com.termux/files/usr/bin/bash
-
-# ─── BINMIX WRAP (65MB) ───
-CYBRA_W="$HOME/CYBRA"
-SANDBOX_W="$CYBRA_W/sandbox"
-LIMIT_W=$((65 * 1024 * 1024))
-mkdir -p "$SANDBOX_W"/{bin,tmp,keep,trash} 2>/dev/null
-SIZE_W=$(du -sb "$SANDBOX_W" 2>/dev/null | awk "{print \$1}" || echo 0)
-if [ "$SIZE_W" -ge "$LIMIT_W" ]; then
-    rm -rf "$SANDBOX_W"/trash/* "$SANDBOX_W"/tmp/* 2>/dev/null
-    [ -x "$SANDBOX_W/sandbox_cleanup.sh" ] && "$SANDBOX_W/sandbox_cleanup.sh" >/dev/null 2>&1
-fi
-BINMIX_W="$CYBRA_W/bin/cybra_binmix"
-[ -x "$BINMIX_W" ] && "$BINMIX_W" status >/dev/null 2>&1
-# ─── END BINMIX WRAP ───
-
-# МОДУЛЬ: module_149_analytics
-# СТАТУС: READY (100% - auto-resolved)
-# ДАТА: 2026-10-18T15:17:44.581165+00:00
+# МОДУЛЬ 149: Аналітика системи (CYBRA Analytics)
 
 CYBRA="$HOME/CYBRA"
-LOG="$CYBRA/logs/module_149_analytics.log"
-mkdir -p "$(dirname "$LOG")"
+DB="$CYBRA/data/ads.db"
+FIDIC_DIR="$CYBRA/data/fidic"
 
-# ─── ЗАХИСТ (TRAP ERR) ───
-log() { echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] $1" >> "$LOG"; }
-trap 'log "ERROR at line $LINENO"; echo "❌ Помилка. Лог: $LOG"' ERR
-
-log "START: module_149_analytics"
-
+clear 2>/dev/null
 echo "════════════════════════════════════════════"
-echo "  МОДУЛЬ module_149_analytics (100%)"
+echo "  [149] АНАЛІТИКА СИСТЕМИ"
 echo "════════════════════════════════════════════"
-echo "  Статус: READY"
-echo "  Лог: $LOG"
+
+# 1. Аналітика PM2 (Моноліт)
+echo "─── 1. Процеси (PM2) ───"
+if command -v pm2 >/dev/null 2>&1; then
+    pm2 ls | grep -E "cybra|name" | head -5
+else
+    echo "⚠️ PM2 не встановлено"
+fi
 echo ""
 
-# ─── ЛОГІКА ───
-echo "  ✅ Модуль module_149_analytics активний"
+# 2. Аналітика реклами (SQLite)
+echo "─── 2. Реклама (База даних) ───"
+if [ -f "$DB" ]; then
+    TOTAL_ADS=$(sqlite3 "$DB" "SELECT COUNT(*) FROM ads;" 2>/dev/null || echo "0")
+    PAID_ADS=$(sqlite3 "$DB" "SELECT COUNT(*) FROM ads WHERE status='paid' OR status='completed';" 2>/dev/null || echo "0")
+    echo "Всього реклам: $TOTAL_ADS"
+    echo "Оплачено/Завершено: $PAID_ADS"
+else
+    echo "База даних реклами не знайдена."
+fi
+echo ""
+
+# 3. Аналітика FIDIC
+echo "─── 3. FIDIC Контракти ───"
+if [ -d "$FIDIC_DIR" ]; then
+    TOTAL_FIDIC=$(ls "$FIDIC_DIR"/*.json 2>/dev/null | wc -l)
+    echo "Всього FIDIC контрактів: $TOTAL_FIDIC"
+    
+    # Виводимо статуси контрактів
+    for f in "$FIDIC_DIR"/*.json; do
+        if [ -f "$f" ]; then
+            CID=$(basename "$f" .json)
+            STATE=$(python3 -c "import json; print(json.load(open('$f')).get('state','?'))" 2>/dev/null)
+            echo "  - $CID: $STATE"
+        fi
+    done
+else
+    echo "Папка FIDIC порожня."
+fi
+echo ""
+
+# 4. Синхронізація
+echo "─── 4. Синхронізація з Нодою ───"
+cd "$CYBRA" || exit
+LAST_COMMIT=$(git log -1 --format="%h %s" 2>/dev/null)
+if [ -n "$LAST_COMMIT" ]; then
+    echo "Останній коміт: $LAST_COMMIT"
+else
+    echo "Git історія порожня."
+fi
+echo ""
 
 echo "════════════════════════════════════════════"
-log "DONE: module_149_analytics"
-read -r -p "Натисни Enter..." _
-
-# ─── 7 РІВНІВ СКЛАДНОСТІ ───
-LEVEL_FILE="/data/data/com.termux/files/home/CYBRA/state/main.sh.level"
-level_now() { [ -f "$LEVEL_FILE" ] && cat "$LEVEL_FILE" || echo 1; }
-level_set() { echo "$1" > "$LEVEL_FILE"; }
-level1() { [ -d "$HOME/CYBRA" ] && return 0 || return 1; }
-level2() { command -v bash >/dev/null && return 0 || return 1; }
-level3() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
-level4() { [ -d "$HOME/CYBRA/logs" ] && return 0 || return 1; }
-level5() { [ -f "$HOME/CYBRA/evo/evo_core.py" ] && return 0 || return 1; }
-level6() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
-level7() { [ -d "$HOME/CYBRA/sandbox" ] && return 0 || return 1; }
-run_levels() {
-    local cur=$(level_now)
-    for i in 1 2 3 4 5 6 7; do
-        [ "$i" -lt "$cur" ] && continue
-        if "level$i"; then level_set "$i"; else return 0; fi
-    done
-}
-run_levels
-
-exit 0
+read -r -p "Натисни Enter для виходу..." _
