@@ -14,8 +14,14 @@ case "${1:-latest}" in
     TARBALL=$(ls -1t "$SNAPS"/parliament_*.tar.gz 2>/dev/null | head -1) ;;
   *)
     TARBALL="$1"
-    [ -f "$TARBALL" ] || TARBALL="$SNAPS/$1"
-    [ -f "$TARBALL" ] || TARBALL="$SNAPS/parliament_$1.tar.gz" ;;
+    [ -f "$TARBALL" ] || {
+      # шукати за точним ім'ям у snapshots/
+      [ -f "$SNAPS/$1" ] && TARBALL="$SNAPS/$1" || {
+        # шукати найновіший за префіксом
+        TARBALL=$(ls -1t "$SNAPS"/parliament_"$1"_*.tar.gz 2>/dev/null | head -1)
+        [ -z "$TARBALL" ] && TARBALL=$(ls -1t "$SNAPS"/*"$1"*.tar.gz 2>/dev/null | head -1)
+      }
+    } ;;
 esac
 
 [ -f "$TARBALL" ] || { echo "❌ не знайдено: $TARBALL"; exit 1; }
