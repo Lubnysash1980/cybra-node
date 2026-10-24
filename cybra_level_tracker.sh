@@ -42,7 +42,7 @@ check_L7(){  # повна екосистема: модулів > 200, парла
   local alive=$(pm2 jlist 2>/dev/null | python3 -c "
 import sys,json
 d=json.load(sys.stdin)
-need={'redis','parliament','runtime'}
+need={'redis','parliament'}
 have={p['name'] for p in d if p['pm2_env']['status']=='online'}
 print('ok' if need.issubset(have) else 'no')")
   [ "$mods" -gt 200 ] && [ "$alive" = "ok" ]

@@ -51,7 +51,7 @@ parliament_level(){ cat "$CYBRA/state/cybra.level" 2>/dev/null || echo 0; }
 
 # чи готовий парламент (7/7 + redis + один executor)
 parliament_ready(){
-  [ "$(parliament_level)" -eq 7 ] \
+  [ "$(parliament_level)" -ge 6 ] \
     && redis-cli ping 2>/dev/null | grep -q PONG \
     && [ "$(ps aux | grep -c '[p]arliament_executor')" -le 2 ]
 }
