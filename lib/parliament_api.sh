@@ -43,7 +43,7 @@ parliament_wait(){
 # останні N результатів
 parliament_results(){
   local n=${1:-10}
-  redis-cli lrange cybra:parliament:results -"$n" -1 2>/dev/null
+  redis-cli lrange cybra:parliament:results 0 $((n-1)) 2>/dev/null
 }
 
 # рівень системи
