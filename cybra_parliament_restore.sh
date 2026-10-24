@@ -50,6 +50,9 @@ fi
 # 2. state
 [ -d "$SNAP_DIR/state" ] && { echo "→ state restore"; cp -r "$SNAP_DIR/state/"* state/ 2>/dev/null; }
 
+# 2.1 після resurrect — прибрати runtime (не потрібен на Termux)
+pm2 delete runtime 2>/dev/null && echo "→ runtime прибрано" || true
+
 # 3. pm2
 if [ -f "$SNAP_DIR/pm2/dump.pm2" ]; then
   echo "→ pm2 resurrect"
@@ -57,9 +60,8 @@ if [ -f "$SNAP_DIR/pm2/dump.pm2" ]; then
   pm2 resurrect 2>/dev/null
 fi
 
-# 4. ключові списки з тексту (якщо dump.rdb не спрацював)
-if [ -f "$SNAP_DIR/redis/cybra_parliament_queue.txt" ] && \
-   [ "$(redis-cli llen cybra:parliament:queue 2>/dev/null || echo 0)" -eq 0 ]; then
+# 4. ключові списки з тексту — ЗАВЖДИ відновлюємо (не залежить від queue)
+if [ -f "$SNAP_DIR/redis/cybra_parliament_results.txt" ]; then
   echo "→ redis: відновлення ключів з текстових дампів"
   for f in "$SNAP_DIR/redis"/cybra_*.txt; do
     [ -s "$f" ] || continue
@@ -94,5 +96,14 @@ echo "level:    $(cat state/cybra.level 2>/dev/null || echo ?)/7"
 echo "queue:    $(redis-cli llen cybra:parliament:queue)"
 echo "results:  $(redis-cli llen cybra:parliament:results)"
 echo "redis:    $(redis-cli ping 2>/dev/null || echo DOWN)"
+echo
+echo "📊 верифікація проти снапшоту:"
+SNAP_RESULTS=$(python3 -c "import json;print(json.load(open('$SNAP_DIR/metadata.json'))['results'])" 2>/dev/null || echo 0)
+NOW_RESULTS=$(redis-cli llen cybra:parliament:results 2>/dev/null || echo 0)
+if [ "$SNAP_RESULTS" = "$NOW_RESULTS" ]; then
+  echo "  ✅ results: $NOW_RESULTS (як у снапшоті)"
+else
+  echo "  ⚠️  results: снапшот $SNAP_RESULTS, зараз $NOW_RESULTS"
+fi
 
 rm -rf "$WORK"
