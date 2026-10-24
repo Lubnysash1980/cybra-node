@@ -75,7 +75,7 @@ run_menu_action(){
     echo "q"    # вихід
     echo "q"
     echo "q"
-  } | timeout 20 bash "$MENU" 2>&1
+  } | timeout 3 bash "$MENU" 2>&1
 }
 
 # JSON-обгортка для зручності
