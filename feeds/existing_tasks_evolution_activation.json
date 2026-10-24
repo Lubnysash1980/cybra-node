@@ -1,0 +1,70 @@
+{
+  "status": "existing_tasks_evolution_activation_report",
+  "mode": "repair",
+  "time": 1792793867.0086231,
+  "time_iso": "2026-10-24T01:17:47+0300",
+  "score": 100,
+  "git": {
+    "branch": "main",
+    "commit": "f593aaff",
+    "dirty_files": 5331
+  },
+  "redis": {
+    "queue": 0,
+    "results": 33,
+    "failed": 1,
+    "failed_archive": 0,
+    "mapping_count": 1
+  },
+  "summary": {
+    "records_checked": 34,
+    "task_types": 1,
+    "missing_mapping": 0,
+    "missing_handler": 0,
+    "failed_validation": 0,
+    "missing_committee": 0
+  },
+  "statuses": {
+    "executed": 33,
+    "unknown": 1
+  },
+  "sources": {
+    "cybra:parliament:results": 33,
+    "cybra:parliament:failed": 1
+  },
+  "task_types": {
+    "generic_ai_safe_task": 34
+  },
+  "support_matrix": [
+    {
+      "task_type": "generic_ai_safe_task",
+      "count": 34,
+      "mapping": "evo_committee_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    }
+  ],
+  "missing_mapping": [],
+  "missing_handler": [],
+  "failed_validation": [],
+  "missing_committee": [],
+  "recommendations": [
+    {
+      "level": "ok",
+      "message": "All existing task types have mapping, handlers and committees under Evolution Deployment.",
+      "action": "Continue evolution cycles."
+    }
+  ],
+  "double_sha": "3b6668549385f30fb62437b10e69f5b233a7c04e2943b0fdec62d39f84483d1a",
+  "repair": {
+    "fixed_mapping": [],
+    "created_or_checked_committees": [
+      "generic_ai_safe_task"
+    ],
+    "archived_failed_records": 0
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "committee_id": "generic_ai_safe_task_committee",
+  "status": "active",
+  "task_type": "generic_ai_safe_task",
+  "purpose": "Support existing tasks under Evolution Deployment: mapping, handler validation, audit, proof, safe fallback.",
+  "topics_seen": [
+    "Finance Gap Evolution: evolution_deployment",
+    "Finance Gap Evolution: executor",
+    "Finance Gap Evolution: existing_tasks_activation",
+    "Finance Gap Evolution: external_anchor",
+    "Finance Gap Evolution: failed_tasks",
+    "Finance Gap Evolution: finance_department",
+    "Finance Gap Evolution: finance_infrastructure",
+    "Finance Gap Evolution: finance_token_profit_audit",
+    "Finance Gap Evolution: hash_module",
+    "Finance Gap Evolution: kibra_chain",
+    "Finance Gap Evolution: market_exchange",
+    "Finance Gap Evolution: mint_proposal",
+    "Finance Gap Evolution: monetization",
+    "Finance Gap Evolution: native_kibra",
+    "Finance Gap Evolution: spendability"
+  ],
+  "rules": [
+    "no_automatic_payment",
+    "no_automatic_token_mint",
+    "no_external_blockchain_tx_without_owner",
+    "audit_required",
+    "proof_required",
+    "evolution_deployment_compatible"
+  ],
+  "time_iso": "2026-10-24T01:17:46+0300",
+  "double_sha": "a59ebd5df8f31ac3476ba9200d6550818055a60145049e68f2adf43e8d27a751"
+}

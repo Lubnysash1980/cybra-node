@@ -1,10 +1,12 @@
 {
-  "cycles": 2831,
+  "cycles": 2837,
   "last_actions": [
     {
       "type": "pm2_restart",
       "target": [
-        "cybra-autoresolver"
+        "redis",
+        "binmix",
+        "ai-160"
       ]
     }
   ],

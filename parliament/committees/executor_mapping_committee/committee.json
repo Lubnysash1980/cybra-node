@@ -1,0 +1,31 @@
+{
+  "committee_id": "executor_mapping_committee",
+  "name": "Executor Mapping Committee",
+  "status": "active",
+  "source": "core",
+  "created_at": "2026-10-24T01:16:38+0300",
+  "mission": "Керувати Redis executor mapping і прибирати no_executor_mapping.",
+  "task_types": [
+    "mapping_task"
+  ],
+  "powers": [
+    "analyze_tasks",
+    "recommend_handlers",
+    "write_reports",
+    "write_feeds",
+    "write_proofs",
+    "request_executor_mapping"
+  ],
+  "limits": [
+    "no_private_keys",
+    "no_secret_dump",
+    "no_illegal_actions",
+    "no_real_world_force",
+    "internal_digital_committee_only"
+  ],
+  "outputs": {
+    "committee_json": "parliament/committees/executor_mapping_committee/committee.json",
+    "readme": "parliament/committees/executor_mapping_committee/README.md"
+  },
+  "double_sha": "fc58944da34efe7c7307de61ebdf181c0d2c56b2475444dcbc3635cde6a1e71f"
+}

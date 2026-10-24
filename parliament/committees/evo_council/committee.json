@@ -1,0 +1,32 @@
+{
+  "committee_id": "evo_council",
+  "name": "EVO Council",
+  "status": "active",
+  "source": "core",
+  "created_at": "2026-10-24T01:16:38+0300",
+  "mission": "Керувати правилами еволюції Кіберапарламенту і дозволом на створення нових комітетів.",
+  "task_types": [
+    "evo_committee_task",
+    "committee_creation_task"
+  ],
+  "powers": [
+    "analyze_tasks",
+    "recommend_handlers",
+    "write_reports",
+    "write_feeds",
+    "write_proofs",
+    "request_executor_mapping"
+  ],
+  "limits": [
+    "no_private_keys",
+    "no_secret_dump",
+    "no_illegal_actions",
+    "no_real_world_force",
+    "internal_digital_committee_only"
+  ],
+  "outputs": {
+    "committee_json": "parliament/committees/evo_council/committee.json",
+    "readme": "parliament/committees/evo_council/README.md"
+  },
+  "double_sha": "d88d8e6b63d472cf9b8bb33e6cab741c94c00623cedf9190a6aeb7bbf3d6e392"
+}

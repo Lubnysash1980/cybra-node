@@ -1,0 +1,17 @@
+{
+  "committee_id": "evolution_committee",
+  "status": "active",
+  "task_type": "evolution",
+  "purpose": "Support existing tasks under Evolution Deployment: mapping, handler validation, audit, proof, safe fallback.",
+  "topics_seen": [],
+  "rules": [
+    "no_automatic_payment",
+    "no_automatic_token_mint",
+    "no_external_blockchain_tx_without_owner",
+    "audit_required",
+    "proof_required",
+    "evolution_deployment_compatible"
+  ],
+  "time_iso": "2026-10-24T01:16:22+0300",
+  "double_sha": "f29146cc71b2b9b01743919e5a40f4a37d5da080ed22ce0ed268a9d9941119b0"
+}

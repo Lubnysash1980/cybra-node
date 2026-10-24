@@ -1,0 +1,118 @@
+{
+  "status": "evolution_deployment_report_generated",
+  "time": 1792793869.1594567,
+  "time_iso": "2026-10-24T01:17:49+0300",
+  "state": {
+    "time": 1792793868.995564,
+    "time_iso": "2026-10-24T01:17:48+0300",
+    "git": {
+      "branch": "main",
+      "commit": "f593aaff",
+      "dirty_files": 5331
+    },
+    "redis": {
+      "queue": 0,
+      "results": 33,
+      "failed": 1,
+      "audit": 33,
+      "kibra_audit": 0,
+      "finance_ledger": 0,
+      "finance_audit": 0,
+      "anchor_queue": 0,
+      "anchor_manual_ready": 0,
+      "monetization_audit": 0,
+      "monetization_proposals": 0,
+      "spend_proposals": 0,
+      "evolution_approved": 0,
+      "evolution_hold": 0,
+      "evolution_rejected": 0
+    },
+    "files": {
+      "kibra_chain": false,
+      "monetization": false,
+      "finance": false,
+      "hash": false,
+      "institution": false,
+      "anchor_package": false,
+      "parliament_review": false
+    },
+    "kibra": {
+      "height": null,
+      "latest_hash": null,
+      "latest_difficulty": null
+    },
+    "finance": {
+      "risk_items": null,
+      "records_checked": null
+    },
+    "institution": {
+      "missing_organs": null,
+      "missing_mapping": null,
+      "missing_committees": null
+    },
+    "monetization": {
+      "exists": false,
+      "double_sha": null
+    },
+    "hash": {
+      "exists": false,
+      "root_double_sha": null
+    },
+    "anchor": {
+      "exists": false,
+      "anchor_package_root": null
+    }
+  },
+  "assessment": {
+    "score": 15,
+    "max_score": 100,
+    "maturity": "seed",
+    "gaps": [
+      "failed_tasks_exist",
+      "kibra_chain_needs_growth",
+      "finance_risk_needs_review",
+      "hash_module_missing",
+      "anchor_package_needs_packaging",
+      "monetization_department_missing_or_not_run",
+      "institution_repair_needed",
+      "spendability_proposal_needed"
+    ],
+    "next_tasks": [
+      [
+        "failed_task_revision",
+        "institution_audit_task"
+      ],
+      [
+        "mine_next_kibra_block",
+        "kibra_token_chain_task"
+      ],
+      [
+        "finance_review",
+        "finance_department_task"
+      ],
+      [
+        "hash_module_test",
+        "hash_module_test_task"
+      ],
+      [
+        "anchor_package",
+        "owner_orchestrator_task"
+      ],
+      [
+        "monetization_cycle",
+        "monetization_department_task"
+      ],
+      [
+        "institution_repair",
+        "institution_audit_task"
+      ],
+      [
+        "spendability_proposal",
+        "monetization_department_task"
+      ]
+    ]
+  },
+  "created_tasks": [],
+  "policy_sha256": null,
+  "double_sha": "3c2e562ca74c3ff2d1c4152ddd04e6ed0aae5212f5bcc62bdbf7cd1ad0030c9c"
+}

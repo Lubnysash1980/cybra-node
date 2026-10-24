@@ -1,0 +1,16 @@
+{
+  "name": "CYBRA Hash Module Test Manifest",
+  "status": "generated",
+  "time": 1792832780.3559787,
+  "payload_file": "logs/hash/hash_test_payload.json",
+  "payload_sha256_file": "bb69c2ca80608beb3cbfad33c2b51ef399c72c8f12bba1ac6cb6556cfa13d36c",
+  "payload_double_sha": "51e7a9c07998861bf6570eb3e99f35af1a502a67a2fe619702e913152506e92d",
+  "detected_modules": {
+    "gitcybrahash_double_backend.mjs": true,
+    "hash_memory.py": true,
+    "hash_daemon.mjs": true,
+    "cybra_sha_core_manager.sh": true,
+    "hash_storage/root_hash.json": false
+  },
+  "root_double_sha": "794bec48cdddd78bbfe7088a32dea7aa77b0fb94cdc88549be5d086774c521b2"
+}

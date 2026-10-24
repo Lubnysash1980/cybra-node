@@ -1,0 +1,666 @@
+{
+  "status": "finance_gap_evolution_report_generated",
+  "submit_ai": true,
+  "time": 1792793868.1604962,
+  "time_iso": "2026-10-24T01:17:48+0300",
+  "score": 0,
+  "modules_total": 12,
+  "modules_ok": 1,
+  "modules_missing": 11,
+  "runtime_gaps": 5,
+  "modules": [
+    {
+      "module": "finance_department",
+      "importance": "critical",
+      "task_type": "finance_department_task",
+      "action": "bash cybra_finance.sh report",
+      "files": [
+        "parliament/departments/finance_department/department.json",
+        "feeds/finance_department_report.json"
+      ],
+      "missing": [
+        "parliament/departments/finance_department/department.json",
+        "feeds/finance_department_report.json"
+      ],
+      "ok": false
+    },
+    {
+      "module": "finance_infrastructure",
+      "importance": "critical",
+      "task_type": "finance_infrastructure_task",
+      "action": "bash cybra_finance_infra.sh report",
+      "files": [
+        "parliament/finance/infrastructure/finance_infrastructure_policy.json",
+        "feeds/finance_infrastructure_report.json"
+      ],
+      "missing": [
+        "parliament/finance/infrastructure/finance_infrastructure_policy.json",
+        "feeds/finance_infrastructure_report.json"
+      ],
+      "ok": false
+    },
+    {
+      "module": "finance_token_profit_audit",
+      "importance": "critical",
+      "task_type": "finance_token_profit_audit_task",
+      "action": "bash cybra_finance_profit_audit.sh report",
+      "files": [
+        "parliament/departments/finance_token_profit_audit_department/department.json",
+        "feeds/finance_token_profit_audit_report.json"
+      ],
+      "missing": [
+        "parliament/departments/finance_token_profit_audit_department/department.json",
+        "feeds/finance_token_profit_audit_report.json"
+      ],
+      "ok": false
+    },
+    {
+      "module": "native_kibra",
+      "importance": "critical",
+      "task_type": "native_kibra_evolution_task",
+      "action": "bash cybra_native_kibra.sh build",
+      "files": [
+        "parliament/native_kibra/policy/native_kibra_policy.json",
+        "feeds/native_kibra_ai_task_package.json",
+        "website/kibra/index.html",
+        "token/kibra/native/assets/kibra_token.png"
+      ],
+      "missing": [
+        "parliament/native_kibra/policy/native_kibra_policy.json",
+        "feeds/native_kibra_ai_task_package.json",
+        "website/kibra/index.html"
+      ],
+      "ok": false
+    },
+    {
+      "module": "kibra_chain",
+      "importance": "critical",
+      "task_type": "kibra_token_chain_task",
+      "action": "bash cybra_kibra_chain.sh verify && bash cybra_kibra_chain.sh report",
+      "files": [
+        "feeds/kibra_token_chain_status.json",
+        "blockchain/kibra_chain/latest.block.hash",
+        "proofs/kibra_token_chain.sha256"
+      ],
+      "missing": [
+        "feeds/kibra_token_chain_status.json",
+        "blockchain/kibra_chain/latest.block.hash",
+        "proofs/kibra_token_chain.sha256"
+      ],
+      "ok": false
+    },
+    {
+      "module": "monetization",
+      "importance": "important",
+      "task_type": "monetization_department_task",
+      "action": "bash cybra_monetization.sh report",
+      "files": [
+        "parliament/departments/monetization_department/department.json",
+        "feeds/monetization_department_report.json"
+      ],
+      "missing": [
+        "parliament/departments/monetization_department/department.json",
+        "feeds/monetization_department_report.json"
+      ],
+      "ok": false
+    },
+    {
+      "module": "market_exchange",
+      "importance": "important",
+      "task_type": "kibra_market_exchange_task",
+      "action": "bash cybra_kibra_market.sh report",
+      "files": [
+        "parliament/departments/exchange_department/department.json",
+        "feeds/kibra_market_exchange_plan.json"
+      ],
+      "missing": [
+        "parliament/departments/exchange_department/department.json",
+        "feeds/kibra_market_exchange_plan.json"
+      ],
+      "ok": false
+    },
+    {
+      "module": "external_anchor",
+      "importance": "important",
+      "task_type": "owner_orchestrator_task",
+      "action": "bash cybra_owner_orchestrator.sh run",
+      "files": [
+        "feeds/external_anchor_package.json",
+        "posts/external_anchor_package.md"
+      ],
+      "missing": [
+        "feeds/external_anchor_package.json",
+        "posts/external_anchor_package.md"
+      ],
+      "ok": false
+    },
+    {
+      "module": "owner_approval",
+      "importance": "important",
+      "task_type": "owner_orchestrator_task",
+      "action": "bash cybra_owner_approval.sh status",
+      "files": [
+        "cybra_owner_approval.sh"
+      ],
+      "missing": [],
+      "ok": true
+    },
+    {
+      "module": "hash_module",
+      "importance": "important",
+      "task_type": "hash_module_test_task",
+      "action": "bash cybra_hash_test.sh run",
+      "files": [
+        "feeds/hash_module_test.json",
+        "proofs/hash_module_test.sha256"
+      ],
+      "missing": [
+        "feeds/hash_module_test.json",
+        "proofs/hash_module_test.sha256"
+      ],
+      "ok": false
+    },
+    {
+      "module": "evolution_deployment",
+      "importance": "important",
+      "task_type": "evolution_deployment_task",
+      "action": "bash cybra_evolution_deploy.sh report",
+      "files": [
+        "parliament/evolution_deployment/evolution_deployment_policy.json",
+        "feeds/evolution_deployment_report.json"
+      ],
+      "missing": [
+        "parliament/evolution_deployment/evolution_deployment_policy.json"
+      ],
+      "ok": false
+    },
+    {
+      "module": "existing_tasks_activation",
+      "importance": "important",
+      "task_type": "existing_tasks_activation_task",
+      "action": "bash cybra_existing_tasks.sh repair",
+      "files": [
+        "parliament/existing_tasks_activation/policy.json",
+        "feeds/existing_tasks_evolution_activation.json"
+      ],
+      "missing": [
+        "parliament/existing_tasks_activation/policy.json"
+      ],
+      "ok": false
+    }
+  ],
+  "gaps": [
+    {
+      "area": "failed_tasks",
+      "level": "warning",
+      "message": "Failed tasks exist.",
+      "task_type": "existing_tasks_activation_task",
+      "action": "bash cybra_existing_tasks.sh repair"
+    },
+    {
+      "area": "mint_proposal",
+      "level": "development",
+      "message": "No token/native mint proposal records found.",
+      "task_type": "finance_infrastructure_task",
+      "action": "bash cybra_finance_infra.sh mint-proposal"
+    },
+    {
+      "area": "spendability",
+      "level": "development",
+      "message": "No KIBRA spendability proposal found.",
+      "task_type": "monetization_department_task",
+      "action": "bash cybra_monetization.sh spend KIBRA-AI-TASK 0"
+    },
+    {
+      "area": "monetization",
+      "level": "development",
+      "message": "Monetization report missing.",
+      "task_type": "monetization_department_task",
+      "action": "bash cybra_monetization.sh report"
+    },
+    {
+      "area": "market_exchange",
+      "level": "development",
+      "message": "Market/exchange plan missing.",
+      "task_type": "kibra_market_exchange_task",
+      "action": "bash cybra_kibra_market.sh report"
+    }
+  ],
+  "recommendations": [
+    {
+      "level": "critical",
+      "area": "finance_department",
+      "message": "Module `finance_department` is missing files: ['parliament/departments/finance_department/department.json', 'feeds/finance_department_report.json']. Create or repair it.",
+      "action": "bash cybra_finance.sh report"
+    },
+    {
+      "level": "critical",
+      "area": "finance_infrastructure",
+      "message": "Module `finance_infrastructure` is missing files: ['parliament/finance/infrastructure/finance_infrastructure_policy.json', 'feeds/finance_infrastructure_report.json']. Create or repair it.",
+      "action": "bash cybra_finance_infra.sh report"
+    },
+    {
+      "level": "critical",
+      "area": "finance_token_profit_audit",
+      "message": "Module `finance_token_profit_audit` is missing files: ['parliament/departments/finance_token_profit_audit_department/department.json', 'feeds/finance_token_profit_audit_report.json']. Create or repair it.",
+      "action": "bash cybra_finance_profit_audit.sh report"
+    },
+    {
+      "level": "critical",
+      "area": "native_kibra",
+      "message": "Module `native_kibra` is missing files: ['parliament/native_kibra/policy/native_kibra_policy.json', 'feeds/native_kibra_ai_task_package.json', 'website/kibra/index.html']. Create or repair it.",
+      "action": "bash cybra_native_kibra.sh build"
+    },
+    {
+      "level": "critical",
+      "area": "kibra_chain",
+      "message": "Module `kibra_chain` is missing files: ['feeds/kibra_token_chain_status.json', 'blockchain/kibra_chain/latest.block.hash', 'proofs/kibra_token_chain.sha256']. Create or repair it.",
+      "action": "bash cybra_kibra_chain.sh verify && bash cybra_kibra_chain.sh report"
+    },
+    {
+      "level": "important",
+      "area": "monetization",
+      "message": "Module `monetization` is missing files: ['parliament/departments/monetization_department/department.json', 'feeds/monetization_department_report.json']. Create or repair it.",
+      "action": "bash cybra_monetization.sh report"
+    },
+    {
+      "level": "important",
+      "area": "market_exchange",
+      "message": "Module `market_exchange` is missing files: ['parliament/departments/exchange_department/department.json', 'feeds/kibra_market_exchange_plan.json']. Create or repair it.",
+      "action": "bash cybra_kibra_market.sh report"
+    },
+    {
+      "level": "important",
+      "area": "external_anchor",
+      "message": "Module `external_anchor` is missing files: ['feeds/external_anchor_package.json', 'posts/external_anchor_package.md']. Create or repair it.",
+      "action": "bash cybra_owner_orchestrator.sh run"
+    },
+    {
+      "level": "important",
+      "area": "hash_module",
+      "message": "Module `hash_module` is missing files: ['feeds/hash_module_test.json', 'proofs/hash_module_test.sha256']. Create or repair it.",
+      "action": "bash cybra_hash_test.sh run"
+    },
+    {
+      "level": "important",
+      "area": "evolution_deployment",
+      "message": "Module `evolution_deployment` is missing files: ['parliament/evolution_deployment/evolution_deployment_policy.json']. Create or repair it.",
+      "action": "bash cybra_evolution_deploy.sh report"
+    },
+    {
+      "level": "important",
+      "area": "existing_tasks_activation",
+      "message": "Module `existing_tasks_activation` is missing files: ['parliament/existing_tasks_activation/policy.json']. Create or repair it.",
+      "action": "bash cybra_existing_tasks.sh repair"
+    },
+    {
+      "level": "warning",
+      "area": "failed_tasks",
+      "message": "Failed tasks exist.",
+      "action": "bash cybra_existing_tasks.sh repair"
+    },
+    {
+      "level": "development",
+      "area": "mint_proposal",
+      "message": "No token/native mint proposal records found.",
+      "action": "bash cybra_finance_infra.sh mint-proposal"
+    },
+    {
+      "level": "development",
+      "area": "spendability",
+      "message": "No KIBRA spendability proposal found.",
+      "action": "bash cybra_monetization.sh spend KIBRA-AI-TASK 0"
+    },
+    {
+      "level": "development",
+      "area": "monetization",
+      "message": "Monetization report missing.",
+      "action": "bash cybra_monetization.sh report"
+    },
+    {
+      "level": "development",
+      "area": "market_exchange",
+      "message": "Market/exchange plan missing.",
+      "action": "bash cybra_kibra_market.sh report"
+    }
+  ],
+  "ai_tasks": [
+    {
+      "topic": "Finance Gap Evolution: finance_department",
+      "type": "finance_department_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_gap_evolution_committee",
+        "area": "finance_department",
+        "recommendation": "Module `finance_department` is missing files: ['parliament/departments/finance_department/department.json', 'feeds/finance_department_report.json']. Create or repair it.",
+        "suggested_action": "bash cybra_finance.sh report",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_exchange_launch": false,
+        "automatic_gold_purchase": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "evolution_required": true
+      }
+    },
+    {
+      "topic": "Finance Gap Evolution: finance_infrastructure",
+      "type": "finance_infrastructure_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_gap_evolution_committee",
+        "area": "finance_infrastructure",
+        "recommendation": "Module `finance_infrastructure` is missing files: ['parliament/finance/infrastructure/finance_infrastructure_policy.json', 'feeds/finance_infrastructure_report.json']. Create or repair it.",
+        "suggested_action": "bash cybra_finance_infra.sh report",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_exchange_launch": false,
+        "automatic_gold_purchase": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "evolution_required": true
+      }
+    },
+    {
+      "topic": "Finance Gap Evolution: finance_token_profit_audit",
+      "type": "finance_token_profit_audit_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_gap_evolution_committee",
+        "area": "finance_token_profit_audit",
+        "recommendation": "Module `finance_token_profit_audit` is missing files: ['parliament/departments/finance_token_profit_audit_department/department.json', 'feeds/finance_token_profit_audit_report.json']. Create or repair it.",
+        "suggested_action": "bash cybra_finance_profit_audit.sh report",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_exchange_launch": false,
+        "automatic_gold_purchase": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "evolution_required": true
+      }
+    },
+    {
+      "topic": "Finance Gap Evolution: native_kibra",
+      "type": "native_kibra_evolution_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_gap_evolution_committee",
+        "area": "native_kibra",
+        "recommendation": "Module `native_kibra` is missing files: ['parliament/native_kibra/policy/native_kibra_policy.json', 'feeds/native_kibra_ai_task_package.json', 'website/kibra/index.html']. Create or repair it.",
+        "suggested_action": "bash cybra_native_kibra.sh build",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_exchange_launch": false,
+        "automatic_gold_purchase": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "evolution_required": true
+      }
+    },
+    {
+      "topic": "Finance Gap Evolution: kibra_chain",
+      "type": "kibra_token_chain_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_gap_evolution_committee",
+        "area": "kibra_chain",
+        "recommendation": "Module `kibra_chain` is missing files: ['feeds/kibra_token_chain_status.json', 'blockchain/kibra_chain/latest.block.hash', 'proofs/kibra_token_chain.sha256']. Create or repair it.",
+        "suggested_action": "bash cybra_kibra_chain.sh verify && bash cybra_kibra_chain.sh report",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_exchange_launch": false,
+        "automatic_gold_purchase": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "evolution_required": true
+      }
+    },
+    {
+      "topic": "Finance Gap Evolution: monetization",
+      "type": "monetization_department_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_gap_evolution_committee",
+        "area": "monetization",
+        "recommendation": "Module `monetization` is missing files: ['parliament/departments/monetization_department/department.json', 'feeds/monetization_department_report.json']. Create or repair it.",
+        "suggested_action": "bash cybra_monetization.sh report",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_exchange_launch": false,
+        "automatic_gold_purchase": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "evolution_required": true
+      }
+    },
+    {
+      "topic": "Finance Gap Evolution: market_exchange",
+      "type": "kibra_market_exchange_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_gap_evolution_committee",
+        "area": "market_exchange",
+        "recommendation": "Module `market_exchange` is missing files: ['parliament/departments/exchange_department/department.json', 'feeds/kibra_market_exchange_plan.json']. Create or repair it.",
+        "suggested_action": "bash cybra_kibra_market.sh report",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_exchange_launch": false,
+        "automatic_gold_purchase": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "evolution_required": true
+      }
+    },
+    {
+      "topic": "Finance Gap Evolution: external_anchor",
+      "type": "owner_orchestrator_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_gap_evolution_committee",
+        "area": "external_anchor",
+        "recommendation": "Module `external_anchor` is missing files: ['feeds/external_anchor_package.json', 'posts/external_anchor_package.md']. Create or repair it.",
+        "suggested_action": "bash cybra_owner_orchestrator.sh run",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_exchange_launch": false,
+        "automatic_gold_purchase": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "evolution_required": true
+      }
+    },
+    {
+      "topic": "Finance Gap Evolution: hash_module",
+      "type": "hash_module_test_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_gap_evolution_committee",
+        "area": "hash_module",
+        "recommendation": "Module `hash_module` is missing files: ['feeds/hash_module_test.json', 'proofs/hash_module_test.sha256']. Create or repair it.",
+        "suggested_action": "bash cybra_hash_test.sh run",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_exchange_launch": false,
+        "automatic_gold_purchase": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "evolution_required": true
+      }
+    },
+    {
+      "topic": "Finance Gap Evolution: evolution_deployment",
+      "type": "evolution_deployment_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_gap_evolution_committee",
+        "area": "evolution_deployment",
+        "recommendation": "Module `evolution_deployment` is missing files: ['parliament/evolution_deployment/evolution_deployment_policy.json']. Create or repair it.",
+        "suggested_action": "bash cybra_evolution_deploy.sh report",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_exchange_launch": false,
+        "automatic_gold_purchase": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "evolution_required": true
+      }
+    },
+    {
+      "topic": "Finance Gap Evolution: existing_tasks_activation",
+      "type": "existing_tasks_activation_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_gap_evolution_committee",
+        "area": "existing_tasks_activation",
+        "recommendation": "Module `existing_tasks_activation` is missing files: ['parliament/existing_tasks_activation/policy.json']. Create or repair it.",
+        "suggested_action": "bash cybra_existing_tasks.sh repair",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_exchange_launch": false,
+        "automatic_gold_purchase": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "evolution_required": true
+      }
+    },
+    {
+      "topic": "Finance Gap Evolution: failed_tasks",
+      "type": "existing_tasks_activation_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_gap_evolution_committee",
+        "area": "failed_tasks",
+        "recommendation": "Failed tasks exist.",
+        "suggested_action": "bash cybra_existing_tasks.sh repair",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_exchange_launch": false,
+        "automatic_gold_purchase": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "evolution_required": true
+      }
+    },
+    {
+      "topic": "Finance Gap Evolution: mint_proposal",
+      "type": "finance_infrastructure_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_gap_evolution_committee",
+        "area": "mint_proposal",
+        "recommendation": "No token/native mint proposal records found.",
+        "suggested_action": "bash cybra_finance_infra.sh mint-proposal",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_exchange_launch": false,
+        "automatic_gold_purchase": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "evolution_required": true
+      }
+    },
+    {
+      "topic": "Finance Gap Evolution: spendability",
+      "type": "monetization_department_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_gap_evolution_committee",
+        "area": "spendability",
+        "recommendation": "No KIBRA spendability proposal found.",
+        "suggested_action": "bash cybra_monetization.sh spend KIBRA-AI-TASK 0",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_exchange_launch": false,
+        "automatic_gold_purchase": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "evolution_required": true
+      }
+    },
+    {
+      "topic": "Finance Gap Evolution: monetization",
+      "type": "monetization_department_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_gap_evolution_committee",
+        "area": "monetization",
+        "recommendation": "Monetization report missing.",
+        "suggested_action": "bash cybra_monetization.sh report",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_exchange_launch": false,
+        "automatic_gold_purchase": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "evolution_required": true
+      }
+    },
+    {
+      "topic": "Finance Gap Evolution: market_exchange",
+      "type": "kibra_market_exchange_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_gap_evolution_committee",
+        "area": "market_exchange",
+        "recommendation": "Market/exchange plan missing.",
+        "suggested_action": "bash cybra_kibra_market.sh report",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_exchange_launch": false,
+        "automatic_gold_purchase": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "evolution_required": true
+      }
+    }
+  ],
+  "redis": {
+    "queue": 0,
+    "results": 33,
+    "failed": 1,
+    "ai_tasks_finance_gap": 16,
+    "audit": 44
+  },
+  "proof_inputs": {
+    "committee": null,
+    "policy": null
+  },
+  "git": {
+    "branch": "main",
+    "commit": "f593aaff",
+    "dirty_files": 5331
+  },
+  "double_sha": "a42701498a8ee18e687fa3fa27d39d4e461896e14b774711fa172f503e966775"
+}

@@ -1,0 +1,147 @@
+{
+  "module": "CYBRA EVO Committee Module",
+  "status": "generated",
+  "time": 1792793798.8665264,
+  "time_iso": "2026-10-24T01:16:38+0300",
+  "git": {
+    "branch": "main",
+    "commit": "f593aaff",
+    "dirty_files": 5331
+  },
+  "summary": {
+    "committees": 4,
+    "no_mapping_items_seen": 0,
+    "no_mapping_types": {},
+    "executor_mapping_count": 2
+  },
+  "committees": [
+    {
+      "committee_id": "evo_council",
+      "name": "EVO Council",
+      "status": "active",
+      "source": "core",
+      "created_at": "2026-10-24T01:16:38+0300",
+      "mission": "Керувати правилами еволюції Кіберапарламенту і дозволом на створення нових комітетів.",
+      "task_types": [
+        "evo_committee_task",
+        "committee_creation_task"
+      ],
+      "powers": [
+        "analyze_tasks",
+        "recommend_handlers",
+        "write_reports",
+        "write_feeds",
+        "write_proofs",
+        "request_executor_mapping"
+      ],
+      "limits": [
+        "no_private_keys",
+        "no_secret_dump",
+        "no_illegal_actions",
+        "no_real_world_force",
+        "internal_digital_committee_only"
+      ],
+      "outputs": {
+        "committee_json": "parliament/committees/evo_council/committee.json",
+        "readme": "parliament/committees/evo_council/README.md"
+      },
+      "double_sha": "d88d8e6b63d472cf9b8bb33e6cab741c94c00623cedf9190a6aeb7bbf3d6e392"
+    },
+    {
+      "committee_id": "executor_mapping_committee",
+      "name": "Executor Mapping Committee",
+      "status": "active",
+      "source": "core",
+      "created_at": "2026-10-24T01:16:38+0300",
+      "mission": "Керувати Redis executor mapping і прибирати no_executor_mapping.",
+      "task_types": [
+        "mapping_task"
+      ],
+      "powers": [
+        "analyze_tasks",
+        "recommend_handlers",
+        "write_reports",
+        "write_feeds",
+        "write_proofs",
+        "request_executor_mapping"
+      ],
+      "limits": [
+        "no_private_keys",
+        "no_secret_dump",
+        "no_illegal_actions",
+        "no_real_world_force",
+        "internal_digital_committee_only"
+      ],
+      "outputs": {
+        "committee_json": "parliament/committees/executor_mapping_committee/committee.json",
+        "readme": "parliament/committees/executor_mapping_committee/README.md"
+      },
+      "double_sha": "fc58944da34efe7c7307de61ebdf181c0d2c56b2475444dcbc3635cde6a1e71f"
+    },
+    {
+      "committee_id": "parliament_support_committee",
+      "name": "Parliament Support Committee",
+      "status": "active",
+      "source": "core",
+      "created_at": "2026-10-24T01:16:38+0300",
+      "mission": "Підтримувати роботу Кіберапарламенту, органів, комітетів, звітів і proof-файлів.",
+      "task_types": [
+        "parliament_support_task"
+      ],
+      "powers": [
+        "analyze_tasks",
+        "recommend_handlers",
+        "write_reports",
+        "write_feeds",
+        "write_proofs",
+        "request_executor_mapping"
+      ],
+      "limits": [
+        "no_private_keys",
+        "no_secret_dump",
+        "no_illegal_actions",
+        "no_real_world_force",
+        "internal_digital_committee_only"
+      ],
+      "outputs": {
+        "committee_json": "parliament/committees/parliament_support_committee/committee.json",
+        "readme": "parliament/committees/parliament_support_committee/README.md"
+      },
+      "double_sha": "b1517441507e620cd25e2d41b66cacd662bee13094fa16bc6a9d23c83474b9ec"
+    },
+    {
+      "committee_id": "task_lifecycle_committee",
+      "name": "Task Lifecycle Committee",
+      "status": "active",
+      "source": "core",
+      "created_at": "2026-10-24T01:16:38+0300",
+      "mission": "Стежити за життєвим циклом задачі: review → execution → result → audit → revision.",
+      "task_types": [
+        "task_lifecycle_task"
+      ],
+      "powers": [
+        "analyze_tasks",
+        "recommend_handlers",
+        "write_reports",
+        "write_feeds",
+        "write_proofs",
+        "request_executor_mapping"
+      ],
+      "limits": [
+        "no_private_keys",
+        "no_secret_dump",
+        "no_illegal_actions",
+        "no_real_world_force",
+        "internal_digital_committee_only"
+      ],
+      "outputs": {
+        "committee_json": "parliament/committees/task_lifecycle_committee/committee.json",
+        "readme": "parliament/committees/task_lifecycle_committee/README.md"
+      },
+      "double_sha": "ded33cbefc8416849a9d91c21c865241dc6e77de7f575b332da931baf1d2807a"
+    }
+  ],
+  "no_mapping_items": [],
+  "evo_laws_file": "parliament/evo/evo_laws.json",
+  "double_sha": "9ef98e34d934287c13a14be66b51246aba90b51a2b63929ba65d5f6a98b4c36f"
+}
