@@ -28,6 +28,8 @@ submit(){
     "$id" "$action" "$cid" "$check")
   printf '%s' "$task" | rd -x rpush cybra:menu:queue >/dev/null
   SUBMITTED=$((SUBMITTED+1))
+  [ "$SUBMITTED" -ge "$TARGET" ] && return 1
+  return 0
 }
 
 # ─── A. Створення/список/статус (20) ───
@@ -35,101 +37,92 @@ log "A. контракти (20)"
 for i in $(seq 0 19); do
   cid="${CONTRACTS[$i]:-demo_$i}"
   case $((i % 3)) in
-    0) submit "create_contract" "$cid" "idempotent" ;;
-    1) submit "list_contracts"  ""     "no_missing" ;;
-    2) submit "show_status"     "$cid" "status_valid" ;;
+    0) submit "create_contract" "$cid" "idempotent" || break ;;
+    1) submit "list_contracts"  ""     "no_missing" || break ;;
+    2) submit "show_status"     "$cid" "status_valid" || break ;;
   esac
-  [ "$SUBMITTED" -ge "$TARGET" ] && break
-done
+  done
 
 # ─── B. Лінки (25) ───
 log "B. лінки (25)"
 for i in $(seq 0 24); do
   lid="${LINKS[$i]:-link_$i}"
   case $((i % 2)) in
-    0) submit "generate_links" "$lid" "targets_exist" ;;
-    1) submit "confirm_link"   "$lid" "signed_valid" ;;
+    0) submit "generate_links" "$lid" "targets_exist" || break ;;
+    1) submit "confirm_link"   "$lid" "signed_valid" || break ;;
   esac
-  [ "$SUBMITTED" -ge "$TARGET" ] && break
-done
+  done
 
 # ─── C. Ліцензії (15) ───
 log "C. ліцензії (15)"
 for i in $(seq 0 14); do
   case $((i % 2)) in
-    0) submit "dual_license_ledger" "" "sum_3pct" ;;
-    1) submit "creation_license"    "" "1pct_marked" ;;
+    0) submit "dual_license_ledger" "" "sum_3pct" || break ;;
+    1) submit "creation_license"    "" "1pct_marked" || break ;;
   esac
-  [ "$SUBMITTED" -ge "$TARGET" ] && break
-done
+  done
 
 # ─── D. INVOICE (20) ───
 log "D. INVOICE (20)"
 for i in $(seq 0 19); do
   cid="${CONTRACTS[$((i % (N_C>0?N_C:1)))]:-inv_$i}"
   case $((i % 4)) in
-    0) submit "create_invoice"   "$cid" "number_unique" ;;
-    1) submit "add_line"         "$cid" "amount_positive" ;;
-    2) submit "show_invoice"     "$cid" "matches_ledger" ;;
-    3) submit "finalize_invoice" "$cid" "signed_and_sealed" ;;
+    0) submit "create_invoice"   "$cid" "number_unique" || break ;;
+    1) submit "add_line"         "$cid" "amount_positive" || break ;;
+    2) submit "show_invoice"     "$cid" "matches_ledger" || break ;;
+    3) submit "finalize_invoice" "$cid" "signed_and_sealed" || break ;;
   esac
-  [ "$SUBMITTED" -ge "$TARGET" ] && break
-done
+  done
 
 # ─── E. PII (15) ───
 log "E. PII (15)"
 for i in $(seq 0 14); do
   case $((i % 3)) in
-    0) submit "export_masked"     "" "no_plain_pii" ;;
-    1) submit "export_all_masked" "" "count_matches" ;;
-    2) submit "verify_pii"        "" "hash_matches" ;;
+    0) submit "export_masked"     "" "no_plain_pii" || break ;;
+    1) submit "export_all_masked" "" "count_matches" || break ;;
+    2) submit "verify_pii"        "" "hash_matches" || break ;;
   esac
-  [ "$SUBMITTED" -ge "$TARGET" ] && break
-done
+  done
 
 # ─── F. Hardening/Debug (15) ───
 log "F. Hardening/Debug (15)"
 for i in $(seq 0 14); do
   case $((i % 3)) in
-    0) submit "hardening"   "" "all_locks_present" ;;
-    1) submit "debug"       "" "no_errors" ;;
-    2) submit "dual_verify" "" "two_independent" ;;
+    0) submit "hardening"   "" "all_locks_present" || break ;;
+    1) submit "debug"       "" "no_errors" || break ;;
+    2) submit "dual_verify" "" "two_independent" || break ;;
   esac
-  [ "$SUBMITTED" -ge "$TARGET" ] && break
-done
+  done
 
 # ─── G. AI (20) ───
 log "G. AI (20)"
 AI_ACTIONS=(ai_review ai_parse ai_terms ai_help ai_ask ai_taskbar ai_exec_full ai_exec_scan ai_exec_apply ai_exec_list)
 for i in $(seq 0 19); do
   act="${AI_ACTIONS[$((i % ${#AI_ACTIONS[@]}))]}"
-  submit "$act" "" "returned_valid"
-  [ "$SUBMITTED" -ge "$TARGET" ] && break
-done
+  submit "$act" "" "returned_valid" || break
+  done
 
 # ─── H. Address book (15) ───
 log "H. Address (15)"
 for i in $(seq 0 14); do
   case $((i % 3)) in
-    0) submit "addr_add"     "" "no_duplicates" ;;
-    1) submit "addr_list"    "" "count_ok" ;;
-    2) submit "addr_history" "" "chronological" ;;
+    0) submit "addr_add"     "" "no_duplicates" || break ;;
+    1) submit "addr_list"    "" "count_ok" || break ;;
+    2) submit "addr_history" "" "chronological" || break ;;
   esac
-  [ "$SUBMITTED" -ge "$TARGET" ] && break
-done
+  done
 
 # ─── I. Preflight/Heal (15) ───
 log "I. Preflight/Heal (15)"
 LAST=(preflight self_heal ownership check_timeouts refund_status add_term show_rates update_rate convert buyer_final_decision)
 for i in $(seq 0 14); do
   act="${LAST[$((i % ${#LAST[@]}))]}"
-  submit "$act" "" "exit_zero"
-  [ "$SUBMITTED" -ge "$TARGET" ] && break
-done
+  submit "$act" "" "exit_zero" || break
+  done
 
 # ─── добити до рівно $TARGET ───
 while [ "$SUBMITTED" -lt "$TARGET" ]; do
-  submit "idealize_sweep" "" "idempotent"
+  submit "idealize_sweep" "" "idempotent" || break
 done
 
 log "✅ подано рівно: $SUBMITTED"

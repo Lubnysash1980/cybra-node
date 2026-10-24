@@ -5,7 +5,7 @@ set -u
 CYBRA="$HOME/CYBRA"; cd "$CYBRA" || exit 1
 MENU_BIN="$CYBRA/modules/module_19_contract_tui_menu/bin"
 LOG="$CYBRA/logs/menu_worker.log"; mkdir -p "$CYBRA/logs"
-log(){ echo "[$(date -u +%FT%TZ)] $*" >> "$LOG"; }
+log(){ echo "[$(date -u +%FT%TZ)] $*" | tee -a "$LOG"; }
 rd(){ redis-cli "$@" 2>/dev/null; }
 
 # ─── Реальні handlers (тільки безпечні, без інтерактиву) ───
@@ -66,8 +66,8 @@ while :; do
   esac
 
   result="{\"id\":\"$tid\",\"action\":\"$action\",\"contract_id\":\"$cid\",\"status\":\"$status\",\"rc\":$rc,\"output\":\"$(printf '%s' "$out" | head -c 500 | tr -d '\n\r"\\')\",\"ts\":\"$(date -u +%FT%TZ)\"}"
-  target="cybra:parliament:results"
-  [ "$status" = "failed" ] && target="cybra:parliament:failed"
+  target="cybra:menu:results"
+  [ "$status" = "failed" ] && target="cybra:menu:failed"
   printf '%s' "$result" | rd -x rpush "$target" >/dev/null
   log "  → $status"
 done
