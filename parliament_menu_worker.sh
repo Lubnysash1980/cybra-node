@@ -9,6 +9,7 @@ log(){ echo "[$(date -u +%FT%TZ)] $*" | tee -a "$LOG"; }
 rd(){ redis-cli "$@" 2>/dev/null; }
 
 # ─── Реальні handlers (тільки безпечні, без інтерактиву) ───
+get_arg(){ printf '%s' "$raw" | python3 -c "import sys,json;print(json.load(sys.stdin).get('$1',''))" 2>/dev/null; }
 dispatch(){
   local action="$1" cid="${2:-}"
   case "$action" in
@@ -33,12 +34,16 @@ dispatch(){
     ai_help)             echo "read_only:ai_help" ;;
 
     # write-дії: НЕ виконуємо автоматично (потребують рішень)
-    create_contract|generate_links|confirm_link|dual_license_ledger|creation_license|\
-    create_invoice|add_line|finalize_invoice|hardening|dual_verify|\
-    addr_add|ownership|add_term|update_rate|convert|buyer_final_decision|\
-    ai_review|ai_parse|ai_terms|ai_ask|ai_taskbar|ai_exec_full|ai_exec_scan|ai_exec_apply)
-      echo "DEFERRED:needs_manual:$action"
-      return 4 ;;
+    create_contract)   "$HOME/CYBRA/cybra_contract_cli.sh" create "$(get_arg buyer)" "$(get_arg seller)" "$(get_arg amount)" "$(get_arg token)"; return $? ;;
+    generate_links)    "$HOME/CYBRA/cybra_contract_cli.sh" generate_links "$cid"; return $? ;;
+    confirm_link)      "$HOME/CYBRA/cybra_contract_cli.sh" confirm_link "$(get_arg link_id)" "$(get_arg who)"; return $? ;;
+    create_invoice)    "$HOME/CYBRA/cybra_invoice_cli.sh" create --json "$raw"; return $? ;;
+    add_line)          "$HOME/CYBRA/cybra_invoice_cli.sh" add_line --json "$raw"; return $? ;;
+    finalize_invoice)  "$HOME/CYBRA/cybra_invoice_cli.sh" finalize --contract_id "$cid"; return $? ;;
+    addr_add)          "$HOME/CYBRA/cybra_admin_cli.sh" addr_add --json "$raw"; return $? ;;
+    ai_review)         "$HOME/CYBRA/cybra_ai_cli.sh" review --contract_id "$cid"; return $? ;;
+    # решта — deferred (бо CLI ще не готові)
+    *)                 echo "DEFERRED:needs_manual:$action"; return 4 ;;
 
     idealize_sweep)  echo "sweep_ok" ;;
     *)               echo "unknown:$action"; return 3 ;;

@@ -24,7 +24,7 @@ submit(){
   local id="menu160_$(printf '%03d' $((SUBMITTED+1)))_$(date +%s)"
   # компактний JSON — одним рядком, без пробілів
   local task
-  task=$(python3 -c "import json,sys;print(json.dumps({'id':sys.argv[1],'type':'menu_action','action':sys.argv[2],'contract_id':sys.argv[3] or '','check':sys.argv[4],'ts':int(__import__('time').time())},separators=(',',':')))" \
+  task=$(python3 -c "import json,sys,time;print(json.dumps({'id':sys.argv[1],'type':'menu_action','action':sys.argv[2],'contract_id':sys.argv[3] or '','check':sys.argv[4],'buyer':'0xBUY'+str(int(time.time()))[:6],'seller':'0xSELL'+str(int(time.time()))[:6],'amount':'1000000000000000000','token':'BNB','who':'0xAAA','link_id':'L-TEST-'+str(int(time.time())),'ts':int(time.time())},separators=(',',':')))" \
     "$id" "$action" "$cid" "$check")
   printf '%s' "$task" | rd -x rpush cybra:menu:queue >/dev/null
   SUBMITTED=$((SUBMITTED+1))
@@ -140,7 +140,7 @@ log "menu queue: $(rd llen cybra:menu:queue)"
 # ─── Чекати, поки menu-worker розбере ───
 log "→ чекаю обробки menu-worker (до 15 хв)"
 BEFORE=$(rd llen cybra:parliament:results)
-parliament_wait 900 0 || true
+# parliament_wait не потрібен — нижче свій wait-цикл
 
 # Простий wait-цикл по menu-черзі
 for _ in $(seq 1 180); do
