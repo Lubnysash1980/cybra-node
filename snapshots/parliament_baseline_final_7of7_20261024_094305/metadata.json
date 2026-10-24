@@ -1,0 +1,15 @@
+{
+  "snapshot_name": "baseline_final_7of7",
+  "timestamp_utc": "2026-10-24T09:43:14Z",
+  "timestamp_epoch": 1792834994,
+  "level": 7,
+  "redis_pong": "PONG",
+  "queue": 0,
+  "results": 975,
+  "failed": 1,
+  "audit": 453,
+  "executors_running": 1,
+  "ram_pct": 70,
+  "modules_count": 279,
+  "pm2_processes": 3
+}
