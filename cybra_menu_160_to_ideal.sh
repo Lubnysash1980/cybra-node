@@ -35,6 +35,7 @@ submit(){
 # ─── A. Створення/список/статус (20) ───
 log "A. контракти (20)"
 for i in $(seq 0 19); do
+  [ "$SUBMITTED" -ge "$TARGET" ] && break
   cid="${CONTRACTS[$i]:-demo_$i}"
   case $((i % 3)) in
     0) submit "create_contract" "$cid" "idempotent" || break ;;
@@ -46,6 +47,7 @@ for i in $(seq 0 19); do
 # ─── B. Лінки (25) ───
 log "B. лінки (25)"
 for i in $(seq 0 24); do
+  [ "$SUBMITTED" -ge "$TARGET" ] && break
   lid="${LINKS[$i]:-link_$i}"
   case $((i % 2)) in
     0) submit "generate_links" "$lid" "targets_exist" || break ;;
@@ -56,6 +58,7 @@ for i in $(seq 0 24); do
 # ─── C. Ліцензії (15) ───
 log "C. ліцензії (15)"
 for i in $(seq 0 14); do
+  [ "$SUBMITTED" -ge "$TARGET" ] && break
   case $((i % 2)) in
     0) submit "dual_license_ledger" "" "sum_3pct" || break ;;
     1) submit "creation_license"    "" "1pct_marked" || break ;;
@@ -65,6 +68,7 @@ for i in $(seq 0 14); do
 # ─── D. INVOICE (20) ───
 log "D. INVOICE (20)"
 for i in $(seq 0 19); do
+  [ "$SUBMITTED" -ge "$TARGET" ] && break
   cid="${CONTRACTS[$((i % (N_C>0?N_C:1)))]:-inv_$i}"
   case $((i % 4)) in
     0) submit "create_invoice"   "$cid" "number_unique" || break ;;
@@ -77,6 +81,7 @@ for i in $(seq 0 19); do
 # ─── E. PII (15) ───
 log "E. PII (15)"
 for i in $(seq 0 14); do
+  [ "$SUBMITTED" -ge "$TARGET" ] && break
   case $((i % 3)) in
     0) submit "export_masked"     "" "no_plain_pii" || break ;;
     1) submit "export_all_masked" "" "count_matches" || break ;;
@@ -87,6 +92,7 @@ for i in $(seq 0 14); do
 # ─── F. Hardening/Debug (15) ───
 log "F. Hardening/Debug (15)"
 for i in $(seq 0 14); do
+  [ "$SUBMITTED" -ge "$TARGET" ] && break
   case $((i % 3)) in
     0) submit "hardening"   "" "all_locks_present" || break ;;
     1) submit "debug"       "" "no_errors" || break ;;
@@ -98,6 +104,7 @@ for i in $(seq 0 14); do
 log "G. AI (20)"
 AI_ACTIONS=(ai_review ai_parse ai_terms ai_help ai_ask ai_taskbar ai_exec_full ai_exec_scan ai_exec_apply ai_exec_list)
 for i in $(seq 0 19); do
+  [ "$SUBMITTED" -ge "$TARGET" ] && break
   act="${AI_ACTIONS[$((i % ${#AI_ACTIONS[@]}))]}"
   submit "$act" "" "returned_valid" || break
   done
@@ -105,6 +112,7 @@ for i in $(seq 0 19); do
 # ─── H. Address book (15) ───
 log "H. Address (15)"
 for i in $(seq 0 14); do
+  [ "$SUBMITTED" -ge "$TARGET" ] && break
   case $((i % 3)) in
     0) submit "addr_add"     "" "no_duplicates" || break ;;
     1) submit "addr_list"    "" "count_ok" || break ;;
@@ -116,6 +124,7 @@ for i in $(seq 0 14); do
 log "I. Preflight/Heal (15)"
 LAST=(preflight self_heal ownership check_timeouts refund_status add_term show_rates update_rate convert buyer_final_decision)
 for i in $(seq 0 14); do
+  [ "$SUBMITTED" -ge "$TARGET" ] && break
   act="${LAST[$((i % ${#LAST[@]}))]}"
   submit "$act" "" "exit_zero" || break
   done
