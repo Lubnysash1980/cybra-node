@@ -1,0 +1,15 @@
+{
+  "snapshot_name": "menu160_ideal_1792835977",
+  "timestamp_utc": "2026-10-24T09:59:47Z",
+  "timestamp_epoch": 1792835987,
+  "level": 7,
+  "redis_pong": "PONG",
+  "queue": 0,
+  "results": 1342,
+  "failed": 322,
+  "audit": 453,
+  "executors_running": 1,
+  "ram_pct": 70,
+  "modules_count": 279,
+  "pm2_processes": 3
+}
