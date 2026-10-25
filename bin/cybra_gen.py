@@ -13,6 +13,11 @@ SPEC   = CYBRA / "state/modules_spec.json"
 BACKUP = CYBRA / "state/module_backups"; BACKUP.mkdir(parents=True, exist_ok=True)
 
 def find_mod(n):
+    # prefer _base (canonical)
+    for pat in [f"module_{n:03d}_base", f"module_{n}_base", f"module_0{n}_base"]:
+        for d in sorted(MODS.glob(pat)):
+            if d.is_dir(): return d
+    # fallback: any named
     for pat in [f"module_{n:03d}_*", f"module_{n}_*", f"module_0{n}_*"]:
         for d in sorted(MODS.glob(pat)):
             if d.is_dir(): return d
