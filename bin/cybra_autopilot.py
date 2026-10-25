@@ -118,6 +118,14 @@ def snapshot_state():
 def cycle():
     t0 = time.time()
     log("═══ AUTOPILOT CYCLE ═══")
+    # health check first
+    try:
+        import subprocess as _sp
+        _r = _sp.run(["bash", str(CYBRA/"bin/cybra_health.sh")],
+                     capture_output=True, text=True, timeout=60)
+        log(f"  health: {_r.stdout.strip().splitlines()[-1] if _r.stdout else 'n/a'}")
+    except Exception as _e:
+        log(f"  health ERR: {_e}")
     ram = ram_pct(); disk = disk_mb(); online = pm2_online()
 
     # 1. RAM guard
