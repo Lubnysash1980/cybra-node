@@ -330,6 +330,7 @@ action_wh_add() {
 
 # ─── EXPORT / BACKUP ───
 action_exp_csv()    { source "$HOME/CYBRA/modules/module_28_export/bin/export.sh" 2>/dev/null; exp_contracts_csv 2>/dev/null; read -r _; }
+    echo "  $(bash "$HOME/CYBRA/bin/cybra_notify.sh" bar 2>/dev/null)"
 action_exp_ledger() { source "$HOME/CYBRA/modules/module_28_export/bin/export.sh" 2>/dev/null; exp_ledger_csv 2>/dev/null; read -r _; }
 action_exp_report() {
     printf 'CONTRACT_ID: '; read -r C
@@ -656,6 +657,7 @@ print_menu() {
     printf "  [%d] %s\n" 158 "module_158_base"
     printf "  [%d] %s\n" 159 "module_159_base"
     printf "  [%d] %s\n" 160 "module_160_base"
+    printf "  🟢 [161] Сповіщення (last 30)\n"
     printf '%s\n' "  ${C_BOLD}[0]${C_RESET}  Вихід"
     printf '\n'
 }
@@ -992,6 +994,7 @@ while true; do
         158) "/data/data/com.termux/files/home/CYBRA/controllers/module_158.ctrl.sh" "/data/data/com.termux/files/home/CYBRA/modules/module_158_base/main.sh" ;;
         159) "/data/data/com.termux/files/home/CYBRA/controllers/module_159.ctrl.sh" "/data/data/com.termux/files/home/CYBRA/modules/module_159_base/main.sh" ;;
         160) "/data/data/com.termux/files/home/CYBRA/controllers/module_160.ctrl.sh" "/data/data/com.termux/files/home/CYBRA/modules/module_160_base/main.sh" ;;
+        161) bash "$HOME/CYBRA/bin/cybra_notify.sh" list 30; read -r _ ;;
         0|q|Q|exit|quit)
             printf "%s
 " "${C_GREEN}До побачення.${C_RESET}"
