@@ -78,6 +78,16 @@ def git_restore(main_path):
                     return True
             except: pass
 
+    # 4. LAST RESORT: git show HEAD:rel > rel
+    if is_tracked:
+        try:
+            r = subprocess.run(["git","show",f"HEAD:{rel}"], cwd=CYBRA,
+                               capture_output=True, text=True, timeout=15)
+            if r.returncode == 0 and len(r.stdout) > 200:
+                main_path.write_text(r.stdout)
+                return True
+        except: pass
+
     return False
 
 def run_hidl(msg):

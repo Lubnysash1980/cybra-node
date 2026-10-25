@@ -47,7 +47,7 @@ SPEC_MAP = {
     44:("ai_free_question","ai","ask",""),
     45:("ai_task_bar","ai","bar","modules/module_19_contract_tui_menu/bin/cybra_ai_executor.sh"),
     46:("executor_full","evolution","full","bin/cybra_evo_controller.py"),
-    47:("executor_scan","evolution","status","bin/cybra_evo_controller.py"),
+    47:("executor_scan","evolution","status",""),
     48:("executor_apply","evolution","cycle","bin/cybra_evo_controller.py"),
     49:("executor_list","evolution","status","bin/cybra_evo_controller.py"),
     50:("address_add","address","add",""),
@@ -209,17 +209,17 @@ rc=$?; log "DONE action=$ACTION rc=$rc"; exit $rc
 
 CTRL_TEMPLATE = r'''#!/data/data/com.termux/files/usr/bin/bash
 set -u
-MODULE="$1"
+MODULE="$1"; shift
 LOG="$HOME/CYBRA/logs/ctrl_{n:03d}.log"; mkdir -p "$(dirname "$LOG")"
 log() {{ echo "[$(date -u +%FT%TZ)] $*" >> "$LOG"; }}
-log "START ctrl_{n:03d}"
+log "START ctrl_{n:03d} args=$#"
 [ -f "$MODULE" ] || {{ log "ERR missing"; echo "❌ missing"; exit 2; }}
 bash -n "$MODULE" 2>/dev/null || {{ log "ERR syntax"; echo "❌ syntax"; exit 3; }}
-out=$(echo "" | bash "$MODULE" list 2>&1); rc=$?
+if [ $# -gt 0 ]; then ARGS=("$@"); else ARGS=("list"); fi
+log "exec: bash $MODULE ${{ARGS[*]}}"
+out=$(bash "$MODULE" "${{ARGS[@]}}" </dev/null 2>&1); rc=$?
 lines=$(printf '%s\n' "$out" | wc -l | tr -d ' ')
-if [ "$rc" -eq 0 ] && [ "$lines" -ge 2 ]; then
-  printf '%s\n' "$out"; log "OK rc=$rc lines=$lines"; exit 0
-else
-  echo "❌ failed rc=$rc lines=$lines"; log "FAIL rc=$rc lines=$lines"; exit 1
-fi
+log "rc=$rc lines=$lines"
+printf '%s\n' "$out"
+if [ "$rc" -eq 0 ]; then exit 0; else log "FAIL"; exit 1; fi
 '''
