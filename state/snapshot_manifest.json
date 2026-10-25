@@ -1,0 +1,871 @@
+{
+  "ts": "2026-10-25T15:33:47.740205+00:00",
+  "snapshot_version": "1.0",
+  "device": "localhost",
+  "ai": {
+    "total_files": 476,
+    "real": [
+      {
+        "path": "install_cybra_3patch_menubar_mihailka.sh",
+        "class": "REAL",
+        "bytes": 23057,
+        "mtime": "2026-10-25T14:01:49.485001"
+      },
+      {
+        "path": "install_kibra_price_sell_mint_repair_department.sh",
+        "class": "REAL",
+        "bytes": 21095,
+        "mtime": "2026-10-25T14:01:49.501001"
+      },
+      {
+        "path": "install_kibra_market_exchange_ai_tasks.sh",
+        "class": "REAL",
+        "bytes": 19788,
+        "mtime": "2026-10-25T14:01:49.497001"
+      },
+      {
+        "path": "install_kibra_block_ai_support.sh",
+        "class": "REAL",
+        "bytes": 18322,
+        "mtime": "2026-10-25T14:01:49.497001"
+      },
+      {
+        "path": "modules/module_19_contract_tui_menu/bin/cybra_ai_executor.sh",
+        "class": "REAL",
+        "bytes": 18043,
+        "mtime": "2026-10-15T16:41:13"
+      },
+      {
+        "path": "modules/module_19_contract_tui_menu/snapshot/bin/cybra_ai_executor.sh",
+        "class": "REAL",
+        "bytes": 18043,
+        "mtime": "2026-10-17T14:17:16"
+      },
+      {
+        "path": "modules/module_19_contract_tui_menu/snapshot/cybra_ai_executor.sh",
+        "class": "REAL",
+        "bytes": 18043,
+        "mtime": "2026-10-17T14:17:16"
+      },
+      {
+        "path": "install_ai_parliament_until_done.sh",
+        "class": "REAL",
+        "bytes": 17568,
+        "mtime": "2026-10-25T14:01:49.481001"
+      },
+      {
+        "path": "finish_kibra_mainnet_readiness.sh",
+        "class": "REAL",
+        "bytes": 15998,
+        "mtime": "2026-10-25T14:01:49.469001"
+      },
+      {
+        "path": "install_ai_tasks_to_mining_blocks.sh",
+        "class": "REAL",
+        "bytes": 15110,
+        "mtime": "2026-10-25T14:01:49.485001"
+      },
+      {
+        "path": "cybra_kibra_price_sell_repair.py",
+        "class": "REAL",
+        "bytes": 14724,
+        "mtime": "2026-10-25T14:01:49.405001"
+      },
+      {
+        "path": "install_ai_block_enforcer.sh",
+        "class": "REAL",
+        "bytes": 14491,
+        "mtime": "2026-10-25T14:01:49.481001"
+      },
+      {
+        "path": "install_native_kibra_ai_task.sh",
+        "class": "REAL",
+        "bytes": 13240,
+        "mtime": "2026-10-25T14:01:49.505001"
+      },
+      {
+        "path": "repair_it_menu_clean.sh",
+        "class": "REAL",
+        "bytes": 12323,
+        "mtime": "2026-10-25T14:01:51.137001"
+      },
+      {
+        "path": "create_mainnet_migration_fix_for_test_blocks.sh",
+        "class": "REAL",
+        "bytes": 10624,
+        "mtime": "2026-10-25T14:01:49.365001"
+      },
+      {
+        "path": "create_mainnet_candidate_approval_tickets.sh",
+        "class": "REAL",
+        "bytes": 10588,
+        "mtime": "2026-10-25T14:01:49.365001"
+      },
+      {
+        "path": "launch_kibra_internal_mainnet_and_test.sh",
+        "class": "REAL",
+        "bytes": 9946,
+        "mtime": "2026-10-25T14:01:49.513001"
+      },
+      {
+        "path": "install_brain.sh",
+        "class": "REAL",
+        "bytes": 9323,
+        "mtime": "2026-10-18T17:55:59.053726"
+      },
+      {
+        "path": "cybra_ai_block_enforcer.py",
+        "class": "REAL",
+        "bytes": 8578,
+        "mtime": "2026-10-25T14:01:49.365001"
+      },
+      {
+        "path": "promote_kibra_to_mainnet_candidate.sh",
+        "class": "REAL",
+        "bytes": 7162,
+        "mtime": "2026-10-25T14:01:51.109001"
+      }
+    ],
+    "stub": [
+      {
+        "path": "kibra_blockchain_market_proof.py",
+        "class": "STUB",
+        "bytes": 14242,
+        "mtime": "2026-10-25T14:01:49.505001"
+      },
+      {
+        "path": "bin/cybra-ai-it-dept.py",
+        "class": "STUB",
+        "bytes": 4164,
+        "mtime": "2026-10-25T14:01:49.341001"
+      },
+      {
+        "path": "bin/cybra-ai-git-restore.py",
+        "class": "STUB",
+        "bytes": 2437,
+        "mtime": "2026-10-25T14:01:49.341001"
+      },
+      {
+        "path": "modules/module_16_final_authorization_release_gate/main.sh",
+        "class": "STUB",
+        "bytes": 2119,
+        "mtime": "2026-10-25T13:33:49.113001"
+      },
+      {
+        "path": "solana_mainnet_timestamp_sleep_prepare.sh",
+        "class": "STUB",
+        "bytes": 2119,
+        "mtime": "2026-10-25T14:01:51.825001"
+      },
+      {
+        "path": "modules/module_17_cybra_license_contract_menu/main.sh",
+        "class": "STUB",
+        "bytes": 2099,
+        "mtime": "2026-10-25T13:33:49.113001"
+      },
+      {
+        "path": "modules/module_18_license_payment_router/main.sh",
+        "class": "STUB",
+        "bytes": 2079,
+        "mtime": "2026-10-19T22:28:34"
+      },
+      {
+        "path": "modules/module_15_true100_aggregator/main.sh",
+        "class": "STUB",
+        "bytes": 2063,
+        "mtime": "2026-10-19T22:28:33"
+      },
+      {
+        "path": "modules/module_19_contract_tui_menu/main.sh",
+        "class": "STUB",
+        "bytes": 2059,
+        "mtime": "2026-10-25T13:33:49.117001"
+      },
+      {
+        "path": "modules/module_12_delivery_receipt/main.sh",
+        "class": "STUB",
+        "bytes": 2055,
+        "mtime": "2026-10-19T22:28:27"
+      }
+    ],
+    "missing": []
+  },
+  "parliament": {
+    "total_files": 82,
+    "real": [
+      {
+        "path": "parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8945,
+        "mtime": "2026-10-25T14:01:51.105001"
+      },
+      {
+        "path": "snapshots/parliament_api_test_20261024_094212/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.185001"
+      },
+      {
+        "path": "snapshots/parliament_api_test_20261024_094252/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.205001"
+      },
+      {
+        "path": "snapshots/parliament_applied_168done_20261024_122119/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.225001"
+      },
+      {
+        "path": "snapshots/parliament_applied_168done_20261024_122301/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.241001"
+      },
+      {
+        "path": "snapshots/parliament_baseline_7of7_20261024_091826/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.257001"
+      },
+      {
+        "path": "snapshots/parliament_baseline_7of7_20261024_091933/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.269001"
+      },
+      {
+        "path": "snapshots/parliament_baseline_7of7_20261024_091956/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.281001"
+      },
+      {
+        "path": "snapshots/parliament_baseline_clean_20261024_093117/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.353001"
+      },
+      {
+        "path": "snapshots/parliament_baseline_final_20261024_093937/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.377001"
+      },
+      {
+        "path": "snapshots/parliament_baseline_final_7of7_20261024_094227/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.393001"
+      },
+      {
+        "path": "snapshots/parliament_baseline_final_7of7_20261024_094305/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.409001"
+      },
+      {
+        "path": "snapshots/parliament_contract_ideal_1792835621_20261024_095341/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.425001"
+      },
+      {
+        "path": "snapshots/parliament_contract_ideal_1792835642_20261024_095402/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.437001"
+      },
+      {
+        "path": "snapshots/parliament_contract_ideal_1792835700_20261024_095500/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.453001"
+      },
+      {
+        "path": "snapshots/parliament_contracts_ideal_v1_20261024_095416/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.469001"
+      },
+      {
+        "path": "snapshots/parliament_final160_20261024_092426/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.485001"
+      },
+      {
+        "path": "snapshots/parliament_final160_20261024_092519/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.497001"
+      },
+      {
+        "path": "snapshots/parliament_final_115of160_20261024_121700/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.513001"
+      },
+      {
+        "path": "snapshots/parliament_final_168done_20261024_121742/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.533001"
+      },
+      {
+        "path": "snapshots/parliament_menu160_final_1792837045_20261024_101725/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.553001"
+      },
+      {
+        "path": "snapshots/parliament_menu160_ideal_1792835940_20261024_095900/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.565001"
+      },
+      {
+        "path": "snapshots/parliament_menu160_ideal_1792835977_20261024_095937/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.585001"
+      },
+      {
+        "path": "snapshots/parliament_menu160_v2_1792836376_20261024_100617/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.601001"
+      },
+      {
+        "path": "snapshots/parliament_menu160_v2_1792836407_20261024_100647/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.617001"
+      },
+      {
+        "path": "snapshots/parliament_menu160_v2_1792836443_20261024_100723/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.637001"
+      },
+      {
+        "path": "snapshots/parliament_menu160_v2_1792836493_20261024_100813/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.649001"
+      },
+      {
+        "path": "snapshots/parliament_menu160_v2_1792836706_20261024_101146/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.665001"
+      },
+      {
+        "path": "snapshots/parliament_menu160_v2_1792836742_20261024_101222/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.685001"
+      },
+      {
+        "path": "snapshots/parliament_menu160_v2_1792836973_20261024_101613/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.701001"
+      },
+      {
+        "path": "snapshots/parliament_menu160_v2_1792837155_20261024_101915/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.721001"
+      },
+      {
+        "path": "snapshots/parliament_menu160_v2_1792841701_20261024_113501/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.737001"
+      },
+      {
+        "path": "snapshots/parliament_menu160_v2_1792843358_20261024_120238/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.757001"
+      },
+      {
+        "path": "snapshots/parliament_test20_20261024_092354/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.769001"
+      },
+      {
+        "path": "snapshots/parliament_test20_20261024_092451/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.781001"
+      },
+      {
+        "path": "snapshots/parliament_v2_with_it_bridge_20261024_094647/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.797001"
+      },
+      {
+        "path": "snapshots/parliament_v2_with_it_bridge_20261024_094720/scripts/parliament_executor_v6.py",
+        "class": "REAL",
+        "bytes": 8903,
+        "mtime": "2026-10-25T14:01:51.813001"
+      },
+      {
+        "path": "parliament_executor_v5.py",
+        "class": "REAL",
+        "bytes": 3218,
+        "mtime": "2026-10-25T14:01:51.105001"
+      },
+      {
+        "path": "parliament_executor_v2.py",
+        "class": "REAL",
+        "bytes": 2595,
+        "mtime": "2026-10-25T14:01:51.101001"
+      },
+      {
+        "path": "parliament_executor_v4.py",
+        "class": "REAL",
+        "bytes": 2590,
+        "mtime": "2026-10-25T14:01:51.101001"
+      },
+      {
+        "path": "lib/parliament_api.sh",
+        "class": "REAL",
+        "bytes": 2292,
+        "mtime": "2026-10-25T14:01:49.513001"
+      },
+      {
+        "path": "parliament_executor_v3.py",
+        "class": "REAL",
+        "bytes": 2265,
+        "mtime": "2026-10-25T14:01:51.101001"
+      },
+      {
+        "path": "parliament_next_evolution_tasks.sh",
+        "class": "REAL",
+        "bytes": 2179,
+        "mtime": "2026-10-25T14:01:51.105001"
+      },
+      {
+        "path": "modules/module_121_parlament/bin/parliament_evolve.sh",
+        "class": "REAL",
+        "bytes": 1692,
+        "mtime": "2026-10-17T23:47:57"
+      },
+      {
+        "path": "bin/parliament_write_module_handler.sh",
+        "class": "REAL",
+        "bytes": 1357,
+        "mtime": "2026-10-25T14:01:49.353001"
+      },
+      {
+        "path": "parliament_write_module_handler.sh",
+        "class": "REAL",
+        "bytes": 1357,
+        "mtime": "2026-10-25T14:01:49.353001"
+      },
+      {
+        "path": "parliament_test_tasks.sh",
+        "class": "REAL",
+        "bytes": 1234,
+        "mtime": "2026-10-25T14:01:51.105001"
+      },
+      {
+        "path": "parliament_7_tests.sh",
+        "class": "REAL",
+        "bytes": 1202,
+        "mtime": "2026-10-25T14:01:51.089001"
+      },
+      {
+        "path": "parliament_menu_worker.sh",
+        "class": "REAL",
+        "bytes": 1049,
+        "mtime": "2026-10-25T09:51:10.013000"
+      },
+      {
+        "path": "parliament_auto_worker.sh",
+        "class": "REAL",
+        "bytes": 701,
+        "mtime": "2026-10-18T00:29:33.235824"
+      },
+      {
+        "path": "parliament_1000_questions.sh",
+        "class": "REAL",
+        "bytes": 586,
+        "mtime": "2026-10-25T14:01:51.089001"
+      },
+      {
+        "path": "parliament_100_questions.sh",
+        "class": "REAL",
+        "bytes": 481,
+        "mtime": "2026-10-25T14:01:51.089001"
+      },
+      {
+        "path": "install_ai_parliament_until_done.sh",
+        "class": "REAL",
+        "bytes": 17568,
+        "mtime": "2026-10-25T14:01:49.481001"
+      },
+      {
+        "path": "review_kibra_parliament_response.sh",
+        "class": "REAL",
+        "bytes": 12529,
+        "mtime": "2026-10-25T14:01:51.145001"
+      },
+      {
+        "path": "cybra_parliament_kibra_review.py",
+        "class": "REAL",
+        "bytes": 11711,
+        "mtime": "2026-10-25T14:01:49.417001"
+      },
+      {
+        "path": "install_parliament_priority.sh",
+        "class": "REAL",
+        "bytes": 10779,
+        "mtime": "2026-10-18T10:57:27.313769"
+      },
+      {
+        "path": "install_cybra_review_parliament.sh",
+        "class": "REAL",
+        "bytes": 10134,
+        "mtime": "2026-10-25T14:01:49.493001"
+      },
+      {
+        "path": "upgrade_parliament_smart.sh",
+        "class": "REAL",
+        "bytes": 10015,
+        "mtime": "2026-10-18T11:02:26.049769"
+      },
+      {
+        "path": "upgrade_parliament.py",
+        "class": "REAL",
+        "bytes": 5460,
+        "mtime": "2026-10-18T00:31:42.987824"
+      },
+      {
+        "path": "smart_parliament.py",
+        "class": "REAL",
+        "bytes": 4888,
+        "mtime": "2026-10-18T07:22:38.555743"
+      },
+      {
+        "path": "cybra_parliament_snapshot.sh",
+        "class": "REAL",
+        "bytes": 4853,
+        "mtime": "2026-10-25T14:01:49.421001"
+      },
+      {
+        "path": "setup_parliament_hidl.py",
+        "class": "REAL",
+        "bytes": 4497,
+        "mtime": "2026-10-18T00:22:47.675824"
+      },
+      {
+        "path": "cybra_parliament_restore.sh",
+        "class": "REAL",
+        "bytes": 3936,
+        "mtime": "2026-10-25T14:01:49.417001"
+      },
+      {
+        "path": "close_kibra_parliament_open_points.sh",
+        "class": "REAL",
+        "bytes": 3551,
+        "mtime": "2026-10-25T14:01:49.361001"
+      },
+      {
+        "path": "fix_parliament_smart.py",
+        "class": "REAL",
+        "bytes": 3205,
+        "mtime": "2026-10-18T07:27:54.139743"
+      },
+      {
+        "path": "fix_parliament_correctly.py",
+        "class": "REAL",
+        "bytes": 2978,
+        "mtime": "2026-10-17T23:50:43.115824"
+      },
+      {
+        "path": "fix_evo_vs_parliament.py",
+        "class": "REAL",
+        "bytes": 2614,
+        "mtime": "2026-10-18T07:35:27.791743"
+      },
+      {
+        "path": "lib/contract_parliament_bridge.sh",
+        "class": "REAL",
+        "bytes": 2009,
+        "mtime": "2026-10-25T14:01:49.513001"
+      },
+      {
+        "path": "fix_parliament_bug.py",
+        "class": "REAL",
+        "bytes": 1458,
+        "mtime": "2026-10-18T00:34:21.779824"
+      },
+      {
+        "path": "cybra_it_parliament_bridge.sh",
+        "class": "REAL",
+        "bytes": 1409,
+        "mtime": "2026-10-25T14:01:49.401001"
+      },
+      {
+        "path": "cybra_parliament_pipeline.sh",
+        "class": "REAL",
+        "bytes": 1019,
+        "mtime": "2026-10-25T14:01:49.417001"
+      },
+      {
+        "path": "fix_hidl_real.py",
+        "class": "REAL",
+        "bytes": 4674,
+        "mtime": "2026-10-18T00:25:40.643824"
+      },
+      {
+        "path": "bin/cybra_hidl_worker.py",
+        "class": "REAL",
+        "bytes": 3992,
+        "mtime": "2026-10-25T14:16:35.037001"
+      },
+      {
+        "path": "bin/cybra_hidl.py",
+        "class": "REAL",
+        "bytes": 2790,
+        "mtime": "2026-10-25T14:30:05.165001"
+      },
+      {
+        "path": "bin/cybra_hidl_notifier.py",
+        "class": "REAL",
+        "bytes": 2782,
+        "mtime": "2026-10-25T14:16:35.197001"
+      }
+    ],
+    "stub": [
+      {
+        "path": "bin/cybra_hidl_executor.py",
+        "class": "STUB",
+        "bytes": 9074,
+        "mtime": "2026-10-25T14:26:04.457001"
+      }
+    ]
+  },
+  "goals": [
+    {
+      "path": "state/7levels_state.json",
+      "keys": [
+        "updated",
+        "ram",
+        "level",
+        "errors"
+      ]
+    },
+    {
+      "path": "state/evo_weakest.json",
+      "keys": [
+        "ts",
+        "weakest",
+        "avg"
+      ]
+    },
+    {
+      "path": "state/evo_baseline.json",
+      "keys": [
+        "modules",
+        "avg",
+        "locked_at",
+        "snapshot",
+        "reason"
+      ]
+    }
+  ],
+  "make_it_work_scripts": [
+    {
+      "path": "bin/cybra_apply_change.sh",
+      "bytes": 6805
+    },
+    {
+      "path": "bin/cybra_auto_all.sh",
+      "bytes": 16480
+    },
+    {
+      "path": "bin/cybra_auto_evolution_test.sh",
+      "bytes": 24421
+    },
+    {
+      "path": "bin/cybra_auto_verify_fix.sh",
+      "bytes": 14407
+    },
+    {
+      "path": "bin/cybra_build_m20.sh",
+      "bytes": 12952
+    },
+    {
+      "path": "bin/cybra_creation_license.sh",
+      "bytes": 17287
+    },
+    {
+      "path": "bin/cybra_diagnose_fix.sh",
+      "bytes": 5576
+    },
+    {
+      "path": "bin/cybra_dual_license_upgrade.sh",
+      "bytes": 17526
+    },
+    {
+      "path": "bin/cybra_final_build.sh",
+      "bytes": 16145
+    },
+    {
+      "path": "bin/cybra_fix_m19.sh",
+      "bytes": 4344
+    },
+    {
+      "path": "bin/cybra_full_autofix.sh",
+      "bytes": 11400
+    },
+    {
+      "path": "bin/cybra_hard_fix.sh",
+      "bytes": 28019
+    },
+    {
+      "path": "bin/cybra_contract_debug.sh",
+      "bytes": 7610
+    },
+    {
+      "path": "bin/cybra_set_token.sh",
+      "bytes": 7745
+    },
+    {
+      "path": "bin/cybra_contract_test.sh",
+      "bytes": 3514
+    },
+    {
+      "path": "bin/cybra_status.sh",
+      "bytes": 2059
+    },
+    {
+      "path": "bin/cybra_auto_fix_all.sh",
+      "bytes": 4370
+    },
+    {
+      "path": "bin/cybra_scan_truth.sh",
+      "bytes": 2941
+    },
+    {
+      "path": "bin/cybra_wire_menu_160.sh",
+      "bytes": 3231
+    },
+    {
+      "path": "bin/cybra_deploy.sh",
+      "bytes": 2949
+    },
+    {
+      "path": "bin/cybra_health.sh",
+      "bytes": 6243
+    },
+    {
+      "path": "bin/cybra_deploy_device.sh",
+      "bytes": 2832
+    },
+    {
+      "path": "bin/cybra_notify.sh",
+      "bytes": 5099
+    },
+    {
+      "path": "bin/cybra_evo.py",
+      "bytes": 8325
+    },
+    {
+      "path": "bin/cybra_evo_premium.py",
+      "bytes": 4111
+    },
+    {
+      "path": "bin/cybra_evo_upgrade.py",
+      "bytes": 3864
+    },
+    {
+      "path": "bin/cybra_executor_controller.py",
+      "bytes": 4781
+    },
+    {
+      "path": "bin/cybra_hidl_worker.py",
+      "bytes": 3992
+    },
+    {
+      "path": "bin/cybra_hidl_notifier.py",
+      "bytes": 2782
+    },
+    {
+      "path": "bin/cybra_gen_part1.py",
+      "bytes": 10454
+    },
+    {
+      "path": "bin/cybra_taxi_init.py",
+      "bytes": 10891
+    },
+    {
+      "path": "bin/cybra_autopilot.py",
+      "bytes": 6298
+    },
+    {
+      "path": "bin/cybra_semantic_audit.py",
+      "bytes": 5160
+    },
+    {
+      "path": "bin/cybra_hidl.py",
+      "bytes": 2790
+    }
+  ],
+  "modules": {
+    "total_dirs": 322,
+    "with_main": 320,
+    "REAL": 213,
+    "STUB": 70,
+    "MISSING": 2
+  },
+  "runtime": {
+    "redis": "PONG",
+    "pm2_online": [
+      "redis",
+      "parliament",
+      "menu-worker",
+      "menu-autorobot",
+      "cybra-evo-ctrl",
+      "cybra-autopilot",
+      "hidl-worker",
+      "hidl-notifier",
+      "cybra-health"
+    ],
+    "pm2_stopped": []
+  },
+  "evo_baseline": {
+    "avg": 109.02,
+    "locked_at": "2026-10-25T07:20:44.871459+00:00",
+    "modules_scored": 160
+  },
+  "redis_keys": {
+    "cybra:menu:*": {
+      "count": 1,
+      "sample": [
+        "cybra:menu:state"
+      ]
+    },
+    "cybra:hidl:*": {
+      "count": 1,
+      "sample": [
+        "cybra:hidl:stats"
+      ]
+    },
+    "cybra:parliament:*": {
+      "count": 2,
+      "sample": [
+        "cybra:parliament:results",
+        "cybra:parliament:failed"
+      ]
+    }
+  }
+}
