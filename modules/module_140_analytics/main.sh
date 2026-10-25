@@ -1,37 +1,47 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# ── BINMIX/EXECUTOR METADATA (auto-added) ──
-# module: module_140
-# source: snapshots  rev=evo_lock_20261024_232817.tar  when=snap
-# score: 111  size: 1140B  hash: 9105ea4137cc
-# mixed_at: 2026-10-24T20:29:07.808661+00:00
-# ──────────────────────────────────────────
-# ── BINMIX/EXECUTOR METADATA (auto-added) ──
-# module: module_014
-# source: github_history  rev=c9950944  when=2026-10-24T12:18:45+03:00
-# score: 108  size: 867B  hash: 179b17424d14
-# mixed_at: 2026-10-24T20:26:44.360112+00:00
-# ──────────────────────────────────────────
+# module_140: analytics (analytics)
+set -u
+CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
+LOG="$CYBRA/logs/module_140.log"; mkdir -p "$(dirname "$LOG")"
+log() { echo "[$(date -u +%FT%TZ)] $*" >> "$LOG"; }
+err() { log "ERR: $*"; echo "❌ $*" >&2; return 1; }
+trap 'err "line $LINENO rc=$?"' ERR
 
-# ─── BINMIX WRAP (65MB) ───
-CYBRA_W="$HOME/CYBRA"
-SANDBOX_W="$CYBRA_W/sandbox"
-LIMIT_W=$((65 * 1024 * 1024))
-mkdir -p "$SANDBOX_W"/{bin,tmp,keep,trash} 2>/dev/null
-SIZE_W=$(du -sb "$SANDBOX_W" 2>/dev/null | awk "{print \$1}" || echo 0)
-if [ "$SIZE_W" -ge "$LIMIT_W" ]; then
-    rm -rf "$SANDBOX_W"/trash/* "$SANDBOX_W"/tmp/* 2>/dev/null
-    [ -x "$SANDBOX_W/sandbox_cleanup.sh" ] && "$SANDBOX_W/sandbox_cleanup.sh" >/dev/null 2>&1
+CLI_HINT="$CYBRA/"
+ACTION="${1:-show}"
+shift $(( $# > 0 ? 1 : 0 ))
+log "START module_140 action=$ACTION"
+
+if [ -n "" ] && [ -e "$CLI_HINT" ]; then
+  case "$CLI_HINT" in
+    *.py) python3 "$CLI_HINT" "$ACTION" "$@" ;;
+    *)    bash "$CLI_HINT" "$ACTION" "$@" ;;
+  esac
+  rc=$?; log "DONE cli rc=$rc"; exit $rc
 fi
-BINMIX_W="$CYBRA_W/bin/cybra_binmix"
-[ -x "$BINMIX_W" ] && "$BINMIX_W" status >/dev/null 2>&1
-# ─── END BINMIX WRAP ───
 
-# Модуль 140: analytics
-# Автоматично згенеровано EVO
-
-printf '\n\033[96m═══ MODULE 140: ANALYTICS ═══\033[0m\n'
-printf '  Статус: активний (згенеровано EVO)\n'
-printf '  Функція: базовий виклик\n'
-printf '\nНатисни Enter, щоб повернутися в меню...'
-read -r _
-exit 0
+case "$ACTION" in
+  add|create|register)
+    if [ $# -lt 1 ]; then echo "usage: $0 $ACTION <name> [value]"; exit 1; fi
+    VAL="${2:-$(date +%s)}"
+    redis-cli hset "cybra:analytics:data" "$1" "$VAL" >/dev/null
+    redis-cli set "cybra:analytics:$1" "$VAL" >/dev/null
+    echo "✅ analytics: $1 = $VAL" ;;
+  list|status|show)
+    n=$(redis-cli hlen "cybra:analytics:data" 2>/dev/null || echo 0)
+    echo "════ analytics (module_140) ════"
+    echo "  items: $n"
+    if [ "$n" -gt 0 ]; then
+      redis-cli hgetall "cybra:analytics:data" | paste - - | head -20 | sed 's/^/  /'
+    fi ;;
+  delete|remove)
+    if [ $# -lt 1 ]; then echo "usage: $0 $ACTION <name>"; exit 1; fi
+    redis-cli hdel "cybra:analytics:data" "$1" >/dev/null
+    redis-cli del "cybra:analytics:$1" >/dev/null
+    echo "✅ deleted: $1" ;;
+  *)
+    echo "════ module_140: analytics ════"
+    echo "  action: $ACTION  category: analytics"
+    echo "  hint: $0 add <name> [value] | $0 list | $0 delete <name>" ;;
+esac
+rc=$?; log "DONE action=$ACTION rc=$rc"; exit $rc

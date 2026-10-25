@@ -1,31 +1,47 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# ── BINMIX/EXECUTOR METADATA (auto-added) ──
-# module: module_138
-# source: github_history  rev=c9950944  when=2026-10-24T12:18:45+03:00
-# score: 108  size: 871B  hash: 9e187750f94d
-# mixed_at: 2026-10-24T20:29:03.661393+00:00
-# ──────────────────────────────────────────
+# module_138: arbitration (dispute)
+set -u
+CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
+LOG="$CYBRA/logs/module_138.log"; mkdir -p "$(dirname "$LOG")"
+log() { echo "[$(date -u +%FT%TZ)] $*" >> "$LOG"; }
+err() { log "ERR: $*"; echo "❌ $*" >&2; return 1; }
+trap 'err "line $LINENO rc=$?"' ERR
 
-# ─── BINMIX WRAP (65MB) ───
-CYBRA_W="$HOME/CYBRA"
-SANDBOX_W="$CYBRA_W/sandbox"
-LIMIT_W=$((65 * 1024 * 1024))
-mkdir -p "$SANDBOX_W"/{bin,tmp,keep,trash} 2>/dev/null
-SIZE_W=$(du -sb "$SANDBOX_W" 2>/dev/null | awk "{print \$1}" || echo 0)
-if [ "$SIZE_W" -ge "$LIMIT_W" ]; then
-    rm -rf "$SANDBOX_W"/trash/* "$SANDBOX_W"/tmp/* 2>/dev/null
-    [ -x "$SANDBOX_W/sandbox_cleanup.sh" ] && "$SANDBOX_W/sandbox_cleanup.sh" >/dev/null 2>&1
+CLI_HINT="$CYBRA/"
+ACTION="${1:-arb}"
+shift $(( $# > 0 ? 1 : 0 ))
+log "START module_138 action=$ACTION"
+
+if [ -n "" ] && [ -e "$CLI_HINT" ]; then
+  case "$CLI_HINT" in
+    *.py) python3 "$CLI_HINT" "$ACTION" "$@" ;;
+    *)    bash "$CLI_HINT" "$ACTION" "$@" ;;
+  esac
+  rc=$?; log "DONE cli rc=$rc"; exit $rc
 fi
-BINMIX_W="$CYBRA_W/bin/cybra_binmix"
-[ -x "$BINMIX_W" ] && "$BINMIX_W" status >/dev/null 2>&1
-# ─── END BINMIX WRAP ───
 
-# Модуль 138: arbitration
-# Автоматично згенеровано EVO
-
-printf '\n\033[96m═══ MODULE 138: ARBITRATION ═══\033[0m\n'
-printf '  Статус: активний (згенеровано EVO)\n'
-printf '  Функція: базовий виклик\n'
-printf '\nНатисни Enter, щоб повернутися в меню...'
-read -r _
-exit 0
+case "$ACTION" in
+  add|create|register)
+    if [ $# -lt 1 ]; then echo "usage: $0 $ACTION <name> [value]"; exit 1; fi
+    VAL="${2:-$(date +%s)}"
+    redis-cli hset "cybra:dispute:data" "$1" "$VAL" >/dev/null
+    redis-cli set "cybra:dispute:$1" "$VAL" >/dev/null
+    echo "✅ dispute: $1 = $VAL" ;;
+  list|status|show)
+    n=$(redis-cli hlen "cybra:dispute:data" 2>/dev/null || echo 0)
+    echo "════ dispute (module_138) ════"
+    echo "  items: $n"
+    if [ "$n" -gt 0 ]; then
+      redis-cli hgetall "cybra:dispute:data" | paste - - | head -20 | sed 's/^/  /'
+    fi ;;
+  delete|remove)
+    if [ $# -lt 1 ]; then echo "usage: $0 $ACTION <name>"; exit 1; fi
+    redis-cli hdel "cybra:dispute:data" "$1" >/dev/null
+    redis-cli del "cybra:dispute:$1" >/dev/null
+    echo "✅ deleted: $1" ;;
+  *)
+    echo "════ module_138: arbitration ════"
+    echo "  action: $ACTION  category: dispute"
+    echo "  hint: $0 add <name> [value] | $0 list | $0 delete <name>" ;;
+esac
+rc=$?; log "DONE action=$ACTION rc=$rc"; exit $rc

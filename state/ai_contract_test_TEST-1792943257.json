@@ -1,0 +1,13 @@
+{
+  "ts": "2026-10-25T15:47:46.569877+00:00",
+  "test_id": "TEST-1792943257",
+  "contract_cli": "ok",
+  "contract_created": "no_id",
+  "ai_executor": "works:/data/data/com.termux/files/home/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_ai_executor.sh",
+  "hidl_to_ai": "ok",
+  "verdict": {
+    "contract_pipeline": "CLI_OK_NO_ID",
+    "ai_pipeline": "OK",
+    "hidl_pipeline": "OK"
+  }
+}

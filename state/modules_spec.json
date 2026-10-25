@@ -1,5 +1,5 @@
 {
-  "generated": "20261025_142212",
+  "generated": "20261025_143005",
   "modules": {
     "1": {
       "name": "auto_executor",
@@ -280,8 +280,8 @@
     "47": {
       "name": "executor_scan",
       "category": "evolution",
-      "action": "score",
-      "cli": "bin/cybra_evo_controller.py"
+      "action": "status",
+      "cli": ""
     },
     "48": {
       "name": "executor_apply",
