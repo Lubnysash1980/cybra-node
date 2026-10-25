@@ -1,0 +1,965 @@
+{
+  "generated": "20261025_142212",
+  "modules": {
+    "1": {
+      "name": "auto_executor",
+      "category": "contract",
+      "action": "create",
+      "cli": "bin/cybra_contract_cli.sh"
+    },
+    "2": {
+      "name": "contract_builder",
+      "category": "contract",
+      "action": "list",
+      "cli": "bin/cybra_contract_cli.sh"
+    },
+    "3": {
+      "name": "escrow_controller",
+      "category": "contract",
+      "action": "show",
+      "cli": "bin/cybra_contract_cli.sh"
+    },
+    "4": {
+      "name": "generate_links",
+      "category": "contract",
+      "action": "links",
+      "cli": "bin/cybra_contract_cli.sh"
+    },
+    "5": {
+      "name": "confirm_link",
+      "category": "contract",
+      "action": "confirm",
+      "cli": "bin/cybra_contract_cli.sh"
+    },
+    "6": {
+      "name": "debug",
+      "category": "system",
+      "action": "debug",
+      "cli": "bin/cybra_health.sh"
+    },
+    "7": {
+      "name": "dual_license",
+      "category": "license",
+      "action": "ledger",
+      "cli": ""
+    },
+    "8": {
+      "name": "creation_license",
+      "category": "license",
+      "action": "ledger",
+      "cli": ""
+    },
+    "9": {
+      "name": "hardening",
+      "category": "system",
+      "action": "hardening",
+      "cli": "bin/cybra_health.sh"
+    },
+    "10": {
+      "name": "invoice_sign",
+      "category": "invoice",
+      "action": "sign",
+      "cli": "bin/cybra_invoice_cli.sh"
+    },
+    "11": {
+      "name": "invoice_create",
+      "category": "invoice",
+      "action": "create",
+      "cli": "bin/cybra_invoice_cli.sh"
+    },
+    "12": {
+      "name": "invoice_add_line",
+      "category": "invoice",
+      "action": "add_line",
+      "cli": "bin/cybra_invoice_cli.sh"
+    },
+    "13": {
+      "name": "invoice_show",
+      "category": "invoice",
+      "action": "show",
+      "cli": "bin/cybra_invoice_cli.sh"
+    },
+    "14": {
+      "name": "invoice_finalize",
+      "category": "invoice",
+      "action": "finalize",
+      "cli": "bin/cybra_invoice_cli.sh"
+    },
+    "15": {
+      "name": "pii_export_masked",
+      "category": "pii",
+      "action": "export",
+      "cli": ""
+    },
+    "16": {
+      "name": "pii_export_all",
+      "category": "pii",
+      "action": "export_all",
+      "cli": ""
+    },
+    "17": {
+      "name": "pii_verify",
+      "category": "pii",
+      "action": "verify",
+      "cli": ""
+    },
+    "18": {
+      "name": "refund_decision",
+      "category": "refund",
+      "action": "decide",
+      "cli": ""
+    },
+    "19": {
+      "name": "refund_timeout",
+      "category": "refund",
+      "action": "timeout",
+      "cli": ""
+    },
+    "20": {
+      "name": "refund_status",
+      "category": "refund",
+      "action": "status",
+      "cli": ""
+    },
+    "21": {
+      "name": "refund_condition",
+      "category": "refund",
+      "action": "add",
+      "cli": ""
+    },
+    "22": {
+      "name": "rates",
+      "category": "currency",
+      "action": "list",
+      "cli": ""
+    },
+    "23": {
+      "name": "rates_update",
+      "category": "currency",
+      "action": "update",
+      "cli": ""
+    },
+    "24": {
+      "name": "currency_convert",
+      "category": "currency",
+      "action": "convert",
+      "cli": ""
+    },
+    "25": {
+      "name": "address_book",
+      "category": "address",
+      "action": "list",
+      "cli": ""
+    },
+    "26": {
+      "name": "qr_codes",
+      "category": "qr",
+      "action": "generate",
+      "cli": ""
+    },
+    "27": {
+      "name": "telegram_bot",
+      "category": "telegram",
+      "action": "setup",
+      "cli": ""
+    },
+    "28": {
+      "name": "export",
+      "category": "export",
+      "action": "csv",
+      "cli": ""
+    },
+    "29": {
+      "name": "backup",
+      "category": "backup",
+      "action": "local",
+      "cli": ""
+    },
+    "30": {
+      "name": "preflight",
+      "category": "system",
+      "action": "check",
+      "cli": "bin/cybra_health.sh"
+    },
+    "31": {
+      "name": "self_heal",
+      "category": "system",
+      "action": "heal",
+      "cli": "bin/cybra_health.sh"
+    },
+    "32": {
+      "name": "dual_backend",
+      "category": "system",
+      "action": "verify",
+      "cli": ""
+    },
+    "33": {
+      "name": "ownership_scan",
+      "category": "system",
+      "action": "scan",
+      "cli": "bin/cybra_health.sh"
+    },
+    "34": {
+      "name": "doc_scanner",
+      "category": "ocr",
+      "action": "scan",
+      "cli": ""
+    },
+    "35": {
+      "name": "cybra_guardian",
+      "category": "guardian",
+      "action": "status",
+      "cli": ""
+    },
+    "36": {
+      "name": "auto_task_runner",
+      "category": "system",
+      "action": "run",
+      "cli": ""
+    },
+    "37": {
+      "name": "multisig",
+      "category": "multisig",
+      "action": "create",
+      "cli": ""
+    },
+    "38": {
+      "name": "timelock",
+      "category": "timelock",
+      "action": "list",
+      "cli": ""
+    },
+    "39": {
+      "name": "contract_validator",
+      "category": "contract",
+      "action": "validate",
+      "cli": ""
+    },
+    "40": {
+      "name": "ai_analyze",
+      "category": "ai",
+      "action": "analyze",
+      "cli": "modules/module_19_contract_tui_menu/bin/cybra_local_ai.sh"
+    },
+    "41": {
+      "name": "ai_parse_invoice",
+      "category": "ai",
+      "action": "parse",
+      "cli": ""
+    },
+    "42": {
+      "name": "ai_generate_terms",
+      "category": "ai",
+      "action": "generate",
+      "cli": ""
+    },
+    "43": {
+      "name": "ai_help",
+      "category": "ai",
+      "action": "help",
+      "cli": ""
+    },
+    "44": {
+      "name": "ai_free_question",
+      "category": "ai",
+      "action": "ask",
+      "cli": ""
+    },
+    "45": {
+      "name": "ai_task_bar",
+      "category": "ai",
+      "action": "bar",
+      "cli": "modules/module_19_contract_tui_menu/bin/cybra_ai_executor.sh"
+    },
+    "46": {
+      "name": "executor_full",
+      "category": "evolution",
+      "action": "full",
+      "cli": "bin/cybra_evo_controller.py"
+    },
+    "47": {
+      "name": "executor_scan",
+      "category": "evolution",
+      "action": "score",
+      "cli": "bin/cybra_evo_controller.py"
+    },
+    "48": {
+      "name": "executor_apply",
+      "category": "evolution",
+      "action": "cycle",
+      "cli": "bin/cybra_evo_controller.py"
+    },
+    "49": {
+      "name": "executor_list",
+      "category": "evolution",
+      "action": "status",
+      "cli": "bin/cybra_evo_controller.py"
+    },
+    "50": {
+      "name": "address_add",
+      "category": "address",
+      "action": "add",
+      "cli": ""
+    },
+    "51": {
+      "name": "address_list",
+      "category": "address",
+      "action": "list",
+      "cli": ""
+    },
+    "52": {
+      "name": "address_history",
+      "category": "address",
+      "action": "history",
+      "cli": ""
+    },
+    "53": {
+      "name": "qr_create",
+      "category": "qr",
+      "action": "create",
+      "cli": ""
+    },
+    "54": {
+      "name": "telegram_setup",
+      "category": "telegram",
+      "action": "setup",
+      "cli": ""
+    },
+    "55": {
+      "name": "telegram_test",
+      "category": "telegram",
+      "action": "test",
+      "cli": ""
+    },
+    "56": {
+      "name": "webhook_list",
+      "category": "webhook",
+      "action": "list",
+      "cli": ""
+    },
+    "57": {
+      "name": "webhook_add",
+      "category": "webhook",
+      "action": "add",
+      "cli": ""
+    },
+    "58": {
+      "name": "csv_contracts",
+      "category": "export",
+      "action": "contracts",
+      "cli": ""
+    },
+    "59": {
+      "name": "csv_ledger",
+      "category": "export",
+      "action": "ledger",
+      "cli": ""
+    },
+    "60": {
+      "name": "txt_report",
+      "category": "export",
+      "action": "txt",
+      "cli": ""
+    },
+    "61": {
+      "name": "backup_local",
+      "category": "backup",
+      "action": "local",
+      "cli": ""
+    },
+    "62": {
+      "name": "backup_cloud",
+      "category": "backup",
+      "action": "cloud",
+      "cli": ""
+    },
+    "63": {
+      "name": "multichain_list",
+      "category": "multichain",
+      "action": "list",
+      "cli": ""
+    },
+    "64": {
+      "name": "scanner_tx",
+      "category": "multichain",
+      "action": "scan",
+      "cli": ""
+    },
+    "65": {
+      "name": "dispute_open",
+      "category": "dispute",
+      "action": "open",
+      "cli": ""
+    },
+    "66": {
+      "name": "dispute_list",
+      "category": "dispute",
+      "action": "list",
+      "cli": ""
+    },
+    "67": {
+      "name": "dispute_vote",
+      "category": "dispute",
+      "action": "vote",
+      "cli": ""
+    },
+    "68": {
+      "name": "audit_log",
+      "category": "audit",
+      "action": "log",
+      "cli": ""
+    },
+    "69": {
+      "name": "audit_verify",
+      "category": "audit",
+      "action": "verify",
+      "cli": ""
+    },
+    "70": {
+      "name": "ocr_photo",
+      "category": "ocr",
+      "action": "photo",
+      "cli": ""
+    },
+    "71": {
+      "name": "ocr_text",
+      "category": "ocr",
+      "action": "text",
+      "cli": ""
+    },
+    "72": {
+      "name": "pdf_to_text",
+      "category": "ocr",
+      "action": "pdf",
+      "cli": ""
+    },
+    "73": {
+      "name": "ocr_pipeline",
+      "category": "ocr",
+      "action": "pipeline",
+      "cli": ""
+    },
+    "74": {
+      "name": "contract_search",
+      "category": "contract",
+      "action": "search",
+      "cli": ""
+    },
+    "75": {
+      "name": "contract_autofill",
+      "category": "contract",
+      "action": "autofill",
+      "cli": ""
+    },
+    "76": {
+      "name": "ai_terms_run",
+      "category": "ai",
+      "action": "terms",
+      "cli": ""
+    },
+    "77": {
+      "name": "payment_check",
+      "category": "payment",
+      "action": "check",
+      "cli": ""
+    },
+    "78": {
+      "name": "contract_extra_terms",
+      "category": "contract",
+      "action": "extra",
+      "cli": ""
+    },
+    "79": {
+      "name": "watchdog",
+      "category": "system",
+      "action": "watchdog",
+      "cli": ""
+    },
+    "80": {
+      "name": "guardian_status",
+      "category": "guardian",
+      "action": "status",
+      "cli": ""
+    },
+    "81": {
+      "name": "guardian_100pct",
+      "category": "guardian",
+      "action": "check",
+      "cli": ""
+    },
+    "82": {
+      "name": "register_identity",
+      "category": "identity",
+      "action": "register",
+      "cli": ""
+    },
+    "83": {
+      "name": "show_identity",
+      "category": "identity",
+      "action": "show",
+      "cli": ""
+    },
+    "84": {
+      "name": "verify_identity",
+      "category": "identity",
+      "action": "verify",
+      "cli": ""
+    },
+    "85": {
+      "name": "device_info",
+      "category": "device",
+      "action": "info",
+      "cli": ""
+    },
+    "86": {
+      "name": "snapshot_create",
+      "category": "snapshot",
+      "action": "create",
+      "cli": ""
+    },
+    "87": {
+      "name": "snapshot_git_restore",
+      "category": "snapshot",
+      "action": "git",
+      "cli": ""
+    },
+    "88": {
+      "name": "snapshot_restore",
+      "category": "snapshot",
+      "action": "restore",
+      "cli": ""
+    },
+    "89": {
+      "name": "auto_recovery",
+      "category": "guardian",
+      "action": "recover",
+      "cli": ""
+    },
+    "90": {
+      "name": "action_log",
+      "category": "audit",
+      "action": "action",
+      "cli": ""
+    },
+    "91": {
+      "name": "log_verify",
+      "category": "audit",
+      "action": "verify",
+      "cli": ""
+    },
+    "92": {
+      "name": "autosave_contract",
+      "category": "autosave",
+      "action": "save",
+      "cli": ""
+    },
+    "93": {
+      "name": "autosave_status",
+      "category": "autosave",
+      "action": "status",
+      "cli": ""
+    },
+    "94": {
+      "name": "autosave_archives",
+      "category": "autosave",
+      "action": "list",
+      "cli": ""
+    },
+    "95": {
+      "name": "autosave_restore",
+      "category": "autosave",
+      "action": "restore",
+      "cli": ""
+    },
+    "96": {
+      "name": "evo7",
+      "category": "evolution",
+      "action": "level",
+      "cli": "bin/cybra_evo_controller.py"
+    },
+    "97": {
+      "name": "evo_controller",
+      "category": "evolution",
+      "action": "status",
+      "cli": "bin/cybra_evo_controller.py"
+    },
+    "98": {
+      "name": "parawatch",
+      "category": "parawatch",
+      "action": "status",
+      "cli": "bin/cybra_parawatch"
+    },
+    "99": {
+      "name": "autopatch",
+      "category": "system",
+      "action": "patch",
+      "cli": "bin/cybra_autopilot.py"
+    },
+    "100": {
+      "name": "node_manager",
+      "category": "node",
+      "action": "status",
+      "cli": "bin/cybra_node.sh"
+    },
+    "101": {
+      "name": "hash_ecosystem",
+      "category": "hash",
+      "action": "status",
+      "cli": ""
+    },
+    "102": {
+      "name": "binmix",
+      "category": "system",
+      "action": "status",
+      "cli": "bin/cybra_binmix"
+    },
+    "103": {
+      "name": "metrics",
+      "category": "metrics",
+      "action": "show",
+      "cli": ""
+    },
+    "104": {
+      "name": "http_panel",
+      "category": "system",
+      "action": "panel",
+      "cli": ""
+    },
+    "105": {
+      "name": "schedule",
+      "category": "schedule",
+      "action": "list",
+      "cli": ""
+    },
+    "106": {
+      "name": "cleanup",
+      "category": "system",
+      "action": "cleanup",
+      "cli": "bin/cybra_autopilot.py"
+    },
+    "107": {
+      "name": "autopilot",
+      "category": "system",
+      "action": "cycle",
+      "cli": "bin/cybra_autopilot.py"
+    },
+    "108": {
+      "name": "metamask_sign",
+      "category": "metamask",
+      "action": "sign",
+      "cli": ""
+    },
+    "109": {
+      "name": "metamask_verify",
+      "category": "metamask",
+      "action": "verify",
+      "cli": ""
+    },
+    "110": {
+      "name": "metamask_history",
+      "category": "metamask",
+      "action": "history",
+      "cli": ""
+    },
+    "111": {
+      "name": "invoice",
+      "category": "invoice",
+      "action": "list",
+      "cli": "bin/cybra_invoice_cli.sh"
+    },
+    "112": {
+      "name": "metamask_deeplink",
+      "category": "metamask",
+      "action": "deeplink",
+      "cli": ""
+    },
+    "113": {
+      "name": "metamask_batch",
+      "category": "metamask",
+      "action": "batch",
+      "cli": ""
+    },
+    "114": {
+      "name": "autonode",
+      "category": "node",
+      "action": "start",
+      "cli": "bin/cybra_node.sh"
+    },
+    "115": {
+      "name": "rpc_bench",
+      "category": "rpc",
+      "action": "bench",
+      "cli": ""
+    },
+    "116": {
+      "name": "gas_monitor",
+      "category": "gas",
+      "action": "show",
+      "cli": ""
+    },
+    "117": {
+      "name": "tx_lookup",
+      "category": "tx",
+      "action": "lookup",
+      "cli": ""
+    },
+    "118": {
+      "name": "net_health",
+      "category": "net",
+      "action": "check",
+      "cli": ""
+    },
+    "119": {
+      "name": "qr_sign",
+      "category": "qr",
+      "action": "sign",
+      "cli": ""
+    },
+    "120": {
+      "name": "ai_guardian",
+      "category": "ai",
+      "action": "guardian",
+      "cli": ""
+    },
+    "121": {
+      "name": "parliament",
+      "category": "parliament",
+      "action": "status",
+      "cli": ""
+    },
+    "122": {
+      "name": "contract_validator_v2",
+      "category": "contract",
+      "action": "validate",
+      "cli": ""
+    },
+    "123": {
+      "name": "multisig_v2",
+      "category": "multisig",
+      "action": "create",
+      "cli": ""
+    },
+    "124": {
+      "name": "timelock_v2",
+      "category": "timelock",
+      "action": "list",
+      "cli": ""
+    },
+    "125": {
+      "name": "anchor",
+      "category": "anchor",
+      "action": "status",
+      "cli": ""
+    },
+    "126": {
+      "name": "zk",
+      "category": "zk",
+      "action": "prove",
+      "cli": ""
+    },
+    "127": {
+      "name": "crosschain",
+      "category": "multichain",
+      "action": "bridge",
+      "cli": ""
+    },
+    "128": {
+      "name": "dashboard",
+      "category": "metrics",
+      "action": "show",
+      "cli": ""
+    },
+    "129": {
+      "name": "voice",
+      "category": "voice",
+      "action": "input",
+      "cli": ""
+    },
+    "130": {
+      "name": "test_suite",
+      "category": "test",
+      "action": "run",
+      "cli": ""
+    },
+    "131": {
+      "name": "kyc",
+      "category": "kyc",
+      "action": "status",
+      "cli": ""
+    },
+    "132": {
+      "name": "compliance",
+      "category": "compliance",
+      "action": "check",
+      "cli": ""
+    },
+    "133": {
+      "name": "tokens",
+      "category": "token",
+      "action": "list",
+      "cli": ""
+    },
+    "134": {
+      "name": "discord",
+      "category": "discord",
+      "action": "setup",
+      "cli": ""
+    },
+    "135": {
+      "name": "walletconnect",
+      "category": "wallet",
+      "action": "connect",
+      "cli": ""
+    },
+    "136": {
+      "name": "templates",
+      "category": "contract",
+      "action": "template",
+      "cli": ""
+    },
+    "137": {
+      "name": "escrow",
+      "category": "escrow",
+      "action": "create",
+      "cli": ""
+    },
+    "138": {
+      "name": "arbitration",
+      "category": "dispute",
+      "action": "arb",
+      "cli": ""
+    },
+    "139": {
+      "name": "reputation",
+      "category": "reputation",
+      "action": "show",
+      "cli": ""
+    },
+    "140": {
+      "name": "analytics",
+      "category": "analytics",
+      "action": "show",
+      "cli": ""
+    },
+    "141": {
+      "name": "portfolio",
+      "category": "portfolio",
+      "action": "show",
+      "cli": ""
+    },
+    "142": {
+      "name": "invoice_pdf",
+      "category": "invoice",
+      "action": "pdf",
+      "cli": "bin/cybra_invoice_cli.sh"
+    },
+    "143": {
+      "name": "email_notif",
+      "category": "email",
+      "action": "send",
+      "cli": ""
+    },
+    "144": {
+      "name": "lightning",
+      "category": "lightning",
+      "action": "status",
+      "cli": ""
+    },
+    "145": {
+      "name": "ipfs",
+      "category": "ipfs",
+      "action": "pin",
+      "cli": ""
+    },
+    "146": {
+      "name": "merkle_batch",
+      "category": "merkle",
+      "action": "batch",
+      "cli": ""
+    },
+    "147": {
+      "name": "reputation_v2",
+      "category": "reputation",
+      "action": "show",
+      "cli": ""
+    },
+    "148": {
+      "name": "multisig_ui",
+      "category": "multisig",
+      "action": "ui",
+      "cli": ""
+    },
+    "149": {
+      "name": "advanced_analytics",
+      "category": "analytics",
+      "action": "advanced",
+      "cli": ""
+    },
+    "150": {
+      "name": "custom_scripts",
+      "category": "custom",
+      "action": "list",
+      "cli": ""
+    },
+    "151": {
+      "name": "ad_contract",
+      "category": "ad",
+      "action": "create",
+      "cli": ""
+    },
+    "152": {
+      "name": "rollback_evo",
+      "category": "evolution",
+      "action": "rollback",
+      "cli": "bin/cybra_evo_controller.py"
+    },
+    "153": {
+      "name": "module_153",
+      "category": "custom",
+      "action": "status",
+      "cli": ""
+    },
+    "154": {
+      "name": "module_154",
+      "category": "custom",
+      "action": "status",
+      "cli": ""
+    },
+    "155": {
+      "name": "module_155",
+      "category": "custom",
+      "action": "status",
+      "cli": ""
+    },
+    "156": {
+      "name": "module_156",
+      "category": "custom",
+      "action": "status",
+      "cli": ""
+    },
+    "157": {
+      "name": "module_157",
+      "category": "custom",
+      "action": "status",
+      "cli": ""
+    },
+    "158": {
+      "name": "module_158",
+      "category": "custom",
+      "action": "status",
+      "cli": ""
+    },
+    "159": {
+      "name": "module_159",
+      "category": "custom",
+      "action": "status",
+      "cli": ""
+    },
+    "160": {
+      "name": "module_160",
+      "category": "custom",
+      "action": "status",
+      "cli": ""
+    }
+  }
+}
