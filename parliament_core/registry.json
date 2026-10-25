@@ -1,7 +1,7 @@
 {
-  "updated": "2026-10-25T20:57:04.249581+00:00",
-  "total_modules": 319,
-  "unique_actions": 248,
+  "updated": "2026-10-25T21:11:30.019706+00:00",
+  "total_modules": 339,
+  "unique_actions": 265,
   "conflicts": 7,
   "modules": [
     {
@@ -2405,6 +2405,116 @@
       "score": 43
     },
     {
+      "name": "module_241_map_zones",
+      "title": "module_241_map_zones",
+      "action": "module241mapzones",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 2347,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_241_map_zones/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_242_route_preference",
+      "title": "module_242_route_preference",
+      "action": "module242routepreference",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 2361,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_242_route_preference/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_244_video_recorder",
+      "title": "module_244_video_recorder",
+      "action": "module244videorecorder",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1747,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_244_video_recorder/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_245_media_player",
+      "title": "module_245_media_player",
+      "action": "module245mediaplayer",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1743,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_245_media_player/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_246_payment_instant",
+      "title": "module_246_payment_instant",
+      "action": "module246paymentinstant",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 2594,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_246_payment_instant/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_247_payment_commission",
+      "title": "module_247_payment_commission",
+      "action": "module247paymentcommission",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 2600,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_247_payment_commission/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_249_wallet_connect",
+      "title": "module_249_wallet_connect",
+      "action": "module249walletconnect",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1494,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_249_wallet_connect/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_254_ai_match",
+      "title": "module_254_ai_match",
+      "action": "ai",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1822,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_254_ai_match/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_256_rating_view",
+      "title": "module_256_rating_view",
+      "action": "module256ratingview",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1049,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_256_rating_view/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_257_rating_comments",
+      "title": "module_257_rating_comments",
+      "action": "module257ratingcomments",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1057,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_257_rating_comments/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_259_ui_theme",
+      "title": "module_259_ui_theme",
+      "action": "module259uitheme",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 636,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_259_ui_theme/main.sh",
+      "score": 30
+    },
+    {
       "name": "module_27_telegram_bot",
       "title": "module_27_telegram_bot",
       "action": "telegram",
@@ -3193,6 +3303,96 @@
       "size": 1287,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_237_driver_analytics/main.sh",
       "score": 43
+    },
+    {
+      "name": "module_240_virtual_map",
+      "title": "module_240_virtual_map",
+      "action": "module240virtualmap",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 2351,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_240_virtual_map/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_243_parking_priority",
+      "title": "module_243_parking_priority",
+      "action": "module243parkingpriority",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 2361,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_243_parking_priority/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_248_payment_contract",
+      "title": "module_248_payment_contract",
+      "action": "contract",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 2596,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_248_payment_contract/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_250_wallet_list",
+      "title": "module_250_wallet_list",
+      "action": "module250walletlist",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1488,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_250_wallet_list/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_251_wallet_balance",
+      "title": "module_251_wallet_balance",
+      "action": "module251walletbalance",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1494,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_251_wallet_balance/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_252_price_adaptive",
+      "title": "module_252_price_adaptive",
+      "action": "module252priceadaptive",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1963,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_252_price_adaptive/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_253_price_per_km",
+      "title": "module_253_price_per_km",
+      "action": "module253priceperkm",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1959,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_253_price_per_km/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_255_ai_zone_optimize",
+      "title": "module_255_ai_zone_optimize",
+      "action": "ai",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 2361,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_255_ai_zone_optimize/main.sh",
+      "score": 40
+    },
+    {
+      "name": "module_258_eco_global",
+      "title": "module_258_eco_global",
+      "action": "module258ecoglobal",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1055,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_258_eco_global/main.sh",
+      "score": 40
     }
   ],
   "resolved": {
@@ -3225,9 +3425,13 @@
         {
           "name": "module_122_contract_validator",
           "score": 42
+        },
+        {
+          "name": "module_248_payment_contract",
+          "score": 40
         }
       ],
-      "total": 5
+      "total": 6
     },
     "module03escrowcontroller": {
       "winner": "module_03_escrow_controller",
@@ -3539,11 +3743,19 @@
           "score": 42
         },
         {
+          "name": "module_254_ai_match",
+          "score": 40
+        },
+        {
+          "name": "module_255_ai_zone_optimize",
+          "score": 40
+        },
+        {
           "name": "module_143_email",
           "score": 32
         }
       ],
-      "total": 9
+      "total": 11
     },
     "module120base": {
       "winner": "module_120_base",
@@ -5023,6 +5235,86 @@
       "standby": [],
       "total": 1
     },
+    "module241mapzones": {
+      "winner": "module_241_map_zones",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_241_map_zones/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_241_map_zones",
+      "standby": [],
+      "total": 1
+    },
+    "module242routepreference": {
+      "winner": "module_242_route_preference",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_242_route_preference/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_242_route_preference",
+      "standby": [],
+      "total": 1
+    },
+    "module244videorecorder": {
+      "winner": "module_244_video_recorder",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_244_video_recorder/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_244_video_recorder",
+      "standby": [],
+      "total": 1
+    },
+    "module245mediaplayer": {
+      "winner": "module_245_media_player",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_245_media_player/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_245_media_player",
+      "standby": [],
+      "total": 1
+    },
+    "module246paymentinstant": {
+      "winner": "module_246_payment_instant",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_246_payment_instant/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_246_payment_instant",
+      "standby": [],
+      "total": 1
+    },
+    "module247paymentcommission": {
+      "winner": "module_247_payment_commission",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_247_payment_commission/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_247_payment_commission",
+      "standby": [],
+      "total": 1
+    },
+    "module249walletconnect": {
+      "winner": "module_249_wallet_connect",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_249_wallet_connect/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_249_wallet_connect",
+      "standby": [],
+      "total": 1
+    },
+    "module256ratingview": {
+      "winner": "module_256_rating_view",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_256_rating_view/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_256_rating_view",
+      "standby": [],
+      "total": 1
+    },
+    "module257ratingcomments": {
+      "winner": "module_257_rating_comments",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_257_rating_comments/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_257_rating_comments",
+      "standby": [],
+      "total": 1
+    },
+    "module259uitheme": {
+      "winner": "module_259_ui_theme",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_259_ui_theme/main.sh",
+      "winner_score": 30,
+      "winner_title": "module_259_ui_theme",
+      "standby": [],
+      "total": 1
+    },
     "telegram": {
       "winner": "module_27_telegram_bot",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_27_telegram_bot/main.sh",
@@ -5470,6 +5762,62 @@
       "winner_title": "module_237_driver_analytics",
       "standby": [],
       "total": 1
+    },
+    "module240virtualmap": {
+      "winner": "module_240_virtual_map",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_240_virtual_map/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_240_virtual_map",
+      "standby": [],
+      "total": 1
+    },
+    "module243parkingpriority": {
+      "winner": "module_243_parking_priority",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_243_parking_priority/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_243_parking_priority",
+      "standby": [],
+      "total": 1
+    },
+    "module250walletlist": {
+      "winner": "module_250_wallet_list",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_250_wallet_list/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_250_wallet_list",
+      "standby": [],
+      "total": 1
+    },
+    "module251walletbalance": {
+      "winner": "module_251_wallet_balance",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_251_wallet_balance/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_251_wallet_balance",
+      "standby": [],
+      "total": 1
+    },
+    "module252priceadaptive": {
+      "winner": "module_252_price_adaptive",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_252_price_adaptive/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_252_price_adaptive",
+      "standby": [],
+      "total": 1
+    },
+    "module253priceperkm": {
+      "winner": "module_253_price_per_km",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_253_price_per_km/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_253_price_per_km",
+      "standby": [],
+      "total": 1
+    },
+    "module258ecoglobal": {
+      "winner": "module_258_eco_global",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_258_eco_global/main.sh",
+      "winner_score": 40,
+      "winner_title": "module_258_eco_global",
+      "standby": [],
+      "total": 1
     }
   },
   "conflicts_detail": [
@@ -5493,6 +5841,10 @@
         {
           "name": "module_122_contract_validator",
           "score": 42
+        },
+        {
+          "name": "module_248_payment_contract",
+          "score": 40
         }
       ]
     },
@@ -5573,6 +5925,14 @@
         {
           "name": "module_120_ai_guardian",
           "score": 42
+        },
+        {
+          "name": "module_254_ai_match",
+          "score": 40
+        },
+        {
+          "name": "module_255_ai_zone_optimize",
+          "score": 40
         },
         {
           "name": "module_143_email",
