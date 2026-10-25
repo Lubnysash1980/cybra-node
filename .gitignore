@@ -56,3 +56,9 @@ proofs/private/
 owner_identity*
 payer_identity*
 data/cybra_dashboard/dashboard_token.local
+state/executors/guard_history.jsonl
+state/executors/controller_state.json
+state/main_controller_state.json
+state/menu_autorobot.json
+nodes/heartbeats/
+parliament_core/registry.json
