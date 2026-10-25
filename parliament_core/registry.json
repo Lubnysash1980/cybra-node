@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-25T07:01:41.530238+00:00",
+  "updated": "2026-10-25T07:15:19.977389+00:00",
   "total_modules": 279,
   "unique_actions": 214,
   "conflicts": 7,
@@ -1050,9 +1050,9 @@
       "action": "module151base",
       "status": "unknown",
       "base_score": 30,
-      "size": 686,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_151_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_152_base",
@@ -1060,9 +1060,9 @@
       "action": "module152base",
       "status": "unknown",
       "base_score": 30,
-      "size": 1051,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_152_base/main.sh",
-      "score": 42
+      "score": 50
     },
     {
       "name": "module_152_rollback_evo",
@@ -1080,9 +1080,9 @@
       "action": "module153base",
       "status": "unknown",
       "base_score": 30,
-      "size": 1051,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_153_base/main.sh",
-      "score": 42
+      "score": 50
     },
     {
       "name": "module_154_base",
@@ -1090,9 +1090,9 @@
       "action": "module154base",
       "status": "unknown",
       "base_score": 30,
-      "size": 1051,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_154_base/main.sh",
-      "score": 42
+      "score": 50
     },
     {
       "name": "module_155_base",
@@ -1100,9 +1100,9 @@
       "action": "module155base",
       "status": "unknown",
       "base_score": 30,
-      "size": 1051,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_155_base/main.sh",
-      "score": 42
+      "score": 50
     },
     {
       "name": "module_156_base",
@@ -1110,9 +1110,9 @@
       "action": "module156base",
       "status": "unknown",
       "base_score": 30,
-      "size": 1051,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_156_base/main.sh",
-      "score": 42
+      "score": 50
     },
     {
       "name": "module_157_base",
@@ -1120,9 +1120,9 @@
       "action": "module157base",
       "status": "unknown",
       "base_score": 30,
-      "size": 1051,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_157_base/main.sh",
-      "score": 42
+      "score": 50
     },
     {
       "name": "module_158_base",
@@ -1130,9 +1130,9 @@
       "action": "module158base",
       "status": "unknown",
       "base_score": 30,
-      "size": 1051,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_158_base/main.sh",
-      "score": 42
+      "score": 50
     },
     {
       "name": "module_159_base",
@@ -1140,9 +1140,9 @@
       "action": "module159base",
       "status": "unknown",
       "base_score": 30,
-      "size": 1051,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_159_base/main.sh",
-      "score": 42
+      "score": 50
     },
     {
       "name": "module_15_base",
@@ -1150,9 +1150,9 @@
       "action": "module15base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_15_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_15_generated",
@@ -1180,9 +1180,9 @@
       "action": "module160base",
       "status": "unknown",
       "base_score": 30,
-      "size": 1410,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_160_base/main.sh",
-      "score": 42
+      "score": 50
     },
     {
       "name": "module_16_base",
@@ -1190,9 +1190,9 @@
       "action": "module16base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_16_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_16_final_authorization_release_gate",
@@ -1220,9 +1220,9 @@
       "action": "module17base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_17_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_17_cybra_license_contract_menu",
@@ -1250,9 +1250,9 @@
       "action": "module18base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_18_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_18_generated",
@@ -1280,9 +1280,9 @@
       "action": "module19base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_19_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_19_contract_tui_menu",
@@ -1320,9 +1320,9 @@
       "action": "module20base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_20_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_20_evolution_guard",
@@ -1350,9 +1350,9 @@
       "action": "module21base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_21_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_21_generated",
@@ -1390,9 +1390,9 @@
       "action": "module24base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_24_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_24_generated",
@@ -1420,9 +1420,9 @@
       "action": "module25base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_25_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_25_generated",
@@ -1440,9 +1440,9 @@
       "action": "module26base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_26_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_26_generated",
@@ -1470,9 +1470,9 @@
       "action": "module27base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_27_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_27_generated",
@@ -1490,9 +1490,9 @@
       "action": "module28base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_28_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_28_export",
@@ -1530,9 +1530,9 @@
       "action": "module29base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_29_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_29_generated",
@@ -1560,9 +1560,9 @@
       "action": "module30base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_30_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_30_multichain",
@@ -1580,9 +1580,9 @@
       "action": "module31base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_31_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_31_dispute_resolver",
@@ -1600,9 +1600,9 @@
       "action": "module33base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_33_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_33_generated",
@@ -1630,9 +1630,9 @@
       "action": "module35base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_35_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_35_cybra_guardian",
@@ -1790,9 +1790,9 @@
       "action": "module51base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_51_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_51_generated",
@@ -1830,19 +1830,19 @@
       "action": "module59base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_59_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_5_base",
-      "title": "Підтвердити лінк",
-      "action": "підтвердити",
-      "status": "extended",
-      "base_score": 90,
-      "size": 1268,
+      "title": "module_5_base",
+      "action": "module5base",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_5_base/main.sh",
-      "score": 100
+      "score": 50
     },
     {
       "name": "module_5_generated",
@@ -1860,9 +1860,9 @@
       "action": "module60base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_60_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_60_generated",
@@ -1890,9 +1890,9 @@
       "action": "module63base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_63_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_64_base",
@@ -1900,9 +1900,9 @@
       "action": "module64base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_64_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_64_generated",
@@ -1930,9 +1930,9 @@
       "action": "module67base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_67_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_68_base",
@@ -1940,9 +1940,9 @@
       "action": "module68base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_68_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_68_generated",
@@ -1966,13 +1966,13 @@
     },
     {
       "name": "module_6_base",
-      "title": "Debug",
-      "action": "system",
-      "status": "extended",
-      "base_score": 90,
-      "size": 1130,
+      "title": "module_6_base",
+      "action": "module6base",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_6_base/main.sh",
-      "score": 100
+      "score": 50
     },
     {
       "name": "module_70_base",
@@ -1980,9 +1980,9 @@
       "action": "module70base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_70_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_70_generated",
@@ -2010,9 +2010,9 @@
       "action": "module72base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_72_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_72_generated",
@@ -2030,9 +2030,9 @@
       "action": "module74base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_74_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_75_generated",
@@ -2050,19 +2050,19 @@
       "action": "module79base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_79_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_7_base",
-      "title": "DUAL-LICENSE",
-      "action": "duallicense",
-      "status": "extended",
-      "base_score": 90,
-      "size": 1241,
+      "title": "module_7_base",
+      "action": "module7base",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_7_base/main.sh",
-      "score": 100
+      "score": 50
     },
     {
       "name": "module_81_base",
@@ -2080,9 +2080,9 @@
       "action": "module82base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_82_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_83_base",
@@ -2090,9 +2090,9 @@
       "action": "module83base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_83_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_83_generated",
@@ -2140,9 +2140,9 @@
       "action": "module89base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_89_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_89_generated",
@@ -2160,9 +2160,9 @@
       "action": "module90base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_90_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_90_generated",
@@ -2200,9 +2200,9 @@
       "action": "module9base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_9_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_27_telegram_bot",
@@ -2270,9 +2270,9 @@
       "action": "module34base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_34_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_34_doc_scanner",
@@ -2300,9 +2300,9 @@
       "action": "module36base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_36_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_36_generated",
@@ -2320,9 +2320,9 @@
       "action": "module37base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_37_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_38_base",
@@ -2330,9 +2330,9 @@
       "action": "module38base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_38_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_39_base",
@@ -2340,9 +2340,9 @@
       "action": "module39base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_39_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_43_base",
@@ -2370,9 +2370,9 @@
       "action": "module50base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_50_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_52_base",
@@ -2380,9 +2380,9 @@
       "action": "module52base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_52_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_52_generated",
@@ -2430,9 +2430,9 @@
       "action": "module58base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_58_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_58_generated",
@@ -2490,9 +2490,9 @@
       "action": "module66base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_66_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_67_generated",
@@ -2520,9 +2520,9 @@
       "action": "module71base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_71_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_73_base",
@@ -2530,9 +2530,9 @@
       "action": "module73base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_73_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_73_generated",
@@ -2560,9 +2560,9 @@
       "action": "module75base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_75_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_76_base",
@@ -2590,9 +2590,9 @@
       "action": "module78base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_78_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_78_generated",
@@ -2630,9 +2630,9 @@
       "action": "module80base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_80_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_80_generated",
@@ -2660,9 +2660,9 @@
       "action": "module85base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_85_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_86_base",
@@ -2680,9 +2680,9 @@
       "action": "module87base",
       "status": "unknown",
       "base_score": 30,
-      "size": 851,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_87_base/main.sh",
-      "score": 32
+      "score": 50
     },
     {
       "name": "module_87_generated",
@@ -2696,13 +2696,13 @@
     },
     {
       "name": "module_8_base",
-      "title": "CREATION-LICENSE",
-      "action": "creationlicense",
-      "status": "extended",
-      "base_score": 90,
-      "size": 1266,
+      "title": "module_8_base",
+      "action": "module8base",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1776,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_8_base/main.sh",
-      "score": 100
+      "score": 50
     },
     {
       "name": "module_8_generated",
@@ -3620,7 +3620,7 @@
     "module151base": {
       "winner": "module_151_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_151_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_151_base",
       "standby": [],
       "total": 1
@@ -3628,7 +3628,7 @@
     "module152base": {
       "winner": "module_152_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_152_base/main.sh",
-      "winner_score": 42,
+      "winner_score": 50,
       "winner_title": "module_152_base",
       "standby": [],
       "total": 1
@@ -3649,7 +3649,7 @@
     "module153base": {
       "winner": "module_153_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_153_base/main.sh",
-      "winner_score": 42,
+      "winner_score": 50,
       "winner_title": "module_153_base",
       "standby": [],
       "total": 1
@@ -3657,7 +3657,7 @@
     "module154base": {
       "winner": "module_154_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_154_base/main.sh",
-      "winner_score": 42,
+      "winner_score": 50,
       "winner_title": "module_154_base",
       "standby": [],
       "total": 1
@@ -3665,7 +3665,7 @@
     "module155base": {
       "winner": "module_155_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_155_base/main.sh",
-      "winner_score": 42,
+      "winner_score": 50,
       "winner_title": "module_155_base",
       "standby": [],
       "total": 1
@@ -3673,7 +3673,7 @@
     "module156base": {
       "winner": "module_156_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_156_base/main.sh",
-      "winner_score": 42,
+      "winner_score": 50,
       "winner_title": "module_156_base",
       "standby": [],
       "total": 1
@@ -3681,7 +3681,7 @@
     "module157base": {
       "winner": "module_157_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_157_base/main.sh",
-      "winner_score": 42,
+      "winner_score": 50,
       "winner_title": "module_157_base",
       "standby": [],
       "total": 1
@@ -3689,7 +3689,7 @@
     "module158base": {
       "winner": "module_158_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_158_base/main.sh",
-      "winner_score": 42,
+      "winner_score": 50,
       "winner_title": "module_158_base",
       "standby": [],
       "total": 1
@@ -3697,7 +3697,7 @@
     "module159base": {
       "winner": "module_159_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_159_base/main.sh",
-      "winner_score": 42,
+      "winner_score": 50,
       "winner_title": "module_159_base",
       "standby": [],
       "total": 1
@@ -3705,7 +3705,7 @@
     "module15base": {
       "winner": "module_15_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_15_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_15_base",
       "standby": [],
       "total": 1
@@ -3938,7 +3938,7 @@
     "module160base": {
       "winner": "module_160_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_160_base/main.sh",
-      "winner_score": 42,
+      "winner_score": 50,
       "winner_title": "module_160_base",
       "standby": [],
       "total": 1
@@ -3946,7 +3946,7 @@
     "module16base": {
       "winner": "module_16_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_16_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_16_base",
       "standby": [],
       "total": 1
@@ -3962,7 +3962,7 @@
     "module17base": {
       "winner": "module_17_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_17_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_17_base",
       "standby": [],
       "total": 1
@@ -3970,7 +3970,7 @@
     "module18base": {
       "winner": "module_18_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_18_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_18_base",
       "standby": [],
       "total": 1
@@ -3986,7 +3986,7 @@
     "module19base": {
       "winner": "module_19_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_19_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_19_base",
       "standby": [],
       "total": 1
@@ -4002,7 +4002,7 @@
     "module20base": {
       "winner": "module_20_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_20_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_20_base",
       "standby": [],
       "total": 1
@@ -4010,7 +4010,7 @@
     "module21base": {
       "winner": "module_21_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_21_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_21_base",
       "standby": [],
       "total": 1
@@ -4034,7 +4034,7 @@
     "module24base": {
       "winner": "module_24_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_24_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_24_base",
       "standby": [],
       "total": 1
@@ -4050,7 +4050,7 @@
     "module25base": {
       "winner": "module_25_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_25_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_25_base",
       "standby": [],
       "total": 1
@@ -4058,7 +4058,7 @@
     "module26base": {
       "winner": "module_26_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_26_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_26_base",
       "standby": [],
       "total": 1
@@ -4066,7 +4066,7 @@
     "module27base": {
       "winner": "module_27_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_27_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_27_base",
       "standby": [],
       "total": 1
@@ -4074,7 +4074,7 @@
     "module28base": {
       "winner": "module_28_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_28_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_28_base",
       "standby": [],
       "total": 1
@@ -4098,7 +4098,7 @@
     "module29base": {
       "winner": "module_29_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_29_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_29_base",
       "standby": [],
       "total": 1
@@ -4114,7 +4114,7 @@
     "module30base": {
       "winner": "module_30_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_30_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_30_base",
       "standby": [],
       "total": 1
@@ -4122,7 +4122,7 @@
     "module31base": {
       "winner": "module_31_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_31_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_31_base",
       "standby": [],
       "total": 1
@@ -4138,7 +4138,7 @@
     "module33base": {
       "winner": "module_33_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_33_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_33_base",
       "standby": [],
       "total": 1
@@ -4146,7 +4146,7 @@
     "module35base": {
       "winner": "module_35_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_35_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_35_base",
       "standby": [],
       "total": 1
@@ -4242,7 +4242,7 @@
     "module51base": {
       "winner": "module_51_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_51_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_51_base",
       "standby": [],
       "total": 1
@@ -4266,23 +4266,23 @@
     "module59base": {
       "winner": "module_59_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_59_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_59_base",
       "standby": [],
       "total": 1
     },
-    "підтвердити": {
+    "module5base": {
       "winner": "module_5_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_5_base/main.sh",
-      "winner_score": 100,
-      "winner_title": "Підтвердити лінк",
+      "winner_score": 50,
+      "winner_title": "module_5_base",
       "standby": [],
       "total": 1
     },
     "module60base": {
       "winner": "module_60_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_60_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_60_base",
       "standby": [],
       "total": 1
@@ -4298,7 +4298,7 @@
     "module63base": {
       "winner": "module_63_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_63_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_63_base",
       "standby": [],
       "total": 1
@@ -4306,7 +4306,7 @@
     "module64base": {
       "winner": "module_64_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_64_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_64_base",
       "standby": [],
       "total": 1
@@ -4314,7 +4314,7 @@
     "module67base": {
       "winner": "module_67_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_67_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_67_base",
       "standby": [],
       "total": 1
@@ -4322,7 +4322,7 @@
     "module68base": {
       "winner": "module_68_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_68_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_68_base",
       "standby": [],
       "total": 1
@@ -4335,18 +4335,18 @@
       "standby": [],
       "total": 1
     },
-    "system": {
+    "module6base": {
       "winner": "module_6_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_6_base/main.sh",
-      "winner_score": 100,
-      "winner_title": "Debug",
+      "winner_score": 50,
+      "winner_title": "module_6_base",
       "standby": [],
       "total": 1
     },
     "module70base": {
       "winner": "module_70_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_70_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_70_base",
       "standby": [],
       "total": 1
@@ -4354,7 +4354,7 @@
     "module72base": {
       "winner": "module_72_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_72_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_72_base",
       "standby": [],
       "total": 1
@@ -4362,7 +4362,7 @@
     "module74base": {
       "winner": "module_74_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_74_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_74_base",
       "standby": [],
       "total": 1
@@ -4370,16 +4370,16 @@
     "module79base": {
       "winner": "module_79_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_79_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_79_base",
       "standby": [],
       "total": 1
     },
-    "duallicense": {
+    "module7base": {
       "winner": "module_7_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_7_base/main.sh",
-      "winner_score": 100,
-      "winner_title": "DUAL-LICENSE",
+      "winner_score": 50,
+      "winner_title": "module_7_base",
       "standby": [],
       "total": 1
     },
@@ -4394,7 +4394,7 @@
     "module82base": {
       "winner": "module_82_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_82_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_82_base",
       "standby": [],
       "total": 1
@@ -4402,7 +4402,7 @@
     "module83base": {
       "winner": "module_83_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_83_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_83_base",
       "standby": [],
       "total": 1
@@ -4426,7 +4426,7 @@
     "module89base": {
       "winner": "module_89_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_89_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_89_base",
       "standby": [],
       "total": 1
@@ -4434,7 +4434,7 @@
     "module90base": {
       "winner": "module_90_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_90_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_90_base",
       "standby": [],
       "total": 1
@@ -4458,7 +4458,7 @@
     "module9base": {
       "winner": "module_9_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_9_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_9_base",
       "standby": [],
       "total": 1
@@ -4498,7 +4498,7 @@
     "module34base": {
       "winner": "module_34_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_34_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_34_base",
       "standby": [],
       "total": 1
@@ -4514,7 +4514,7 @@
     "module36base": {
       "winner": "module_36_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_36_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_36_base",
       "standby": [],
       "total": 1
@@ -4522,7 +4522,7 @@
     "module37base": {
       "winner": "module_37_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_37_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_37_base",
       "standby": [],
       "total": 1
@@ -4530,7 +4530,7 @@
     "module38base": {
       "winner": "module_38_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_38_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_38_base",
       "standby": [],
       "total": 1
@@ -4538,7 +4538,7 @@
     "module39base": {
       "winner": "module_39_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_39_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_39_base",
       "standby": [],
       "total": 1
@@ -4562,7 +4562,7 @@
     "module50base": {
       "winner": "module_50_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_50_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_50_base",
       "standby": [],
       "total": 1
@@ -4570,7 +4570,7 @@
     "module52base": {
       "winner": "module_52_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_52_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_52_base",
       "standby": [],
       "total": 1
@@ -4602,7 +4602,7 @@
     "module58base": {
       "winner": "module_58_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_58_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_58_base",
       "standby": [],
       "total": 1
@@ -4626,7 +4626,7 @@
     "module66base": {
       "winner": "module_66_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_66_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_66_base",
       "standby": [],
       "total": 1
@@ -4634,7 +4634,7 @@
     "module71base": {
       "winner": "module_71_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_71_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_71_base",
       "standby": [],
       "total": 1
@@ -4642,7 +4642,7 @@
     "module73base": {
       "winner": "module_73_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_73_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_73_base",
       "standby": [],
       "total": 1
@@ -4650,7 +4650,7 @@
     "module75base": {
       "winner": "module_75_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_75_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_75_base",
       "standby": [],
       "total": 1
@@ -4674,7 +4674,7 @@
     "module78base": {
       "winner": "module_78_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_78_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_78_base",
       "standby": [],
       "total": 1
@@ -4682,7 +4682,7 @@
     "module80base": {
       "winner": "module_80_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_80_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_80_base",
       "standby": [],
       "total": 1
@@ -4690,7 +4690,7 @@
     "module85base": {
       "winner": "module_85_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_85_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_85_base",
       "standby": [],
       "total": 1
@@ -4706,16 +4706,16 @@
     "module87base": {
       "winner": "module_87_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_87_base/main.sh",
-      "winner_score": 32,
+      "winner_score": 50,
       "winner_title": "module_87_base",
       "standby": [],
       "total": 1
     },
-    "creationlicense": {
+    "module8base": {
       "winner": "module_8_base",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_8_base/main.sh",
-      "winner_score": 100,
-      "winner_title": "CREATION-LICENSE",
+      "winner_score": 50,
+      "winner_title": "module_8_base",
       "standby": [],
       "total": 1
     },

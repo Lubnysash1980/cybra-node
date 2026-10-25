@@ -1,29 +1,60 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# ── BINMIX/EXECUTOR METADATA (auto-added) ──
-# module: module_160
-# source: snapshots  rev=evo_lock_20261024_232817.tar  when=snap
-# score: 109  size: 918B  hash: ce97ef978fe1
-# mixed_at: 2026-10-24T20:29:55.230848+00:00
-# ──────────────────────────────────────────
-# ── BINMIX/EXECUTOR METADATA (auto-added) ──
-# module: module_016
-# source: github_history  rev=c9950944  when=2026-10-24T12:18:45+03:00
-# score: 106  size: 645B  hash: 0b148a1cdf59
-# mixed_at: 2026-10-24T20:26:46.954162+00:00
-# ──────────────────────────────────────────
+# module_160 — rich (evo upgraded)
+# generated: 2026-10-25T07:09:57.556178+00:00
+set -u
+CYBRA="$HOME/CYBRA"; cd "$CYBRA" 2>/dev/null || exit 1
+LOG="$CYBRA/logs/module_160.log"; mkdir -p "$(dirname "$LOG")"
+log() { echo "[$(date -u +%FT%TZ)] $*" >> "$LOG"; }
+trap 'log "ERR line $LINENO rc=$?"' ERR
 
-# ─── BINMIX WRAP (65MB) ───
-CYBRA_W="$HOME/CYBRA"
-SANDBOX_W="$CYBRA_W/sandbox"
-LIMIT_W=$((65 * 1024 * 1024))
-mkdir -p "$SANDBOX_W"/{bin,tmp,keep,trash} 2>/dev/null
-SIZE_W=$(du -sb "$SANDBOX_W" 2>/dev/null | awk "{print \$1}" || echo 0)
-if [ "$SIZE_W" -ge "$LIMIT_W" ]; then
-    rm -rf "$SANDBOX_W"/trash/* "$SANDBOX_W"/tmp/* 2>/dev/null
-    [ -x "$SANDBOX_W/sandbox_cleanup.sh" ] && "$SANDBOX_W/sandbox_cleanup.sh" >/dev/null 2>&1
-fi
-BINMIX_W="$CYBRA_W/bin/cybra_binmix"
-[ -x "$BINMIX_W" ] && "$BINMIX_W" status >/dev/null 2>&1
-# ─── END BINMIX WRAP ───
+show_git() {
+  echo "── git ──"
+  git --no-pager log -1 --format='  %h %s (%cr)' 2>/dev/null | head -1
+  echo "  changes: $(git status --porcelain 2>/dev/null | wc -l)"
+}
+show_redis() {
+  echo "── redis ──"
+  redis-cli ping 2>/dev/null | sed 's/^/  /' || echo "  DOWN"
+  redis-cli dbsize 2>/dev/null | awk '{print "  keys: "$1}'
+}
+show_system() {
+  echo "── system ──"
+  free -m 2>/dev/null | awk '/Mem:/{printf "  RAM: %d/%d MB (%d%%)\\n",$3,$2,$3/$2*100}'
+  df -h /data 2>/dev/null | awk 'NR==2{printf "  disk: %s/%s (%s)\\n",$3,$2,$5}'
+}
+show_pm2() {
+  echo "── pm2 ──"
+  pm2 jlist 2>/dev/null | python3 -c "
+import sys,json
+try:
+    d=json.load(sys.stdin)
+    on=sum(1 for p in d if p['pm2_env']['status']=='online')
+    print(f'  online: {on}/{len(d)}')
+except: print('  n/a')
+" 2>/dev/null || echo "  n/a"
+}
+show_log() {
+  echo "── log (last 3) ──"
+  tail -3 "$LOG" 2>/dev/null | sed 's/^/  /' || echo "  empty"
+}
 
-echo 'Модуль 160 (Інтегровано AI)'; read -r _
+main() {
+  log "START module_160 args=$#"
+  echo "════════ module_160 ════════"
+  case "${1:-all}" in
+    git) show_git ;;
+    redis) show_redis ;;
+    sys|system) show_system ;;
+    pm2) show_pm2 ;;
+    log) show_log ;;
+    all|*)
+      show_git; echo ""
+      show_redis; echo ""
+      show_system; echo ""
+      show_pm2; echo ""
+      show_log ;;
+  esac
+  log "END module_160"
+  read -r -p "Enter..." _ 2>/dev/null || true
+}
+main "$@"
