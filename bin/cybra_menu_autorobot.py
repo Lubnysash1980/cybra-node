@@ -115,7 +115,7 @@ def status():
     if not STATE.exists():
         print("no state — run: cycle"); return
     d = json.loads(STATE.read_text())
-    print(f"pct_100: {d['pct_100']}%  ({d['real']}/{d['total']})")
+    print(f"pct_100: {d.get('pct_100', d.get('pct', 0))}%  ({d['real']}/{d['total']})")
     print(f"last:    {d['ts']}  pushed={d['pushed']}")
     for k, v in d["stats"].items():
         print(f"  {k:8} {v['count']:3}  {v['sample'][:20]}")
