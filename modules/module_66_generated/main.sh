@@ -1,65 +1,35 @@
 #!/data/data/com.termux/files/usr/bin/bash
-
-# ─── BINMIX WRAP (65MB) ───
-CYBRA_W="$HOME/CYBRA"
-SANDBOX_W="$CYBRA_W/sandbox"
-LIMIT_W=$((65 * 1024 * 1024))
-mkdir -p "$SANDBOX_W"/{bin,tmp,keep,trash} 2>/dev/null
-SIZE_W=$(du -sb "$SANDBOX_W" 2>/dev/null | awk "{print \$1}" || echo 0)
-if [ "$SIZE_W" -ge "$LIMIT_W" ]; then
-    rm -rf "$SANDBOX_W"/trash/* "$SANDBOX_W"/tmp/* 2>/dev/null
-    [ -x "$SANDBOX_W/sandbox_cleanup.sh" ] && "$SANDBOX_W/sandbox_cleanup.sh" >/dev/null 2>&1
-fi
-BINMIX_W="$CYBRA_W/bin/cybra_binmix"
-[ -x "$BINMIX_W" ] && "$BINMIX_W" status >/dev/null 2>&1
-# ─── END BINMIX WRAP ───
-
-# МОДУЛЬ: module_66_generated
-# СТАТУС: READY (100% - auto-resolved)
-# ДАТА: 2026-10-18T15:30:09.895197+00:00
-
-CYBRA="$HOME/CYBRA"
-LOG="$CYBRA/logs/module_66_generated.log"
-mkdir -p "$(dirname "$LOG")"
-
-# ─── ЗАХИСТ (TRAP ERR) ───
-log() { echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] $1" >> "$LOG"; }
-trap 'log "ERROR at line $LINENO"; echo "❌ Помилка. Лог: $LOG"' ERR
-
-log "START: module_66_generated"
-
-echo "════════════════════════════════════════════"
-echo "  МОДУЛЬ module_66_generated (100%)"
-echo "════════════════════════════════════════════"
-echo "  Статус: READY"
-echo "  Лог: $LOG"
+# module_066 — smart-stub v1 (real system data)
+set -u
+CYBRA="$HOME/CYBRA"; cd "$CYBRA" 2>/dev/null
+echo "════════ module_066 ════════"
 echo ""
-
-# ─── ЛОГІКА ───
-echo "  ✅ Модуль module_66_generated активний"
-
-echo "════════════════════════════════════════════"
-log "DONE: module_66_generated"
-read -r -p "Натисни Enter..." _
-
-# ─── 7 РІВНІВ СКЛАДНОСТІ ───
-LEVEL_FILE="/data/data/com.termux/files/home/CYBRA/state/main.sh.level"
-level_now() { [ -f "$LEVEL_FILE" ] && cat "$LEVEL_FILE" || echo 1; }
-level_set() { echo "$1" > "$LEVEL_FILE"; }
-level1() { [ -d "$HOME/CYBRA" ] && return 0 || return 1; }
-level2() { command -v bash >/dev/null && return 0 || return 1; }
-level3() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
-level4() { [ -d "$HOME/CYBRA/logs" ] && return 0 || return 1; }
-level5() { [ -f "$HOME/CYBRA/evo/evo_core.py" ] && return 0 || return 1; }
-level6() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
-level7() { [ -d "$HOME/CYBRA/sandbox" ] && return 0 || return 1; }
-run_levels() {
-    local cur=$(level_now)
-    for i in 1 2 3 4 5 6 7; do
-        [ "$i" -lt "$cur" ] && continue
-        if "level$i"; then level_set "$i"; else return 0; fi
-    done
-}
-run_levels
-
-exit 0
+echo "── git ──"
+git --no-pager log -1 --format='  %h %s (%cr)' 2>/dev/null | head -1
+echo "  files changed: $(git status --porcelain 2>/dev/null | wc -l)"
+echo ""
+echo "── redis ──"
+redis-cli ping 2>/dev/null | sed 's/^/  /' || echo "  DOWN"
+redis-cli dbsize 2>/dev/null | sed 's/^/  keys: /'
+echo ""
+echo "── system ──"
+free -m 2>/dev/null | awk '/Mem:/{printf "  RAM: %d/%d MB (%d%%)\n", $3, $2, $3/$2*100}'
+df -h /data 2>/dev/null | awk 'NR==2{printf "  disk: %s used of %s (%s)\n", $3, $2, $5}'
+echo ""
+echo "── pm2 core ──"
+pm2 jlist 2>/dev/null | python3 -c "
+import sys,json
+try:
+    d=json.load(sys.stdin)
+    online=sum(1 for p in d if p['pm2_env']['status']=='online')
+    print(f'  online: {online}/{len(d)}')
+except: print('  pm2 unavailable')
+" 2>/dev/null || echo "  pm2 unavailable"
+echo ""
+echo "── module dir ──"
+ls -la "$(dirname "$0")" 2>/dev/null | awk 'NR>1 && NR<8{print "  "$9" "$5"B"}'
+echo ""
+echo "── log (last 3) ──"
+tail -3 logs/module_066*.log 2>/dev/null | sed 's/^/  /' || echo "  (no log)"
+echo ""
+read -r -p "Enter..." _

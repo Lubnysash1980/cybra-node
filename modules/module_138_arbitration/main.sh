@@ -1,4 +1,10 @@
 #!/data/data/com.termux/files/usr/bin/bash
+# ── BINMIX/EXECUTOR METADATA (auto-added) ──
+# module: module_138
+# source: github_history  rev=c9950944  when=2026-10-24T12:18:45+03:00
+# score: 108  size: 871B  hash: 9e187750f94d
+# mixed_at: 2026-10-24T20:29:03.661393+00:00
+# ──────────────────────────────────────────
 
 # ─── BINMIX WRAP (65MB) ───
 CYBRA_W="$HOME/CYBRA"

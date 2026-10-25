@@ -1,0 +1,31 @@
+{
+  "id": "IT-WRITE-039-1792876519",
+  "kind": "IT_DEPT_WRITE_MODULE",
+  "assigned_to": "parliament_it_department",
+  "created_at": "2026-10-24T21:15:19.551524+00:00",
+  "module": 39,
+  "dir": "module_39_generated",
+  "path": "/data/data/com.termux/files/home/CYBRA/modules/module_39_generated/main.sh",
+  "priority": "normal",
+  "requirements": {
+    "must_be_real": true,
+    "min_lines": 20,
+    "must_use": [
+      "#!/data/data/com.termux/files/usr/bin/bash"
+    ],
+    "must_not_contain": [
+      "AI-INTEGRATED",
+      "потребує наповнення",
+      "створено заново"
+    ],
+    "syntax_check": "bash -n",
+    "context": "CYBRA модуль системи, Termux, має взаємодіяти з redis, git, pm2, logs"
+  },
+  "acceptance": [
+    "bash -n main.sh → OK",
+    "wc -l main.sh ≥ 20",
+    "grep -cE 'sqlite|cybra_|redis|python3|pm2|git' main.sh ≥ 2",
+    "ручний запуск не падає за <5s"
+  ],
+  "status": "PENDING"
+}

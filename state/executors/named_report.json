@@ -1,0 +1,86 @@
+{
+  "applied": [
+    {
+      "n": 15,
+      "alt_name": "module_15_true100_aggregator",
+      "size": 2063
+    },
+    {
+      "n": 16,
+      "alt_name": "module_16_final_authorization_release_gate",
+      "size": 2119
+    },
+    {
+      "n": 17,
+      "alt_name": "module_17_cybra_license_contract_menu",
+      "size": 2099
+    },
+    {
+      "n": 18,
+      "alt_name": "module_18_license_payment_router",
+      "size": 2079
+    },
+    {
+      "n": 19,
+      "alt_name": "module_19_contract_tui_menu",
+      "size": 2059
+    },
+    {
+      "n": 20,
+      "alt_name": "module_20_evolution_guard",
+      "size": 2051
+    },
+    {
+      "n": 25,
+      "alt_name": "module_25_address_book",
+      "size": 2039
+    },
+    {
+      "n": 26,
+      "alt_name": "module_26_qr_codes",
+      "size": 2023
+    },
+    {
+      "n": 27,
+      "alt_name": "module_27_telegram_bot",
+      "size": 2039
+    },
+    {
+      "n": 28,
+      "alt_name": "module_28_export",
+      "size": 2015
+    },
+    {
+      "n": 29,
+      "alt_name": "module_29_backup",
+      "size": 2015
+    },
+    {
+      "n": 30,
+      "alt_name": "module_30_multichain",
+      "size": 2031
+    },
+    {
+      "n": 31,
+      "alt_name": "module_31_dispute_resolver",
+      "size": 2055
+    },
+    {
+      "n": 33,
+      "alt_name": "module_33_audit_log",
+      "size": 2027
+    },
+    {
+      "n": 34,
+      "alt_name": "module_34_doc_scanner",
+      "size": 2035
+    },
+    {
+      "n": 35,
+      "alt_name": "module_35_cybra_guardian",
+      "size": 2047
+    }
+  ],
+  "backup": "/data/data/com.termux/files/home/CYBRA/state/executors/named_backup/before_named_20261024_235136.tar.gz",
+  "ts": "20261024_235136"
+}

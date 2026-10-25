@@ -1,0 +1,2868 @@
+{
+  "stats": {
+    "improve": 106,
+    "keep": 0,
+    "needs_author": 174
+  },
+  "plan": {
+    "generated_at": "2026-10-24T20:20:46.309899+00:00",
+    "modules": {
+      "1": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 2043,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 2043
+        },
+        "candidates": 1
+      },
+      "2": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 2055,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 2055
+        },
+        "candidates": 1
+      },
+      "3": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 2059,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 2059
+        },
+        "candidates": 1
+      },
+      "4": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 121,
+          "size": 2199,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "5": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "6": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "7": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "8": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "9": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "10": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2211,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "11": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "12": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "c9950944",
+          "score": 108,
+          "size": 871,
+          "when": "2026-10-24T12:18:45+03:00"
+        },
+        "current": null,
+        "candidates": 1
+      },
+      "13": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "14": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "c9950944",
+          "score": 108,
+          "size": 867,
+          "when": "2026-10-24T12:18:45+03:00"
+        },
+        "current": null,
+        "candidates": 1
+      },
+      "15": {
+        "action": "improve",
+        "best": {
+          "src": "github_remote",
+          "rev": "origin/main",
+          "score": 122,
+          "size": 2223,
+          "when": "?"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "16": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "c9950944",
+          "score": 106,
+          "size": 645,
+          "when": "2026-10-24T12:18:45+03:00"
+        },
+        "current": null,
+        "candidates": 1
+      },
+      "17": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "18": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "19": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "20": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "21": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "22": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 121,
+          "size": 2165,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "23": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2232,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "24": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "25": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 2039,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 2039
+        },
+        "candidates": 1
+      },
+      "26": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "27": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "28": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "29": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 2015,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 2015
+        },
+        "candidates": 1
+      },
+      "30": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "31": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "32": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 121,
+          "size": 2179,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "33": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 2027,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 2027
+        },
+        "candidates": 1
+      },
+      "34": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "35": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "36": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "37": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "38": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "39": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "40": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 121,
+          "size": 2199,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "41": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 122,
+          "size": 2210,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "42": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 121,
+          "size": 2198,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "43": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 121,
+          "size": 2192,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "44": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 121,
+          "size": 2190,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "45": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 121,
+          "size": 2196,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "46": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 222,
+          "size": 2220,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "47": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 222,
+          "size": 2220,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "48": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 222,
+          "size": 2225,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "49": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 122,
+          "size": 2212,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "50": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "51": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "52": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "53": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 122,
+          "size": 2242,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "54": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "55": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 122,
+          "size": 2221,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "56": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 122,
+          "size": 2201,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "57": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 122,
+          "size": 2213,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "58": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "59": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "60": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "61": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 122,
+          "size": 2256,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "62": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 121,
+          "size": 2188,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "63": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "64": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "65": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 122,
+          "size": 2225,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "66": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "67": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "68": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "69": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 121,
+          "size": 2182,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "70": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "71": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "72": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "73": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "74": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "75": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "76": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 121,
+          "size": 2164,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "77": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 122,
+          "size": 2200,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "78": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "79": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "80": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "81": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 121,
+          "size": 2180,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "82": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "83": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "84": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 121,
+          "size": 2192,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "85": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "86": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 121,
+          "size": 2194,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "87": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "88": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 122,
+          "size": 2203,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "89": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "90": {
+        "action": "needs_author",
+        "best": {
+          "src": "current",
+          "rev": "HEAD",
+          "score": -1,
+          "size": 1445,
+          "when": "now"
+        },
+        "current": {
+          "src": "current",
+          "score": -1,
+          "size": 1445
+        },
+        "candidates": 1
+      },
+      "91": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 121,
+          "size": 2167,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "92": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 122,
+          "size": 2243,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "93": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 122,
+          "size": 2206,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "94": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 122,
+          "size": 2212,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "95": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 122,
+          "size": 2234,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "96": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 121,
+          "size": 2184,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "97": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 121,
+          "size": 2198,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "98": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 122,
+          "size": 2211,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "99": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "fc63cd68",
+          "score": 122,
+          "size": 2210,
+          "when": "2026-10-19T22:28:53+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "100": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2211,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "101": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2253,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "102": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "2fc8cc3d",
+          "score": 116,
+          "size": 1643,
+          "when": "2026-10-19T12:01:41+03:00"
+        },
+        "current": null,
+        "candidates": 7
+      },
+      "103": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 121,
+          "size": 2160,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "104": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2214,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "105": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2210,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "106": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 121,
+          "size": 2196,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "107": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2215,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "108": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "109": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "110": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "111": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "112": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "113": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "114": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "c9950944",
+          "score": 108,
+          "size": 865,
+          "when": "2026-10-24T12:18:45+03:00"
+        },
+        "current": null,
+        "candidates": 1
+      },
+      "115": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "116": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "117": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "118": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "119": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "120": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "c9950944",
+          "score": 108,
+          "size": 871,
+          "when": "2026-10-24T12:18:45+03:00"
+        },
+        "current": null,
+        "candidates": 1
+      },
+      "121": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "122": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "123": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "124": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "125": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "c9950944",
+          "score": 108,
+          "size": 861,
+          "when": "2026-10-24T12:18:45+03:00"
+        },
+        "current": null,
+        "candidates": 1
+      },
+      "126": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "127": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "128": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "129": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "130": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "131": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "132": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "133": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "134": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "135": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "136": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "137": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "138": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "c9950944",
+          "score": 108,
+          "size": 871,
+          "when": "2026-10-24T12:18:45+03:00"
+        },
+        "current": null,
+        "candidates": 1
+      },
+      "139": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "140": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "c9950944",
+          "score": 108,
+          "size": 867,
+          "when": "2026-10-24T12:18:45+03:00"
+        },
+        "current": null,
+        "candidates": 1
+      },
+      "141": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "142": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "143": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "144": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "145": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "146": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "147": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "148": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "9d125604",
+          "score": 122,
+          "size": 2223,
+          "when": "2026-10-19T22:28:38+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "149": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "832d90ae",
+          "score": 218,
+          "size": 1856,
+          "when": "2026-10-23T17:12:15+03:00"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "150": {
+        "action": "improve",
+        "best": {
+          "src": "github_remote",
+          "rev": "origin/main",
+          "score": 122,
+          "size": 2223,
+          "when": "?"
+        },
+        "current": null,
+        "candidates": 3
+      },
+      "151": {
+        "action": "improve",
+        "best": {
+          "src": "github_remote",
+          "rev": "origin/main",
+          "score": 281,
+          "size": 8165,
+          "when": "?"
+        },
+        "current": null,
+        "candidates": 17
+      },
+      "152": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "c9950944",
+          "score": 106,
+          "size": 645,
+          "when": "2026-10-24T12:18:45+03:00"
+        },
+        "current": null,
+        "candidates": 1
+      },
+      "153": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "c9950944",
+          "score": 106,
+          "size": 645,
+          "when": "2026-10-24T12:18:45+03:00"
+        },
+        "current": null,
+        "candidates": 1
+      },
+      "154": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "c9950944",
+          "score": 106,
+          "size": 645,
+          "when": "2026-10-24T12:18:45+03:00"
+        },
+        "current": null,
+        "candidates": 1
+      },
+      "155": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "c9950944",
+          "score": 106,
+          "size": 645,
+          "when": "2026-10-24T12:18:45+03:00"
+        },
+        "current": null,
+        "candidates": 1
+      },
+      "156": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "c9950944",
+          "score": 106,
+          "size": 645,
+          "when": "2026-10-24T12:18:45+03:00"
+        },
+        "current": null,
+        "candidates": 1
+      },
+      "157": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "c9950944",
+          "score": 106,
+          "size": 645,
+          "when": "2026-10-24T12:18:45+03:00"
+        },
+        "current": null,
+        "candidates": 1
+      },
+      "158": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "c9950944",
+          "score": 106,
+          "size": 645,
+          "when": "2026-10-24T12:18:45+03:00"
+        },
+        "current": null,
+        "candidates": 1
+      },
+      "159": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "c9950944",
+          "score": 106,
+          "size": 645,
+          "when": "2026-10-24T12:18:45+03:00"
+        },
+        "current": null,
+        "candidates": 1
+      },
+      "160": {
+        "action": "improve",
+        "best": {
+          "src": "github_history",
+          "rev": "c9950944",
+          "score": 106,
+          "size": 645,
+          "when": "2026-10-24T12:18:45+03:00"
+        },
+        "current": null,
+        "candidates": 1
+      },
+      "161": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "162": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "163": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "164": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "165": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "166": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "167": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "168": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "169": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "170": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "171": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "172": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "173": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "174": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "175": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "176": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "177": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "178": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "179": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "180": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "181": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "182": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "183": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "184": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "185": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "186": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "187": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "188": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "189": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "190": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "191": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "192": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "193": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "194": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "195": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "196": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "197": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "198": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "199": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "200": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "201": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "202": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "203": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "204": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "205": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "206": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "207": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "208": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "209": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "210": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "211": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "212": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "213": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "214": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "215": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "216": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "217": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "218": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "219": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "220": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "221": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "222": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "223": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "224": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "225": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "226": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "227": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "228": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "229": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "230": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "231": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "232": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "233": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "234": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "235": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "236": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "237": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "238": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "239": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "240": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "241": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "242": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "243": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "244": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "245": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "246": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "247": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "248": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "249": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "250": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "251": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "252": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "253": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "254": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "255": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "256": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "257": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "258": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "259": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "260": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "261": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "262": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "263": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "264": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "265": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "266": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "267": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "268": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "269": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "270": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "271": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "272": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "273": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "274": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "275": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "276": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "277": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "278": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "279": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      },
+      "280": {
+        "action": "needs_author",
+        "best": null,
+        "current": null,
+        "candidates": 0
+      }
+    }
+  }
+}

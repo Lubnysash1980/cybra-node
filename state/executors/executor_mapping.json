@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "purpose": "EVO/controllers read this to decide: which version of a module to keep/improve",
+  "sources": [
+    {"id": "github_remote", "priority": 1,
+     "how": "git fetch origin; git show origin/main:modules/MODULE/main.sh",
+     "auth": "$GITHUB_TOKEN or $GH_TOKEN (env)"},
+    {"id": "github_history", "priority": 2,
+     "how": "git log --all -- modules/MODULE/main.sh; git show COMMIT:...",
+     "auth": "local git"},
+    {"id": "snapshots", "priority": 3,
+     "how": "for f in snapshots/*.tar.gz: extract, find modules/MODULE/main.sh"},
+    {"id": "flash_recovery", "priority": 4,
+     "how": "find /storage/*/Файли_відновлення/**/modules/MODULE/main.sh"},
+    {"id": "current", "priority": 5,
+     "how": "modules/MODULE/main.sh"}
+  ],
+  "rules": {
+    "never_shrink": true,
+    "min_size_delta": 0,
+    "min_score_delta": 0,
+    "require_syntax_ok": true,
+    "add_metadata_header": true,
+    "if_all_candidates_are_stub": "mark_needs_author_and_leave_untouched",
+    "if_best_is_current": "skip",
+    "max_candidates_per_module": 30
+  },
+  "scoring": {
+    "stub_markers": ["ai-integrated","статус: ready","модуль активний","згенеровано ai","module {i}"],
+    "real_markers": ["sqlite","redis-cli","curl ","wget ","cybra_contract","cybra_invoice",
+                     "cybra_ai_","cybra_","_cli.sh","fidic","multisig","ledger","kibra"],
+    "formula": "real_count * 100 + floor(size / 100); stub => -1"
+  },
+  "improvement": {
+    "enabled": true,
+    "actions": [
+      "add_metadata_header (source, commit, score, size, mixed_at)",
+      "ensure_shebang",
+      "ensure_executable",
+      "append_footer_log_hook (optional, off by default)"
+    ]
+  }
+}

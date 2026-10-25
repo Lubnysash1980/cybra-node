@@ -1,174 +1,152 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# cybra_binmix — Binmix daemon (standalone)
-# Керує фоновим процесом, що міксує бінарні шари CYBRA.
-# Команди: status | start | stop | snapshot | chain | log
-
+# cybra_binmix v2 — REAL mixer
+# Читає pending → пушить у queue шарами → чекає drain → RAM guard → контракт
+set -u
 CYBRA="$HOME/CYBRA"
 BINMIX_DIR="$CYBRA/.binmix"
 PID_FILE="$BINMIX_DIR/binmix.pid"
 STATE_FILE="$BINMIX_DIR/state.json"
-CHAIN_FILE="$CYBRA/modules/module_121_parlament/chain.json"
 LOG_FILE="$CYBRA/logs/binmix.log"
-SNAPSHOT_DIR="$BINMIX_DIR/snapshots"
+CONTRACT_DIR="$CYBRA/state/contracts"
+mkdir -p "$BINMIX_DIR" "$CONTRACT_DIR" "$(dirname "$LOG_FILE")"
 
-mkdir -p "$BINMIX_DIR" "$SNAPSHOT_DIR" "$(dirname "$LOG_FILE")"
+BATCH_SIZE="${BINMIX_BATCH:-2}"
+DRAIN_THRESHOLD="${BINMIX_DRAIN:-0}"
+RAM_LIMIT="${BINMIX_RAM:-80}"
+SLEEP_BETWEEN="${BINMIX_SLEEP:-2}"
+STALL_LIMIT="${BINMIX_STALL:-15}"
+TARGET="${BINMIX_TARGET:-160}"
+PENDING_KEY="${BINMIX_PENDING:-cybra:menu:pending}"
+QUEUE_KEY="${BINMIX_QUEUE:-cybra:menu:queue}"
+DONE_KEY="${BINMIX_DONE:-cybra:menu:results}"
 
-now() { date -u +"%Y-%m-%dT%H:%M:%SZ"; }
+now(){ date -u +"%Y-%m-%dT%H:%M:%SZ"; }
+rd(){ redis-cli "$@" 2>/dev/null; }
+log_msg(){ echo "[$(now)] $*" >> "$LOG_FILE"; }
+ram_pct(){ free -m 2>/dev/null | awk '/Mem:/{printf "%d",$3/$2*100}'; }
+is_running(){ [ -f "$PID_FILE" ] || return 1; local p; p=$(cat "$PID_FILE" 2>/dev/null); [ -n "$p" ] && kill -0 "$p" 2>/dev/null; }
 
-is_running() {
-    [ -f "$PID_FILE" ] || return 1
-    local pid
-    pid=$(cat "$PID_FILE" 2>/dev/null)
-    [ -n "$pid" ] && kill -0 "$pid" 2>/dev/null
-}
-
-log_msg() {
-    echo "[$(now)] $*" >> "$LOG_FILE"
-}
-
-# --- команди ---
-
-cmd_status() {
-    echo "═══ BINMIX DAEMON ═══"
-    if is_running; then
-        local pid
-        pid=$(cat "$PID_FILE")
-        echo "  🟢 Status : RUNNING (pid=$pid)"
-    else
-        echo "  🔴 Status : STOPPED"
-    fi
-    echo "  📁 Dir    : $BINMIX_DIR"
-    echo "  📄 PID    : $PID_FILE"
-    echo "  📝 Log    : $LOG_FILE"
-    if [ -f "$STATE_FILE" ]; then
-        echo "  ─── State ───"
-        cat "$STATE_FILE"
-    else
-        echo "  (state.json ще не створено)"
-    fi
-    echo "  🕐 $ (date -u +"%Y-%m-%d %H:%M:%S UTC")"
-}
-
-cmd_start() {
-    if is_running; then
-        echo "⚠️  Binmix вже запущено (pid=$(cat "$PID_FILE"))"
-        return 0
-    fi
-
-    echo "▶ Запуск binmix daemon…"
-    (
-        while true; do
-            # цикл міксування
-            local_ts=$(now)
-            cat > "$STATE_FILE" <<EOF
+write_state(){
+  cat > "$STATE_FILE" <<EOF
 {
-  "ts": "$local_ts",
-  "pid": $$,
-  "layers_mixed": $(($(date +%s) % 1000)),
-  "status": "running"
+  "ts": "$(now)",
+  "pid": $(cat "$PID_FILE" 2>/dev/null || echo 0),
+  "layer": $1,
+  "pending": $2,
+  "queue": $3,
+  "done": $4,
+  "ram_pct": $(ram_pct),
+  "status": "$5"
 }
 EOF
-            log_msg "binmix tick ok"
-            sleep 30
-        done
-    ) > /dev/null 2>&1 &
-    echo $! > "$PID_FILE"
-    sleep 1
-    log_msg "daemon started pid=$(cat "$PID_FILE")"
-    echo "✅ Binmix запущено (pid=$(cat "$PID_FILE"))"
 }
 
-cmd_stop() {
-    if ! is_running; then
-        echo "⚠️  Binmix не запущено"
-        return 0
+sign_contract(){
+  local sh sig
+  sh=$( { echo "target=$TARGET"; redis-cli hgetall "$DONE_KEY" 2>/dev/null; } | sha256sum | awk '{print $1}' )
+  sig=$(printf '%s%s' "$sh" "$(now)" | sha256sum | awk '{print $1}')
+  cat > "$CONTRACT_DIR/bar_menu_${TARGET}.contract.json" <<EOF
+{
+  "module": "bar_keepers",
+  "menu_size": $TARGET,
+  "achieved_at": "$(now)",
+  "state_hash": "$sh",
+  "signature": "$sig",
+  "target_key": "$DONE_KEY"
+}
+EOF
+  log_msg "CONTRACT SIGNED → $CONTRACT_DIR/bar_menu_${TARGET}.contract.json"
+}
+
+mixer_loop(){
+  local layer=0 initial total
+  initial=$(rd llen "$PENDING_KEY")
+  total=$((initial + $(rd llen "$QUEUE_KEY")))
+  log_msg "═══ MIXER START pending=$initial queue=$(rd llen "$QUEUE_KEY") target=$TARGET batch=$BATCH_SIZE ═══"
+
+  local stuck=0 last_q=-1
+  while true; do
+    local ram pending queue done
+    ram=$(ram_pct); pending=$(rd llen "$PENDING_KEY"); queue=$(rd llen "$QUEUE_KEY"); done=$(rd llen "$DONE_KEY")
+
+    if [ "${ram:-0}" -ge "$RAM_LIMIT" ]; then
+      log_msg "RAM ${ram}% ≥ ${RAM_LIMIT}% → pause 15s"
+      write_state "$layer" "$pending" "$queue" "$done" "ram_pause"
+      sleep 15; continue
     fi
-    local pid
-    pid=$(cat "$PID_FILE")
-    kill "$pid" 2>/dev/null
-    sleep 1
-    kill -9 "$pid" 2>/dev/null
-    rm -f "$PID_FILE"
-    log_msg "daemon stopped pid=$pid"
-    echo "🛑 Binmix зупинено (pid=$pid)"
-}
 
-cmd_snapshot() {
-    local ts
-    ts=$(date -u +"%Y%m%d_%H%M%S")
-    local dst="$SNAPSHOT_DIR/binmix_${ts}.json"
-    {
-        echo "{"
-        echo "  \"ts\": \"$(now)\","
-        echo "  \"running\": $([ is_running ] && echo true || echo false),"
-        echo "  \"pid\": $([ -f "$PID_FILE" ] && cat "$PID_FILE" || echo null),"
-        echo "  \"state\": $(cat "$STATE_FILE" 2>/dev/null || echo '{}')"
-        echo "}"
-    } > "$dst"
-    log_msg "snapshot -> $dst"
-    echo "📦 Snapshot: $dst"
-    ls -la "$SNAPSHOT_DIR" | tail -6
-}
-
-cmd_chain() {
-    if [ ! -f "$CHAIN_FILE" ]; then
-        echo "❌ chain.json не знайдено: $CHAIN_FILE"
-        echo "   (перевір шлях — можливо, chain.json у папці парламенту)"
-        return 1
+    # Фінал: pending і queue порожні + було що міксувати
+    if [ "${pending:-0}" -eq 0 ] && [ "${queue:-0}" -eq 0 ]; then
+      log_msg "DRAINED after $layer layers | done(hlen)=$done/$TARGET"
+      write_state "$layer" 0 0 "$done" "complete"
+      sign_contract
+      return 0
     fi
-    echo "═══ CHAIN (останні 10 блоків) ═══"
-    python3 - "$CHAIN_FILE" <<'PY'
-import json, sys
-try:
-    chain = json.load(open(sys.argv[1]))
-except Exception as e:
-    print(f"  ❌ Помилка читання: {e}")
-    sys.exit(1)
-for b in chain[-10:]:
-    print(f"  #{b.get('index','?'):>4}  {b.get('hash','')[:16]}…  {b.get('task','')[:50]}")
-print(f"\n  Всього блоків: {len(chain)}")
-PY
-}
 
-cmd_log() {
-    if [ ! -f "$LOG_FILE" ]; then
-        echo "  (лог порожній: $LOG_FILE)"
-        return 0
+    # Чекаємо поки menu-worker розгребе
+    if [ "${queue:-0}" -gt "$DRAIN_THRESHOLD" ]; then
+      write_state "$layer" "$pending" "$queue" "$done" "draining"
+      if [ "$queue" -eq "$last_q" ]; then
+        stuck=$((stuck+1))
+        if [ "$stuck" -ge "$STALL_LIMIT" ]; then
+          log_msg "STALL: queue=$queue unchanged ${stuck} cycles — menu-worker живий? (pm2 status menu-worker)"
+          stuck=0
+        fi
+      else
+        stuck=0
+      fi
+      last_q=$queue
+      sleep 2; continue
     fi
-    tail -15 "$LOG_FILE"
-}
 
-case "${1:-}" in
-    status)   cmd_status ;;
-    start)    cmd_start ;;
-    stop)     cmd_stop ;;
-    snapshot) cmd_snapshot ;;
-    chain)    cmd_chain ;;
-    log)      cmd_log ;;
-    *)
-        echo "Usage: cybra_binmix {status|start|stop|snapshot|chain|log}"
-        exit 1
-        ;;
-
-esac
-
-# ─── 7 РІВНІВ СКЛАДНОСТІ ───
-LEVEL_FILE="/data/data/com.termux/files/home/CYBRA/state/cybra_binmix.level"
-level_now() { [ -f "$LEVEL_FILE" ] && cat "$LEVEL_FILE" || echo 1; }
-level_set() { echo "$1" > "$LEVEL_FILE"; }
-level1() { [ -d "$HOME/CYBRA" ] && return 0 || return 1; }
-level2() { command -v bash >/dev/null && return 0 || return 1; }
-level3() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
-level4() { [ -d "$HOME/CYBRA/logs" ] && return 0 || return 1; }
-level5() { [ -f "$HOME/CYBRA/evo/evo_core.py" ] && return 0 || return 1; }
-level6() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
-level7() { [ -d "$HOME/CYBRA/sandbox" ] && return 0 || return 1; }
-run_levels() {
-    local cur=$(level_now)
-    for i in 1 2 3 4 5 6 7; do
-        [ "$i" -lt "$cur" ] && continue
-        if "level$i"; then level_set "$i"; else return 0; fi
+    # Пушимо шар
+    local pushed=0
+    for i in $(seq 1 "$BATCH_SIZE"); do
+      local item; item=$(rd lpop "$PENDING_KEY")
+      [ -z "$item" ] && break
+      rd rpush "$QUEUE_KEY" "$item" >/dev/null
+      pushed=$((pushed+1))
     done
+    if [ "$pushed" -gt 0 ]; then
+      layer=$((layer+1))
+      log_msg "LAYER $layer +$pushed | pending=$(rd llen "$PENDING_KEY") queue=$(rd llen "$QUEUE_KEY") done=$done/$TARGET"
+    fi
+    write_state "$layer" "$(rd llen "$PENDING_KEY")" "$(rd llen "$QUEUE_KEY")" "$done" "mixing"
+    sleep "$SLEEP_BETWEEN"
+  done
 }
-run_levels
 
+cmd_start(){
+  is_running && { echo "⚠️  running (pid=$(cat "$PID_FILE"))"; return 0; }
+  echo "▶ binmix REAL mixer…"
+  setsid bash -c "$(declare -f now rd log_msg ram_pct write_state sign_contract mixer_loop);
+    CYBRA='$CYBRA'; BINMIX_DIR='$BINMIX_DIR'; STATE_FILE='$STATE_FILE'; LOG_FILE='$LOG_FILE';
+    CONTRACT_DIR='$CONTRACT_DIR'; BATCH_SIZE='$BATCH_SIZE'; DRAIN_THRESHOLD='$DRAIN_THRESHOLD';
+    RAM_LIMIT='$RAM_LIMIT'; SLEEP_BETWEEN='$SLEEP_BETWEEN'; STALL_LIMIT='$STALL_LIMIT';
+    TARGET='$TARGET'; PENDING_KEY='$PENDING_KEY'; QUEUE_KEY='$QUEUE_KEY'; DONE_KEY='$DONE_KEY';
+    PID_FILE='$PID_FILE'; mixer_loop" >/dev/null 2>&1 &
+  echo $! > "$PID_FILE"
+  sleep 1
+  log_msg "daemon pid=$(cat "$PID_FILE")"
+  echo "✅ pid=$(cat "$PID_FILE")  batch=$BATCH_SIZE target=$TARGET"
+  echo "   pending=$PENDING_KEY  queue=$QUEUE_KEY  done=$DONE_KEY"
+}
+
+cmd_stop(){ is_running && { kill "$(cat "$PID_FILE")" 2>/dev/null; rm -f "$PID_FILE"; log_msg stopped; echo "⏹"; } || echo "ℹ️  not running"; }
+cmd_status(){
+  echo "═══ BINMIX v2 ═══"
+  is_running && echo "  🟢 RUNNING pid=$(cat "$PID_FILE")" || echo "  🔴 STOPPED"
+  echo "  pending: $(rd llen "$PENDING_KEY")"
+  echo "  queue:   $(rd llen "$QUEUE_KEY")"
+  echo "  done:    $(rd llen "$DONE_KEY")/$TARGET"
+  echo "  RAM:     $(ram_pct)%"
+  [ -f "$STATE_FILE" ] && { echo "  ─── state ───"; cat "$STATE_FILE"; }
+}
+case "${1:-status}" in
+  start) cmd_start ;;
+  stop) cmd_stop ;;
+  restart) cmd_stop; sleep 1; cmd_start ;;
+  status) cmd_status ;;
+  log) tail -40 "$LOG_FILE" ;;
+  *) echo "usage: $0 {start|stop|restart|status|log}"; exit 1 ;;
+esac

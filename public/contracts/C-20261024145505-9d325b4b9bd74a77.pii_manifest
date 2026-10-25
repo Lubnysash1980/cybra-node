@@ -1,0 +1,15 @@
+# PII MASK MANIFEST
+# CONTRACT_ID=C-20261024145505-9d325b4b9bd74a77
+# MASKED_AT=2026-10-24T17:09:20Z
+# ALGORITHM=sha256
+# SALT_FINGERPRINT=e2d2034e8fab1aac
+
+[BUYER]
+name_hash=EMPTY
+ipn_hash=EMPTY
+
+[SELLER]
+name_hash=EMPTY
+edrpou_hash=EMPTY
+
+# Для верифікації: cybra_pii_hash "ПІБ" → повинно співпасти

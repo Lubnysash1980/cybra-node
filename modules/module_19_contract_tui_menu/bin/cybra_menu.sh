@@ -489,404 +489,175 @@ print_header() {
 
 # ─── MENU (усі секції) ───
 print_menu() {
-    printf '%s
-' "${C_BOLD}  ─── ОСНОВНЕ ───${C_RESET}"
-    printf '  🟢 %s[1]%s  Створити контракт
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[2]%s  Список контрактів
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[3]%s  Статус контракту
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[4]%s  Згенерувати лінки
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[5]%s  Підтвердити лінк
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[6]%s  Debug
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[7]%s  DUAL-LICENSE ledger
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[8]%s  CREATION-LICENSE ledger
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[9]%s  Hardening
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "${C_CYAN}  ─── INVOICE ───${C_RESET}"
-    printf '  🟢 %s[10]%s Підписати INVOICE (продавець)
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[11]%s Створити INVOICE
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[12]%s Додати позицію
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[13]%s Показати INVOICE
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[14]%s Фіналізувати INVOICE
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "${C_CYAN}  ─── PII MASK ───${C_RESET}"
-    printf '  🟢 %s[15]%s Експорт PII-masked
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[16]%s Експорт усіх + git
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[17]%s Перевірити PII хеш
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "${C_CYAN}  ─── REFUND ───${C_RESET}"
-    printf '  🟢 %s[18]%s Фінальне рішення покупця
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[19]%s Перевірити timeout
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[20]%s Статус refund
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[21]%s Додати умову
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "${C_CYAN}  ─── ВАЛЮТИ ───${C_RESET}"
-    printf '  🟢 %s[22]%s Показати курси
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[23]%s Оновити курс
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[24]%s Конвертер
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "${C_CYAN}  ─── СИСТЕМА ───${C_RESET}"
-    printf '  🟢 %s[30]%s Preflight
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[31]%s Self-heal
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[32]%s Dual-backend verify
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[33]%s Ownership scan
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "${C_MAGENTA}  ─── AI (офлайн) ───${C_RESET}"
-    printf '  🟢 %s[40]%s AI Аналіз
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[41]%s AI Парсинг рахунку
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[42]%s AI Генерація умов
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[43]%s AI Допомога
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[44]%s AI Вільне питання
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[45]%s AI Task Bar
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "${C_MAGENTA}  ─── AI EVOLUTION ───${C_RESET}"
-    printf '  🟢 %s[46]%s Executor — повний
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[47]%s Executor — scan
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[48]%s Executor — apply
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[49]%s Executor — список
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "${C_GREEN}  ─── ADDRESS BOOK ───${C_RESET}"
-    printf '  🟢 %s[50]%s Додати адресу
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[51]%s Список адрес
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[52]%s Історія адрес
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "${C_GREEN}  ─── INTEGRATIONS ───${C_RESET}"
-    printf '  🟢 %s[53]%s QR-код
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[54]%s Telegram — setup
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[55]%s Telegram — test
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[56]%s Webhook — список
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[57]%s Webhook — додати
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "${C_GREEN}  ─── EXPORT / BACKUP ───${C_RESET}"
-    printf '  🟢 %s[58]%s CSV — контракти
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[59]%s CSV — ledger
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[60]%s TXT — звіт
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[61]%s Backup — локальний
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[62]%s Backup — хмара
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "${C_GREEN}  ─── MULTI-CHAIN ───${C_RESET}"
-    printf '  🟢 %s[63]%s Список мереж
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[64]%s Сканер-tx
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "${C_RED}  ─── DISPUTE / AUDIT ───${C_RESET}"
-    printf '  🟢 %s[65]%s Відкрити спір
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[66]%s Список спорів
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[67]%s Голосувати
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[68]%s Audit log
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[69]%s Audit — перевірити
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "${C_RED}  ─── DOCUMENT SCANNER ───${C_RESET}"
-    printf '  🟢 %s[70]%s Сфотографувати
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[71]%s OCR
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[72]%s PDF → текст
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[73]%s Повний pipeline
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "${C_MAGENTA}  ─── РОЗШИРЕНІ ───${C_RESET}"
-    printf '  🟢 %s[74]%s Пошук контракту
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[75]%s Auto-fill контракту
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[76]%s AI прогін умов
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[77]%s Перевірка платежів
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[78]%s Додаткові умови
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[79]%s Watchdog (супервізор)
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "${C_RED}  ─── GUARDIAN (100% state) ───${C_RESET}"
-    printf '  🟢 %s[80]%s Стан системи
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[81]%s Перевірка 100%%
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[82]%s Зареєструвати особу
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[83]%s Показати особу
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[84]%s Перевірити особу
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[85]%s Пристрій
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[86]%s Snapshot
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[87]%s Відновити з git
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[88]%s Відновити з snapshot
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[89]%s AUTO-recovery
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[90]%s Action log
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[91]%s Log verify
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "${C_RED}  ─── AUTOSAVE ───${C_RESET}"
-    printf '  🟢 %s[92]%s Зберегти контракт
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[93]%s Статус autosave
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[94]%s Останні архіви
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[95]%s Відновити контракт
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "${C_RED}  ─── EVO CONTROLLERS ───${C_RESET}"
-    printf '  🟢 %s[96]%s EVO7 (7 рівнів)
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[97]%s EVO CONTROLLER (4 SHA)
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[98]%s Parawatch (фон)
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[99]%s AUTOPATCH
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "${C_MAGENTA}  ─── NODE / HASH / SYSTEM ───${C_RESET}"
-    printf '  🟢 %s[100]%s Node manager
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[101]%s Hash ecosystem (5 layers)
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[102]%s Binmix daemon
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[103]%s Metrics (Prometheus)
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[104]%s HTTP panel
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[105]%s Schedule (cron)
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[106]%s Cleanup (ротація)
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[107]%s Autopilot (авто-оновлення)
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "  ${C_BOLD}─── NODE/HASH ───${C_RESET}"
-    printf '  🟢 %s[121]%s parlament
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[120]%s ai guardian
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[119]%s qr sign
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[118]%s net health
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[117]%s tx lookup
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[116]%s gas monitor
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[115]%s rpc bench
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[114]%s autonode
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[113]%s metamask batch
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[112]%s metamask deeplink
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[111]%s metamask settings
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[110]%s metamask history
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[109]%s metamask verify
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[108]%s metamask sign
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "  ${C_BOLD}─── METAMASK ───${C_RESET}"
-    printf '  🟢 %s[124]%s timelock
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[123]%s multisig
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[122]%s contract validator
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "  ${C_BOLD}─── ADVANCED ───${C_RESET}"
-    printf '  🟢 %s[140]%s analytics
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[139]%s reputation
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[138]%s arbitration
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[137]%s escrow
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[136]%s templates
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[135]%s walletconnect
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[134]%s discord
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[133]%s tokens
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[132]%s compliance
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[131]%s kyc
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[130]%s test suite
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[129]%s voice
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[128]%s dashboard
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[126]%s zk
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[125]%s anchor
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "  ${C_BOLD}─── ORCHESTRATOR ───${C_RESET}"
-    printf '  🟢 %s[150]%s Custom Scripts
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[149]%s Advanced Analytics
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[148]%s Multisig UI
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[147]%s On-chain Reputation v2
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[146]%s Merkle Batching
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[145]%s IPFS Pinning
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[144]%s Bitcoin Lightning
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[143]%s Email Notifications
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[142]%s Invoice PDF Export
-' "$C_BOLD" "$C_RESET"
-    printf '  🟢 %s[141]%s Portfolio Tracker
-' "$C_BOLD" "$C_RESET"
-    printf '
-'
-
-    printf '%s
-' "  ${C_GREY}🟢 ready  🟡 warning  🔴 error${C_RESET}"
-    printf '
-'
-    printf '  %s[0]%s  Вихід
-
-' "$C_BOLD" "$C_RESET"
+    printf '%s\n' "  ${C_BOLD}[1]${C_RESET}  Створити контракт"
+    printf '%s\n' "  ${C_BOLD}[2]${C_RESET}  Список контрактів"
+    printf '%s\n' "  ${C_BOLD}[3]${C_RESET}  Статус контракту"
+    printf '%s\n' "  ${C_BOLD}[4]${C_RESET}  Згенерувати лінки"
+    printf '%s\n' "  ${C_BOLD}[5]${C_RESET}  Підтвердити лінк"
+    printf '%s\n' "  ${C_BOLD}[6]${C_RESET}  Debug"
+    printf '%s\n' "  ${C_BOLD}[7]${C_RESET}  DUAL-LICENSE ledger"
+    printf '%s\n' "  ${C_BOLD}[8]${C_RESET}  CREATION-LICENSE ledger"
+    printf '%s\n' "  ${C_BOLD}[9]${C_RESET}  Hardening"
+    printf '%s\n' "${C_CYAN}  ── INVOICE ──${C_RESET}"
+    printf '%s\n' "  ${C_BOLD}[11]${C_RESET} Створити INVOICE"
+    printf '%s\n' "  ${C_BOLD}[12]${C_RESET} Додати позицію"
+    printf '%s\n' "  ${C_BOLD}[13]${C_RESET} Показати INVOICE"
+    printf '%s\n' "  ${C_BOLD}[14]${C_RESET} Фіналізувати INVOICE"
+    printf '%s\n' "${C_CYAN}  ── REFUND ──${C_RESET}"
+    printf '%s\n' "  ${C_BOLD}[18]${C_RESET} Фінальне рішення покупця"
+    printf '%s\n' "  ${C_BOLD}[19]${C_RESET} Перевірити timeout"
+    printf '%s\n' "  ${C_BOLD}[20]${C_RESET} Статус refund"
+    printf '%s\n' "  ${C_BOLD}[21]${C_RESET} Додати умову"
+    printf '%s\n' "${C_CYAN}  ── PII ──${C_RESET}"
+    printf '%s\n' "  ${C_BOLD}[15]${C_RESET} Експорт PII-masked"
+    printf '%s\n' "  ${C_BOLD}[16]${C_RESET} Експорт усіх + git"
+    printf '%s\n' "  ${C_BOLD}[17]${C_RESET} Перевірити PII хеш"
+    printf '%s\n' "${C_CYAN}  ── CURRENCY ──${C_RESET}"
+    printf '%s\n' "  ${C_BOLD}[22]${C_RESET} Показати курси валют"
+    printf '%s\n' "  ${C_BOLD}[23]${C_RESET} Оновити курс"
+    printf '%s\n' "  ${C_BOLD}[24]${C_RESET} Конвертер валют"
+    printf '%s\n' "${C_CYAN}  ── SYSTEM ──${C_RESET}"
+    printf '%s\n' "  ${C_BOLD}[30]${C_RESET} Preflight (перевірка)"
+    printf '%s\n' "  ${C_BOLD}[31]${C_RESET} Self-heal (автовідновлення)"
+    printf '%s\n' "  ${C_BOLD}[32]${C_RESET} Dual-backend verify"
+    printf '%s\n' "  ${C_BOLD}[33]${C_RESET} Ownership scan"
+    echo ""
+    echo "  ── 28..160: додано з модулів ──"
+    printf "  [%d] %s\n" 10 "module_10_base"
+    printf "  [%d] %s\n" 25 "module_25_address_book"
+    printf "  [%d] %s\n" 26 "module_26_base"
+    printf "  [%d] %s\n" 27 "module_27_base"
+    printf "  [%d] %s\n" 28 "module_28_base"
+    printf "  [%d] %s\n" 29 "module_29_backup"
+    printf "  [%d] %s\n" 34 "module_34_generated"
+    printf "  [%d] %s\n" 35 "module_35_base"
+    printf "  [%d] %s\n" 36 "module_36_base"
+    printf "  [%d] %s\n" 37 "module_37_generated"
+    printf "  [%d] %s\n" 38 "module_38_generated"
+    printf "  [%d] %s\n" 39 "module_39_generated"
+    printf "  [%d] %s\n" 40 "module_40_base"
+    printf "  [%d] %s\n" 41 "module_41_base"
+    printf "  [%d] %s\n" 42 "module_42_base"
+    printf "  [%d] %s\n" 43 "module_43_base"
+    printf "  [%d] %s\n" 44 "module_44_base"
+    printf "  [%d] %s\n" 45 "module_45_base"
+    printf "  [%d] %s\n" 46 "module_46_base"
+    printf "  [%d] %s\n" 47 "module_47_base"
+    printf "  [%d] %s\n" 48 "module_48_base"
+    printf "  [%d] %s\n" 49 "module_49_base"
+    printf "  [%d] %s\n" 50 "module_50_generated"
+    printf "  [%d] %s\n" 51 "module_51_base"
+    printf "  [%d] %s\n" 52 "module_52_base"
+    printf "  [%d] %s\n" 53 "module_53_base"
+    printf "  [%d] %s\n" 54 "module_54_base"
+    printf "  [%d] %s\n" 55 "module_55_base"
+    printf "  [%d] %s\n" 56 "module_56_base"
+    printf "  [%d] %s\n" 57 "module_57_base"
+    printf "  [%d] %s\n" 58 "module_58_base"
+    printf "  [%d] %s\n" 59 "module_59_base"
+    printf "  [%d] %s\n" 60 "module_60_base"
+    printf "  [%d] %s\n" 61 "module_61_base"
+    printf "  [%d] %s\n" 62 "module_62_base"
+    printf "  [%d] %s\n" 63 "module_63_base"
+    printf "  [%d] %s\n" 64 "module_64_base"
+    printf "  [%d] %s\n" 65 "module_65_base"
+    printf "  [%d] %s\n" 66 "module_66_generated"
+    printf "  [%d] %s\n" 67 "module_67_base"
+    printf "  [%d] %s\n" 68 "module_68_base"
+    printf "  [%d] %s\n" 69 "module_69_base"
+    printf "  [%d] %s\n" 70 "module_70_base"
+    printf "  [%d] %s\n" 71 "module_71_generated"
+    printf "  [%d] %s\n" 72 "module_72_base"
+    printf "  [%d] %s\n" 73 "module_73_base"
+    printf "  [%d] %s\n" 74 "module_74_base"
+    printf "  [%d] %s\n" 75 "module_75_generated"
+    printf "  [%d] %s\n" 76 "module_76_base"
+    printf "  [%d] %s\n" 77 "module_77_base"
+    printf "  [%d] %s\n" 78 "module_78_base"
+    printf "  [%d] %s\n" 79 "module_79_base"
+    printf "  [%d] %s\n" 80 "module_80_base"
+    printf "  [%d] %s\n" 81 "module_81_base"
+    printf "  [%d] %s\n" 82 "module_82_base"
+    printf "  [%d] %s\n" 83 "module_83_base"
+    printf "  [%d] %s\n" 84 "module_84_base"
+    printf "  [%d] %s\n" 85 "module_85_generated"
+    printf "  [%d] %s\n" 86 "module_86_base"
+    printf "  [%d] %s\n" 87 "module_87_base"
+    printf "  [%d] %s\n" 88 "module_88_base"
+    printf "  [%d] %s\n" 89 "module_89_base"
+    printf "  [%d] %s\n" 90 "module_90_base"
+    printf "  [%d] %s\n" 91 "module_91_base"
+    printf "  [%d] %s\n" 92 "module_92_base"
+    printf "  [%d] %s\n" 93 "module_93_base"
+    printf "  [%d] %s\n" 94 "module_94_base"
+    printf "  [%d] %s\n" 95 "module_95_base"
+    printf "  [%d] %s\n" 96 "module_96_base"
+    printf "  [%d] %s\n" 97 "module_97_base"
+    printf "  [%d] %s\n" 98 "module_98_base"
+    printf "  [%d] %s\n" 99 "module_99_base"
+    printf "  [%d] %s\n" 100 "module_100_base"
+    printf "  [%d] %s\n" 101 "module_101_base"
+    printf "  [%d] %s\n" 102 "module_102_base"
+    printf "  [%d] %s\n" 103 "module_103_base"
+    printf "  [%d] %s\n" 104 "module_104_base"
+    printf "  [%d] %s\n" 105 "module_105_base"
+    printf "  [%d] %s\n" 106 "module_106_base"
+    printf "  [%d] %s\n" 107 "module_107_base"
+    printf "  [%d] %s\n" 108 "module_108_base"
+    printf "  [%d] %s\n" 109 "module_109_base"
+    printf "  [%d] %s\n" 110 "module_110_base"
+    printf "  [%d] %s\n" 111 "module_111_base"
+    printf "  [%d] %s\n" 112 "module_112_base"
+    printf "  [%d] %s\n" 113 "module_113_base"
+    printf "  [%d] %s\n" 114 "module_114_autonode"
+    printf "  [%d] %s\n" 115 "module_115_base"
+    printf "  [%d] %s\n" 116 "module_116_base"
+    printf "  [%d] %s\n" 117 "module_117_base"
+    printf "  [%d] %s\n" 118 "module_118_base"
+    printf "  [%d] %s\n" 119 "module_119_base"
+    printf "  [%d] %s\n" 120 "module_120_ai_guardian"
+    printf "  [%d] %s\n" 121 "module_121_base"
+    printf "  [%d] %s\n" 122 "module_122_base"
+    printf "  [%d] %s\n" 123 "module_123_base"
+    printf "  [%d] %s\n" 124 "module_124_base"
+    printf "  [%d] %s\n" 125 "module_125_anchor"
+    printf "  [%d] %s\n" 126 "module_126_base"
+    printf "  [%d] %s\n" 127 "module_127_base"
+    printf "  [%d] %s\n" 128 "module_128_base"
+    printf "  [%d] %s\n" 129 "module_129_base"
+    printf "  [%d] %s\n" 130 "module_130_base"
+    printf "  [%d] %s\n" 131 "module_131_base"
+    printf "  [%d] %s\n" 132 "module_132_base"
+    printf "  [%d] %s\n" 133 "module_133_base"
+    printf "  [%d] %s\n" 134 "module_134_base"
+    printf "  [%d] %s\n" 135 "module_135_base"
+    printf "  [%d] %s\n" 136 "module_136_base"
+    printf "  [%d] %s\n" 137 "module_137_base"
+    printf "  [%d] %s\n" 138 "module_138_arbitration"
+    printf "  [%d] %s\n" 139 "module_139_base"
+    printf "  [%d] %s\n" 140 "module_140_analytics"
+    printf "  [%d] %s\n" 141 "module_141_base"
+    printf "  [%d] %s\n" 142 "module_142_base"
+    printf "  [%d] %s\n" 143 "module_143_base"
+    printf "  [%d] %s\n" 144 "module_144_base"
+    printf "  [%d] %s\n" 145 "module_145_base"
+    printf "  [%d] %s\n" 146 "module_146_base"
+    printf "  [%d] %s\n" 147 "module_147_base"
+    printf "  [%d] %s\n" 148 "module_148_base"
+    printf "  [%d] %s\n" 149 "module_149_analytics"
+    printf "  [%d] %s\n" 150 "module_150_base"
+    printf "  [%d] %s\n" 151 "module_151_ad_contract"
+    printf "  [%d] %s\n" 152 "module_152_base"
+    printf "  [%d] %s\n" 153 "module_153_base"
+    printf "  [%d] %s\n" 154 "module_154_base"
+    printf "  [%d] %s\n" 155 "module_155_base"
+    printf "  [%d] %s\n" 156 "module_156_base"
+    printf "  [%d] %s\n" 157 "module_157_base"
+    printf "  [%d] %s\n" 158 "module_158_base"
+    printf "  [%d] %s\n" 159 "module_159_base"
+    printf "  [%d] %s\n" 160 "module_160_base"
+    printf '%s\n' "  ${C_BOLD}[0]${C_RESET}  Вихід"
+    printf '\n'
 }
 
 # ─── Main loop ───
@@ -909,10 +680,6 @@ action_parawatch() {
     printf 'Вибір: '
     read -r pw
     case "$pw" in
-        1) "$HOME/CYBRA/bin/cybra_parawatch" status; read -r _ ;;
-        2) "$HOME/CYBRA/bin/cybra_parawatch" start; read -r _ ;;
-        3) "$HOME/CYBRA/bin/cybra_parawatch" stop; read -r _ ;;
-        4) "$HOME/CYBRA/bin/cybra_parawatch" once; read -r _ ;;
     esac
 }
 
@@ -923,9 +690,6 @@ action_autopatch_menu() {
     printf 'Вибір: '
     read -r ap
     case "$ap" in
-        1) "$HOME/CYBRA/bin/cybra_autopatch" check; read -r _ ;;
-        2) "$HOME/CYBRA/bin/cybra_autopatch" all; read -r _ ;;
-        3) "$HOME/CYBRA/bin/cybra_autopatch" contracts; read -r _ ;;
     esac
 }
 
@@ -938,10 +702,6 @@ action_watchdog() {
     printf 'Вибір: '
     read -r wd
     case "$wd" in
-        1) "$HOME/CYBRA/bin/cybra_watchdog" status; read -r _ ;;
-        2) "$HOME/CYBRA/bin/cybra_watchdog" start; read -r _ ;;
-        3) "$HOME/CYBRA/bin/cybra_watchdog" stop; read -r _ ;;
-        4) "$HOME/CYBRA/bin/cybra_watchdog" once; read -r _ ;;
     esac
 }
 
@@ -960,10 +720,6 @@ action_web() {
     printf 'Вибір: '
     read -r w
     case "$w" in
-        1) "$HOME/CYBRA/bin/cybra_web" status; read -r _ ;;
-        2) "$HOME/CYBRA/bin/cybra_web" start; read -r _ ;;
-        3) "$HOME/CYBRA/bin/cybra_web" stop; read -r _ ;;
-        4) "$HOME/CYBRA/bin/cybra_web" restart; read -r _ ;;
     esac
 }
 
@@ -999,10 +755,6 @@ action_http() {
     printf 'Вибір: '
     read -r h
     case "$h" in
-        1) "$HOME/CYBRA/bin/cybra_http" status 2>&1; read -r _ ;;
-        2) "$HOME/CYBRA/bin/cybra_http" start 2>&1; read -r _ ;;
-        3) "$HOME/CYBRA/bin/cybra_http" stop 2>&1; read -r _ ;;
-        4) "$HOME/CYBRA/bin/cybra_http" test 2>&1; read -r _ ;;
     esac
 }
 
@@ -1014,10 +766,6 @@ action_schedule() {
     printf 'Вибір: '
     read -r sc
     case "$sc" in
-        1) "$HOME/CYBRA/bin/cybra_schedule" status 2>&1; read -r _ ;;
-        2) "$HOME/CYBRA/bin/cybra_schedule" start 2>&1; read -r _ ;;
-        3) "$HOME/CYBRA/bin/cybra_schedule" stop 2>&1; read -r _ ;;
-        4) "$HOME/CYBRA/bin/cybra_schedule" list 2>&1; read -r _ ;;
     esac
 }
 
@@ -1036,12 +784,6 @@ action_binmix() {
     printf 'Вибір: '
     read -r bm
     case "$bm" in
-        1) "$HOME/CYBRA/bin/cybra_binmix" status 2>&1; read -r _ ;;
-        2) "$HOME/CYBRA/bin/cybra_binmix" start 2>&1; read -r _ ;;
-        3) "$HOME/CYBRA/bin/cybra_binmix" stop 2>&1; read -r _ ;;
-        4) "$HOME/CYBRA/bin/cybra_binmix" snapshot 2>&1; read -r _ ;;
-        5) "$HOME/CYBRA/bin/cybra_binmix" chain 2>&1; read -r _ ;;
-        6) "$HOME/CYBRA/bin/cybra_binmix" log 2>&1 | tail -15; read -r _ ;;
     esac
 }
 
@@ -1053,10 +795,6 @@ action_hash_eco() {
     printf 'Вибір: '
     read -r he
     case "$he" in
-        1) "$HOME/CYBRA/cybra_hash.sh" layers 2>&1; read -r _ ;;
-        2) "$HOME/CYBRA/cybra_hash.sh" list 2>&1 | head -20; read -r _ ;;
-        3) "$HOME/CYBRA/cybra_hash.sh" push 2>&1; read -r _ ;;
-        4) "$HOME/CYBRA/cybra_hash.sh" cleanup 2>&1; read -r _ ;;
     esac
 }
 
@@ -1070,12 +808,6 @@ action_node() {
     printf 'Вибір: '
     read -r nd
     case "$nd" in
-        1) "$HOME/CYBRA/cybra_node.sh" check 2>&1; read -r _ ;;
-        2) "$HOME/CYBRA/cybra_node.sh" fix 2>&1; read -r _ ;;
-        3) "$HOME/CYBRA/cybra_node.sh" test 2>&1; read -r _ ;;
-        4) "$HOME/CYBRA/cybra_node.sh" sync 2>&1; read -r _ ;;
-        5) "$HOME/CYBRA/cybra_node.sh" push 2>&1; read -r _ ;;
-        6) "$HOME/CYBRA/cybra_node.sh" run 2>&1; read -r _ ;;
     esac
 }
 
@@ -1089,11 +821,6 @@ action_autopilot() {
     printf 'Вибір: '
     read -r ap
     case "$ap" in
-        1) "$HOME/CYBRA/bin/cybra_autopilot" status 2>&1; read -r _ ;;
-        2) "$HOME/CYBRA/bin/cybra_autopilot" start 2>&1; read -r _ ;;
-        3) "$HOME/CYBRA/bin/cybra_autopilot" stop 2>&1; read -r _ ;;
-        4) "$HOME/CYBRA/bin/cybra_autopilot" once 2>&1; read -r _ ;;
-        5) tail -30 "$HOME/CYBRA/logs/autopilot.log" 2>/dev/null; read -r _ ;;
     esac
 }
 
@@ -1105,33 +832,166 @@ while true; do
     read -r CHOICE
 
     case "$CHOICE" in
-        1) action_create_contract ;;
-        2) action_list_contracts ;;
-        3) action_show_status ;;
-        4) action_generate_links ;;
-        5) action_confirm_link ;;
-        6) action_debug ;;
-        7) action_dual_license_ledger ;;
-        8) action_creation_license ;;
-        9) action_hardening ;;
-        11) action_create_invoice ;;
-        12) action_add_line ;;
-        13) action_show_invoice ;;
-        14) action_finalize_invoice ;;
-        15) action_export_masked ;;
-        16) action_export_all_masked ;;
-        17) action_verify_pii ;;
-        18) action_buyer_final_decision ;;
-        19) action_check_timeouts ;;
-        20) action_refund_status ;;
-        21) action_add_term ;;
-        22) action_show_rates ;;
-        23) action_update_rate ;;
-        24) action_convert ;;
-        30) action_preflight ;;
-        31) action_self_heal ;;
-        32) action_dual_verify ;;
-        33) action_ownership ;;
+        1) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_1_base/main.sh" ;;
+        2) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_2_base/main.sh" ;;
+        3) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_3_base/main.sh" ;;
+        4) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_4_base/main.sh" ;;
+        5) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_5_base/main.sh" ;;
+        6) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_6_base/main.sh" ;;
+        7) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_7_base/main.sh" ;;
+        8) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_8_base/main.sh" ;;
+        9) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_9_base/main.sh" ;;
+        10) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_10_base/main.sh" ;;
+        11) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_11_base/main.sh" ;;
+        12) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_12_base/main.sh" ;;
+        13) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_13_base/main.sh" ;;
+        14) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_14_base/main.sh" ;;
+        15) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_15_base/main.sh" ;;
+        16) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_16_base/main.sh" ;;
+        17) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_17_base/main.sh" ;;
+        18) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_18_base/main.sh" ;;
+        19) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_19_base/main.sh" ;;
+        20) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_20_base/main.sh" ;;
+        21) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_21_base/main.sh" ;;
+        22) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_22_base/main.sh" ;;
+        23) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_23_base/main.sh" ;;
+        24) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_24_base/main.sh" ;;
+        25) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_25_base/main.sh" ;;
+        26) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_26_base/main.sh" ;;
+        27) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_27_base/main.sh" ;;
+        28) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_28_base/main.sh" ;;
+        29) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_29_base/main.sh" ;;
+        30) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_30_base/main.sh" ;;
+        31) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_31_base/main.sh" ;;
+        32) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_32_base/main.sh" ;;
+        33) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_33_base/main.sh" ;;
+        34) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_34_base/main.sh" ;;
+        35) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_35_base/main.sh" ;;
+        36) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_36_base/main.sh" ;;
+        37) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_37_base/main.sh" ;;
+        38) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_38_base/main.sh" ;;
+        39) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_39_base/main.sh" ;;
+        40) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_40_base/main.sh" ;;
+        41) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_41_base/main.sh" ;;
+        42) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_42_base/main.sh" ;;
+        43) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_43_base/main.sh" ;;
+        44) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_44_base/main.sh" ;;
+        45) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_45_base/main.sh" ;;
+        46) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_46_base/main.sh" ;;
+        47) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_47_base/main.sh" ;;
+        48) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_48_base/main.sh" ;;
+        49) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_49_base/main.sh" ;;
+        50) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_50_base/main.sh" ;;
+        51) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_51_base/main.sh" ;;
+        52) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_52_base/main.sh" ;;
+        53) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_53_base/main.sh" ;;
+        54) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_54_base/main.sh" ;;
+        55) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_55_base/main.sh" ;;
+        56) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_56_base/main.sh" ;;
+        57) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_57_base/main.sh" ;;
+        58) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_58_base/main.sh" ;;
+        59) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_59_base/main.sh" ;;
+        60) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_60_base/main.sh" ;;
+        61) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_61_base/main.sh" ;;
+        62) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_62_base/main.sh" ;;
+        63) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_63_base/main.sh" ;;
+        64) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_64_base/main.sh" ;;
+        65) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_65_base/main.sh" ;;
+        66) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_66_base/main.sh" ;;
+        67) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_67_base/main.sh" ;;
+        68) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_68_base/main.sh" ;;
+        69) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_69_base/main.sh" ;;
+        70) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_70_base/main.sh" ;;
+        71) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_71_base/main.sh" ;;
+        72) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_72_base/main.sh" ;;
+        73) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_73_base/main.sh" ;;
+        74) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_74_base/main.sh" ;;
+        75) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_75_base/main.sh" ;;
+        76) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_76_base/main.sh" ;;
+        77) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_77_base/main.sh" ;;
+        78) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_78_base/main.sh" ;;
+        79) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_79_base/main.sh" ;;
+        80) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_80_base/main.sh" ;;
+        81) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_81_base/main.sh" ;;
+        82) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_82_base/main.sh" ;;
+        83) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_83_base/main.sh" ;;
+        84) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_84_base/main.sh" ;;
+        85) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_85_base/main.sh" ;;
+        86) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_86_base/main.sh" ;;
+        87) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_87_base/main.sh" ;;
+        88) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_88_base/main.sh" ;;
+        89) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_89_base/main.sh" ;;
+        90) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_90_base/main.sh" ;;
+        91) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_91_base/main.sh" ;;
+        92) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_92_base/main.sh" ;;
+        93) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_93_base/main.sh" ;;
+        94) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_94_base/main.sh" ;;
+        95) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_95_base/main.sh" ;;
+        96) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_96_base/main.sh" ;;
+        97) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_97_base/main.sh" ;;
+        98) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_98_base/main.sh" ;;
+        99) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_99_base/main.sh" ;;
+        100) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_100_base/main.sh" ;;
+        101) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_101_base/main.sh" ;;
+        102) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_102_base/main.sh" ;;
+        103) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_103_base/main.sh" ;;
+        104) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_104_base/main.sh" ;;
+        105) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_105_base/main.sh" ;;
+        106) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_106_base/main.sh" ;;
+        107) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_107_base/main.sh" ;;
+        108) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_108_base/main.sh" ;;
+        109) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_109_base/main.sh" ;;
+        110) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_110_base/main.sh" ;;
+        111) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_111_base/main.sh" ;;
+        112) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_112_base/main.sh" ;;
+        113) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_113_base/main.sh" ;;
+        114) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_114_base/main.sh" ;;
+        115) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_115_base/main.sh" ;;
+        116) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_116_base/main.sh" ;;
+        117) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_117_base/main.sh" ;;
+        118) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_118_base/main.sh" ;;
+        119) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_119_base/main.sh" ;;
+        120) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_120_base/main.sh" ;;
+        121) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_121_base/main.sh" ;;
+        122) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_122_base/main.sh" ;;
+        123) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_123_base/main.sh" ;;
+        124) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_124_base/main.sh" ;;
+        125) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_125_base/main.sh" ;;
+        126) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_126_base/main.sh" ;;
+        127) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_127_base/main.sh" ;;
+        128) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_128_base/main.sh" ;;
+        129) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_129_base/main.sh" ;;
+        130) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_130_base/main.sh" ;;
+        131) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_131_base/main.sh" ;;
+        132) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_132_base/main.sh" ;;
+        133) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_133_base/main.sh" ;;
+        134) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_134_base/main.sh" ;;
+        135) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_135_base/main.sh" ;;
+        136) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_136_base/main.sh" ;;
+        137) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_137_base/main.sh" ;;
+        138) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_138_base/main.sh" ;;
+        139) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_139_base/main.sh" ;;
+        140) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_140_base/main.sh" ;;
+        141) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_141_base/main.sh" ;;
+        142) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_142_base/main.sh" ;;
+        143) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_143_base/main.sh" ;;
+        144) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_144_base/main.sh" ;;
+        145) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_145_base/main.sh" ;;
+        146) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_146_base/main.sh" ;;
+        147) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_147_base/main.sh" ;;
+        148) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_148_base/main.sh" ;;
+        149) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_149_base/main.sh" ;;
+        150) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_150_base/main.sh" ;;
+        151) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_151_base/main.sh" ;;
+        152) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_152_base/main.sh" ;;
+        153) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_153_base/main.sh" ;;
+        154) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_154_base/main.sh" ;;
+        155) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_155_base/main.sh" ;;
+        156) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_156_base/main.sh" ;;
+        157) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_157_base/main.sh" ;;
+        158) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_158_base/main.sh" ;;
+        159) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_159_base/main.sh" ;;
+        160) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_160_base/main.sh" ;;
         0|q|Q|exit|quit)
             printf "%s
 " "${C_GREEN}До побачення.${C_RESET}"

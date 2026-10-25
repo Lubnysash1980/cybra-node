@@ -1,4 +1,16 @@
 #!/data/data/com.termux/files/usr/bin/bash
+# ── BINMIX/EXECUTOR METADATA (auto-added) ──
+# module: module_160
+# source: snapshots  rev=evo_lock_20261024_232817.tar  when=snap
+# score: 109  size: 918B  hash: ce97ef978fe1
+# mixed_at: 2026-10-24T20:29:55.230848+00:00
+# ──────────────────────────────────────────
+# ── BINMIX/EXECUTOR METADATA (auto-added) ──
+# module: module_016
+# source: github_history  rev=c9950944  when=2026-10-24T12:18:45+03:00
+# score: 106  size: 645B  hash: 0b148a1cdf59
+# mixed_at: 2026-10-24T20:26:46.954162+00:00
+# ──────────────────────────────────────────
 
 # ─── BINMIX WRAP (65MB) ───
 CYBRA_W="$HOME/CYBRA"

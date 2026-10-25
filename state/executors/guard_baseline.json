@@ -1,0 +1,807 @@
+{
+  "locked_at": "2026-10-25T06:47:52.954544+00:00",
+  "score": 352813,
+  "modules": {
+    "1": {
+      "size": 2436,
+      "real": true,
+      "dir": "module_1_base"
+    },
+    "2": {
+      "size": 2298,
+      "real": true,
+      "dir": "module_2_base"
+    },
+    "3": {
+      "size": 2290,
+      "real": true,
+      "dir": "module_3_base"
+    },
+    "100": {
+      "size": 2726,
+      "real": true,
+      "dir": "module_100_base"
+    },
+    "101": {
+      "size": 2527,
+      "real": true,
+      "dir": "module_101_base"
+    },
+    "102": {
+      "size": 1917,
+      "real": true,
+      "dir": "module_102_base"
+    },
+    "103": {
+      "size": 2434,
+      "real": true,
+      "dir": "module_103_base"
+    },
+    "104": {
+      "size": 2488,
+      "real": true,
+      "dir": "module_104_base"
+    },
+    "105": {
+      "size": 2484,
+      "real": true,
+      "dir": "module_105_base"
+    },
+    "106": {
+      "size": 2470,
+      "real": true,
+      "dir": "module_106_base"
+    },
+    "107": {
+      "size": 2489,
+      "real": true,
+      "dir": "module_107_base"
+    },
+    "108": {
+      "size": 875,
+      "real": true,
+      "dir": "module_108_metamask_sign"
+    },
+    "109": {
+      "size": 879,
+      "real": true,
+      "dir": "module_109_metamask_verify"
+    },
+    "10": {
+      "size": 2272,
+      "real": true,
+      "dir": "module_10_base"
+    },
+    "110": {
+      "size": 881,
+      "real": true,
+      "dir": "module_110_metamask_history"
+    },
+    "111": {
+      "size": 863,
+      "real": true,
+      "dir": "module_111_invoice"
+    },
+    "112": {
+      "size": 883,
+      "real": true,
+      "dir": "module_112_metamask_deeplink"
+    },
+    "113": {
+      "size": 877,
+      "real": true,
+      "dir": "module_113_metamask_batch"
+    },
+    "114": {
+      "size": 2223,
+      "real": true,
+      "dir": "module_114_base"
+    },
+    "115": {
+      "size": 867,
+      "real": true,
+      "dir": "module_115_rpc_bench"
+    },
+    "116": {
+      "size": 871,
+      "real": true,
+      "dir": "module_116_gas_monitor"
+    },
+    "117": {
+      "size": 867,
+      "real": true,
+      "dir": "module_117_tx_lookup"
+    },
+    "118": {
+      "size": 869,
+      "real": true,
+      "dir": "module_118_net_health"
+    },
+    "119": {
+      "size": 863,
+      "real": true,
+      "dir": "module_119_qr_sign"
+    },
+    "11": {
+      "size": 2335,
+      "real": true,
+      "dir": "module_11_base"
+    },
+    "120": {
+      "size": 2223,
+      "real": true,
+      "dir": "module_120_base"
+    },
+    "121": {
+      "size": 867,
+      "real": true,
+      "dir": "module_121_parlament"
+    },
+    "122": {
+      "size": 885,
+      "real": true,
+      "dir": "module_122_contract_validator"
+    },
+    "123": {
+      "size": 865,
+      "real": true,
+      "dir": "module_123_multisig"
+    },
+    "124": {
+      "size": 865,
+      "real": true,
+      "dir": "module_124_timelock"
+    },
+    "125": {
+      "size": 2223,
+      "real": true,
+      "dir": "module_125_base"
+    },
+    "126": {
+      "size": 853,
+      "real": true,
+      "dir": "module_126_zk"
+    },
+    "127": {
+      "size": 2497,
+      "real": true,
+      "dir": "module_127_base"
+    },
+    "128": {
+      "size": 867,
+      "real": true,
+      "dir": "module_128_dashboard"
+    },
+    "129": {
+      "size": 859,
+      "real": true,
+      "dir": "module_129_voice"
+    },
+    "12": {
+      "size": 2055,
+      "real": false,
+      "dir": "module_12_delivery_receipt"
+    },
+    "130": {
+      "size": 869,
+      "real": true,
+      "dir": "module_130_test_suite"
+    },
+    "131": {
+      "size": 855,
+      "real": true,
+      "dir": "module_131_kyc"
+    },
+    "132": {
+      "size": 869,
+      "real": true,
+      "dir": "module_132_compliance"
+    },
+    "133": {
+      "size": 2497,
+      "real": true,
+      "dir": "module_133_base"
+    },
+    "134": {
+      "size": 863,
+      "real": true,
+      "dir": "module_134_discord"
+    },
+    "135": {
+      "size": 875,
+      "real": true,
+      "dir": "module_135_walletconnect"
+    },
+    "136": {
+      "size": 867,
+      "real": true,
+      "dir": "module_136_templates"
+    },
+    "137": {
+      "size": 861,
+      "real": true,
+      "dir": "module_137_escrow"
+    },
+    "138": {
+      "size": 2223,
+      "real": true,
+      "dir": "module_138_base"
+    },
+    "139": {
+      "size": 869,
+      "real": true,
+      "dir": "module_139_reputation"
+    },
+    "13": {
+      "size": 2039,
+      "real": false,
+      "dir": "module_13_dual_backend"
+    },
+    "140": {
+      "size": 2223,
+      "real": true,
+      "dir": "module_140_base"
+    },
+    "141": {
+      "size": 867,
+      "real": true,
+      "dir": "module_141_portfolio"
+    },
+    "142": {
+      "size": 871,
+      "real": true,
+      "dir": "module_142_invoice_pdf"
+    },
+    "143": {
+      "size": 859,
+      "real": true,
+      "dir": "module_143_email"
+    },
+    "144": {
+      "size": 867,
+      "real": true,
+      "dir": "module_144_lightning"
+    },
+    "145": {
+      "size": 857,
+      "real": true,
+      "dir": "module_145_ipfs"
+    },
+    "146": {
+      "size": 861,
+      "real": true,
+      "dir": "module_146_merkle"
+    },
+    "147": {
+      "size": 875,
+      "real": true,
+      "dir": "module_147_reputation_v2"
+    },
+    "148": {
+      "size": 871,
+      "real": true,
+      "dir": "module_148_multisig_ui"
+    },
+    "149": {
+      "size": 2223,
+      "real": true,
+      "dir": "module_149_base"
+    },
+    "14": {
+      "size": 2023,
+      "real": false,
+      "dir": "module_14_watchdog"
+    },
+    "150": {
+      "size": 863,
+      "real": true,
+      "dir": "module_150_scripts"
+    },
+    "151": {
+      "size": 645,
+      "real": true,
+      "dir": "module_151_base"
+    },
+    "152": {
+      "size": 3533,
+      "real": true,
+      "dir": "module_152_rollback_evo"
+    },
+    "153": {
+      "size": 918,
+      "real": true,
+      "dir": "module_153_base"
+    },
+    "154": {
+      "size": 918,
+      "real": true,
+      "dir": "module_154_base"
+    },
+    "155": {
+      "size": 918,
+      "real": true,
+      "dir": "module_155_base"
+    },
+    "156": {
+      "size": 918,
+      "real": true,
+      "dir": "module_156_base"
+    },
+    "157": {
+      "size": 918,
+      "real": true,
+      "dir": "module_157_base"
+    },
+    "158": {
+      "size": 918,
+      "real": true,
+      "dir": "module_158_base"
+    },
+    "159": {
+      "size": 918,
+      "real": true,
+      "dir": "module_159_base"
+    },
+    "15": {
+      "size": 2063,
+      "real": false,
+      "dir": "module_15_true100_aggregator"
+    },
+    "160": {
+      "size": 1185,
+      "real": true,
+      "dir": "module_160_base"
+    },
+    "16": {
+      "size": 158,
+      "real": false,
+      "dir": "module_16_generated"
+    },
+    "17": {
+      "size": 158,
+      "real": false,
+      "dir": "module_17_generated"
+    },
+    "18": {
+      "size": 2079,
+      "real": false,
+      "dir": "module_18_license_payment_router"
+    },
+    "19": {
+      "size": 158,
+      "real": false,
+      "dir": "module_19_generated"
+    },
+    "20": {
+      "size": 153,
+      "real": false,
+      "dir": "module_20_generated"
+    },
+    "21": {
+      "size": 152,
+      "real": false,
+      "dir": "module_21_generated"
+    },
+    "22": {
+      "size": 2439,
+      "real": true,
+      "dir": "module_22_base"
+    },
+    "23": {
+      "size": 2506,
+      "real": true,
+      "dir": "module_23_base"
+    },
+    "24": {
+      "size": 149,
+      "real": false,
+      "dir": "module_24_generated"
+    },
+    "25": {
+      "size": 415,
+      "real": true,
+      "dir": "module_25_generated"
+    },
+    "26": {
+      "size": 2023,
+      "real": false,
+      "dir": "module_26_qr_codes"
+    },
+    "27": {
+      "size": 2039,
+      "real": false,
+      "dir": "module_27_telegram_bot"
+    },
+    "28": {
+      "size": 415,
+      "real": true,
+      "dir": "module_28_generated"
+    },
+    "29": {
+      "size": 415,
+      "real": true,
+      "dir": "module_29_generated"
+    },
+    "30": {
+      "size": 2031,
+      "real": false,
+      "dir": "module_30_multichain"
+    },
+    "31": {
+      "size": 149,
+      "real": false,
+      "dir": "module_31_generated"
+    },
+    "32": {
+      "size": 2019,
+      "real": false,
+      "dir": "module_32_webhook"
+    },
+    "33": {
+      "size": 154,
+      "real": false,
+      "dir": "module_33_generated"
+    },
+    "34": {
+      "size": 415,
+      "real": true,
+      "dir": "module_34_generated"
+    },
+    "35": {
+      "size": 415,
+      "real": true,
+      "dir": "module_35_generated"
+    },
+    "36": {
+      "size": 415,
+      "real": true,
+      "dir": "module_36_generated"
+    },
+    "37": {
+      "size": 1242,
+      "real": true,
+      "dir": "module_37_generated"
+    },
+    "38": {
+      "size": 1242,
+      "real": true,
+      "dir": "module_38_generated"
+    },
+    "39": {
+      "size": 1242,
+      "real": true,
+      "dir": "module_39_generated"
+    },
+    "40": {
+      "size": 2714,
+      "real": true,
+      "dir": "module_40_base"
+    },
+    "41": {
+      "size": 2484,
+      "real": true,
+      "dir": "module_41_base"
+    },
+    "42": {
+      "size": 2472,
+      "real": true,
+      "dir": "module_42_base"
+    },
+    "43": {
+      "size": 2466,
+      "real": true,
+      "dir": "module_43_base"
+    },
+    "44": {
+      "size": 2464,
+      "real": true,
+      "dir": "module_44_base"
+    },
+    "45": {
+      "size": 2470,
+      "real": true,
+      "dir": "module_45_base"
+    },
+    "46": {
+      "size": 2494,
+      "real": true,
+      "dir": "module_46_base"
+    },
+    "47": {
+      "size": 2494,
+      "real": true,
+      "dir": "module_47_base"
+    },
+    "48": {
+      "size": 2499,
+      "real": true,
+      "dir": "module_48_base"
+    },
+    "49": {
+      "size": 2486,
+      "real": true,
+      "dir": "module_49_base"
+    },
+    "4": {
+      "size": 2253,
+      "real": true,
+      "dir": "module_4_base"
+    },
+    "50": {
+      "size": 1242,
+      "real": true,
+      "dir": "module_50_generated"
+    },
+    "51": {
+      "size": 152,
+      "real": false,
+      "dir": "module_51_generated"
+    },
+    "52": {
+      "size": 153,
+      "real": false,
+      "dir": "module_52_generated"
+    },
+    "53": {
+      "size": 2516,
+      "real": true,
+      "dir": "module_53_base"
+    },
+    "54": {
+      "size": 2497,
+      "real": true,
+      "dir": "module_54_base"
+    },
+    "55": {
+      "size": 2495,
+      "real": true,
+      "dir": "module_55_base"
+    },
+    "56": {
+      "size": 2475,
+      "real": true,
+      "dir": "module_56_base"
+    },
+    "57": {
+      "size": 2487,
+      "real": true,
+      "dir": "module_57_base"
+    },
+    "58": {
+      "size": 155,
+      "real": false,
+      "dir": "module_58_generated"
+    },
+    "59": {
+      "size": 152,
+      "real": true,
+      "dir": "module_59_generated"
+    },
+    "5": {
+      "size": 176,
+      "real": false,
+      "dir": "module_5_generated"
+    },
+    "60": {
+      "size": 150,
+      "real": false,
+      "dir": "module_60_generated"
+    },
+    "61": {
+      "size": 2530,
+      "real": true,
+      "dir": "module_61_base"
+    },
+    "62": {
+      "size": 2462,
+      "real": true,
+      "dir": "module_62_base"
+    },
+    "63": {
+      "size": 152,
+      "real": false,
+      "dir": "module_63_generated"
+    },
+    "64": {
+      "size": 149,
+      "real": false,
+      "dir": "module_64_generated"
+    },
+    "65": {
+      "size": 2499,
+      "real": true,
+      "dir": "module_65_base"
+    },
+    "66": {
+      "size": 1242,
+      "real": true,
+      "dir": "module_66_generated"
+    },
+    "67": {
+      "size": 150,
+      "real": false,
+      "dir": "module_67_generated"
+    },
+    "68": {
+      "size": 149,
+      "real": false,
+      "dir": "module_68_generated"
+    },
+    "69": {
+      "size": 2456,
+      "real": true,
+      "dir": "module_69_base"
+    },
+    "6": {
+      "size": 176,
+      "real": false,
+      "dir": "module_6_generated"
+    },
+    "70": {
+      "size": 154,
+      "real": false,
+      "dir": "module_70_generated"
+    },
+    "71": {
+      "size": 1242,
+      "real": true,
+      "dir": "module_71_generated"
+    },
+    "72": {
+      "size": 151,
+      "real": false,
+      "dir": "module_72_generated"
+    },
+    "73": {
+      "size": 155,
+      "real": false,
+      "dir": "module_73_generated"
+    },
+    "74": {
+      "size": 155,
+      "real": false,
+      "dir": "module_74_generated"
+    },
+    "75": {
+      "size": 1242,
+      "real": true,
+      "dir": "module_75_generated"
+    },
+    "76": {
+      "size": 2438,
+      "real": true,
+      "dir": "module_76_base"
+    },
+    "77": {
+      "size": 2474,
+      "real": true,
+      "dir": "module_77_base"
+    },
+    "78": {
+      "size": 155,
+      "real": false,
+      "dir": "module_78_generated"
+    },
+    "79": {
+      "size": 161,
+      "real": false,
+      "dir": "module_79_generated"
+    },
+    "7": {
+      "size": 176,
+      "real": false,
+      "dir": "module_7_generated"
+    },
+    "80": {
+      "size": 152,
+      "real": false,
+      "dir": "module_80_generated"
+    },
+    "81": {
+      "size": 2454,
+      "real": true,
+      "dir": "module_81_base"
+    },
+    "82": {
+      "size": 159,
+      "real": false,
+      "dir": "module_82_generated"
+    },
+    "83": {
+      "size": 154,
+      "real": false,
+      "dir": "module_83_generated"
+    },
+    "84": {
+      "size": 2466,
+      "real": true,
+      "dir": "module_84_base"
+    },
+    "85": {
+      "size": 1242,
+      "real": true,
+      "dir": "module_85_generated"
+    },
+    "86": {
+      "size": 2468,
+      "real": true,
+      "dir": "module_86_base"
+    },
+    "87": {
+      "size": 155,
+      "real": false,
+      "dir": "module_87_generated"
+    },
+    "88": {
+      "size": 2477,
+      "real": true,
+      "dir": "module_88_base"
+    },
+    "89": {
+      "size": 153,
+      "real": false,
+      "dir": "module_89_generated"
+    },
+    "8": {
+      "size": 176,
+      "real": false,
+      "dir": "module_8_generated"
+    },
+    "90": {
+      "size": 150,
+      "real": false,
+      "dir": "module_90_generated"
+    },
+    "91": {
+      "size": 2441,
+      "real": true,
+      "dir": "module_91_base"
+    },
+    "92": {
+      "size": 2517,
+      "real": true,
+      "dir": "module_92_base"
+    },
+    "93": {
+      "size": 2480,
+      "real": true,
+      "dir": "module_93_base"
+    },
+    "94": {
+      "size": 2486,
+      "real": true,
+      "dir": "module_94_base"
+    },
+    "95": {
+      "size": 2508,
+      "real": true,
+      "dir": "module_95_base"
+    },
+    "96": {
+      "size": 2458,
+      "real": true,
+      "dir": "module_96_base"
+    },
+    "97": {
+      "size": 2472,
+      "real": true,
+      "dir": "module_97_base"
+    },
+    "98": {
+      "size": 2485,
+      "real": true,
+      "dir": "module_98_base"
+    },
+    "99": {
+      "size": 2484,
+      "real": true,
+      "dir": "module_99_base"
+    },
+    "9": {
+      "size": 149,
+      "real": false,
+      "dir": "module_9_generated"
+    }
+  },
+  "previous_score": 342457
+}

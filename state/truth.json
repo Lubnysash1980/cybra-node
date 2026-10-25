@@ -1,0 +1,182 @@
+{
+  "menu_handlers": {
+    "count": 27,
+    "ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      30,
+      31,
+      32,
+      33
+    ],
+    "items": [
+      {
+        "id": 1,
+        "cmd": "\"$HOME/CYBRA/bin/cybra_parawatch\" status; read -r _",
+        "line": 548
+      },
+      {
+        "id": 2,
+        "cmd": "\"$HOME/CYBRA/bin/cybra_parawatch\" start; read -r _",
+        "line": 549
+      },
+      {
+        "id": 3,
+        "cmd": "\"$HOME/CYBRA/bin/cybra_parawatch\" stop; read -r _",
+        "line": 550
+      },
+      {
+        "id": 4,
+        "cmd": "\"$HOME/CYBRA/bin/cybra_parawatch\" once; read -r _",
+        "line": 551
+      },
+      {
+        "id": 5,
+        "cmd": "\"$HOME/CYBRA/bin/cybra_binmix\" chain 2>&1; read -r _",
+        "line": 679
+      },
+      {
+        "id": 6,
+        "cmd": "\"$HOME/CYBRA/bin/cybra_binmix\" log 2>&1 | tail -15; read -r _",
+        "line": 680
+      },
+      {
+        "id": 7,
+        "cmd": "action_dual_license_ledger",
+        "line": 750
+      },
+      {
+        "id": 8,
+        "cmd": "action_creation_license",
+        "line": 751
+      },
+      {
+        "id": 9,
+        "cmd": "action_hardening",
+        "line": 752
+      },
+      {
+        "id": 11,
+        "cmd": "action_create_invoice",
+        "line": 753
+      },
+      {
+        "id": 12,
+        "cmd": "action_add_line",
+        "line": 754
+      },
+      {
+        "id": 13,
+        "cmd": "action_show_invoice",
+        "line": 755
+      },
+      {
+        "id": 14,
+        "cmd": "action_finalize_invoice",
+        "line": 756
+      },
+      {
+        "id": 15,
+        "cmd": "action_export_masked",
+        "line": 757
+      },
+      {
+        "id": 16,
+        "cmd": "action_export_all_masked",
+        "line": 758
+      },
+      {
+        "id": 17,
+        "cmd": "action_verify_pii",
+        "line": 759
+      },
+      {
+        "id": 18,
+        "cmd": "action_buyer_final_decision",
+        "line": 760
+      },
+      {
+        "id": 19,
+        "cmd": "action_check_timeouts",
+        "line": 761
+      },
+      {
+        "id": 20,
+        "cmd": "action_refund_status",
+        "line": 762
+      },
+      {
+        "id": 21,
+        "cmd": "action_add_term",
+        "line": 763
+      },
+      {
+        "id": 22,
+        "cmd": "action_show_rates",
+        "line": 764
+      },
+      {
+        "id": 23,
+        "cmd": "action_update_rate",
+        "line": 765
+      },
+      {
+        "id": 24,
+        "cmd": "action_convert",
+        "line": 766
+      },
+      {
+        "id": 30,
+        "cmd": "action_preflight",
+        "line": 767
+      },
+      {
+        "id": 31,
+        "cmd": "action_self_heal",
+        "line": 768
+      },
+      {
+        "id": 32,
+        "cmd": "action_dual_verify",
+        "line": 769
+      },
+      {
+        "id": 33,
+        "cmd": "action_ownership",
+        "line": 770
+      }
+    ]
+  },
+  "modules": {
+    "count": 279,
+    "with_main": 279,
+    "syntax_ok": 279
+  },
+  "gap_analysis_1_160": {
+    "menu_covers": 27,
+    "missing_from_menu": 133,
+    "missing_but_module_exists": 133,
+    "really_missing": []
+  }
+}

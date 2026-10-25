@@ -1,0 +1,1 @@
+/data/data/com.termux/files/home/CYBRA/bin/parliament_write_module_handler.sh

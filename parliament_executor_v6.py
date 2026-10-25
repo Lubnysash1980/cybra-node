@@ -146,7 +146,7 @@ def main():
 
         try:
             task = json.loads(raw)
-            task_type = task.get("type")
+            task_type = task.get("type") or task.get("action") or task.get("kind")
             topic = task.get("topic", "unknown")
             h = double_sha(raw)
 

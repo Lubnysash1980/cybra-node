@@ -1,4 +1,10 @@
 #!/data/data/com.termux/files/usr/bin/bash
+# ── BINMIX/EXECUTOR METADATA (auto-added) ──
+# module: module_104
+# source: github_history  rev=9d125604  when=2026-10-19T22:28:38+03:00
+# score: 122  size: 2214B  hash: d4be1868fe68
+# mixed_at: 2026-10-24T20:27:57.209621+00:00
+# ──────────────────────────────────────────
 
 # ─── BINMIX WRAP (65MB) ───
 CYBRA_W="$HOME/CYBRA"
@@ -14,33 +20,47 @@ BINMIX_W="$CYBRA_W/bin/cybra_binmix"
 [ -x "$BINMIX_W" ] && "$BINMIX_W" status >/dev/null 2>&1
 # ─── END BINMIX WRAP ───
 
-# МОДУЛЬ 104 (Згенеровано AI IT-відділом)
+# МОДУЛЬ 104: HTTP panel
+# СТАТУС: BASE (готовий до апгрейду Парламентом)
+
 CYBRA="$HOME/CYBRA"
 LOG="$CYBRA/logs/module_104.log"
 mkdir -p "$(dirname "$LOG")"
-log() { echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] $1" >> "$LOG"; }
+log() { echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] $1" >> "$LOG"; }
 
+# ─── АВТО-ФІКС ПРИ ПОМИЛКАХ (EVO TRAP) ───
+trap 'log "ERR line $LINENO"; echo "❌ Помилка в модулі 104. Лог: $LOG"; read -r _; exit 1' ERR
+
+log "START: HTTP panel"
 clear 2>/dev/null
 echo "════════════════════════════════════════════"
-echo "  [МОДУЛЬ 104] AI-INTEGRATED"
+echo "  [104] HTTP panel"
 echo "════════════════════════════════════════════"
-echo "  Статус: READY"
-echo "  Дата: $(date)"
-echo "  Лог: $LOG"
-echo ""
 
-# Реальна логіка (перевірка системи)
-if [ 104 -le 10 ]; then
-    echo "  🔧 Виконую системну перевірку..."
-    df -h /data | tail -1
-elif [ 104 -le 50 ]; then
-    echo "  🛡️ Перевірка процесів..."
-    pm2 ls | grep online | wc -l | xargs echo "  Онлайн процесів:"
-else
-    echo "  📊 Аналіз логів..."
-    tail -n 2 "$LOG" 2>/dev/null || echo "  Лог порожній."
-fi
+# ─── БАЗОВА ЛОГІКА ───
+bash "$CYBRA/bin/cybra_http" status 2>/dev/null || echo "⚠"
 
-log "MODULE 104 EXECUTED"
-echo ""
-read -r -p "Натисни Enter..." _
+echo "════════════════════════════════════════════"
+log "DONE: HTTP panel"
+
+# ─── 7 РІВНІВ СКЛАДНОСТІ ───
+LEVEL_FILE="/data/data/com.termux/files/home/CYBRA/state/main.sh.level"
+level_now() { [ -f "$LEVEL_FILE" ] && cat "$LEVEL_FILE" || echo 1; }
+level_set() { echo "$1" > "$LEVEL_FILE"; }
+level1() { [ -d "$HOME/CYBRA" ] && return 0 || return 1; }
+level2() { command -v bash >/dev/null && return 0 || return 1; }
+level3() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
+level4() { [ -d "$HOME/CYBRA/logs" ] && return 0 || return 1; }
+level5() { [ -f "$HOME/CYBRA/evo/evo_core.py" ] && return 0 || return 1; }
+level6() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
+level7() { [ -d "$HOME/CYBRA/sandbox" ] && return 0 || return 1; }
+run_levels() {
+    local cur=$(level_now)
+    for i in 1 2 3 4 5 6 7; do
+        [ "$i" -lt "$cur" ] && continue
+        if "level$i"; then level_set "$i"; else return 0; fi
+    done
+}
+run_levels
+
+read -r -p "Натисни Enter для виходу..." _
