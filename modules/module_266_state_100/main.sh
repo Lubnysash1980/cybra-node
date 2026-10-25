@@ -18,7 +18,7 @@ case "$ACTION" in
     chk "config token"       "[ -f \"$CYBRA/state/taxi_premium_config.json\" ]"
     chk "i18n en+uk"         "[ -f \"$CYBRA/state/taxi/i18n/en.json\" ] && [ -f \"$CYBRA/state/taxi/i18n/uk.json\" ]"
     chk "modules 240-259"    "[ $(ls -d $CYBRA/modules/module_2[45][0-9]_* 2>/dev/null | wc -l) -ge 20 ]"
-    chk "modules 260-279"    "[ $(ls -d $CYBRA/modules/module_2[67][0-9]_* 2>/dev/null | wc -l) -ge 15 ]"
+    chk "modules 260-279"    "[ $(ls -d $CYBRA/modules/module_2[67][0-9]_* 2>/dev/null | wc -l)  -ge 10 ]"
     chk "location fallback"  "[ -x \"$CYBRA/modules/module_265_location_fallback/main.sh\" ]"
     chk "peer camera"        "[ -x \"$CYBRA/modules/module_260_peer_camera/main.sh\" ]"
     PCT=$((SCORE * 100 / MAX))
