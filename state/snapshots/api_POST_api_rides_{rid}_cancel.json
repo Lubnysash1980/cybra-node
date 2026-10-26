@@ -1,8 +1,14 @@
 {
   "id": "api_POST_api_rides_{rid}_cancel",
   "kind": "api",
+<<<<<<< HEAD
   "ok": false,
   "detail": "<urlopen error [Errno 111] Connection re",
   "ts": "2026-10-26T18:17:12.852857+00:00",
+=======
+  "ok": true,
+  "detail": "HTTP 401",
+  "ts": "2026-10-26T18:18:47.568358+00:00",
+>>>>>>> origin/main
   "path": "/api/rides/{rid}/cancel"
 }

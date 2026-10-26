@@ -1,8 +1,14 @@
 {
   "id": "pm2_cybra-api",
   "kind": "pm2",
+<<<<<<< HEAD
   "ok": false,
   "detail": "errored",
   "ts": "2026-10-26T18:17:12.717946+00:00",
+=======
+  "ok": true,
+  "detail": "online",
+  "ts": "2026-10-26T18:18:47.290445+00:00",
+>>>>>>> origin/main
   "target": "cybra-api"
 }

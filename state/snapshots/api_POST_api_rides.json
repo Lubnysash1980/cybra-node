@@ -1,8 +1,14 @@
 {
   "id": "api_POST_api_rides",
   "kind": "api",
+<<<<<<< HEAD
   "ok": false,
   "detail": "<urlopen error [Errno 111] Connection re",
   "ts": "2026-10-26T18:17:12.837642+00:00",
+=======
+  "ok": true,
+  "detail": "HTTP 401",
+  "ts": "2026-10-26T18:18:47.509059+00:00",
+>>>>>>> origin/main
   "path": "/api/rides"
 }

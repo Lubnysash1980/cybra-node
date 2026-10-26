@@ -1,9 +1,15 @@
 {
   "id": "module_231",
   "kind": "module",
+<<<<<<< HEAD
   "ok": false,
   "detail": "syntax",
   "ts": "2026-10-26T18:16:58.101272+00:00",
+=======
+  "ok": true,
+  "detail": "rc=0",
+  "ts": "2026-10-26T18:18:33.145350+00:00",
+>>>>>>> origin/main
   "target": "/data/data/com.termux/files/home/CYBRA/modules/module_231_ai_chat_support/main.sh",
   "name": "ai_chat_support"
 }

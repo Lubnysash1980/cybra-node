@@ -1,9 +1,15 @@
 {
   "id": "module_219",
   "kind": "module",
+<<<<<<< HEAD
   "ok": false,
   "detail": "syntax",
   "ts": "2026-10-26T18:16:57.817413+00:00",
+=======
+  "ok": true,
+  "detail": "rc=0",
+  "ts": "2026-10-26T18:18:32.175381+00:00",
+>>>>>>> origin/main
   "target": "/data/data/com.termux/files/home/CYBRA/modules/module_219_surge_pricing/main.sh",
   "name": "surge_pricing"
 }

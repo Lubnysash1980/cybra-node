@@ -1,9 +1,15 @@
 {
   "id": "module_232",
   "kind": "module",
+<<<<<<< HEAD
   "ok": false,
   "detail": "syntax",
   "ts": "2026-10-26T18:16:58.127225+00:00",
+=======
+  "ok": true,
+  "detail": "rc=0",
+  "ts": "2026-10-26T18:18:33.262988+00:00",
+>>>>>>> origin/main
   "target": "/data/data/com.termux/files/home/CYBRA/modules/module_232_ai_route_optimize/main.sh",
   "name": "ai_route_optimize"
 }

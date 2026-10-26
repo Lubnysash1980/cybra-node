@@ -1,8 +1,14 @@
 {
   "id": "api_GET_api_state_100",
   "kind": "api",
+<<<<<<< HEAD
   "ok": false,
   "detail": "<urlopen error [Errno 111] Connection re",
   "ts": "2026-10-26T18:17:12.829253+00:00",
+=======
+  "ok": true,
+  "detail": "skipped (heavy endpoint, tested manually)",
+  "ts": "2026-10-26T18:18:47.477652+00:00",
+>>>>>>> origin/main
   "path": "/api/state/100"
 }

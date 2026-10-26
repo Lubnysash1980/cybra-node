@@ -1,9 +1,15 @@
 {
   "id": "module_224",
   "kind": "module",
+<<<<<<< HEAD
   "ok": false,
   "detail": "syntax",
   "ts": "2026-10-26T18:16:57.940733+00:00",
+=======
+  "ok": true,
+  "detail": "rc=0",
+  "ts": "2026-10-26T18:18:32.570130+00:00",
+>>>>>>> origin/main
   "target": "/data/data/com.termux/files/home/CYBRA/modules/module_224_driver_payout/main.sh",
   "name": "driver_payout"
 }

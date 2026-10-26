@@ -1,8 +1,14 @@
 {
   "id": "api_GET_api_taxi_events_stats",
   "kind": "api",
+<<<<<<< HEAD
   "ok": false,
   "detail": "<urlopen error [Errno 111] Connection re",
   "ts": "2026-10-26T18:17:12.898080+00:00",
+=======
+  "ok": true,
+  "detail": "HTTP 200",
+  "ts": "2026-10-26T18:18:47.760006+00:00",
+>>>>>>> origin/main
   "path": "/api/taxi/events/stats"
 }

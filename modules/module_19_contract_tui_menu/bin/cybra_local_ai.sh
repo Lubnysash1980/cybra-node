@@ -523,23 +523,3 @@ local_ai_answer() {
     printf '  • "git" — робота з репо\n'
     printf '\nАбо: [1] аналіз, [2] парсинг, [3] умови, [4] помилки\n'
 }
-
-# ═══════════════════════════════════════════════
-# DISPATCHER — викликати функцію по $1
-# ═══════════════════════════════════════════════
-case "${1:-}" in
-  review)   shift; local_ai_review_contract "${1:-}" ;;
-  parse)    shift; local_ai_parse_invoice "$@" ;;
-  terms)    shift; local_ai_generate_terms "${1:-}" ;;
-  help)     shift; local_ai_help_error "${1:-}" ;;
-  ask)      shift; local_ai_answer "${1:-}" ;;
-  "")
-    echo "usage: cybra_local_ai.sh <command> [args]"
-    echo "  review <CID>       — аналіз контракту"
-    echo "  parse <invoice>    — парсинг рахунку"
-    echo "  terms <CID>        — генерація умов"
-    echo "  help <error>       — допомога при помилці"
-    echo "  ask <question>     — вільне питання"
-    ;;
-  *) echo "unknown command: $1"; exit 1 ;;
-esac

@@ -1,8 +1,14 @@
 {
   "id": "api_DELETE_api_wallet_{addr}",
   "kind": "api",
+<<<<<<< HEAD
   "ok": false,
   "detail": "<urlopen error [Errno 111] Connection re",
   "ts": "2026-10-26T18:17:12.865770+00:00",
+=======
+  "ok": true,
+  "detail": "HTTP 405",
+  "ts": "2026-10-26T18:18:47.627303+00:00",
+>>>>>>> origin/main
   "path": "/api/wallet/{addr}"
 }

@@ -1,11 +1,20 @@
 {
+<<<<<<< HEAD
   "ts": "2026-10-26T18:15:27Z",
+=======
+  "ts": "2026-10-26T18:08:14Z",
+>>>>>>> origin/main
   "status": "ok",
   "critical": 0,
   "degraded": 0,
   "menu_wires": 160,
+<<<<<<< HEAD
   "ram_pct": 70,
   "disk_free_mb": 52909600,
+=======
+  "ram_pct": 71,
+  "disk_free_mb": 68512316,
+>>>>>>> origin/main
   "hidl_queue": 0,
   "hidl_results": 0,
   "problems": [],

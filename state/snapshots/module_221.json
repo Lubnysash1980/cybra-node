@@ -1,9 +1,15 @@
 {
   "id": "module_221",
   "kind": "module",
+<<<<<<< HEAD
   "ok": false,
   "detail": "syntax",
   "ts": "2026-10-26T18:16:57.867035+00:00",
+=======
+  "ok": true,
+  "detail": "rc=0",
+  "ts": "2026-10-26T18:18:32.320540+00:00",
+>>>>>>> origin/main
   "target": "/data/data/com.termux/files/home/CYBRA/modules/module_221_ride_receipt/main.sh",
   "name": "ride_receipt"
 }

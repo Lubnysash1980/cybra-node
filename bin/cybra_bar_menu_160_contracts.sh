@@ -2,14 +2,20 @@
 set -uo pipefail
 CYBRA="$HOME/CYBRA"; cd "$CYBRA" || exit 1
 TS=$(date -u +%FT%TZ); TARGET=160; CREATED=0; FAIL=0
-CLI=""; for f in bin/cybra_contract_cli.sh cybra_contract_cli.sh; do [ -f "$f" ] && CLI="$f" && break; done
-[ -z "$CLI" ] && { echo "❌ no contract CLI"; exit 1; }
-echo "═══ BAR MENU 160 ═══  CLI: $CLI"
+WRITER=""
+[ -x bin/cybra_contract_create.sh ] && WRITER="bin/cybra_contract_create.sh"
+[ -z "$WRITER" ] && { echo "❌ no cybra_contract_create.sh"; exit 1; }
+echo "═══ BAR MENU 160 ═══  writer: $WRITER"
 for n in $(seq 1 $TARGET); do
-  out=$(bash "$CLI" create "0xBUY$(printf '%040d' $n)" "0xSEL$(printf '%040d' $n)" "1000000000000000000" "BNB" 2>&1)
-  echo "$out" | grep -q '"status":"ok"' && CREATED=$((CREATED+1)) || { FAIL=$((FAIL+1)); echo "  [$n] ❌"; }
+  out=$(bash "$WRITER" "0xBUY$(printf '%040d' $n)" "0xSEL$(printf '%040d' $n)" "1000000000000000000" "BNB" 2>&1)
+  rc=$?
+  if [ "$rc" -eq 0 ] && echo "$out" | grep -q '"status":"ok"'; then
+    CREATED=$((CREATED+1))
+  else
+    FAIL=$((FAIL+1)); echo "  [$n] ❌ rc=$rc: $(echo "$out" | head -c 80)"
+  fi
   printf '{"id":"bar_%03d","n":%d,"title":"Bar item %d","level":%d}' $n $n $n $(( (n%7)+1 )) | redis-cli -x rpush cybra:menu:pending >/dev/null 2>&1
-  [ $((n % 40)) -eq 0 ] && echo "  ── $n/160 ──"
+  [ $((n % 40)) -eq 0 ] && echo "  ── $n/160 ── (created: $CREATED, failed: $FAIL)"
 done
 mkdir -p state/contracts
 cat > state/contracts/bar_menu_160.contract.json <<JSON
