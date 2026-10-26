@@ -1,8 +1,8 @@
 {
   "id": "pm2_cybra-api",
   "kind": "pm2",
-  "ok": true,
-  "detail": "online",
-  "ts": "2026-10-26T14:09:12.473720+00:00",
+  "ok": false,
+  "detail": "errored",
+  "ts": "2026-10-26T18:16:20.075687+00:00",
   "target": "cybra-api"
 }

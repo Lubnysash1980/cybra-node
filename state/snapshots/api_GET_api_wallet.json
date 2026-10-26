@@ -1,8 +1,8 @@
 {
   "id": "api_GET_api_wallet",
   "kind": "api",
-  "ok": true,
-  "detail": "HTTP 200",
-  "ts": "2026-10-26T14:09:15.344919+00:00",
+  "ok": false,
+  "detail": "<urlopen error [Errno 111] Connection re",
+  "ts": "2026-10-26T18:16:20.241701+00:00",
   "path": "/api/wallet"
 }

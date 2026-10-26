@@ -1,8 +1,8 @@
 {
   "id": "api_POST_api_price_offer",
   "kind": "api",
-  "ok": true,
-  "detail": "HTTP 401",
-  "ts": "2026-10-26T14:09:15.365567+00:00",
+  "ok": false,
+  "detail": "<urlopen error [Errno 111] Connection re",
+  "ts": "2026-10-26T18:16:20.246500+00:00",
   "path": "/api/price/offer"
 }

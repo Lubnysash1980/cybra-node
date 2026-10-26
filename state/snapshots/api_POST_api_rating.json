@@ -1,8 +1,8 @@
 {
   "id": "api_POST_api_rating",
   "kind": "api",
-  "ok": true,
-  "detail": "HTTP 401",
-  "ts": "2026-10-26T14:09:15.462139+00:00",
+  "ok": false,
+  "detail": "<urlopen error [Errno 111] Connection re",
+  "ts": "2026-10-26T18:16:20.265898+00:00",
   "path": "/api/rating"
 }

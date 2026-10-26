@@ -1,8 +1,8 @@
 {
   "id": "api_POST_api_ai_match",
   "kind": "api",
-  "ok": true,
-  "detail": "HTTP 422",
-  "ts": "2026-10-26T14:09:15.437934+00:00",
+  "ok": false,
+  "detail": "<urlopen error [Errno 111] Connection re",
+  "ts": "2026-10-26T18:16:20.257556+00:00",
   "path": "/api/ai/match"
 }

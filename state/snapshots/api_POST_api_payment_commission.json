@@ -1,8 +1,8 @@
 {
   "id": "api_POST_api_payment_commission",
   "kind": "api",
-  "ok": true,
-  "detail": "HTTP 422",
-  "ts": "2026-10-26T14:09:15.443747+00:00",
+  "ok": false,
+  "detail": "<urlopen error [Errno 111] Connection re",
+  "ts": "2026-10-26T18:16:20.259220+00:00",
   "path": "/api/payment/commission"
 }
