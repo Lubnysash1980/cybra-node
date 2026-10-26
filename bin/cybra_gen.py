@@ -64,7 +64,36 @@ def main():
     MENU.write_text("\n".join(head + wires + lines[anchor:]) + "\n")
     if subprocess.run(["bash","-n",str(MENU)],capture_output=True).returncode != 0:
         shutil.copy2(mbkp, MENU); print("❌ menu broken, rolled back"); return
-    print(f"✅ menu: {len(wires)} wires via ctrl")
+    
+# ── fix human labels (не чіпає wire) ──
+import re as _re, json as _json
+_spec_p = CYBRA/"state/modules_spec.json"
+_spec = {}
+if _spec_p.exists():
+    try: _spec = _json.loads(_spec_p.read_text()).get("modules", {})
+    except: pass
+try:
+    from cybra_gen_part1 import SPEC_MAP as _SM
+    for _n, _r in _SM.items():
+        if str(_n) not in _spec: _spec[str(_n)] = {"name": _r[0], "category": _r[1]}
+except: pass
+def _lab(_n):
+    _i = _spec.get(str(_n), {})
+    _nm = _i.get("name") or _i.get("action") or f"Module {_n}"
+    _ct = _i.get("category") or _i.get("cat") or ""
+    if _re.match(r'^module_\d+$', _nm): _nm = f"Module {_n}"
+    _nm = _nm.replace('_',' ').title()
+    return f"{_nm}" + (f" · {_ct}" if _ct else "")
+_mtxt = MENU.read_text().splitlines()
+_mout = []
+for _ln in _mtxt:
+    if _re.match(r'^\s*\d+\)', _ln):
+        _mout.append(_ln); continue
+    _new, _c = _re.subn(r'"module_(\d+)_[^"]*"', lambda m: f'"{_lab(int(m.group(1)))}"', _ln)
+    _mout.append(_new)
+MENU.write_text("\n".join(_mout) + "\n")
+
+print(f"✅ menu: {len(wires)} wires via ctrl")
 
     spec = {n:{"name":v[0],"category":v[1],"action":v[2],"cli":v[3]} for n,v in SPEC_MAP.items()}
     SPEC.write_text(json.dumps({"generated":ts,"modules":spec},indent=2,ensure_ascii=False))
