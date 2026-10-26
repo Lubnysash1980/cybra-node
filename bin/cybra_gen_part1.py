@@ -155,8 +155,17 @@ SPEC_MAP = {
     152:("rollback_evo","evolution","rollback","bin/cybra_evo_controller.py"),
 }
 # 153-160 заповнимо generic
-for n in range(153,161):
-    SPEC_MAP[n] = (f"module_{n}", "custom", "status", "")
+for n, _name, _cat in [
+    (153, "checkpoint",      "system"),
+    (154, "link_manager",    "integrations"),
+    (155, "mining_autofix",  "mining"),
+    (156, "chain_sync",      "blockchain"),
+    (157, "pool_monitor",    "pool"),
+    (158, "governance",      "governance"),
+    (159, "reports",         "reports"),
+    (160, "fidic_contracts", "fidic"),
+]:
+    SPEC_MAP[n] = (_name, _cat, "status", "")
 
 MAIN_TEMPLATE = r'''#!/data/data/com.termux/files/usr/bin/bash
 # module_{n:03d}: {name} ({category})
