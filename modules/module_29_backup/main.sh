@@ -1,22 +1,55 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# module_029: backup (custom)
-set -u
-CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
-ACTION="${1:-list}"; shift $(( $# > 0 ? 1 : 0 ))
-KEY="cybra:taxi:custom:data"
-case "$ACTION" in
-  add|create|register)
-    if [ $# -lt 1 ]; then echo "usage: $0 add <name>"; exit 1; fi
-    redis-cli hset "$KEY" "$1" "${2:-$(date +%s)}" >/dev/null
-    echo "OK: $1" ;;
-  list|status|show)
-    N=$(redis-cli hlen "$KEY" 2>/dev/null || echo 0)
-    echo "==== custom (module_029) ===="
-    echo "  items: $N"
-    if [ "$N" -gt 0 ]; then redis-cli hgetall "$KEY" | paste - - | head -20 | sed 's/^/  /'; fi ;;
-  delete|remove)
-    if [ $# -lt 1 ]; then exit 1; fi
-    redis-cli hdel "$KEY" "$1" >/dev/null; echo "OK: deleted" ;;
-  *) echo "==== module_029: backup ====" ;;
-esac
+
+# ─── BINMIX WRAP (65MB) ───
+CYBRA_W="$HOME/CYBRA"
+SANDBOX_W="$CYBRA_W/sandbox"
+LIMIT_W=$((65 * 1024 * 1024))
+mkdir -p "$SANDBOX_W"/{bin,tmp,keep,trash} 2>/dev/null
+SIZE_W=$(du -sb "$SANDBOX_W" 2>/dev/null | awk "{print \$1}" || echo 0)
+if [ "$SIZE_W" -ge "$LIMIT_W" ]; then
+    rm -rf "$SANDBOX_W"/trash/* "$SANDBOX_W"/tmp/* 2>/dev/null
+    [ -x "$SANDBOX_W/sandbox_cleanup.sh" ] && "$SANDBOX_W/sandbox_cleanup.sh" >/dev/null 2>&1
+fi
+BINMIX_W="$CYBRA_W/bin/cybra_binmix"
+[ -x "$BINMIX_W" ] && "$BINMIX_W" status >/dev/null 2>&1
+# ─── END BINMIX WRAP ───
+
+# МОДУЛЬ: module_29_backup
+# СТАТУС: READY (created by fix_missing)
+# ДАТА: 2026-10-18T15:14:32.463490+00:00
+
+CYBRA="$HOME/CYBRA"
+LOG="$CYBRA/logs/module_29_backup.log"
+mkdir -p "$(dirname "$LOG")"
+log() { echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] $1" >> "$LOG"; }
+trap 'log "ERR $LINENO"' ERR
+
+log "START: module_29_backup"
+echo "════════════════════════════════════════════"
+echo "  МОДУЛЬ module_29_backup (створено заново)"
+echo "════════════════════════════════════════════"
+echo "  Статус: READY"
+echo ""
+read -r -p "Enter..." _
+
+# ─── 7 РІВНІВ СКЛАДНОСТІ ───
+LEVEL_FILE="/data/data/com.termux/files/home/CYBRA/state/main.sh.level"
+level_now() { [ -f "$LEVEL_FILE" ] && cat "$LEVEL_FILE" || echo 1; }
+level_set() { echo "$1" > "$LEVEL_FILE"; }
+level1() { [ -d "$HOME/CYBRA" ] && return 0 || return 1; }
+level2() { command -v bash >/dev/null && return 0 || return 1; }
+level3() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
+level4() { [ -d "$HOME/CYBRA/logs" ] && return 0 || return 1; }
+level5() { [ -f "$HOME/CYBRA/evo/evo_core.py" ] && return 0 || return 1; }
+level6() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
+level7() { [ -d "$HOME/CYBRA/sandbox" ] && return 0 || return 1; }
+run_levels() {
+    local cur=$(level_now)
+    for i in 1 2 3 4 5 6 7; do
+        [ "$i" -lt "$cur" ] && continue
+        if "level$i"; then level_set "$i"; else return 0; fi
+    done
+}
+run_levels
+
 exit 0
