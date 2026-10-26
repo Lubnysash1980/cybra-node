@@ -722,7 +722,7 @@ def run_check(item):
                 # 200-499 acceptable (auth needed returns 401/403)
                 return resp.status < 500, f"HTTP {resp.status}"
         except urllib.error.HTTPError as e:
-            return e.code < 500, f"HTTP {e.code}"
+            return e.code < 500 or e.code == 404, f"HTTP {e.code}"
         except Exception as e:
             return False, str(e)[:40]
     return False, "unknown_kind"
