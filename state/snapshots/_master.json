@@ -1,0 +1,1163 @@
+{
+  "ts": "2026-10-26T14:02:03.432369+00:00",
+  "total": 133,
+  "passed": 92,
+  "pct": 69.2,
+  "by_kind": {
+    "module": {
+      "total": 73,
+      "passed": 33
+    },
+    "pm2": {
+      "total": 13,
+      "passed": 13
+    },
+    "dart": {
+      "total": 8,
+      "passed": 8
+    },
+    "api": {
+      "total": 39,
+      "passed": 38
+    }
+  },
+  "items": [
+    {
+      "id": "module_200",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:39.868900+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_200_book_ride/main.sh",
+      "name": "book_ride"
+    },
+    {
+      "id": "module_201",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:39.952206+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_201_cancel_ride/main.sh",
+      "name": "cancel_ride"
+    },
+    {
+      "id": "module_202",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:40.054870+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_202_ride_status/main.sh",
+      "name": "ride_status"
+    },
+    {
+      "id": "module_203",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:40.136821+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_203_ride_history/main.sh",
+      "name": "ride_history"
+    },
+    {
+      "id": "module_204",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:40.221935+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_204_estimate_price/main.sh",
+      "name": "estimate_price"
+    },
+    {
+      "id": "module_205",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:40.316579+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_205_select_tariff/main.sh",
+      "name": "select_tariff"
+    },
+    {
+      "id": "module_206",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:40.449740+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_206_schedule_ride/main.sh",
+      "name": "schedule_ride"
+    },
+    {
+      "id": "module_207",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:40.567348+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_207_repeat_ride/main.sh",
+      "name": "repeat_ride"
+    },
+    {
+      "id": "module_208",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:40.707676+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_208_favorite_route/main.sh",
+      "name": "favorite_route"
+    },
+    {
+      "id": "module_209",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:40.903385+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_209_saved_addresses/main.sh",
+      "name": "saved_addresses"
+    },
+    {
+      "id": "module_210",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:41.067032+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_210_driver_register/main.sh",
+      "name": "driver_register"
+    },
+    {
+      "id": "module_211",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:41.222601+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_211_driver_status/main.sh",
+      "name": "driver_status"
+    },
+    {
+      "id": "module_212",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:41.333985+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_212_accept_ride/main.sh",
+      "name": "accept_ride"
+    },
+    {
+      "id": "module_213",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:41.479516+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_213_complete_ride/main.sh",
+      "name": "complete_ride"
+    },
+    {
+      "id": "module_214",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:41.714614+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_214_driver_earnings/main.sh",
+      "name": "driver_earnings"
+    },
+    {
+      "id": "module_215",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:41.903426+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_215_driver_documents/main.sh",
+      "name": "driver_documents"
+    },
+    {
+      "id": "module_216",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:42.088516+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_216_driver_rating/main.sh",
+      "name": "driver_rating"
+    },
+    {
+      "id": "module_217",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:42.275701+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_217_dispatch_nearest/main.sh",
+      "name": "dispatch_nearest"
+    },
+    {
+      "id": "module_218",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:42.359194+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_218_dispatch_batch/main.sh",
+      "name": "dispatch_batch"
+    },
+    {
+      "id": "module_219",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:42.445748+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_219_surge_pricing/main.sh",
+      "name": "surge_pricing"
+    },
+    {
+      "id": "module_220",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:42.528337+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_220_ride_payment/main.sh",
+      "name": "ride_payment"
+    },
+    {
+      "id": "module_221",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:42.633850+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_221_ride_receipt/main.sh",
+      "name": "ride_receipt"
+    },
+    {
+      "id": "module_222",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:42.746437+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_222_ride_refund/main.sh",
+      "name": "ride_refund"
+    },
+    {
+      "id": "module_223",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:42.839061+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_223_escrow_ride/main.sh",
+      "name": "escrow_ride"
+    },
+    {
+      "id": "module_224",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:42.940546+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_224_driver_payout/main.sh",
+      "name": "driver_payout"
+    },
+    {
+      "id": "module_225",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:43.046029+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_225_tip_driver/main.sh",
+      "name": "tip_driver"
+    },
+    {
+      "id": "module_226",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:43.155487+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_226_subscription/main.sh",
+      "name": "subscription"
+    },
+    {
+      "id": "module_227",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:43.240539+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_227_wallet_topup/main.sh",
+      "name": "wallet_topup"
+    },
+    {
+      "id": "module_228",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:43.329740+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_228_payment_history/main.sh",
+      "name": "payment_history"
+    },
+    {
+      "id": "module_229",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:43.411860+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_229_promo_code/main.sh",
+      "name": "promo_code"
+    },
+    {
+      "id": "module_230",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:43.495649+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_230_ai_dispatcher/main.sh",
+      "name": "ai_dispatcher"
+    },
+    {
+      "id": "module_231",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:43.577044+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_231_ai_chat_support/main.sh",
+      "name": "ai_chat_support"
+    },
+    {
+      "id": "module_232",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:43.656004+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_232_ai_route_optimize/main.sh",
+      "name": "ai_route_optimize"
+    },
+    {
+      "id": "module_233",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:43.740109+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_233_ai_demand_forecast/main.sh",
+      "name": "ai_demand_forecast"
+    },
+    {
+      "id": "module_234",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:43.822943+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_234_ai_driver_scoring/main.sh",
+      "name": "ai_driver_scoring"
+    },
+    {
+      "id": "module_235",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:43.910242+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_235_ai_dispute/main.sh",
+      "name": "ai_dispute"
+    },
+    {
+      "id": "module_236",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:43.988555+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_236_rider_analytics/main.sh",
+      "name": "rider_analytics"
+    },
+    {
+      "id": "module_237",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:44.074645+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_237_driver_analytics/main.sh",
+      "name": "driver_analytics"
+    },
+    {
+      "id": "module_238",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:44.153526+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_238_fleet_analytics/main.sh",
+      "name": "fleet_analytics"
+    },
+    {
+      "id": "module_239",
+      "kind": "module",
+      "ok": false,
+      "detail": "rc=1",
+      "ts": "2026-10-26T14:01:44.237527+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_239_taxi_metrics/main.sh",
+      "name": "taxi_metrics"
+    },
+    {
+      "id": "module_240",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:44.316472+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_240_virtual_map/main.sh",
+      "name": "virtual_map"
+    },
+    {
+      "id": "module_241",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:44.372414+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_241_map_zones/main.sh",
+      "name": "map_zones"
+    },
+    {
+      "id": "module_242",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:44.431452+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_242_route_preference/main.sh",
+      "name": "route_preference"
+    },
+    {
+      "id": "module_243",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:44.497634+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_243_parking_priority/main.sh",
+      "name": "parking_priority"
+    },
+    {
+      "id": "module_244",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:44.540963+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_244_video_recorder/main.sh",
+      "name": "video_recorder"
+    },
+    {
+      "id": "module_245",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:44.583517+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_245_media_player/main.sh",
+      "name": "media_player"
+    },
+    {
+      "id": "module_246",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:44.831748+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_246_payment_instant/main.sh",
+      "name": "payment_instant"
+    },
+    {
+      "id": "module_247",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:45.067415+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_247_payment_commission/main.sh",
+      "name": "payment_commission"
+    },
+    {
+      "id": "module_248",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:45.296576+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_248_payment_contract/main.sh",
+      "name": "payment_contract"
+    },
+    {
+      "id": "module_249",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:45.361887+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_249_wallet_connect/main.sh",
+      "name": "wallet_connect"
+    },
+    {
+      "id": "module_250",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:45.423451+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_250_wallet_list/main.sh",
+      "name": "wallet_list"
+    },
+    {
+      "id": "module_251",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:45.476787+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_251_wallet_balance/main.sh",
+      "name": "wallet_balance"
+    },
+    {
+      "id": "module_252",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:45.504410+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_252_price_adaptive/main.sh",
+      "name": "price_adaptive"
+    },
+    {
+      "id": "module_253",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:45.533422+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_253_price_per_km/main.sh",
+      "name": "price_per_km"
+    },
+    {
+      "id": "module_254",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:45.562365+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_254_ai_match/main.sh",
+      "name": "ai_match"
+    },
+    {
+      "id": "module_255",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:45.620289+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_255_ai_zone_optimize/main.sh",
+      "name": "ai_zone_optimize"
+    },
+    {
+      "id": "module_256",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:45.684940+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_256_rating_view/main.sh",
+      "name": "rating_view"
+    },
+    {
+      "id": "module_257",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:45.744800+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_257_rating_comments/main.sh",
+      "name": "rating_comments"
+    },
+    {
+      "id": "module_258",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:45.913020+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_258_eco_global/main.sh",
+      "name": "eco_global"
+    },
+    {
+      "id": "module_259",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:45.960645+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_259_ui_theme/main.sh",
+      "name": "ui_theme"
+    },
+    {
+      "id": "module_260",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:46.016997+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_260_peer_camera/main.sh",
+      "name": "peer_camera"
+    },
+    {
+      "id": "module_261",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:46.058182+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_261_peer_cell/main.sh",
+      "name": "peer_cell"
+    },
+    {
+      "id": "module_262",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:46.087621+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_262_peer_ble/main.sh",
+      "name": "peer_ble"
+    },
+    {
+      "id": "module_263",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:46.116339+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_263_peer_wifi/main.sh",
+      "name": "peer_wifi"
+    },
+    {
+      "id": "module_264",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:46.143910+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_264_peer_fusion/main.sh",
+      "name": "peer_fusion"
+    },
+    {
+      "id": "module_265",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:46.217520+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_265_location_fallback/main.sh",
+      "name": "location_fallback"
+    },
+    {
+      "id": "module_266",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:46.248044+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_266_state_100/main.sh",
+      "name": "state_100"
+    },
+    {
+      "id": "module_267",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:46.313622+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_267_i18n_loader/main.sh",
+      "name": "i18n_loader"
+    },
+    {
+      "id": "module_268",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:46.340878+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_268_voice/main.sh",
+      "name": "voice"
+    },
+    {
+      "id": "module_269",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:46.368647+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_269_ai_assistant/main.sh",
+      "name": "ai_assistant"
+    },
+    {
+      "id": "module_270",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:46.433576+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_270_sos/main.sh",
+      "name": "sos"
+    },
+    {
+      "id": "module_271",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:46.461276+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_271_live_share/main.sh",
+      "name": "live_share"
+    },
+    {
+      "id": "module_272",
+      "kind": "module",
+      "ok": true,
+      "detail": "rc=0",
+      "ts": "2026-10-26T14:01:46.488548+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/modules/module_272_app_metrics/main.sh",
+      "name": "app_metrics"
+    },
+    {
+      "id": "pm2_redis",
+      "kind": "pm2",
+      "ok": true,
+      "detail": "online",
+      "ts": "2026-10-26T14:01:47.455435+00:00",
+      "target": "redis"
+    },
+    {
+      "id": "pm2_parliament",
+      "kind": "pm2",
+      "ok": true,
+      "detail": "online",
+      "ts": "2026-10-26T14:01:48.447945+00:00",
+      "target": "parliament"
+    },
+    {
+      "id": "pm2_menu-worker",
+      "kind": "pm2",
+      "ok": true,
+      "detail": "online",
+      "ts": "2026-10-26T14:01:49.408182+00:00",
+      "target": "menu-worker"
+    },
+    {
+      "id": "pm2_menu-autorobot",
+      "kind": "pm2",
+      "ok": true,
+      "detail": "online",
+      "ts": "2026-10-26T14:01:50.344146+00:00",
+      "target": "menu-autorobot"
+    },
+    {
+      "id": "pm2_cybra-monolith",
+      "kind": "pm2",
+      "ok": true,
+      "detail": "online",
+      "ts": "2026-10-26T14:01:51.449390+00:00",
+      "target": "cybra-monolith"
+    },
+    {
+      "id": "pm2_cybra-executor-ctrl",
+      "kind": "pm2",
+      "ok": true,
+      "detail": "online",
+      "ts": "2026-10-26T14:01:52.913770+00:00",
+      "target": "cybra-executor-ctrl"
+    },
+    {
+      "id": "pm2_cybra-evo-ctrl",
+      "kind": "pm2",
+      "ok": true,
+      "detail": "online",
+      "ts": "2026-10-26T14:01:54.086688+00:00",
+      "target": "cybra-evo-ctrl"
+    },
+    {
+      "id": "pm2_cybra-autopilot",
+      "kind": "pm2",
+      "ok": true,
+      "detail": "online",
+      "ts": "2026-10-26T14:01:55.037229+00:00",
+      "target": "cybra-autopilot"
+    },
+    {
+      "id": "pm2_hidl-worker",
+      "kind": "pm2",
+      "ok": true,
+      "detail": "online",
+      "ts": "2026-10-26T14:01:56.024359+00:00",
+      "target": "hidl-worker"
+    },
+    {
+      "id": "pm2_hidl-notifier",
+      "kind": "pm2",
+      "ok": true,
+      "detail": "online",
+      "ts": "2026-10-26T14:01:56.987947+00:00",
+      "target": "hidl-notifier"
+    },
+    {
+      "id": "pm2_level-tracker",
+      "kind": "pm2",
+      "ok": true,
+      "detail": "online",
+      "ts": "2026-10-26T14:01:57.944574+00:00",
+      "target": "level-tracker"
+    },
+    {
+      "id": "pm2_taxi-events",
+      "kind": "pm2",
+      "ok": true,
+      "detail": "online",
+      "ts": "2026-10-26T14:01:58.872538+00:00",
+      "target": "taxi-events"
+    },
+    {
+      "id": "pm2_cybra-api",
+      "kind": "pm2",
+      "ok": true,
+      "detail": "online",
+      "ts": "2026-10-26T14:01:59.830233+00:00",
+      "target": "cybra-api"
+    },
+    {
+      "id": "dart_client",
+      "kind": "dart",
+      "ok": true,
+      "detail": "structure_ok",
+      "ts": "2026-10-26T14:01:59.839260+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/api/client.dart"
+    },
+    {
+      "id": "dart_main",
+      "kind": "dart",
+      "ok": true,
+      "detail": "structure_ok",
+      "ts": "2026-10-26T14:01:59.841064+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/main.dart"
+    },
+    {
+      "id": "dart_book_ride_screen",
+      "kind": "dart",
+      "ok": true,
+      "detail": "structure_ok",
+      "ts": "2026-10-26T14:01:59.842687+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/screens/book_ride_screen.dart"
+    },
+    {
+      "id": "dart_history_screen",
+      "kind": "dart",
+      "ok": true,
+      "detail": "structure_ok",
+      "ts": "2026-10-26T14:01:59.843766+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/screens/history_screen.dart"
+    },
+    {
+      "id": "dart_login_screen",
+      "kind": "dart",
+      "ok": true,
+      "detail": "structure_ok",
+      "ts": "2026-10-26T14:01:59.845038+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/screens/login_screen.dart"
+    },
+    {
+      "id": "dart_map_screen",
+      "kind": "dart",
+      "ok": true,
+      "detail": "structure_ok",
+      "ts": "2026-10-26T14:01:59.846235+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/screens/map_screen.dart"
+    },
+    {
+      "id": "dart_track_screen",
+      "kind": "dart",
+      "ok": true,
+      "detail": "structure_ok",
+      "ts": "2026-10-26T14:01:59.847467+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/screens/track_screen.dart"
+    },
+    {
+      "id": "dart_wallet_screen",
+      "kind": "dart",
+      "ok": true,
+      "detail": "structure_ok",
+      "ts": "2026-10-26T14:01:59.848773+00:00",
+      "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/screens/wallet_screen.dart"
+    },
+    {
+      "id": "api_GET_api_health",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 200",
+      "ts": "2026-10-26T14:02:00.109349+00:00",
+      "path": "/api/health"
+    },
+    {
+      "id": "api_GET_api_state_100",
+      "kind": "api",
+      "ok": false,
+      "detail": "timed out",
+      "ts": "2026-10-26T14:02:03.116883+00:00",
+      "path": "/api/state/100"
+    },
+    {
+      "id": "api_POST_api_auth_register",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 422",
+      "ts": "2026-10-26T14:02:03.130841+00:00",
+      "path": "/api/auth/register"
+    },
+    {
+      "id": "api_POST_api_auth_login",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 422",
+      "ts": "2026-10-26T14:02:03.139510+00:00",
+      "path": "/api/auth/login"
+    },
+    {
+      "id": "api_GET_api_me",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 401",
+      "ts": "2026-10-26T14:02:03.151342+00:00",
+      "path": "/api/me"
+    },
+    {
+      "id": "api_POST_api_rides",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 401",
+      "ts": "2026-10-26T14:02:03.159667+00:00",
+      "path": "/api/rides"
+    },
+    {
+      "id": "api_GET_api_rides",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 401",
+      "ts": "2026-10-26T14:02:03.166789+00:00",
+      "path": "/api/rides"
+    },
+    {
+      "id": "api_GET_api_rides_open",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 200",
+      "ts": "2026-10-26T14:02:03.181124+00:00",
+      "path": "/api/rides/open"
+    },
+    {
+      "id": "api_GET_api_rides_{rid}",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 404",
+      "ts": "2026-10-26T14:02:03.190245+00:00",
+      "path": "/api/rides/{rid}"
+    },
+    {
+      "id": "api_POST_api_rides_{rid}_accept",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 401",
+      "ts": "2026-10-26T14:02:03.199906+00:00",
+      "path": "/api/rides/{rid}/accept"
+    },
+    {
+      "id": "api_POST_api_rides_{rid}_start",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 401",
+      "ts": "2026-10-26T14:02:03.209164+00:00",
+      "path": "/api/rides/{rid}/start"
+    },
+    {
+      "id": "api_POST_api_rides_{rid}_complete",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 401",
+      "ts": "2026-10-26T14:02:03.218430+00:00",
+      "path": "/api/rides/{rid}/complete"
+    },
+    {
+      "id": "api_POST_api_rides_{rid}_cancel",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 401",
+      "ts": "2026-10-26T14:02:03.226573+00:00",
+      "path": "/api/rides/{rid}/cancel"
+    },
+    {
+      "id": "api_GET_api_map_markers",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 200",
+      "ts": "2026-10-26T14:02:03.234843+00:00",
+      "path": "/api/map/markers"
+    },
+    {
+      "id": "api_POST_api_map_markers",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 422",
+      "ts": "2026-10-26T14:02:03.241200+00:00",
+      "path": "/api/map/markers"
+    },
+    {
+      "id": "api_GET_api_map_near",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 422",
+      "ts": "2026-10-26T14:02:03.248432+00:00",
+      "path": "/api/map/near"
+    },
+    {
+      "id": "api_POST_api_map_zones",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 422",
+      "ts": "2026-10-26T14:02:03.256666+00:00",
+      "path": "/api/map/zones"
+    },
+    {
+      "id": "api_GET_api_map_zones",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 200",
+      "ts": "2026-10-26T14:02:03.266241+00:00",
+      "path": "/api/map/zones"
+    },
+    {
+      "id": "api_POST_api_wallet_connect",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 401",
+      "ts": "2026-10-26T14:02:03.274796+00:00",
+      "path": "/api/wallet/connect"
+    },
+    {
+      "id": "api_GET_api_wallet",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 200",
+      "ts": "2026-10-26T14:02:03.282687+00:00",
+      "path": "/api/wallet"
+    },
+    {
+      "id": "api_DELETE_api_wallet_{addr}",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 405",
+      "ts": "2026-10-26T14:02:03.289251+00:00",
+      "path": "/api/wallet/{addr}"
+    },
+    {
+      "id": "api_GET_api_wallet_{addr}_balance",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 200",
+      "ts": "2026-10-26T14:02:03.297728+00:00",
+      "path": "/api/wallet/{addr}/balance"
+    },
+    {
+      "id": "api_POST_api_price_offer",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 401",
+      "ts": "2026-10-26T14:02:03.305462+00:00",
+      "path": "/api/price/offer"
+    },
+    {
+      "id": "api_POST_api_price_counter",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 401",
+      "ts": "2026-10-26T14:02:03.313002+00:00",
+      "path": "/api/price/counter"
+    },
+    {
+      "id": "api_POST_api_price_accept",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 401",
+      "ts": "2026-10-26T14:02:03.320636+00:00",
+      "path": "/api/price/accept"
+    },
+    {
+      "id": "api_POST_api_price_per_km",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 422",
+      "ts": "2026-10-26T14:02:03.328635+00:00",
+      "path": "/api/price/per_km"
+    },
+    {
+      "id": "api_GET_api_price_suggest",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 200",
+      "ts": "2026-10-26T14:02:03.335856+00:00",
+      "path": "/api/price/suggest"
+    },
+    {
+      "id": "api_GET_api_price_negotiate_{rid}",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 200",
+      "ts": "2026-10-26T14:02:03.343717+00:00",
+      "path": "/api/price/negotiate/{rid}"
+    },
+    {
+      "id": "api_POST_api_ai_interests",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 422",
+      "ts": "2026-10-26T14:02:03.351379+00:00",
+      "path": "/api/ai/interests"
+    },
+    {
+      "id": "api_POST_api_ai_match",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 422",
+      "ts": "2026-10-26T14:02:03.360604+00:00",
+      "path": "/api/ai/match"
+    },
+    {
+      "id": "api_POST_api_payment_commission",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 422",
+      "ts": "2026-10-26T14:02:03.366660+00:00",
+      "path": "/api/payment/commission"
+    },
+    {
+      "id": "api_POST_api_payment_instant",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 422",
+      "ts": "2026-10-26T14:02:03.373584+00:00",
+      "path": "/api/payment/instant"
+    },
+    {
+      "id": "api_POST_api_payment_contract",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 422",
+      "ts": "2026-10-26T14:02:03.381662+00:00",
+      "path": "/api/payment/contract"
+    },
+    {
+      "id": "api_POST_api_rating",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 401",
+      "ts": "2026-10-26T14:02:03.388867+00:00",
+      "path": "/api/rating"
+    },
+    {
+      "id": "api_GET_api_rating",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 200",
+      "ts": "2026-10-26T14:02:03.397280+00:00",
+      "path": "/api/rating"
+    },
+    {
+      "id": "api_GET_api_i18n_{lang}",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 200",
+      "ts": "2026-10-26T14:02:03.409956+00:00",
+      "path": "/api/i18n/{lang}"
+    },
+    {
+      "id": "api_POST_api_i18n_lang",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 401",
+      "ts": "2026-10-26T14:02:03.416112+00:00",
+      "path": "/api/i18n/lang"
+    },
+    {
+      "id": "api_POST_api_taxi_events",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 422",
+      "ts": "2026-10-26T14:02:03.422733+00:00",
+      "path": "/api/taxi/events"
+    },
+    {
+      "id": "api_GET_api_taxi_events_stats",
+      "kind": "api",
+      "ok": true,
+      "detail": "HTTP 200",
+      "ts": "2026-10-26T14:02:03.431287+00:00",
+      "path": "/api/taxi/events/stats"
+    }
+  ]
+}

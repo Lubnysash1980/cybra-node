@@ -1,0 +1,8 @@
+{
+  "id": "api_DELETE_api_wallet_{addr}",
+  "kind": "api",
+  "ok": true,
+  "detail": "HTTP 405",
+  "ts": "2026-10-26T14:02:03.289251+00:00",
+  "path": "/api/wallet/{addr}"
+}
