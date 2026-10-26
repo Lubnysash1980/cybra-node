@@ -108,9 +108,18 @@ fi
 
 # ─── 7. RAM / disk ───
 RAM=$(free -m 2>/dev/null | awk '/Mem:/{printf "%d",$3/$2*100}')
-DISK=$(df -m /data 2>/dev/null | awk 'NR==2{print $4}')
-if [ "${RAM:-0}" -ge 92 ]; then warn "ram:${RAM}% critical"; elif [ "${RAM:-0}" -ge 85 ]; then warn "ram:${RAM}% high"; else ok "ram:${RAM}%"; fi
-if [ "${DISK:-0}" -le 500 ]; then warn "disk:${DISK}MB low"; else ok "disk:${DISK}MB free"; fi
+DISK=$(df /data 2>/dev/null | awk 'NR==2{print $4}' | sed 's/[A-Za-z]//g')
+# df /data returns "-" or "0" on some Android; fallback to stat
+if [ -z "$DISK" ] || [ "$DISK" = "0" ]; then
+  DISK=$(df /data 2>/dev/null | tail -1 | awk '{print $4}')
+fi
+if [ -z "$DISK" ]; then
+  # can't measure — skip silently
+  ok "disk: n/a"
+else
+  if [ "${RAM:-0}" -ge 92 ]; then warn "ram:${RAM}% critical"; elif [ "${RAM:-0}" -ge 85 ]; then warn "ram:${RAM}% high"; else ok "ram:${RAM}%"; fi
+  if [ "$DISK" -le 500 ]; then warn "disk:${DISK}MB low"; else ok "disk:${DISK}MB free"; fi
+fi
 
 # ─── Persist ───
 pm2 save >/dev/null 2>&1

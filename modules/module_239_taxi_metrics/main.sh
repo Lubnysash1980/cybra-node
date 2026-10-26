@@ -35,7 +35,7 @@ case "$ACTION" in
     echo "════ taxi analytics: taxi_metrics ════"
 >>>>>>> c0d6c45c7d164ae4ce146ebdd21942e9c1bda593
     echo "  items: $N"
-    [ "$N" -gt 0 ] && redis-cli hgetall "cybra:taxi:analytics:data" | paste - - | head -20 | sed 's/^/  /' ;;
+    if [ "$N" -gt 0 ]; then redis-cli hgetall "cybra:taxi:analytics:data" | paste - - | head -20 | sed 's/^/  /'; fi ;;
   cancel|delete|remove)
     [ $# -lt 1 ] && { echo "usage: $0 $ACTION <id>"; exit 1; }
     redis-cli hdel "cybra:taxi:analytics:data" "$1" >/dev/null

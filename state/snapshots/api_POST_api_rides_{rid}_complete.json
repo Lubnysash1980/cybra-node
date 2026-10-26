@@ -1,0 +1,8 @@
+{
+  "id": "api_POST_api_rides_{rid}_complete",
+  "kind": "api",
+  "ok": true,
+  "detail": "HTTP 401",
+  "ts": "2026-10-26T14:09:15.290436+00:00",
+  "path": "/api/rides/{rid}/complete"
+}

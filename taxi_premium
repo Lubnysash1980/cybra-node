@@ -1,0 +1,56 @@
+#!/data/data/com.termux/files/usr/bin/bash
+CYBRA="$HOME/CYBRA"; cd "$CYBRA" 2>/dev/null || exit 1
+G=$'\033[1;32m'; C=$'\033[1;36m'; Y=$'\033[1;33m'; M=$'\033[1;35m'; R=$'\033[0m'
+B=$'\033[1m'; D=$'\033[2m'
+if [ -f "$CYBRA/state/health.json" ]; then
+  notify=$(bash "$CYBRA/bin/cybra_notify.sh" bar 2>/dev/null)
+else
+  notify="health:n/a  🔔$(bash "$CYBRA/bin/cybra_notify.sh" unread 2>/dev/null || echo 0)"
+fi
+markers=$(redis-cli hlen cybra:taxi:map:markers 2>/dev/null || echo 0)
+wallets=$(redis-cli hlen cybra:taxi:wallet:data 2>/dev/null || echo 0)
+theme=$(redis-cli get cybra:taxi:ui:theme 2>/dev/null || echo default)
+while true; do
+  clear
+  echo -e "${G}╔══════════════════════════════════════════════════════════════════╗${R}"
+  echo -e "${G}║  🚕 ${B}CYBRA TAXI PREMIUM${R}   ${D}20 modules · 240-259${R}              ${G}║${R}"
+  echo -e "${G}║  ${C}${notify}${R}                                                     ${G}║${R}"
+  echo -e "${G}║  ${Y}📍 ${markers}${R}  ${M}👛 ${wallets}${R}  ${C}🎨 ${theme}${R}                              ${G}║${R}"
+  echo -e "${G}╚══════════════════════════════════════════════════════════════════╝${R}"
+  echo ""
+  echo -e "  ${Y}─── 🗺  КАРТИ / ЗОНИ ───${R}"
+  echo -e "  ${C}[240]${R} Вірт. карта  ${C}[241]${R} Зони(уник)  ${C}[242]${R} Напрямок  ${C}[243]${R} Парковка"
+  echo -e "  ${C}[255]${R} AI-зон-оптимізація"
+  echo ""
+  echo -e "  ${Y}─── 🎥 МЕДІА ───${R}"
+  echo -e "  ${C}[244]${R} Відеореєстратор  ${C}[245]${R} Медіаплеєр"
+  echo ""
+  echo -e "  ${Y}─── 💰 ОПЛАТА ───${R}"
+  echo -e "  ${C}[246]${R} Card→Card  ${C}[247]${R} Комісія 5%→CYBRA  ${C}[248]${R} Контракт"
+  echo -e "  ${M}0x74dA52028E42A37bc89E05c2fD5c52daBE4CB48f${R}"
+  echo ""
+  echo -e "  ${Y}─── 👛 ГАМАНЦІ ───${R}"
+  echo -e "  ${C}[249]${R} Приєднати  ${C}[250]${R} Список  ${C}[251]${R} Баланс"
+  echo ""
+  echo -e "  ${Y}─── 💵 ЦІНИ ───${R}"
+  echo -e "  ${C}[252]${R} Адаптивна  ${C}[253]${R} Ціна за км"
+  echo ""
+  echo -e "  ${Y}─── 🤖 AI ───${R}"
+  echo -e "  ${C}[254]${R} AI-підбір (за інтересами)"
+  echo ""
+  echo -e "  ${Y}─── ⭐ РЕЙТИНГ ${D}(не впливає на роботу)${R}${Y} ───${R}"
+  echo -e "  ${C}[256]${R} Перегляд  ${C}[257]${R} Коментарі"
+  echo ""
+  echo -e "  ${Y}─── 🌍 СИСТЕМА ───${R}"
+  echo -e "  ${C}[258]${R} Eco sync  ${C}[259]${R} UI-тема  ${C}[0]${R} Вихід"
+  echo ""
+  read -r -p "  ${B}Вибір:${R} " c
+  case "$c" in
+    240|241|242|243|244|245|246|247|248|249|250|251|252|253|254|255|256|257|258|259)
+      DIR=$(find "$CYBRA/modules" -maxdepth 1 -type d -name "module_${c}_*" 2>/dev/null | head -1)
+      CTRL="$CYBRA/controllers/premium_module_${c}.ctrl.sh"
+      [ -f "$CTRL" ] && [ -n "$DIR" ] && bash "$CTRL" "$DIR/main.sh"
+      read -r -p "Enter..." _ ;;
+    0|q|Q) exit 0 ;;
+  esac
+done
