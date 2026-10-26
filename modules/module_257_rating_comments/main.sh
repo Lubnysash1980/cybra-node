@@ -1,29 +1,22 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# module_257: rating_comments (rating) — taxi_premium
-# generated 2026-10-25T23:07:35Z
+# module_257: rating_comments (taxi)
 set -u
 CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
 ACTION="${1:-list}"; shift $(( $# > 0 ? 1 : 0 ))
-MODULE_LABEL="rating_comments"
-MODULE_CAT="rating"
-
+KEY="cybra:taxi:taxi:data"
 case "$ACTION" in
-  add)
-    WHO="${1:-}"; SC="${2:-}"; shift 2>/dev/null || true
-    COMMENT="$*"
-    [ -z "$WHO" ] || [ -z "$SC" ] && { echo "usage: $0 add <who> <1-5> [comment]"; exit 1; }
-    RID="R-$(date +%s)"
-    redis-cli hset cybra:taxi:rating:data "$RID" "$WHO|score=$SC|$COMMENT|$(date -u +%FT%TZ)" >/dev/null
-    echo "⭐ saved ($RID) — does NOT affect dispatch/AI"
-    ;;
-  view|list|*)
-    WHO="${1:-}"
-    echo "════ ${MODULE_LABEL} ════"
-    redis-cli hgetall cybra:taxi:rating:data 2>/dev/null | paste - - | while read k v; do
-      if [ -z "$WHO" ] || echo "$v" | grep -q "^$WHO|"; then
-        echo "  $k: $v"
-      fi
-    done
-    echo "  NOTE: rating only for review — does NOT affect driver work"
-    ;;
+  add|create|register)
+    if [ $# -lt 1 ]; then echo "usage: $0 add <name>"; exit 1; fi
+    redis-cli hset "$KEY" "$1" "${2:-$(date +%s)}" >/dev/null
+    echo "OK: $1" ;;
+  list|status|show)
+    N=$(redis-cli hlen "$KEY" 2>/dev/null || echo 0)
+    echo "==== taxi (module_257) ===="
+    echo "  items: $N"
+    if [ "$N" -gt 0 ]; then redis-cli hgetall "$KEY" | paste - - | head -20 | sed 's/^/  /'; fi ;;
+  delete|remove)
+    if [ $# -lt 1 ]; then exit 1; fi
+    redis-cli hdel "$KEY" "$1" >/dev/null; echo "OK: deleted" ;;
+  *) echo "==== module_257: rating_comments ====" ;;
 esac
+exit 0

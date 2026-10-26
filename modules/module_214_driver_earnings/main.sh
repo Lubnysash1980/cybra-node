@@ -1,26 +1,22 @@
 #!/data/data/com.termux/files/usr/bin/bash
+# module_214: driver_earnings (taxi)
 set -u
 CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
-LOG="$CYBRA/logs/taxi_214.log"; mkdir -p "$(dirname "$LOG")"
-log() { echo "[$(date -u +%FT%TZ)] $*" >> "$LOG"; }
-ACTION="${1:-show}"; shift $(( $# > 0 ? 1 : 0 ))
-log "START driver_earnings action=$ACTION args=$#"
+ACTION="${1:-list}"; shift $(( $# > 0 ? 1 : 0 ))
+KEY="cybra:taxi:taxi:data"
 case "$ACTION" in
-  create|register|add|book|schedule)
-    [ $# -lt 1 ] && { echo "usage: $0 $ACTION <id> [val]"; exit 1; }
-    redis-cli hset "cybra:taxi:driver:data" "$1" "${2:-$(date +%s)}" >/dev/null
-    echo "✅ driver: $1" ;;
-  list|status|show|history)
-    N=$(redis-cli hlen "cybra:taxi:driver:data" 2>/dev/null || echo 0)
-    echo "════ taxi driver: driver_earnings ════"
+  add|create|register)
+    if [ $# -lt 1 ]; then echo "usage: $0 add <name>"; exit 1; fi
+    redis-cli hset "$KEY" "$1" "${2:-$(date +%s)}" >/dev/null
+    echo "OK: $1" ;;
+  list|status|show)
+    N=$(redis-cli hlen "$KEY" 2>/dev/null || echo 0)
+    echo "==== taxi (module_214) ===="
     echo "  items: $N"
-    [ "$N" -gt 0 ] && redis-cli hgetall "cybra:taxi:driver:data" | paste - - | head -20 | sed 's/^/  /' ;;
-  cancel|delete|remove)
-    [ $# -lt 1 ] && { echo "usage: $0 $ACTION <id>"; exit 1; }
-    redis-cli hdel "cybra:taxi:driver:data" "$1" >/dev/null
-    echo "✅ cancelled: $1" ;;
-  estimate|calc|score|forecast|optimize|dispatch|chat|resolve)
-    echo "🧠 driver_earnings (AI) args: $*" ;;
-  *) echo "════ taxi driver_earnings ════"; echo "  hint: $0 create|list|cancel <id>" ;;
+    if [ "$N" -gt 0 ]; then redis-cli hgetall "$KEY" | paste - - | head -20 | sed 's/^/  /'; fi ;;
+  delete|remove)
+    if [ $# -lt 1 ]; then exit 1; fi
+    redis-cli hdel "$KEY" "$1" >/dev/null; echo "OK: deleted" ;;
+  *) echo "==== module_214: driver_earnings ====" ;;
 esac
-exit $?
+exit 0

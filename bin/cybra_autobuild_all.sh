@@ -650,20 +650,23 @@ CTRL.mkdir(parents=True, exist_ok=True)
 items = []
 
 # 1. All modules 200-272 (taxi)
-for d in sorted((CYBRA/"modules").glob("module_2*")):
+_seen_mod = set()
+for d in sorted((CYBRA/"modules").glob("module_2*"), key=lambda x: (x.name.endswith("_base") == False, x.name)):
     if not d.is_dir(): continue
     m = re.match(r"module_(\d+)_(.+)", d.name)
     if not m: continue
     n = int(m.group(1))
     if not (200 <= n <= 272): continue
+    if n in _seen_mod: continue
     main = d/"main.sh"
     if not main.exists(): continue
+    _seen_mod.add(n)
     items.append({"id": f"module_{n:03d}", "kind": "module", "num": n,
                   "name": m.group(2), "target": str(main)})
 
 # 2. PM2 processes (known)
 for name in ["redis","parliament","menu-worker","menu-autorobot",
-             "cybra-evo-ctrl","cybra-autopilot",
+             "cybra-evo-ctrl",
              "hidl-worker","hidl-notifier",
              "taxi-events","cybra-api"]:
     items.append({"id": f"pm2_{name}", "kind": "pm2", "target": name})
