@@ -146,7 +146,7 @@ def copy_to_storage(storage, files):
     for key in ("bundle","tarball","checks"):
         src = Path(files[key])
         dst = bd / src.name
-        shutil.copy2(src, dst)
+        shutil.copyfile(src, dst)
         results[key] = str(dst)
     # verify
     for pair, key in [("bundle","bundle_sha"), ("tarball","tar_sha")]:
