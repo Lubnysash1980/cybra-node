@@ -1,7 +1,7 @@
 {
-  "updated": "2026-10-25T09:32:53.446279+00:00",
-  "total_modules": 279,
-  "unique_actions": 214,
+  "updated": "2026-10-25T15:53:20.713007+00:00",
+  "total_modules": 319,
+  "unique_actions": 248,
   "conflicts": 7,
   "modules": [
     {
@@ -2205,6 +2205,206 @@
       "score": 50
     },
     {
+      "name": "module_202_ride_status",
+      "title": "module_202_ride_status",
+      "action": "module202ridestatus",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1257,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_202_ride_status/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_204_estimate_price",
+      "title": "module_204_estimate_price",
+      "action": "module204estimateprice",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1271,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_204_estimate_price/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_206_schedule_ride",
+      "title": "module_206_schedule_ride",
+      "action": "module206scheduleride",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1267,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_206_schedule_ride/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_208_favorite_route",
+      "title": "module_208_favorite_route",
+      "action": "module208favoriteroute",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1266,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_208_favorite_route/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_213_complete_ride",
+      "title": "module_213_complete_ride",
+      "action": "module213completeride",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1261,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_213_complete_ride/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_214_driver_earnings",
+      "title": "module_214_driver_earnings",
+      "action": "module214driverearnings",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1265,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_214_driver_earnings/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_215_driver_documents",
+      "title": "module_215_driver_documents",
+      "action": "module215driverdocuments",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1271,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_215_driver_documents/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_216_driver_rating",
+      "title": "module_216_driver_rating",
+      "action": "module216driverrating",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1257,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_216_driver_rating/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_217_dispatch_nearest",
+      "title": "module_217_dispatch_nearest",
+      "action": "module217dispatchnearest",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1281,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_217_dispatch_nearest/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_220_ride_payment",
+      "title": "module_220_ride_payment",
+      "action": "module220ridepayment",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1261,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_220_ride_payment/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_222_ride_refund",
+      "title": "module_222_ride_refund",
+      "action": "module222riderefund",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1257,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_222_ride_refund/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_224_driver_payout",
+      "title": "module_224_driver_payout",
+      "action": "module224driverpayout",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1265,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_224_driver_payout/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_227_wallet_topup",
+      "title": "module_227_wallet_topup",
+      "action": "module227wallettopup",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1260,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_227_wallet_topup/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_229_promo_code",
+      "title": "module_229_promo_code",
+      "action": "module229promocode",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1252,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_229_promo_code/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_230_ai_dispatcher",
+      "title": "module_230_ai_dispatcher",
+      "action": "ai",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1237,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_230_ai_dispatcher/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_234_ai_driver_scoring",
+      "title": "module_234_ai_driver_scoring",
+      "action": "ai",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1250,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_234_ai_driver_scoring/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_235_ai_dispute",
+      "title": "module_235_ai_dispute",
+      "action": "ai",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1224,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_235_ai_dispute/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_236_rider_analytics",
+      "title": "module_236_rider_analytics",
+      "action": "module236rideranalytics",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1283,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_236_rider_analytics/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_238_fleet_analytics",
+      "title": "module_238_fleet_analytics",
+      "action": "module238fleetanalytics",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1283,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_238_fleet_analytics/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_239_taxi_metrics",
+      "title": "module_239_taxi_metrics",
+      "action": "metrics",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1271,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_239_taxi_metrics/main.sh",
+      "score": 43
+    },
+    {
       "name": "module_27_telegram_bot",
       "title": "module_27_telegram_bot",
       "action": "telegram",
@@ -2793,6 +2993,206 @@
       "size": 208,
       "path": "/data/data/com.termux/files/home/CYBRA/modules/module_9_generated/main.sh",
       "score": 32
+    },
+    {
+      "name": "module_200_book_ride",
+      "title": "module_200_book_ride",
+      "action": "module200bookride",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1249,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_200_book_ride/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_201_cancel_ride",
+      "title": "module_201_cancel_ride",
+      "action": "module201cancelride",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1257,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_201_cancel_ride/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_203_ride_history",
+      "title": "module_203_ride_history",
+      "action": "module203ridehistory",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1259,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_203_ride_history/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_205_select_tariff",
+      "title": "module_205_select_tariff",
+      "action": "module205selecttariff",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1265,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_205_select_tariff/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_207_repeat_ride",
+      "title": "module_207_repeat_ride",
+      "action": "module207repeatride",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1257,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_207_repeat_ride/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_209_saved_addresses",
+      "title": "module_209_saved_addresses",
+      "action": "module209savedaddresses",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1271,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_209_saved_addresses/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_210_driver_register",
+      "title": "module_210_driver_register",
+      "action": "module210driverregister",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1269,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_210_driver_register/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_211_driver_status",
+      "title": "module_211_driver_status",
+      "action": "module211driverstatus",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1259,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_211_driver_status/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_212_accept_ride",
+      "title": "module_212_accept_ride",
+      "action": "module212acceptride",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1251,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_212_accept_ride/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_218_dispatch_batch",
+      "title": "module_218_dispatch_batch",
+      "action": "module218dispatchbatch",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1274,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_218_dispatch_batch/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_219_surge_pricing",
+      "title": "module_219_surge_pricing",
+      "action": "module219surgepricing",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1269,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_219_surge_pricing/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_221_ride_receipt",
+      "title": "module_221_ride_receipt",
+      "action": "module221ridereceipt",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1262,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_221_ride_receipt/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_223_escrow_ride",
+      "title": "module_223_escrow_ride",
+      "action": "module223escrowride",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1257,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_223_escrow_ride/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_225_tip_driver",
+      "title": "module_225_tip_driver",
+      "action": "module225tipdriver",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1250,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_225_tip_driver/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_226_subscription",
+      "title": "module_226_subscription",
+      "action": "module226subscription",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1259,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_226_subscription/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_228_payment_history",
+      "title": "module_228_payment_history",
+      "action": "module228paymenthistory",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1271,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_228_payment_history/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_231_ai_chat_support",
+      "title": "module_231_ai_chat_support",
+      "action": "ai",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1241,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_231_ai_chat_support/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_232_ai_route_optimize",
+      "title": "module_232_ai_route_optimize",
+      "action": "ai",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1253,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_232_ai_route_optimize/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_233_ai_demand_forecast",
+      "title": "module_233_ai_demand_forecast",
+      "action": "ai",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1257,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_233_ai_demand_forecast/main.sh",
+      "score": 43
+    },
+    {
+      "name": "module_237_driver_analytics",
+      "title": "module_237_driver_analytics",
+      "action": "module237driveranalytics",
+      "status": "unknown",
+      "base_score": 30,
+      "size": 1287,
+      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_237_driver_analytics/main.sh",
+      "score": 43
     }
   ],
   "resolved": {
@@ -3111,6 +3511,30 @@
       "winner_title": "module_30_multichain",
       "standby": [
         {
+          "name": "module_230_ai_dispatcher",
+          "score": 43
+        },
+        {
+          "name": "module_231_ai_chat_support",
+          "score": 43
+        },
+        {
+          "name": "module_232_ai_route_optimize",
+          "score": 43
+        },
+        {
+          "name": "module_233_ai_demand_forecast",
+          "score": 43
+        },
+        {
+          "name": "module_234_ai_driver_scoring",
+          "score": 43
+        },
+        {
+          "name": "module_235_ai_dispute",
+          "score": 43
+        },
+        {
           "name": "module_120_ai_guardian",
           "score": 42
         },
@@ -3119,7 +3543,7 @@
           "score": 32
         }
       ],
-      "total": 3
+      "total": 9
     },
     "module120base": {
       "winner": "module_120_base",
@@ -4463,6 +4887,142 @@
       "standby": [],
       "total": 1
     },
+    "module202ridestatus": {
+      "winner": "module_202_ride_status",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_202_ride_status/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_202_ride_status",
+      "standby": [],
+      "total": 1
+    },
+    "module204estimateprice": {
+      "winner": "module_204_estimate_price",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_204_estimate_price/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_204_estimate_price",
+      "standby": [],
+      "total": 1
+    },
+    "module206scheduleride": {
+      "winner": "module_206_schedule_ride",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_206_schedule_ride/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_206_schedule_ride",
+      "standby": [],
+      "total": 1
+    },
+    "module208favoriteroute": {
+      "winner": "module_208_favorite_route",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_208_favorite_route/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_208_favorite_route",
+      "standby": [],
+      "total": 1
+    },
+    "module213completeride": {
+      "winner": "module_213_complete_ride",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_213_complete_ride/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_213_complete_ride",
+      "standby": [],
+      "total": 1
+    },
+    "module214driverearnings": {
+      "winner": "module_214_driver_earnings",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_214_driver_earnings/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_214_driver_earnings",
+      "standby": [],
+      "total": 1
+    },
+    "module215driverdocuments": {
+      "winner": "module_215_driver_documents",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_215_driver_documents/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_215_driver_documents",
+      "standby": [],
+      "total": 1
+    },
+    "module216driverrating": {
+      "winner": "module_216_driver_rating",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_216_driver_rating/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_216_driver_rating",
+      "standby": [],
+      "total": 1
+    },
+    "module217dispatchnearest": {
+      "winner": "module_217_dispatch_nearest",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_217_dispatch_nearest/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_217_dispatch_nearest",
+      "standby": [],
+      "total": 1
+    },
+    "module220ridepayment": {
+      "winner": "module_220_ride_payment",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_220_ride_payment/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_220_ride_payment",
+      "standby": [],
+      "total": 1
+    },
+    "module222riderefund": {
+      "winner": "module_222_ride_refund",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_222_ride_refund/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_222_ride_refund",
+      "standby": [],
+      "total": 1
+    },
+    "module224driverpayout": {
+      "winner": "module_224_driver_payout",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_224_driver_payout/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_224_driver_payout",
+      "standby": [],
+      "total": 1
+    },
+    "module227wallettopup": {
+      "winner": "module_227_wallet_topup",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_227_wallet_topup/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_227_wallet_topup",
+      "standby": [],
+      "total": 1
+    },
+    "module229promocode": {
+      "winner": "module_229_promo_code",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_229_promo_code/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_229_promo_code",
+      "standby": [],
+      "total": 1
+    },
+    "module236rideranalytics": {
+      "winner": "module_236_rider_analytics",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_236_rider_analytics/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_236_rider_analytics",
+      "standby": [],
+      "total": 1
+    },
+    "module238fleetanalytics": {
+      "winner": "module_238_fleet_analytics",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_238_fleet_analytics/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_238_fleet_analytics",
+      "standby": [],
+      "total": 1
+    },
+    "metrics": {
+      "winner": "module_239_taxi_metrics",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_239_taxi_metrics/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_239_taxi_metrics",
+      "standby": [],
+      "total": 1
+    },
     "telegram": {
       "winner": "module_27_telegram_bot",
       "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_27_telegram_bot/main.sh",
@@ -4774,6 +5334,142 @@
       "winner_title": "module_99_base",
       "standby": [],
       "total": 1
+    },
+    "module200bookride": {
+      "winner": "module_200_book_ride",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_200_book_ride/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_200_book_ride",
+      "standby": [],
+      "total": 1
+    },
+    "module201cancelride": {
+      "winner": "module_201_cancel_ride",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_201_cancel_ride/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_201_cancel_ride",
+      "standby": [],
+      "total": 1
+    },
+    "module203ridehistory": {
+      "winner": "module_203_ride_history",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_203_ride_history/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_203_ride_history",
+      "standby": [],
+      "total": 1
+    },
+    "module205selecttariff": {
+      "winner": "module_205_select_tariff",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_205_select_tariff/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_205_select_tariff",
+      "standby": [],
+      "total": 1
+    },
+    "module207repeatride": {
+      "winner": "module_207_repeat_ride",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_207_repeat_ride/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_207_repeat_ride",
+      "standby": [],
+      "total": 1
+    },
+    "module209savedaddresses": {
+      "winner": "module_209_saved_addresses",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_209_saved_addresses/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_209_saved_addresses",
+      "standby": [],
+      "total": 1
+    },
+    "module210driverregister": {
+      "winner": "module_210_driver_register",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_210_driver_register/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_210_driver_register",
+      "standby": [],
+      "total": 1
+    },
+    "module211driverstatus": {
+      "winner": "module_211_driver_status",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_211_driver_status/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_211_driver_status",
+      "standby": [],
+      "total": 1
+    },
+    "module212acceptride": {
+      "winner": "module_212_accept_ride",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_212_accept_ride/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_212_accept_ride",
+      "standby": [],
+      "total": 1
+    },
+    "module218dispatchbatch": {
+      "winner": "module_218_dispatch_batch",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_218_dispatch_batch/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_218_dispatch_batch",
+      "standby": [],
+      "total": 1
+    },
+    "module219surgepricing": {
+      "winner": "module_219_surge_pricing",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_219_surge_pricing/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_219_surge_pricing",
+      "standby": [],
+      "total": 1
+    },
+    "module221ridereceipt": {
+      "winner": "module_221_ride_receipt",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_221_ride_receipt/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_221_ride_receipt",
+      "standby": [],
+      "total": 1
+    },
+    "module223escrowride": {
+      "winner": "module_223_escrow_ride",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_223_escrow_ride/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_223_escrow_ride",
+      "standby": [],
+      "total": 1
+    },
+    "module225tipdriver": {
+      "winner": "module_225_tip_driver",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_225_tip_driver/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_225_tip_driver",
+      "standby": [],
+      "total": 1
+    },
+    "module226subscription": {
+      "winner": "module_226_subscription",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_226_subscription/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_226_subscription",
+      "standby": [],
+      "total": 1
+    },
+    "module228paymenthistory": {
+      "winner": "module_228_payment_history",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_228_payment_history/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_228_payment_history",
+      "standby": [],
+      "total": 1
+    },
+    "module237driveranalytics": {
+      "winner": "module_237_driver_analytics",
+      "winner_path": "/data/data/com.termux/files/home/CYBRA/modules/module_237_driver_analytics/main.sh",
+      "winner_score": 43,
+      "winner_title": "module_237_driver_analytics",
+      "standby": [],
+      "total": 1
     }
   },
   "conflicts_detail": [
@@ -4850,6 +5546,30 @@
       "winner": "module_30_multichain",
       "winner_score": 50,
       "others": [
+        {
+          "name": "module_230_ai_dispatcher",
+          "score": 43
+        },
+        {
+          "name": "module_231_ai_chat_support",
+          "score": 43
+        },
+        {
+          "name": "module_232_ai_route_optimize",
+          "score": 43
+        },
+        {
+          "name": "module_233_ai_demand_forecast",
+          "score": 43
+        },
+        {
+          "name": "module_234_ai_driver_scoring",
+          "score": 43
+        },
+        {
+          "name": "module_235_ai_dispute",
+          "score": 43
+        },
         {
           "name": "module_120_ai_guardian",
           "score": 42
