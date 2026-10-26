@@ -1,8 +1,6 @@
 {
-  "module": "bar_keepers",
-  "menu_size": 160,
-  "achieved_at": "2026-10-24T15:22:00Z",
-  "state_hash": "fb1327a733b72b262ae8e5731ba308ff422e93c1951c954112c434d6c1ce9cb7",
-  "signature": "45574aaa51369202b5a4f27410b0dbc45d9b80146d1b1c90ea627cc061a4f8b7",
-  "target_key": "cybra:menu:results"
+  "module": "bar_keepers", "menu_size": 160, "created": 0, "failed": 160,
+  "achieved_at": "2026-10-26T18:08:18Z",
+  "state_hash": "2c93b555a2ec3fc7c409e5a0ed40f936670d3a8605a60cc16f503b3e66e4435c",
+  "cybra_token": "0x74dA52028E42A37bc89E05c2fD5c52daBE4CB48f", "commission_pct": 5
 }
