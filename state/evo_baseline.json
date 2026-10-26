@@ -1,648 +1,488 @@
 {
-  "locked_at": "2026-10-25T13:14:40.037812+00:00",
+  "locked_at": "2026-10-26T18:07:59.251519+00:00",
   "avg": 109.02,
-  "reason": "after_rollback_from_-79.52%",
-  "snapshot": "/data/data/com.termux/files/home/CYBRA/state/evo_backups/modules_baseline_1792934079.tar.gz",
+  "reason": "after_rollback",
+  "snapshot": "/data/data/com.termux/files/home/CYBRA/state/evo_backups/modules_baseline_1793038079.tar.gz",
   "modules": {
     "1": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_1_base/main.sh"
+      "score": 109.2
     },
     "2": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_2_base/main.sh"
+      "score": 109.2
     },
     "3": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_3_base/main.sh"
+      "score": 109.2
     },
     "4": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_4_base/main.sh"
+      "score": 109.2
     },
     "5": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_5_base/main.sh"
+      "score": 109.2
     },
     "6": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_6_base/main.sh"
+      "score": 109.2
     },
     "7": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_7_base/main.sh"
+      "score": 109.2
     },
     "8": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_8_base/main.sh"
+      "score": 109.2
     },
     "9": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_9_base/main.sh"
+      "score": 109.2
     },
     "10": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_10_base/main.sh"
+      "score": 109.2
     },
     "11": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_11_base/main.sh"
+      "score": 109.2
     },
     "12": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_12_base/main.sh"
+      "score": 109.2
     },
     "13": {
-      "score": 99.3,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_13_base/main.sh"
+      "score": 99.3
     },
     "14": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_14_base/main.sh"
+      "score": 109.2
     },
     "15": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_15_base/main.sh"
+      "score": 109.2
     },
     "16": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_16_base/main.sh"
+      "score": 109.2
     },
     "17": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_17_base/main.sh"
+      "score": 109.2
     },
     "18": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_18_base/main.sh"
+      "score": 109.2
     },
     "19": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_19_base/main.sh"
+      "score": 109.2
     },
     "20": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_20_base/main.sh"
+      "score": 109.2
     },
     "21": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_21_base/main.sh"
+      "score": 109.2
     },
     "22": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_22_base/main.sh"
+      "score": 109.2
     },
     "23": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_23_base/main.sh"
+      "score": 109.2
     },
     "24": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_24_base/main.sh"
+      "score": 109.2
     },
     "25": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_25_base/main.sh"
+      "score": 109.2
     },
     "26": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_26_base/main.sh"
+      "score": 109.2
     },
     "27": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_27_base/main.sh"
+      "score": 109.2
     },
     "28": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_28_base/main.sh"
+      "score": 109.2
     },
     "29": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_29_base/main.sh"
+      "score": 109.2
     },
     "30": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_30_base/main.sh"
+      "score": 109.2
     },
     "31": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_31_base/main.sh"
+      "score": 109.2
     },
     "32": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_32_base/main.sh"
+      "score": 109.2
     },
     "33": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_33_base/main.sh"
+      "score": 109.2
     },
     "34": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_34_base/main.sh"
+      "score": 109.2
     },
     "35": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_35_base/main.sh"
+      "score": 109.2
     },
     "36": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_36_base/main.sh"
+      "score": 109.2
     },
     "37": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_37_base/main.sh"
+      "score": 109.2
     },
     "38": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_38_base/main.sh"
+      "score": 109.2
     },
     "39": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_39_base/main.sh"
+      "score": 109.2
     },
     "40": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_40_base/main.sh"
+      "score": 109.2
     },
     "41": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_41_base/main.sh"
+      "score": 109.2
     },
     "42": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_42_base/main.sh"
+      "score": 109.2
     },
     "43": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_43_base/main.sh"
+      "score": 109.2
     },
     "44": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_44_base/main.sh"
+      "score": 109.2
     },
     "45": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_45_base/main.sh"
+      "score": 109.2
     },
     "46": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_46_base/main.sh"
+      "score": 109.2
     },
     "47": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_47_base/main.sh"
+      "score": 109.2
     },
     "48": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_48_base/main.sh"
+      "score": 109.2
     },
     "49": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_49_base/main.sh"
+      "score": 109.2
     },
     "50": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_50_base/main.sh"
+      "score": 109.2
     },
     "51": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_51_base/main.sh"
+      "score": 109.2
     },
     "52": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_52_base/main.sh"
+      "score": 109.2
     },
     "53": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_53_base/main.sh"
+      "score": 109.2
     },
     "54": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_54_base/main.sh"
+      "score": 109.2
     },
     "55": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_55_base/main.sh"
+      "score": 109.2
     },
     "56": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_56_base/main.sh"
+      "score": 109.2
     },
     "57": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_57_base/main.sh"
+      "score": 109.2
     },
     "58": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_58_base/main.sh"
+      "score": 109.2
     },
     "59": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_59_base/main.sh"
+      "score": 109.2
     },
     "60": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_60_base/main.sh"
+      "score": 109.2
     },
     "61": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_61_base/main.sh"
+      "score": 109.2
     },
     "62": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_62_base/main.sh"
+      "score": 109.2
     },
     "63": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_63_base/main.sh"
+      "score": 109.2
     },
     "64": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_64_base/main.sh"
+      "score": 109.2
     },
     "65": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_65_base/main.sh"
+      "score": 109.2
     },
     "66": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_66_base/main.sh"
+      "score": 109.2
     },
     "67": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_67_base/main.sh"
+      "score": 109.2
     },
     "68": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_68_base/main.sh"
+      "score": 109.2
     },
     "69": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_69_base/main.sh"
+      "score": 109.2
     },
     "70": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_70_base/main.sh"
+      "score": 109.2
     },
     "71": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_71_base/main.sh"
+      "score": 109.2
     },
     "72": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_72_base/main.sh"
+      "score": 109.2
     },
     "73": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_73_base/main.sh"
+      "score": 109.2
     },
     "74": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_74_base/main.sh"
+      "score": 109.2
     },
     "75": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_75_base/main.sh"
+      "score": 109.2
     },
     "76": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_76_base/main.sh"
+      "score": 109.2
     },
     "77": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_77_base/main.sh"
+      "score": 109.2
     },
     "78": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_78_base/main.sh"
+      "score": 109.2
     },
     "79": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_79_base/main.sh"
+      "score": 109.2
     },
     "80": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_80_base/main.sh"
+      "score": 109.2
     },
     "81": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_81_base/main.sh"
+      "score": 109.2
     },
     "82": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_82_base/main.sh"
+      "score": 109.2
     },
     "83": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_83_base/main.sh"
+      "score": 109.2
     },
     "84": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_84_base/main.sh"
+      "score": 109.2
     },
     "85": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_85_base/main.sh"
+      "score": 109.2
     },
     "86": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_86_base/main.sh"
+      "score": 109.2
     },
     "87": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_87_base/main.sh"
+      "score": 109.2
     },
     "88": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_88_base/main.sh"
+      "score": 109.2
     },
     "89": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_89_base/main.sh"
+      "score": 109.2
     },
     "90": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_90_base/main.sh"
+      "score": 109.2
     },
     "91": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_91_base/main.sh"
+      "score": 109.2
     },
     "92": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_92_base/main.sh"
+      "score": 109.2
     },
     "93": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_93_base/main.sh"
+      "score": 109.2
     },
     "94": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_94_base/main.sh"
+      "score": 109.2
     },
     "95": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_95_base/main.sh"
+      "score": 109.2
     },
     "96": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_96_base/main.sh"
+      "score": 109.2
     },
     "97": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_97_base/main.sh"
+      "score": 109.2
     },
     "98": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_98_base/main.sh"
+      "score": 109.2
     },
     "99": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_99_base/main.sh"
+      "score": 109.2
     },
     "100": {
-      "score": 90.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_100_base/main.sh"
+      "score": 90.2
     },
     "101": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_101_base/main.sh"
+      "score": 109.2
     },
     "102": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_102_base/main.sh"
+      "score": 109.2
     },
     "103": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_103_base/main.sh"
+      "score": 109.2
     },
     "104": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_104_base/main.sh"
+      "score": 109.2
     },
     "105": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_105_base/main.sh"
+      "score": 109.2
     },
     "106": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_106_base/main.sh"
+      "score": 109.2
     },
     "107": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_107_base/main.sh"
+      "score": 109.2
     },
     "108": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_108_base/main.sh"
+      "score": 109.2
     },
     "109": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_109_base/main.sh"
+      "score": 109.2
     },
     "110": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_110_base/main.sh"
+      "score": 109.2
     },
     "111": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_111_base/main.sh"
+      "score": 109.2
     },
     "112": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_112_base/main.sh"
+      "score": 109.2
     },
     "113": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_113_base/main.sh"
+      "score": 109.2
     },
     "114": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_114_base/main.sh"
+      "score": 109.2
     },
     "115": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_115_base/main.sh"
+      "score": 109.2
     },
     "116": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_116_base/main.sh"
+      "score": 109.2
     },
     "117": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_117_base/main.sh"
+      "score": 109.2
     },
     "118": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_118_base/main.sh"
+      "score": 109.2
     },
     "119": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_119_base/main.sh"
+      "score": 109.2
     },
     "120": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_120_base/main.sh"
+      "score": 109.2
     },
     "121": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_121_base/main.sh"
+      "score": 109.2
     },
     "122": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_122_base/main.sh"
+      "score": 109.2
     },
     "123": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_123_base/main.sh"
+      "score": 109.2
     },
     "124": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_124_base/main.sh"
+      "score": 109.2
     },
     "125": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_125_base/main.sh"
+      "score": 109.2
     },
     "126": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_126_base/main.sh"
+      "score": 109.2
     },
     "127": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_127_base/main.sh"
+      "score": 109.2
     },
     "128": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_128_base/main.sh"
+      "score": 109.2
     },
     "129": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_129_base/main.sh"
+      "score": 109.2
     },
     "130": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_130_base/main.sh"
+      "score": 109.2
     },
     "131": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_131_base/main.sh"
+      "score": 109.2
     },
     "132": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_132_base/main.sh"
+      "score": 109.2
     },
     "133": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_133_base/main.sh"
+      "score": 109.2
     },
     "134": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_134_base/main.sh"
+      "score": 109.2
     },
     "135": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_135_base/main.sh"
+      "score": 109.2
     },
     "136": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_136_base/main.sh"
+      "score": 109.2
     },
     "137": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_137_base/main.sh"
+      "score": 109.2
     },
     "138": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_138_base/main.sh"
+      "score": 109.2
     },
     "139": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_139_base/main.sh"
+      "score": 109.2
     },
     "140": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_140_base/main.sh"
+      "score": 109.2
     },
     "141": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_141_base/main.sh"
+      "score": 109.2
     },
     "142": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_142_base/main.sh"
+      "score": 109.2
     },
     "143": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_143_base/main.sh"
+      "score": 109.2
     },
     "144": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_144_base/main.sh"
+      "score": 109.2
     },
     "145": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_145_base/main.sh"
+      "score": 109.2
     },
     "146": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_146_base/main.sh"
+      "score": 109.2
     },
     "147": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_147_base/main.sh"
+      "score": 109.2
     },
     "148": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_148_base/main.sh"
+      "score": 109.2
     },
     "149": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_149_base/main.sh"
+      "score": 109.2
     },
     "150": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_150_base/main.sh"
+      "score": 109.2
     },
     "151": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_151_base/main.sh"
+      "score": 109.2
     },
     "152": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_152_base/main.sh"
+      "score": 109.2
     },
     "153": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_153_base/main.sh"
+      "score": 109.2
     },
     "154": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_154_base/main.sh"
+      "score": 109.2
     },
     "155": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_155_base/main.sh"
+      "score": 109.2
     },
     "156": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_156_base/main.sh"
+      "score": 109.2
     },
     "157": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_157_base/main.sh"
+      "score": 109.2
     },
     "158": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_158_base/main.sh"
+      "score": 109.2
     },
     "159": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_159_base/main.sh"
+      "score": 109.2
     },
     "160": {
-      "score": 109.2,
-      "path": "/data/data/com.termux/files/home/CYBRA/modules/module_160_base/main.sh"
+      "score": 109.2
     }
   }
 }

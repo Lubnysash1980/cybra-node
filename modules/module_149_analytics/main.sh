@@ -1,47 +1,71 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# module_149: advanced_analytics (analytics)
-set -u
-CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
-LOG="$CYBRA/logs/module_149.log"; mkdir -p "$(dirname "$LOG")"
-log() { echo "[$(date -u +%FT%TZ)] $*" >> "$LOG"; }
-err() { log "ERR: $*"; echo "❌ $*" >&2; return 1; }
-trap 'err "line $LINENO rc=$?"' ERR
+# ── BINMIX/EXECUTOR METADATA (auto-added) ──
+# module: module_149
+# source: github_history  rev=832d90ae  when=2026-10-23T17:12:15+03:00
+# score: 218  size: 1856B  hash: 276f532807ae
+# mixed_at: 2026-10-24T20:29:29.482290+00:00
+# ──────────────────────────────────────────
+# МОДУЛЬ 149: Аналітика системи (CYBRA Analytics)
 
-CLI_HINT="$CYBRA/"
-ACTION="${1:-advanced}"
-shift $(( $# > 0 ? 1 : 0 ))
-log "START module_149 action=$ACTION"
+CYBRA="$HOME/CYBRA"
+DB="$CYBRA/data/ads.db"
+FIDIC_DIR="$CYBRA/data/fidic"
 
-if [ -n "" ] && [ -e "$CLI_HINT" ]; then
-  case "$CLI_HINT" in
-    *.py) python3 "$CLI_HINT" "$ACTION" "$@" ;;
-    *)    bash "$CLI_HINT" "$ACTION" "$@" ;;
-  esac
-  rc=$?; log "DONE cli rc=$rc"; exit $rc
+clear 2>/dev/null
+echo "════════════════════════════════════════════"
+echo "  [149] АНАЛІТИКА СИСТЕМИ"
+echo "════════════════════════════════════════════"
+
+# 1. Аналітика PM2 (Моноліт)
+echo "─── 1. Процеси (PM2) ───"
+if command -v pm2 >/dev/null 2>&1; then
+    pm2 ls | grep -E "cybra|name" | head -5
+else
+    echo "⚠️ PM2 не встановлено"
 fi
+echo ""
 
-case "$ACTION" in
-  add|create|register)
-    if [ $# -lt 1 ]; then echo "usage: $0 $ACTION <name> [value]"; exit 1; fi
-    VAL="${2:-$(date +%s)}"
-    redis-cli hset "cybra:analytics:data" "$1" "$VAL" >/dev/null
-    redis-cli set "cybra:analytics:$1" "$VAL" >/dev/null
-    echo "✅ analytics: $1 = $VAL" ;;
-  list|status|show)
-    n=$(redis-cli hlen "cybra:analytics:data" 2>/dev/null || echo 0)
-    echo "════ analytics (module_149) ════"
-    echo "  items: $n"
-    if [ "$n" -gt 0 ]; then
-      redis-cli hgetall "cybra:analytics:data" | paste - - | head -20 | sed 's/^/  /'
-    fi ;;
-  delete|remove)
-    if [ $# -lt 1 ]; then echo "usage: $0 $ACTION <name>"; exit 1; fi
-    redis-cli hdel "cybra:analytics:data" "$1" >/dev/null
-    redis-cli del "cybra:analytics:$1" >/dev/null
-    echo "✅ deleted: $1" ;;
-  *)
-    echo "════ module_149: advanced_analytics ════"
-    echo "  action: $ACTION  category: analytics"
-    echo "  hint: $0 add <name> [value] | $0 list | $0 delete <name>" ;;
-esac
-rc=$?; log "DONE action=$ACTION rc=$rc"; exit $rc
+# 2. Аналітика реклами (SQLite)
+echo "─── 2. Реклама (База даних) ───"
+if [ -f "$DB" ]; then
+    TOTAL_ADS=$(sqlite3 "$DB" "SELECT COUNT(*) FROM ads;" 2>/dev/null || echo "0")
+    PAID_ADS=$(sqlite3 "$DB" "SELECT COUNT(*) FROM ads WHERE status='paid' OR status='completed';" 2>/dev/null || echo "0")
+    echo "Всього реклам: $TOTAL_ADS"
+    echo "Оплачено/Завершено: $PAID_ADS"
+else
+    echo "База даних реклами не знайдена."
+fi
+echo ""
+
+# 3. Аналітика FIDIC
+echo "─── 3. FIDIC Контракти ───"
+if [ -d "$FIDIC_DIR" ]; then
+    TOTAL_FIDIC=$(ls "$FIDIC_DIR"/*.json 2>/dev/null | wc -l)
+    echo "Всього FIDIC контрактів: $TOTAL_FIDIC"
+    
+    # Виводимо статуси контрактів
+    for f in "$FIDIC_DIR"/*.json; do
+        if [ -f "$f" ]; then
+            CID=$(basename "$f" .json)
+            STATE=$(python3 -c "import json; print(json.load(open('$f')).get('state','?'))" 2>/dev/null)
+            echo "  - $CID: $STATE"
+        fi
+    done
+else
+    echo "Папка FIDIC порожня."
+fi
+echo ""
+
+# 4. Синхронізація
+echo "─── 4. Синхронізація з Нодою ───"
+cd "$CYBRA" || exit
+LAST_COMMIT=$(git log -1 --format="%h %s" 2>/dev/null)
+if [ -n "$LAST_COMMIT" ]; then
+    echo "Останній коміт: $LAST_COMMIT"
+else
+    echo "Git історія порожня."
+fi
+echo ""
+
+echo "════════════════════════════════════════════"
+read -r -p "Натисни Enter для виходу..." _
