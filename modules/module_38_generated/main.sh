@@ -1,38 +1,35 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# module_038: timelock (timelock)
+# module_038 — smart-stub v1 (real system data)
 set -u
-CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
-LOG="$CYBRA/logs/module_038.log"; mkdir -p "$(dirname "$LOG")"
-log() { echo "[$(date -u +%FT%TZ)] $*" >> "$LOG"; }
-trap 'log "ERR line $LINENO"' ERR
-ACTION="${1:-list}"; shift $(( $# > 0 ? 1 : 0 ))
-log "START timelock action=$ACTION"
-KEY="cybra:timelock:data"
-
-case "$ACTION" in
-  add|create|register)
-    if [ $# -lt 1 ]; then echo "usage: $0 $ACTION <name> [value]"; exit 1; fi
-    VAL="${2:-$(date +%s)}"
-    redis-cli hset "$KEY" "$1" "$VAL" >/dev/null
-    echo "OK: $1 = $VAL"
-    ;;
-  list|status|show)
-    N=$(redis-cli hlen "$KEY" 2>/dev/null || echo 0)
-    echo "==== timelock (module_038) ===="
-    echo "  items: $N"
-    if [ "$N" -gt 0 ]; then
-      redis-cli hgetall "$KEY" | paste - - | head -20 | sed 's/^/  /'
-    fi
-    ;;
-  delete|remove)
-    if [ $# -lt 1 ]; then echo "usage: $0 $ACTION <name>"; exit 1; fi
-    redis-cli hdel "$KEY" "$1" >/dev/null
-    echo "OK: deleted $1"
-    ;;
-  *)
-    echo "==== module_038: timelock ===="
-    echo "  action: $ACTION  category: timelock"
-    echo "  hint: $0 add <name> [value] | $0 list | $0 delete <name>"
-    ;;
-esac
-rc=$?; log "DONE rc=$rc"; exit $rc
+CYBRA="$HOME/CYBRA"; cd "$CYBRA" 2>/dev/null
+echo "════════ module_038 ════════"
+echo ""
+echo "── git ──"
+git --no-pager log -1 --format='  %h %s (%cr)' 2>/dev/null | head -1
+echo "  files changed: $(git status --porcelain 2>/dev/null | wc -l)"
+echo ""
+echo "── redis ──"
+redis-cli ping 2>/dev/null | sed 's/^/  /' || echo "  DOWN"
+redis-cli dbsize 2>/dev/null | sed 's/^/  keys: /'
+echo ""
+echo "── system ──"
+free -m 2>/dev/null | awk '/Mem:/{printf "  RAM: %d/%d MB (%d%%)\n", $3, $2, $3/$2*100}'
+df -h /data 2>/dev/null | awk 'NR==2{printf "  disk: %s used of %s (%s)\n", $3, $2, $5}'
+echo ""
+echo "── pm2 core ──"
+pm2 jlist 2>/dev/null | python3 -c "
+import sys,json
+try:
+    d=json.load(sys.stdin)
+    online=sum(1 for p in d if p['pm2_env']['status']=='online')
+    print(f'  online: {online}/{len(d)}')
+except: print('  pm2 unavailable')
+" 2>/dev/null || echo "  pm2 unavailable"
+echo ""
+echo "── module dir ──"
+ls -la "$(dirname "$0")" 2>/dev/null | awk 'NR>1 && NR<8{print "  "$9" "$5"B"}'
+echo ""
+echo "── log (last 3) ──"
+tail -3 logs/module_038*.log 2>/dev/null | sed 's/^/  /' || echo "  (no log)"
+echo ""
+read -r -p "Enter..." _
