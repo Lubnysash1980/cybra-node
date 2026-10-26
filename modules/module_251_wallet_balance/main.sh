@@ -1,40 +1,16 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# module_251: wallet_balance (wallet) — taxi_premium
-# generated 2026-10-25T23:07:35Z
+# module_251: wallet_balance (wallet)
 set -u
 CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
 ACTION="${1:-list}"; shift $(( $# > 0 ? 1 : 0 ))
-MODULE_LABEL="wallet_balance"
-MODULE_CAT="wallet"
-
+KEY="cybra:taxi:wallet:data"
 case "$ACTION" in
-  connect|add)
-    ADDR="${1:-}"; ROLE="${2:-rider}"
-    [ -z "$ADDR" ] && { echo "usage: $0 connect <address> [rider|driver|both]"; exit 1; }
-    redis-cli hset "cybra:taxi:wallet:data" "$ADDR" "role=$ROLE,at=$(date -u +%FT%TZ)" >/dev/null
-    echo "👛 connected: $ADDR ($ROLE)"
-    ;;
-  list)
-    echo "════ wallets ════"
-    redis-cli hgetall cybra:taxi:wallet:data 2>/dev/null | paste - - | while read a i; do
-      echo "  $a  ($i)"
-    done
-    ;;
-  balance)
-    ADDR="${1:-}"
-    [ -z "$ADDR" ] && { echo "usage: $0 balance <address>"; exit 1; }
-    echo "════ balance $ADDR ════"
-    echo "  CYBRA: $(redis-cli get "cybra:wallet:$ADDR:cybra" 2>/dev/null || echo 0)"
-    echo "  BNB:   $(redis-cli get "cybra:wallet:$ADDR:bnb" 2>/dev/null || echo 0)"
-    echo "  ⚠️ On-chain balance: needs RPC (bin/cybra_node.sh)"
-    ;;
-  remove)
-    ADDR="${1:-}"; [ -z "$ADDR" ] && exit 1
-    redis-cli hdel cybra:taxi:wallet:data "$ADDR" >/dev/null
-    echo "✅ removed: $ADDR"
-    ;;
-  *)
-    echo "════ ${MODULE_LABEL} ════"
-    echo "  hint: $0 connect <addr> [role] | list | balance <addr> | remove <addr>"
-    ;;
+  add|create) if [ $# -lt 1 ]; then exit 1; fi
+    redis-cli hset "$KEY" "$1" "${2:-$(date +%s)}" >/dev/null; echo "OK: $1" ;;
+  list|status|show) N=$(redis-cli hlen "$KEY" 2>/dev/null || echo 0)
+    echo "==== wallet (module_251) ===="; echo "  items: $N"
+    [ "$N" -gt 0 ] && redis-cli hgetall "$KEY" | paste - - | head -20 | sed 's/^/  /' ;;
+  delete) redis-cli hdel "$KEY" "$1" >/dev/null; echo "OK: deleted" ;;
+  *) echo "==== module_251: wallet_balance ====" ;;
 esac
+exit 0

@@ -1,39 +1,16 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# module_267: i18n_loader (i18n) — ultra
+# module_267: i18n_loader (i18n)
 set -u
 CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
 ACTION="${1:-list}"; shift $(( $# > 0 ? 1 : 0 ))
-MODULE_LABEL="i18n_loader"
-MODULE_CAT="i18n"
-
+KEY="cybra:taxi:i18n:data"
 case "$ACTION" in
-  set)
-    LANG="${1:-en}"
-    F="$CYBRA/state/taxi/i18n/$LANG.json"
-    [ -f "$F" ] || { echo "❌ lang $LANG not found"; echo "  available: $(ls $CYBRA/state/taxi/i18n/ 2>/dev/null | sed 's/\.json//g' | tr '\n' ' ')"; exit 1; }
-    redis-cli set cybra:taxi:i18n:lang "$LANG" >/dev/null
-    echo "🌐 lang: $LANG"
-    ;;
-  get)
-    KEY="${1:-welcome}"
-    LANG=$(redis-cli get cybra:taxi:i18n:lang 2>/dev/null || echo en)
-    F="$CYBRA/state/taxi/i18n/$LANG.json"
-    V=$(python3 -c "import json;d=json.load(open('$F'));print(d.get('$KEY', '[' + '$KEY' + ' not found]'))" 2>/dev/null)
-    echo "$V"
-    ;;
-  list)
-    echo "════ langs ════"
-    ls "$CYBRA/state/taxi/i18n/" 2>/dev/null | sed 's/\.json//g' | nl
-    echo "  current: $(redis-cli get cybra:taxi:i18n:lang 2>/dev/null || echo en)"
-    ;;
-  dump)
-    LANG=$(redis-cli get cybra:taxi:i18n:lang 2>/dev/null || echo en)
-    F="$CYBRA/state/taxi/i18n/$LANG.json"
-    cat "$F" | python3 -m json.tool
-    ;;
-  *)
-    echo "════ ${MODULE_LABEL} ════"
-    echo "  hint: $0 set <lang> | get <key> | list | dump"
-    echo "  langs: en uk es de fr ar zh"
-    ;;
+  add|create) if [ $# -lt 1 ]; then exit 1; fi
+    redis-cli hset "$KEY" "$1" "${2:-$(date +%s)}" >/dev/null; echo "OK: $1" ;;
+  list|status|show) N=$(redis-cli hlen "$KEY" 2>/dev/null || echo 0)
+    echo "==== i18n (module_267) ===="; echo "  items: $N"
+    [ "$N" -gt 0 ] && redis-cli hgetall "$KEY" | paste - - | head -20 | sed 's/^/  /' ;;
+  delete) redis-cli hdel "$KEY" "$1" >/dev/null; echo "OK: deleted" ;;
+  *) echo "==== module_267: i18n_loader ====" ;;
 esac
+exit 0

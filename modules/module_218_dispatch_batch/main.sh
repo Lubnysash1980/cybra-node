@@ -1,26 +1,16 @@
 #!/data/data/com.termux/files/usr/bin/bash
+# module_218: dispatch_batch (taxi)
 set -u
 CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
-LOG="$CYBRA/logs/taxi_218.log"; mkdir -p "$(dirname "$LOG")"
-log() { echo "[$(date -u +%FT%TZ)] $*" >> "$LOG"; }
-ACTION="${1:-batch}"; shift $(( $# > 0 ? 1 : 0 ))
-log "START dispatch_batch action=$ACTION args=$#"
+ACTION="${1:-list}"; shift $(( $# > 0 ? 1 : 0 ))
+KEY="cybra:taxi:taxi:data"
 case "$ACTION" in
-  create|register|add|book|schedule)
-    [ $# -lt 1 ] && { echo "usage: $0 $ACTION <id> [val]"; exit 1; }
-    redis-cli hset "cybra:taxi:dispatch:data" "$1" "${2:-$(date +%s)}" >/dev/null
-    echo "✅ dispatch: $1" ;;
-  list|status|show|history)
-    N=$(redis-cli hlen "cybra:taxi:dispatch:data" 2>/dev/null || echo 0)
-    echo "════ taxi dispatch: dispatch_batch ════"
-    echo "  items: $N"
-    [ "$N" -gt 0 ] && redis-cli hgetall "cybra:taxi:dispatch:data" | paste - - | head -20 | sed 's/^/  /' ;;
-  cancel|delete|remove)
-    [ $# -lt 1 ] && { echo "usage: $0 $ACTION <id>"; exit 1; }
-    redis-cli hdel "cybra:taxi:dispatch:data" "$1" >/dev/null
-    echo "✅ cancelled: $1" ;;
-  estimate|calc|score|forecast|optimize|dispatch|chat|resolve)
-    echo "🧠 dispatch_batch (AI) args: $*" ;;
-  *) echo "════ taxi dispatch_batch ════"; echo "  hint: $0 create|list|cancel <id>" ;;
+  add|create) if [ $# -lt 1 ]; then exit 1; fi
+    redis-cli hset "$KEY" "$1" "${2:-$(date +%s)}" >/dev/null; echo "OK: $1" ;;
+  list|status|show) N=$(redis-cli hlen "$KEY" 2>/dev/null || echo 0)
+    echo "==== taxi (module_218) ===="; echo "  items: $N"
+    [ "$N" -gt 0 ] && redis-cli hgetall "$KEY" | paste - - | head -20 | sed 's/^/  /' ;;
+  delete) redis-cli hdel "$KEY" "$1" >/dev/null; echo "OK: deleted" ;;
+  *) echo "==== module_218: dispatch_batch ====" ;;
 esac
-exit $?
+exit 0

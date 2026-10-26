@@ -1,27 +1,16 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# module_258: eco_global (eco) — taxi_premium
-# generated 2026-10-25T23:07:35Z
+# module_258: eco_global (eco)
 set -u
 CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
-ACTION="${1:-status}"; shift $(( $# > 0 ? 1 : 0 ))
-MODULE_LABEL="eco_global"
-MODULE_CAT="eco"
-
+ACTION="${1:-list}"; shift $(( $# > 0 ? 1 : 0 ))
+KEY="cybra:taxi:eco:data"
 case "$ACTION" in
-  sync)
-    cd "$CYBRA"
-    git add state/taxi_premium_spec.json state/taxi_premium_config.json \
-            modules/module_2[4-5][0-9]_* controllers/premium_module_*.ctrl.sh \
-            taxi_premium bin/cybra_taxi_premium_deploy.py 2>/dev/null
-    git commit -m "eco: sync taxi_premium to all nodes" 2>&1 | head -2
-    git push origin main 2>&1 | tail -2
-    echo "✅ pushed — other devices pull next cycle"
-    ;;
-  status|*)
-    echo "════ ${MODULE_LABEL} ════"
-    echo "  device:  $(hostname)"
-    echo "  nodes:   $(ls "$CYBRA/nodes/heartbeats/" 2>/dev/null | wc -l)"
-    echo "  HEAD:    $(git -C "$CYBRA" log -1 --format='%h %s' 2>/dev/null)"
-    echo "  hint:    $0 sync  — push to all nodes via git"
-    ;;
+  add|create) if [ $# -lt 1 ]; then exit 1; fi
+    redis-cli hset "$KEY" "$1" "${2:-$(date +%s)}" >/dev/null; echo "OK: $1" ;;
+  list|status|show) N=$(redis-cli hlen "$KEY" 2>/dev/null || echo 0)
+    echo "==== eco (module_258) ===="; echo "  items: $N"
+    [ "$N" -gt 0 ] && redis-cli hgetall "$KEY" | paste - - | head -20 | sed 's/^/  /' ;;
+  delete) redis-cli hdel "$KEY" "$1" >/dev/null; echo "OK: deleted" ;;
+  *) echo "==== module_258: eco_global ====" ;;
 esac
+exit 0
