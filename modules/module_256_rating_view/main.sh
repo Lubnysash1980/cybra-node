@@ -1,16 +1,29 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# module_256: rating_view (rating)
+# module_256: rating_view (rating) — taxi_premium
+# generated 2026-10-25T23:07:35Z
 set -u
 CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
 ACTION="${1:-list}"; shift $(( $# > 0 ? 1 : 0 ))
-KEY="cybra:taxi:rating:data"
+MODULE_LABEL="rating_view"
+MODULE_CAT="rating"
+
 case "$ACTION" in
-  add|create) if [ $# -lt 1 ]; then exit 1; fi
-    redis-cli hset "$KEY" "$1" "${2:-$(date +%s)}" >/dev/null; echo "OK: $1" ;;
-  list|status|show) N=$(redis-cli hlen "$KEY" 2>/dev/null || echo 0)
-    echo "==== rating (module_256) ===="; echo "  items: $N"
-    [ "$N" -gt 0 ] && redis-cli hgetall "$KEY" | paste - - | head -20 | sed 's/^/  /' ;;
-  delete) redis-cli hdel "$KEY" "$1" >/dev/null; echo "OK: deleted" ;;
-  *) echo "==== module_256: rating_view ====" ;;
+  add)
+    WHO="${1:-}"; SC="${2:-}"; shift 2>/dev/null || true
+    COMMENT="$*"
+    [ -z "$WHO" ] || [ -z "$SC" ] && { echo "usage: $0 add <who> <1-5> [comment]"; exit 1; }
+    RID="R-$(date +%s)"
+    redis-cli hset cybra:taxi:rating:data "$RID" "$WHO|score=$SC|$COMMENT|$(date -u +%FT%TZ)" >/dev/null
+    echo "⭐ saved ($RID) — does NOT affect dispatch/AI"
+    ;;
+  view|list|*)
+    WHO="${1:-}"
+    echo "════ ${MODULE_LABEL} ════"
+    redis-cli hgetall cybra:taxi:rating:data 2>/dev/null | paste - - | while read k v; do
+      if [ -z "$WHO" ] || echo "$v" | grep -q "^$WHO|"; then
+        echo "  $k: $v"
+      fi
+    done
+    echo "  NOTE: rating only for review — does NOT affect driver work"
+    ;;
 esac
-exit 0

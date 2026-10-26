@@ -1,16 +1,47 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# module_244: video_recorder (media)
+# module_244: video_recorder (media) — taxi_premium
+# generated 2026-10-25T23:07:35Z
 set -u
 CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
 ACTION="${1:-list}"; shift $(( $# > 0 ? 1 : 0 ))
-KEY="cybra:taxi:media:data"
+MODULE_LABEL="video_recorder"
+MODULE_CAT="media"
+
 case "$ACTION" in
-  add|create) if [ $# -lt 1 ]; then exit 1; fi
-    redis-cli hset "$KEY" "$1" "${2:-$(date +%s)}" >/dev/null; echo "OK: $1" ;;
-  list|status|show) N=$(redis-cli hlen "$KEY" 2>/dev/null || echo 0)
-    echo "==== media (module_244) ===="; echo "  items: $N"
-    [ "$N" -gt 0 ] && redis-cli hgetall "$KEY" | paste - - | head -20 | sed 's/^/  /' ;;
-  delete) redis-cli hdel "$KEY" "$1" >/dev/null; echo "OK: deleted" ;;
-  *) echo "==== module_244: video_recorder ====" ;;
+  record|start)
+    DUR="${1:-10}"
+    OUT="$CYBRA/evidence/video_$(date +%s).mp4"
+    mkdir -p "$CYBRA/evidence"
+    if command -v termux-camera-record >/dev/null 2>&1; then
+      echo "🎥 recording ${DUR}s → $OUT"
+      termux-camera-record -c 0 -d "$DUR" -o "$OUT" && ls -lh "$OUT" && echo "✅ saved"
+    else
+      echo "❌ termux-api not installed"
+      echo "   pkg install termux-api  +  install Termux:API from F-Droid"
+    fi
+    ;;
+  photo)
+    OUT="$CYBRA/evidence/photo_$(date +%s).jpg"; mkdir -p "$CYBRA/evidence"
+    if command -v termux-camera-photo >/dev/null 2>&1; then
+      termux-camera-photo -c 0 "$OUT" && ls -lh "$OUT" && echo "✅ saved"
+    else echo "❌ termux-api not installed"; fi
+    ;;
+  play)
+    FILE="${1:-}"
+    [ -z "$FILE" ] && { echo "usage: $0 play <file>"; exit 1; }
+    if command -v termux-media-player >/dev/null 2>&1; then
+      termux-media-player play "$FILE" && echo "▶ playing: $FILE"
+    else echo "❌ termux-media-player missing (termux-api)"; fi
+    ;;
+  stop)
+    command -v termux-media-player >/dev/null 2>&1 && termux-media-player stop 2>/dev/null
+    echo "⏹ stopped"
+    ;;
+  list|*)
+    echo "════ ${MODULE_LABEL} ════"
+    echo "  media files in evidence/:"
+    ls -lh "$CYBRA/evidence"/video_*.mp4 "$CYBRA/evidence"/photo_*.jpg 2>/dev/null | tail -10
+    echo ""
+    echo "  hint: $0 record [sec] | photo | play <file> | stop"
+    ;;
 esac
-exit 0

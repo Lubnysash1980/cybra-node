@@ -1,16 +1,29 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# module_270: sos (safety)
+# module_270: sos (safety) — ultra
 set -u
 CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
 ACTION="${1:-list}"; shift $(( $# > 0 ? 1 : 0 ))
-KEY="cybra:taxi:safety:data"
+MODULE_LABEL="sos"
+MODULE_CAT="safety"
+
 case "$ACTION" in
-  add|create) if [ $# -lt 1 ]; then exit 1; fi
-    redis-cli hset "$KEY" "$1" "${2:-$(date +%s)}" >/dev/null; echo "OK: $1" ;;
-  list|status|show) N=$(redis-cli hlen "$KEY" 2>/dev/null || echo 0)
-    echo "==== safety (module_270) ===="; echo "  items: $N"
-    [ "$N" -gt 0 ] && redis-cli hgetall "$KEY" | paste - - | head -20 | sed 's/^/  /' ;;
-  delete) redis-cli hdel "$KEY" "$1" >/dev/null; echo "OK: deleted" ;;
-  *) echo "==== module_270: sos ====" ;;
+  trigger)
+    REASON="${1:-emergency}"
+    TS=$(date -u +%FT%TZ)
+    LOC=$(redis-cli hget cybra:taxi:location:last any 2>/dev/null | cut -d'|' -f1,2)
+    redis-cli rpush cybra:taxi:sos "{\"ts\":\"$TS\",\"reason\":\"$REASON\",\"loc\":\"$LOC\"}" >/dev/null
+    redis-cli rpush cybra:parliament:queue "{\"id\":\"sos-$TS\",\"action\":\"sos_alert\",\"topic\":\"taxi_sos\",\"reason\":\"$REASON\",\"loc\":\"$LOC\",\"ts\":\"$TS\"}" >/dev/null
+    echo "🚨 SOS TRIGGERED"
+    echo "   reason: $REASON"
+    echo "   location: $LOC"
+    echo "   sent to parliament + parliament:queue"
+    ;;
+  list)
+    echo "════ SOS history ════"
+    redis-cli lrange cybra:taxi:sos 0 -1 2>/dev/null | tail -10
+    ;;
+  *)
+    echo "════ ${MODULE_LABEL} ════"
+    echo "  hint: $0 trigger [reason] | list"
+    ;;
 esac
-exit 0

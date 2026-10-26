@@ -1,16 +1,32 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# module_262: peer_ble (peer)
+# module_262: peer_ble (peer) — ultra
 set -u
 CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
-ACTION="${1:-list}"; shift $(( $# > 0 ? 1 : 0 ))
-KEY="cybra:taxi:peer:data"
+ACTION="${1:-scan}"; shift $(( $# > 0 ? 1 : 0 ))
+MODULE_LABEL="peer_ble"
+MODULE_CAT="peer"
+
 case "$ACTION" in
-  add|create) if [ $# -lt 1 ]; then exit 1; fi
-    redis-cli hset "$KEY" "$1" "${2:-$(date +%s)}" >/dev/null; echo "OK: $1" ;;
-  list|status|show) N=$(redis-cli hlen "$KEY" 2>/dev/null || echo 0)
-    echo "==== peer (module_262) ===="; echo "  items: $N"
-    [ "$N" -gt 0 ] && redis-cli hgetall "$KEY" | paste - - | head -20 | sed 's/^/  /' ;;
-  delete) redis-cli hdel "$KEY" "$1" >/dev/null; echo "OK: deleted" ;;
-  *) echo "==== module_262: peer_ble ====" ;;
+  scan)
+    if ! command -v termux-bluetooth-scan >/dev/null 2>&1 && ! command -v termux-bluetooth-connection >/dev/null 2>&1; then
+      echo "❌ termux-api без BT підтримки"
+      echo "   BLE-advertising потребує Flutter/native (Android BLE APIs)"
+      echo "   Тут тільки: увімкни BT + спробуй 'scan' через bluetoothctl"
+    fi
+    # Termux fallback: bluetoothctl (якщо pkg install bluez)
+    if command -v bluetoothctl >/dev/null 2>&1; then
+      timeout 10 bluetoothctl scan on 2>/dev/null | head -5
+      echo "✅ BT scan (10s)"
+    else
+      echo "❌ no BT stack. Options:"
+      echo "   a) pkg install bluez"
+      echo "   b) BLE native — Flutter (real path)"
+    fi
+    ;;
+  *)
+    echo "════ ${MODULE_LABEL} ════"
+    echo "  BLE peer discovery: NEEDS Flutter/native"
+    echo "  Termux: bluetoothctl (basic scan)"
+    echo "  hint: $0 scan"
+    ;;
 esac
-exit 0
