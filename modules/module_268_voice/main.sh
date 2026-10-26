@@ -1,22 +1,28 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# module_268: voice (taxi)
+# module_268: voice (voice) — ultra
 set -u
 CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
-ACTION="${1:-list}"; shift $(( $# > 0 ? 1 : 0 ))
-KEY="cybra:taxi:taxi:data"
+ACTION="${1:-listen}"; shift $(( $# > 0 ? 1 : 0 ))
+MODULE_LABEL="voice"
+MODULE_CAT="voice"
+
 case "$ACTION" in
-  add|create|register)
-    if [ $# -lt 1 ]; then echo "usage: $0 add <name>"; exit 1; fi
-    redis-cli hset "$KEY" "$1" "${2:-$(date +%s)}" >/dev/null
-    echo "OK: $1" ;;
-  list|status|show)
-    N=$(redis-cli hlen "$KEY" 2>/dev/null || echo 0)
-    echo "==== taxi (module_268) ===="
-    echo "  items: $N"
-    if [ "$N" -gt 0 ]; then redis-cli hgetall "$KEY" | paste - - | head -20 | sed 's/^/  /'; fi ;;
-  delete|remove)
-    if [ $# -lt 1 ]; then exit 1; fi
-    redis-cli hdel "$KEY" "$1" >/dev/null; echo "OK: deleted" ;;
-  *) echo "==== module_268: voice ====" ;;
+  listen)
+    if command -v termux-speech-to-text >/dev/null 2>&1; then
+      echo "🎤 listening..."
+      TXT=$(timeout 10 termux-speech-to-text 2>/dev/null)
+      [ -n "$TXT" ] && { echo "  heard: $TXT"; redis-cli set cybra:taxi:voice:last "$TXT" >/dev/null; }
+    else
+      echo "❌ termux-api missing (pkg install termux-api + app)"
+    fi
+    ;;
+  say)
+    TXT="${1:-}"
+    [ -z "$TXT" ] && exit 1
+    command -v termux-tts-speak >/dev/null 2>&1 && termux-tts-speak "$TXT" && echo "🔊 said: $TXT"
+    ;;
+  *)
+    echo "════ ${MODULE_LABEL} ════"
+    echo "  hint: $0 listen | say <text>"
+    ;;
 esac
-exit 0
