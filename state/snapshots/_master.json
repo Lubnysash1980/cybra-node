@@ -1,5 +1,5 @@
 {
-  "ts": "2026-10-26T18:16:20.274594+00:00",
+  "ts": "2026-10-26T18:17:12.898718+00:00",
   "total": 133,
   "passed": 50,
   "pct": 37.6,
@@ -27,7 +27,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.070070+00:00",
+      "ts": "2026-10-26T18:16:57.388012+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_200_book_ride/main.sh",
       "name": "book_ride"
     },
@@ -36,7 +36,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.088965+00:00",
+      "ts": "2026-10-26T18:16:57.405477+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_201_cancel_ride/main.sh",
       "name": "cancel_ride"
     },
@@ -45,7 +45,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.110394+00:00",
+      "ts": "2026-10-26T18:16:57.416543+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_202_ride_status/main.sh",
       "name": "ride_status"
     },
@@ -54,7 +54,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.130535+00:00",
+      "ts": "2026-10-26T18:16:57.428901+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_203_ride_history/main.sh",
       "name": "ride_history"
     },
@@ -63,7 +63,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.162045+00:00",
+      "ts": "2026-10-26T18:16:57.438811+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_204_estimate_price/main.sh",
       "name": "estimate_price"
     },
@@ -72,7 +72,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.177500+00:00",
+      "ts": "2026-10-26T18:16:57.463769+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_205_select_tariff/main.sh",
       "name": "select_tariff"
     },
@@ -81,7 +81,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.195586+00:00",
+      "ts": "2026-10-26T18:16:57.487388+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_206_schedule_ride/main.sh",
       "name": "schedule_ride"
     },
@@ -90,7 +90,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.222677+00:00",
+      "ts": "2026-10-26T18:16:57.510783+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_207_repeat_ride/main.sh",
       "name": "repeat_ride"
     },
@@ -99,7 +99,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.242969+00:00",
+      "ts": "2026-10-26T18:16:57.535949+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_208_favorite_route/main.sh",
       "name": "favorite_route"
     },
@@ -108,7 +108,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.261277+00:00",
+      "ts": "2026-10-26T18:16:57.552599+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_209_saved_addresses/main.sh",
       "name": "saved_addresses"
     },
@@ -117,7 +117,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.280901+00:00",
+      "ts": "2026-10-26T18:16:57.579321+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_210_driver_register/main.sh",
       "name": "driver_register"
     },
@@ -126,7 +126,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.295476+00:00",
+      "ts": "2026-10-26T18:16:57.606987+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_211_driver_status/main.sh",
       "name": "driver_status"
     },
@@ -135,7 +135,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.320220+00:00",
+      "ts": "2026-10-26T18:16:57.633121+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_212_accept_ride/main.sh",
       "name": "accept_ride"
     },
@@ -144,7 +144,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.343718+00:00",
+      "ts": "2026-10-26T18:16:57.649514+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_213_complete_ride/main.sh",
       "name": "complete_ride"
     },
@@ -153,7 +153,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.370650+00:00",
+      "ts": "2026-10-26T18:16:57.676266+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_214_driver_earnings/main.sh",
       "name": "driver_earnings"
     },
@@ -162,7 +162,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.396039+00:00",
+      "ts": "2026-10-26T18:16:57.703205+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_215_driver_documents/main.sh",
       "name": "driver_documents"
     },
@@ -171,7 +171,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.422568+00:00",
+      "ts": "2026-10-26T18:16:57.730572+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_216_driver_rating/main.sh",
       "name": "driver_rating"
     },
@@ -180,7 +180,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.449655+00:00",
+      "ts": "2026-10-26T18:16:57.757825+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_217_dispatch_nearest/main.sh",
       "name": "dispatch_nearest"
     },
@@ -189,7 +189,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.477747+00:00",
+      "ts": "2026-10-26T18:16:57.786915+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_218_dispatch_batch/main.sh",
       "name": "dispatch_batch"
     },
@@ -198,7 +198,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.506409+00:00",
+      "ts": "2026-10-26T18:16:57.817413+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_219_surge_pricing/main.sh",
       "name": "surge_pricing"
     },
@@ -207,7 +207,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.533796+00:00",
+      "ts": "2026-10-26T18:16:57.849811+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_220_ride_payment/main.sh",
       "name": "ride_payment"
     },
@@ -216,7 +216,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.560341+00:00",
+      "ts": "2026-10-26T18:16:57.867035+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_221_ride_receipt/main.sh",
       "name": "ride_receipt"
     },
@@ -225,7 +225,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.586618+00:00",
+      "ts": "2026-10-26T18:16:57.894589+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_222_ride_refund/main.sh",
       "name": "ride_refund"
     },
@@ -234,7 +234,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.614760+00:00",
+      "ts": "2026-10-26T18:16:57.917276+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_223_escrow_ride/main.sh",
       "name": "escrow_ride"
     },
@@ -243,7 +243,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.635731+00:00",
+      "ts": "2026-10-26T18:16:57.940733+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_224_driver_payout/main.sh",
       "name": "driver_payout"
     },
@@ -252,7 +252,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.661258+00:00",
+      "ts": "2026-10-26T18:16:57.967661+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_225_tip_driver/main.sh",
       "name": "tip_driver"
     },
@@ -261,7 +261,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.678395+00:00",
+      "ts": "2026-10-26T18:16:57.985648+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_226_subscription/main.sh",
       "name": "subscription"
     },
@@ -270,7 +270,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.706394+00:00",
+      "ts": "2026-10-26T18:16:58.011431+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_227_wallet_topup/main.sh",
       "name": "wallet_topup"
     },
@@ -279,7 +279,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.730051+00:00",
+      "ts": "2026-10-26T18:16:58.033308+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_228_payment_history/main.sh",
       "name": "payment_history"
     },
@@ -288,7 +288,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.748908+00:00",
+      "ts": "2026-10-26T18:16:58.058958+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_229_promo_code/main.sh",
       "name": "promo_code"
     },
@@ -297,7 +297,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.771933+00:00",
+      "ts": "2026-10-26T18:16:58.075153+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_230_ai_dispatcher/main.sh",
       "name": "ai_dispatcher"
     },
@@ -306,7 +306,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.792034+00:00",
+      "ts": "2026-10-26T18:16:58.101272+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_231_ai_chat_support/main.sh",
       "name": "ai_chat_support"
     },
@@ -315,7 +315,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.816621+00:00",
+      "ts": "2026-10-26T18:16:58.127225+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_232_ai_route_optimize/main.sh",
       "name": "ai_route_optimize"
     },
@@ -324,7 +324,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.841331+00:00",
+      "ts": "2026-10-26T18:16:58.142862+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_233_ai_demand_forecast/main.sh",
       "name": "ai_demand_forecast"
     },
@@ -333,7 +333,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.861931+00:00",
+      "ts": "2026-10-26T18:16:58.171469+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_234_ai_driver_scoring/main.sh",
       "name": "ai_driver_scoring"
     },
@@ -342,7 +342,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.881866+00:00",
+      "ts": "2026-10-26T18:16:58.197973+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_235_ai_dispute/main.sh",
       "name": "ai_dispute"
     },
@@ -351,7 +351,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.903462+00:00",
+      "ts": "2026-10-26T18:16:58.216935+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_236_rider_analytics/main.sh",
       "name": "rider_analytics"
     },
@@ -360,7 +360,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.923634+00:00",
+      "ts": "2026-10-26T18:16:58.239849+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_237_driver_analytics/main.sh",
       "name": "driver_analytics"
     },
@@ -369,7 +369,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.944882+00:00",
+      "ts": "2026-10-26T18:16:58.266191+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_238_fleet_analytics/main.sh",
       "name": "fleet_analytics"
     },
@@ -378,7 +378,7 @@
       "kind": "module",
       "ok": false,
       "detail": "syntax",
-      "ts": "2026-10-26T18:16:05.968090+00:00",
+      "ts": "2026-10-26T18:16:58.283806+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_239_taxi_metrics/main.sh",
       "name": "taxi_metrics"
     },
@@ -387,7 +387,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:06.057432+00:00",
+      "ts": "2026-10-26T18:16:58.387785+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_240_virtual_map/main.sh",
       "name": "virtual_map"
     },
@@ -396,7 +396,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:06.139849+00:00",
+      "ts": "2026-10-26T18:16:58.514612+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_241_map_zones/main.sh",
       "name": "map_zones"
     },
@@ -405,7 +405,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:06.236901+00:00",
+      "ts": "2026-10-26T18:16:58.630360+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_242_route_preference/main.sh",
       "name": "route_preference"
     },
@@ -414,7 +414,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:06.335767+00:00",
+      "ts": "2026-10-26T18:16:58.736926+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_243_parking_priority/main.sh",
       "name": "parking_priority"
     },
@@ -423,7 +423,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:06.397390+00:00",
+      "ts": "2026-10-26T18:16:58.795872+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_244_video_recorder/main.sh",
       "name": "video_recorder"
     },
@@ -432,7 +432,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:06.463100+00:00",
+      "ts": "2026-10-26T18:16:58.871557+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_245_media_player/main.sh",
       "name": "media_player"
     },
@@ -441,7 +441,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:06.674649+00:00",
+      "ts": "2026-10-26T18:16:59.099233+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_246_payment_instant/main.sh",
       "name": "payment_instant"
     },
@@ -450,7 +450,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:06.888060+00:00",
+      "ts": "2026-10-26T18:16:59.318140+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_247_payment_commission/main.sh",
       "name": "payment_commission"
     },
@@ -459,7 +459,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:07.098625+00:00",
+      "ts": "2026-10-26T18:16:59.527014+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_248_payment_contract/main.sh",
       "name": "payment_contract"
     },
@@ -468,7 +468,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:07.181968+00:00",
+      "ts": "2026-10-26T18:16:59.600946+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_249_wallet_connect/main.sh",
       "name": "wallet_connect"
     },
@@ -477,7 +477,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:07.258748+00:00",
+      "ts": "2026-10-26T18:16:59.667062+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_250_wallet_list/main.sh",
       "name": "wallet_list"
     },
@@ -486,7 +486,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:07.336438+00:00",
+      "ts": "2026-10-26T18:16:59.729086+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_251_wallet_balance/main.sh",
       "name": "wallet_balance"
     },
@@ -495,7 +495,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:07.374766+00:00",
+      "ts": "2026-10-26T18:16:59.779170+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_252_price_adaptive/main.sh",
       "name": "price_adaptive"
     },
@@ -504,7 +504,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:07.420785+00:00",
+      "ts": "2026-10-26T18:16:59.821775+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_253_price_per_km/main.sh",
       "name": "price_per_km"
     },
@@ -513,7 +513,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:07.460652+00:00",
+      "ts": "2026-10-26T18:16:59.868762+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_254_ai_match/main.sh",
       "name": "ai_match"
     },
@@ -522,7 +522,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:07.536888+00:00",
+      "ts": "2026-10-26T18:16:59.983101+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_255_ai_zone_optimize/main.sh",
       "name": "ai_zone_optimize"
     },
@@ -531,7 +531,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:07.599942+00:00",
+      "ts": "2026-10-26T18:17:00.068762+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_256_rating_view/main.sh",
       "name": "rating_view"
     },
@@ -540,7 +540,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:07.665781+00:00",
+      "ts": "2026-10-26T18:17:00.128607+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_257_rating_comments/main.sh",
       "name": "rating_comments"
     },
@@ -549,7 +549,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:07.786453+00:00",
+      "ts": "2026-10-26T18:17:00.242873+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_258_eco_global/main.sh",
       "name": "eco_global"
     },
@@ -558,7 +558,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:07.855386+00:00",
+      "ts": "2026-10-26T18:17:00.303813+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_259_ui_theme/main.sh",
       "name": "ui_theme"
     },
@@ -567,7 +567,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:07.950925+00:00",
+      "ts": "2026-10-26T18:17:00.397721+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_260_peer_camera/main.sh",
       "name": "peer_camera"
     },
@@ -576,7 +576,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:08.028266+00:00",
+      "ts": "2026-10-26T18:17:00.456273+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_261_peer_cell/main.sh",
       "name": "peer_cell"
     },
@@ -585,7 +585,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:08.072398+00:00",
+      "ts": "2026-10-26T18:17:00.509024+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_262_peer_ble/main.sh",
       "name": "peer_ble"
     },
@@ -594,7 +594,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:08.119107+00:00",
+      "ts": "2026-10-26T18:17:00.551673+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_263_peer_wifi/main.sh",
       "name": "peer_wifi"
     },
@@ -603,7 +603,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:08.165705+00:00",
+      "ts": "2026-10-26T18:17:00.594530+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_264_peer_fusion/main.sh",
       "name": "peer_fusion"
     },
@@ -612,7 +612,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:08.245924+00:00",
+      "ts": "2026-10-26T18:17:00.670779+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_265_location_fallback/main.sh",
       "name": "location_fallback"
     },
@@ -621,7 +621,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:08.300024+00:00",
+      "ts": "2026-10-26T18:17:00.711284+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_266_state_100/main.sh",
       "name": "state_100"
     },
@@ -630,7 +630,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:08.383423+00:00",
+      "ts": "2026-10-26T18:17:00.824394+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_267_i18n_loader/main.sh",
       "name": "i18n_loader"
     },
@@ -639,7 +639,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:08.433300+00:00",
+      "ts": "2026-10-26T18:17:00.867630+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_268_voice/main.sh",
       "name": "voice"
     },
@@ -648,7 +648,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:08.494218+00:00",
+      "ts": "2026-10-26T18:17:00.904681+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_269_ai_assistant/main.sh",
       "name": "ai_assistant"
     },
@@ -657,7 +657,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:08.577802+00:00",
+      "ts": "2026-10-26T18:17:00.972294+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_270_sos/main.sh",
       "name": "sos"
     },
@@ -666,7 +666,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:08.635948+00:00",
+      "ts": "2026-10-26T18:17:01.032928+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_271_live_share/main.sh",
       "name": "live_share"
     },
@@ -675,7 +675,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:08.681857+00:00",
+      "ts": "2026-10-26T18:17:01.080297+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_272_app_metrics/main.sh",
       "name": "app_metrics"
     },
@@ -684,7 +684,7 @@
       "kind": "pm2",
       "ok": true,
       "detail": "online",
-      "ts": "2026-10-26T18:16:09.586697+00:00",
+      "ts": "2026-10-26T18:17:01.983993+00:00",
       "target": "redis"
     },
     {
@@ -692,7 +692,7 @@
       "kind": "pm2",
       "ok": true,
       "detail": "online",
-      "ts": "2026-10-26T18:16:10.446949+00:00",
+      "ts": "2026-10-26T18:17:02.831302+00:00",
       "target": "parliament"
     },
     {
@@ -700,7 +700,7 @@
       "kind": "pm2",
       "ok": true,
       "detail": "online",
-      "ts": "2026-10-26T18:16:11.311484+00:00",
+      "ts": "2026-10-26T18:17:03.696796+00:00",
       "target": "menu-worker"
     },
     {
@@ -708,7 +708,7 @@
       "kind": "pm2",
       "ok": true,
       "detail": "online",
-      "ts": "2026-10-26T18:16:12.191491+00:00",
+      "ts": "2026-10-26T18:17:04.593292+00:00",
       "target": "menu-autorobot"
     },
     {
@@ -716,7 +716,7 @@
       "kind": "pm2",
       "ok": false,
       "detail": "not_found",
-      "ts": "2026-10-26T18:16:13.053799+00:00",
+      "ts": "2026-10-26T18:17:05.495627+00:00",
       "target": "cybra-monolith"
     },
     {
@@ -724,7 +724,7 @@
       "kind": "pm2",
       "ok": false,
       "detail": "not_found",
-      "ts": "2026-10-26T18:16:13.924830+00:00",
+      "ts": "2026-10-26T18:17:06.378321+00:00",
       "target": "cybra-executor-ctrl"
     },
     {
@@ -732,7 +732,7 @@
       "kind": "pm2",
       "ok": true,
       "detail": "online",
-      "ts": "2026-10-26T18:16:14.828502+00:00",
+      "ts": "2026-10-26T18:17:07.281994+00:00",
       "target": "cybra-evo-ctrl"
     },
     {
@@ -740,7 +740,7 @@
       "kind": "pm2",
       "ok": true,
       "detail": "online",
-      "ts": "2026-10-26T18:16:15.713358+00:00",
+      "ts": "2026-10-26T18:17:08.178519+00:00",
       "target": "cybra-autopilot"
     },
     {
@@ -748,7 +748,7 @@
       "kind": "pm2",
       "ok": true,
       "detail": "online",
-      "ts": "2026-10-26T18:16:16.573654+00:00",
+      "ts": "2026-10-26T18:17:09.057053+00:00",
       "target": "hidl-worker"
     },
     {
@@ -756,7 +756,7 @@
       "kind": "pm2",
       "ok": true,
       "detail": "online",
-      "ts": "2026-10-26T18:16:17.455245+00:00",
+      "ts": "2026-10-26T18:17:09.977609+00:00",
       "target": "hidl-notifier"
     },
     {
@@ -764,7 +764,7 @@
       "kind": "pm2",
       "ok": false,
       "detail": "not_found",
-      "ts": "2026-10-26T18:16:18.333720+00:00",
+      "ts": "2026-10-26T18:17:10.884928+00:00",
       "target": "level-tracker"
     },
     {
@@ -772,7 +772,7 @@
       "kind": "pm2",
       "ok": true,
       "detail": "online",
-      "ts": "2026-10-26T18:16:19.200187+00:00",
+      "ts": "2026-10-26T18:17:11.790199+00:00",
       "target": "taxi-events"
     },
     {
@@ -780,7 +780,7 @@
       "kind": "pm2",
       "ok": false,
       "detail": "errored",
-      "ts": "2026-10-26T18:16:20.075687+00:00",
+      "ts": "2026-10-26T18:17:12.717946+00:00",
       "target": "cybra-api"
     },
     {
@@ -788,7 +788,7 @@
       "kind": "dart",
       "ok": true,
       "detail": "structure_ok",
-      "ts": "2026-10-26T18:16:20.078450+00:00",
+      "ts": "2026-10-26T18:17:12.724376+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/api/client.dart"
     },
     {
@@ -796,7 +796,7 @@
       "kind": "dart",
       "ok": true,
       "detail": "structure_ok",
-      "ts": "2026-10-26T18:16:20.080187+00:00",
+      "ts": "2026-10-26T18:17:12.727471+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/main.dart"
     },
     {
@@ -804,7 +804,7 @@
       "kind": "dart",
       "ok": true,
       "detail": "structure_ok",
-      "ts": "2026-10-26T18:16:20.081857+00:00",
+      "ts": "2026-10-26T18:17:12.729983+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/screens/book_ride_screen.dart"
     },
     {
@@ -812,7 +812,7 @@
       "kind": "dart",
       "ok": true,
       "detail": "structure_ok",
-      "ts": "2026-10-26T18:16:20.083271+00:00",
+      "ts": "2026-10-26T18:17:12.732612+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/screens/history_screen.dart"
     },
     {
@@ -820,7 +820,7 @@
       "kind": "dart",
       "ok": true,
       "detail": "structure_ok",
-      "ts": "2026-10-26T18:16:20.084598+00:00",
+      "ts": "2026-10-26T18:17:12.734255+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/screens/login_screen.dart"
     },
     {
@@ -828,7 +828,7 @@
       "kind": "dart",
       "ok": true,
       "detail": "structure_ok",
-      "ts": "2026-10-26T18:16:20.086024+00:00",
+      "ts": "2026-10-26T18:17:12.735618+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/screens/map_screen.dart"
     },
     {
@@ -836,7 +836,7 @@
       "kind": "dart",
       "ok": true,
       "detail": "structure_ok",
-      "ts": "2026-10-26T18:16:20.087279+00:00",
+      "ts": "2026-10-26T18:17:12.736921+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/screens/track_screen.dart"
     },
     {
@@ -844,7 +844,7 @@
       "kind": "dart",
       "ok": true,
       "detail": "structure_ok",
-      "ts": "2026-10-26T18:16:20.088477+00:00",
+      "ts": "2026-10-26T18:17:12.738365+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/screens/wallet_screen.dart"
     },
     {
@@ -852,7 +852,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.210418+00:00",
+      "ts": "2026-10-26T18:17:12.827234+00:00",
       "path": "/api/health"
     },
     {
@@ -860,7 +860,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.212095+00:00",
+      "ts": "2026-10-26T18:17:12.829253+00:00",
       "path": "/api/state/100"
     },
     {
@@ -868,7 +868,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.214444+00:00",
+      "ts": "2026-10-26T18:17:12.831363+00:00",
       "path": "/api/auth/register"
     },
     {
@@ -876,7 +876,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.216218+00:00",
+      "ts": "2026-10-26T18:17:12.833579+00:00",
       "path": "/api/auth/login"
     },
     {
@@ -884,7 +884,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.217784+00:00",
+      "ts": "2026-10-26T18:17:12.835196+00:00",
       "path": "/api/me"
     },
     {
@@ -892,7 +892,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.219332+00:00",
+      "ts": "2026-10-26T18:17:12.837642+00:00",
       "path": "/api/rides"
     },
     {
@@ -900,7 +900,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.220846+00:00",
+      "ts": "2026-10-26T18:17:12.840621+00:00",
       "path": "/api/rides"
     },
     {
@@ -908,7 +908,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.222430+00:00",
+      "ts": "2026-10-26T18:17:12.842812+00:00",
       "path": "/api/rides/open"
     },
     {
@@ -916,7 +916,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.223969+00:00",
+      "ts": "2026-10-26T18:17:12.844364+00:00",
       "path": "/api/rides/{rid}"
     },
     {
@@ -924,7 +924,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.225612+00:00",
+      "ts": "2026-10-26T18:17:12.845982+00:00",
       "path": "/api/rides/{rid}/accept"
     },
     {
@@ -932,7 +932,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.227171+00:00",
+      "ts": "2026-10-26T18:17:12.848489+00:00",
       "path": "/api/rides/{rid}/start"
     },
     {
@@ -940,7 +940,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.228732+00:00",
+      "ts": "2026-10-26T18:17:12.851164+00:00",
       "path": "/api/rides/{rid}/complete"
     },
     {
@@ -948,7 +948,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.230672+00:00",
+      "ts": "2026-10-26T18:17:12.852857+00:00",
       "path": "/api/rides/{rid}/cancel"
     },
     {
@@ -956,7 +956,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.232253+00:00",
+      "ts": "2026-10-26T18:17:12.854497+00:00",
       "path": "/api/map/markers"
     },
     {
@@ -964,7 +964,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.233858+00:00",
+      "ts": "2026-10-26T18:17:12.856040+00:00",
       "path": "/api/map/markers"
     },
     {
@@ -972,7 +972,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.235452+00:00",
+      "ts": "2026-10-26T18:17:12.857581+00:00",
       "path": "/api/map/near"
     },
     {
@@ -980,7 +980,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.236992+00:00",
+      "ts": "2026-10-26T18:17:12.859451+00:00",
       "path": "/api/map/zones"
     },
     {
@@ -988,7 +988,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.238577+00:00",
+      "ts": "2026-10-26T18:17:12.860942+00:00",
       "path": "/api/map/zones"
     },
     {
@@ -996,7 +996,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.240110+00:00",
+      "ts": "2026-10-26T18:17:12.862500+00:00",
       "path": "/api/wallet/connect"
     },
     {
@@ -1004,7 +1004,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.241701+00:00",
+      "ts": "2026-10-26T18:17:12.863904+00:00",
       "path": "/api/wallet"
     },
     {
@@ -1012,7 +1012,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.243266+00:00",
+      "ts": "2026-10-26T18:17:12.865770+00:00",
       "path": "/api/wallet/{addr}"
     },
     {
@@ -1020,7 +1020,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.244808+00:00",
+      "ts": "2026-10-26T18:17:12.867154+00:00",
       "path": "/api/wallet/{addr}/balance"
     },
     {
@@ -1028,7 +1028,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.246500+00:00",
+      "ts": "2026-10-26T18:17:12.868500+00:00",
       "path": "/api/price/offer"
     },
     {
@@ -1036,7 +1036,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.248094+00:00",
+      "ts": "2026-10-26T18:17:12.870503+00:00",
       "path": "/api/price/counter"
     },
     {
@@ -1044,7 +1044,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.249662+00:00",
+      "ts": "2026-10-26T18:17:12.872338+00:00",
       "path": "/api/price/accept"
     },
     {
@@ -1052,7 +1052,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.251242+00:00",
+      "ts": "2026-10-26T18:17:12.874009+00:00",
       "path": "/api/price/per_km"
     },
     {
@@ -1060,7 +1060,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.252782+00:00",
+      "ts": "2026-10-26T18:17:12.875842+00:00",
       "path": "/api/price/suggest"
     },
     {
@@ -1068,7 +1068,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.254369+00:00",
+      "ts": "2026-10-26T18:17:12.877687+00:00",
       "path": "/api/price/negotiate/{rid}"
     },
     {
@@ -1076,7 +1076,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.255932+00:00",
+      "ts": "2026-10-26T18:17:12.879659+00:00",
       "path": "/api/ai/interests"
     },
     {
@@ -1084,7 +1084,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.257556+00:00",
+      "ts": "2026-10-26T18:17:12.881376+00:00",
       "path": "/api/ai/match"
     },
     {
@@ -1092,7 +1092,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.259220+00:00",
+      "ts": "2026-10-26T18:17:12.883088+00:00",
       "path": "/api/payment/commission"
     },
     {
@@ -1100,7 +1100,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.260870+00:00",
+      "ts": "2026-10-26T18:17:12.886588+00:00",
       "path": "/api/payment/instant"
     },
     {
@@ -1108,7 +1108,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.262701+00:00",
+      "ts": "2026-10-26T18:17:12.888534+00:00",
       "path": "/api/payment/contract"
     },
     {
@@ -1116,7 +1116,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.265898+00:00",
+      "ts": "2026-10-26T18:17:12.890061+00:00",
       "path": "/api/rating"
     },
     {
@@ -1124,7 +1124,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.267509+00:00",
+      "ts": "2026-10-26T18:17:12.891876+00:00",
       "path": "/api/rating"
     },
     {
@@ -1132,7 +1132,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.269034+00:00",
+      "ts": "2026-10-26T18:17:12.893387+00:00",
       "path": "/api/i18n/{lang}"
     },
     {
@@ -1140,7 +1140,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.270733+00:00",
+      "ts": "2026-10-26T18:17:12.894958+00:00",
       "path": "/api/i18n/lang"
     },
     {
@@ -1148,7 +1148,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.272306+00:00",
+      "ts": "2026-10-26T18:17:12.896471+00:00",
       "path": "/api/taxi/events"
     },
     {
@@ -1156,7 +1156,7 @@
       "kind": "api",
       "ok": false,
       "detail": "<urlopen error [Errno 111] Connection re",
-      "ts": "2026-10-26T18:16:20.273880+00:00",
+      "ts": "2026-10-26T18:17:12.898080+00:00",
       "path": "/api/taxi/events/stats"
     }
   ]
