@@ -12,7 +12,8 @@ from fastapi import FastAPI, HTTPException, Depends, Header, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from pydantic import BaseModel, Field
-from jose import jwt, JWTError
+import jwt
+from jwt.exceptions import InvalidTokenError as JWTError
 import redis
 
 # ─── config ───
@@ -98,7 +99,7 @@ def push_event(etype: str, data: dict, src: str = "api"):
 # ═══════════════ MODELS ═══════════════
 class RegisterIn(BaseModel):
     phone: str = Field(..., min_length=5, max_length=20)
-    role: str = Field("rider", pattern="^(rider|driver|both)$")
+    role: str = Field("rider", regex="^(rider|driver|both)$")
 
 class LoginIn(BaseModel):
     phone: str
@@ -126,8 +127,8 @@ class ZoneIn(BaseModel):
     reason: str = "residential"
 
 class WalletIn(BaseModel):
-    address: str = Field(..., pattern="^0x[a-fA-F0-9]{40}$")
-    role: str = Field("rider", pattern="^(rider|driver|both)$")
+    address: str = Field(..., regex="^0x[a-fA-F0-9]{40}$")
+    role: str = Field("rider", regex="^(rider|driver|both)$")
 
 class PriceOfferIn(BaseModel):
     ride_id: str
@@ -138,7 +139,7 @@ class PriceAcceptIn(BaseModel):
     who: str = "client"
 
 class PerKmIn(BaseModel):
-    who: str = Field("client", pattern="^(client|driver)$")
+    who: str = Field("client", regex="^(client|driver)$")
     price: float
 
 class InterestsIn(BaseModel):
@@ -156,7 +157,7 @@ class InstantIn(BaseModel):
     from_addr: str = Field(..., alias="from")
     to_addr: str = Field(..., alias="to")
     amount: float
-    class Config: populate_by_name = True
+    class Config: allow_population_by_field_name = True
 
 class ContractIn(BaseModel):
     amount: float
@@ -169,7 +170,7 @@ class RatingIn(BaseModel):
     comment: str = ""
 
 class I18nIn(BaseModel):
-    lang: str = Field(..., pattern="^(en|uk|es|de|fr|ar|zh)$")
+    lang: str = Field(..., regex="^(en|uk|es|de|fr|ar|zh)$")
 
 class EventIn(BaseModel):
     type: str
@@ -323,7 +324,7 @@ def map_markers():
 @app.post("/api/map/markers", tags=["map"])
 def map_add(body: MarkerIn):
     r.hset("cybra:taxi:map:markers", body.id, f"{body.lat},{body.lon},{body.note},{now_iso()}")
-    push_event("map.marker_added", body.model_dump(), "api")
+    push_event("map.marker_added", body.dict(), "api")
     return {"status": "ok", "id": body.id}
 
 @app.get("/api/map/near", tags=["map"])
@@ -348,7 +349,7 @@ def map_near(lat: float = Query(...), lon: float = Query(...), km: float = 5.0):
 def map_zone(body: ZoneIn):
     r.hset("cybra:taxi:map:zones", body.id,
            f"{body.lat},{body.lon},{body.radius},{body.reason}")
-    push_event("map.zone_added", body.model_dump(), "api")
+    push_event("map.zone_added", body.dict(), "api")
     return {"status": "ok", "id": body.id}
 
 @app.get("/api/map/zones", tags=["map"])
@@ -359,7 +360,7 @@ def map_zones_list():
 @app.post("/api/wallet/connect", tags=["wallet"])
 def wallet_connect(body: WalletIn, user: dict = Depends(current_user)):
     r.hset("cybra:taxi:wallet:data", body.address, f"role={body.role},at={now_iso()}")
-    push_event("wallet.connected", body.model_dump(), "api")
+    push_event("wallet.connected", body.dict(), "api")
     return {"status": "connected", "address": body.address, "role": body.role}
 
 @app.get("/api/wallet", tags=["wallet"])
@@ -383,27 +384,27 @@ def wallet_balance(addr: str):
 def price_offer(body: PriceOfferIn, user: dict = Depends(current_user)):
     r.hset(f"cybra:taxi:price:negotiate:{body.ride_id}",
            "client_offer", str(body.amount))
-    push_event("price.offered", body.model_dump(), "api")
+    push_event("price.offered", body.dict(), "api")
     return {"status": "offered"}
 
 @app.post("/api/price/counter", tags=["price"])
 def price_counter(body: PriceOfferIn, user: dict = Depends(current_user)):
     r.hset(f"cybra:taxi:price:negotiate:{body.ride_id}",
            "driver_ask", str(body.amount))
-    push_event("price.countered", body.model_dump(), "api")
+    push_event("price.countered", body.dict(), "api")
     return {"status": "countered"}
 
 @app.post("/api/price/accept", tags=["price"])
 def price_accept(body: PriceAcceptIn, user: dict = Depends(current_user)):
     r.hset(f"cybra:taxi:price:negotiate:{body.ride_id}",
            "accepted_by", body.who)
-    push_event("price.accepted", body.model_dump(), "api")
+    push_event("price.accepted", body.dict(), "api")
     return {"status": "accepted"}
 
 @app.post("/api/price/per_km", tags=["price"])
 def price_per_km(body: PerKmIn):
     r.hset("cybra:taxi:price:perkm", body.who, str(body.price))
-    push_event("price.per_km", body.model_dump(), "api")
+    push_event("price.per_km", body.dict(), "api")
     return {"status": "ok", "who": body.who, "price": body.price}
 
 @app.get("/api/price/suggest", tags=["price"])
@@ -446,7 +447,7 @@ def payment_commission(body: CommissionIn):
     rid = gen_id("COM")
     r.hset("cybra:taxi:commission:data", rid,
            f"amount={body.amount},fee={fee},net={net},token={TOKEN_CYBRA},status=pending")
-    push_event("payment.commission", body.model_dump(), "api")
+    push_event("payment.commission", body.dict(), "api")
     return {"ref": rid, "amount": body.amount, "fee": fee, "net": net,
             "token": TOKEN_CYBRA, "commission_pct": COMMISSION_PCT,
             "note": "on-chain transfer needs wallet signing"}
@@ -456,7 +457,7 @@ def payment_instant(body: InstantIn):
     rid = gen_id("PAY")
     r.hset("cybra:taxi:payment:data", rid,
            f"from={body.from_addr},to={body.to_addr},amount={body.amount},status=queued")
-    push_event("payment.instant", body.model_dump(by_alias=True), "api")
+    push_event("payment.instant", body.dict(by_alias=True), "api")
     return {"ref": rid, "status": "queued",
             "note": "bank card→card needs PSP (LiqPay/Fondy)"}
 
@@ -471,7 +472,7 @@ def rating_add(body: RatingIn, user: dict = Depends(current_user)):
     rid = gen_id("R")
     r.hset("cybra:taxi:rating:data", rid,
            f"{body.who}|score={body.score}|{body.comment}|{now_iso()}")
-    push_event("rating.added", body.model_dump(), "api")
+    push_event("rating.added", body.dict(), "api")
     return {"status": "ok", "ref": rid, "note": "rating does NOT affect dispatch"}
 
 @app.get("/api/rating", tags=["rating"])
