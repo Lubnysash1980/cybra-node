@@ -10,7 +10,7 @@ BACKUP = STATE/"evo_backups"; WEAK = STATE/"evo_weakest.json"
 LOG = CYBRA/"logs/evo_controller.log"
 for d in (STATE, BACKUP, LOG.parent): d.mkdir(parents=True, exist_ok=True)
 CFG = {"threshold_rollback":-3.0,"threshold_lock":3.0,"weak_score":90,
-       "upgrade_max":10,"restore_min_delta":10,"loop_interval":600,"mode":"auto"}
+       "upgrade_max":10,"restore_min_delta":10,"loop_interval":600,"mode":"score-only"}
 REAL_RE = re.compile(r'redis-cli|git --no-pager|pm2 jlist|python3 |cybra_|sqlite|curl|fidic', re.I)
 STUB_RE = re.compile(r'AI-INTEGRATED|потребує наповнення|smart-stub v1|МОДУЛЬ.*створено заново', re.I)
 PREMIUM = r'''#!/data/data/com.termux/files/usr/bin/bash

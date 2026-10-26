@@ -14,7 +14,7 @@ case "$ACTION" in
     N=$(redis-cli hlen "cybra:taxi:ai:data" 2>/dev/null || echo 0)
     echo "════ taxi ai: ai_route_optimize ════"
     echo "  items: $N"
-    if [ "$N" -gt 0 ]; then redis-cli hgetall "cybra:taxi:ai:data" | paste - - | head -20 | sed 's/^/  /'; fi ;;
+    [ "$N" -gt 0 ] && redis-cli hgetall "cybra:taxi:ai:data" | paste - - | head -20 | sed 's/^/  /' ;;
   cancel|delete|remove)
     [ $# -lt 1 ] && { echo "usage: $0 $ACTION <id>"; exit 1; }
     redis-cli hdel "cybra:taxi:ai:data" "$1" >/dev/null
