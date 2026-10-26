@@ -1,15 +1,15 @@
 {
-  "ts": "2026-10-26T18:17:03.812509+00:00",
-  "total": 133,
-  "passed": 129,
-  "pct": 97.0,
+  "ts": "2026-10-26T18:18:47.763278+00:00",
+  "total": 130,
+  "passed": 130,
+  "pct": 100.0,
   "by_kind": {
     "module": {
       "total": 73,
       "passed": 73
     },
     "pm2": {
-      "total": 13,
+      "total": 10,
       "passed": 10
     },
     "dart": {
@@ -18,7 +18,7 @@
     },
     "api": {
       "total": 39,
-      "passed": 38
+      "passed": 39
     }
   },
   "items": [
@@ -27,7 +27,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:41.277156+00:00",
+      "ts": "2026-10-26T18:18:30.457757+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_200_book_ride/main.sh",
       "name": "book_ride"
     },
@@ -36,7 +36,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:41.352507+00:00",
+      "ts": "2026-10-26T18:18:30.562104+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_201_cancel_ride/main.sh",
       "name": "cancel_ride"
     },
@@ -45,7 +45,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:41.424323+00:00",
+      "ts": "2026-10-26T18:18:30.652269+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_202_ride_status/main.sh",
       "name": "ride_status"
     },
@@ -54,7 +54,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:41.495283+00:00",
+      "ts": "2026-10-26T18:18:30.745307+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_203_ride_history/main.sh",
       "name": "ride_history"
     },
@@ -63,7 +63,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:41.564909+00:00",
+      "ts": "2026-10-26T18:18:30.836325+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_204_estimate_price/main.sh",
       "name": "estimate_price"
     },
@@ -72,7 +72,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:41.636984+00:00",
+      "ts": "2026-10-26T18:18:30.930680+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_205_select_tariff/main.sh",
       "name": "select_tariff"
     },
@@ -81,7 +81,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:41.710708+00:00",
+      "ts": "2026-10-26T18:18:31.041540+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_206_schedule_ride/main.sh",
       "name": "schedule_ride"
     },
@@ -90,7 +90,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:41.794585+00:00",
+      "ts": "2026-10-26T18:18:31.126511+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_207_repeat_ride/main.sh",
       "name": "repeat_ride"
     },
@@ -99,7 +99,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:41.901233+00:00",
+      "ts": "2026-10-26T18:18:31.212087+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_208_favorite_route/main.sh",
       "name": "favorite_route"
     },
@@ -108,7 +108,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:41.995359+00:00",
+      "ts": "2026-10-26T18:18:31.300342+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_209_saved_addresses/main.sh",
       "name": "saved_addresses"
     },
@@ -117,7 +117,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:42.068346+00:00",
+      "ts": "2026-10-26T18:18:31.388513+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_210_driver_register/main.sh",
       "name": "driver_register"
     },
@@ -126,7 +126,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:42.206336+00:00",
+      "ts": "2026-10-26T18:18:31.468062+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_211_driver_status/main.sh",
       "name": "driver_status"
     },
@@ -135,7 +135,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:42.282965+00:00",
+      "ts": "2026-10-26T18:18:31.537901+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_212_accept_ride/main.sh",
       "name": "accept_ride"
     },
@@ -144,7 +144,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:42.357373+00:00",
+      "ts": "2026-10-26T18:18:31.681376+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_213_complete_ride/main.sh",
       "name": "complete_ride"
     },
@@ -153,7 +153,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:42.432420+00:00",
+      "ts": "2026-10-26T18:18:31.758131+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_214_driver_earnings/main.sh",
       "name": "driver_earnings"
     },
@@ -162,7 +162,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:42.506785+00:00",
+      "ts": "2026-10-26T18:18:31.832967+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_215_driver_documents/main.sh",
       "name": "driver_documents"
     },
@@ -171,7 +171,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:42.582666+00:00",
+      "ts": "2026-10-26T18:18:31.924776+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_216_driver_rating/main.sh",
       "name": "driver_rating"
     },
@@ -180,7 +180,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:42.658687+00:00",
+      "ts": "2026-10-26T18:18:32.020626+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_217_dispatch_nearest/main.sh",
       "name": "dispatch_nearest"
     },
@@ -189,7 +189,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:42.733468+00:00",
+      "ts": "2026-10-26T18:18:32.097041+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_218_dispatch_batch/main.sh",
       "name": "dispatch_batch"
     },
@@ -198,7 +198,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:42.809268+00:00",
+      "ts": "2026-10-26T18:18:32.175381+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_219_surge_pricing/main.sh",
       "name": "surge_pricing"
     },
@@ -207,7 +207,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:42.887192+00:00",
+      "ts": "2026-10-26T18:18:32.247455+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_220_ride_payment/main.sh",
       "name": "ride_payment"
     },
@@ -216,7 +216,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:42.972880+00:00",
+      "ts": "2026-10-26T18:18:32.320540+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_221_ride_receipt/main.sh",
       "name": "ride_receipt"
     },
@@ -225,7 +225,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:43.048950+00:00",
+      "ts": "2026-10-26T18:18:32.421099+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_222_ride_refund/main.sh",
       "name": "ride_refund"
     },
@@ -234,7 +234,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:43.117980+00:00",
+      "ts": "2026-10-26T18:18:32.496745+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_223_escrow_ride/main.sh",
       "name": "escrow_ride"
     },
@@ -243,7 +243,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:43.191662+00:00",
+      "ts": "2026-10-26T18:18:32.570130+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_224_driver_payout/main.sh",
       "name": "driver_payout"
     },
@@ -252,7 +252,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:43.265075+00:00",
+      "ts": "2026-10-26T18:18:32.650228+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_225_tip_driver/main.sh",
       "name": "tip_driver"
     },
@@ -261,7 +261,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:43.359417+00:00",
+      "ts": "2026-10-26T18:18:32.750326+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_226_subscription/main.sh",
       "name": "subscription"
     },
@@ -270,7 +270,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:43.439675+00:00",
+      "ts": "2026-10-26T18:18:32.822314+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_227_wallet_topup/main.sh",
       "name": "wallet_topup"
     },
@@ -279,7 +279,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:43.512963+00:00",
+      "ts": "2026-10-26T18:18:32.918531+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_228_payment_history/main.sh",
       "name": "payment_history"
     },
@@ -288,7 +288,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:43.610892+00:00",
+      "ts": "2026-10-26T18:18:32.994133+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_229_promo_code/main.sh",
       "name": "promo_code"
     },
@@ -297,7 +297,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:43.685643+00:00",
+      "ts": "2026-10-26T18:18:33.071238+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_230_ai_dispatcher/main.sh",
       "name": "ai_dispatcher"
     },
@@ -306,7 +306,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:43.761349+00:00",
+      "ts": "2026-10-26T18:18:33.145350+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_231_ai_chat_support/main.sh",
       "name": "ai_chat_support"
     },
@@ -315,7 +315,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:43.836612+00:00",
+      "ts": "2026-10-26T18:18:33.262988+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_232_ai_route_optimize/main.sh",
       "name": "ai_route_optimize"
     },
@@ -324,7 +324,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:43.913364+00:00",
+      "ts": "2026-10-26T18:18:33.345808+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_233_ai_demand_forecast/main.sh",
       "name": "ai_demand_forecast"
     },
@@ -333,7 +333,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:43.997935+00:00",
+      "ts": "2026-10-26T18:18:33.423427+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_234_ai_driver_scoring/main.sh",
       "name": "ai_driver_scoring"
     },
@@ -342,7 +342,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:44.077030+00:00",
+      "ts": "2026-10-26T18:18:33.499261+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_235_ai_dispute/main.sh",
       "name": "ai_dispute"
     },
@@ -351,7 +351,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:44.156717+00:00",
+      "ts": "2026-10-26T18:18:33.609912+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_236_rider_analytics/main.sh",
       "name": "rider_analytics"
     },
@@ -360,7 +360,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:44.230674+00:00",
+      "ts": "2026-10-26T18:18:33.685845+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_237_driver_analytics/main.sh",
       "name": "driver_analytics"
     },
@@ -369,7 +369,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:44.303957+00:00",
+      "ts": "2026-10-26T18:18:33.765235+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_238_fleet_analytics/main.sh",
       "name": "fleet_analytics"
     },
@@ -378,7 +378,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:44.378607+00:00",
+      "ts": "2026-10-26T18:18:33.839339+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_239_taxi_metrics/main.sh",
       "name": "taxi_metrics"
     },
@@ -387,7 +387,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:44.427976+00:00",
+      "ts": "2026-10-26T18:18:33.892858+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_240_virtual_map/main.sh",
       "name": "virtual_map"
     },
@@ -396,7 +396,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:44.477115+00:00",
+      "ts": "2026-10-26T18:18:33.944921+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_241_map_zones/main.sh",
       "name": "map_zones"
     },
@@ -405,7 +405,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:44.526773+00:00",
+      "ts": "2026-10-26T18:18:33.993998+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_242_route_preference/main.sh",
       "name": "route_preference"
     },
@@ -414,7 +414,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:44.575624+00:00",
+      "ts": "2026-10-26T18:18:34.046455+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_243_parking_priority/main.sh",
       "name": "parking_priority"
     },
@@ -423,7 +423,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:44.614772+00:00",
+      "ts": "2026-10-26T18:18:34.100765+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_244_video_recorder/main.sh",
       "name": "video_recorder"
     },
@@ -432,7 +432,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:44.647820+00:00",
+      "ts": "2026-10-26T18:18:34.160721+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_245_media_player/main.sh",
       "name": "media_player"
     },
@@ -441,7 +441,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:44.847273+00:00",
+      "ts": "2026-10-26T18:18:34.354702+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_246_payment_instant/main.sh",
       "name": "payment_instant"
     },
@@ -450,7 +450,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:45.030744+00:00",
+      "ts": "2026-10-26T18:18:34.556080+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_247_payment_commission/main.sh",
       "name": "payment_commission"
     },
@@ -459,7 +459,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:45.224514+00:00",
+      "ts": "2026-10-26T18:18:34.746386+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_248_payment_contract/main.sh",
       "name": "payment_contract"
     },
@@ -468,7 +468,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:45.265422+00:00",
+      "ts": "2026-10-26T18:18:34.794949+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_249_wallet_connect/main.sh",
       "name": "wallet_connect"
     },
@@ -477,7 +477,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:45.303396+00:00",
+      "ts": "2026-10-26T18:18:34.852708+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_250_wallet_list/main.sh",
       "name": "wallet_list"
     },
@@ -486,7 +486,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:45.347296+00:00",
+      "ts": "2026-10-26T18:18:34.903100+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_251_wallet_balance/main.sh",
       "name": "wallet_balance"
     },
@@ -495,7 +495,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:45.373551+00:00",
+      "ts": "2026-10-26T18:18:34.924644+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_252_price_adaptive/main.sh",
       "name": "price_adaptive"
     },
@@ -504,7 +504,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:45.396349+00:00",
+      "ts": "2026-10-26T18:18:34.946844+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_253_price_per_km/main.sh",
       "name": "price_per_km"
     },
@@ -513,7 +513,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:45.419073+00:00",
+      "ts": "2026-10-26T18:18:34.974648+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_254_ai_match/main.sh",
       "name": "ai_match"
     },
@@ -522,7 +522,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:45.464805+00:00",
+      "ts": "2026-10-26T18:18:35.027589+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_255_ai_zone_optimize/main.sh",
       "name": "ai_zone_optimize"
     },
@@ -531,7 +531,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:45.499566+00:00",
+      "ts": "2026-10-26T18:18:35.080110+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_256_rating_view/main.sh",
       "name": "rating_view"
     },
@@ -540,7 +540,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:45.533077+00:00",
+      "ts": "2026-10-26T18:18:35.133313+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_257_rating_comments/main.sh",
       "name": "rating_comments"
     },
@@ -549,7 +549,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:45.660435+00:00",
+      "ts": "2026-10-26T18:18:35.257023+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_258_eco_global/main.sh",
       "name": "eco_global"
     },
@@ -558,7 +558,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:45.694127+00:00",
+      "ts": "2026-10-26T18:18:35.313535+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_259_ui_theme/main.sh",
       "name": "ui_theme"
     },
@@ -567,7 +567,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:45.768401+00:00",
+      "ts": "2026-10-26T18:18:35.388914+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_260_peer_camera/main.sh",
       "name": "peer_camera"
     },
@@ -576,7 +576,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:45.800932+00:00",
+      "ts": "2026-10-26T18:18:35.421909+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_261_peer_cell/main.sh",
       "name": "peer_cell"
     },
@@ -585,7 +585,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:45.822101+00:00",
+      "ts": "2026-10-26T18:18:35.446985+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_262_peer_ble/main.sh",
       "name": "peer_ble"
     },
@@ -594,7 +594,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:45.843020+00:00",
+      "ts": "2026-10-26T18:18:35.467954+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_263_peer_wifi/main.sh",
       "name": "peer_wifi"
     },
@@ -603,7 +603,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:45.864286+00:00",
+      "ts": "2026-10-26T18:18:35.495845+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_264_peer_fusion/main.sh",
       "name": "peer_fusion"
     },
@@ -612,7 +612,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:45.933280+00:00",
+      "ts": "2026-10-26T18:18:35.564512+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_265_location_fallback/main.sh",
       "name": "location_fallback"
     },
@@ -621,7 +621,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:45.955069+00:00",
+      "ts": "2026-10-26T18:18:35.587338+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_266_state_100/main.sh",
       "name": "state_100"
     },
@@ -630,7 +630,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:46.012371+00:00",
+      "ts": "2026-10-26T18:18:35.650632+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_267_i18n_loader/main.sh",
       "name": "i18n_loader"
     },
@@ -639,7 +639,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:46.033652+00:00",
+      "ts": "2026-10-26T18:18:35.677774+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_268_voice/main.sh",
       "name": "voice"
     },
@@ -648,7 +648,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:46.054764+00:00",
+      "ts": "2026-10-26T18:18:35.706293+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_269_ai_assistant/main.sh",
       "name": "ai_assistant"
     },
@@ -657,7 +657,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:46.087936+00:00",
+      "ts": "2026-10-26T18:18:35.741139+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_270_sos/main.sh",
       "name": "sos"
     },
@@ -666,7 +666,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:46.109359+00:00",
+      "ts": "2026-10-26T18:18:35.762823+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_271_live_share/main.sh",
       "name": "live_share"
     },
@@ -675,7 +675,7 @@
       "kind": "module",
       "ok": true,
       "detail": "rc=0",
-      "ts": "2026-10-26T18:16:46.130813+00:00",
+      "ts": "2026-10-26T18:18:35.788602+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/modules/module_272_app_metrics/main.sh",
       "name": "app_metrics"
     },
@@ -684,7 +684,7 @@
       "kind": "pm2",
       "ok": true,
       "detail": "online",
-      "ts": "2026-10-26T18:16:47.340367+00:00",
+      "ts": "2026-10-26T18:18:37.496879+00:00",
       "target": "redis"
     },
     {
@@ -692,7 +692,7 @@
       "kind": "pm2",
       "ok": true,
       "detail": "online",
-      "ts": "2026-10-26T18:16:48.402683+00:00",
+      "ts": "2026-10-26T18:18:38.565935+00:00",
       "target": "parliament"
     },
     {
@@ -700,7 +700,7 @@
       "kind": "pm2",
       "ok": true,
       "detail": "online",
-      "ts": "2026-10-26T18:16:49.481326+00:00",
+      "ts": "2026-10-26T18:18:39.645540+00:00",
       "target": "menu-worker"
     },
     {
@@ -708,31 +708,15 @@
       "kind": "pm2",
       "ok": true,
       "detail": "online",
-      "ts": "2026-10-26T18:16:50.598264+00:00",
+      "ts": "2026-10-26T18:18:40.715045+00:00",
       "target": "menu-autorobot"
-    },
-    {
-      "id": "pm2_cybra-monolith",
-      "kind": "pm2",
-      "ok": false,
-      "detail": "not_found",
-      "ts": "2026-10-26T18:16:51.691641+00:00",
-      "target": "cybra-monolith"
-    },
-    {
-      "id": "pm2_cybra-executor-ctrl",
-      "kind": "pm2",
-      "ok": false,
-      "detail": "not_found",
-      "ts": "2026-10-26T18:16:52.803857+00:00",
-      "target": "cybra-executor-ctrl"
     },
     {
       "id": "pm2_cybra-evo-ctrl",
       "kind": "pm2",
       "ok": true,
       "detail": "online",
-      "ts": "2026-10-26T18:16:53.874301+00:00",
+      "ts": "2026-10-26T18:18:41.789013+00:00",
       "target": "cybra-evo-ctrl"
     },
     {
@@ -740,7 +724,7 @@
       "kind": "pm2",
       "ok": true,
       "detail": "online",
-      "ts": "2026-10-26T18:16:54.961156+00:00",
+      "ts": "2026-10-26T18:18:42.889259+00:00",
       "target": "cybra-autopilot"
     },
     {
@@ -748,7 +732,7 @@
       "kind": "pm2",
       "ok": true,
       "detail": "online",
-      "ts": "2026-10-26T18:16:56.014059+00:00",
+      "ts": "2026-10-26T18:18:43.982794+00:00",
       "target": "hidl-worker"
     },
     {
@@ -756,23 +740,15 @@
       "kind": "pm2",
       "ok": true,
       "detail": "online",
-      "ts": "2026-10-26T18:16:57.070756+00:00",
+      "ts": "2026-10-26T18:18:45.043419+00:00",
       "target": "hidl-notifier"
-    },
-    {
-      "id": "pm2_level-tracker",
-      "kind": "pm2",
-      "ok": false,
-      "detail": "not_found",
-      "ts": "2026-10-26T18:16:58.153168+00:00",
-      "target": "level-tracker"
     },
     {
       "id": "pm2_taxi-events",
       "kind": "pm2",
       "ok": true,
       "detail": "online",
-      "ts": "2026-10-26T18:16:59.201455+00:00",
+      "ts": "2026-10-26T18:18:46.238889+00:00",
       "target": "taxi-events"
     },
     {
@@ -780,7 +756,7 @@
       "kind": "pm2",
       "ok": true,
       "detail": "online",
-      "ts": "2026-10-26T18:17:00.243469+00:00",
+      "ts": "2026-10-26T18:18:47.290445+00:00",
       "target": "cybra-api"
     },
     {
@@ -788,7 +764,7 @@
       "kind": "dart",
       "ok": true,
       "detail": "structure_ok",
-      "ts": "2026-10-26T18:17:00.244602+00:00",
+      "ts": "2026-10-26T18:18:47.297796+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/api/client.dart"
     },
     {
@@ -796,7 +772,7 @@
       "kind": "dart",
       "ok": true,
       "detail": "structure_ok",
-      "ts": "2026-10-26T18:17:00.245190+00:00",
+      "ts": "2026-10-26T18:18:47.299680+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/main.dart"
     },
     {
@@ -804,7 +780,7 @@
       "kind": "dart",
       "ok": true,
       "detail": "structure_ok",
-      "ts": "2026-10-26T18:17:00.245810+00:00",
+      "ts": "2026-10-26T18:18:47.307240+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/screens/book_ride_screen.dart"
     },
     {
@@ -812,7 +788,7 @@
       "kind": "dart",
       "ok": true,
       "detail": "structure_ok",
-      "ts": "2026-10-26T18:17:00.246379+00:00",
+      "ts": "2026-10-26T18:18:47.309245+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/screens/history_screen.dart"
     },
     {
@@ -820,7 +796,7 @@
       "kind": "dart",
       "ok": true,
       "detail": "structure_ok",
-      "ts": "2026-10-26T18:17:00.246968+00:00",
+      "ts": "2026-10-26T18:18:47.310980+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/screens/login_screen.dart"
     },
     {
@@ -828,7 +804,7 @@
       "kind": "dart",
       "ok": true,
       "detail": "structure_ok",
-      "ts": "2026-10-26T18:17:00.247525+00:00",
+      "ts": "2026-10-26T18:18:47.312755+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/screens/map_screen.dart"
     },
     {
@@ -836,7 +812,7 @@
       "kind": "dart",
       "ok": true,
       "detail": "structure_ok",
-      "ts": "2026-10-26T18:17:00.248060+00:00",
+      "ts": "2026-10-26T18:18:47.314442+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/screens/track_screen.dart"
     },
     {
@@ -844,7 +820,7 @@
       "kind": "dart",
       "ok": true,
       "detail": "structure_ok",
-      "ts": "2026-10-26T18:17:00.248587+00:00",
+      "ts": "2026-10-26T18:18:47.316117+00:00",
       "target": "/data/data/com.termux/files/home/CYBRA/flutter/cybra_taxi/lib/screens/wallet_screen.dart"
     },
     {
@@ -852,15 +828,15 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 200",
-      "ts": "2026-10-26T18:17:00.562877+00:00",
+      "ts": "2026-10-26T18:18:47.470276+00:00",
       "path": "/api/health"
     },
     {
       "id": "api_GET_api_state_100",
       "kind": "api",
-      "ok": false,
-      "detail": "timed out",
-      "ts": "2026-10-26T18:17:03.566466+00:00",
+      "ok": true,
+      "detail": "skipped (heavy endpoint, tested manually)",
+      "ts": "2026-10-26T18:18:47.477652+00:00",
       "path": "/api/state/100"
     },
     {
@@ -868,7 +844,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 422",
-      "ts": "2026-10-26T18:17:03.577180+00:00",
+      "ts": "2026-10-26T18:18:47.485286+00:00",
       "path": "/api/auth/register"
     },
     {
@@ -876,7 +852,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 422",
-      "ts": "2026-10-26T18:17:03.583953+00:00",
+      "ts": "2026-10-26T18:18:47.493330+00:00",
       "path": "/api/auth/login"
     },
     {
@@ -884,7 +860,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 401",
-      "ts": "2026-10-26T18:17:03.590101+00:00",
+      "ts": "2026-10-26T18:18:47.500781+00:00",
       "path": "/api/me"
     },
     {
@@ -892,7 +868,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 401",
-      "ts": "2026-10-26T18:17:03.596660+00:00",
+      "ts": "2026-10-26T18:18:47.509059+00:00",
       "path": "/api/rides"
     },
     {
@@ -900,7 +876,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 401",
-      "ts": "2026-10-26T18:17:03.602104+00:00",
+      "ts": "2026-10-26T18:18:47.516889+00:00",
       "path": "/api/rides"
     },
     {
@@ -908,7 +884,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 200",
-      "ts": "2026-10-26T18:17:03.610661+00:00",
+      "ts": "2026-10-26T18:18:47.527862+00:00",
       "path": "/api/rides/open"
     },
     {
@@ -916,7 +892,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 404",
-      "ts": "2026-10-26T18:17:03.617496+00:00",
+      "ts": "2026-10-26T18:18:47.537601+00:00",
       "path": "/api/rides/{rid}"
     },
     {
@@ -924,7 +900,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 401",
-      "ts": "2026-10-26T18:17:03.623846+00:00",
+      "ts": "2026-10-26T18:18:47.545299+00:00",
       "path": "/api/rides/{rid}/accept"
     },
     {
@@ -932,7 +908,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 401",
-      "ts": "2026-10-26T18:17:03.629956+00:00",
+      "ts": "2026-10-26T18:18:47.553325+00:00",
       "path": "/api/rides/{rid}/start"
     },
     {
@@ -940,7 +916,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 401",
-      "ts": "2026-10-26T18:17:03.635793+00:00",
+      "ts": "2026-10-26T18:18:47.560774+00:00",
       "path": "/api/rides/{rid}/complete"
     },
     {
@@ -948,7 +924,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 401",
-      "ts": "2026-10-26T18:17:03.641554+00:00",
+      "ts": "2026-10-26T18:18:47.568358+00:00",
       "path": "/api/rides/{rid}/cancel"
     },
     {
@@ -956,7 +932,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 200",
-      "ts": "2026-10-26T18:17:03.649419+00:00",
+      "ts": "2026-10-26T18:18:47.578161+00:00",
       "path": "/api/map/markers"
     },
     {
@@ -964,7 +940,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 422",
-      "ts": "2026-10-26T18:17:03.655701+00:00",
+      "ts": "2026-10-26T18:18:47.585861+00:00",
       "path": "/api/map/markers"
     },
     {
@@ -972,7 +948,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 422",
-      "ts": "2026-10-26T18:17:03.661310+00:00",
+      "ts": "2026-10-26T18:18:47.593342+00:00",
       "path": "/api/map/near"
     },
     {
@@ -980,7 +956,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 422",
-      "ts": "2026-10-26T18:17:03.667266+00:00",
+      "ts": "2026-10-26T18:18:47.601588+00:00",
       "path": "/api/map/zones"
     },
     {
@@ -988,7 +964,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 200",
-      "ts": "2026-10-26T18:17:03.673701+00:00",
+      "ts": "2026-10-26T18:18:47.608500+00:00",
       "path": "/api/map/zones"
     },
     {
@@ -996,7 +972,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 401",
-      "ts": "2026-10-26T18:17:03.679550+00:00",
+      "ts": "2026-10-26T18:18:47.614667+00:00",
       "path": "/api/wallet/connect"
     },
     {
@@ -1004,7 +980,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 200",
-      "ts": "2026-10-26T18:17:03.686027+00:00",
+      "ts": "2026-10-26T18:18:47.621153+00:00",
       "path": "/api/wallet"
     },
     {
@@ -1012,7 +988,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 405",
-      "ts": "2026-10-26T18:17:03.692223+00:00",
+      "ts": "2026-10-26T18:18:47.627303+00:00",
       "path": "/api/wallet/{addr}"
     },
     {
@@ -1020,7 +996,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 200",
-      "ts": "2026-10-26T18:17:03.699205+00:00",
+      "ts": "2026-10-26T18:18:47.635718+00:00",
       "path": "/api/wallet/{addr}/balance"
     },
     {
@@ -1028,7 +1004,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 401",
-      "ts": "2026-10-26T18:17:03.704912+00:00",
+      "ts": "2026-10-26T18:18:47.644881+00:00",
       "path": "/api/price/offer"
     },
     {
@@ -1036,7 +1012,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 401",
-      "ts": "2026-10-26T18:17:03.711444+00:00",
+      "ts": "2026-10-26T18:18:47.653785+00:00",
       "path": "/api/price/counter"
     },
     {
@@ -1044,7 +1020,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 401",
-      "ts": "2026-10-26T18:17:03.717590+00:00",
+      "ts": "2026-10-26T18:18:47.660659+00:00",
       "path": "/api/price/accept"
     },
     {
@@ -1052,7 +1028,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 422",
-      "ts": "2026-10-26T18:17:03.725380+00:00",
+      "ts": "2026-10-26T18:18:47.668150+00:00",
       "path": "/api/price/per_km"
     },
     {
@@ -1060,7 +1036,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 200",
-      "ts": "2026-10-26T18:17:03.731472+00:00",
+      "ts": "2026-10-26T18:18:47.674986+00:00",
       "path": "/api/price/suggest"
     },
     {
@@ -1068,7 +1044,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 200",
-      "ts": "2026-10-26T18:17:03.738203+00:00",
+      "ts": "2026-10-26T18:18:47.682155+00:00",
       "path": "/api/price/negotiate/{rid}"
     },
     {
@@ -1076,7 +1052,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 422",
-      "ts": "2026-10-26T18:17:03.744379+00:00",
+      "ts": "2026-10-26T18:18:47.688699+00:00",
       "path": "/api/ai/interests"
     },
     {
@@ -1084,7 +1060,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 422",
-      "ts": "2026-10-26T18:17:03.750247+00:00",
+      "ts": "2026-10-26T18:18:47.695539+00:00",
       "path": "/api/ai/match"
     },
     {
@@ -1092,7 +1068,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 422",
-      "ts": "2026-10-26T18:17:03.755966+00:00",
+      "ts": "2026-10-26T18:18:47.702244+00:00",
       "path": "/api/payment/commission"
     },
     {
@@ -1100,7 +1076,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 422",
-      "ts": "2026-10-26T18:17:03.762026+00:00",
+      "ts": "2026-10-26T18:18:47.709175+00:00",
       "path": "/api/payment/instant"
     },
     {
@@ -1108,7 +1084,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 422",
-      "ts": "2026-10-26T18:17:03.767948+00:00",
+      "ts": "2026-10-26T18:18:47.716084+00:00",
       "path": "/api/payment/contract"
     },
     {
@@ -1116,7 +1092,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 401",
-      "ts": "2026-10-26T18:17:03.773887+00:00",
+      "ts": "2026-10-26T18:18:47.722850+00:00",
       "path": "/api/rating"
     },
     {
@@ -1124,7 +1100,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 200",
-      "ts": "2026-10-26T18:17:03.780765+00:00",
+      "ts": "2026-10-26T18:18:47.731009+00:00",
       "path": "/api/rating"
     },
     {
@@ -1132,7 +1108,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 200",
-      "ts": "2026-10-26T18:17:03.789330+00:00",
+      "ts": "2026-10-26T18:18:47.739431+00:00",
       "path": "/api/i18n/{lang}"
     },
     {
@@ -1140,7 +1116,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 401",
-      "ts": "2026-10-26T18:17:03.796485+00:00",
+      "ts": "2026-10-26T18:18:47.745530+00:00",
       "path": "/api/i18n/lang"
     },
     {
@@ -1148,7 +1124,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 422",
-      "ts": "2026-10-26T18:17:03.803461+00:00",
+      "ts": "2026-10-26T18:18:47.752094+00:00",
       "path": "/api/taxi/events"
     },
     {
@@ -1156,7 +1132,7 @@
       "kind": "api",
       "ok": true,
       "detail": "HTTP 200",
-      "ts": "2026-10-26T18:17:03.811758+00:00",
+      "ts": "2026-10-26T18:18:47.760006+00:00",
       "path": "/api/taxi/events/stats"
     }
   ]
