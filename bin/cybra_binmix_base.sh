@@ -9,7 +9,10 @@ CYBRA="$HOME/CYBRA"; cd "$CYBRA" || exit 1
 # знайти або створити папку
 DIR=""
 for pat in "modules/module_${NN}_base" "modules/module_${N}_base" \
-           "modules/module_${NN}_${NAME}" "modules/module_${N}_${NAME}"; do
+           "modules/module_0${N}_base" "modules/module_00${N}_base" \
+           "modules/module_${NN}_${NAME}" "modules/module_${N}_${NAME}" \
+           "modules/module_0${N}_${NAME}" "modules/module_00${N}_${NAME}" \
+           "modules/module_0${N}_*" "modules/module_00${N}_*"; do
   [ -d "$pat" ] && { DIR="$pat"; break; }
 done
 [ -z "$DIR" ] && { DIR="modules/module_${NN}_${NAME}"; mkdir -p "$DIR"; }

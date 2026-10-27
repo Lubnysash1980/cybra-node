@@ -18,6 +18,60 @@ BACKUP.mkdir(parents=True, exist_ok=True)
 
 MARKER = "# <<<BINMIX_EXTENSIONS>>>"
 
+# TAXI category-specific actions (для n >= 200)
+TAXI_FUNCTIONS = {
+    "booking": [
+        ("book",   r'''  book|create)
+    if [ $# -lt 1 ]; then echo "usage: $0 book <id>"; exit 1; fi
+    redis-cli hset "$KEY" "$1" "${2:-$(date +%s)}" >/dev/null
+    echo "OK: booked $1"
+    ;;'''),
+        ("status", r'''  status|show|history)
+    N=$(redis-cli hlen "$KEY" 2>/dev/null || echo 0)
+    echo "  bookings: $N"
+    if [ "$N" -gt 0 ]; then redis-cli hgetall "$KEY" | paste - - | head -20 | sed 's/^/  /'; fi
+    ;;'''),
+        ("cancel", r'''  cancel)
+    if [ $# -lt 1 ]; then exit 1; fi
+    redis-cli hdel "$KEY" "$1" >/dev/null
+    echo "OK: cancelled $1"
+    ;;'''),
+    ],
+    "driver": [
+        ("register", r'''  register)
+    if [ $# -lt 1 ]; then exit 1; fi
+    redis-cli hset "$KEY" "$1" "${2:-$(date +%s)}" >/dev/null
+    echo "OK: registered $1"
+    ;;'''),
+        ("dstatus", r'''  status|show)
+    echo "  drivers: $(redis-cli hlen "$KEY" 2>/dev/null || echo 0)"
+    ;;'''),
+    ],
+    "payment": [
+        ("charge", r'''  charge)
+    if [ $# -lt 1 ]; then exit 1; fi
+    redis-cli hset "$KEY" "$1" "${2:-0}" >/dev/null
+    echo "OK: charged $1 = $2"
+    ;;'''),
+        ("commission", r'''  commission)
+    if [ $# -ge 1 ]; then
+      AMT=$1
+      FEE=$(awk "BEGIN{printf \"%.2f\", $AMT * 5 / 100}")
+      NET=$(awk "BEGIN{printf \"%.2f\", $AMT - $FEE}")
+      echo "  amount=$AMT  fee(5%)=$FEE  net=$NET"
+    fi
+    ;;'''),
+    ],
+    "dispatch": [
+        ("find", r'''  find|nearest)
+    echo "  dispatch: $*"
+    ;;'''),
+        ("calc", r'''  calc|surge)
+    echo "  surge calc: $*"
+    ;;'''),
+    ],
+}
+
 # Функції в порядку додавання (1 за цикл)
 FUNCTIONS = [
     ("add", r'''  add|create|register)
@@ -174,8 +228,15 @@ def cycle():
         item_st = st["items"].get(n_str, {"added": []})
         added = item_st.get("added", [])
 
-        # додаємо наступну функцію (1 за цикл на модуль)
-        for fname, ftext in FUNCTIONS:
+        # вибір FUNCTIONS залежно від N
+        if n >= 200:
+            cat = info.get("category") or info.get("cat") or "default"
+            fns = TAXI_FUNCTIONS.get(cat, [])
+            if not fns: fns = FUNCTIONS
+        else:
+            fns = FUNCTIONS
+
+        for fname, ftext in fns:
             if fname in added: continue
             ok, detail = mixin_one(path, fname, ftext, st, n)
             if ok: total_added += 1

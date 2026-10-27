@@ -10,7 +10,12 @@ OUT.parent.mkdir(parents=True, exist_ok=True)
 
 def find_module(n):
     for pat in [f"module_{n:03d}_base", f"module_{n}_base",
-                f"module_{n:03d}_*", f"module_{n}_*"]:
+                f"module_0{n}_base" if n < 10 else None,
+                f"module_00{n}_base" if n < 10 else None,
+                f"module_{n:03d}_*", f"module_{n}_*",
+                f"module_0{n}_*" if n < 10 else None,
+                f"module_00{n}_*" if n < 10 else None]:
+        if not pat: continue
         for d in sorted((CYBRA/"modules").glob(pat)):
             if d.is_dir() and (d/"main.sh").exists():
                 return d

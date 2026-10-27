@@ -71,7 +71,13 @@ else: print(sfx.split('_')[0])
   [ -z "$MOD_NAME" ] && MOD_NAME="module_$MOD_N"
   [ -z "$MOD_CAT" ] && MOD_CAT="custom"
 
+  # використовуємо binmix_base (новий template з маркером)
+BASE="$HOME/CYBRA/bin/cybra_binmix_base.sh"
+if [ -x "$BASE" ]; then
+  out=$(bash "$BASE" "$MOD_N" "$MOD_NAME" "$MOD_CAT" 2>&1)
+else
   out=$(bash "$AI_EXEC" gen "$MOD_N" "$MOD_NAME" "$MOD_CAT" 2>&1)
+fi
   rc=$?
   printf '%s\n' "$out"
   exit $rc
