@@ -1,0 +1,58 @@
+name: Analyze Chat Note
+
+on:
+  workflow_dispatch:
+    inputs:
+      note_path:
+        description: 'Шлях до файлу нотатки в репозиторії (напр., notes/chat.md)'
+        required: true
+        default: 'notes/chat.md'
+      analysis_prompt:
+        description: 'Що саме проаналізувати в ноті?'
+        required: false
+        default: 'Будь ласка, проаналізуй цю нотатку та надай стислий виклад ключових моментів.'
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify note file exists
+        run: |
+          if [ ! -f "${{ github.event.inputs.note_path }}" ]; then
+            echo "❌ File not found: ${{ github.event.inputs.note_path }}"
+            echo "Files in repository:"
+            find . -type f -name "*.md" -o -name "*.txt" | head -50
+            exit 1
+          fi
+          echo "✅ File found: ${{ github.event.inputs.note_path }}"
+
+      - name: Display note content (for debugging)
+        run: |
+          echo "📄 === Content of ${{ github.event.inputs.note_path }} ==="
+          cat "${{ github.event.inputs.note_path }}"
+          echo "=== End of file ==="
+
+      - name: Analyze note with AI (example using OpenAI)
+        if: ${{ secrets.OPENAI_API_KEY != '' }}
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          NOTE_PATH: ${{ github.event.inputs.note_path }}
+          ANALYSIS_PROMPT: ${{ github.event.inputs.analysis_prompt }}
+        run: |
+          echo "🤖 Sending note to AI for analysis..."
+          python3 - <<'PY'
+          import os, json, urllib.request, sys
+          note_path = os.environ['NOTE_PATH']
+          with open(note_path, 'r', encoding='utf-8') as f:
+              note_content = f.read()
+          prompt = os.environ.get('ANALYSIS_PROMPT', 'Analyze this note.')
+          api_key = os.environ['OPENAI_API_KEY']
+          payload = {
+              "model": "gpt-4o-mini",
