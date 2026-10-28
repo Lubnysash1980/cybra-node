@@ -9,6 +9,8 @@ export LC_ALL=C
 
 ROOT="$HOME/CYBRA"
 MODULES="$ROOT/modules"
+CONTROLLERS="$HOME/CYBRA/controllers"
+mkdir -p "$CONTROLLERS"
 BASELINE="$ROOT/baseline"
 EVO_DIR="$ROOT/evolution"
 AI_DIR="$ROOT/ai"
@@ -358,6 +360,9 @@ SUG
 # ============================================================
 
 apply_safe_evolutions() {
+    local MODULES="$HOME/CYBRA/modules"
+    local CONTROLLERS="$HOME/CYBRA/controllers"
+    mkdir -p "$MODULES" "$CONTROLLERS"
     printf '%s═══ APPLY SAFE EVOLUTIONS ═══%s\n\n' "$B$C" "$Z"
 
     local applied=0
@@ -478,11 +483,89 @@ QR
                 printf '    → cybra_qr.sh створено\n'
                 ;;
             *)
-                printf '    → generic apply\n'
+                # Пропускаємо non-module suggestions — вони мають окремі case гілки
+                case "$name" in
+                    module_*) ;;
+                    *)
+                        printf '    → %s (non-module, окрема логіка)\n' "$name"
+                        skipped=$((skipped+1))
+                        continue
+                        ;;
+                esac
+                # AI apply: створюємо РЕАЛЬНИЙ модуль з suggestion
+                local desc prio
+                desc=$(grep '^DESC:' "$s" | sed 's/^DESC:[[:space:]]*//' | head -1)
+                prio=$(grep '^PRIORITY:' "$s" | sed 's/^PRIORITY:[[:space:]]*//' | head -1)
+                local moddir="$MODULES/$name"
+                if [ -d "$moddir" ]; then
+                    printf '    → %s вже існує, skip\n' "$name"
+                    skipped=$((skipped+1))
+                    continue
+                fi
+                mkdir -p "$moddir"
+                local key="cybra:${name}:data"
+                cat > "$moddir/main.sh" <<MOD
+#!/data/data/com.termux/files/usr/bin/bash
+# $name — ${desc:-(no description)}
+# AI evolution: ${prio:-MEDIUM} priority
+# Applied at: $(date -u +%Y-%m-%dT%H:%M:%SZ)
+set -u
+CYBRA="\${CYBRA:-\$HOME/CYBRA}"; cd "\$CYBRA" 2>/dev/null || exit 1
+LOG="\$CYBRA/logs/${name}.log"; mkdir -p "\$(dirname "\$LOG")"
+log(){ echo "[\$(date -u +%FT%TZ)] \$*" >> "\$LOG"; }
+ACTION="\${1:-list}"; shift \$(( \$# > 0 ? 1 : 0 ))
+KEY="${key}"
+log "START action=\$ACTION"
+
+case "\$ACTION" in
+  add|create)
+    [ \$# -lt 1 ] && { echo "usage: \$0 add <label> [value]"; exit 1; }
+    redis-cli hset "\$KEY" "\$1" "\${2:-x}" >/dev/null
+    echo "✅ \$1"
+    ;;
+  list|status)
+    N=\$(redis-cli hlen "\$KEY" 2>/dev/null || echo 0)
+    echo "════ ${name} ════"
+    echo "  desc:  ${desc:-(no description)}"
+    echo "  items: \$N"
+    [ "\$N" -gt 0 ] && redis-cli hgetall "\$KEY" | paste - - | sed 's/^/  /'
+    ;;
+  delete|rm)
+    [ \$# -lt 1 ] && exit 1
+    redis-cli hdel "\$KEY" "\$1" >/dev/null
+    echo "✅ deleted \$1"
+    ;;
+  *)
+    echo "════ ${name} ════"
+    echo "  desc: ${desc:-(no description)}"
+    echo "  actions: add | list | delete"
+    ;;
+esac
+exit 0
+MOD
+                chmod +x "$moddir/main.sh"
+                mkdir -p "$CONTROLLERS"
+                cat > "$CONTROLLERS/${name}.ctrl.sh" <<CTRL
+#!/data/data/com.termux/files/usr/bin/bash
+bash "$MODULES/${name}/main.sh" "\$@"
+CTRL
+                chmod +x "$CONTROLLERS/${name}.ctrl.sh"
+                bash -n "$moddir/main.sh" || { printf '    → syntax fail: %s\n' "$name"; rm -rf "$moddir"; skipped=$((skipped+1)); continue; }
+                printf '    → created %s\n' "$moddir/main.sh"
                 ;;
         esac
 
-        # Позначаємо як applied
+        # Позначаємо як applied ТІЛЬКИ якщо модуль/файл реально існує
+        case "$name" in
+            tokens_registry|auto_backup|i18n_support|qr_codes|contract_templates) ;;
+            *)
+                if [ ! -d "$MODULES/$name" ]; then
+                    printf '  %s[FAIL]%s %s — файл не створено\n' "$Y" "$Z" "$name"
+                    skipped=$((skipped+1))
+                    continue
+                fi
+                ;;
+        esac
         printf '%s | applied at %s\n' "$name" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
             > "$EVO_APPLIED/${name}.applied"
         ai_evo_log "APPLIED: $name"

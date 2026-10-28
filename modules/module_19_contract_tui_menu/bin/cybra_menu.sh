@@ -463,7 +463,7 @@ action_as_setup_cloud() {
 
 # ─── HEADER ───
 print_header() {
-    clear 2>/dev/null || printf '\033[2J\033[H'
+    printf '\n'
     local mods=0
     for d in "$HOME/CYBRA/modules"/*/; do
         [ -d "$d" ] || continue
@@ -1002,6 +1002,4 @@ while true; do
 " "${C_RED}Невідома опція.${C_RESET}"
             ;;
     esac
-    printf '\n%s\n' "${C_GREY}Enter — продовжити${C_RESET}"
-    read -r _
 done
