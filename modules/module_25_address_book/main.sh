@@ -1,16 +1,41 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# module_025 — real (IT Dept)
+# module_025: address_book
 set -u
-CYBRA="$HOME/CYBRA"; cd "$CYBRA" 2>/dev/null
-echo "════════ module_025 ════════"
-echo "── git ──"
-git --no-pager log -1 --format='  %h %s' 2>/dev/null || echo "  no git"
-echo "── redis ──"
-redis-cli ping 2>/dev/null | sed 's/^/  /' || echo "  DOWN"
-redis-cli dbsize 2>/dev/null | sed 's/^/  keys: /'
-echo "── system ──"
-free -m 2>/dev/null | awk '/Mem:/{printf "  RAM: %d/%d MB\n", $3, $2}'
-df -h /data 2>/dev/null | awk 'NR==2{printf "  disk: %s / %s\n", $3, $2}'
-echo "── pm2 ──"
-pm2 jlist 2>/dev/null | python3 -c "import sys,json;d=json.load(sys.stdin);print(f'  online: {sum(1 for p in d if p[\"pm2_env\"][\"status\"]==\"online\")}/{len(d)}')" 2>/dev/null || echo "  pm2 n/a"
-read -r -p "Enter..." _
+CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
+LOG="$CYBRA/logs/module_025.log"; mkdir -p "$(dirname "$LOG")"
+log(){ echo "[$(date -u +%FT%TZ)] $*" >> "$LOG"; }
+ACTION="${1:-list}"; shift $(( $# > 0 ? 1 : 0 ))
+KEY="cybra:mod_25:data"
+log "START action=$ACTION"
+
+case "$ACTION" in
+  add|create)
+    [ $# -lt 1 ] && { echo "usage: $0 add <label> [value]"; exit 1; }
+    VAL="${2:-$(date +%s)}"
+    redis-cli hset "$KEY" "$1" "$VAL" >/dev/null || { echo "FAIL"; exit 1; }
+    echo "✅ $1 = $VAL"
+    ;;
+  list|status)
+    N=$(redis-cli hlen "$KEY" 2>/dev/null || echo 0)
+    echo "════ module_025 (address_book) ════"
+    echo "  items: $N"
+    if [ "$N" -gt 0 ]; then
+      redis-cli hgetall "$KEY" | paste - - | head -30 | sed 's/^/  /'
+    fi
+    ;;
+  delete|remove|rm)
+    [ $# -lt 1 ] && { echo "usage: $0 delete <label>"; exit 1; }
+    redis-cli hdel "$KEY" "$1" >/dev/null
+    echo "✅ deleted: $1"
+    ;;
+  info)
+    echo "  module: module_025 (address_book)"
+    echo "  key:    $KEY"
+    echo "  items:  $(redis-cli hlen "$KEY" 2>/dev/null || echo 0)"
+    ;;
+  *)
+    echo "════ module_025 (address_book) ════"
+    echo "  actions: add | list | delete | info"
+    ;;
+esac
+rc=$?; log "DONE rc=$rc"; exit $rc
