@@ -8,7 +8,7 @@ X = sys.argv[1]
 
 root = pathlib.Path(__file__).resolve().parent.parent
 prompt_path = root / "prompts" / f"prog_{X}.md"
-prog_file   = root / "programs" / f"prog_{X}" / "main.py"
+prog_file   = root / "programs" / f"prog_{X}" / "main.sh"
 
 if not prompt_path.exists():
     print(f"[writer-{X}] missing {prompt_path}"); sys.exit(1)

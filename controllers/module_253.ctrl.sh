@@ -1,7 +1,9 @@
 #!/data/data/com.termux/files/usr/bin/bash
+# state controller for module_253
 set -u
-M="$1"; shift
-[ -f "$M" ] || { echo "missing"; exit 2; }
-[ $# -gt 0 ] && A=("$@") || A=("help")
-bash "$M" "${A[@]}" </dev/null 2>&1
-exit $?
+SNAP="$HOME/CYBRA/state/snapshots/module_253.json"
+[ -f "$SNAP" ] || { echo "❌ no snapshot"; exit 1; }
+STATUS=$(python3 -c "import json;d=json.load(open('$SNAP'));print(d.get('ok'))" 2>/dev/null)
+DETAIL=$(python3 -c "import json;d=json.load(open('$SNAP'));print(d.get('detail',''))" 2>/dev/null)
+if [ "$STATUS" = "True" ]; then echo "✅ module_253 ($DETAIL)"; exit 0
+else echo "❌ module_253 ($DETAIL)"; exit 1; fi

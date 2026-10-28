@@ -1,5 +1,4 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# Usage: prog-sync.sh <a|b>
 set -euo pipefail
 [ $# -lt 1 ] && { echo "usage: $0 <a|b>"; exit 1; }
 X="$1"; case "$X" in a|b) ;; *) echo "bad prog"; exit 1;; esac
@@ -21,10 +20,12 @@ else
     [ "$cur" != "$BRANCH" ] && { git checkout "$BRANCH" 2>/dev/null || git checkout -b "$BRANCH"; } )
 fi
 
-rsync -a --delete --exclude='.git' "$SRC/" "$WT/programs/prog_${X}/"
+rm -rf "$WT/programs/prog_${X}"
+mkdir -p "$WT/programs"
+cp -r "$SRC" "$WT/programs/prog_${X}"
 
 cd "$WT"
-git add -A "programs/prog_${X}/"
+git add -f -A "programs/prog_${X}/"
 if git diff --cached --quiet; then
   echo "[sync-$X] no diff"; cd "$REPO_ROOT"; exit 0
 fi

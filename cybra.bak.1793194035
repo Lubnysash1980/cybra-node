@@ -1,0 +1,138 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# CYBRA — головний launcher.
+# Без аргументів (або з невідомим) → TUI-меню (як раніше).
+# З відомою підкомандою → виконує її.
+
+CYBRA="$HOME/CYBRA"; cd "$CYBRA" 2>/dev/null || exit 1
+
+# ─── кольори ───
+B="\033[1m"; G="\033[32m"; Y="\033[33m"; R="\033[31m"; C="\033[36m"; N="\033[0m"
+ok(){ echo -e "${G}✅${N} $*"; }
+err(){ echo -e "${R}❌${N} $*"; }
+hdr(){ echo -e "\n${B}${C}═══ $* ═══${N}"; }
+R(){ redis-cli "$@" 2>/dev/null; }
+alive(){ pm2 describe "$1" 2>/dev/null | grep -q 'status.*online'; }
+
+cmd_status(){
+  hdr "STATUS"
+  if [ -f bin/cybra_state_100.sh ]; then
+    bash bin/cybra_state_100.sh 2>&1 | grep -E 'total:|module|pm2|dart|api|READY|→' | sed 's/^/  /'
+  fi
+  echo
+  echo "  redis:      $(R ping 2>/dev/null || echo DOWN)"
+  echo "  parliament: $(alive parliament && echo online || echo DOWN)"
+  echo "  queue:      $(R llen cybra:parliament:queue 2>/dev/null || echo '?')"
+  echo "  results:    $(R llen cybra:parliament:results 2>/dev/null || echo '?')"
+  echo "  failed:     $(R llen cybra:parliament:failed 2>/dev/null || echo '?')"
+  echo "  RAM:        $(free -m 2>/dev/null | awk '/Mem:/{printf "%d%%",$3/$2*100}')"
+  echo
+  echo "  ── programs ──"
+  for p in a b; do
+    if [ -f "programs/prog_$p/main.sh" ]; then
+      echo "  prog_$p: $(wc -c < programs/prog_$p/main.sh) bytes"
+    else
+      echo "  prog_$p: (не згенеровано)"
+    fi
+  done
+  echo "  ── git branches ──"
+  git ls-remote --heads origin 'refs/heads/prog/*' 2>/dev/null | awk '{print "  " $2}' || echo "  (none)"
+}
+
+cmd_parliament(){
+  hdr "PARLIAMENT"
+  echo "  queue:   $(R llen cybra:parliament:queue)"
+  echo "  results: $(R llen cybra:parliament:results)"
+  echo "  failed:  $(R llen cybra:parliament:failed)"
+  echo
+  echo "  останні 3 results:"
+  R lrange cybra:parliament:results 0 2 2>/dev/null | head -3 | python3 -c '
+import sys, json
+for line in sys.stdin:
+    s = line.strip().rstrip(",").strip()
+    if not s: continue
+    try:
+        d = json.loads(s)
+        print("    " + str(d.get("topic","?")) + ": " + str(d.get("status","?")))
+    except Exception:
+        pass
+'
+}
+
+cmd_test(){
+  hdr "TEST PIPELINE"
+  local p="${1:-a}"
+  echo "  генерую prog_$p через парламент..."
+  python3 scripts/ai-writer.py "$p"
+}
+
+cmd_sync(){
+  hdr "SYNC"
+  local p="${1:-all}"
+  if [ "$p" = "all" ]; then
+    ./scripts/prog-sync.sh a
+    ./scripts/prog-sync.sh b
+  else
+    ./scripts/prog-sync.sh "$p"
+  fi
+  echo
+  echo "  git branches:"
+  git ls-remote --heads origin 'refs/heads/prog/*' 2>/dev/null | awk '{print "  " $2}'
+}
+
+cmd_start(){
+  hdr "START ALL"
+  R ping 2>/dev/null | grep -q PONG || { pm2 start redis-server --name redis -- --daemonize no >/dev/null; sleep 2; }
+  pm2 resurrect >/dev/null 2>&1
+  pm2 start ecosystem.config.js >/dev/null 2>&1
+  pm2 save >/dev/null 2>&1
+  ok "PM2 online: $(pm2 jlist 2>/dev/null | python3 -c 'import sys,json;print(sum(1 for p in json.load(sys.stdin) if p["pm2_env"]["status"]=="online"))' 2>/dev/null || echo '?')"
+}
+
+cmd_stop(){
+  hdr "STOP ALL"
+  pm2 stop all
+  ok "всі зупинено"
+}
+
+cmd_logs(){
+  local p="${1:-parliament}"
+  pm2 logs "$p" --lines 30 --nostream
+}
+
+cmd_help(){
+  cat <<HELP
+${B}${C}CYBRA${N} — Cyber Parliament CLI
+
+${B}Використання:${N}
+  cybra                    → TUI меню 160 (як раніше)
+  cybra help               → ця довідка
+  cybra status             → 100% state, programs, pm2, git branches
+  cybra parliament         → черга парламенту + останні 3 results
+  cybra test [a|b]         → згенерувати програму через парламент
+  cybra sync [a|b|all]     → запушити в prog/a, prog/b, або обидві
+  cybra logs [name]        → pm2 logs <name> (default: parliament)
+  cybra start              → підняти все (redis + pm2)
+  cybra stop               → pm2 stop all
+  cybra pm2                → pm2 list
+
+${B}Pipeline:${N}
+  ai-writer.py → cybra:parliament:queue → program_writer_task_handler.sh
+                → binmix_base.sh → programs/prog_X/main.sh
+                → prog-sync.sh → GitHub (refs/heads/prog/X)
+HELP
+}
+
+# ─── dispatch ───
+case "${1:-__menu__}" in
+  __menu__)       exec "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_menu.sh" "$@" ;;
+  status|st)      cmd_status ;;
+  parliament|p)   cmd_parliament ;;
+  test|t)         shift; cmd_test "$@" ;;
+  sync|s)         shift; cmd_sync "$@" ;;
+  logs|l)         shift; cmd_logs "$@" ;;
+  pm2)            pm2 list ;;
+  start|up)       cmd_start ;;
+  stop|down)      cmd_stop ;;
+  help|-h|--help) cmd_help ;;
+  *)              exec "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_menu.sh" "$@" ;;
+esac
