@@ -20,7 +20,7 @@ ONLINE=$(pm2 jlist 2>/dev/null | python3 -c 'import sys,json;print(sum(1 for p i
 
 pm2 jlist 2>/dev/null | grep -q cybra-rebuild-worker && ok "rebuild worker" "online" || no "rebuild worker" "missing"
 
-B=$(bash modules/module_281_token_system/main.sh balance 0x74dA52028E42A37bc89E05c2fD5c52BE4CB48f 2>/dev/null | grep -oE '[0-9]+\.?[0-9]*' | head -1)
+B=$(bash modules/module_281_token_system/main.sh balance 0x74dA52028E42A37bc89E05c2fD5c52BE4CB48f 2>/dev/null | grep -oE ': [0-9]+\.?[0-9]*' | head -1 | tr -d ': ')
 [ -n "$B" ] && ok "token balance" "$B CYBRA" || no "token balance" "?"
 
 NT=$(redis-cli hlen cybra:nfc:tags 2>/dev/null || echo 0)
