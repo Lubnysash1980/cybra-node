@@ -60,4 +60,3 @@ case "$ACTION" in
     ;;
 esac
 rc=$?; log "DONE rc=$rc"; exit $rc
-# sync test Wed Oct 28 14:38:42 EET 2026
