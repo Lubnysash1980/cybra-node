@@ -25,19 +25,6 @@ log "START module_219 action=$ACTION"
 # ─── EXTENSION HOOK (binmix-mixin додає сюди) ───
 case "$ACTION" in
 # <<<BINMIX_EXTENSIONS>>>
-  add|create|register)
-    if [ $# -lt 1 ]; then echo "usage: $0 add <name> [value]"; exit 1; fi
-    VAL="${2:-$(date +%s)}"
-    redis-cli hset "$KEY" "$1" "$VAL" >/dev/null || { echo "FAIL"; exit 1; }
-    echo "OK: $1 = $VAL"
-    ;;
-  list|status|show)
-    N=$(redis-cli hlen "$KEY" 2>/dev/null || echo 0)
-    echo "  items: $N"
-    if [ "$N" -gt 0 ]; then
-      redis-cli hgetall "$KEY" | paste - - | head -20 | sed 's/^/  /'
-    fi
-    ;;
   delete|remove|rm)
     if [ $# -lt 1 ]; then echo "usage: $0 delete <name>"; exit 1; fi
     redis-cli hdel "$KEY" "$1" >/dev/null || exit 1
@@ -45,11 +32,6 @@ case "$ACTION" in
     ;;
   count)
     echo "  count: $(redis-cli hlen "$KEY" 2>/dev/null || echo 0)"
-    ;;
-  info)
-    echo "  module: NNN"
-    echo "  key:    $KEY"
-    echo "  redis:  $(redis-cli ping 2>/dev/null | head -1)"
     ;;
 
   help|*)

@@ -121,10 +121,58 @@ cmd_help(){
     "                → prog-sync.sh → GitHub (refs/heads/prog/X)"
 }
 
+cmd_restore(){
+  hdr "RESTORE 160 MODULES (через парламент)"
+  local task='{"topic":"restore_'$(date +%s)'","type":"restore_modules_task","start":1,"end":160}'
+  printf '%s' "$task" | redis-cli -x rpush cybra:parliament:queue >/dev/null
+  echo "  → подано в парламент, чекаю..."
+  local deadline=$(( $(date +%s) + 180 ))
+  while [ "$(date +%s)" -lt "$deadline" ]; do
+    sleep 3
+    local res=$(R lrange cybra:parliament:results 0 20 | python3 -c "
+import sys,json
+for line in sys.stdin:
+    try:
+        d=json.loads(line.strip().rstrip(','))
+        if d.get('type')=='restore_modules_task':
+            print(d.get('status','?'), d.get('execution',{}).get('stdout','')[:200])
+    except: pass
+" | head -1)
+    if [ -n "$res" ]; then
+      echo "  ✅ $res"
+      break
+    fi
+  done
+  echo
+  local c160=0
+  for d in modules/module_*; do
+    local n=$(basename "$d" | sed -E 's/^module_0*([0-9]+)_.*/\1/')
+    [ -n "$n" ] && [ "$n" -ge 1 ] && [ "$n" -le 160 ] 2>/dev/null && c160=$((c160+1))
+  done
+  echo "  модулів 1-160: $c160"
+  echo "  модулів всього: $(ls -d modules/module_*/ 2>/dev/null | wc -l)"
+}
+
+cmd_payment(){
+  hdr "PAYMENT SYSTEM"
+  local main="modules/module_280_payment_system/main.sh"
+  if [ ! -f "$main" ]; then
+    echo "  → генерую module_280 через парламент..."
+    local task='{"topic":"pay_init_'$(date +%s)'","type":"payment_system_task"}'
+    printf '%s' "$task" | redis-cli -x rpush cybra:parliament:queue >/dev/null
+    local deadline=$(( $(date +%s) + 30 ))
+    while [ "$(date +%s)" -lt "$deadline" ] && [ ! -f "$main" ]; do sleep 2; done
+  fi
+  [ ! -f "$main" ] && { err "module_280 не створено (30s timeout)"; return 1; }
+  bash "$main" "$@"
+}
+
 # ─── dispatch ───
 case "${1:-__menu__}" in
   __menu__)       exec "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_menu.sh" "$@" ;;
   status|st)      cmd_status ;;
+  restore|r)      cmd_restore ;;
+  payment|pay)    shift; cmd_payment "$@" ;;
   parliament|p)   cmd_parliament ;;
   test|t)         shift; cmd_test "$@" ;;
   sync|s)         shift; cmd_sync "$@" ;;
