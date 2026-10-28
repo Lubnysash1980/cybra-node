@@ -167,12 +167,69 @@ cmd_payment(){
   bash "$main" "$@"
 }
 
+cmd_token(){
+  hdr "TOKEN"
+  bash modules/module_281_token_system/main.sh "$@"
+}
+
+cmd_nfc(){
+  hdr "NFC"
+  bash modules/module_282_nfc_payment/main.sh "$@"
+}
+
+cmd_fix(){
+  hdr "ТОЧКА ФІКСАЦІЇ"
+  local cp=$(redis-cli get cybra:token:checkpoint 2>/dev/null)
+  if [ -z "$cp" ]; then
+    warn "checkpoint НЕ встановлено — запускаю guard"
+    printf '%s' '{"topic":"guard_'$(date +%s)'","type":"token_nfc_guard_task"}'       | redis-cli -x rpush cybra:parliament:queue >/dev/null
+    sleep 5
+    cp=$(redis-cli get cybra:token:checkpoint 2>/dev/null)
+  fi
+  if [ -n "$cp" ]; then
+    printf '%s' "$cp" | python3 -m json.tool 2>/dev/null | sed 's/^/  /'
+    ok "точка зафіксована"
+  else
+    err "checkpoint не встановлено"
+    local is=$(redis-cli get cybra:token:issues 2>/dev/null)
+    [ -n "$is" ] && printf '%s' "$is" | python3 -m json.tool 2>/dev/null | sed 's/^/  /'
+    return 1
+  fi
+}
+
+cmd_guard(){
+  hdr "GUARD (ручна перевірка)"
+  printf '%s' '{"topic":"guard_'$(date +%s)'","type":"token_nfc_guard_task"}'     | redis-cli -x rpush cybra:parliament:queue >/dev/null
+  sleep 5
+  local r=$(redis-cli lrange cybra:parliament:results 0 0)
+  printf '%s' "$r" | python3 -c "
+import sys,json
+try:
+    d=json.loads(sys.stdin.read().strip().strip(chr(34)))
+    ex=d.get('execution',{})
+    print('  status:', d.get('status'))
+    print('  output:', ex.get('stdout','').strip() or ex.get('stderr','').strip())
+except Exception as e:
+    print('  raw:', sys.stdin.read()[:300])
+"
+}
+
+cmd_private(){
+  hdr "PRIVACY"
+  bash bin/cybra_private.sh "$@"
+}
+
 # ─── dispatch ───
 case "${1:-__menu__}" in
   __menu__)       exec "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_menu.sh" "$@" ;;
   status|st)      cmd_status ;;
   restore|r)      cmd_restore ;;
   payment|pay)    shift; cmd_payment "$@" ;;
+  token|tok)      shift; cmd_token "$@" ;;
+  fix|f)          cmd_fix ;;
+  private|priv)   shift; cmd_private "$@" ;;
+  guard|g)        cmd_guard ;;
+  nfc)            shift; cmd_nfc "$@" ;;
   parliament|p)   cmd_parliament ;;
   test|t)         shift; cmd_test "$@" ;;
   sync|s)         shift; cmd_sync "$@" ;;

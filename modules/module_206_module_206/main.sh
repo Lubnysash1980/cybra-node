@@ -25,19 +25,6 @@ log "START module_206 action=$ACTION"
 # ─── EXTENSION HOOK (binmix-mixin додає сюди) ───
 case "$ACTION" in
 # <<<BINMIX_EXTENSIONS>>>
-  delete|remove|rm)
-    if [ $# -lt 1 ]; then echo "usage: $0 delete <name>"; exit 1; fi
-    redis-cli hdel "$KEY" "$1" >/dev/null || exit 1
-    echo "OK: deleted $1"
-    ;;
-  count)
-    echo "  count: $(redis-cli hlen "$KEY" 2>/dev/null || echo 0)"
-    ;;
-  info)
-    echo "  module: NNN"
-    echo "  key:    $KEY"
-    echo "  redis:  $(redis-cli ping 2>/dev/null | head -1)"
-    ;;
 
   help|*)
     echo "==== module_206: module_206 ===="
