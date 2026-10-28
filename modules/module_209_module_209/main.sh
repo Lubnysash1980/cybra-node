@@ -33,6 +33,11 @@ case "$ACTION" in
   count)
     echo "  count: $(redis-cli hlen "$KEY" 2>/dev/null || echo 0)"
     ;;
+  info)
+    echo "  module: NNN"
+    echo "  key:    $KEY"
+    echo "  redis:  $(redis-cli ping 2>/dev/null | head -1)"
+    ;;
 
   help|*)
     echo "==== module_209: module_209 ===="

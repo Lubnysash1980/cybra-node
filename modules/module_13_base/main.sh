@@ -1,63 +1,37 @@
 #!/data/data/com.termux/files/usr/bin/bash
+# module_013: invoice_show (invoice)
+set -u
+CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
+LOG="$CYBRA/logs/module_013.log"; mkdir -p "$(dirname "$LOG")"
+log() { echo "[$(date -u +%FT%TZ)] $*" >> "$LOG"; }
+trap 'log "ERR line $LINENO"' ERR
+ACTION="${1:-list}"; shift $(( $# > 0 ? 1 : 0 ))
+log "START invoice_show action=$ACTION"
 
-# ─── BINMIX WRAP (65MB) ───
-CYBRA_W="$HOME/CYBRA"
-SANDBOX_W="$CYBRA_W/sandbox"
-LIMIT_W=$((65 * 1024 * 1024))
-mkdir -p "$SANDBOX_W"/{bin,tmp,keep,trash} 2>/dev/null
-SIZE_W=$(du -sb "$SANDBOX_W" 2>/dev/null | awk "{print \$1}" || echo 0)
-if [ "$SIZE_W" -ge "$LIMIT_W" ]; then
-    rm -rf "$SANDBOX_W"/trash/* "$SANDBOX_W"/tmp/* 2>/dev/null
-    [ -x "$SANDBOX_W/sandbox_cleanup.sh" ] && "$SANDBOX_W/sandbox_cleanup.sh" >/dev/null 2>&1
-fi
-BINMIX_W="$CYBRA_W/bin/cybra_binmix"
-[ -x "$BINMIX_W" ] && "$BINMIX_W" status >/dev/null 2>&1
-# ─── END BINMIX WRAP ───
-
-# МОДУЛЬ 13: Показати INVOICE (без trap, щоб не було фальшивих помилок)
-
-CYBRA="$HOME/CYBRA"
-LOG="$CYBRA/logs/module_13.log"
-mkdir -p "$(dirname "$LOG")"
-log() { echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] $1" >> "$LOG"; }
-
-source "$CYBRA/lib/cybra_invoice_lib.sh" 2>/dev/null
-export CYBRA_INVOICE_DIR="$CYBRA/modules/module_19_contract_tui_menu/contracts"
-
-echo "════════════════════════════════════════════"
-echo "  [13] ПОКАЗАТИ INVOICE"
-echo "════════════════════════════════════════════"
-read -p "ID: " ID
-
-if [ -z "$ID" ]; then
-    echo "❌ ID не вказано"
-    read -r _
-    exit 1
-fi
-
-cybra_invoice_show "$ID"
-log "SHOW: $ID"
-
-read -r -p "Натисни Enter..." _
-
-# ─── 7 РІВНІВ СКЛАДНОСТІ ───
-LEVEL_FILE="/data/data/com.termux/files/home/CYBRA/state/main.sh.level"
-level_now() { [ -f "$LEVEL_FILE" ] && cat "$LEVEL_FILE" || echo 1; }
-level_set() { echo "$1" > "$LEVEL_FILE"; }
-level1() { [ -d "$HOME/CYBRA" ] && return 0 || return 1; }
-level2() { command -v bash >/dev/null && return 0 || return 1; }
-level3() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
-level4() { [ -d "$HOME/CYBRA/logs" ] && return 0 || return 1; }
-level5() { [ -f "$HOME/CYBRA/evo/evo_core.py" ] && return 0 || return 1; }
-level6() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
-level7() { [ -d "$HOME/CYBRA/sandbox" ] && return 0 || return 1; }
-run_levels() {
-    local cur=$(level_now)
-    for i in 1 2 3 4 5 6 7; do
-        [ "$i" -lt "$cur" ] && continue
-        if "level$i"; then level_set "$i"; else return 0; fi
-    done
-}
-run_levels
-
-exit 0
+case "$ACTION" in
+  add|create|register)
+    if [ $# -lt 1 ]; then echo "usage: $0 $ACTION <name> [value]"; exit 1; fi
+    VAL="${2:-$(date +%s)}"
+    redis-cli hset "cybra:invoice:data" "$1" "$VAL" >/dev/null
+    echo "✅ invoice: $1 = $VAL"
+    ;;
+  list|status|show)
+    N=$(redis-cli hlen "cybra:invoice:data" 2>/dev/null || echo 0)
+    echo "════ invoice (module_013) ════"
+    echo "  items: $N"
+    if [ "$N" -gt 0 ]; then
+      redis-cli hgetall "cybra:invoice:data" | paste - - | head -20 | sed 's/^/  /'
+    fi
+    ;;
+  delete|remove)
+    if [ $# -lt 1 ]; then echo "usage: $0 $ACTION <name>"; exit 1; fi
+    redis-cli hdel "cybra:invoice:data" "$1" >/dev/null
+    echo "✅ deleted: $1"
+    ;;
+  *)
+    echo "════ module_013: invoice_show ════"
+    echo "  action: $ACTION  category: invoice"
+    echo "  hint: $0 add <name> [value] | $0 list | $0 delete <name>"
+    ;;
+esac
+rc=$?; log "DONE rc=$rc"; exit $rc

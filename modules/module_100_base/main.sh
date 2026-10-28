@@ -1,72 +1,37 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# ── BINMIX/EXECUTOR METADATA (auto-added) ──
-# module: module_100
-# source: current  rev=HEAD  when=now
-# score: 124  size: 2485B  hash: e70926532347
-# mixed_at: 2026-10-24T20:27:50.362360+00:00
-# ──────────────────────────────────────────
-# ── BINMIX/EXECUTOR METADATA (auto-added) ──
-# module: module_010
-# source: github_history  rev=9d125604  when=2026-10-19T22:28:38+03:00
-# score: 122  size: 2211B  hash: 275ded84ac2f
-# mixed_at: 2026-10-24T20:26:38.710605+00:00
-# ──────────────────────────────────────────
+# module_100: node_manager (node)
+set -u
+CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
+LOG="$CYBRA/logs/module_100.log"; mkdir -p "$(dirname "$LOG")"
+log() { echo "[$(date -u +%FT%TZ)] $*" >> "$LOG"; }
+trap 'log "ERR line $LINENO"' ERR
+ACTION="${1:-list}"; shift $(( $# > 0 ? 1 : 0 ))
+log "START node_manager action=$ACTION"
 
-# ─── BINMIX WRAP (65MB) ───
-CYBRA_W="$HOME/CYBRA"
-SANDBOX_W="$CYBRA_W/sandbox"
-LIMIT_W=$((65 * 1024 * 1024))
-mkdir -p "$SANDBOX_W"/{bin,tmp,keep,trash} 2>/dev/null
-SIZE_W=$(du -sb "$SANDBOX_W" 2>/dev/null | awk "{print \$1}" || echo 0)
-if [ "$SIZE_W" -ge "$LIMIT_W" ]; then
-    rm -rf "$SANDBOX_W"/trash/* "$SANDBOX_W"/tmp/* 2>/dev/null
-    [ -x "$SANDBOX_W/sandbox_cleanup.sh" ] && "$SANDBOX_W/sandbox_cleanup.sh" >/dev/null 2>&1
-fi
-BINMIX_W="$CYBRA_W/bin/cybra_binmix"
-[ -x "$BINMIX_W" ] && "$BINMIX_W" status >/dev/null 2>&1
-# ─── END BINMIX WRAP ───
-
-# МОДУЛЬ 100: Node manager
-# СТАТУС: BASE (готовий до апгрейду Парламентом)
-
-CYBRA="$HOME/CYBRA"
-LOG="$CYBRA/logs/module_100.log"
-mkdir -p "$(dirname "$LOG")"
-log() { echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] $1" >> "$LOG"; }
-
-# ─── АВТО-ФІКС ПРИ ПОМИЛКАХ (EVO TRAP) ───
-trap 'log "ERR line $LINENO"; echo "❌ Помилка в модулі 100. Лог: $LOG"; read -r _; exit 1' ERR
-
-log "START: Node manager"
-clear 2>/dev/null
-echo "════════════════════════════════════════════"
-echo "  [100] Node manager"
-echo "════════════════════════════════════════════"
-
-# ─── БАЗОВА ЛОГІКА ───
-bash "$CYBRA/cybra_node.sh" check 2>&1 | tail -5
-
-echo "════════════════════════════════════════════"
-log "DONE: Node manager"
-
-# ─── 7 РІВНІВ СКЛАДНОСТІ ───
-LEVEL_FILE="/data/data/com.termux/files/home/CYBRA/state/main.sh.level"
-level_now() { [ -f "$LEVEL_FILE" ] && cat "$LEVEL_FILE" || echo 1; }
-level_set() { echo "$1" > "$LEVEL_FILE"; }
-level1() { [ -d "$HOME/CYBRA" ] && return 0 || return 1; }
-level2() { command -v bash >/dev/null && return 0 || return 1; }
-level3() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
-level4() { [ -d "$HOME/CYBRA/logs" ] && return 0 || return 1; }
-level5() { [ -f "$HOME/CYBRA/evo/evo_core.py" ] && return 0 || return 1; }
-level6() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
-level7() { [ -d "$HOME/CYBRA/sandbox" ] && return 0 || return 1; }
-run_levels() {
-    local cur=$(level_now)
-    for i in 1 2 3 4 5 6 7; do
-        [ "$i" -lt "$cur" ] && continue
-        if "level$i"; then level_set "$i"; else return 0; fi
-    done
-}
-run_levels
-
-read -r -p "Натисни Enter для виходу..." _
+case "$ACTION" in
+  add|create|register)
+    if [ $# -lt 1 ]; then echo "usage: $0 $ACTION <name> [value]"; exit 1; fi
+    VAL="${2:-$(date +%s)}"
+    redis-cli hset "cybra:node:data" "$1" "$VAL" >/dev/null
+    echo "✅ node: $1 = $VAL"
+    ;;
+  list|status|show)
+    N=$(redis-cli hlen "cybra:node:data" 2>/dev/null || echo 0)
+    echo "════ node (module_100) ════"
+    echo "  items: $N"
+    if [ "$N" -gt 0 ]; then
+      redis-cli hgetall "cybra:node:data" | paste - - | head -20 | sed 's/^/  /'
+    fi
+    ;;
+  delete|remove)
+    if [ $# -lt 1 ]; then echo "usage: $0 $ACTION <name>"; exit 1; fi
+    redis-cli hdel "cybra:node:data" "$1" >/dev/null
+    echo "✅ deleted: $1"
+    ;;
+  *)
+    echo "════ module_100: node_manager ════"
+    echo "  action: $ACTION  category: node"
+    echo "  hint: $0 add <name> [value] | $0 list | $0 delete <name>"
+    ;;
+esac
+rc=$?; log "DONE rc=$rc"; exit $rc

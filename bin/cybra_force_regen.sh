@@ -18,7 +18,7 @@ grep -c '\\\\n' modules/module_148_base/main.sh 2>/dev/null || echo 0
 # ─── 2. BASH TEMPLATE (напряму, не з part1) ───
 echo ""
 echo "── 2. write template to tmp ──"
-TPL="/tmp/cybra_main_template_$TS.sh"
+TPL="$HOME/CYBRA/state/cybra_main_template_$TS.sh"
 cat > "$TPL" <<'TEMPLATE'
 #!/data/data/com.termux/files/usr/bin/bash
 # module_NNN: NAME (CAT)
@@ -74,7 +74,7 @@ import sys, os, json, re
 from pathlib import Path
 
 CYBRA = Path.home()/"CYBRA"
-TPL = sorted((Path("/tmp")).glob("cybra_main_template_*.sh"))[-1]
+TPL = sorted((Path.home()/"CYBRA"/"state").glob("cybra_main_template_*.sh"))[-1]
 tpl = TPL.read_text()
 
 # SPEC_MAP з part1
