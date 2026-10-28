@@ -1,41 +1,38 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# module_091: base
+# module_091: log_verify (audit)
 set -u
 CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
 LOG="$CYBRA/logs/module_091.log"; mkdir -p "$(dirname "$LOG")"
-log(){ echo "[$(date -u +%FT%TZ)] $*" >> "$LOG"; }
+log() { echo "[$(date -u +%FT%TZ)] $*" >> "$LOG"; }
+trap 'log "ERR line $LINENO"' ERR
 ACTION="${1:-list}"; shift $(( $# > 0 ? 1 : 0 ))
-KEY="cybra:mod_91:data"
-log "START action=$ACTION"
+log "START log_verify action=$ACTION"
+KEY="cybra:audit:data"
 
 case "$ACTION" in
-  add|create)
-    [ $# -lt 1 ] && { echo "usage: $0 add <label> [value]"; exit 1; }
+  add|create|register)
+    if [ $# -lt 1 ]; then echo "usage: $0 $ACTION <name> [value]"; exit 1; fi
     VAL="${2:-$(date +%s)}"
-    redis-cli hset "$KEY" "$1" "$VAL" >/dev/null || { echo "FAIL"; exit 1; }
-    echo "✅ $1 = $VAL"
+    redis-cli hset "$KEY" "$1" "$VAL" >/dev/null
+    echo "OK: $1 = $VAL"
     ;;
-  list|status)
+  list|status|show)
     N=$(redis-cli hlen "$KEY" 2>/dev/null || echo 0)
-    echo "════ module_091 (base) ════"
+    echo "==== audit (module_091) ===="
     echo "  items: $N"
     if [ "$N" -gt 0 ]; then
-      redis-cli hgetall "$KEY" | paste - - | head -30 | sed 's/^/  /'
+      redis-cli hgetall "$KEY" | paste - - | head -20 | sed 's/^/  /'
     fi
     ;;
-  delete|remove|rm)
-    [ $# -lt 1 ] && { echo "usage: $0 delete <label>"; exit 1; }
+  delete|remove)
+    if [ $# -lt 1 ]; then echo "usage: $0 $ACTION <name>"; exit 1; fi
     redis-cli hdel "$KEY" "$1" >/dev/null
-    echo "✅ deleted: $1"
-    ;;
-  info)
-    echo "  module: module_091 (base)"
-    echo "  key:    $KEY"
-    echo "  items:  $(redis-cli hlen "$KEY" 2>/dev/null || echo 0)"
+    echo "OK: deleted $1"
     ;;
   *)
-    echo "════ module_091 (base) ════"
-    echo "  actions: add | list | delete | info"
+    echo "==== module_091: log_verify ===="
+    echo "  action: $ACTION  category: audit"
+    echo "  hint: $0 add <name> [value] | $0 list | $0 delete <name>"
     ;;
 esac
 rc=$?; log "DONE rc=$rc"; exit $rc
