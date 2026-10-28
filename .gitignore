@@ -96,3 +96,10 @@ state/autopilot.json
 
 # One-off patch files
 *.patch
+
+# Autopilot runtime churn
+state/mixin_backups/
+.autopilot-worktree/
+
+# One-off patch files
+*.patch
