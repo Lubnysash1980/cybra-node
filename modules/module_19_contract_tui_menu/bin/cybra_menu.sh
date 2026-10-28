@@ -1002,4 +1002,6 @@ while true; do
 " "${C_RED}Невідома опція.${C_RESET}"
             ;;
     esac
+    printf '\n%s\n' "${C_GREY}Enter — продовжити${C_RESET}"
+    read -r _
 done
