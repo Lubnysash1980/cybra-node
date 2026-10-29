@@ -7,7 +7,8 @@ CYBRA = Path(os.environ.get("HOME")) / "CYBRA"
 os.chdir(CYBRA)
 
 import redis
-r = redis.Redis(host="127.0.0.1", port=6379, decode_responses=True)
+r = redis.Redis(host="127.0.0.1", port=6379, decode_responses=True,
+                socket_keepalive=True, socket_timeout=60, health_check_interval=30)
 QUEUE = "cybra:rebuild:queue"
 DONE = "cybra:rebuild:done"
 LOG = CYBRA / "logs/rebuild_worker.log"
@@ -79,6 +80,22 @@ while True:
         if raw_fix:
             log(f"fix: {raw_fix[:100]}")
             subprocess.run(["bash", str(CYBRA/"fix_case_handler.sh")], timeout=120, capture_output=True)
+
+        # binmix черга
+        raw_bx = r.lpop("cybra:binmix:queue")
+        if raw_bx:
+            log(f"binmix: {raw_bx[:100]}")
+            if (CYBRA/"bin/cybra_binmix_mixin.py").exists():
+                subprocess.run(["python3", str(CYBRA/"bin/cybra_binmix_mixin.py"), "once"],
+                              timeout=180, capture_output=True)
+
+        # evo черга
+        raw_evo = r.lpop("cybra:evo:queue")
+        if raw_evo:
+            log(f"evo: {raw_evo[:100]}")
+            if (CYBRA/"modules/module_19_contract_tui_menu/bin/cybra_ai_executor.sh").exists():
+                subprocess.run(["bash", str(CYBRA/"modules/module_19_contract_tui_menu/bin/cybra_ai_executor.sh"), "scan"],
+                              timeout=120, capture_output=True)
 
         raw = r.blpop(QUEUE, timeout=5)
         if not raw: continue

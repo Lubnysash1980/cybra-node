@@ -1,38 +1,41 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# module_066: dispute_list (dispute)
+# module_066: base
 set -u
 CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
 LOG="$CYBRA/logs/module_066.log"; mkdir -p "$(dirname "$LOG")"
-log() { echo "[$(date -u +%FT%TZ)] $*" >> "$LOG"; }
-trap 'log "ERR line $LINENO"' ERR
+log(){ echo "[$(date -u +%FT%TZ)] $*" >> "$LOG"; }
 ACTION="${1:-list}"; shift $(( $# > 0 ? 1 : 0 ))
-log "START dispute_list action=$ACTION"
-KEY="cybra:dispute:data"
+KEY="cybra:mod_66:data"
+log "START action=$ACTION"
 
 case "$ACTION" in
-  add|create|register)
-    if [ $# -lt 1 ]; then echo "usage: $0 $ACTION <name> [value]"; exit 1; fi
+  add|create)
+    [ $# -lt 1 ] && { echo "usage: $0 add <label> [value]"; exit 1; }
     VAL="${2:-$(date +%s)}"
-    redis-cli hset "$KEY" "$1" "$VAL" >/dev/null
-    echo "OK: $1 = $VAL"
+    redis-cli hset "$KEY" "$1" "$VAL" >/dev/null || { echo "FAIL"; exit 1; }
+    echo "✅ $1 = $VAL"
     ;;
-  list|status|show)
+  list|status)
     N=$(redis-cli hlen "$KEY" 2>/dev/null || echo 0)
-    echo "==== dispute (module_066) ===="
+    echo "════ module_066 (base) ════"
     echo "  items: $N"
     if [ "$N" -gt 0 ]; then
-      redis-cli hgetall "$KEY" | paste - - | head -20 | sed 's/^/  /'
+      redis-cli hgetall "$KEY" | paste - - | head -30 | sed 's/^/  /'
     fi
     ;;
-  delete|remove)
-    if [ $# -lt 1 ]; then echo "usage: $0 $ACTION <name>"; exit 1; fi
+  delete|remove|rm)
+    [ $# -lt 1 ] && { echo "usage: $0 delete <label>"; exit 1; }
     redis-cli hdel "$KEY" "$1" >/dev/null
-    echo "OK: deleted $1"
+    echo "✅ deleted: $1"
+    ;;
+  info)
+    echo "  module: module_066 (base)"
+    echo "  key:    $KEY"
+    echo "  items:  $(redis-cli hlen "$KEY" 2>/dev/null || echo 0)"
     ;;
   *)
-    echo "==== module_066: dispute_list ===="
-    echo "  action: $ACTION  category: dispute"
-    echo "  hint: $0 add <name> [value] | $0 list | $0 delete <name>"
+    echo "════ module_066 (base) ════"
+    echo "  actions: add | list | delete | info"
     ;;
 esac
 rc=$?; log "DONE rc=$rc"; exit $rc
