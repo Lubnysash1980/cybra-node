@@ -1,0 +1,745 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# CYBRA CONTRACT TUI v1.1 — повний
+source "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_tui_lib.sh" 2>/dev/null || true
+source "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_health.sh" 2>/dev/null || true
+
+# ─── Кольори ───
+if [ -t 1 ]; then
+    C_RESET=$'\033[0m'; C_BOLD=$'\033[1m'
+    C_RED=$'\033[31m'; C_GREEN=$'\033[32m'
+    C_YELLOW=$'\033[33m'; C_BLUE=$'\033[34m'
+    C_CYAN=$'\033[36m'; C_MAGENTA=$'\033[35m'
+    C_GREY=$'\033[90m'
+else
+    C_RESET=""; C_BOLD=""; C_RED=""; C_GREEN=""
+    C_YELLOW=""; C_BLUE=""; C_CYAN=""; C_MAGENTA=""; C_GREY=""
+fi
+
+CYBRA_ICON() {
+    case "$1" in
+        OK)   printf '🟢' ;;
+        WARN) printf '🟡' ;;
+        ERR)  printf '🔴' ;;
+        *)    printf '⚪' ;;
+    esac
+}
+
+# ─── Actions: ОСНОВНЕ ───
+action_create_contract() {
+    printf '%s\n' "${C_BOLD}--- Створити контракт ---${C_RESET}"
+    printf 'BUYER (0x...):  '; read -r B
+    printf 'SELLER (0x...): '; read -r S
+    printf 'AMOUNT (wei):   '; read -r A
+    printf 'TOKEN [BNB]:    '; read -r T; T="${T:-BNB}"
+    [ -z "$B" ] || [ -z "$S" ] || [ -z "$A" ] && { printf '%s\n' "${C_RED}Помилка${C_RESET}"; read -r _; return 1; }
+    CID="$(cybra_contract_create "$B" "$S" "$A" "$T")"
+    printf '%s\n' "${C_GREEN}OK: $CID${C_RESET}"
+    printf 'CONTRACT_ID: %s\n' "$CID"
+    read -r _
+}
+
+action_list_contracts() {
+    printf '%s\n' "${C_BOLD}--- Контракти ---${C_RESET}"
+    local n=0
+    for f in "$CYBRA_CONTRACTS"/*.env; do
+        [ -f "$f" ] || continue
+        local cid="$(basename "$f" .env)"
+        local stage="$(grep -m1 '^STAGE=' "$f" | cut -d= -f2-)"
+        printf '  %-45s [%s]\n' "$cid" "$stage"
+        n=$((n+1))
+    done
+    printf '\nВсього: %s\n' "$n"
+    read -r _
+}
+
+action_show_status() {
+    printf 'CONTRACT_ID: '; read -r C
+    local f="$CYBRA_CONTRACTS/$C.env"
+    [ ! -f "$f" ] && { printf '%s\n' "${C_RED}Not found${C_RESET}"; read -r _; return 1; }
+    cat "$f" | sed 's/^/  /'
+    read -r _
+}
+
+action_generate_links() {
+    printf 'CONTRACT_ID: '; read -r C
+    for r in BUYER SELLER RECEIPT; do
+        L="$(cybra_link_generate "$C" "$r")"
+        printf '  %s -> %s\n' "$r" "$L"
+    done
+    read -r _
+}
+
+action_confirm_link() {
+    printf 'LINK_ID: '; read -r L
+    printf 'WHO:     '; read -r W
+    cybra_link_confirm "$L" "$W"
+    read -r _
+}
+
+action_debug() {
+    printf 'CONTRACT_ID: '; read -r C
+    cat "$CYBRA_CONTRACTS/$C.env" 2>/dev/null | sed 's/^/  /'
+    echo ""
+    echo "--- links ---"
+    for lf in "$CYBRA_LINKS"/*.link; do
+        [ -f "$lf" ] || continue
+        grep -q "CONTRACT_ID=$C" "$lf" && cat "$lf" | sed 's/^/  /'
+    done
+    read -r _
+}
+
+action_dual_license_ledger() {
+    printf '%s\n' "${C_BOLD}--- DUAL LICENSE ledger (A+B) ---${C_RESET}"
+    printf '\n--- A ---\n'
+    tail -20 "$MOD/evidence/license_ledger.txt" 2>/dev/null
+    printf '\n--- B ---\n'
+    tail -20 "$MOD/evidence/license_ledger_b.txt" 2>/dev/null
+    read -r _
+}
+
+action_creation_license() {
+    printf '%s\n' "${C_BOLD}--- CREATION LICENSE ledger ---${C_RESET}"
+    tail -20 "$MOD/evidence/creation_license_ledger.txt" 2>/dev/null
+    read -r _
+}
+
+action_hardening() {
+    printf '%s\n' "${C_BOLD}--- Hardening ---${C_RESET}"
+    if [ -x "$HOME/CYBRA/cybra_mega_hardening.sh" ]; then
+        "$HOME/CYBRA/cybra_mega_hardening.sh" 2>&1 | tail -30
+    else
+        printf '%s\n' "${C_RED}hardening not found${C_RESET}"
+    fi
+    read -r _
+}
+
+# ─── INVOICE ───
+action_create_invoice() {
+    printf '%s\n' "${C_BOLD}--- INVOICE ---${C_RESET}"
+    printf 'ПІБ покупця:     '; read -r BN
+    printf 'ІПН покупця:     '; read -r BI
+    printf 'Wallet покупця:  '; read -r BW
+    printf 'Продавець:       '; read -r SN
+    printf 'ЄДРПОУ:          '; read -r SE
+    printf 'Wallet продавця: '; read -r SW
+    printf '№ рахунку:       '; read -r IN
+    printf 'Дата:            '; read -r ID
+    printf 'Сума (wei):      '; read -r AM
+    printf 'Token:           '; read -r TK
+    CID="$(cybra_contract_create_invoice "$BN" "$BI" "$BW" "$SN" "$SE" "$SW" "$IN" "$ID" "$AM" "$TK" 18 20)" 2>/dev/null
+    [ -z "$CID" ] && { printf '%s\n' "${C_RED}Fail${C_RESET}"; read -r _; return 1; }
+    printf '%s\n' "${C_GREEN}OK: $CID${C_RESET}"
+    read -r _
+}
+
+action_add_line() {
+    printf 'CONTRACT_ID: '; read -r C
+    printf 'Код:        '; read -r CODE
+    printf 'Назва:      '; read -r NAME
+    printf 'К-сть:      '; read -r QTY
+    printf 'Ціна:       '; read -r PRICE
+    cybra_invoice_add_line "$C" "$CODE" "$NAME" "$QTY" "$PRICE" 2>/dev/null
+    read -r _
+}
+
+action_show_invoice() {
+    printf 'CONTRACT_ID: '; read -r C
+    cybra_invoice_show "$C" 2>/dev/null
+    read -r _
+}
+
+action_finalize_invoice() {
+    printf 'CONTRACT_ID: '; read -r C
+    cybra_invoice_finalize "$C" 2>/dev/null
+    read -r _
+}
+
+# ─── PII MASK ───
+action_export_masked() {
+    printf 'CONTRACT_ID: '; read -r C
+    local h="$(cybra_export_masked "$C" "$HOME/CYBRA/public/contracts" 2>/dev/null)"
+    printf '%s\n' "${C_GREEN}Export: ${h:0:16}...${C_RESET}"
+    read -r _
+}
+action_export_all_masked() {
+    cybra_export_all_masked "$HOME/CYBRA/public/contracts" 2>/dev/null
+    read -r _
+}
+action_verify_pii() {
+    printf 'Значення: '; read -r V
+    printf 'Hash:     '; read -r H
+    local c="$(cybra_pii_hash "$V" 2>/dev/null)"
+    [ "$c" = "$H" ] && printf '%s\n' "${C_GREEN}MATCH${C_RESET}" || printf '%s\n' "${C_RED}MISMATCH${C_RESET}"
+    read -r _
+}
+
+# ─── REFUND ───
+action_buyer_final_decision() {
+    printf 'CONTRACT_ID: '; read -r C
+    printf 'Рішення [CONFIRMED/REJECTED]: '; read -r D
+    cybra_buyer_final_decision "$C" "$D" 2>/dev/null
+    read -r _
+}
+action_check_timeouts() {
+    cybra_check_all_refunds 2>/dev/null
+    read -r _
+}
+action_refund_status() {
+    printf 'CONTRACT_ID: '; read -r C
+    cybra_refund_status "$C" 2>/dev/null
+    read -r _
+}
+action_add_term() {
+    printf 'CONTRACT_ID: '; read -r C
+    printf 'Умова:       '; read -r T
+    cybra_add_custom_term "$C" "$T" 2>/dev/null
+    read -r _
+}
+
+# ─── ВАЛЮТИ ───
+action_show_rates() {
+    cybra_show_rates 2>/dev/null
+    read -r _
+}
+action_update_rate() {
+    printf 'RATE_KEY: '; read -r K
+    printf 'VALUE:    '; read -r V
+    local rf="$MOD/state/rates.env"
+    if grep -q "^${K}=" "$rf" 2>/dev/null; then
+        sed -i "s|^${K}=.*|${K}=${V}|" "$rf"
+    else
+        printf '%s=%s\n' "$K" "$V" >> "$rf"
+    fi
+    printf '%s\n' "${C_GREEN}OK${C_RESET}"
+    read -r _
+}
+action_convert() {
+    printf 'Сума:  '; read -r A
+    printf 'З:     '; read -r F
+    printf 'У:     '; read -r T
+    # ── auto-generated colored menu (real=green, weak=yellow, stub=dim) ──
+    _cur_grp=""
+    while IFS='|' read -r _n _name _cat _grp; do
+      [ -z "$_n" ] && continue
+      if [ "$_grp" != "$_cur_grp" ]; then
+        printf '\n  ── %s ──\n' "$_grp"
+        _cur_grp="$_grp"
+      fi
+      case "$_cat" in
+        real) printf '  \033[32m[%3d]\033[0m %s\n' "$_n" "$_name" ;;
+        weak) printf '  \033[33m[%3d]\033[0m %s \u26a0\n' "$_n" "$_name" ;;
+        *)    printf '  \033[2m[%3d] %s \u23f3\033[0m\n' "$_n" "$_name" ;;
+      esac
+    done <<'__MENU_COLORS__'
+1|Base|real|module
+2|Base|real|module
+3|Base|real|module
+4|Base|real|module
+5|Generated|real|module
+6|Generated|real|module
+7|Generated|real|module
+8|Generated|real|module
+9|Generated|real|module
+10|Base|real|module
+11|Base|real|module
+12|Delivery Receipt|real|module
+13|Dual Backend|real|module
+14|Watchdog|real|module
+15|True100 Aggregator|real|module
+16|Generated|real|module
+17|Generated|real|module
+18|License Payment Router|real|module
+19|Generated|real|module
+20|Generated|real|module
+21|Generated|real|module
+22|Base|real|module
+23|Base|real|module
+24|Generated|real|module
+25|Generated|real|module
+26|Qr Codes|real|module
+27|Telegram Bot|real|module
+28|Generated|real|module
+29|Generated|real|module
+30|Multichain|real|module
+31|Generated|real|module
+32|Webhook|real|module
+33|Generated|real|module
+34|Generated|real|module
+35|Generated|real|module
+36|Generated|real|module
+37|Generated|real|module
+38|Generated|real|module
+39|Generated|real|module
+40|Base|real|module
+41|Base|real|module
+42|Base|real|module
+43|Base|real|module
+44|Base|real|module
+45|Base|real|module
+46|Base|real|module
+47|Base|real|module
+48|Base|real|module
+49|Base|real|module
+50|Generated|real|module
+51|Generated|real|module
+52|Generated|real|module
+53|Base|real|module
+54|Base|real|module
+55|Base|real|module
+56|Base|real|module
+57|Base|real|module
+58|Generated|real|module
+59|Generated|real|module
+60|Generated|real|module
+61|Base|real|module
+62|Base|real|module
+63|Generated|real|module
+64|Generated|real|module
+65|Base|real|module
+66|Generated|real|module
+67|Generated|real|module
+68|Generated|real|module
+69|Base|real|module
+70|Generated|real|module
+71|Generated|real|module
+72|Generated|real|module
+73|Generated|real|module
+74|Generated|real|module
+75|Generated|real|module
+76|Base|real|module
+77|Base|real|module
+78|Generated|real|module
+79|Generated|real|module
+80|Generated|real|module
+81|Base|real|module
+82|Generated|real|module
+83|Generated|real|module
+84|Base|real|module
+85|Generated|real|module
+86|Base|real|module
+87|Generated|real|module
+88|Base|real|module
+89|Generated|real|module
+90|Generated|real|module
+91|Base|real|module
+92|Base|real|module
+93|Base|real|module
+94|Base|real|module
+95|Base|real|module
+96|Base|real|module
+97|Base|real|module
+98|Base|real|module
+99|Base|real|module
+100|Base|real|module
+101|Module 101|real|module
+102|Module 102|real|module
+103|Module 103|real|module
+104|Module 104|real|module
+105|Module 105|real|module
+106|Module 106|real|module
+107|Module 107|real|module
+108|Metamask Sign|real|module
+109|Metamask Verify|real|module
+110|Metamask History|real|module
+111|Invoice|real|module
+112|Metamask Deeplink|real|module
+113|Metamask Batch|real|module
+114|Base|real|module
+115|Rpc Bench|real|module
+116|Gas Monitor|real|module
+117|Tx Lookup|real|module
+118|Net Health|real|module
+119|Qr Sign|real|module
+120|Base|real|module
+121|Parlament|real|module
+122|Contract Validator|real|module
+123|Multisig|real|module
+124|Timelock|real|module
+125|Base|real|module
+126|Zk|real|module
+127|Module 127|real|module
+128|Dashboard|real|module
+129|Voice|real|module
+130|Test Suite|real|module
+131|Kyc|real|module
+132|Compliance|real|module
+133|Module 133|real|module
+134|Discord|real|module
+135|Walletconnect|real|module
+136|Templates|real|module
+137|Escrow|real|module
+138|Base|real|module
+139|Reputation|real|module
+140|Base|real|module
+141|Portfolio|real|module
+142|Invoice Pdf|real|module
+143|Email|real|module
+144|Lightning|real|module
+145|Ipfs|real|module
+146|Merkle|real|module
+147|Reputation V2|real|module
+148|Multisig Ui|real|module
+149|Base|real|module
+150|Scripts|real|module
+151|Base|real|module
+152|Rollback Evo|real|module
+153|Module 153|real|module
+154|Module 154|real|module
+155|Module 155|real|module
+156|Module 156|real|module
+157|Module 157|real|module
+158|Module 158|real|module
+159|Module 159|real|module
+160|Module 160|real|module
+161|Taxi|real|taxi
+__MENU_COLORS__
+    printf 'Вибір: '
+    read -r ap
+    case "$ap" in
+    esac
+}
+
+
+while true; do
+    print_header
+    print_menu
+    printf '  Вибір: '
+    read -r CHOICE
+
+    case "$CHOICE" in
+        1) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_1_base/main.sh" ;;
+        2) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_2_base/main.sh" ;;
+        3) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_3_base/main.sh" ;;
+        4) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_4_base/main.sh" ;;
+        5) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_5_base/main.sh" ;;
+        6) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_6_base/main.sh" ;;
+        7)
+      lic ledger dual
+      ;;
+        8)
+      lic ledger creation
+      ;;
+        9) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_9_base/main.sh" ;;
+        10) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_10_base/main.sh" ;;
+        11) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_11_base/main.sh" ;;
+        12) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_12_base/main.sh" ;;
+        13) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_13_base/main.sh" ;;
+        14) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_14_base/main.sh" ;;
+        15) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_15_base/main.sh" ;;
+        16) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_16_base/main.sh" ;;
+        17) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_17_base/main.sh" ;;
+        18) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_18_base/main.sh" ;;
+        19) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_19_base/main.sh" ;;
+        20) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_20_base/main.sh" ;;
+        21) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_21_base/main.sh" ;;
+        22) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_22_base/main.sh" ;;
+        23) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_23_base/main.sh" ;;
+        24) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_24_base/main.sh" ;;
+        25) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_25_base/main.sh" ;;
+        26) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_26_base/main.sh" ;;
+        27) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_27_base/main.sh" ;;
+        28) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_28_base/main.sh" ;;
+        29) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_29_base/main.sh" ;;
+        30) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_30_base/main.sh" ;;
+        31) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_31_base/main.sh" ;;
+        32) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_32_base/main.sh" ;;
+        33) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_33_base/main.sh" ;;
+        34) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_34_base/main.sh" ;;
+        35) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_35_base/main.sh" ;;
+        36) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_36_base/main.sh" ;;
+        37) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_37_base/main.sh" ;;
+        38) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_38_base/main.sh" ;;
+        39) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_39_base/main.sh" ;;
+        40) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_40_base/main.sh" ;;
+        41) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_41_base/main.sh" ;;
+        42) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_42_base/main.sh" ;;
+        43) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_43_base/main.sh" ;;
+        44) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_44_base/main.sh" ;;
+        45) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_45_base/main.sh" ;;
+        46) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_46_base/main.sh" ;;
+        47) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_47_base/main.sh" ;;
+        48) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_48_base/main.sh" ;;
+        49) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_49_base/main.sh" ;;
+        50) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_50_base/main.sh" ;;
+        51) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_51_base/main.sh" ;;
+        52) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_52_base/main.sh" ;;
+        53) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_53_base/main.sh" ;;
+        54) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_54_base/main.sh" ;;
+        55) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_55_base/main.sh" ;;
+        56) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_56_base/main.sh" ;;
+        57) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_57_base/main.sh" ;;
+        58) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_58_base/main.sh" ;;
+        59) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_59_base/main.sh" ;;
+        60) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_60_base/main.sh" ;;
+        61) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_61_base/main.sh" ;;
+        62) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_62_base/main.sh" ;;
+        63) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_63_base/main.sh" ;;
+        64) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_64_base/main.sh" ;;
+        65) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_65_base/main.sh" ;;
+        66) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_66_base/main.sh" ;;
+        67) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_67_base/main.sh" ;;
+        68) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_68_base/main.sh" ;;
+        69) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_69_base/main.sh" ;;
+        70) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_70_base/main.sh" ;;
+        71) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_71_base/main.sh" ;;
+        72) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_72_base/main.sh" ;;
+        73) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_73_base/main.sh" ;;
+        74) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_74_base/main.sh" ;;
+        75) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_75_base/main.sh" ;;
+        76) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_76_base/main.sh" ;;
+        77) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_77_base/main.sh" ;;
+        78) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_78_base/main.sh" ;;
+        79) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_79_base/main.sh" ;;
+        80) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_80_base/main.sh" ;;
+        81) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_81_base/main.sh" ;;
+        82) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_82_base/main.sh" ;;
+        83) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_83_base/main.sh" ;;
+        84) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_84_base/main.sh" ;;
+        85) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_85_base/main.sh" ;;
+        86) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_86_base/main.sh" ;;
+        87) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_87_base/main.sh" ;;
+        88) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_88_base/main.sh" ;;
+        89) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_89_base/main.sh" ;;
+        90) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_90_base/main.sh" ;;
+        91) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_91_base/main.sh" ;;
+        92) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_92_base/main.sh" ;;
+        93) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_93_base/main.sh" ;;
+        94) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_94_base/main.sh" ;;
+        95) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_95_base/main.sh" ;;
+        96) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_96_base/main.sh" ;;
+        97) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_97_base/main.sh" ;;
+        98) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_98_base/main.sh" ;;
+        99) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_99_base/main.sh" ;;
+        100) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_100_base/main.sh" ;;
+        101) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_101_base/main.sh" ;;
+        102) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_102_base/main.sh" ;;
+        103) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_103_base/main.sh" ;;
+        104) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_104_base/main.sh" ;;
+        105) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_105_base/main.sh" ;;
+        106) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_106_base/main.sh" ;;
+        107) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_107_base/main.sh" ;;
+        108) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_108_base/main.sh" ;;
+        109) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_109_base/main.sh" ;;
+        110) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_110_base/main.sh" ;;
+        111) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_111_base/main.sh" ;;
+        112) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_112_base/main.sh" ;;
+        113) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_113_base/main.sh" ;;
+        114) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_114_base/main.sh" ;;
+        115) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_115_base/main.sh" ;;
+        116) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_116_base/main.sh" ;;
+        117) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_117_base/main.sh" ;;
+        118) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_118_base/main.sh" ;;
+        119) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_119_base/main.sh" ;;
+        120) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_120_base/main.sh" ;;
+        121) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_121_base/main.sh" ;;
+        122) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_122_base/main.sh" ;;
+        123) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_123_base/main.sh" ;;
+        124) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_124_base/main.sh" ;;
+        125) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_125_base/main.sh" ;;
+        126) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_126_base/main.sh" ;;
+        127) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_127_base/main.sh" ;;
+        128) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_128_base/main.sh" ;;
+        129) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_129_base/main.sh" ;;
+        130) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_130_base/main.sh" ;;
+        131) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_131_base/main.sh" ;;
+        132) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_132_base/main.sh" ;;
+        133) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_133_base/main.sh" ;;
+        134) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_134_base/main.sh" ;;
+        135) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_135_base/main.sh" ;;
+        136) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_136_base/main.sh" ;;
+        137) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_137_base/main.sh" ;;
+        138) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_138_base/main.sh" ;;
+        139) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_139_base/main.sh" ;;
+        140) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_140_base/main.sh" ;;
+        141) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_141_base/main.sh" ;;
+        142) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_142_base/main.sh" ;;
+        143) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_143_base/main.sh" ;;
+        144) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_144_base/main.sh" ;;
+        145) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_145_base/main.sh" ;;
+        146) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_146_base/main.sh" ;;
+        147) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_147_base/main.sh" ;;
+        148) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_148_base/main.sh" ;;
+        149) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_149_base/main.sh" ;;
+        150) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_150_base/main.sh" ;;
+        151) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_151_base/main.sh" ;;
+        152) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_152_base/main.sh" ;;
+        153) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_153_base/main.sh" ;;
+        154) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_154_base/main.sh" ;;
+        155) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_155_base/main.sh" ;;
+        156) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_156_base/main.sh" ;;
+        157) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_157_base/main.sh" ;;
+        158) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_158_base/main.sh" ;;
+        159) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_159_base/main.sh" ;;
+        160) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_160_base/main.sh" ;;
+        1) cybra_af 1 ;;
+        2) cybra_af 2 ;;
+        3) cybra_af 3 ;;
+        4) cybra_af 4 ;;
+        5) cybra_af 5 ;;
+        6) cybra_af 6 ;;
+        7) cybra_af 7 ;;
+        8) cybra_af 8 ;;
+        9) cybra_af 9 ;;
+        10) cybra_af 10 ;;
+        11) cybra_af 11 ;;
+        12) cybra_af 12 ;;
+        13) cybra_af 13 ;;
+        14) cybra_af 14 ;;
+        15) cybra_af 15 ;;
+        16) cybra_af 16 ;;
+        17) cybra_af 17 ;;
+        18) cybra_af 18 ;;
+        19) cybra_af 19 ;;
+        20) cybra_af 20 ;;
+        21) cybra_af 21 ;;
+        22) cybra_af 22 ;;
+        23) cybra_af 23 ;;
+        24) cybra_af 24 ;;
+        25) cybra_af 25 ;;
+        26) cybra_af 26 ;;
+        27) cybra_af 27 ;;
+        28) cybra_af 28 ;;
+        29) cybra_af 29 ;;
+        30) cybra_af 30 ;;
+        31) cybra_af 31 ;;
+        32) cybra_af 32 ;;
+        33) cybra_af 33 ;;
+        34) cybra_af 34 ;;
+        35) cybra_af 35 ;;
+        36) cybra_af 36 ;;
+        37) cybra_af 37 ;;
+        38) cybra_af 38 ;;
+        39) cybra_af 39 ;;
+        40) cybra_af 40 ;;
+        41) cybra_af 41 ;;
+        42) cybra_af 42 ;;
+        43) cybra_af 43 ;;
+        44) cybra_af 44 ;;
+        45) cybra_af 45 ;;
+        46) cybra_af 46 ;;
+        47) cybra_af 47 ;;
+        48) cybra_af 48 ;;
+        49) cybra_af 49 ;;
+        50) cybra_af 50 ;;
+        51) cybra_af 51 ;;
+        52) cybra_af 52 ;;
+        53) cybra_af 53 ;;
+        54) cybra_af 54 ;;
+        55) cybra_af 55 ;;
+        56) cybra_af 56 ;;
+        57) cybra_af 57 ;;
+        58) cybra_af 58 ;;
+        59) cybra_af 59 ;;
+        60) cybra_af 60 ;;
+        61) cybra_af 61 ;;
+        62) cybra_af 62 ;;
+        63) cybra_af 63 ;;
+        64) cybra_af 64 ;;
+        65) cybra_af 65 ;;
+        66) cybra_af 66 ;;
+        67) cybra_af 67 ;;
+        68) cybra_af 68 ;;
+        69) cybra_af 69 ;;
+        70) cybra_af 70 ;;
+        71) cybra_af 71 ;;
+        72) cybra_af 72 ;;
+        73) cybra_af 73 ;;
+        74) cybra_af 74 ;;
+        75) cybra_af 75 ;;
+        76) cybra_af 76 ;;
+        77) cybra_af 77 ;;
+        78) cybra_af 78 ;;
+        79) cybra_af 79 ;;
+        80) cybra_af 80 ;;
+        81) cybra_af 81 ;;
+        82) cybra_af 82 ;;
+        83) cybra_af 83 ;;
+        84) cybra_af 84 ;;
+        85) cybra_af 85 ;;
+        86) cybra_af 86 ;;
+        87) cybra_af 87 ;;
+        88) cybra_af 88 ;;
+        89) cybra_af 89 ;;
+        90) cybra_af 90 ;;
+        91) cybra_af 91 ;;
+        92) cybra_af 92 ;;
+        93) cybra_af 93 ;;
+        94) cybra_af 94 ;;
+        95) cybra_af 95 ;;
+        96) cybra_af 96 ;;
+        97) cybra_af 97 ;;
+        98) cybra_af 98 ;;
+        99) cybra_af 99 ;;
+        100) cybra_af 100 ;;
+        101) cybra_af 101 ;;
+        102) cybra_af 102 ;;
+        103) cybra_af 103 ;;
+        104) cybra_af 104 ;;
+        105) cybra_af 105 ;;
+        106) cybra_af 106 ;;
+        107) cybra_af 107 ;;
+        108) cybra_af 108 ;;
+        109) cybra_af 109 ;;
+        110) cybra_af 110 ;;
+        111) cybra_af 111 ;;
+        112) cybra_af 112 ;;
+        113) cybra_af 113 ;;
+        114) cybra_af 114 ;;
+        115) cybra_af 115 ;;
+        116) cybra_af 116 ;;
+        117) cybra_af 117 ;;
+        118) cybra_af 118 ;;
+        119) cybra_af 119 ;;
+        120) cybra_af 120 ;;
+        121) cybra_af 121 ;;
+        122) cybra_af 122 ;;
+        123) cybra_af 123 ;;
+        124) cybra_af 124 ;;
+        125) cybra_af 125 ;;
+        126) cybra_af 126 ;;
+        127) cybra_af 127 ;;
+        128) cybra_af 128 ;;
+        129) cybra_af 129 ;;
+        130) cybra_af 130 ;;
+        131) cybra_af 131 ;;
+        132) cybra_af 132 ;;
+        133) cybra_af 133 ;;
+        134) cybra_af 134 ;;
+        135) cybra_af 135 ;;
+        136) cybra_af 136 ;;
+        137) cybra_af 137 ;;
+        138) cybra_af 138 ;;
+        139) cybra_af 139 ;;
+        140) cybra_af 140 ;;
+        141) cybra_af 141 ;;
+        142) cybra_af 142 ;;
+        143) cybra_af 143 ;;
+        144) cybra_af 144 ;;
+        145) cybra_af 145 ;;
+        146) cybra_af 146 ;;
+        147) cybra_af 147 ;;
+        148) cybra_af 148 ;;
+        149) cybra_af 149 ;;
+        150) cybra_af 150 ;;
+        151) cybra_af 151 ;;
+        152) cybra_af 152 ;;
+        153) cybra_af 153 ;;
+        154) cybra_af 154 ;;
+        155) cybra_af 155 ;;
+        156) cybra_af 156 ;;
+        157) cybra_af 157 ;;
+        158) cybra_af 158 ;;
+        159) cybra_af 159 ;;
+        160) cybra_af 160 ;;
+        161) cybra_af 161 ;;
+        0|q|Q|exit|quit)
+            printf "%s
+" "${C_GREEN}До побачення.${C_RESET}"
+            exit 0
+            ;;
+        *)
+            printf "%s
+" "${C_RED}Невідома опція.${C_RESET}"
+            ;;
+    esac
+done

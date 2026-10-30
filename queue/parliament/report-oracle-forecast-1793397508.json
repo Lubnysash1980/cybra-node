@@ -1,0 +1,141 @@
+{
+  "id": "report-oracle-forecast-1793397508",
+  "from": "cybra-oracle-ctrl",
+  "to": "parliament",
+  "kind": "forecast",
+  "ts": "2026-10-30T21:58:28.748865+00:00",
+  "payload": {
+    "horizon": 7,
+    "preds_total": 65,
+    "high_risk": [
+      {
+        "step": 1,
+        "kind": "ctrl_down",
+        "name": "cybra-neuro-ctrl",
+        "risk": 0.9,
+        "tags": [
+          "down"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "ctrl_down",
+        "name": "cybra-evo-ctrl",
+        "risk": 0.9,
+        "tags": [
+          "down"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "ctrl_down",
+        "name": "cybra-evolution-ctrl",
+        "risk": 0.9,
+        "tags": [
+          "down"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "ctrl_down",
+        "name": "cybra-resurrection-ctrl",
+        "risk": 0.9,
+        "tags": [
+          "down"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "ctrl_down",
+        "name": "parliament",
+        "risk": 0.9,
+        "tags": [
+          "down"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "action": "dep_ok",
+        "bin": "jq"
+      },
+      {
+        "action": "dep_ok",
+        "bin": "curl"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "parliament"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "evolution"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "guardian"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "autosave"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "snapshot"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "neuro"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "evo"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "resurrection"
+      },
+      {
+        "action": "start_missing",
+        "name": "cybra-neuro-ctrl"
+      },
+      {
+        "action": "guard_restart",
+        "name": "cybra-neuro-ctrl"
+      },
+      {
+        "action": "start_missing",
+        "name": "cybra-evo-ctrl"
+      },
+      {
+        "action": "guard_restart",
+        "name": "cybra-evo-ctrl"
+      },
+      {
+        "action": "start_missing",
+        "name": "cybra-evolution-ctrl"
+      },
+      {
+        "action": "guard_restart",
+        "name": "cybra-evolution-ctrl"
+      },
+      {
+        "action": "start_missing",
+        "name": "cybra-resurrection-ctrl"
+      },
+      {
+        "action": "guard_restart",
+        "name": "cybra-resurrection-ctrl"
+      },
+      {
+        "action": "start_missing",
+        "name": "parliament"
+      },
+      {
+        "action": "guard_restart",
+        "name": "parliament"
+      }
+    ]
+  },
+  "hash": "f9e15853bda28e03aa39b37d0bc49c1e6f3864811b09850a152cf3f615f813d8"
+}

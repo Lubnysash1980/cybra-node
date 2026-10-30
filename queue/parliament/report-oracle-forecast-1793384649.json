@@ -1,0 +1,63 @@
+{
+  "id": "report-oracle-forecast-1793384649",
+  "from": "cybra-oracle-ctrl",
+  "to": "parliament",
+  "kind": "forecast",
+  "ts": "2026-10-30T18:24:09.070317+00:00",
+  "payload": {
+    "horizon": 7,
+    "preds_total": 23,
+    "high_risk": [],
+    "actions": [
+      {
+        "action": "dep_ok",
+        "bin": "python3"
+      },
+      {
+        "action": "dep_ok",
+        "bin": "pm2"
+      },
+      {
+        "action": "dep_ok",
+        "bin": "jq"
+      },
+      {
+        "action": "dep_ok",
+        "bin": "curl"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "parliament"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "evolution"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "guardian"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "autosave"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "snapshot"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "neuro"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "evo"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "resurrection"
+      }
+    ]
+  },
+  "hash": "51c36cbda5c08dfdb136675cab992357df3e6211c0f934482619fbe5e16f450e"
+}

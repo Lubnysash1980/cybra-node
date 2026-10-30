@@ -1,0 +1,21 @@
+{
+  "id": "report-oracle-alert-1793398693",
+  "from": "cybra-oracle-ctrl",
+  "to": "parliament",
+  "kind": "alert",
+  "ts": "2026-10-30T22:18:13.466639+00:00",
+  "payload": {
+    "high_risk": [
+      {
+        "step": 1,
+        "kind": "ctrl_down",
+        "name": "cybra-evolution-ctrl",
+        "risk": 0.9,
+        "tags": [
+          "down"
+        ]
+      }
+    ]
+  },
+  "hash": "2b706edeceb4d808c8b5c36a2e760d098d4f30296d929f111aeace9903711a83"
+}

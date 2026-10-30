@@ -1,55 +1,20 @@
 #!/data/data/com.termux/files/usr/bin/bash
-
-# ─── BINMIX WRAP (65MB) ───
-CYBRA_W="$HOME/CYBRA"
-SANDBOX_W="$CYBRA_W/sandbox"
-LIMIT_W=$((65 * 1024 * 1024))
-mkdir -p "$SANDBOX_W"/{bin,tmp,keep,trash} 2>/dev/null
-SIZE_W=$(du -sb "$SANDBOX_W" 2>/dev/null | awk "{print \$1}" || echo 0)
-if [ "$SIZE_W" -ge "$LIMIT_W" ]; then
-    rm -rf "$SANDBOX_W"/trash/* "$SANDBOX_W"/tmp/* 2>/dev/null
-    [ -x "$SANDBOX_W/sandbox_cleanup.sh" ] && "$SANDBOX_W/sandbox_cleanup.sh" >/dev/null 2>&1
-fi
-BINMIX_W="$CYBRA_W/bin/cybra_binmix"
-[ -x "$BINMIX_W" ] && "$BINMIX_W" status >/dev/null 2>&1
-# ─── END BINMIX WRAP ───
-
-# МОДУЛЬ: module_31_dispute_resolver
-# СТАТУС: READY (created by fix_missing)
-# ДАТА: 2026-10-18T15:14:32.464174+00:00
-
-CYBRA="$HOME/CYBRA"
-LOG="$CYBRA/logs/module_31_dispute_resolver.log"
-mkdir -p "$(dirname "$LOG")"
-log() { echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] $1" >> "$LOG"; }
-trap 'log "ERR $LINENO"' ERR
-
-log "START: module_31_dispute_resolver"
-echo "════════════════════════════════════════════"
-echo "  МОДУЛЬ module_31_dispute_resolver (створено заново)"
-echo "════════════════════════════════════════════"
-echo "  Статус: READY"
-echo ""
+# ── AUTOBUILD ── module 31 src=fallback at=2026-10-30T15:38:08.086871+00:00
+# module_031 — Generated  (autobuild fallback)
+set -u
+CYBRA="$HOME/CYBRA"; cd "$CYBRA" 2>/dev/null || exit 1
+echo "════ [31] Generated ════════"
+echo "── git ──"
+git --no-pager log -1 --format='  %h %s (%cr)' 2>/dev/null || echo "  no git"
+echo "  changes: $(git status --porcelain 2>/dev/null | wc -l)"
+echo "── redis ──"
+redis-cli ping 2>/dev/null | sed 's/^/  /' || echo "  DOWN"
+echo "  keys: $(redis-cli dbsize 2>/dev/null || echo 0)"
+echo "── system ──"
+free -m 2>/dev/null | awk '/Mem:/{printf "  RAM: %d/%d MB\n", $3, $2}'
+df -h /data 2>/dev/null | awk 'NR==2{print "  disk: "$5" used"}'
+echo "── pm2 ──"
+pm2 jlist 2>/dev/null | python3 -c "import sys,json;d=json.load(sys.stdin);print(f'  online: {sum(1 for p in d if p[\"pm2_env\"][\"status\"]==\"online\")}/{len(d)}')" 2>/dev/null || echo "  n/a"
+echo "── log ──"
+tail -3 logs/module_031*.log 2>/dev/null | sed 's/^/  /' || echo "  (no log)"
 read -r -p "Enter..." _
-
-# ─── 7 РІВНІВ СКЛАДНОСТІ ───
-LEVEL_FILE="/data/data/com.termux/files/home/CYBRA/state/main.sh.level"
-level_now() { [ -f "$LEVEL_FILE" ] && cat "$LEVEL_FILE" || echo 1; }
-level_set() { echo "$1" > "$LEVEL_FILE"; }
-level1() { [ -d "$HOME/CYBRA" ] && return 0 || return 1; }
-level2() { command -v bash >/dev/null && return 0 || return 1; }
-level3() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
-level4() { [ -d "$HOME/CYBRA/logs" ] && return 0 || return 1; }
-level5() { [ -f "$HOME/CYBRA/evo/evo_core.py" ] && return 0 || return 1; }
-level6() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
-level7() { [ -d "$HOME/CYBRA/sandbox" ] && return 0 || return 1; }
-run_levels() {
-    local cur=$(level_now)
-    for i in 1 2 3 4 5 6 7; do
-        [ "$i" -lt "$cur" ] && continue
-        if "level$i"; then level_set "$i"; else return 0; fi
-    done
-}
-run_levels
-
-exit 0

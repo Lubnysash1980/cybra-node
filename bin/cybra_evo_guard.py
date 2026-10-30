@@ -54,6 +54,7 @@ def latest_backup():
     bs = sorted(BACKUP.glob("modules_*.tar.gz"))
     return bs[-1] if bs else None
 
+# NO_DOWNGRADE: real → stub заборонено. Rollback не може перезаписати real на stub.
 def rollback(diff_pct):
     b = latest_backup()
     if not b:
