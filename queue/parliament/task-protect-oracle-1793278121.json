@@ -1,0 +1,45 @@
+{
+  "id": "protect-oracle-1793278121",
+  "created": "2026-10-29T12:48:41Z",
+  "from": "operator",
+  "to": "parliament",
+  "action": "protect_controller",
+  "controller": "cybra-oracle-ctrl",
+  "description": "Oracle Predictive Controller \u2014 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u0435\u0440 \u043f\u0435\u0440\u0435\u0434\u0431\u0430\u0447\u0435\u043d\u043d\u044f \u043d\u0430 7 \u043a\u0440\u043e\u043a\u0456\u0432 \u0443\u043f\u0435\u0440\u0435\u0434. \u041b\u043e\u0432\u0438\u0442\u044c \u0437\u043c\u0456\u043d\u0438: \u0444\u0430\u0439\u043b\u0438 (mtime), git (HEAD/dirty), \u0437\u0432\u0456\u0442\u0438 \u0456\u043d\u0448\u0438\u0445 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u0435\u0440\u0456\u0432, score Evolution, \u0447\u0435\u0440\u0433\u0443 \u043f\u0430\u0440\u043b\u0430\u043c\u0435\u043d\u0442\u0443. \u0411\u0443\u0434\u0443\u0454 \u0441\u0446\u0435\u043d\u0430\u0440\u0456\u0457 7 \u043a\u0440\u043e\u043a\u0456\u0432, \u043e\u0446\u0456\u043d\u044e\u0454 \u0440\u0438\u0437\u0438\u043a, \u0440\u043e\u0431\u0438\u0442\u044c \u043b\u0438\u0448\u0435 \u0431\u0435\u0437\u043f\u0435\u0447\u043d\u0456 \u0434\u0456\u0457 (pm2 start, dep-check, prewarm); \u0434\u0435\u0441\u0442\u0440\u0443\u043a\u0442\u0438\u0432 \u2014 \u0442\u0456\u043b\u044c\u043a\u0438 \u0447\u0435\u0440\u0435\u0437 ~/bin/cybra-guard \u0437 \u043f\u0430\u0440\u043b\u0430\u043c\u0435\u043d\u0442\u0441\u044c\u043a\u0438\u043c \u0442\u043e\u043a\u0435\u043d\u043e\u043c. \u0417\u0432\u0456\u0442\u0443\u0454: report-oracle-forecast-*, report-oracle-alert-*.",
+  "rules": {
+    "never_delete": true,
+    "never_kill": true,
+    "never_overwrite_file": true,
+    "requires_parliament_token_for": [
+      "restart",
+      "stop",
+      "delete",
+      "kill"
+    ],
+    "token_source": "~/.pm2/ctl/parliament.token",
+    "safe_ops": [
+      "pm2 start",
+      "pm2 save",
+      "pm2 resurrect",
+      "dep_check",
+      "prewarm"
+    ],
+    "horizon_steps": 7,
+    "risk_thresholds": {
+      "low": 0.3,
+      "med": 0.6,
+      "high": 0.85
+    },
+    "protect_list": [
+      "cybra-oracle-ctrl",
+      "cybra-resurrection-ctrl",
+      "cybra-evolution-ctrl",
+      "cybra-neuro-ctrl",
+      "cybra-evo-ctrl",
+      "parliament",
+      "redis"
+    ],
+    "report_keep": 300
+  },
+  "escalation": "\u042f\u043a\u0449\u043e high-risk \u043f\u0440\u043e\u0433\u043d\u043e\u0437\u0438 > 5 \u0437\u0430 \u0442\u0456\u043a \u2014 \u043f\u0430\u0440\u043b\u0430\u043c\u0435\u043d\u0442 \u043e\u0442\u0440\u0438\u043c\u0443\u0454 report-oracle-alert-* \u0456 \u0433\u043e\u0442\u0443\u0454 \u043f\u0440\u0435\u0432\u0435\u043d\u0442\u0438\u0432\u043d\u0435 \u0437\u0430\u0432\u0434\u0430\u043d\u043d\u044f. \u042f\u043a\u0449\u043e \u0442\u043e\u043a\u0435\u043d \u0432\u0456\u0434\u0441\u0443\u0442\u043d\u0456\u0439 \u2014 Oracle \u0443 safe mode (\u0442\u0456\u043b\u044c\u043a\u0438 \u043f\u0440\u043e\u0433\u043d\u043e\u0437\u0443\u0454 \u0442\u0430 \u0437\u0432\u0456\u0442\u0443\u0454, \u043d\u0456\u0447\u043e\u0433\u043e \u043d\u0435 \u0447\u0456\u043f\u0430\u0454)."
+}

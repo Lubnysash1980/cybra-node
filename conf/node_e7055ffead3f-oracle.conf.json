@@ -1,0 +1,34 @@
+{
+  "tick_sec": 45,
+  "horizon": 7,
+  "protect": [
+    "cybra-oracle-ctrl",
+    "cybra-resurrection-ctrl",
+    "cybra-evolution-ctrl",
+    "cybra-neuro-ctrl",
+    "cybra-evo-ctrl",
+    "parliament",
+    "redis"
+  ],
+  "watch_paths": [
+    "~/CYBRA",
+    "~/.pm2/ctl",
+    "~/bin"
+  ],
+  "report_keep": 300,
+  "risk_thresholds": {
+    "low": 0.3,
+    "med": 0.6,
+    "high": 0.85
+  },
+  "prewarm_modules": [
+    "parliament",
+    "evolution",
+    "guardian",
+    "autosave",
+    "snapshot",
+    "neuro",
+    "evo",
+    "resurrection"
+  ]
+}

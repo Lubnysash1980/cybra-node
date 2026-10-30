@@ -1,0 +1,38 @@
+{
+  "tick_sec": 60,
+  "protect": [
+    "cybra-evolution-ctrl",
+    "cybra-neuro-ctrl",
+    "cybra-evo-ctrl",
+    "parliament",
+    "redis"
+  ],
+  "target_score": 100,
+  "min_score": 60,
+  "metrics": {
+    "pm2_online": {
+      "weight": 20
+    },
+    "controllers_alive": {
+      "weight": 15
+    },
+    "parliament_online": {
+      "weight": 10
+    },
+    "watchdog_cron": {
+      "weight": 10
+    },
+    "token_gate": {
+      "weight": 10
+    },
+    "dump_saved": {
+      "weight": 10
+    },
+    "modules_present": {
+      "weight": 15
+    },
+    "no_crash_storm": {
+      "weight": 10
+    }
+  }
+}

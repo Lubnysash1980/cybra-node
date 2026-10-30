@@ -1,0 +1,21 @@
+{
+  "id": "report-oracle-alert-1793309074",
+  "from": "cybra-oracle-ctrl",
+  "to": "parliament",
+  "kind": "alert",
+  "ts": "2026-10-29T21:24:34.109091+00:00",
+  "payload": {
+    "high_risk": [
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_evo_controller.py.bak.1793291817",
+        "risk": 0.85,
+        "tags": [
+          "new_controller"
+        ]
+      }
+    ]
+  },
+  "hash": "80f9e517d33d12cbaff51525a54893d9f8833723466733a58b46eda08eba4ad9"
+}

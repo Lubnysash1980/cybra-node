@@ -1,0 +1,40 @@
+{
+  "id": "report-oracle-alert-1793281173",
+  "from": "cybra-oracle-ctrl",
+  "to": "parliament",
+  "kind": "alert",
+  "ts": "2026-10-29T13:39:33.311527+00:00",
+  "payload": {
+    "high_risk": [
+      {
+        "step": 1,
+        "kind": "file_mod",
+        "path": "/data/data/com.termux/files/home/.pm2/ctl/neuro.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "file_modified",
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "ctrl_down",
+        "name": "cybra-evolution-ctrl",
+        "risk": 0.9,
+        "tags": [
+          "down"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "ctrl_down",
+        "name": "cybra-resurrection-ctrl",
+        "risk": 0.9,
+        "tags": [
+          "down"
+        ]
+      }
+    ]
+  },
+  "hash": "7e0b02d2b03d124308bc29383fc2a5a800aaba4b5b851245bd2aaf48681b6717"
+}

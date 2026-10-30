@@ -1,0 +1,172 @@
+#!/usr/bin/env python3
+"""CYBRA EVO controller.
+
+Керує PM2-процесами: піднімає впалі, поважає "навмисно зупинені".
+Керується через ~/.pm2/ctl/stopped/<name> — якщо файл є, не чіпає.
+"""
+import os, sys, json, time, signal, subprocess, logging
+from pathlib import Path
+
+HOME = Path(os.path.expanduser("~"))
+PM2_HOME = Path(os.environ.get("PM2_HOME", HOME / ".pm2"))
+CTL = PM2_HOME / "ctl"
+STOPPED = CTL / "stopped"
+CRASHES = CTL / "crashes"
+LOGDIR = PM2_HOME / "logs"
+for d in (CTL, STOPPED, CRASHES, LOGDIR):
+    d.mkdir(parents=True, exist_ok=True)
+
+LOG = LOGDIR / "evo-ctrl.log"
+logging.basicConfig(
+    level=logging.INFO,
+    format="[%(asctime)s] %(levelname)s %(message)s",
+    handlers=[logging.FileHandler(LOG), logging.StreamHandler(sys.stdout)],
+)
+log = logging.getLogger("evo")
+
+PROTECT = {"cybra-oracle-ctrl", "cybra-resurrection-ctrl", "cybra-evolution-ctrl", "cybra-neuro-ctrl", "cybra-evo-ctrl", "parliament", "redis"}
+RATE_WINDOW = 600       # 10 хв
+MAX_RESTARTS = 5        # не більше 5 рестартів на процес за вікно
+TICK = 30               # кожні 30 с
+
+def pm2_jlist():
+    try:
+        out = subprocess.check_output(
+            ["pm2", "jlist"], stderr=subprocess.DEVNULL, timeout=15
+        )
+        return json.loads(out or b"[]")
+    except Exception as e:
+        log.warning("pm2 jlist failed: %s", e)
+        return []
+
+def pm2_cmd(*args):
+    try:
+        subprocess.run(["pm2", *args], check=False,
+                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=30)
+        return True
+    except Exception as e:
+        log.warning("pm2 %s failed: %s", args, e)
+        return False
+
+def ensure_daemon():
+    jl = pm2_jlist()
+    if not jl:
+        log.info("pm2 daemon dead → resurrect")
+        pm2_cmd("resurrect")
+        time.sleep(2)
+
+def is_stopped(name):
+    return (STOPPED / name).exists()
+
+def note_crash(name):
+    f = CRASHES / name
+    now = time.time()
+    try:
+        data = json.loads(f.read_text()) if f.exists() else []
+    except Exception:
+        data = []
+    data = [t for t in data if now - t < RATE_WINDOW]
+    data.append(now)
+    f.write_text(json.dumps(data))
+    return len(data)
+
+def reset_crash(name):
+    (CRASHES / name).unlink(missing_ok=True)
+
+def heal_once():
+    ensure_daemon()
+    jl = pm2_jlist()
+    if not jl:
+        log.info("no apps in pm2 — skip")
+        return
+    for app in jl:
+        name = app.get("name", "")
+        status = app.get("pm2_env", {}).get("status", "unknown")
+        if not name:
+            continue
+        if is_stopped(name):
+            continue
+        if name in PROTECT and status != "errored":
+            continue
+        if status == "online":
+            reset_crash(name)
+            continue
+        n = note_crash(name)
+        if n > MAX_RESTARTS:
+            log.error("%s: %d crashes in %ds — backoff, skip (use `cybra reset %s`)",
+                      name, n, RATE_WINDOW, name)
+            continue
+        log.info("%s status=%s → restart (%d/%d)", name, status, n, MAX_RESTARTS)
+        pm2_cmd("restart", name)
+
+def cmd_status():
+    jl = pm2_jlist()
+    if not jl:
+        print("(pm2 пустий)")
+        return
+    print(f"{'name':30} {'status':10} {'restarts':>10}  note")
+    for a in jl:
+        name = a.get("name", "")
+        env = a.get("pm2_env", {})
+        status = env.get("status", "?")
+        r = env.get("restart_time", 0)
+        note = "STOPPED-BY-USER" if is_stopped(name) else ""
+        print(f"{name:30} {status:10} {r:>10}  {note}")
+
+def cmd_daemon():
+    log.info("EVO controller daemon start (tick=%ss)", TICK)
+    stop = {"flag": False}
+    def on_sig(sig, frm):
+        log.info("signal %s → stop", sig)
+        stop["flag"] = True
+    signal.signal(signal.SIGTERM, on_sig)
+    signal.signal(signal.SIGINT, on_sig)
+    while not stop["flag"]:
+        try:
+            heal_once()
+        except Exception as e:
+            log.exception("heal loop error: %s", e)
+        for _ in range(TICK):
+            if stop["flag"]:
+                break
+            time.sleep(1)
+    log.info("EVO controller stopped")
+
+def main():
+    cmd = sys.argv[1] if len(sys.argv) > 1 else "status"
+    if cmd == "status":
+        cmd_status()
+    elif cmd == "once":
+        heal_once()
+        cmd_status()
+    elif cmd == "daemon":
+        cmd_daemon()
+    elif cmd == "start":
+        name = sys.argv[2] if len(sys.argv) > 2 else ""
+        if not name: print("usage: cybra_evo_controller.py start <name>"); return
+        (STOPPED / name).unlink(missing_ok=True)
+        pm2_cmd("start", name); pm2_cmd("save")
+        print(f"started {name}")
+    elif cmd == "stop":
+        name = sys.argv[2] if len(sys.argv) > 2 else ""
+        if not name: print("usage: cybra_evo_controller.py stop <name>"); return
+        (STOPPED / name).touch()
+        pm2_cmd("stop", name); pm2_cmd("save")
+        print(f"stopped {name} (guard won't revive)")
+    elif cmd == "restart":
+        name = sys.argv[2] if len(sys.argv) > 2 else ""
+        if not name: print("usage: cybra_evo_controller.py restart <name>"); return
+        (STOPPED / name).unlink(missing_ok=True)
+        reset_crash(name)
+        pm2_cmd("restart", name); pm2_cmd("save")
+        print(f"restarted {name}")
+    elif cmd == "reset":
+        name = sys.argv[2] if len(sys.argv) > 2 else ""
+        if not name: print("usage: cybra_evo_controller.py reset <name>"); return
+        reset_crash(name)
+        print(f"crash counter reset for {name}")
+    else:
+        print("commands: status | once | daemon | start <n> | stop <n> | restart <n> | reset <n>")
+
+if __name__ == "__main__":
+    main()

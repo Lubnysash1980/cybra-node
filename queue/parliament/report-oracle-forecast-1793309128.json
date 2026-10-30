@@ -1,0 +1,77 @@
+{
+  "id": "report-oracle-forecast-1793309128",
+  "from": "cybra-oracle-ctrl",
+  "to": "parliament",
+  "kind": "forecast",
+  "ts": "2026-10-29T21:25:28.937817+00:00",
+  "payload": {
+    "horizon": 7,
+    "preds_total": 22,
+    "high_risk": [
+      {
+        "step": 1,
+        "kind": "ctrl_down",
+        "name": "cybra-evo-ctrl",
+        "risk": 0.9,
+        "tags": [
+          "down"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "action": "dep_ok",
+        "bin": "python3"
+      },
+      {
+        "action": "dep_ok",
+        "bin": "pm2"
+      },
+      {
+        "action": "dep_ok",
+        "bin": "jq"
+      },
+      {
+        "action": "dep_ok",
+        "bin": "curl"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "parliament"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "evolution"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "guardian"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "autosave"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "snapshot"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "neuro"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "evo"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "resurrection"
+      },
+      {
+        "action": "start_missing",
+        "name": "cybra-evo-ctrl"
+      }
+    ]
+  },
+  "hash": "50d2db2a6083e22d3d3dcedb78bc17d05a1cde0185137c72f4c637bedbd422ad"
+}

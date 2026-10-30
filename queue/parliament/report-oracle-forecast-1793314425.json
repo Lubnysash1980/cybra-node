@@ -1,0 +1,100 @@
+{
+  "id": "report-oracle-forecast-1793314425",
+  "from": "cybra-oracle-ctrl",
+  "to": "parliament",
+  "kind": "forecast",
+  "ts": "2026-10-29T22:53:45.949801+00:00",
+  "payload": {
+    "horizon": 7,
+    "preds_total": 34,
+    "high_risk": [
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/.pm2/ctl/stopped/cybra-resurrection-ctrl",
+        "risk": 0.85,
+        "tags": [
+          "new_controller"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/.pm2/ctl/stopped/cybra-evolution-ctrl",
+        "risk": 0.85,
+        "tags": [
+          "new_controller"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/.pm2/ctl/stopped/cybra-neuro-ctrl",
+        "risk": 0.85,
+        "tags": [
+          "new_controller"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/.pm2/ctl/stopped/cybra-oracle-ctrl",
+        "risk": 0.85,
+        "tags": [
+          "new_controller"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "action": "dep_ok",
+        "bin": "python3"
+      },
+      {
+        "action": "dep_ok",
+        "bin": "pm2"
+      },
+      {
+        "action": "dep_ok",
+        "bin": "jq"
+      },
+      {
+        "action": "dep_ok",
+        "bin": "curl"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "parliament"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "evolution"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "guardian"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "autosave"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "snapshot"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "neuro"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "evo"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "resurrection"
+      }
+    ]
+  },
+  "hash": "49359adf2bd62654929ee7403065f2b58d5764cea44b77b9f51150ce65a84e39"
+}

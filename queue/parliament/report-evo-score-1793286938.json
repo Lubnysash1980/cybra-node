@@ -1,0 +1,56 @@
+{
+  "id": "report-evo-score-1793286938",
+  "from": "cybra-evolution-ctrl",
+  "to": "parliament",
+  "kind": "score",
+  "ts": "2026-10-29T15:15:38.055376+00:00",
+  "payload": {
+    "score_pct": 95.0,
+    "metrics": {
+      "pm2_online": {
+        "pct": 100.0,
+        "weight": 20,
+        "note": "3/3 online (core+active)"
+      },
+      "controllers_alive": {
+        "pct": 66.7,
+        "weight": 15,
+        "note": "2/3 controllers"
+      },
+      "parliament_online": {
+        "pct": 100,
+        "weight": 10,
+        "note": "online"
+      },
+      "watchdog_cron": {
+        "pct": 100,
+        "weight": 10,
+        "note": "cron ok"
+      },
+      "token_gate": {
+        "pct": 100,
+        "weight": 10,
+        "note": "blocks"
+      },
+      "dump_saved": {
+        "pct": 100,
+        "weight": 10,
+        "note": "dump ok"
+      },
+      "modules_present": {
+        "pct": 100.0,
+        "weight": 15,
+        "note": "7/7 modules"
+      },
+      "no_crash_storm": {
+        "pct": 100,
+        "weight": 10,
+        "note": "no crash storm"
+      }
+    },
+    "healing": [
+      "controllers_alive"
+    ]
+  },
+  "hash": "47dac201b99b4262e867bd22181577de0b4dc8e8cc57679eff36a480b6361fb6"
+}

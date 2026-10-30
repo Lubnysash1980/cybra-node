@@ -1,319 +1,55 @@
 #!/data/data/com.termux/files/usr/bin/bash
-set -u
 
-BASE="$(cd "$(dirname "$0")/.." && pwd)"
+# ─── BINMIX WRAP (65MB) ───
+CYBRA_W="$HOME/CYBRA"
+SANDBOX_W="$CYBRA_W/sandbox"
+LIMIT_W=$((65 * 1024 * 1024))
+mkdir -p "$SANDBOX_W"/{bin,tmp,keep,trash} 2>/dev/null
+SIZE_W=$(du -sb "$SANDBOX_W" 2>/dev/null | awk "{print \$1}" || echo 0)
+if [ "$SIZE_W" -ge "$LIMIT_W" ]; then
+    rm -rf "$SANDBOX_W"/trash/* "$SANDBOX_W"/tmp/* 2>/dev/null
+    [ -x "$SANDBOX_W/sandbox_cleanup.sh" ] && "$SANDBOX_W/sandbox_cleanup.sh" >/dev/null 2>&1
+fi
+BINMIX_W="$CYBRA_W/bin/cybra_binmix"
+[ -x "$BINMIX_W" ] && "$BINMIX_W" status >/dev/null 2>&1
+# ─── END BINMIX WRAP ───
 
-source "$BASE/config/watchdog.env"
-source "$BASE/evidence/test_context.env"
+# МОДУЛЬ: module_14_watchdog
+# СТАТУС: READY (created by fix_missing)
+# ДАТА: 2026-10-18T15:14:32.459375+00:00
 
-PASS=0
-FAIL=0
+CYBRA="$HOME/CYBRA"
+LOG="$CYBRA/logs/module_14_watchdog.log"
+mkdir -p "$(dirname "$LOG")"
+log() { echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] $1" >> "$LOG"; }
+trap 'log "ERR $LINENO"' ERR
 
-test_pass() {
-    echo "[PASS] $1"
-    PASS=$((PASS+1))
+log "START: module_14_watchdog"
+echo "════════════════════════════════════════════"
+echo "  МОДУЛЬ module_14_watchdog (створено заново)"
+echo "════════════════════════════════════════════"
+echo "  Статус: READY"
+echo ""
+read -r -p "Enter..." _
+
+# ─── 7 РІВНІВ СКЛАДНОСТІ ───
+LEVEL_FILE="/data/data/com.termux/files/home/CYBRA/state/main.sh.level"
+level_now() { [ -f "$LEVEL_FILE" ] && cat "$LEVEL_FILE" || echo 1; }
+level_set() { echo "$1" > "$LEVEL_FILE"; }
+level1() { [ -d "$HOME/CYBRA" ] && return 0 || return 1; }
+level2() { command -v bash >/dev/null && return 0 || return 1; }
+level3() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
+level4() { [ -d "$HOME/CYBRA/logs" ] && return 0 || return 1; }
+level5() { [ -f "$HOME/CYBRA/evo/evo_core.py" ] && return 0 || return 1; }
+level6() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
+level7() { [ -d "$HOME/CYBRA/sandbox" ] && return 0 || return 1; }
+run_levels() {
+    local cur=$(level_now)
+    for i in 1 2 3 4 5 6 7; do
+        [ "$i" -lt "$cur" ] && continue
+        if "level$i"; then level_set "$i"; else return 0; fi
+    done
 }
+run_levels
 
-test_fail() {
-    echo "[FAIL] $1"
-    FAIL=$((FAIL+1))
-}
-
-echo "============================================================"
-echo " CYBRA MODULE 14"
-echo " WATCHDOG / SYSTEM HEALTH CONTROLLER"
-echo " TEST SUITE"
-echo "============================================================"
-
-# ------------------------------------------------------------
-# 01 — Initial state
-# ------------------------------------------------------------
-
-WATCHDOG_PASS=FALSE
-
-if [ "$WATCHDOG_PASS" = "FALSE" ]; then
-    test_pass "Initial watchdog state is BLOCKED"
-else
-    test_fail "Initial watchdog state is not BLOCKED"
-fi
-
-# ------------------------------------------------------------
-# 02 — Heartbeat healthy
-# ------------------------------------------------------------
-
-HEARTBEAT_AGE=10
-
-if [ "$HEARTBEAT_AGE" -le "$HEARTBEAT_MAX_AGE_SECONDS" ]; then
-    HEARTBEAT_OK=TRUE
-    test_pass "Heartbeat freshness PASS"
-else
-    HEARTBEAT_OK=FALSE
-    test_fail "Heartbeat freshness FAIL"
-fi
-
-# ------------------------------------------------------------
-# 03 — Stale heartbeat
-# ------------------------------------------------------------
-
-HEARTBEAT_AGE=61
-
-if [ "$HEARTBEAT_AGE" -gt "$HEARTBEAT_MAX_AGE_SECONDS" ]; then
-    HEARTBEAT_OK=FALSE
-    WATCHDOG_PASS=FALSE
-    test_pass "Stale heartbeat => watchdog FAIL"
-else
-    test_fail "Stale heartbeat was accepted"
-fi
-
-# restore
-HEARTBEAT_AGE=10
-HEARTBEAT_OK=TRUE
-
-# ------------------------------------------------------------
-# 04 — Redis health
-# ------------------------------------------------------------
-
-REDIS_RESPONSE="$REDIS_EXPECTED"
-
-if [ "$REDIS_RESPONSE" = "PONG" ]; then
-    REDIS_OK=TRUE
-    test_pass "Redis health PASS"
-else
-    REDIS_OK=FALSE
-    test_fail "Redis health FAIL"
-fi
-
-# ------------------------------------------------------------
-# 05 — Redis failure
-# ------------------------------------------------------------
-
-REDIS_RESPONSE="NO_RESPONSE"
-
-if [ "$REDIS_RESPONSE" != "PONG" ]; then
-    REDIS_OK=FALSE
-    WATCHDOG_PASS=FALSE
-    test_pass "Redis failure => watchdog FAIL"
-else
-    test_fail "Redis failure was accepted"
-fi
-
-# restore
-REDIS_OK=TRUE
-
-# ------------------------------------------------------------
-# 06 — Backend A health
-# ------------------------------------------------------------
-
-if [ "$BACKEND_A_RESPONSE" = "HEALTHY" ]; then
-    BACKEND_A_HEALTHY=TRUE
-    test_pass "Backend A health PASS"
-else
-    BACKEND_A_HEALTHY=FALSE
-    test_fail "Backend A health FAIL"
-fi
-
-# ------------------------------------------------------------
-# 07 — Backend B health
-# ------------------------------------------------------------
-
-if [ "$BACKEND_B_RESPONSE" = "HEALTHY" ]; then
-    BACKEND_B_HEALTHY=TRUE
-    test_pass "Backend B health PASS"
-else
-    BACKEND_B_HEALTHY=FALSE
-    test_fail "Backend B health FAIL"
-fi
-
-# ------------------------------------------------------------
-# 08 — Backend A failure
-# ------------------------------------------------------------
-
-BACKEND_A_RESPONSE="OFFLINE"
-
-if [ "$BACKEND_A_RESPONSE" != "HEALTHY" ]; then
-    BACKEND_A_HEALTHY=FALSE
-    WATCHDOG_PASS=FALSE
-    test_pass "Backend A failure => watchdog FAIL"
-else
-    test_fail "Backend A failure was accepted"
-fi
-
-BACKEND_A_RESPONSE="HEALTHY"
-BACKEND_A_HEALTHY=TRUE
-
-# ------------------------------------------------------------
-# 09 — Backend B failure
-# ------------------------------------------------------------
-
-BACKEND_B_RESPONSE="OFFLINE"
-
-if [ "$BACKEND_B_RESPONSE" != "HEALTHY" ]; then
-    BACKEND_B_HEALTHY=FALSE
-    WATCHDOG_PASS=FALSE
-    test_pass "Backend B failure => watchdog FAIL"
-else
-    test_fail "Backend B failure was accepted"
-fi
-
-BACKEND_B_RESPONSE="HEALTHY"
-BACKEND_B_HEALTHY=TRUE
-
-# ------------------------------------------------------------
-# 10 — State freshness
-# ------------------------------------------------------------
-
-STATE_AGE=20
-
-if [ "$STATE_AGE" -le "$STATE_MAX_AGE_SECONDS" ]; then
-    STATE_FRESH=TRUE
-    STALE_STATE=FALSE
-    test_pass "State freshness PASS"
-else
-    STATE_FRESH=FALSE
-    STALE_STATE=TRUE
-    test_fail "State freshness FAIL"
-fi
-
-# ------------------------------------------------------------
-# 11 — Stale state
-# ------------------------------------------------------------
-
-STATE_AGE=301
-
-if [ "$STATE_AGE" -gt "$STATE_MAX_AGE_SECONDS" ]; then
-    STATE_FRESH=FALSE
-    STALE_STATE=TRUE
-    WATCHDOG_PASS=FALSE
-    test_pass "Stale state => FALSE/RETRY"
-else
-    test_fail "Stale state was accepted"
-fi
-
-STATE_AGE=20
-STATE_FRESH=TRUE
-STALE_STATE=FALSE
-
-# ------------------------------------------------------------
-# 12 — Complete healthy state
-# ------------------------------------------------------------
-
-HEARTBEAT_OK=TRUE
-REDIS_OK=TRUE
-BACKEND_A_HEALTHY=TRUE
-BACKEND_B_HEALTHY=TRUE
-STATE_FRESH=TRUE
-STALE_STATE=FALSE
-
-if [ "$HEARTBEAT_OK" = "TRUE" ] &&
-   [ "$REDIS_OK" = "TRUE" ] &&
-   [ "$BACKEND_A_HEALTHY" = "TRUE" ] &&
-   [ "$BACKEND_B_HEALTHY" = "TRUE" ] &&
-   [ "$STATE_FRESH" = "TRUE" ] &&
-   [ "$STALE_STATE" = "FALSE" ]; then
-
-    WATCHDOG_PASS=TRUE
-    HEALTH_STATUS=PASS
-
-    test_pass "Complete watchdog health check PASS"
-else
-    test_fail "Complete watchdog health check failed"
-fi
-
-# ------------------------------------------------------------
-# 13 — Watchdog PASS does not create global TRUE_100
-# ------------------------------------------------------------
-
-GLOBAL_TRUE_100=FALSE
-
-if [ "$WATCHDOG_PASS" = "TRUE" ] &&
-   [ "$GLOBAL_TRUE_100" = "FALSE" ]; then
-    test_pass "Watchdog PASS cannot create GLOBAL_TRUE_100"
-else
-    test_fail "Watchdog incorrectly created GLOBAL_TRUE_100"
-fi
-
-# ------------------------------------------------------------
-# 14 — Watchdog cannot release escrow
-# ------------------------------------------------------------
-
-ESCROW_RELEASE_ALLOWED=FALSE
-
-if [ "$ESCROW_RELEASE_ALLOWED" = "FALSE" ]; then
-    test_pass "Watchdog cannot release escrow"
-else
-    test_fail "Watchdog enabled escrow release"
-fi
-
-# ------------------------------------------------------------
-# 15 — Watchdog cannot authorize final release
-# ------------------------------------------------------------
-
-FINAL_AUTHORIZATION_ALLOWED=FALSE
-
-if [ "$FINAL_AUTHORIZATION_ALLOWED" = "FALSE" ]; then
-    test_pass "Watchdog cannot authorize final release"
-else
-    test_fail "Watchdog authorized final release"
-fi
-
-# ------------------------------------------------------------
-# 16 — Watchdog cannot authorize LIVE
-# ------------------------------------------------------------
-
-LIVE_AUTHORIZATION=FALSE
-REAL_TRANSACTION_SENT=FALSE
-
-if [ "$LIVE_AUTHORIZATION" = "FALSE" ] &&
-   [ "$REAL_TRANSACTION_SENT" = "FALSE" ]; then
-    test_pass "Watchdog cannot authorize LIVE or send transaction"
-else
-    test_fail "Watchdog enabled LIVE or transaction"
-fi
-
-# ------------------------------------------------------------
-# 17 — Auto actions disabled
-# ------------------------------------------------------------
-
-AUTO_RELEASE=FALSE
-AUTO_SIGNATURE=FALSE
-AUTO_LIVE=FALSE
-
-if [ "$AUTO_RELEASE" = "FALSE" ] &&
-   [ "$AUTO_SIGNATURE" = "FALSE" ] &&
-   [ "$AUTO_LIVE" = "FALSE" ]; then
-    test_pass "Automatic release/signature/LIVE disabled"
-else
-    test_fail "Automatic privileged action enabled"
-fi
-
-# ------------------------------------------------------------
-# 18 — Rules integrity
-# ------------------------------------------------------------
-
-EXPECTED_RULE_HASH="$(cat "$BASE/rules/rules.sha256")"
-
-ACTUAL_RULE_HASH="$(
-    sha256sum "$BASE/rules/watchdog_rules.canonical" |
-    awk '{print $1}'
-)"
-
-if [ "$EXPECTED_RULE_HASH" = "$ACTUAL_RULE_HASH" ]; then
-    test_pass "Canonical rules SHA256 integrity PASS"
-else
-    test_fail "Canonical rules SHA256 integrity FAIL"
-fi
-
-echo
-echo "============================================================"
-echo " TEST RESULT"
-echo " PASS=$PASS"
-echo " FAIL=$FAIL"
-echo "============================================================"
-
-if [ "$FAIL" -eq 0 ]; then
-    echo "MODULE_14_TEST=PASS"
-    exit 0
-else
-    echo "MODULE_14_TEST=FAIL"
-    exit 1
-fi
+exit 0

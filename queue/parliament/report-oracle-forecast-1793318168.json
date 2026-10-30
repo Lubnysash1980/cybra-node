@@ -1,0 +1,115 @@
+{
+  "id": "report-oracle-forecast-1793318168",
+  "from": "cybra-oracle-ctrl",
+  "to": "parliament",
+  "kind": "forecast",
+  "ts": "2026-10-29T23:56:08.362950+00:00",
+  "payload": {
+    "horizon": 7,
+    "preds_total": 41,
+    "high_risk": [
+      {
+        "step": 1,
+        "kind": "ctrl_down",
+        "name": "cybra-evolution-ctrl",
+        "risk": 0.9,
+        "tags": [
+          "down"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "ctrl_down",
+        "name": "cybra-resurrection-ctrl",
+        "risk": 0.9,
+        "tags": [
+          "down"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "ctrl_down",
+        "name": "parliament",
+        "risk": 0.9,
+        "tags": [
+          "down"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "action": "dep_ok",
+        "bin": "python3"
+      },
+      {
+        "action": "dep_ok",
+        "bin": "pm2"
+      },
+      {
+        "action": "dep_ok",
+        "bin": "jq"
+      },
+      {
+        "action": "dep_ok",
+        "bin": "curl"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "parliament"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "evolution"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "guardian"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "autosave"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "snapshot"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "neuro"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "evo"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "resurrection"
+      },
+      {
+        "action": "start_missing",
+        "name": "cybra-evolution-ctrl"
+      },
+      {
+        "action": "guard_restart",
+        "name": "cybra-evolution-ctrl"
+      },
+      {
+        "action": "start_missing",
+        "name": "cybra-resurrection-ctrl"
+      },
+      {
+        "action": "guard_restart",
+        "name": "cybra-resurrection-ctrl"
+      },
+      {
+        "action": "start_missing",
+        "name": "parliament"
+      },
+      {
+        "action": "guard_restart",
+        "name": "parliament"
+      }
+    ]
+  },
+  "hash": "8e8b05299cb26215c1f5ec0b64c427cc1da0c0fe6113973ec373e9baf75d83bc"
+}

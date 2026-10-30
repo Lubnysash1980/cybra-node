@@ -1,0 +1,56 @@
+{
+  "id": "report-evo-score-1793278206",
+  "from": "cybra-evolution-ctrl",
+  "to": "parliament",
+  "kind": "score",
+  "ts": "2026-10-29T12:50:06.076621+00:00",
+  "payload": {
+    "score_pct": 70.7,
+    "metrics": {
+      "pm2_online": {
+        "pct": 75.0,
+        "weight": 20,
+        "note": "18/24 online (core+active)"
+      },
+      "controllers_alive": {
+        "pct": 100.0,
+        "weight": 15,
+        "note": "3/3 controllers"
+      },
+      "parliament_online": {
+        "pct": 100,
+        "weight": 10,
+        "note": "online"
+      },
+      "watchdog_cron": {
+        "pct": 100,
+        "weight": 10,
+        "note": "cron ok"
+      },
+      "token_gate": {
+        "pct": 0,
+        "weight": 10,
+        "note": "gate error: Command '['/data/data/com.termux/files/home/bin/cybra-guard', 'stop', '__evolution_probe__']' returned non-zero exit status 1."
+      },
+      "dump_saved": {
+        "pct": 100,
+        "weight": 10,
+        "note": "dump ok"
+      },
+      "modules_present": {
+        "pct": 71.4,
+        "weight": 15,
+        "note": "5/7 modules"
+      },
+      "no_crash_storm": {
+        "pct": 0,
+        "weight": 10,
+        "note": "crash storm: ['cybra-ai-a']"
+      }
+    },
+    "healing": [
+      "pm2_online"
+    ]
+  },
+  "hash": "38d23b97276629c8f89e9441bc743669e08732bd6924d1a00b8a29607f876416"
+}

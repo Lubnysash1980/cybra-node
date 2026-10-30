@@ -1,0 +1,73 @@
+{
+  "id": "report-oracle-forecast-1793309074",
+  "from": "cybra-oracle-ctrl",
+  "to": "parliament",
+  "kind": "forecast",
+  "ts": "2026-10-29T21:24:34.107681+00:00",
+  "payload": {
+    "horizon": 7,
+    "preds_total": 40,
+    "high_risk": [
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/CYBRA/bin/cybra_evo_controller.py.bak.1793291817",
+        "risk": 0.85,
+        "tags": [
+          "new_controller"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "action": "dep_ok",
+        "bin": "python3"
+      },
+      {
+        "action": "dep_ok",
+        "bin": "pm2"
+      },
+      {
+        "action": "dep_ok",
+        "bin": "jq"
+      },
+      {
+        "action": "dep_ok",
+        "bin": "curl"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "parliament"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "evolution"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "guardian"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "autosave"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "snapshot"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "neuro"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "evo"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "resurrection"
+      }
+    ]
+  },
+  "hash": "e707b91538a53e98aa4fdbdbd0061413d6957ac27351200595a427c30a5ed8ae"
+}

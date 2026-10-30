@@ -1,0 +1,15 @@
+{
+  "tick_sec": 30,
+  "protect": [
+    "cybra-resurrection-ctrl",
+    "cybra-evolution-ctrl",
+    "cybra-neuro-ctrl",
+    "cybra-evo-ctrl",
+    "parliament",
+    "redis"
+  ],
+  "max_restarts_per_window": 3,
+  "window_sec": 600,
+  "target_score": 100.0,
+  "min_score_trigger": 99.9
+}

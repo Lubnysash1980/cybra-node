@@ -838,8 +838,12 @@ while true; do
         4) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_4_base/main.sh" ;;
         5) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_5_base/main.sh" ;;
         6) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_6_base/main.sh" ;;
-        7) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_7_base/main.sh" ;;
-        8) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_8_base/main.sh" ;;
+        7)
+      lic ledger dual
+      ;;
+        8)
+      lic ledger creation
+      ;;
         9) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_9_base/main.sh" ;;
         10) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_10_base/main.sh" ;;
         11) ~/CYBRA/controllers/module-controller.sh "/data/data/com.termux/files/home/CYBRA/modules/module_11_base/main.sh" ;;

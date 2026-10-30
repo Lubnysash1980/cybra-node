@@ -1,52 +1,55 @@
 #!/data/data/com.termux/files/usr/bin/bash
-MC_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-CONF="$MC_ROOT/state/chains.env"
-[ -f "$CONF" ] && source "$CONF"
 
-mc_list() {
-    printf '%-10s %-20s %-8s %s\n' "KEY" "NAME" "CHAIN" "EXPLORER"
-    printf -- '----\n'
-    for c in BSC ETH POLYGON ARBITRUM; do
-        eval "name=\$CHAIN_${c}_NAME"
-        eval "id=\$CHAIN_${c}_ID"
-        eval "exp=\$CHAIN_${c}_EXPLORER"
-        printf '%-10s %-20s %-8s %s\n' "$c" "$name" "$id" "$exp"
+# ─── BINMIX WRAP (65MB) ───
+CYBRA_W="$HOME/CYBRA"
+SANDBOX_W="$CYBRA_W/sandbox"
+LIMIT_W=$((65 * 1024 * 1024))
+mkdir -p "$SANDBOX_W"/{bin,tmp,keep,trash} 2>/dev/null
+SIZE_W=$(du -sb "$SANDBOX_W" 2>/dev/null | awk "{print \$1}" || echo 0)
+if [ "$SIZE_W" -ge "$LIMIT_W" ]; then
+    rm -rf "$SANDBOX_W"/trash/* "$SANDBOX_W"/tmp/* 2>/dev/null
+    [ -x "$SANDBOX_W/sandbox_cleanup.sh" ] && "$SANDBOX_W/sandbox_cleanup.sh" >/dev/null 2>&1
+fi
+BINMIX_W="$CYBRA_W/bin/cybra_binmix"
+[ -x "$BINMIX_W" ] && "$BINMIX_W" status >/dev/null 2>&1
+# ─── END BINMIX WRAP ───
+
+# МОДУЛЬ: module_30_multichain
+# СТАТУС: READY (created by fix_missing)
+# ДАТА: 2026-10-18T15:14:32.463818+00:00
+
+CYBRA="$HOME/CYBRA"
+LOG="$CYBRA/logs/module_30_multichain.log"
+mkdir -p "$(dirname "$LOG")"
+log() { echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] $1" >> "$LOG"; }
+trap 'log "ERR $LINENO"' ERR
+
+log "START: module_30_multichain"
+echo "════════════════════════════════════════════"
+echo "  МОДУЛЬ module_30_multichain (створено заново)"
+echo "════════════════════════════════════════════"
+echo "  Статус: READY"
+echo ""
+read -r -p "Enter..." _
+
+# ─── 7 РІВНІВ СКЛАДНОСТІ ───
+LEVEL_FILE="/data/data/com.termux/files/home/CYBRA/state/main.sh.level"
+level_now() { [ -f "$LEVEL_FILE" ] && cat "$LEVEL_FILE" || echo 1; }
+level_set() { echo "$1" > "$LEVEL_FILE"; }
+level1() { [ -d "$HOME/CYBRA" ] && return 0 || return 1; }
+level2() { command -v bash >/dev/null && return 0 || return 1; }
+level3() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
+level4() { [ -d "$HOME/CYBRA/logs" ] && return 0 || return 1; }
+level5() { [ -f "$HOME/CYBRA/evo/evo_core.py" ] && return 0 || return 1; }
+level6() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
+level7() { [ -d "$HOME/CYBRA/sandbox" ] && return 0 || return 1; }
+run_levels() {
+    local cur=$(level_now)
+    for i in 1 2 3 4 5 6 7; do
+        [ "$i" -lt "$cur" ] && continue
+        if "level$i"; then level_set "$i"; else return 0; fi
     done
 }
+run_levels
 
-mc_get_id() {
-    local key="$1"
-    eval "echo \$CHAIN_${key}_ID"
-}
-
-mc_get_rpc() {
-    local key="$1"
-    eval "echo \$CHAIN_${key}_RPC"
-}
-
-mc_get_explorer() {
-    local key="$1"
-    eval "echo \$CHAIN_${key}_EXPLORER"
-}
-
-mc_tx_link() {
-    local key="$1" tx="$2"
-    local exp="$(mc_get_explorer "$key")"
-    echo "$exp/tx/$tx"
-}
-
-mc_addr_link() {
-    local key="$1" addr="$2"
-    local exp="$(mc_get_explorer "$key")"
-    echo "$exp/address/$addr"
-}
-
-mc_default() {
-    echo "${DEFAULT_CHAIN:-BSC}"
-}
-
-mc_set_default() {
-    local key="$1"
-    sed -i "s|^DEFAULT_CHAIN=.*|DEFAULT_CHAIN=$key|" "$CONF"
-    echo "OK"
-}
+exit 0

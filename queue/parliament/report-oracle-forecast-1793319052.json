@@ -1,0 +1,176 @@
+{
+  "id": "report-oracle-forecast-1793319052",
+  "from": "cybra-oracle-ctrl",
+  "to": "parliament",
+  "kind": "forecast",
+  "ts": "2026-10-30T00:10:52.074547+00:00",
+  "payload": {
+    "horizon": 7,
+    "preds_total": 26,
+    "high_risk": [
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/CYBRA/conf/node_e7055ffead3f-neuro.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/CYBRA/conf/node_e7055ffead3f-evolution.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/CYBRA/conf/node_e7055ffead3f-oracle.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/CYBRA/conf/node_e7055ffead3f-resurrection.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/CYBRA/conf/neuro.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/CYBRA/conf/evolution.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/CYBRA/conf/oracle.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/CYBRA/conf/resurrection.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_mod",
+        "path": "/data/data/com.termux/files/home/.pm2/ctl/neuro.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "file_modified",
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_mod",
+        "path": "/data/data/com.termux/files/home/.pm2/ctl/evolution.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "file_modified",
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_mod",
+        "path": "/data/data/com.termux/files/home/.pm2/ctl/resurrection.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "file_modified",
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_mod",
+        "path": "/data/data/com.termux/files/home/.pm2/ctl/oracle.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "file_modified",
+          "config_change"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "action": "dep_ok",
+        "bin": "python3"
+      },
+      {
+        "action": "dep_ok",
+        "bin": "pm2"
+      },
+      {
+        "action": "dep_ok",
+        "bin": "jq"
+      },
+      {
+        "action": "dep_ok",
+        "bin": "curl"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "parliament"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "evolution"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "guardian"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "autosave"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "snapshot"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "neuro"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "evo"
+      },
+      {
+        "action": "prewarm_ok",
+        "module": "resurrection"
+      }
+    ]
+  },
+  "hash": "fd25aa52ee1a4184a109b32125deb01bba63a55fa6b672538b6366076a2a7182"
+}

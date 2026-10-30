@@ -1,0 +1,20 @@
+{
+  "id": "secure-processes-1793276809",
+  "created": "2026-10-29T12:26:49Z",
+  "from": "operator",
+  "to": "parliament",
+  "action": "secure_with_token",
+  "description": "Згенерувати власний токен і закрити ним керування процесами PM2. Без токена — ні зупинити, ні видалити, ні перезапустити нічого.",
+  "steps": [
+    "python3 ~/CYBRA/bin/parliament_token.py generate",
+    "записати токен у ~/.pm2/ctl/parliament.token (chmod 600)",
+    "створити alias для підлеглих команд: app/cybra проходять через ~/bin/cybra-guard",
+    "підтвердити оператору повідомленням: токен створено, збережено, гейт активний"
+  ],
+  "reveal_to_operator": "print_token_once",
+  "outputs": {
+    "token_file": "~/.pm2/ctl/parliament.token",
+    "hash_file": "~/.pm2/ctl/parliament.token.sha256",
+    "gate": "~/bin/cybra-guard"
+  }
+}

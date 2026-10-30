@@ -1,0 +1,191 @@
+[
+  {
+    "n": 1,
+    "name": "\u0421\u0442\u0432\u043e\u0440\u0438\u0442\u0438 \u043a\u043e\u043d\u0442\u0440\u0430\u043a\u0442",
+    "cat": "base",
+    "file": "modules/module_001_module_001/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 2,
+    "name": "\u0421\u043f\u0438\u0441\u043e\u043a \u043a\u043e\u043d\u0442\u0440\u0430\u043a\u0442\u0456\u0432",
+    "cat": "base",
+    "file": "modules/module_002_module_002/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 3,
+    "name": "\u0421\u0442\u0430\u0442\u0443\u0441 \u043a\u043e\u043d\u0442\u0440\u0430\u043a\u0442\u0443",
+    "cat": "base",
+    "file": "modules/module_003_module_003/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 4,
+    "name": "\u0417\u0433\u0435\u043d\u0435\u0440\u0443\u0432\u0430\u0442\u0438 \u043b\u0456\u043d\u043a\u0438",
+    "cat": "base",
+    "file": "modules/module_004_module_004/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 5,
+    "name": "\u041f\u0456\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u0438 \u043b\u0456\u043d\u043a",
+    "cat": "base",
+    "file": "modules/module_005_module_005/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 6,
+    "name": "Debug",
+    "cat": "base",
+    "file": "modules/module_006_module_006/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 7,
+    "name": "DUAL-LICENSE ledger",
+    "cat": "base",
+    "file": "modules/module_007_module_007/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 8,
+    "name": "CREATION-LICENSE ledger",
+    "cat": "base",
+    "file": "modules/module_008_module_008/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 9,
+    "name": "Hardening",
+    "cat": "base",
+    "file": "modules/module_009_module_009/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 11,
+    "name": "\u0421\u0442\u0432\u043e\u0440\u0438\u0442\u0438 INVOICE",
+    "cat": "base",
+    "file": "modules/module_111_invoice/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 12,
+    "name": "\u0414\u043e\u0434\u0430\u0442\u0438 \u043f\u043e\u0437\u0438\u0446\u0456\u044e",
+    "cat": "base",
+    "file": "modules/module_012_module_012/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 13,
+    "name": "\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u0438 INVOICE",
+    "cat": "base",
+    "file": "modules/module_111_invoice/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 14,
+    "name": "\u0424\u0456\u043d\u0430\u043b\u0456\u0437\u0443\u0432\u0430\u0442\u0438 INVOICE",
+    "cat": "base",
+    "file": "modules/module_111_invoice/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 15,
+    "name": "\u0415\u043a\u0441\u043f\u043e\u0440\u0442 PII-masked",
+    "cat": "base",
+    "file": "modules/module_015_module_015/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 16,
+    "name": "\u0415\u043a\u0441\u043f\u043e\u0440\u0442 \u0443\u0441\u0456\u0445 + git",
+    "cat": "base",
+    "file": "modules/module_016_module_016/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 17,
+    "name": "\u041f\u0435\u0440\u0435\u0432\u0456\u0440\u0438\u0442\u0438 PII \u0445\u0435\u0448",
+    "cat": "base",
+    "file": "modules/module_017_module_017/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 18,
+    "name": "\u0424\u0456\u043d\u0430\u043b\u044c\u043d\u0435 \u0440\u0456\u0448\u0435\u043d\u043d\u044f \u043f\u043e\u043a\u0443\u043f\u0446\u044f",
+    "cat": "base",
+    "file": "modules/module_018_module_018/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 19,
+    "name": "\u041f\u0435\u0440\u0435\u0432\u0456\u0440\u0438\u0442\u0438 timeout",
+    "cat": "base",
+    "file": "modules/module_019_module_019/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 20,
+    "name": "\u0421\u0442\u0430\u0442\u0443\u0441 refund",
+    "cat": "base",
+    "file": "modules/module_222_ride_refund/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 21,
+    "name": "\u0414\u043e\u0434\u0430\u0442\u0438 \u0443\u043c\u043e\u0432\u0443",
+    "cat": "base",
+    "file": "modules/module_021_module_021/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 22,
+    "name": "\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u0438 \u043a\u0443\u0440\u0441\u0438 \u0432\u0430\u043b\u044e\u0442",
+    "cat": "base",
+    "file": "modules/module_022_module_022/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 23,
+    "name": "\u041e\u043d\u043e\u0432\u0438\u0442\u0438 \u043a\u0443\u0440\u0441",
+    "cat": "base",
+    "file": "modules/module_023_module_023/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 24,
+    "name": "\u041a\u043e\u043d\u0432\u0435\u0440\u0442\u0435\u0440 \u0432\u0430\u043b\u044e\u0442",
+    "cat": "base",
+    "file": "modules/module_024_module_024/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 30,
+    "name": "Preflight (\u043f\u0435\u0440\u0435\u0432\u0456\u0440\u043a\u0430)",
+    "cat": "base",
+    "file": "modules/module_030_module_030/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 31,
+    "name": "Self-heal (\u0430\u0432\u0442\u043e\u0432\u0456\u0434\u043d\u043e\u0432\u043b\u0435\u043d\u043d\u044f)",
+    "cat": "base",
+    "file": "modules/module_031_module_031/main.sh",
+    "status": "OK"
+  },
+  {
+    "n": 32,
+    "name": "Dual-backend verify",
+    "cat": "base",
+    "file": "modules/module_13_dual_backend/bin/run_tests.sh",
+    "status": "OK"
+  },
+  {
+    "n": 33,
+    "name": "Ownership scan",
+    "cat": "base",
+    "file": "modules/module_033_module_033/main.sh",
+    "status": "OK"
+  }
+]

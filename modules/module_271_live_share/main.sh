@@ -1,40 +1,33 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# module_271: live_share (share) — ultra
+# module_271: Live Share — робочий CRUD через redis
 set -u
 CYBRA="${CYBRA:-$HOME/CYBRA}"; cd "$CYBRA" 2>/dev/null || exit 1
-ACTION="${1:-list}"; shift $(( $# > 0 ? 1 : 0 ))
-MODULE_LABEL="live_share"
-MODULE_CAT="share"
-
+LOG="$CYBRA/logs/module_271.log"; mkdir -p "$(dirname "$LOG")"
+log(){ echo "[$(date -u +%FT%TZ)] $*" >> "$LOG"; }
+ACTION="${1:-status}"; shift $(( $# > 0 ? 1 : 0 ))
+KEY="cybra:mod_271:data"
+log "START action=$ACTION"
 case "$ACTION" in
-  start)
-    RID="${1:-}"
-    [ -z "$RID" ] && exit 1
-    TOKEN=$(head -c 8 /dev/urandom | xxd -p)
-    redis-cli hset "cybra:taxi:share:$TOKEN" "ride" "$RID" >/dev/null
-    redis-cli hset "cybra:taxi:share:$TOKEN" "ts" "$(date -u +%FT%TZ)" >/dev/null
-    redis-cli set "cybra:taxi:share:ride:$RID" "$TOKEN" >/dev/null
-    echo "════ ${MODULE_LABEL} ════"
-    echo "  share_token: $TOKEN"
-    echo "  url:  https://cybra.app/t/$TOKEN"
-    echo "  ride: $RID"
-    ;;
-  status)
-    TOKEN="${1:-}"
-    [ -z "$TOKEN" ] && exit 1
-    echo "════ share $TOKEN ════"
-    redis-cli hgetall "cybra:taxi:share:$TOKEN" 2>/dev/null | paste - -
-    ;;
-  stop)
-    RID="${1:-}"
-    [ -z "$RID" ] && exit 1
-    TOKEN=$(redis-cli get "cybra:taxi:share:ride:$RID" 2>/dev/null)
-    [ -n "$TOKEN" ] && redis-cli del "cybra:taxi:share:$TOKEN" >/dev/null
-    redis-cli del "cybra:taxi:share:ride:$RID" >/dev/null
-    echo "⏹ share stopped: $RID"
-    ;;
+  add|create)
+    [ $# -lt 1 ] && { echo "usage: $0 add <label> [value]"; exit 1; }
+    VAL="${2:-$(date +%s)}"
+    redis-cli hset "$KEY" "$1" "$VAL" >/dev/null || { echo "FAIL"; exit 1; }
+    echo "OK $1 = $VAL";;
+  list|status)
+    N=$(redis-cli hlen "$KEY" 2>/dev/null || echo 0)
+    echo "module_271 (Live Share)"
+    echo "  items: $N"
+    if [ "$N" -gt 0 ]; then redis-cli hgetall "$KEY" 2>/dev/null | paste - - | head -30 | sed "s/^/  /"; fi;;
+  delete|remove|rm)
+    [ $# -lt 1 ] && { echo "usage: $0 delete <label>"; exit 1; }
+    redis-cli hdel "$KEY" "$1" >/dev/null && echo "deleted: $1";;
+  get)
+    [ $# -lt 1 ] && { echo "usage: $0 get <label>"; exit 1; }
+    V=$(redis-cli hget "$KEY" "$1" 2>/dev/null)
+    [ -z "$V" ] && { echo "not found"; exit 1; }
+    echo "$1 = $V";;
+  clear)
+    redis-cli del "$KEY" >/dev/null && echo "cleared";;
   *)
-    echo "════ ${MODULE_LABEL} ════"
-    echo "  hint: $0 start <ride> | status <token> | stop <ride>"
-    ;;
+    echo "usage: $0 add|list|status|delete|get|clear"; exit 1;;
 esac

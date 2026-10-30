@@ -1,0 +1,27 @@
+{
+  "id": "node-network-1793278476",
+  "created": "2026-10-29T12:54:36Z",
+  "from": "operator",
+  "to": "parliament",
+  "action": "protect_controller",
+  "controller": "cybra-oracle-ctrl",
+  "description": "Node Network Layer. \u041f\u0430\u0440\u043b\u0430\u043c\u0435\u043d\u0442 \u2014 \u0454\u0434\u0438\u043d\u0438\u0439 \u0432\u043b\u0430\u0441\u043d\u0438\u043a \u0442\u043e\u043a\u0435\u043d\u0430, \u0449\u043e \u0434\u043e\u0437\u0432\u043e\u043b\u044f\u0454 enrollment \u043d\u043e\u0432\u0438\u0445 \u0432\u0443\u0437\u043b\u0456\u0432 (node-enroll). \u0411\u0456\u043e\u043c\u0435\u0442\u0440\u0456\u044f (Termux:API fingerprint) \u2014 \u043e\u0431\u043e\u0432'\u044f\u0437\u043a\u043e\u0432\u0438\u0439 \u0448\u0430\u0440 \u043f\u0435\u0440\u0435\u0434 enrollment. \u041c\u0456\u0436 \u0432\u0443\u0437\u043b\u0430\u043c\u0438 \u2014 git-repo cybra-node: dump.pm2 + \u043a\u043e\u043d\u0444\u0456\u0433\u0438 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u0435\u0440\u0456\u0432 \u0441\u0438\u043d\u0445\u0440\u043e\u043d\u0456\u0437\u0443\u044e\u0442\u044c\u0441\u044f (node-sync), \u0442\u043e\u043a\u0435\u043d \u0456 \u0441\u0435\u0441\u0456\u044f \u2014 \u041d\u0406\u041a\u041e\u041b\u0418 \u043d\u0435 \u043a\u043e\u043c\u0456\u0442\u044f\u0442\u044c\u0441\u044f.",
+  "rules": {
+    "token_owner": "parliament only",
+    "enrollment_requires": [
+      "valid parliament token",
+      "fresh bio session (5 min)"
+    ],
+    "sync_repo": "~/cybra-node (git)",
+    "never_commit": [
+      "parliament.token",
+      "parliament.token.sha256",
+      "bio-session"
+    ],
+    "biometric_backend": "termux-fingerprint (Termux:API)",
+    "forbidden": [
+      "DNA verification (not possible in bash)",
+      "legal inheritance (notarization required)"
+    ]
+  }
+}

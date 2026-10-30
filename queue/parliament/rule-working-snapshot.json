@@ -1,0 +1,28 @@
+{
+  "id": "rule-working-snapshot",
+  "type": "parliament_rule",
+  "created": "2026-10-29T16:40:55Z",
+  "from": "operator",
+  "to": "parliament",
+  "title": "WORKING-SNAPSHOT",
+  "description": "Парламент зобов'язаний робити working snapshot одразу після кожного seal на 100%. Снепшот містить: pm2 dump, hash-chain tip, score, controllers, конфіги, cron, bashrc, node-id, token.sha256 (не токен). Маніфест підписано sha256. Restore дозволено лише після verify.",
+  "triggers": {
+    "on_score_100": true,
+    "on_hash_seal": true,
+    "on_demand": true,
+    "min_interval_sec": 300
+  },
+  "guarantees": {
+    "verify_before_restore": true,
+    "never_include": ["parliament.token", "bio-session"],
+    "include_token_hash_only": true,
+    "keep_last_n": 30
+  },
+  "actions": {
+    "create": "snap create",
+    "verify": "snap verify",
+    "list":   "snap list",
+    "restore": "snap restore <id>"
+  },
+  "escalation": "Якщо verify останнього снепшоту падає — парламент пише report-snap-broken-*.json і забороняє auto-restore до ручного підтвердження."
+}

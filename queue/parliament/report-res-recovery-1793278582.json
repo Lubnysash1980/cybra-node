@@ -1,0 +1,17 @@
+{
+  "id": "report-res-recovery-1793278582",
+  "from": "cybra-resurrection-ctrl",
+  "to": "parliament",
+  "kind": "recovery",
+  "ts": "2026-10-29T12:56:22.490945+00:00",
+  "payload": {
+    "acted": [
+      "cybra-git-sync",
+      "cybra-sync-a",
+      "cybra-sync-b",
+      "cybra-token-guard",
+      "cybra-complexity"
+    ]
+  },
+  "hash": "4b02abaa14130e6f86b6209646850cfc7b95c7f01ef3317c67ccdf4af2a3b5f3"
+}

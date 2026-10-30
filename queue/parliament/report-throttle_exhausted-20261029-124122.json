@@ -1,0 +1,13 @@
+{
+  "id": "report-throttle_exhausted-20261029-124122",
+  "from": "cybra-neuro-ctrl",
+  "to": "parliament",
+  "kind": "throttle_exhausted",
+  "ts": "2026-10-29T12:41:22.484614+00:00",
+  "payload": {
+    "used_mb": 2859.9,
+    "total_mb": 3601.6,
+    "stopped": []
+  },
+  "hash": "9e60c3a8c9f0d6734a9c9026147b79aa31f7975f4544b53cfa3405acdc78b191"
+}

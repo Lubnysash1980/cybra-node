@@ -1,0 +1,15 @@
+{
+  "id": "hash-seal-1793281060",
+  "created": "2026-10-29T13:37:40Z",
+  "from": "operator",
+  "to": "parliament",
+  "action": "hash_seal",
+  "description": "Hash Ecosystem: \u043b\u0430\u043d\u0446\u044e\u0433 100% \u0441\u0442\u0430\u043d\u0456\u0432. evolution auto-seal'\u0438\u0442\u044c \u0431\u043b\u043e\u043a \u043d\u0430 score=100%. \u041f\u0430\u0440\u043b\u0430\u043c\u0435\u043d\u0442 \u0442\u0440\u0438\u043c\u0430\u0454 genesis + \u0432\u0430\u043b\u0456\u0434\u0430\u0446\u0456\u044e.",
+  "rules": {
+    "chain_dir": "~/.pm2/hash-ecosystem/blocks/",
+    "genesis": "0000000000000000000000000000000000000000000000000000000000000000",
+    "signature": "hmac-sha256(parliament.token, prev|payload_hash)",
+    "auto_seal_on": "score_pct == 100.0",
+    "never_overwrite": true
+  }
+}

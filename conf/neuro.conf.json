@@ -1,0 +1,43 @@
+{
+  "ram_threshold_mb": 3300,
+  "ram_resume_mb": 2800,
+  "tick_sec": 15,
+  "protect": [
+    "cybra-neuro-ctrl",
+    "cybra-evo-ctrl",
+    "parliament",
+    "redis",
+    "cybra-evolution-ctrl",
+    "cybra-resurrection-ctrl",
+    "cybra-oracle-ctrl"
+  ],
+  "priority": {
+    "cybra-neuro-ctrl": 3,
+    "cybra-evo-ctrl": 3,
+    "parliament": 3,
+    "redis": 3,
+    "cybra-api": 2,
+    "cybra-token-guard": 2,
+    "cybra-git-sync": 2,
+    "cybra-sync-a": 1,
+    "cybra-sync-b": 1,
+    "cybra-sync-c": 1,
+    "hidl-worker": 2,
+    "hidl-notifier": 1,
+    "menu-worker": 1,
+    "menu-autorobot": 1,
+    "taxi-events": 1,
+    "cybra-ai-a": 1,
+    "cybra-ai-b": 1,
+    "cybra-ai-100pct": 1,
+    "cybra-autopatch": 1,
+    "cybra-autopilot": 1,
+    "cybra-binmix-mixin": 1,
+    "cybra-complexity": 0
+  },
+  "throttle_order": [
+    0,
+    1,
+    2
+  ]
+}

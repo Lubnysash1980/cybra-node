@@ -1,0 +1,124 @@
+{
+  "id": "report-oracle-alert-1793319052",
+  "from": "cybra-oracle-ctrl",
+  "to": "parliament",
+  "kind": "alert",
+  "ts": "2026-10-30T00:10:52.076093+00:00",
+  "payload": {
+    "high_risk": [
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/CYBRA/conf/node_e7055ffead3f-neuro.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/CYBRA/conf/node_e7055ffead3f-evolution.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/CYBRA/conf/node_e7055ffead3f-oracle.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/CYBRA/conf/node_e7055ffead3f-resurrection.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/CYBRA/conf/neuro.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/CYBRA/conf/evolution.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/CYBRA/conf/oracle.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_new",
+        "path": "/data/data/com.termux/files/home/CYBRA/conf/resurrection.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_mod",
+        "path": "/data/data/com.termux/files/home/.pm2/ctl/neuro.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "file_modified",
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_mod",
+        "path": "/data/data/com.termux/files/home/.pm2/ctl/evolution.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "file_modified",
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_mod",
+        "path": "/data/data/com.termux/files/home/.pm2/ctl/resurrection.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "file_modified",
+          "config_change"
+        ]
+      },
+      {
+        "step": 1,
+        "kind": "file_mod",
+        "path": "/data/data/com.termux/files/home/.pm2/ctl/oracle.conf.json",
+        "risk": 0.85,
+        "tags": [
+          "file_modified",
+          "config_change"
+        ]
+      }
+    ]
+  },
+  "hash": "8713f645439b2ea5f99799534f20c412bfba246d1789419ffd789f71c75e0898"
+}

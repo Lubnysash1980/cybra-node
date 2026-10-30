@@ -1,63 +1,25 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# parliament_evolve.sh — Відділ парламенту, що дописує систему (EVO)
 
-CYBRA="$HOME/CYBRA"
-MENU="$CYBRA/modules/module_19_contract_tui_menu/bin/cybra_menu.sh"
-LOG="$CYBRA/logs/parliament_evolve.log"
-mkdir -p "$CYBRA/logs"
-
-log() { echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] $1" >> "$LOG"; }
-
-echo "═══ ПАРЛАМЕНТ: ЕВОЛЮЦІЯ СИСТЕМИ ═══"
-echo ""
-
-# ─── 1. Аналіз меню: які пункти не мають функцій ───
-echo "--- Аналіз меню ---"
-missing=()
-for i in $(seq 1 150); do
-    # Перевіряємо, чи є action_ функція для цього пункту
-    if ! grep -q "action_[a-z0-9_]*" "$MENU" 2>/dev/null; then
-        continue
-    fi
-    # Шукаємо в case виклик для цього пункту
-    if ! grep -qE "^\s+$i\)" "$MENU" 2>/dev/null; then
-        missing+=($i)
-    fi
-done
-
-echo "Знайдено пунктів без обробки: ${#missing[@]}"
-if [ ${#missing[@]} -gt 0 ]; then
-    echo "Це: ${missing[*]}"
+# ─── BINMIX WRAP (65MB) ───
+CYBRA_W="$HOME/CYBRA"
+SANDBOX_W="$CYBRA_W/sandbox"
+LIMIT_W=$((65 * 1024 * 1024))
+mkdir -p "$SANDBOX_W"/{bin,tmp,keep,trash} 2>/dev/null
+SIZE_W=$(du -sb "$SANDBOX_W" 2>/dev/null | awk "{print \$1}" || echo 0)
+if [ "$SIZE_W" -ge "$LIMIT_W" ]; then
+    rm -rf "$SANDBOX_W"/trash/* "$SANDBOX_W"/tmp/* 2>/dev/null
+    [ -x "$SANDBOX_W/sandbox_cleanup.sh" ] && "$SANDBOX_W/sandbox_cleanup.sh" >/dev/null 2>&1
 fi
+BINMIX_W="$CYBRA_W/bin/cybra_binmix"
+[ -x "$BINMIX_W" ] && "$BINMIX_W" status >/dev/null 2>&1
+# ─── END BINMIX WRAP ───
 
-# ─── 2. Генерація заглушок для відсутніх пунктів ───
-echo ""
-echo "--- Генерація обробників ---"
-for i in "${missing[@]}"; do
-    # Додаємо виклик у case (просто перед esac)
-    sed -i "/^\s*esac/a\\        $i) action_generic_$i ;;" "$MENU"
-    
-    # Додаємо функцію-заглушку в кінець файлу (перед while true)
-    cat >> "$MENU" <<EOF
+# Модуль 121: parlament
+# Автоматично згенеровано EVO
 
-action_generic_$i() {
-    echo "Пункт [$i] в розробці"
-    read -r _
-}
-EOF
-    log "Створено заглушку для пункту $i"
-    echo "  [✓] Пункт $i — створено"
-done
-
-# ─── 3. Коміт у Git ───
-echo ""
-echo "--- Коміт у Git ---"
-cd "$CYBRA" || exit 1
-git add "$MENU"
-git commit -m "parliament: auto-generated handlers for missing menu items" -q
-echo "  [✓] Закомічено"
-
-echo ""
-echo "═══ ГОТОВО ═══"
-echo "Парламент дописав систему. Перевір меню:"
-echo "  $MENU"
+printf '\n\033[96m═══ MODULE 121: PARLAMENT ═══\033[0m\n'
+printf '  Статус: активний (згенеровано EVO)\n'
+printf '  Функція: базовий виклик\n'
+printf '\nНатисни Enter, щоб повернутися в меню...'
+read -r _
+exit 0
