@@ -1,14 +1,11 @@
 {
-  "cycles": 2844,
+  "cycles": 2845,
   "last_actions": [
     {
       "type": "pm2_restart",
       "target": [
         "parliament",
-        "menu-autorobot",
-        "cybra-api",
-        "cybra-resurrection-ctrl",
-        "cybra-oracle-ctrl"
+        "menu-autorobot"
       ]
     }
   ],
