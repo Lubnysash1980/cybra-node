@@ -8,7 +8,7 @@ R=$(git remote get-url origin 2>/dev/null || echo "")
 AHEAD=$(git rev-list --count @{u}..HEAD 2>/dev/null || echo 0)
 BEHIND=$(git rev-list --count HEAD..@{u} 2>/dev/null || echo 0)
 DIRTY=$(git status --porcelain 2>/dev/null | wc -l)
-SECRETS=$(git ls-files 2>/dev/null | grep -cE '(^|/)\.env$|api_jwt_secret|\.pem$|\.key$' || echo 0)
+SECRETS=$(git ls-files 2>/dev/null | grep -E '(^|/)\.env$|api_jwt_secret|\.pem$|\.key$' | wc -l)
 LAST=$(git log --oneline -1 2>/dev/null || echo "none")
 AUTOGIT=$(pm2 jlist 2>/dev/null | jq -r '.[]|select(.name=="cybra-autogit")|.pm2_env.status' 2>/dev/null || echo "missing")
 

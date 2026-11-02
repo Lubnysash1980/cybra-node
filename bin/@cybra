@@ -1,0 +1,36 @@
+#!/data/data/com.termux/files/usr/bin/bash
+N="$HOME/CYBRA/node"; M="$HOME/CYBRA/state/manifest.json"; S="$HOME/CYBRA/state/stage.json"
+case "${1:-}" in
+  -p|--pct)     jq -r '.overall.percent' "$M" 2>/dev/null ;;
+  -c|--color)   jq -r '.overall.color' "$M" 2>/dev/null ;;
+  -j|--json)    cat "$M" 2>/dev/null ;;
+  -s|--stage)   jq -r '"stage=\(.stage) \(.name) gates=\(.gates_pass)"' "$S" 2>/dev/null ;;
+  -r|--red)     jq -r '.items|to_entries[]|select(.value.color=="red" or .value.color=="black")|"\(.value.color)\t\(.key)\t\(.value.reason)"' "$M" 2>/dev/null ;;
+  -g|--git)     "$HOME/CYBRA/modules/cybra-git/bin/status.sh" text 2>/dev/null || echo "cybra-git not installed" ;;
+  -gs|--git-short)  "$HOME/CYBRA/modules/cybra-git/bin/status.sh" short 2>/dev/null || echo "n/a" ;;
+  -gj|--git-json)   cat "$HOME/CYBRA/modules/cybra-git/state/status.json" 2>/dev/null || echo '{}' ;;
+  -a|--ai)      "$HOME/CYBRA/modules/cybra-ai100/bin/status.sh" 2>/dev/null || echo "cybra-ai100 not installed" ;;
+  -as|--ai-short)  "$HOME/CYBRA/modules/cybra-ai100/bin/status.sh" short 2>/dev/null || echo "n/a" ;;
+  -aj|--ai-json)   cat "$HOME/CYBRA/modules/cybra-ai100/state/ai100.json" 2>/dev/null || echo '{}' ;;
+  -d|--dump)    "$HOME/CYBRA/modules/stakeawtodump/bin/status.sh" 2>/dev/null || echo "stakeawtodump n/a" ;;
+  -ds|--dump-short)  "$HOME/CYBRA/modules/stakeawtodump/bin/status.sh" short 2>/dev/null || echo "n/a" ;;
+  -dj|--dump-json)   cat "$HOME/CYBRA/modules/stakeawtodump/state/status.json" 2>/dev/null || echo '{}' ;;
+  -h|--help|"")
+    echo ""
+    echo "  @cybra — стан ноди CYBRA"
+    echo ""
+    if [ -f "$M" ]; then
+      jq -r '"  overall: \(.overall.percent)%  [\(.overall.color)]\n  green:\(.colors.green)  yellow:\(.colors.yellow)  red:\(.colors.red)  black:\(.colors.black)\n  ram: \(.resources.ram_avail_pct)% free   disk: \(.resources.disk_mb)MB"' "$M" 2>/dev/null
+    else
+      echo "  (manifest not ready — run cybra_manifest.py)"
+    fi
+    AS=$("$HOME/CYBRA/modules/cybra-ai100/bin/status.sh" short 2>/dev/null)
+    [ -n "$AS" ] && echo "  cybra-ai100:  $AS"
+    GS=$("$HOME/CYBRA/modules/cybra-git/bin/status.sh" short 2>/dev/null)
+    [ -n "$GS" ] && echo "  cybra-git:    $GS"
+    DS=$("$HOME/CYBRA/modules/stakeawtodump/bin/status.sh" short 2>/dev/null)
+    [ -n "$DS" ] && echo "  stakeawtodump:$DS"
+    echo ""
+    ;;
+  *) echo "usage: @cybra [-p|-c|-j|-s|-r|-d|-ds|-dj|-g|-gs|-gj|-a|-as|-aj|-h]" ;;
+esac

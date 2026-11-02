@@ -1,0 +1,45 @@
+{
+  "core": [
+    "cybra-core",
+    "cybra-manifest",
+    "cybra-reaper",
+    "cybra-stage"
+  ],
+  "api": [
+    "cybra-api"
+  ],
+  "evo": [
+    "cybra-evo-ctrl",
+    "cybra-evolution-ctrl",
+    "cybra-neuro-ctrl",
+    "cybra-oracle-ctrl",
+    "cybra-resurrection-ctrl",
+    "cybra-complexity"
+  ],
+  "parliament": [
+    "parliament",
+    "menu-worker",
+    "menu-autorobot"
+  ],
+  "taxi": [
+    "taxi-events"
+  ],
+  "hidl": [
+    "hidl-worker",
+    "hidl-notifier"
+  ],
+  "infra": [
+    "redis",
+    "cybra-git-sync",
+    "cybra-hotreload",
+    "cybra-token-guard"
+  ],
+  "dump": [
+    "cybra-dump",
+    "cybra-autorestore",
+    "cybra-autogit"
+  ],
+  "ai100": [
+    "cybra-ai100"
+  ]
+}
