@@ -109,3 +109,17 @@ venv/
 *.key
 *.keystore
 id_rsa*
+
+# === secrets (untracked 2026-11) ===
+*.env
+!*.env.example
+ai/config.env
+ai/evolution/last_scan.env
+audit/*.env
+
+# === runtime (untracked 2026-11) ===
+queue/
+parliament_core/
+*.lock
+.done-*
+EOF

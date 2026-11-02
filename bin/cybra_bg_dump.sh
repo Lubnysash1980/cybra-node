@@ -17,7 +17,14 @@ if [ -f "$PIDFILE" ]; then
     exit 0
   fi
 fi
-mkdir "$LOCK" 2>/dev/null || { echo "locked, exit"; exit 0; }
+if ! mkdir "$LOCK" 2>/dev/null; then
+  if [ -d "$LOCK" ] && [ -n "$(find "$LOCK" -maxdepth 0 -mmin +2 2>/dev/null)" ]; then
+    rmdir "$LOCK" 2>/dev/null
+    mkdir "$LOCK" 2>/dev/null || { echo "locked, exit"; exit 0; }
+  else
+    echo "locked, exit"; exit 0
+  fi
+fi
 echo $$ > "$PIDFILE"
 trap 'rmdir "$LOCK" 2>/dev/null; rm -f "$PIDFILE"' EXIT
 

@@ -26,8 +26,14 @@ ensure_ignore() {
 do_once() {
   # запобігти паралельним запускам
   if ! mkdir "$LOCK" 2>/dev/null; then
-    log "skip (locked)"
-    return 0
+    # stale lock? >5 хв → force clear
+    if [ -d "$LOCK" ] && [ -n "$(find "$LOCK" -maxdepth 0 -mmin +5 2>/dev/null)" ]; then
+      rmdir "$LOCK" 2>/dev/null
+      mkdir "$LOCK" 2>/dev/null || { log "skip (locked)"; return 0; }
+    else
+      log "skip (locked)"
+      return 0
+    fi
   fi
   trap 'rmdir "$LOCK" 2>/dev/null' EXIT
 
