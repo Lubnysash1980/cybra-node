@@ -1,6 +1,6 @@
 {
-  "ts": 1793655610.7039027,
-  "iso": "2026-11-02T21:40:10.703903+00:00",
+  "ts": 1793655924.7058077,
+  "iso": "2026-11-02T21:45:24.705808+00:00",
   "stage": 1,
   "name": "BOOT",
   "gates_pass": "7/10",
@@ -17,10 +17,10 @@
     "api": "fail",
     "queue": 0,
     "ram_total_mb": 3601,
-    "ram_used_mb": 2490,
-    "ram_free_mb": 742,
-    "ram_free_pct": 20.6,
-    "disk_mb": 65829
+    "ram_used_mb": 2562,
+    "ram_free_mb": 715,
+    "ram_free_pct": 19.9,
+    "disk_mb": 65837
   },
   "gates": {
     "god_singleton": false,

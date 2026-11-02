@@ -1,36 +1,92 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# Автокоміт CYBRA кожні 15 хв (викликається через pm2 або cron)
+# cybra_autogit.sh — авто-коміт + push з дебаунсом.
+# Usage: cybra_autogit.sh [--once|--daemon]
+set -u
+CYBRA="$HOME/CYBRA"
+cd "$CYBRA" || exit 1
+LOG="$CYBRA/logs/autogit.log"
+LOCK="$CYBRA/.cache/autogit.lock"
+mkdir -p "$(dirname "$LOG")" "$CYBRA/.cache"
 
-cd "$HOME/CYBRA" || exit 1
+log(){ echo "[$(date '+%F %T')] $*" >> "$LOG"; }
 
-if [ -z "$(git status --porcelain)" ]; then
-    exit 0
-fi
-
-TS=$(date -u +"%Y-%m-%d %H:%M UTC")
-git add -A
-git commit -m "auto: snapshot $TS" --quiet
-git push origin main --quiet 2>&1 | tee -a ~/CYBRA/logs/autogit.log
-
-
-# ─── 7 РІВНІВ СКЛАДНОСТІ ───
-LEVEL_FILE="/data/data/com.termux/files/home/CYBRA/state/cybra_autogit.sh.level"
-level_now() { [ -f "$LEVEL_FILE" ] && cat "$LEVEL_FILE" || echo 1; }
-level_set() { echo "$1" > "$LEVEL_FILE"; }
-level1() { [ -d "$HOME/CYBRA" ] && return 0 || return 1; }
-level2() { command -v bash >/dev/null && return 0 || return 1; }
-level3() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
-level4() { [ -d "$HOME/CYBRA/logs" ] && return 0 || return 1; }
-level5() { [ -f "$HOME/CYBRA/evo/evo_core.py" ] && return 0 || return 1; }
-level6() { [ -d "$HOME/CYBRA/modules" ] && return 0 || return 1; }
-level7() { [ -d "$HOME/CYBRA/sandbox" ] && return 0 || return 1; }
-run_levels() {
-    local cur=$(level_now)
-    for i in 1 2 3 4 5 6 7; do
-        [ "$i" -lt "$cur" ] && continue
-        if "level$i"; then level_set "$i"; else return 0; fi
-    done
+# ── .gitignore (ідемпотентно) ──
+ensure_ignore() {
+  touch .gitignore
+  for pat in \
+    "dumps/" "queue/" "logs/" "state/snapshots/" ".cache/" \
+    "node/latest" "node/snap_*/" "node/best_*.json" "node/stage_history.jsonl" \
+    ".pm2/" "*.log" "*.pid" "api_jwt_secret.txt" \
+    "__pycache__/" "*.pyc" ".venv/" "venv/"; do
+    grep -qxF "$pat" .gitignore || echo "$pat" >> .gitignore
+  done
 }
-run_levels
 
-echo "[$(date)] pushed at $TS" >> ~/CYBRA/logs/autogit.log
+# ── один цикл ──
+do_once() {
+  # запобігти паралельним запускам
+  if ! mkdir "$LOCK" 2>/dev/null; then
+    log "skip (locked)"
+    return 0
+  fi
+  trap 'rmdir "$LOCK" 2>/dev/null' EXIT
+
+  ensure_ignore
+
+  # нічого не змінилось?
+  if git diff --quiet && git diff --cached --quiet && [ -z "$(git ls-files --others --exclude-standard)" ]; then
+    log "clean — nothing to do"
+    return 0
+  fi
+
+  local files=$(git status --porcelain | wc -l)
+  local ts=$(date '+%Y-%m-%d %H:%M:%S')
+  local host=$(hostname 2>/dev/null || echo termux)
+
+  git add -A
+  git -c user.name="cybra-autogit" -c user.email="autogit@cybra.local" \
+      commit -m "auto: $files files @ $ts [$host]" \
+      -m "stage: $(jq -r '.stage // "?"' state/stage.json 2>/dev/null) | manifest: $(jq -r '.overall.color // "?"' state/manifest.json 2>/dev/null) $(jq -r '.overall.percent // "?"' state/manifest.json 2>/dev/null)%" \
+      >/dev/null 2>&1 || { log "commit failed"; return 1; }
+
+  # push (якщо є remote)
+  if git remote get-url origin >/dev/null 2>&1; then
+    if git push >>"$LOG" 2>&1; then
+      log "✓ pushed $files files"
+    else
+      log "✗ push failed — will retry next cycle"
+      git reset --soft HEAD~1 2>/dev/null   # відкат коміта, спробуємо наступного разу
+      return 1
+    fi
+  else
+    log "✓ committed locally (no remote)"
+  fi
+}
+
+# ── основний режим ──
+case "${1:---once}" in
+  --once)
+    do_once
+    ;;
+  --daemon)
+    INTERVAL="${2:-300}"   # 5 хв за замовч.
+    log "daemon start, interval=${INTERVAL}s"
+    while true; do
+      do_once
+      sleep "$INTERVAL"
+    done
+    ;;
+  --status)
+    echo "═══ AUTOGIT STATUS ═══"
+    echo "remote: $(git remote get-url origin 2>/dev/null || echo NONE)"
+    echo "branch: $(git branch --show-current 2>/dev/null || echo ?)"
+    echo "ahead : $(git rev-list --count @{u}..HEAD 2>/dev/null || echo ?)"
+    echo "dirty : $(git status --porcelain | wc -l) files"
+    echo "last  : $(git log --oneline -1 2>/dev/null)"
+    echo "log   : $LOG"
+    ;;
+  *)
+    echo "usage: cybra_autogit.sh [--once|--daemon N|--status]"
+    exit 1
+    ;;
+esac

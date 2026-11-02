@@ -100,3 +100,6 @@ node/stage_history.jsonl
 *.log
 *.pid
 api_jwt_secret.txt
+*.pyc
+.venv/
+venv/
