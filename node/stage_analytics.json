@@ -1,35 +1,35 @@
 {
-  "ts": 1793660032.156486,
-  "iso": "2026-11-02T22:53:52.156486+00:00",
+  "ts": 1793660165.8687024,
+  "iso": "2026-11-02T22:56:05.868702+00:00",
   "stage": 2,
   "name": "DEGRADED",
-  "gates_pass": "6/10",
+  "gates_pass": "5/10",
   "golden": false,
   "facts": {
     "procs_total": 1,
     "online": 1,
     "errored": 0,
     "stopped": 0,
-    "gods": 3,
+    "gods": 2,
     "no_65m": [
       "cybra-autogit"
     ],
     "runaway": [],
-    "redis": "PONG",
+    "redis": "DOWN",
     "api": "fail",
     "queue": 0,
     "ram_total_mb": 3601,
-    "ram_used_mb": 2621,
+    "ram_used_mb": 2534,
     "ram_free_mb": 729,
     "ram_free_pct": 20.2,
-    "disk_mb": 65809
+    "disk_mb": 65821
   },
   "gates": {
     "god_singleton": false,
     "no_errored": true,
     "min_online": false,
     "all_65M": false,
-    "redis_pong": true,
+    "redis_pong": false,
     "api_health": false,
     "queue_sane": true,
     "ram_ok": true,
@@ -45,8 +45,9 @@
     }
   },
   "recommendations": [
-    "kill -9 $(pgrep -f 'PM2.*God Daemon'); pm2 resurrect (3 gods)",
+    "kill -9 $(pgrep -f 'PM2.*God Daemon'); pm2 resurrect (2 gods)",
     "missing 65M: cybra-autogit",
+    "redis down — pm2 start $(command -v redis-server)",
     "api down — tail ~/.pm2/logs/cybra-api-error.log"
   ]
 }
