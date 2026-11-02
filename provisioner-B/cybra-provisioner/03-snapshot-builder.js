@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+'use strict';
+const fs=require('fs'),path=require('path'),crypto=require('crypto');const L=require('./lib');
+const p=L.readJSON(path.join(L.STATE,'provision.json'));if(!p)throw new Error('Run 02-node-provisioner.js first');const out=p.workdir,src=path.join(process.env.HOME,'CYBRA');
+for(const rel of ['core/autonomous-core.js','cli/cybra.js','cli/package.json','ecosystem.v3.config.js']){const from=path.join(src,rel),to=path.join(out,rel);if(fs.existsSync(from)){fs.mkdirSync(path.dirname(to),{recursive:true});fs.copyFileSync(from,to)}}
+const bootstrap=path.join(__dirname,'05-node-bootstrap.sh');fs.copyFileSync(bootstrap,path.join(out,'bootstrap','05-node-bootstrap.sh'));fs.chmodSync(path.join(out,'bootstrap','05-node-bootstrap.sh'),0o755);
+const excluded=['.env','state','backups','snapshots','incidents','node_modules','.git'];const hashes={};function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){if(excluded.includes(e.name))continue;const f=path.join(dir,e.name);if(e.isDirectory())walk(f);else{const rel=path.relative(out,f);hashes[rel]=crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex')}}}walk(out);L.atomicJSON(path.join(out,'snapshot.manifest.json'),{schema_version:1,node_id:p.node_id,created_at:new Date().toISOString(),excluded,files:hashes});L.atomicJSON(path.join(L.STATE,'snapshot.json'),{node_id:p.node_id,directory:out,files:Object.keys(hashes).length,created_at:new Date().toISOString()});console.log(JSON.stringify({directory:out,files:Object.keys(hashes).length},null,2));

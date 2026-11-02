@@ -1,0 +1,42 @@
+{
+  "ts": 1793655610.7039027,
+  "iso": "2026-11-02T21:40:10.703903+00:00",
+  "stage": 1,
+  "name": "BOOT",
+  "gates_pass": "7/10",
+  "golden": false,
+  "facts": {
+    "procs_total": 0,
+    "online": 0,
+    "errored": 0,
+    "stopped": 0,
+    "gods": 3,
+    "no_65m": [],
+    "runaway": [],
+    "redis": "PONG",
+    "api": "fail",
+    "queue": 0,
+    "ram_total_mb": 3601,
+    "ram_used_mb": 2490,
+    "ram_free_mb": 742,
+    "ram_free_pct": 20.6,
+    "disk_mb": 65829
+  },
+  "gates": {
+    "god_singleton": false,
+    "no_errored": true,
+    "min_online": false,
+    "all_65M": true,
+    "redis_pong": true,
+    "api_health": false,
+    "queue_sane": true,
+    "ram_ok": true,
+    "no_runaway": true,
+    "disk_ok": true
+  },
+  "processes": {},
+  "recommendations": [
+    "kill -9 $(pgrep -f 'PM2.*God Daemon'); pm2 resurrect (3 gods)",
+    "api down — tail ~/.pm2/logs/cybra-api-error.log"
+  ]
+}

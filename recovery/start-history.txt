@@ -1,0 +1,13 @@
+jq -r '.nodes | to_entries[] | "\(.value.script)|\(.key)|\(.value.interpreter)"' ~/CYBRA/node/latest/node_100.json 2>/dev/null | while IFS='|' read -r script name interp; do   [ -f "$script" ] || continue;   case "$interp" in     *redis*) pm2 start "$script" --name "$name" --interpreter none --max-memory-restart 65M ;;     */bash|*bash) pm2 start "$script" --name "$name" --interpreter bash --max-memory-restart 65M ;;     *) pm2 start "$script" --name "$name" --interpreter python3 --max-memory-restart 65M ;;   esac; done
+pm2 restart cybra-api
+tail -5 ~/.pm2/logs/cybra-api-error.log
+find "$HOME/CYBRA"   -type f   $$ -name '*.js' -o -name '*.sh' -o -name '*.py' $$   -print 2>/dev/null | grep -Ei 'cybra-api|complex|evo|evolution|git-sync|hotreload|neuro|oracle|resurrect|stage|token|hidl|menu|parliament|redis|taxi' | tee "$HOME/CYBRA/recovery/component-paths.txt"
+echo "=== OLD PM2 START COMMANDS ==="
+grep -RniE 'pm2[[:space:]]+start|cybra-api|cybra-evo|hidl-worker|menu-worker|parliament|taxi-events|redis-server' "$HOME/CYBRA" "$HOME/.bashrc" "$HOME/.profile" 2>/dev/null | head -400 | tee "$HOME/CYBRA/recovery/pm2-start-hints.txt"
+command -v redis-server || true
+grep -Ei 'cybra-api|evo|evolution|git-sync|hotreload|neuro|oracle|resurrect|stage|token|hidl|menu|parliament|taxi|redis' ~/CYBRA/recovery/entrypoints.txt | head -60
+echo "=== PM2 STARTS ==="
+find "$HOME/CYBRA" -type f $$ -name '*.js' -o -name '*.py' -o -name '*.sh' $$ -print 2>/dev/null | grep -Ei 'cybra-api|evo|evolution|git-sync|hotreload|neuro|oracle|resurrect|stage|token|hidl|menu|parliament|taxi|redis' | grep -v '/backups/' | grep -v '/node_modules/' | head -60
+find "$HOME/CYBRA" -type f | grep -E '\.(js|py|sh)$' | grep -Ei 'cybra-api|evo|evolution|git-sync|hotreload|neuro|oracle|resurrect|stage|token|hidl|menu|parliament|taxi|redis' | grep -v '/backups/' | grep -v '/node_modules/' | head -60
+ps -A -o PID,PPID,ARGS 2>/dev/null | grep -Ei 'CYBRA|redis-server|hidl|parliament|taxi|menu-worker|autorobot|oracle|neuro|evolution|hotreload|git-sync' | grep -vE 'grep|cybra-core' | tee ~/CYBRA/recovery/live-processes.txt
+find "$HOME" -type f   $$ -name 'nohup.out' -o -name '*nohup*.log' $$   -print 2>/dev/null

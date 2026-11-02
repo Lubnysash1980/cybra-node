@@ -85,3 +85,18 @@ parliament_core/registry.json
 
 # whole runtime state dir (autopilot/mixin writes here)
 /state/
+
+# CYBRA runtime
+dumps/
+queue/
+logs/
+state/snapshots/
+.cache/
+node/latest
+node/snap_*/
+node/best_*.json
+node/stage_history.jsonl
+.pm2/
+*.log
+*.pid
+api_jwt_secret.txt

@@ -99,7 +99,7 @@ def push_event(etype: str, data: dict, src: str = "api"):
 # ═══════════════ MODELS ═══════════════
 class RegisterIn(BaseModel):
     phone: str = Field(..., min_length=5, max_length=20)
-    role: str = Field("rider", regex="^(rider|driver|both)$")
+    role: str = Field("rider", pattern="^(rider|driver|both)$")
 
 class LoginIn(BaseModel):
     phone: str
@@ -127,8 +127,8 @@ class ZoneIn(BaseModel):
     reason: str = "residential"
 
 class WalletIn(BaseModel):
-    address: str = Field(..., regex="^0x[a-fA-F0-9]{40}$")
-    role: str = Field("rider", regex="^(rider|driver|both)$")
+    address: str = Field(..., pattern="^0x[a-fA-F0-9]{40}$")
+    role: str = Field("rider", pattern="^(rider|driver|both)$")
 
 class PriceOfferIn(BaseModel):
     ride_id: str
@@ -139,7 +139,7 @@ class PriceAcceptIn(BaseModel):
     who: str = "client"
 
 class PerKmIn(BaseModel):
-    who: str = Field("client", regex="^(client|driver)$")
+    who: str = Field("client", pattern="^(client|driver)$")
     price: float
 
 class InterestsIn(BaseModel):
@@ -170,7 +170,7 @@ class RatingIn(BaseModel):
     comment: str = ""
 
 class I18nIn(BaseModel):
-    lang: str = Field(..., regex="^(en|uk|es|de|fr|ar|zh)$")
+    lang: str = Field(..., pattern="^(en|uk|es|de|fr|ar|zh)$")
 
 class EventIn(BaseModel):
     type: str
