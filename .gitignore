@@ -103,3 +103,9 @@ api_jwt_secret.txt
 *.pyc
 .venv/
 venv/
+.env
+.env.*
+*.pem
+*.key
+*.keystore
+id_rsa*

@@ -1,32 +1,57 @@
 {
-  "ts": 1793655924.7058077,
-  "iso": "2026-11-02T21:45:24.705808+00:00",
-  "stage": 1,
-  "name": "BOOT",
+  "ts": 1793657039.6989446,
+  "iso": "2026-11-02T22:03:59.698945+00:00",
+  "stage": 2,
+  "name": "DEGRADED",
   "gates_pass": "7/10",
   "golden": false,
   "facts": {
-    "procs_total": 0,
-    "online": 0,
+    "procs_total": 24,
+    "online": 24,
     "errored": 0,
     "stopped": 0,
-    "gods": 3,
-    "no_65m": [],
+    "gods": 5,
+    "no_65m": [
+      "cybra-core",
+      "redis",
+      "parliament",
+      "menu-worker",
+      "taxi-events",
+      "cybra-api",
+      "cybra-evo-ctrl",
+      "cybra-evolution-ctrl",
+      "cybra-neuro-ctrl",
+      "cybra-complexity",
+      "hidl-worker",
+      "hidl-notifier",
+      "cybra-hotreload",
+      "cybra-git-sync",
+      "cybra-token-guard",
+      "cybra-stage",
+      "cybra-oracle-ctrl",
+      "cybra-resurrection-ctrl",
+      "menu-autorobot",
+      "cybra-manifest",
+      "cybra-reaper",
+      "cybra-autorestore",
+      "cybra-dump-components",
+      "cybra-dump"
+    ],
     "runaway": [],
     "redis": "PONG",
     "api": "fail",
     "queue": 0,
     "ram_total_mb": 3601,
-    "ram_used_mb": 2562,
-    "ram_free_mb": 715,
-    "ram_free_pct": 19.9,
-    "disk_mb": 65837
+    "ram_used_mb": 2458,
+    "ram_free_mb": 821,
+    "ram_free_pct": 22.8,
+    "disk_mb": 65788
   },
   "gates": {
     "god_singleton": false,
     "no_errored": true,
-    "min_online": false,
-    "all_65M": true,
+    "min_online": true,
+    "all_65M": false,
     "redis_pong": true,
     "api_health": false,
     "queue_sane": true,
@@ -34,9 +59,155 @@
     "no_runaway": true,
     "disk_ok": true
   },
-  "processes": {},
+  "processes": {
+    "cybra-core": {
+      "status": "online",
+      "restarts": 0,
+      "mem_limit": 68157440,
+      "script": "autonomous-core.js"
+    },
+    "redis": {
+      "status": "online",
+      "restarts": 0,
+      "mem_limit": 68157440,
+      "script": "redis-server"
+    },
+    "parliament": {
+      "status": "online",
+      "restarts": 0,
+      "mem_limit": 68157440,
+      "script": "parliament_executor_v6.py"
+    },
+    "menu-worker": {
+      "status": "online",
+      "restarts": 0,
+      "mem_limit": 68157440,
+      "script": "parliament_menu_worker.sh"
+    },
+    "taxi-events": {
+      "status": "online",
+      "restarts": 0,
+      "mem_limit": 68157440,
+      "script": "cybra_taxi_events.py"
+    },
+    "cybra-api": {
+      "status": "online",
+      "restarts": 0,
+      "mem_limit": 68157440,
+      "script": "run.sh"
+    },
+    "cybra-evo-ctrl": {
+      "status": "online",
+      "restarts": 2,
+      "mem_limit": 68157440,
+      "script": "cybra_evo_controller.py"
+    },
+    "cybra-evolution-ctrl": {
+      "status": "online",
+      "restarts": 1,
+      "mem_limit": 68157440,
+      "script": "cybra_evolution_controller.py"
+    },
+    "cybra-neuro-ctrl": {
+      "status": "online",
+      "restarts": 2,
+      "mem_limit": 68157440,
+      "script": "cybra_neuro_controller.py"
+    },
+    "cybra-complexity": {
+      "status": "online",
+      "restarts": 0,
+      "mem_limit": 68157440,
+      "script": "cybra_complexity_loop.sh"
+    },
+    "hidl-worker": {
+      "status": "online",
+      "restarts": 0,
+      "mem_limit": 68157440,
+      "script": "cybra_hidl_worker.py"
+    },
+    "hidl-notifier": {
+      "status": "online",
+      "restarts": 0,
+      "mem_limit": 68157440,
+      "script": "cybra_hidl_notifier.py"
+    },
+    "cybra-hotreload": {
+      "status": "online",
+      "restarts": 0,
+      "mem_limit": 68157440,
+      "script": "cybra_hotreload.py"
+    },
+    "cybra-git-sync": {
+      "status": "online",
+      "restarts": 0,
+      "mem_limit": 68157440,
+      "script": "autopilot-sync.sh"
+    },
+    "cybra-token-guard": {
+      "status": "online",
+      "restarts": 0,
+      "mem_limit": 68157440,
+      "script": "cybra_token_guard_loop.sh"
+    },
+    "cybra-stage": {
+      "status": "online",
+      "restarts": 0,
+      "mem_limit": 68157440,
+      "script": "run_stage_analytics.sh"
+    },
+    "cybra-oracle-ctrl": {
+      "status": "online",
+      "restarts": 0,
+      "mem_limit": 68157440,
+      "script": "run_cybra_oracle_ctrl.sh"
+    },
+    "cybra-resurrection-ctrl": {
+      "status": "online",
+      "restarts": 0,
+      "mem_limit": 68157440,
+      "script": "run_cybra_resurrection_ctrl.sh"
+    },
+    "menu-autorobot": {
+      "status": "online",
+      "restarts": 0,
+      "mem_limit": 68157440,
+      "script": "run_menu_autorobot.sh"
+    },
+    "cybra-manifest": {
+      "status": "online",
+      "restarts": 0,
+      "mem_limit": 68157440,
+      "script": "run_manifest.sh"
+    },
+    "cybra-reaper": {
+      "status": "online",
+      "restarts": 0,
+      "mem_limit": 68157440,
+      "script": "run_reaper.sh"
+    },
+    "cybra-autorestore": {
+      "status": "online",
+      "restarts": 0,
+      "mem_limit": 68157440,
+      "script": "run_autorestore.sh"
+    },
+    "cybra-dump-components": {
+      "status": "online",
+      "restarts": 0,
+      "mem_limit": 68157440,
+      "script": "run_dump_components.sh"
+    },
+    "cybra-dump": {
+      "status": "online",
+      "restarts": 0,
+      "mem_limit": 68157440,
+      "script": "run_dump.sh"
+    }
+  },
   "recommendations": [
-    "kill -9 $(pgrep -f 'PM2.*God Daemon'); pm2 resurrect (3 gods)",
+    "kill -9 $(pgrep -f 'PM2.*God Daemon'); pm2 resurrect (5 gods)",
+    "missing 65M: cybra-core,redis,parliament,menu-worker,taxi-events",
     "api down — tail ~/.pm2/logs/cybra-api-error.log"
   ]
 }
