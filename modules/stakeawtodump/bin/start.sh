@@ -20,8 +20,8 @@ fi
 sleep 2
 if pgrep -f "PM2.*God Daemon" >/dev/null && [ -x "$CYBRA/bin/wrappers/run_autogit.sh" ]; then
   pm2 describe cybra-autogit >/dev/null 2>&1 || \
-    pm2 start "$CYBRA/bin/wrappers/run_autogit.sh" --name cybra-autogit \
-      --interpreter bash --max-memory-restart 65M >/dev/null 2>&1
+    pm2 start "$CYBRA/modules/cybra-git/bin/autogit.sh" --name cybra-autogit \
+      --interpreter bash --max-memory-restart 65M -- --daemon 300 >/dev/null 2>&1
   pm2 save --force >/dev/null 2>&1
 fi
 
