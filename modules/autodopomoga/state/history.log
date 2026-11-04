@@ -1,0 +1,16 @@
+── repair bg_dump (attempt 1) — purpose: знімок компонентів кожні 60с + глобальний кожні 900с ──
+  exec: $CYBRA/bin/cybra_bg_dump_ctl.sh start
+    ✓ started pid=28730
+  done
+── repair autogit (attempt 1) — purpose: авто-коміт+пуш кожні 5 хвилин ──
+  exec: pm2 restart cybra-autogit
+    [1m[34mUse --update-env to update environment variables[39m[22m
+    [32m[PM2] [39mApplying action restartProcessId on app [cybra-autogit](ids: [ 0 ])
+    [32m[PM2] [39m[cybra-autogit](0) ✓
+    ┌────┬──────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+    │ id │ name             │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+    ├────┼──────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+    │ [1m[36m0[39m[22m  │ cybra-autogit    │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 29283    │ 0s     │ 3    │ [32m[1monline[22m[39m    │ 0%       │ 1.3mb    │ [1mu0_a424[22m  │ [90mdisabled[39m │
+    └────┴──────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+    [1m[36mhost metrics[39m[22m | [1mcpu[22m: 0% | [1mram usage[22m: [1m[33m80.1%[39m[22m | [1mdisk[22m: ⇓ 0mb/s ⇑ 0mb/s
+  done

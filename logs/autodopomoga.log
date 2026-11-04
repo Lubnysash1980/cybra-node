@@ -1,0 +1,48 @@
+[2026-11-04 23:35:29] ═══ AUTODOPOMOGA INSTALL ═══
+[2026-11-04 23:35:29]   ✅ autodopomoga.sh
+[2026-11-04 23:35:29]   ✅ ctl.sh
+[2026-11-04 23:35:29]   ✅ install.sh
+[2026-11-04 23:35:30]   ✅ repair.sh
+[2026-11-04 23:35:30]   ✅ verify.sh
+[2026-11-04 23:35:30]   ✅ contracts.json
+[2026-11-04 23:35:30]   ✅ Termux:Boot hook
+[2026-11-04 23:35:30]   ✅ crontab: @reboot + */5 min self-heal
+[2026-11-04 23:35:30] ═══ AUTODOPOMOGA START ═══ pid=27786 poll=30s threshold=3.0%
+✓ started pid=27786
+── autodopomoga ──
+RUNNING pid=27786 uptime=00:06
+
+── current deviation ──
+{
+  "ts": 1793828135,
+  "deviation": 0.0,
+  "healthy": [
+    "autogit",
+    "autowatch",
+    "bg_dump",
+    "god"
+  ],
+  "unhealthy": []
+}
+
+── attempts ──
+{}
+
+── last 8 log ──
+  ],
+  "unhealthy": []
+}
+
+── attempts ──
+{}
+
+── last 8 log ──
+[2026-11-04 23:35:35] ═══ DONE ═══
+[2026-11-04 23:36:03] ⚠ deviation=16.7% unhealthy=[bg_dump ]
+[2026-11-04 23:36:03] ── repair cycle 1/10 ──
+[2026-11-04 23:36:03]   repair bg_dump (attempt 1/2)
+[2026-11-04 23:36:16]   after repair: deviation=0.0%
+[2026-11-04 23:36:16] ✅ 0.0% < 3.0% — back to 100%
+[2026-11-04 23:36:48] ⚠ deviation=16.7% unhealthy=[autogit ]
+[2026-11-04 23:36:48] ── repair cycle 1/10 ──
+[2026-11-04 23:36:48]   repair autogit (attempt 1/2)
