@@ -42,3 +42,31 @@
 [2026-11-04 22:16:28]   ops (w=2): approve score=60 — no ops concern
 [2026-11-04 22:16:28]   weighted approve: 24.0 (threshold 50) → no
 [2026-11-04 22:16:28]   → REJECTED
+[2026-11-04 23:29:14] ═══ PARLIAMENT INSTALL v0.2.0 ═══
+[2026-11-04 23:29:14]   ✅ Termux:Boot hook
+[2026-11-04 23:29:14]   ✅ crontab @reboot
+✓ started pid=23591
+[2026-11-04 23:29:16] ═══ DONE ═══
+[2026-11-04 23:29:16] ── debate p_20261104_232916_13819966 ──
+[2026-11-04 23:29:16]   it (w=3 veto=false): reject score=10 — filesystem mutation
+[2026-11-04 23:29:17]   ops (w=2 veto=false): approve score=60 — no ops concern
+[2026-11-04 23:29:17]   safety (w=10 veto=true): reject score=0 — rm present — VETO
+[2026-11-04 23:29:17]   → VETOED by safety
+[2026-11-04 23:29:18]   → vetoed (VETO by safety)
+[2026-11-04 23:29:18] ── debate p_20261104_232918_1999719126 ──
+[2026-11-04 23:29:19]   it (w=3 veto=false): approve score=80 — pm2 restart is safe
+[2026-11-04 23:29:19]   ops (w=2 veto=false): approve score=70 — restart ok, downtime<5s
+[2026-11-04 23:29:20]   safety (w=10 veto=true): approve score=95 — safe pm2 restart cybra-*
+[2026-11-04 23:29:20]   weighted approve: 88.7 (threshold 50) → approved
+[2026-11-04 23:29:20]   → APPROVED. baseline + execute.
+[2026-11-04 23:29:21]   exec: pm2 restart cybra-autogit
+[1m[34mUse --update-env to update environment variables[39m[22m
+[32m[PM2] [39mApplying action restartProcessId on app [cybra-autogit](ids: [ 0 ])
+[32m[PM2] [39m[cybra-autogit](0) ✓
+┌────┬──────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name             │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼──────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ [1m[36m0[39m[22m  │ cybra-autogit    │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 24088    │ 0s     │ 3    │ [32m[1monline[22m[39m    │ 0%       │ 4.0mb    │ [1mu0_a424[22m  │ [90mdisabled[39m │
+└────┴──────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[1m[36mhost metrics[39m[22m | [1mcpu[22m: 0% | [1mram usage[22m: [1m[33m80.7%[39m[22m | [1mdisk[22m: ⇓ 0mb/s ⇑ 0mb/s
+[2026-11-04 23:29:22]   exec done rc=0. waiting 5s...

@@ -1,13 +1,15 @@
 {
   "id": "parliament",
   "name": "Parliament",
-  "version": "0.1.0",
-  "description": "Goal-directed decision layer: propose \u2192 debate \u2192 weighted vote \u2192 execute \u2192 measure \u2192 rollback.",
+  "version": "0.2.0",
+  "description": "Goal-directed decision layer with veto, weighted vote, sanity-check and auto-propose daemon.",
   "depends": [
     "stakeawtodump"
   ],
   "state_dir": "state",
   "entrypoints": {
+    "install": "bin/install.sh",
+    "ctl": "bin/parliament_ctl.sh",
     "propose": "bin/parliament.sh propose",
     "decide": "bin/parliament.sh decide",
     "status": "bin/parliament.sh status"
