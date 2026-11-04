@@ -1,0 +1,19 @@
+{
+  "name": "stakeawtodump",
+  "score": 100,
+  "percent": 100.0,
+  "online": 1,
+  "total": 1,
+  "errored": 0,
+  "processes": [
+    {
+      "name": "cybra-autogit",
+      "script": "/data/data/com.termux/files/home/CYBRA/bin/wrappers/run_autogit.sh",
+      "interpreter": "bash",
+      "max_mem": 68157440,
+      "status": "online",
+      "restarts": 3,
+      "mem_mb": 0
+    }
+  ]
+}
