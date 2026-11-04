@@ -53,4 +53,4 @@ automatic_external_tx: False
 manual_OWNER_approval_required: True
 
 ## Double SHA
-13c8fbed2cc6846a89f76f6f23e68cb81d01503454c0b527b88b78e727e3ab92
+567275b09b96849667630141f810468fb1331520668e6dc58d68e535975d887b
