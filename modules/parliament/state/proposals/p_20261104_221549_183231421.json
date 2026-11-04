@@ -16,6 +16,8 @@
       "reason": "restart ok, downtime<5s"
     }
   },
-  "decision": null,
+  "decision": {
+    "verdict": "ok"
+  },
   "weighted": 76.0
 }

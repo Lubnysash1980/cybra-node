@@ -1,0 +1,21 @@
+{
+  "id": "p_20261104_221617_250688968",
+  "ts": 1793823377,
+  "goal": "clear autogit memory",
+  "exec": "pm2 restart cybra-autogit",
+  "status": "approved",
+  "votes": {
+    "it": {
+      "verdict": "approve",
+      "score": 80,
+      "reason": "pm2 restart is safe"
+    },
+    "ops": {
+      "verdict": "approve",
+      "score": 70,
+      "reason": "restart ok, downtime<5s"
+    }
+  },
+  "decision": null,
+  "weighted": 76.0
+}

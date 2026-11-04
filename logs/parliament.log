@@ -14,3 +14,25 @@
 └────┴──────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
 [1m[36mhost metrics[39m[22m | [1mcpu[22m: 0% | [1mram usage[22m: [1m[33m81.5%[39m[22m | [1mdisk[22m: ⇓ 0mb/s ⇑ 0mb/s
 [2026-11-04 22:15:53]   exec done. waiting 5s...
+[2026-11-04 22:15:59]   ✅ no deviation
+[2026-11-04 22:16:00] ── debate p_20261104_221559_2192923154 ──
+[2026-11-04 22:16:00]   it (w=3): reject score=0 — destructive pattern detected
+[2026-11-04 22:16:00]   ops (w=2): approve score=60 — no ops concern
+[2026-11-04 22:16:00]   weighted approve: 24.0 (threshold 50) → no
+[2026-11-04 22:16:00]   → REJECTED
+[2026-11-04 22:16:17] ── debate p_20261104_221617_250688968 ──
+[2026-11-04 22:16:17]   it (w=3): approve score=80 — pm2 restart is safe
+[2026-11-04 22:16:18]   ops (w=2): approve score=70 — restart ok, downtime<5s
+[2026-11-04 22:16:18]   weighted approve: 76.0 (threshold 50) → yes
+[2026-11-04 22:16:18]   → APPROVED. baseline + execute.
+[2026-11-04 22:16:19]   exec: pm2 restart cybra-autogit
+[1m[34mUse --update-env to update environment variables[39m[22m
+[32m[PM2] [39mApplying action restartProcessId on app [cybra-autogit](ids: [ 0 ])
+[32m[PM2] [39m[cybra-autogit](0) ✓
+┌────┬──────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name             │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼──────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ [1m[36m0[39m[22m  │ cybra-autogit    │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 20800    │ 0s     │ 2    │ [32m[1monline[22m[39m    │ 0%       │ 4.0mb    │ [1mu0_a424[22m  │ [90mdisabled[39m │
+└────┴──────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[1m[36mhost metrics[39m[22m | [1mcpu[22m: 0% | [1mram usage[22m: [1m[33m78.2%[39m[22m | [1mdisk[22m: ⇓ 0mb/s ⇑ 0mb/s
+[2026-11-04 22:16:20]   exec done. waiting 5s...

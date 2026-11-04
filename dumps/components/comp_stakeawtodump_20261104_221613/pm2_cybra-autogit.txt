@@ -4,9 +4,9 @@
 │ name               │ cybra-autogit                                                      │
 │ namespace          │ default                                                            │
 │ version            │ N/A                                                                │
-│ restarts           │ 0                                                                  │
+│ restarts           │ 1                                                                  │
 │ max memory restart │ 68157440                                                           │
-│ uptime             │ 33m                                                                │
+│ uptime             │ 21s                                                                │
 │ script path        │ /data/data/com.termux/files/home/CYBRA/bin/wrappers/run_autogit.sh │
 │ script args        │ N/A                                                                │
 │ error log path     │ /data/data/com.termux/files/home/.pm2/logs/cybra-autogit-error.log │
@@ -21,7 +21,7 @@
 │ node env           │ N/A                                                                │
 │ watch & reload     │ ✘                                                                  │
 │ unstable restarts  │ 0                                                                  │
-│ created at         │ 2026-11-04T18:38:54.017Z                                           │
+│ created at         │ 2026-11-04T20:15:52.816Z                                           │
 └────────────────────┴────────────────────────────────────────────────────────────────────┘
 [7m[1m Divergent env variables from local env [22m[27m
 ┌───────────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
