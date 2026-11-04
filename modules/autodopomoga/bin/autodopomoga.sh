@@ -46,6 +46,12 @@ LAST_CYCLE_RESET=$(date +%s)
 
 while true; do
     NOW=$(date +%s)
+
+    # history.log rotation (>1MB → keep last 256KB)
+    if [ -f "$HISTORY" ] && [ "$(stat -c%s "$HISTORY" 2>/dev/null || echo 0)" -gt 1048576 ]; then
+        tail -c 262144 "$HISTORY" > "$HISTORY.t" && mv "$HISTORY.t" "$HISTORY"
+        log "history rotated (>1MB → 256KB)"
+    fi
     if [ $((NOW - LAST_CYCLE_RESET)) -ge "$GLOBAL_COOLDOWN" ]; then
         CYCLES=0; LAST_CYCLE_RESET=$NOW
     fi

@@ -33,9 +33,9 @@ case "${1:-status}" in
         jq . "$MOD/state/attempts.json" 2>/dev/null || echo '{}'
         echo ""
         echo "── last 8 log ──"
-        tail -8 "$LOG" 2>/dev/null || echo "(no log)"
+        grep -E '^\[20' "$LOG" 2>/dev/null | tail -8 || echo "(no log)"
         ;;
-    log) tail -n "${2:-30}" "$LOG" ;;
+    log) grep -E '^\[20' "$LOG" 2>/dev/null | tail -n "${2:-30}" ;;
     verify) "$MOD/bin/verify.sh" ;;
     repair) shift; "$MOD/bin/repair.sh" "$@" ;;
     *) echo "usage: ctl.sh {start|stop|restart|status|log [N]|verify|repair <comp> <n>}"; exit 1 ;;
