@@ -14,3 +14,11 @@
     └────┴──────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
     [1m[36mhost metrics[39m[22m | [1mcpu[22m: 0% | [1mram usage[22m: [1m[33m80.1%[39m[22m | [1mdisk[22m: ⇓ 0mb/s ⇑ 0mb/s
   done
+── repair autowatch (attempt 1) — purpose: супервізор: bg_dump + autogit + autoheal + god resurrect ──
+  exec: $CYBRA/bin/cybra_autowatch_ctl.sh start
+    already running pid=26897
+  done
+── repair bg_dump (attempt 1) — purpose: знімок компонентів кожні 60с + глобальний кожні 900с ──
+  exec: $CYBRA/bin/cybra_bg_dump_ctl.sh start
+    already running pid=26925
+  done
