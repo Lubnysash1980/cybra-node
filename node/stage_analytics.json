@@ -1,53 +1,95 @@
 {
-  "ts": 1793660165.8687024,
-  "iso": "2026-11-02T22:56:05.868702+00:00",
-  "stage": 2,
-  "name": "DEGRADED",
-  "gates_pass": "5/10",
+  "ts": 1793814536.5442054,
+  "iso": "2026-11-04T17:48:56.544205+00:00",
+  "stage": 1,
+  "name": "BOOT",
+  "gates_pass": "4/10",
   "golden": false,
   "facts": {
-    "procs_total": 1,
-    "online": 1,
-    "errored": 0,
-    "stopped": 0,
+    "procs_total": 9,
+    "online": 0,
+    "errored": 3,
+    "stopped": 6,
     "gods": 2,
-    "no_65m": [
+    "no_65m": [],
+    "runaway": [
+      "cybra-locate",
+      "cybra-sync",
+      "cybra-dump",
+      "cybra-sync",
+      "cybra-dump",
       "cybra-autogit"
     ],
-    "runaway": [],
     "redis": "DOWN",
     "api": "fail",
     "queue": 0,
     "ram_total_mb": 3601,
-    "ram_used_mb": 2534,
-    "ram_free_mb": 729,
-    "ram_free_pct": 20.2,
-    "disk_mb": 65821
+    "ram_used_mb": 2494,
+    "ram_free_mb": 632,
+    "ram_free_pct": 17.6,
+    "disk_mb": 65539
   },
   "gates": {
     "god_singleton": false,
-    "no_errored": true,
+    "no_errored": false,
     "min_online": false,
-    "all_65M": false,
+    "all_65M": true,
     "redis_pong": false,
     "api_health": false,
     "queue_sane": true,
     "ram_ok": true,
-    "no_runaway": true,
+    "no_runaway": false,
     "disk_ok": true
   },
   "processes": {
+    "cybra-manifest": {
+      "status": "errored",
+      "restarts": 84,
+      "mem_limit": 68157440,
+      "script": "run_manifest.sh"
+    },
+    "cybra-reaper": {
+      "status": "errored",
+      "restarts": 84,
+      "mem_limit": 68157440,
+      "script": "run_reaper.sh"
+    },
+    "cybra-stage": {
+      "status": "errored",
+      "restarts": 86,
+      "mem_limit": 68157440,
+      "script": "run_stage_analytics.sh"
+    },
+    "cybra-locate": {
+      "status": "stopped",
+      "restarts": 5480,
+      "mem_limit": 68157440,
+      "script": "scan_daemon.sh"
+    },
+    "cybra-sync": {
+      "status": "stopped",
+      "restarts": 5478,
+      "mem_limit": 68157440,
+      "script": "sync_daemon.sh"
+    },
+    "cybra-dump": {
+      "status": "stopped",
+      "restarts": 5474,
+      "mem_limit": 68157440,
+      "script": "run_dump.sh"
+    },
     "cybra-autogit": {
-      "status": "online",
-      "restarts": 0,
+      "status": "stopped",
+      "restarts": 5476,
       "mem_limit": 68157440,
       "script": "run_autogit.sh"
     }
   },
   "recommendations": [
     "kill -9 $(pgrep -f 'PM2.*God Daemon'); pm2 resurrect (2 gods)",
-    "missing 65M: cybra-autogit",
+    "3 errored — pm2 restart all",
     "redis down — pm2 start $(command -v redis-server)",
-    "api down — tail ~/.pm2/logs/cybra-api-error.log"
+    "api down — tail ~/.pm2/logs/cybra-api-error.log",
+    "runaway: cybra-locate,cybra-sync,cybra-dump,cybra-sync,cybra-dump"
   ]
 }

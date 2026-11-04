@@ -1,0 +1,14 @@
+bin/cybra_bg_dump.sh: line 68: /data/data/com.termux/files/home/CYBRA/bin/cybra_dump_components.sh: No such file or directory
+[2026-11-04 19:15:36] comp dump fail
+bin/cybra_bg_dump.sh: line 68: /data/data/com.termux/files/home/CYBRA/bin/cybra_dump_components.sh: No such file or directory
+[2026-11-04 19:16:37] comp dump fail
+bin/cybra_bg_dump.sh: line 68: /data/data/com.termux/files/home/CYBRA/bin/cybra_dump_components.sh: No such file or directory
+[2026-11-04 19:17:38] comp dump fail
+bin/cybra_bg_dump.sh: line 68: /data/data/com.termux/files/home/CYBRA/bin/cybra_dump_components.sh: No such file or directory
+[2026-11-04 19:18:39] comp dump fail
+[2026-11-04 20:38:48] ═══ BG DUMP START ═══ pid=7336 comp=60s global=900s godcheck=30s
+[2026-11-04 20:38:51] wake-lock ok
+comp stakeawtodump dumped
+[2026-11-04 20:38:52] comp dump ok
+dump 20261104_203852
+[2026-11-04 20:38:53] global dump ok

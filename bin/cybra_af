@@ -1,2 +1,0 @@
-#!/data/data/com.termux/files/usr/bin/bash
-exec python3 "$HOME/CYBRA/bin/cybra_autofix_item.py" "$@"

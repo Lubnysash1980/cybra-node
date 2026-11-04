@@ -6,7 +6,12 @@
   "license": "MIT",
   "author": "CYBRA",
   "description": "Fully-automatic dump stack: bg_dump + autowatch + autogit + autoheal + auto-resurrect.",
-  "components": ["dump", "autowatch", "autogit", "autoheal"],
+  "components": [
+    "dump",
+    "autowatch",
+    "autogit",
+    "autoheal"
+  ],
   "entrypoints": {
     "install": "bin/install.sh",
     "start": "bin/start.sh",
@@ -16,10 +21,24 @@
     "restore": "bin/restore.sh"
   },
   "state_dir": "state",
-  "requires": ["pm2", "jq", "bash"],
+  "requires": [
+    "pm2",
+    "jq",
+    "bash"
+  ],
   "provides": {
-    "pm2_names": ["cybra-bg-dump", "cybra-autowatch", "cybra-autogit"],
-    "redis_keys": ["stakeawtodump:status", "stakeawtodump:last_dump"],
-    "state_files": ["state/status.json", "state/install.json"]
+    "pm2_names": [
+      "cybra-bg-dump",
+      "cybra-autowatch",
+      "cybra-autogit"
+    ],
+    "redis_keys": [
+      "stakeawtodump:status",
+      "stakeawtodump:last_dump"
+    ],
+    "state_files": [
+      "state/status.json",
+      "state/install.json"
+    ]
   }
 }
