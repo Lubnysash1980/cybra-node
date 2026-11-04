@@ -1,17 +1,17 @@
 {
-  "ts": 1793831116,
+  "ts": 1793831419,
   "window_sec": 3600,
-  "window_cut": "2026-11-04 23:25:13",
+  "window_cut": "2026-11-04 23:30:17",
   "autowatch": {
-    "kill_extras": 5,
+    "kill_extras": 3,
     "god_dead": 0,
     "bg_dump_dead": 1,
     "autogit_missing": 0
   },
   "bg_dump": {
-    "comp_ok": 58,
+    "comp_ok": 59,
     "comp_fail": 0,
-    "global_ok": 6,
+    "global_ok": 5,
     "global_fail": 0,
     "resurrects": 1
   },
@@ -25,7 +25,7 @@
     }
   },
   "autogit": {
-    "push_ok": 13,
+    "push_ok": 12,
     "push_fail": 0
   },
   "parliament_auto": {
