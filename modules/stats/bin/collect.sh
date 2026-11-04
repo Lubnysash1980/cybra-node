@@ -57,18 +57,19 @@ if ls "$CYBRA/modules/parliament/state/proposals/"*.json >/dev/null 2>&1; then
     PN=$(jq -s 'map(select(.status=="pending"))|length'  "$CYBRA/modules/parliament/state/proposals/"*.json 2>/dev/null || echo 0)
 fi
 
-# ── repair by component (from history.log) ──
-HIST="$CYBRA/modules/autodopomoga/state/history.log"
+# ── repair by component (from autodopomoga.log — has timestamps) ──
+DLOG="$CYBRA/logs/autodopomoga.log"
 REPAIRS='{}'
-if [ -f "$HIST" ]; then
+if [ -f "$DLOG" ]; then
     REPAIRS=$(awk -v cut="$CUT" '
         match($0, /\[[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}\]/) {
             ts = substr($0, RSTART+1, 19)
-            if (ts >= cut && /^── repair [a-z_]+/) {
-                split($0, a, " "); print a[3]
+            if (ts >= cut && match($0, /repair [a-z_]+ \(attempt/)) {
+                comp = substr($0, RSTART+7, RLENGTH-7)
+                print comp
             }
         }
-    ' "$HIST" | sort | uniq -c | awk '{print $2" "$1}' | jq -Rn '[inputs | split(" ") | {(.[0]): (.[1]|tonumber)}] | add // {}')
+    ' "$DLOG" | sort | uniq -c | awk '{print $2" "$1}' | jq -Rn '[inputs | split(" ") | {(.[0]): (.[1]|tonumber)}] | add // {}')
 fi
 
 # ── pm2 ──

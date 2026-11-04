@@ -1,9 +1,9 @@
 {
   "window_sec": 3600,
   "thresholds": {
-    "same_repair": 3,
+    "same_repair": 5,
     "god_kill": 2,
-    "repair_cycle": 3,
+    "repair_cycle": 5,
     "veto_spike": 3,
     "bg_dump_fail": 5,
     "autorestore_fail": 2

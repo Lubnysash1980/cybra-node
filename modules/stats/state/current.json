@@ -1,7 +1,7 @@
 {
-  "ts": 1793830930,
+  "ts": 1793831116,
   "window_sec": 3600,
-  "window_cut": "2026-11-04 23:22:08",
+  "window_cut": "2026-11-04 23:25:13",
   "autowatch": {
     "kill_extras": 5,
     "god_dead": 0,
@@ -18,10 +18,14 @@
   "autodopomoga": {
     "repair_cycles": 3,
     "after_repairs": 3,
-    "by_component": {}
+    "by_component": {
+      "autogit": 1,
+      "autowatch": 1,
+      "bg_dump": 2
+    }
   },
   "autogit": {
-    "push_ok": 12,
+    "push_ok": 13,
     "push_fail": 0
   },
   "parliament_auto": {
