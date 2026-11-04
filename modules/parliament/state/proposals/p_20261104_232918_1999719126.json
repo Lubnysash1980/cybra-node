@@ -21,6 +21,8 @@
       "reason": "safe pm2 restart cybra-*"
     }
   },
-  "decision": null,
+  "decision": {
+    "verdict": "ok"
+  },
   "weighted": 88.7
 }

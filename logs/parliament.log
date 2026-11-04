@@ -70,3 +70,10 @@
 └────┴──────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
 [1m[36mhost metrics[39m[22m | [1mcpu[22m: 0% | [1mram usage[22m: [1m[33m80.7%[39m[22m | [1mdisk[22m: ⇓ 0mb/s ⇑ 0mb/s
 [2026-11-04 23:29:22]   exec done rc=0. waiting 5s...
+[2026-11-04 23:29:28]   ✅ sanity OK → new baseline
+[2026-11-04 23:29:30] ── debate p_20261104_232930_3248423490 ──
+[2026-11-04 23:29:31]   it (w=3 veto=false): approve score=50 — no objection: install something
+[2026-11-04 23:29:31]   ops (w=2 veto=false): approve score=60 — no ops concern
+[2026-11-04 23:29:32]   safety (w=10 veto=true): reject score=0 — curl|sh — VETO
+[2026-11-04 23:29:32]   → VETOED by safety
+[2026-11-04 23:29:32]   → vetoed (VETO by safety)
