@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "enabled": true,
+  "mode": "observing",
+  "target": 100,
+  "tolerance": 3,
+  "last_health": 63.3,
+  "last_action": "none",
+  "last_decision": "no-safe-action",
+  "last_delta": 0,
+  "total_cycles": 47,
+  "total_actions": 0,
+  "rewards": 0,
+  "penalties": 0,
+  "neutral": 0,
+  "rollbacks": 0,
+  "cooldown_until": 0,
+  "updated_at": "2026-11-04T18:42:33.830Z",
+  "actions": {}
+}
