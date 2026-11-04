@@ -6,7 +6,7 @@
 │ version            │ N/A                                                                │
 │ restarts           │ 0                                                                  │
 │ max memory restart │ 68157440                                                           │
-│ uptime             │ 41m                                                                │
+│ uptime             │ 24m                                                                │
 │ script path        │ /data/data/com.termux/files/home/CYBRA/bin/wrappers/run_autogit.sh │
 │ script args        │ N/A                                                                │
 │ error log path     │ /data/data/com.termux/files/home/.pm2/logs/cybra-autogit-error.log │
@@ -24,9 +24,12 @@
 │ created at         │ 2026-11-04T18:38:54.017Z                                           │
 └────────────────────┴────────────────────────────────────────────────────────────────────┘
 [7m[1m Divergent env variables from local env [22m[27m
-┌───────┬───┐
-│ SHLVL │ 2 │
-└───────┴───┘
+┌───────────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ SSH_AUTH_SOCK │ /data/data/com.termux/files/home/.ssh/agent/s.ty5jXgL98F.agent.6tKCQ2h0x3                                                                                                                                                                        │
+│ SSH_AGENT_PID │ 29040                                                                                                                                                                                                                                            │
+│ SHLVL         │ 2                                                                                                                                                                                                                                                │
+│ PATH          │ /data/data/com.termux/files/home/bin:/data/data/com.termux/files/home/bin:/data/data/com.termux/files/usr/bin:/product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin │
+└───────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 
 [37m[3m Add your own code metrics: http://bit.ly/code-metrics[23m[39m
 [37m[3m Use `pm2 logs cybra-autogit [--lines 1000]` to display logs[23m[39m
