@@ -434,3 +434,10 @@ kept 2 dumps, best=dump_20261105_000601 score=100
 ├────┼──────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
 │ [1m[36m0[39m[22m  │ cybra-autogit    │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 31553    │ 0s     │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 4.1mb    │ [1mu0_a424[22m  │ [90mdisabled[39m │
 └────┴──────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[32m[PM2] [39mSaving current process list...
+[32m[PM2] [39mSuccessfully saved in /data/data/com.termux/files/home/.pm2/dump.pm2
+[2026-11-05 00:11:20] ✓ resurrect done, online=1
+{"overall": 100.0, "components": {"stakeawtodump": {"score": 100, "pct": 100.0, "online": 1, "total": 1, "err": 0}}}
+[00:11:22] comp_20261105_001120 1/1online 100.0%
+  stakeawtodump: 1/1 score=100
+[2026-11-05 00:11:22] comp dump ok
