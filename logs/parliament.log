@@ -1,0 +1,16 @@
+[2026-11-04 22:15:49] ── debate p_20261104_221549_183231421 ──
+[2026-11-04 22:15:50]   it (w=3): approve score=80 — pm2 restart is safe
+[2026-11-04 22:15:50]   ops (w=2): approve score=70 — restart ok, downtime<5s
+[2026-11-04 22:15:50]   weighted approve: 76.0 (threshold 50) → yes
+[2026-11-04 22:15:50]   → APPROVED. baseline + execute.
+[2026-11-04 22:15:52]   exec: pm2 restart cybra-autogit
+[1m[34mUse --update-env to update environment variables[39m[22m
+[32m[PM2] [39mApplying action restartProcessId on app [cybra-autogit](ids: [ 0 ])
+[32m[PM2] [39m[cybra-autogit](0) ✓
+┌────┬──────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name             │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼──────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ [1m[36m0[39m[22m  │ cybra-autogit    │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 20321    │ 0s     │ 1    │ [32m[1monline[22m[39m    │ 0%       │ 1.2mb    │ [1mu0_a424[22m  │ [90mdisabled[39m │
+└────┴──────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[1m[36mhost metrics[39m[22m | [1mcpu[22m: 0% | [1mram usage[22m: [1m[33m81.5%[39m[22m | [1mdisk[22m: ⇓ 0mb/s ⇑ 0mb/s
+[2026-11-04 22:15:53]   exec done. waiting 5s...
