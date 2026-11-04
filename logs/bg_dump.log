@@ -386,3 +386,15 @@ kept 1 dumps, best=dump_20261104_235647 score=100
 [00:02:00] comp_20261105_000159 1/1online 100.0%
   stakeawtodump: 1/1 score=100
 [2026-11-05 00:02:00] comp dump ok
+{"overall": 100.0, "components": {"stakeawtodump": {"score": 100, "pct": 100.0, "online": 1, "total": 1, "err": 0}}}
+[00:03:02] comp_20261105_000301 1/1online 100.0%
+  stakeawtodump: 1/1 score=100
+[2026-11-05 00:03:02] comp dump ok
+{"overall": 100.0, "components": {"stakeawtodump": {"score": 100, "pct": 100.0, "online": 1, "total": 1, "err": 0}}}
+[00:04:04] comp_20261105_000403 1/1online 100.0%
+  stakeawtodump: 1/1 score=100
+[2026-11-05 00:04:04] comp dump ok
+{"overall": 100.0, "components": {"stakeawtodump": {"score": 100, "pct": 100.0, "online": 1, "total": 1, "err": 0}}}
+[00:05:06] comp_20261105_000505 1/1online 100.0%
+  stakeawtodump: 1/1 score=100
+[2026-11-05 00:05:06] comp dump ok
