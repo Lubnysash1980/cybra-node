@@ -19,6 +19,8 @@ BEST=""
 BEST_SCORE=-999999
 for mf in "$CYBRA"/dumps/dump_*/MANIFEST.json; do
   [ -f "$mf" ] || continue
+  # тільки 100% portable
+  [ "$(jq -r '.portable // false' "$mf")" = "true" ] || continue
   sc=$(jq -r '.score // -999999' "$mf")
   if [ "$sc" -gt "$BEST_SCORE" ]; then
     BEST_SCORE=$sc
