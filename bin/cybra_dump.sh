@@ -37,6 +37,8 @@ PCT=$(jq -r '.overall.percent // 0' "$CYBRA/state/manifest.json" 2>/dev/null || 
 
 # score: stage*100 + pct - errored*50 (max ~600)
 SCORE=$(( STG*100 + ${PCT%.*} - ERR*50 ))
+PORTABLE=false
+[ "$STG" -ge 5 ] && [ "$ERR" -eq 0 ] && [ "$TOT" -gt 0 ] && [ "$ON" -eq "$TOT" ] && PORTABLE=true
 
 cat > "$D/MANIFEST.json" <<M
 {
@@ -48,6 +50,7 @@ cat > "$D/MANIFEST.json" <<M
   "processes": $TOT,
   "online": $ON,
   "errored": $ERR,
+  "portable": $PORTABLE,
   "pm2_version": "$(pm2 --version 2>/dev/null)",
   "node_version": "$(node --version 2>/dev/null)",
   "python_version": "$(python3 --version 2>/dev/null)"
@@ -86,4 +89,4 @@ print(f"kept {len(keep)} dumps, best={keep[0][2].name} score={keep[0][0]}" if ke
 PY
 
 SIZE=$(du -sh "$CYBRA/dumps/dump_$TS.tar.gz" 2>/dev/null | cut -f1)
-echo "[$(date +%H:%M:%S)] dump_$TS ($SIZE) score=$SCORE stage=$STG ${ON}/${TOT}online ${ERR}err"
+echo "[$(date +%H:%M:%S)] dump_$TS ($SIZE) score=$SCORE stage=$STG ${ON}/${TOT}online ${ERR}err portable=$PORTABLE"
