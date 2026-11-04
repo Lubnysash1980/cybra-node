@@ -1,27 +1,26 @@
 {
-  "ts": 1793831722,
+  "ts": 1793832025,
   "window_sec": 3600,
-  "window_cut": "2026-11-04 23:35:19",
+  "window_cut": "2026-11-04 23:40:23",
   "autowatch": {
-    "kill_extras": 1,
+    "kill_extras": 0,
     "god_dead": 0,
     "bg_dump_dead": 1,
     "autogit_missing": 0
   },
   "bg_dump": {
-    "comp_ok": 59,
+    "comp_ok": 57,
     "comp_fail": 0,
     "global_ok": 5,
     "global_fail": 0,
     "resurrects": 1
   },
   "autodopomoga": {
-    "repair_cycles": 3,
-    "after_repairs": 3,
+    "repair_cycles": 1,
+    "after_repairs": 1,
     "by_component": {
-      "autogit": 1,
       "autowatch": 1,
-      "bg_dump": 2
+      "bg_dump": 1
     }
   },
   "autogit": {
@@ -29,7 +28,7 @@
     "push_fail": 0
   },
   "parliament_auto": {
-    "rollbacks": 1,
+    "rollbacks": 0,
     "proposals": 0
   },
   "parliament": {
