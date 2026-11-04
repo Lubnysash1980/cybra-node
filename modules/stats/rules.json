@@ -1,0 +1,14 @@
+{
+  "window_sec": 3600,
+  "thresholds": {
+    "same_repair": 3,
+    "god_kill": 2,
+    "repair_cycle": 3,
+    "veto_spike": 3,
+    "bg_dump_fail": 5,
+    "autorestore_fail": 2
+  },
+  "propose_to_parliament": true,
+  "debounce_sec": 3600,
+  "history_keep_lines": 1000
+}
