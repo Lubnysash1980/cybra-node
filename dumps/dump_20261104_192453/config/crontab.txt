@@ -1,6 +1,0 @@
-@reboot sleep 30 && pm2 resurrect && pm2 save --force >> ~/.cron/pm2.log 2>&1
-*/10 * * * * pgrep -f 'PM2.*God Daemon' >/dev/null || (pm2 resurrect && pm2 save --force) >> ~/.cron/pm2.log 2>&1
-*/5 * * * * pm2 jlist 2>/dev/null | grep -q errored && pm2 restart all >> ~/.cron/pm2.log 2>&1
-@reboot sleep 20 && /data/data/com.termux/files/home/CYBRA/bin/cybra_bg_dump_ctl.sh start
-@reboot sleep 25 && /data/data/com.termux/files/home/CYBRA/bin/cybra_autowatch_ctl.sh start
-@reboot sleep 25 && /data/data/com.termux/files/home/CYBRA/modules/stakeawtodump/bin/start.sh
