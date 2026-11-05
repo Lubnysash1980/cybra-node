@@ -1,0 +1,92 @@
+[
+  {
+    "name": "cybra-api",
+    "exec": "/data/data/com.termux/files/home/CYBRA/api/run.sh",
+    "interp": "bash"
+  },
+  {
+    "name": "cybra-autogit",
+    "exec": "/data/data/com.termux/files/home/CYBRA/bin/wrappers/run_autogit.sh",
+    "interp": "bash"
+  },
+  {
+    "name": "cybra-core",
+    "exec": "/data/data/com.termux/files/home/CYBRA/core/autonomous-core.js",
+    "interp": "node"
+  },
+  {
+    "name": "cybra-dump",
+    "exec": "/data/data/com.termux/files/home/CYBRA/bin/wrappers/run_dump.sh",
+    "interp": "bash"
+  },
+  {
+    "name": "cybra-evolution-ctrl",
+    "exec": "/data/data/com.termux/files/home/CYBRA/bin/cybra_evolution_controller.py",
+    "interp": "python3"
+  },
+  {
+    "name": "cybra-locate",
+    "exec": "/data/data/com.termux/files/home/CYBRA/modules/cybra-locate/bin/scan_daemon.sh",
+    "interp": "bash"
+  },
+  {
+    "name": "cybra-manifest",
+    "exec": "/data/data/com.termux/files/home/CYBRA/bin/wrappers/run_manifest.sh",
+    "interp": "bash"
+  },
+  {
+    "name": "cybra-monolith",
+    "exec": "/data/data/com.termux/files/home/CYBRA/bin/cybra-monolith.py",
+    "interp": "python3"
+  },
+  {
+    "name": "cybra-neuro-ctrl",
+    "exec": "/data/data/com.termux/files/home/CYBRA/bin/cybra_neuro_controller.py",
+    "interp": "python3"
+  },
+  {
+    "name": "cybra-reaper",
+    "exec": "/data/data/com.termux/files/home/CYBRA/bin/wrappers/run_reaper.sh",
+    "interp": "bash"
+  },
+  {
+    "name": "cybra-stage",
+    "exec": "/data/data/com.termux/files/home/CYBRA/bin/wrappers/run_stage_analytics.sh",
+    "interp": "bash"
+  },
+  {
+    "name": "cybra-sync",
+    "exec": "/data/data/com.termux/files/home/CYBRA/modules/cybra-sync/bin/sync_daemon.sh",
+    "interp": "bash"
+  },
+  {
+    "name": "level-tracker",
+    "exec": "/data/data/com.termux/files/home/CYBRA/cybra_level_tracker.sh",
+    "interp": "bash"
+  },
+  {
+    "name": "menu-worker",
+    "exec": "/data/data/com.termux/files/home/CYBRA/parliament_menu_worker.sh",
+    "interp": "bash"
+  },
+  {
+    "name": "parliament",
+    "exec": "/data/data/com.termux/files/home/CYBRA/parliament_executor_v6.py",
+    "interp": "python3"
+  },
+  {
+    "name": "redis",
+    "exec": "/data/data/com.termux/files/usr/bin/redis-server",
+    "interp": "none"
+  },
+  {
+    "name": "runtime",
+    "exec": "/data/data/com.termux/files/home/CYBRA/cybra_codespace_runtime.py",
+    "interp": "python3"
+  },
+  {
+    "name": "taxi-events",
+    "exec": "/data/data/com.termux/files/home/CYBRA/bin/cybra_taxi_events.py",
+    "interp": "python3"
+  }
+]

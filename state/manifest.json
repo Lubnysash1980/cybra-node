@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-11-05T13:47:43.282Z",
+  "generated_at": "2026-11-05T13:48:43.115Z",
   "overall": {
     "percent": 56,
     "color": "black",
@@ -21,9 +21,9 @@
     "black": 1
   },
   "resources": {
-    "ram_avail_pct": 18.8,
-    "disk_mb": 65295,
-    "pm2_memory_mb": 85.80000000000001,
+    "ram_avail_pct": 16.9,
+    "disk_mb": 65281.1,
+    "pm2_memory_mb": 102.79999999999998,
     "pm2_cpu_pct": 0
   },
   "services": [
@@ -32,7 +32,7 @@
       "status": "online",
       "pid": 24307,
       "cpu_pct": 0,
-      "memory_mb": 16.6,
+      "memory_mb": 17.2,
       "restarts": 0
     },
     {
@@ -48,7 +48,7 @@
       "status": "online",
       "pid": 24346,
       "cpu_pct": 0,
-      "memory_mb": 2.6,
+      "memory_mb": 3.1,
       "restarts": 0
     },
     {
@@ -86,18 +86,18 @@
     {
       "name": "cybra-evolution-ctrl",
       "status": "online",
-      "pid": 16351,
+      "pid": 18427,
       "cpu_pct": 0,
-      "memory_mb": 17.7,
-      "restarts": 294
+      "memory_mb": 17.8,
+      "restarts": 338
     },
     {
       "name": "cybra-neuro-ctrl",
       "status": "online",
-      "pid": 16367,
+      "pid": 18448,
       "cpu_pct": 0,
-      "memory_mb": 17.3,
-      "restarts": 299
+      "memory_mb": 8,
+      "restarts": 344
     },
     {
       "name": "cybra-api",
@@ -105,14 +105,62 @@
       "pid": 0,
       "cpu_pct": 0,
       "memory_mb": 0,
-      "restarts": 91
+      "restarts": 106
     },
     {
       "name": "parliament",
       "status": "online",
       "pid": 27358,
       "cpu_pct": 0,
-      "memory_mb": 11.9,
+      "memory_mb": 12.1,
+      "restarts": 0
+    },
+    {
+      "name": "cybra-dump",
+      "status": "online",
+      "pid": 17444,
+      "cpu_pct": 0,
+      "memory_mb": 4.2,
+      "restarts": 0
+    },
+    {
+      "name": "cybra-locate",
+      "status": "online",
+      "pid": 17662,
+      "cpu_pct": 0,
+      "memory_mb": 4.2,
+      "restarts": 0
+    },
+    {
+      "name": "cybra-manifest",
+      "status": "online",
+      "pid": 17809,
+      "cpu_pct": 0,
+      "memory_mb": 4.1,
+      "restarts": 0
+    },
+    {
+      "name": "cybra-reaper",
+      "status": "online",
+      "pid": 18032,
+      "cpu_pct": 0,
+      "memory_mb": 4.1,
+      "restarts": 0
+    },
+    {
+      "name": "cybra-stage",
+      "status": "online",
+      "pid": 18137,
+      "cpu_pct": 0,
+      "memory_mb": 4.2,
+      "restarts": 0
+    },
+    {
+      "name": "cybra-sync",
+      "status": "online",
+      "pid": 18270,
+      "cpu_pct": 0,
+      "memory_mb": 4.1,
       "restarts": 0
     }
   ],
@@ -120,7 +168,7 @@
     "openid": {
       "ok": false,
       "status": 0,
-      "latency_ms": 5,
+      "latency_ms": 12,
       "reason": "connect ECONNREFUSED 127.0.0.1:8787"
     }
   },
@@ -139,11 +187,11 @@
     },
     "ram": {
       "color": "yellow",
-      "reason": "18.8% RAM available"
+      "reason": "16.9% RAM available"
     },
     "disk": {
       "color": "green",
-      "reason": "65295 MB disk available"
+      "reason": "65281.1 MB disk available"
     }
   },
   "ai": {
@@ -151,7 +199,7 @@
     "mode": "observing",
     "target": 100,
     "tolerance": 3,
-    "total_cycles": 41,
+    "total_cycles": 45,
     "total_actions": 0,
     "rewards": 0,
     "penalties": 0,
