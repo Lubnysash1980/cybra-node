@@ -63,3 +63,10 @@ RUNNING pid=27786 uptime=00:06
 [2026-11-05 04:05:18]   repair autogit (attempt 2/2)
 [2026-11-05 04:05:32]   after repair: deviation=0.0%
 [2026-11-05 04:05:32] ✅ 0.0% < 3.0% — back to 100%
+[2026-11-05 15:25:28] ═══ AUTODOPOMOGA START ═══ pid=14663 poll=30s threshold=3.0%
+[2026-11-05 15:25:30] ⚠ deviation=38.5% unhealthy=[autowatch bg_dump ]
+[2026-11-05 15:25:30] ── repair cycle 1/10 ──
+[2026-11-05 15:25:30]   repair autowatch (attempt 1/2)
+[2026-11-05 15:25:32]   repair bg_dump (attempt 1/2)
+[2026-11-05 15:25:45]   after repair: deviation=0.0%
+[2026-11-05 15:25:45] ✅ 0.0% < 3.0% — back to 100%

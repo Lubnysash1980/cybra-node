@@ -88,5 +88,27 @@
     ],
     "max_attempts": 2,
     "cooldown_sec": 900
+  },
+  "cybra-autogit": {
+    "purpose": "pm2 process: cybra-autogit",
+    "weight": 1,
+    "health": "pm2 jlist 2>/dev/null | jq -e '.[] | select(.name==\"cybra-autogit\" and .pm2_env.status==\"online\")' >/dev/null",
+    "escalation": [
+      {
+        "attempt": 1,
+        "actions": [
+          "pm2 restart cybra-autogit"
+        ]
+      },
+      {
+        "attempt": 2,
+        "actions": [
+          "pm2 resurrect",
+          "pm2 save --force"
+        ]
+      }
+    ],
+    "max_attempts": 2,
+    "cooldown_sec": 600
   }
 }
