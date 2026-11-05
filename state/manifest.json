@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-11-05T17:41:39.352Z",
+  "generated_at": "2026-11-05T17:42:54.158Z",
   "overall": {
     "percent": 41,
     "color": "black",
@@ -22,9 +22,9 @@
   },
   "resources": {
     "ram_avail_pct": 14.2,
-    "disk_mb": 64764.2,
-    "pm2_memory_mb": 125.19999999999999,
-    "pm2_cpu_pct": 2.1
+    "disk_mb": 64764.5,
+    "pm2_memory_mb": 63.699999999999996,
+    "pm2_cpu_pct": 5
   },
   "services": [
     {
@@ -32,15 +32,15 @@
       "status": "online",
       "pid": 20952,
       "cpu_pct": 0,
-      "memory_mb": 3.8,
+      "memory_mb": 2.8,
       "restarts": 0
     },
     {
       "name": "cybra-core",
       "status": "online",
       "pid": 20954,
-      "cpu_pct": 0.5,
-      "memory_mb": 53.9,
+      "cpu_pct": 1,
+      "memory_mb": 23.2,
       "restarts": 0
     },
     {
@@ -48,7 +48,7 @@
       "status": "online",
       "pid": 20964,
       "cpu_pct": 0,
-      "memory_mb": 3.7,
+      "memory_mb": 2.8,
       "restarts": 0
     },
     {
@@ -56,7 +56,7 @@
       "status": "online",
       "pid": 20969,
       "cpu_pct": 0,
-      "memory_mb": 3.7,
+      "memory_mb": 2.7,
       "restarts": 0
     },
     {
@@ -64,7 +64,7 @@
       "status": "online",
       "pid": 20975,
       "cpu_pct": 0,
-      "memory_mb": 3.8,
+      "memory_mb": 3,
       "restarts": 0
     },
     {
@@ -72,7 +72,7 @@
       "status": "online",
       "pid": 20983,
       "cpu_pct": 0,
-      "memory_mb": 3.8,
+      "memory_mb": 3,
       "restarts": 0
     },
     {
@@ -80,7 +80,7 @@
       "status": "online",
       "pid": 20991,
       "cpu_pct": 0,
-      "memory_mb": 3.7,
+      "memory_mb": 3,
       "restarts": 0
     },
     {
@@ -88,7 +88,7 @@
       "status": "online",
       "pid": 20993,
       "cpu_pct": 0,
-      "memory_mb": 3.8,
+      "memory_mb": 2.8,
       "restarts": 0
     },
     {
@@ -96,31 +96,31 @@
       "status": "online",
       "pid": 21004,
       "cpu_pct": 0,
-      "memory_mb": 3.8,
+      "memory_mb": 3.2,
       "restarts": 0
     },
     {
       "name": "menu-worker",
       "status": "online",
       "pid": 21021,
-      "cpu_pct": 0.1,
-      "memory_mb": 3.8,
+      "cpu_pct": 0,
+      "memory_mb": 3.1,
       "restarts": 0
     },
     {
       "name": "parliament",
       "status": "online",
       "pid": 21032,
-      "cpu_pct": 1,
-      "memory_mb": 31.7,
+      "cpu_pct": 2,
+      "memory_mb": 10.7,
       "restarts": 0
     },
     {
       "name": "redis",
       "status": "online",
       "pid": 21037,
-      "cpu_pct": 0.5,
-      "memory_mb": 5.7,
+      "cpu_pct": 2,
+      "memory_mb": 3.4,
       "restarts": 0
     },
     {
@@ -136,7 +136,7 @@
     "openid": {
       "ok": false,
       "status": 0,
-      "latency_ms": 7,
+      "latency_ms": 6,
       "reason": "connect ECONNREFUSED 127.0.0.1:8787"
     }
   },
@@ -159,7 +159,7 @@
     },
     "disk": {
       "color": "green",
-      "reason": "64764.2 MB disk available"
+      "reason": "64764.5 MB disk available"
     }
   },
   "ai": {
@@ -167,7 +167,7 @@
     "mode": "observing",
     "target": 100,
     "tolerance": 3,
-    "total_cycles": 137,
+    "total_cycles": 142,
     "total_actions": 0,
     "rewards": 0,
     "penalties": 0,
