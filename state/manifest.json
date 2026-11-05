@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-11-05T17:31:12.943Z",
+  "generated_at": "2026-11-05T17:32:27.879Z",
   "overall": {
     "percent": 41,
     "color": "black",
@@ -21,10 +21,10 @@
     "black": 2
   },
   "resources": {
-    "ram_avail_pct": 15.9,
-    "disk_mb": 65019.7,
-    "pm2_memory_mb": 65.19999999999999,
-    "pm2_cpu_pct": 0
+    "ram_avail_pct": 16.1,
+    "disk_mb": 64958.6,
+    "pm2_memory_mb": 66.3,
+    "pm2_cpu_pct": 2
   },
   "services": [
     {
@@ -40,7 +40,7 @@
       "status": "online",
       "pid": 23931,
       "cpu_pct": 0,
-      "memory_mb": 25.4,
+      "memory_mb": 26.3,
       "restarts": 0
     },
     {
@@ -111,16 +111,16 @@
       "name": "parliament",
       "status": "online",
       "pid": 24572,
-      "cpu_pct": 0,
-      "memory_mb": 10.5,
+      "cpu_pct": 1,
+      "memory_mb": 10.6,
       "restarts": 0
     },
     {
       "name": "redis",
       "status": "online",
       "pid": 24606,
-      "cpu_pct": 0,
-      "memory_mb": 3.2,
+      "cpu_pct": 1,
+      "memory_mb": 3.3,
       "restarts": 0
     },
     {
@@ -129,14 +129,14 @@
       "pid": 0,
       "cpu_pct": 0,
       "memory_mb": 0,
-      "restarts": 105
+      "restarts": 120
     }
   ],
   "health": {
     "openid": {
       "ok": false,
       "status": 0,
-      "latency_ms": 4,
+      "latency_ms": 6,
       "reason": "connect ECONNREFUSED 127.0.0.1:8787"
     }
   },
@@ -155,11 +155,11 @@
     },
     "ram": {
       "color": "yellow",
-      "reason": "15.9% RAM available"
+      "reason": "16.1% RAM available"
     },
     "disk": {
       "color": "green",
-      "reason": "65019.7 MB disk available"
+      "reason": "64958.6 MB disk available"
     }
   },
   "ai": {
@@ -167,7 +167,7 @@
     "mode": "observing",
     "target": 100,
     "tolerance": 3,
-    "total_cycles": 114,
+    "total_cycles": 119,
     "total_actions": 0,
     "rewards": 0,
     "penalties": 0,
