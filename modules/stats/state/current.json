@@ -1,7 +1,7 @@
 {
-  "ts": 1793843544,
+  "ts": 1793843847,
   "window_sec": 3600,
-  "window_cut": "2026-11-05 02:52:21",
+  "window_cut": "2026-11-05 02:57:25",
   "autowatch": {
     "kill_extras": 1,
     "god_dead": 0,
@@ -21,8 +21,8 @@
     "by_component": {}
   },
   "autogit": {
-    "push_ok": 4,
-    "push_fail": 17
+    "push_ok": 3,
+    "push_fail": 19
   },
   "parliament_auto": {
     "rollbacks": 0,
