@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-11-05T13:42:43.216Z",
+  "generated_at": "2026-11-05T13:47:43.282Z",
   "overall": {
     "percent": 56,
     "color": "black",
@@ -21,9 +21,9 @@
     "black": 1
   },
   "resources": {
-    "ram_avail_pct": 16.3,
-    "disk_mb": 65311.1,
-    "pm2_memory_mb": 93.4,
+    "ram_avail_pct": 18.8,
+    "disk_mb": 65295,
+    "pm2_memory_mb": 85.80000000000001,
     "pm2_cpu_pct": 0
   },
   "services": [
@@ -32,7 +32,7 @@
       "status": "online",
       "pid": 24307,
       "cpu_pct": 0,
-      "memory_mb": 21.2,
+      "memory_mb": 16.6,
       "restarts": 0
     },
     {
@@ -48,7 +48,7 @@
       "status": "online",
       "pid": 24346,
       "cpu_pct": 0,
-      "memory_mb": 2.7,
+      "memory_mb": 2.6,
       "restarts": 0
     },
     {
@@ -72,7 +72,7 @@
       "status": "online",
       "pid": 27207,
       "cpu_pct": 0,
-      "memory_mb": 8.2,
+      "memory_mb": 6,
       "restarts": 0
     },
     {
@@ -80,24 +80,24 @@
       "status": "online",
       "pid": 27220,
       "cpu_pct": 0,
-      "memory_mb": 6.3,
+      "memory_mb": 4.2,
       "restarts": 0
     },
     {
       "name": "cybra-evolution-ctrl",
       "status": "online",
-      "pid": 32287,
+      "pid": 16351,
       "cpu_pct": 0,
-      "memory_mb": 17.6,
-      "restarts": 158
+      "memory_mb": 17.7,
+      "restarts": 294
     },
     {
       "name": "cybra-neuro-ctrl",
       "status": "online",
-      "pid": 32301,
+      "pid": 16367,
       "cpu_pct": 0,
-      "memory_mb": 12.9,
-      "restarts": 160
+      "memory_mb": 17.3,
+      "restarts": 299
     },
     {
       "name": "cybra-api",
@@ -105,14 +105,14 @@
       "pid": 0,
       "cpu_pct": 0,
       "memory_mb": 0,
-      "restarts": 45
+      "restarts": 91
     },
     {
       "name": "parliament",
       "status": "online",
       "pid": 27358,
       "cpu_pct": 0,
-      "memory_mb": 15,
+      "memory_mb": 11.9,
       "restarts": 0
     }
   ],
@@ -139,11 +139,11 @@
     },
     "ram": {
       "color": "yellow",
-      "reason": "16.3% RAM available"
+      "reason": "18.8% RAM available"
     },
     "disk": {
       "color": "green",
-      "reason": "65311.1 MB disk available"
+      "reason": "65295 MB disk available"
     }
   },
   "ai": {
@@ -151,7 +151,7 @@
     "mode": "observing",
     "target": 100,
     "tolerance": 3,
-    "total_cycles": 21,
+    "total_cycles": 41,
     "total_actions": 0,
     "rewards": 0,
     "penalties": 0,
