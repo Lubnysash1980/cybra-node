@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-11-05T17:42:54.158Z",
+  "generated_at": "2026-11-05T17:43:54.638Z",
   "overall": {
     "percent": 41,
     "color": "black",
@@ -21,10 +21,10 @@
     "black": 2
   },
   "resources": {
-    "ram_avail_pct": 14.2,
-    "disk_mb": 64764.5,
-    "pm2_memory_mb": 63.699999999999996,
-    "pm2_cpu_pct": 5
+    "ram_avail_pct": 17.3,
+    "disk_mb": 64763.1,
+    "pm2_memory_mb": 51.3,
+    "pm2_cpu_pct": 3.2
   },
   "services": [
     {
@@ -32,15 +32,15 @@
       "status": "online",
       "pid": 20952,
       "cpu_pct": 0,
-      "memory_mb": 2.8,
+      "memory_mb": 2.7,
       "restarts": 0
     },
     {
       "name": "cybra-core",
       "status": "online",
       "pid": 20954,
-      "cpu_pct": 1,
-      "memory_mb": 23.2,
+      "cpu_pct": 0.3,
+      "memory_mb": 11.7,
       "restarts": 0
     },
     {
@@ -48,7 +48,7 @@
       "status": "online",
       "pid": 20964,
       "cpu_pct": 0,
-      "memory_mb": 2.8,
+      "memory_mb": 2.7,
       "restarts": 0
     },
     {
@@ -63,7 +63,7 @@
       "name": "cybra-manifest",
       "status": "online",
       "pid": 20975,
-      "cpu_pct": 0,
+      "cpu_pct": 0.3,
       "memory_mb": 3,
       "restarts": 0
     },
@@ -71,7 +71,7 @@
       "name": "cybra-reaper",
       "status": "online",
       "pid": 20983,
-      "cpu_pct": 0,
+      "cpu_pct": 0.3,
       "memory_mb": 3,
       "restarts": 0
     },
@@ -88,14 +88,14 @@
       "status": "online",
       "pid": 20993,
       "cpu_pct": 0,
-      "memory_mb": 2.8,
+      "memory_mb": 2.7,
       "restarts": 0
     },
     {
       "name": "level-tracker",
       "status": "online",
       "pid": 21004,
-      "cpu_pct": 0,
+      "cpu_pct": 0.3,
       "memory_mb": 3.2,
       "restarts": 0
     },
@@ -103,24 +103,24 @@
       "name": "menu-worker",
       "status": "online",
       "pid": 21021,
-      "cpu_pct": 0,
-      "memory_mb": 3.1,
+      "cpu_pct": 0.3,
+      "memory_mb": 3,
       "restarts": 0
     },
     {
       "name": "parliament",
       "status": "online",
       "pid": 21032,
-      "cpu_pct": 2,
-      "memory_mb": 10.7,
+      "cpu_pct": 1,
+      "memory_mb": 10.3,
       "restarts": 0
     },
     {
       "name": "redis",
       "status": "online",
       "pid": 21037,
-      "cpu_pct": 2,
-      "memory_mb": 3.4,
+      "cpu_pct": 0.7,
+      "memory_mb": 3.3,
       "restarts": 0
     },
     {
@@ -136,7 +136,7 @@
     "openid": {
       "ok": false,
       "status": 0,
-      "latency_ms": 6,
+      "latency_ms": 8,
       "reason": "connect ECONNREFUSED 127.0.0.1:8787"
     }
   },
@@ -155,11 +155,11 @@
     },
     "ram": {
       "color": "yellow",
-      "reason": "14.2% RAM available"
+      "reason": "17.3% RAM available"
     },
     "disk": {
       "color": "green",
-      "reason": "64764.5 MB disk available"
+      "reason": "64763.1 MB disk available"
     }
   },
   "ai": {
@@ -167,7 +167,7 @@
     "mode": "observing",
     "target": 100,
     "tolerance": 3,
-    "total_cycles": 142,
+    "total_cycles": 146,
     "total_actions": 0,
     "rewards": 0,
     "penalties": 0,
