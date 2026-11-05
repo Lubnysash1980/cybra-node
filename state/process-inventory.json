@@ -1,10 +1,5 @@
 [
   {
-    "name": "cybra-api",
-    "exec": "/data/data/com.termux/files/home/CYBRA/api/run.sh",
-    "interp": "bash"
-  },
-  {
     "name": "cybra-autogit",
     "exec": "/data/data/com.termux/files/home/CYBRA/bin/wrappers/run_autogit.sh",
     "interp": "bash"
@@ -20,11 +15,6 @@
     "interp": "bash"
   },
   {
-    "name": "cybra-evolution-ctrl",
-    "exec": "/data/data/com.termux/files/home/CYBRA/bin/cybra_evolution_controller.py",
-    "interp": "python3"
-  },
-  {
     "name": "cybra-locate",
     "exec": "/data/data/com.termux/files/home/CYBRA/modules/cybra-locate/bin/scan_daemon.sh",
     "interp": "bash"
@@ -33,16 +23,6 @@
     "name": "cybra-manifest",
     "exec": "/data/data/com.termux/files/home/CYBRA/bin/wrappers/run_manifest.sh",
     "interp": "bash"
-  },
-  {
-    "name": "cybra-monolith",
-    "exec": "/data/data/com.termux/files/home/CYBRA/bin/cybra-monolith.py",
-    "interp": "python3"
-  },
-  {
-    "name": "cybra-neuro-ctrl",
-    "exec": "/data/data/com.termux/files/home/CYBRA/bin/cybra_neuro_controller.py",
-    "interp": "python3"
   },
   {
     "name": "cybra-reaper",
@@ -82,11 +62,6 @@
   {
     "name": "runtime",
     "exec": "/data/data/com.termux/files/home/CYBRA/cybra_codespace_runtime.py",
-    "interp": "python3"
-  },
-  {
-    "name": "taxi-events",
-    "exec": "/data/data/com.termux/files/home/CYBRA/bin/cybra_taxi_events.py",
     "interp": "python3"
   }
 ]
