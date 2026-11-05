@@ -17201,3 +17201,11 @@ To https://github.com/Lubnysash1980/cybra-node.git
  ! [remote rejected]     main -> main (cannot lock ref 'refs/heads/main': is at 0798d27ae38333f01d768972ffb8e8d84fc1bce0 but expected c6e5b0a924b2bd4138ec238a81f52e8c8e4c1c42)
 error: failed to push some refs to 'https://github.com/Lubnysash1980/cybra-node.git'
 [2026-11-05 10:11:20] ✗ push failed — will retry next cycle
+fatal: Unable to create '/data/data/com.termux/files/home/CYBRA/.git/index.lock': File exists.
+
+Another git process seems to be running in this repository, or the lock file may be stale
+[2026-11-05 10:16:14] add fail
+To https://github.com/Lubnysash1980/cybra-node.git
+   0798d27ae..827cc69c2  main -> main
+[2026-11-05 10:16:16] ✓ pushed 8 files
+[2026-11-05 10:16:20] skip (locked)
