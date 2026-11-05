@@ -2674,3 +2674,26 @@ kept 3 dumps, best=dump_20261105_090723 score=100
 [09:20:13] comp_20261105_092012 1/1online 100.0%
   stakeawtodump: 1/1 score=100
 [2026-11-05 09:20:13] comp dump ok
+{"overall": 100.0, "components": {"stakeawtodump": {"score": 100, "pct": 100.0, "online": 1, "total": 1, "err": 0}}}
+[09:21:15] comp_20261105_092114 1/1online 100.0%
+  stakeawtodump: 1/1 score=100
+[2026-11-05 09:21:15] comp dump ok
+{"overall": 100.0, "components": {"stakeawtodump": {"score": 100, "pct": 100.0, "online": 1, "total": 1, "err": 0}}}
+[09:22:17] comp_20261105_092216 1/1online 100.0%
+  stakeawtodump: 1/1 score=100
+[2026-11-05 09:22:17] comp dump ok
+kept 3 dumps, best=dump_20261105_092227 score=100
+[09:22:30] dump_20261105_092227 (4.0K) score=100 stage=0 1/1online 0err portable=false
+[2026-11-05 09:22:30] global dump ok
+{"overall": 100.0, "components": {"stakeawtodump": {"score": 100, "pct": 100.0, "online": 1, "total": 1, "err": 0}}}
+[09:23:22] comp_20261105_092321 1/1online 100.0%
+  stakeawtodump: 1/1 score=100
+[2026-11-05 09:23:22] comp dump ok
+{"overall": 100.0, "components": {"stakeawtodump": {"score": 100, "pct": 100.0, "online": 1, "total": 1, "err": 0}}}
+[09:24:24] comp_20261105_092423 1/1online 100.0%
+  stakeawtodump: 1/1 score=100
+[2026-11-05 09:24:24] comp dump ok
+{"overall": 100.0, "components": {"stakeawtodump": {"score": 100, "pct": 100.0, "online": 1, "total": 1, "err": 0}}}
+[09:25:26] comp_20261105_092525 1/1online 100.0%
+  stakeawtodump: 1/1 score=100
+[2026-11-05 09:25:26] comp dump ok
