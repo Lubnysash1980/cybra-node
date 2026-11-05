@@ -22,3 +22,24 @@
   exec: $CYBRA/bin/cybra_bg_dump_ctl.sh start
     already running pid=26925
   done
+── repair autogit (attempt 1) — purpose: авто-коміт+пуш кожні 5 хвилин ──
+  exec: pm2 restart cybra-autogit
+    [1m[34mUse --update-env to update environment variables[39m[22m
+    [31m[PM2][ERROR] [39mProcess or Namespace cybra-autogit not found
+  done
+── repair autogit (attempt 2) — purpose: авто-коміт+пуш кожні 5 хвилин ──
+  exec: pm2 delete cybra-autogit || true
+    [31m[PM2][ERROR] [39mProcess or Namespace cybra-autogit not found
+  exec: pm2 start $CYBRA/bin/wrappers/run_autogit.sh --name cybra-autogit --interpreter bash --max-memory-restart 65M
+    [32m[PM2] [39mStarting /data/data/com.termux/files/home/CYBRA/bin/wrappers/run_autogit.sh in fork_mode (1 instance)
+    [32m[PM2] [39mDone.
+    ┌────┬──────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+    │ id │ name             │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+    ├────┼──────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+    │ [1m[36m0[39m[22m  │ cybra-autogit    │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 23745    │ 0s     │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 3.9mb    │ [1mu0_a424[22m  │ [90mdisabled[39m │
+    └────┴──────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+    [1m[36mhost metrics[39m[22m | [1mcpu[22m: 0% | [1mram usage[22m: [1m[33m73%[39m[22m | [1mdisk[22m: ⇓ 0mb/s ⇑ 0mb/s
+  exec: pm2 save --force
+    [32m[PM2] [39mSaving current process list...
+    [32m[PM2] [39mSuccessfully saved in /data/data/com.termux/files/home/.pm2/dump.pm2
+  done

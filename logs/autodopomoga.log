@@ -54,3 +54,12 @@ RUNNING pid=27786 uptime=00:06
 [2026-11-05 00:05:56]   repair bg_dump (attempt 1/2)
 [2026-11-05 00:06:08]   after repair: deviation=0.0%
 [2026-11-05 00:06:08] ✅ 0.0% < 3.0% — back to 100%
+[2026-11-05 04:05:03] ⚠ deviation=16.7% unhealthy=[autogit ]
+[2026-11-05 04:05:03] ── repair cycle 1/10 ──
+[2026-11-05 04:05:03]   repair autogit (attempt 1/2)
+[2026-11-05 04:05:15]   after repair: deviation=16.7%
+[2026-11-05 04:05:18] ⚠ deviation=16.7% unhealthy=[autogit ]
+[2026-11-05 04:05:18] ── repair cycle 2/10 ──
+[2026-11-05 04:05:18]   repair autogit (attempt 2/2)
+[2026-11-05 04:05:32]   after repair: deviation=0.0%
+[2026-11-05 04:05:32] ✅ 0.0% < 3.0% — back to 100%
