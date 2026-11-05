@@ -318,13 +318,13 @@
     "PM2_HOME": "/data/data/com.termux/files/home/.pm2",
     "unique_id": "fdd1727b-62fa-4283-ba2c-f2ec61a10fc0",
     "status": "online",
-    "pm_uptime": 1793899289095,
+    "pm_uptime": 1793899616369,
     "axm_actions": [],
     "axm_monitor": {},
     "axm_options": {},
     "axm_dynamic": {},
     "created_at": 1793895094791,
-    "restart_time": 299,
+    "restart_time": 482,
     "unstable_restarts": 0,
     "version": "N/A",
     "exit_code": 0
@@ -429,13 +429,13 @@
     "PM2_HOME": "/data/data/com.termux/files/home/.pm2",
     "unique_id": "8fcd24f9-f9ec-48d0-8f2b-0ca43549a419",
     "status": "online",
-    "pm_uptime": 1793899287109,
+    "pm_uptime": 1793899616109,
     "axm_actions": [],
     "axm_monitor": {},
     "axm_options": {},
     "axm_dynamic": {},
     "created_at": 1793895101283,
-    "restart_time": 284,
+    "restart_time": 458,
     "unstable_restarts": 0,
     "version": "N/A",
     "exit_code": 0
@@ -538,7 +538,7 @@
     "PM2_HOME": "/data/data/com.termux/files/home/.pm2",
     "unique_id": "35cd2fff-218a-4f27-b0ff-cfe96667c423",
     "status": "online",
-    "pm_uptime": 1793899232112,
+    "pm_uptime": 1793899614427,
     "axm_actions": [
       {
         "action_name": "km:heapdump",
@@ -567,6 +567,24 @@
       }
     ],
     "axm_monitor": {
+      "Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/total",
+        "value": "11.21"
+      },
+      "Heap Usage": {
+        "historic": true,
+        "unit": "%",
+        "type": "internal/v8/heap/usage",
+        "value": 65.35
+      },
+      "Used Heap Size": {
+        "historic": true,
+        "unit": "MiB",
+        "type": "internal/v8/heap/used",
+        "value": "7.33"
+      },
       "Active requests": {
         "historic": true,
         "type": "internal/libuv/requests",
@@ -575,37 +593,19 @@
       "Active handles": {
         "historic": true,
         "type": "internal/libuv/handles",
-        "value": 3
+        "value": 7
       },
       "Event Loop Latency": {
         "historic": true,
         "unit": "ms",
         "type": "internal/libuv/latency/p50",
-        "value": "1.70"
+        "value": "3.66"
       },
       "Event Loop Latency p95": {
         "historic": true,
         "unit": "ms",
         "type": "internal/libuv/latency/p95",
-        "value": "3.21"
-      },
-      "Heap Size": {
-        "historic": true,
-        "unit": "MiB",
-        "type": "internal/v8/heap/total",
-        "value": "14.96"
-      },
-      "Heap Usage": {
-        "historic": true,
-        "unit": "%",
-        "type": "internal/v8/heap/usage",
-        "value": 49.16
-      },
-      "Used Heap Size": {
-        "historic": true,
-        "unit": "MiB",
-        "type": "internal/v8/heap/used",
-        "value": "7.36"
+        "value": "3.66"
       }
     },
     "axm_options": {
@@ -639,7 +639,7 @@
     },
     "axm_dynamic": {},
     "created_at": 1793895179513,
-    "restart_time": 147,
+    "restart_time": 227,
     "unstable_restarts": 0,
     "version": "N/A",
     "node_version": "24.17.0",
@@ -855,13 +855,13 @@
     "PM2_HOME": "/data/data/com.termux/files/home/.pm2",
     "unique_id": "132b98e3-7715-42d7-87c9-e558192f60c8",
     "status": "online",
-    "pm_uptime": 1793899288504,
+    "pm_uptime": 1793899615951,
     "axm_actions": [],
     "axm_monitor": {},
     "axm_options": {},
     "axm_dynamic": {},
     "created_at": 1793895265579,
-    "restart_time": 284,
+    "restart_time": 463,
     "unstable_restarts": 0,
     "version": "N/A",
     "exit_code": 0
@@ -965,68 +965,14 @@
     "PM2_HOME": "/data/data/com.termux/files/home/.pm2",
     "unique_id": "141c2a4a-2c6d-4793-8c9e-915b99085447",
     "status": "online",
-    "pm_uptime": 1793899287524,
-    "axm_actions": [
-      {
-        "action_name": "km:heapdump",
-        "action_type": "internal",
-        "arity": 2
-      },
-      {
-        "action_name": "km:cpu:profiling:start",
-        "action_type": "internal",
-        "arity": 2
-      },
-      {
-        "action_name": "km:cpu:profiling:stop",
-        "action_type": "internal",
-        "arity": 1
-      },
-      {
-        "action_name": "km:heap:sampling:start",
-        "action_type": "internal",
-        "arity": 2
-      },
-      {
-        "action_name": "km:heap:sampling:stop",
-        "action_type": "internal",
-        "arity": 1
-      }
-    ],
+    "pm_uptime": 1793899617007,
+    "axm_actions": [],
     "axm_monitor": {},
-    "axm_options": {
-      "error": true,
-      "heapdump": true,
-      "feature.profiler.heapsnapshot": false,
-      "feature.profiler.heapsampling": true,
-      "feature.profiler.cpu_js": true,
-      "latency": true,
-      "catchExceptions": true,
-      "profiling": true,
-      "metrics": {
-        "v8": true,
-        "network": false,
-        "eventLoop": true,
-        "runtime": true,
-        "http": true
-      },
-      "standalone": false,
-      "tracing": {
-        "enabled": false,
-        "outbound": false
-      },
-      "module_conf": {},
-      "apm": {
-        "type": "node",
-        "version": "8.0.0"
-      },
-      "module_name": "cybra-openid",
-      "module_version": "7.1.2"
-    },
+    "axm_options": {},
     "axm_dynamic": {},
-    "created_at": 1793899242392,
-    "restart_time": 326,
-    "unstable_restarts": 0,
+    "created_at": 1793899471456,
+    "restart_time": 530,
+    "unstable_restarts": 1,
     "version": "1.0.0",
     "node_version": "24.17.0",
     "exit_code": 1
@@ -1674,13 +1620,13 @@
     "PM2_HOME": "/data/data/com.termux/files/home/.pm2",
     "unique_id": "d35323c3-514f-41db-a3b3-a14b69304e1e",
     "status": "online",
-    "pm_uptime": 1793899289193,
+    "pm_uptime": 1793899617143,
     "axm_actions": [],
     "axm_monitor": {},
     "axm_options": {},
     "axm_dynamic": {},
     "created_at": 1793895833458,
-    "restart_time": 730,
+    "restart_time": 1187,
     "unstable_restarts": 0,
     "version": "N/A",
     "exit_code": 0
