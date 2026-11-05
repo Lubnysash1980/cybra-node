@@ -66,3 +66,45 @@ bin/cybra_autowatch.sh: line 100: /data/data/com.termux/files/home/CYBRA/bin/cyb
 [2026-11-05 15:25:30] ═══ AUTOWATCH START ═══ pid=14774 tick=15s
 [2026-11-05 15:25:30] bg_dump DEAD → start
 ✓ started pid=14795
+[2026-11-05 15:41:03] autoheal: restart cybra-api
+[1m[34mUse --update-env to update environment variables[39m[22m
+[32m[PM2] [39mApplying action restartProcessId on app [cybra-api](ids: [ 9 ])
+[32m[PM2] [39m[cybra-api](9) ✓
+┌────┬─────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                    │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ [1m[36m9[39m[22m  │ cybra-api               │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 29534    │ 0s     │ 15   │ [32m[1monline[22m[39m    │ 0%       │ 4.0mb    │ [1mu0_a424[22m  │ [90mdisabled[39m │
+│ [1m[36m2[39m[22m  │ cybra-autogit           │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 24346    │ 3m     │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 2.7mb    │ [1mu0_a424[22m  │ [90mdisabled[39m │
+│ [1m[36m0[39m[22m  │ cybra-core              │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 24307    │ 3m     │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 22.0mb   │ [1mu0_a424[22m  │ [90mdisabled[39m │
+│ [1m[36m7[39m[22m  │ cybra-evolution-ctrl    │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 29485    │ 1s     │ 65   │ [32m[1monline[22m[39m    │ 0%       │ 17.7mb   │ [1mu0_a424[22m  │ [90mdisabled[39m │
+│ [1m[36m6[39m[22m  │ cybra-monolith          │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 27220    │ 72s    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 6.4mb    │ [1mu0_a424[22m  │ [90mdisabled[39m │
+│ [1m[36m8[39m[22m  │ cybra-neuro-ctrl        │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 29483    │ 1s     │ 65   │ [32m[1monline[22m[39m    │ 0%       │ 17.3mb   │ [1mu0_a424[22m  │ [90mdisabled[39m │
+│ [1m[36m3[39m[22m  │ level-tracker           │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 25691    │ 2m     │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 3.1mb    │ [1mu0_a424[22m  │ [90mdisabled[39m │
+│ [1m[36m4[39m[22m  │ menu-worker             │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 25755    │ 2m     │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 3.0mb    │ [1mu0_a424[22m  │ [90mdisabled[39m │
+│ [1m[36m10[39m[22m │ parliament              │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 27358    │ 68s    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 15.1mb   │ [1mu0_a424[22m  │ [90mdisabled[39m │
+│ [1m[36m1[39m[22m  │ redis                   │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 24308    │ 3m     │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 3.3mb    │ [1mu0_a424[22m  │ [90mdisabled[39m │
+│ [1m[36m5[39m[22m  │ taxi-events             │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 27207    │ 73s    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 8.1mb    │ [1mu0_a424[22m  │ [90mdisabled[39m │
+└────┴─────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[1m[36mhost metrics[39m[22m | [1mcpu[22m: 0% | [1mram usage[22m: [1m[33m89.3%[39m[22m | [1mdisk[22m: ⇓ 0mb/s ⇑ 0mb/s
+[2026-11-05 15:41:04] autoheal: restarted 1 process(es)
+[2026-11-05 15:42:37] autoheal: restart cybra-api
+[1m[34mUse --update-env to update environment variables[39m[22m
+[32m[PM2] [39mApplying action restartProcessId on app [cybra-api](ids: [ 9 ])
+[32m[PM2] [39m[cybra-api](9) ✓
+┌────┬─────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                    │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ [1m[36m9[39m[22m  │ cybra-api               │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 32170    │ 0s     │ 30   │ [32m[1monline[22m[39m    │ 0%       │ 3.9mb    │ [1mu0_a424[22m  │ [90mdisabled[39m │
+│ [1m[36m2[39m[22m  │ cybra-autogit           │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 24346    │ 4m     │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 2.7mb    │ [1mu0_a424[22m  │ [90mdisabled[39m │
+│ [1m[36m0[39m[22m  │ cybra-core              │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 24307    │ 4m     │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 21.2mb   │ [1mu0_a424[22m  │ [90mdisabled[39m │
+│ [1m[36m7[39m[22m  │ cybra-evolution-ctrl    │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 32141    │ 1s     │ 154  │ [32m[1monline[22m[39m    │ 0%       │ 17.6mb   │ [1mu0_a424[22m  │ [90mdisabled[39m │
+│ [1m[36m6[39m[22m  │ cybra-monolith          │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 27220    │ 2m     │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 6.3mb    │ [1mu0_a424[22m  │ [90mdisabled[39m │
+│ [1m[36m8[39m[22m  │ cybra-neuro-ctrl        │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 32159    │ 0s     │ 156  │ [32m[1monline[22m[39m    │ 0%       │ 17.3mb   │ [1mu0_a424[22m  │ [90mdisabled[39m │
+│ [1m[36m3[39m[22m  │ level-tracker           │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 25691    │ 4m     │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 3.1mb    │ [1mu0_a424[22m  │ [90mdisabled[39m │
+│ [1m[36m4[39m[22m  │ menu-worker             │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 25755    │ 4m     │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 3.0mb    │ [1mu0_a424[22m  │ [90mdisabled[39m │
+│ [1m[36m10[39m[22m │ parliament              │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 27358    │ 2m     │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 15.0mb   │ [1mu0_a424[22m  │ [90mdisabled[39m │
+│ [1m[36m1[39m[22m  │ redis                   │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 24308    │ 4m     │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 3.3mb    │ [1mu0_a424[22m  │ [90mdisabled[39m │
+│ [1m[36m5[39m[22m  │ taxi-events             │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 27207    │ 2m     │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 8.2mb    │ [1mu0_a424[22m  │ [90mdisabled[39m │
+└────┴─────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[1m[36mhost metrics[39m[22m | [1mcpu[22m: 0% | [1mram usage[22m: [1m[33m84.3%[39m[22m | [1mdisk[22m: ⇓ 0mb/s ⇑ 0mb/s
+[2026-11-05 15:42:38] autoheal: restarted 1 process(es)

@@ -1,82 +1,174 @@
 {
-  "ts": 1793812760.9555228,
-  "iso": "2026-11-04T17:19:20.955546+00:00",
+  "schema_version": 3,
+  "generated_at": "2026-11-05T13:42:43.216Z",
   "overall": {
-    "percent": 100.0,
-    "color": "green"
-  },
-  "colors": {
-    "green": 9,
-    "yellow": 0,
-    "red": 0,
-    "black": 0
-  },
-  "items": {
-    "cybra-manifest": {
-      "color": "green",
-      "score": 100,
-      "reason": "ok",
-      "status": "online",
-      "restarts": 0,
-      "mem_limit": "68157440"
-    },
-    "cybra-reaper": {
-      "color": "green",
-      "score": 100,
-      "reason": "ok",
-      "status": "online",
-      "restarts": 0,
-      "mem_limit": "68157440"
-    },
-    "cybra-stage": {
-      "color": "green",
-      "score": 100,
-      "reason": "ok",
-      "status": "online",
-      "restarts": 0,
-      "mem_limit": "68157440"
-    },
-    "cybra-locate": {
-      "color": "green",
-      "score": 100,
-      "reason": "ok",
-      "status": "online",
-      "restarts": 0,
-      "mem_limit": "68157440"
-    },
-    "cybra-sync": {
-      "color": "green",
-      "score": 100,
-      "reason": "ok",
-      "status": "online",
-      "restarts": 0,
-      "mem_limit": "68157440"
-    },
-    "cybra-dump": {
-      "color": "green",
-      "score": 100,
-      "reason": "ok",
-      "status": "online",
-      "restarts": 0,
-      "mem_limit": "68157440"
-    },
-    "cybra-autogit": {
-      "color": "green",
-      "score": 100,
-      "reason": "ok",
-      "status": "online",
-      "restarts": 0,
-      "mem_limit": "68157440"
+    "percent": 56,
+    "color": "black",
+    "level": "critical",
+    "sections": {
+      "services": 15,
+      "api": 0,
+      "resources": 11,
+      "stability": 15,
+      "self_heal": 10,
+      "queue": 5
     }
   },
-  "resources": {
-    "ram_total_mb": 3601,
-    "ram_avail_mb": 664,
-    "ram_avail_pct": 18.4,
-    "disk_mb": 65634,
-    "queue_files": 0,
-    "color": "yellow"
+  "colors": {
+    "green": 2,
+    "yellow": 1,
+    "red": 1,
+    "black": 1
   },
-  "needs_cleanup": false,
-  "needs_throttle": false
+  "resources": {
+    "ram_avail_pct": 16.3,
+    "disk_mb": 65311.1,
+    "pm2_memory_mb": 93.4,
+    "pm2_cpu_pct": 0
+  },
+  "services": [
+    {
+      "name": "cybra-core",
+      "status": "online",
+      "pid": 24307,
+      "cpu_pct": 0,
+      "memory_mb": 21.2,
+      "restarts": 0
+    },
+    {
+      "name": "redis",
+      "status": "online",
+      "pid": 24308,
+      "cpu_pct": 0,
+      "memory_mb": 3.4,
+      "restarts": 0
+    },
+    {
+      "name": "cybra-autogit",
+      "status": "online",
+      "pid": 24346,
+      "cpu_pct": 0,
+      "memory_mb": 2.7,
+      "restarts": 0
+    },
+    {
+      "name": "level-tracker",
+      "status": "online",
+      "pid": 25691,
+      "cpu_pct": 0,
+      "memory_mb": 3.1,
+      "restarts": 0
+    },
+    {
+      "name": "menu-worker",
+      "status": "online",
+      "pid": 25755,
+      "cpu_pct": 0,
+      "memory_mb": 3,
+      "restarts": 0
+    },
+    {
+      "name": "taxi-events",
+      "status": "online",
+      "pid": 27207,
+      "cpu_pct": 0,
+      "memory_mb": 8.2,
+      "restarts": 0
+    },
+    {
+      "name": "cybra-monolith",
+      "status": "online",
+      "pid": 27220,
+      "cpu_pct": 0,
+      "memory_mb": 6.3,
+      "restarts": 0
+    },
+    {
+      "name": "cybra-evolution-ctrl",
+      "status": "online",
+      "pid": 32287,
+      "cpu_pct": 0,
+      "memory_mb": 17.6,
+      "restarts": 158
+    },
+    {
+      "name": "cybra-neuro-ctrl",
+      "status": "online",
+      "pid": 32301,
+      "cpu_pct": 0,
+      "memory_mb": 12.9,
+      "restarts": 160
+    },
+    {
+      "name": "cybra-api",
+      "status": "errored",
+      "pid": 0,
+      "cpu_pct": 0,
+      "memory_mb": 0,
+      "restarts": 45
+    },
+    {
+      "name": "parliament",
+      "status": "online",
+      "pid": 27358,
+      "cpu_pct": 0,
+      "memory_mb": 15,
+      "restarts": 0
+    }
+  ],
+  "health": {
+    "openid": {
+      "ok": false,
+      "status": 0,
+      "latency_ms": 5,
+      "reason": "connect ECONNREFUSED 127.0.0.1:8787"
+    }
+  },
+  "items": {
+    "pm2:cybra-monolith": {
+      "color": "green",
+      "reason": "Process online"
+    },
+    "pm2:cybra-openid": {
+      "color": "black",
+      "reason": "Required process not found"
+    },
+    "openid_health": {
+      "color": "red",
+      "reason": "connect ECONNREFUSED 127.0.0.1:8787"
+    },
+    "ram": {
+      "color": "yellow",
+      "reason": "16.3% RAM available"
+    },
+    "disk": {
+      "color": "green",
+      "reason": "65311.1 MB disk available"
+    }
+  },
+  "ai": {
+    "enabled": true,
+    "mode": "observing",
+    "target": 100,
+    "tolerance": 3,
+    "total_cycles": 21,
+    "total_actions": 0,
+    "rewards": 0,
+    "penalties": 0,
+    "neutral": 0,
+    "last_action": "none",
+    "last_decision": "diagnose",
+    "last_delta": 0
+  },
+  "survival": {
+    "active": true,
+    "mode": "survival"
+  },
+  "circuits": {
+    "open": 0,
+    "names": []
+  },
+  "self_heal": {
+    "status": "active"
+  }
 }

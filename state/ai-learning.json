@@ -1,0 +1,14 @@
+{
+  "enabled": true,
+  "mode": "observing",
+  "target": 100,
+  "tolerance": 3,
+  "total_cycles": 21,
+  "total_actions": 0,
+  "rewards": 0,
+  "penalties": 0,
+  "neutral": 0,
+  "last_action": "none",
+  "last_decision": "diagnose",
+  "last_delta": 0
+}
