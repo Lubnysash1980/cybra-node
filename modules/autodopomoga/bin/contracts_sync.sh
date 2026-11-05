@@ -3,7 +3,7 @@
 set -u
 MOD="$(cd "$(dirname "$0")/.." && pwd)"
 CONTRACTS="$MOD/contracts.json"
-RESERVED="god autowatch bg_dump autogit"
+RESERVED="god autowatch bg_dump autogit cybra-autogit"
 
 cp "$CONTRACTS" "$CONTRACTS.bak.$(date +%s)"
 

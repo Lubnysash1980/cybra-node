@@ -1,0 +1,114 @@
+{
+  "god": {
+    "purpose": "PM2 process manager — тримає cybra-* процеси",
+    "weight": 5,
+    "health": "[ $(pgrep -f 'PM2.*God Daemon' | wc -l) -ge 1 ]",
+    "escalation": [
+      {
+        "attempt": 1,
+        "actions": [
+          "pm2 resurrect"
+        ]
+      },
+      {
+        "attempt": 2,
+        "actions": [
+          "pm2 resurrect",
+          "pm2 save --force"
+        ]
+      }
+    ],
+    "max_attempts": 2,
+    "cooldown_sec": 300
+  },
+  "autowatch": {
+    "purpose": "супервізор: bg_dump + autogit + autoheal + god resurrect",
+    "weight": 3,
+    "health": "[ -f $CYBRA/.cache/autowatch.pid ] && kill -0 $(cat $CYBRA/.cache/autowatch.pid 2>/dev/null) 2>/dev/null",
+    "escalation": [
+      {
+        "attempt": 1,
+        "actions": [
+          "$CYBRA/bin/cybra_autowatch_ctl.sh start"
+        ]
+      },
+      {
+        "attempt": 2,
+        "actions": [
+          "rm -f $CYBRA/.cache/autowatch.pid",
+          "rmdir $CYBRA/.cache/autowatch.lock 2>/dev/null || true",
+          "$CYBRA/bin/cybra_autowatch_ctl.sh start"
+        ]
+      }
+    ],
+    "max_attempts": 2,
+    "cooldown_sec": 600
+  },
+  "bg_dump": {
+    "purpose": "знімок компонентів кожні 60с + глобальний кожні 900с",
+    "weight": 2,
+    "health": "[ -f $CYBRA/.cache/bg_dump.pid ] && kill -0 $(cat $CYBRA/.cache/bg_dump.pid 2>/dev/null) 2>/dev/null",
+    "escalation": [
+      {
+        "attempt": 1,
+        "actions": [
+          "$CYBRA/bin/cybra_bg_dump_ctl.sh start"
+        ]
+      },
+      {
+        "attempt": 2,
+        "actions": [
+          "rm -f $CYBRA/.cache/bg_dump.pid",
+          "$CYBRA/bin/cybra_bg_dump_ctl.sh start"
+        ]
+      }
+    ],
+    "max_attempts": 2,
+    "cooldown_sec": 600
+  },
+  "autogit": {
+    "purpose": "авто-коміт+пуш кожні 5 хвилин",
+    "weight": 2,
+    "health": "pm2 jlist 2>/dev/null | jq -r '.[] | select(.name==\"cybra-autogit\") | .pm2_env.status' | grep -qx online",
+    "escalation": [
+      {
+        "attempt": 1,
+        "actions": [
+          "pm2 restart cybra-autogit"
+        ]
+      },
+      {
+        "attempt": 2,
+        "actions": [
+          "pm2 delete cybra-autogit || true",
+          "pm2 start $CYBRA/bin/wrappers/run_autogit.sh --name cybra-autogit --interpreter bash --max-memory-restart 65M",
+          "pm2 save --force"
+        ]
+      }
+    ],
+    "max_attempts": 2,
+    "cooldown_sec": 900
+  },
+  "cybra-autogit": {
+    "purpose": "pm2 process: cybra-autogit",
+    "weight": 1,
+    "health": "pm2 jlist 2>/dev/null | jq -e '.[] | select(.name==\"cybra-autogit\" and .pm2_env.status==\"online\")' >/dev/null",
+    "escalation": [
+      {
+        "attempt": 1,
+        "actions": [
+          "pm2 restart cybra-autogit"
+        ]
+      },
+      {
+        "attempt": 2,
+        "actions": [
+          "pm2 resurrect",
+          "pm2 save --force"
+        ]
+      }
+    ],
+    "max_attempts": 2,
+    "cooldown_sec": 600
+  }
+}
