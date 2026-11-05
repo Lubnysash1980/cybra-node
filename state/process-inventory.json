@@ -1,10 +1,5 @@
 [
   {
-    "name": "cybra-ai",
-    "exec": "/data/data/com.termux/files/home/CYBRA/ai/self-evolution.js",
-    "interp": "node"
-  },
-  {
     "name": "cybra-api",
     "exec": "/data/data/com.termux/files/home/CYBRA/api/run.sh",
     "interp": "bash"
