@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-11-05T17:28:43.494Z",
+  "generated_at": "2026-11-05T17:29:12.748Z",
   "overall": {
     "percent": 41,
     "color": "black",
@@ -21,10 +21,10 @@
     "black": 2
   },
   "resources": {
-    "ram_avail_pct": 18.4,
-    "disk_mb": 65178.6,
-    "pm2_memory_mb": 61.1,
-    "pm2_cpu_pct": 2.6
+    "ram_avail_pct": 16.3,
+    "disk_mb": 65125.7,
+    "pm2_memory_mb": 61.400000000000006,
+    "pm2_cpu_pct": 2
   },
   "services": [
     {
@@ -39,8 +39,8 @@
       "name": "cybra-core",
       "status": "online",
       "pid": 23931,
-      "cpu_pct": 1.3,
-      "memory_mb": 22,
+      "cpu_pct": 1,
+      "memory_mb": 22.7,
       "restarts": 0
     },
     {
@@ -72,7 +72,7 @@
       "status": "online",
       "pid": 24340,
       "cpu_pct": 0,
-      "memory_mb": 2.9,
+      "memory_mb": 2.7,
       "restarts": 0
     },
     {
@@ -80,7 +80,7 @@
       "status": "online",
       "pid": 24398,
       "cpu_pct": 0,
-      "memory_mb": 2.9,
+      "memory_mb": 2.6,
       "restarts": 0
     },
     {
@@ -95,7 +95,7 @@
       "name": "level-tracker",
       "status": "online",
       "pid": 24491,
-      "cpu_pct": 0.1,
+      "cpu_pct": 0,
       "memory_mb": 3.1,
       "restarts": 0
     },
@@ -103,7 +103,7 @@
       "name": "menu-worker",
       "status": "online",
       "pid": 24532,
-      "cpu_pct": 0.1,
+      "cpu_pct": 0,
       "memory_mb": 2.9,
       "restarts": 0
     },
@@ -111,15 +111,15 @@
       "name": "parliament",
       "status": "online",
       "pid": 24572,
-      "cpu_pct": 0.7,
-      "memory_mb": 10.6,
+      "cpu_pct": 1,
+      "memory_mb": 10.7,
       "restarts": 0
     },
     {
       "name": "redis",
       "status": "online",
       "pid": 24606,
-      "cpu_pct": 0.4,
+      "cpu_pct": 0,
       "memory_mb": 3.2,
       "restarts": 0
     },
@@ -136,7 +136,7 @@
     "openid": {
       "ok": false,
       "status": 0,
-      "latency_ms": 7,
+      "latency_ms": 3,
       "reason": "connect ECONNREFUSED 127.0.0.1:8787"
     }
   },
@@ -155,11 +155,11 @@
     },
     "ram": {
       "color": "yellow",
-      "reason": "18.4% RAM available"
+      "reason": "16.3% RAM available"
     },
     "disk": {
       "color": "green",
-      "reason": "65178.6 MB disk available"
+      "reason": "65125.7 MB disk available"
     }
   },
   "ai": {
@@ -167,7 +167,7 @@
     "mode": "observing",
     "target": 100,
     "tolerance": 3,
-    "total_cycles": 104,
+    "total_cycles": 106,
     "total_actions": 0,
     "rewards": 0,
     "penalties": 0,
