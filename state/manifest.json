@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-11-05T17:35:55.441Z",
+  "generated_at": "2026-11-05T17:37:11.673Z",
   "overall": {
     "percent": 41,
     "color": "black",
@@ -21,10 +21,10 @@
     "black": 2
   },
   "resources": {
-    "ram_avail_pct": 16.1,
-    "disk_mb": 64753.5,
-    "pm2_memory_mb": 54.2,
-    "pm2_cpu_pct": 0
+    "ram_avail_pct": 17.7,
+    "disk_mb": 64765.2,
+    "pm2_memory_mb": 65.00000000000001,
+    "pm2_cpu_pct": 1.2999999999999998
   },
   "services": [
     {
@@ -32,23 +32,111 @@
       "status": "online",
       "pid": 30291,
       "cpu_pct": 0,
-      "memory_mb": 4.2,
+      "memory_mb": 3,
       "restarts": 0
     },
     {
       "name": "cybra-core",
       "status": "online",
       "pid": 30834,
-      "cpu_pct": 0,
-      "memory_mb": 50,
+      "cpu_pct": 0.4,
+      "memory_mb": 25.8,
       "restarts": 0
+    },
+    {
+      "name": "cybra-dump",
+      "status": "online",
+      "pid": 31207,
+      "cpu_pct": 0,
+      "memory_mb": 2.9,
+      "restarts": 0
+    },
+    {
+      "name": "cybra-locate",
+      "status": "online",
+      "pid": 31611,
+      "cpu_pct": 0,
+      "memory_mb": 2.9,
+      "restarts": 0
+    },
+    {
+      "name": "cybra-manifest",
+      "status": "online",
+      "pid": 32044,
+      "cpu_pct": 0,
+      "memory_mb": 3.2,
+      "restarts": 0
+    },
+    {
+      "name": "cybra-reaper",
+      "status": "online",
+      "pid": 32572,
+      "cpu_pct": 0.1,
+      "memory_mb": 3.2,
+      "restarts": 0
+    },
+    {
+      "name": "cybra-stage",
+      "status": "online",
+      "pid": 528,
+      "cpu_pct": 0,
+      "memory_mb": 3.1,
+      "restarts": 0
+    },
+    {
+      "name": "cybra-sync",
+      "status": "online",
+      "pid": 1535,
+      "cpu_pct": 0,
+      "memory_mb": 2.9,
+      "restarts": 0
+    },
+    {
+      "name": "level-tracker",
+      "status": "online",
+      "pid": 3513,
+      "cpu_pct": 0,
+      "memory_mb": 2.9,
+      "restarts": 0
+    },
+    {
+      "name": "menu-worker",
+      "status": "online",
+      "pid": 4628,
+      "cpu_pct": 0.1,
+      "memory_mb": 3.2,
+      "restarts": 0
+    },
+    {
+      "name": "parliament",
+      "status": "online",
+      "pid": 5809,
+      "cpu_pct": 0.7,
+      "memory_mb": 11.9,
+      "restarts": 0
+    },
+    {
+      "name": "redis",
+      "status": "errored",
+      "pid": 0,
+      "cpu_pct": 0,
+      "memory_mb": 0,
+      "restarts": 30
+    },
+    {
+      "name": "runtime",
+      "status": "errored",
+      "pid": 0,
+      "cpu_pct": 0,
+      "memory_mb": 0,
+      "restarts": 30
     }
   ],
   "health": {
     "openid": {
       "ok": false,
       "status": 0,
-      "latency_ms": 34,
+      "latency_ms": 3,
       "reason": "connect ECONNREFUSED 127.0.0.1:8787"
     }
   },
@@ -67,11 +155,11 @@
     },
     "ram": {
       "color": "yellow",
-      "reason": "16.1% RAM available"
+      "reason": "17.7% RAM available"
     },
     "disk": {
       "color": "green",
-      "reason": "64753.5 MB disk available"
+      "reason": "64765.2 MB disk available"
     }
   },
   "ai": {
@@ -79,7 +167,7 @@
     "mode": "observing",
     "target": 100,
     "tolerance": 3,
-    "total_cycles": 126,
+    "total_cycles": 131,
     "total_actions": 0,
     "rewards": 0,
     "penalties": 0,
