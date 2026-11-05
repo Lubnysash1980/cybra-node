@@ -7,3 +7,10 @@
 [2026-11-04T17:22:18Z] ▶️ Запущено 7Levels (PID: 24171)
 [2026-11-05T02:26:27Z] 🛑 Отримано сигнал зупинки. Вбиваємо всі підпроцеси...
 [2026-11-05T02:26:27Z] ✅ Всі процеси зупинено. Вихід.
+[2026-11-05T13:20:36Z] === МОНОЛІТНИЙ МАСТЕР ЗАПУЩЕНО (CLEAN VERSION) ===
+[2026-11-05T13:20:36Z] ⚠️ Autonode: Файл не знайдено (/data/data/com.termux/files/home/CYBRA/bin/cybra_autonode_main.js). Пропускаємо.
+[2026-11-05T13:20:37Z] ⚠️ Parliament: Файл не знайдено (/data/data/com.termux/files/home/CYBRA/parliament_core/priority_manager.py). Пропускаємо.
+[2026-11-05T13:20:38Z] ⚠️ MainController: Файл не знайдено (/data/data/com.termux/files/home/CYBRA/bin/cybra-main-controller.py). Пропускаємо.
+[2026-11-05T13:20:39Z] ⚠️ NodeSync: Файл не знайдено (/data/data/com.termux/files/home/CYBRA/bin/cybra-node-sync.py). Пропускаємо.
+[2026-11-05T13:20:40Z] ⚠️ ClusterLB: Файл не знайдено (/data/data/com.termux/files/home/CYBRA/bin/cybra-cluster-lb.py). Пропускаємо.
+[2026-11-05T13:20:41Z] ⚠️ 7Levels: Файл не знайдено (/data/data/com.termux/files/home/CYBRA/bin/cybra-7levels-pm2.py). Пропускаємо.

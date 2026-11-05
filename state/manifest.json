@@ -1,6 +1,6 @@
 {
-  "ts": 1793812760.9555228,
-  "iso": "2026-11-04T17:19:20.955546+00:00",
+  "schema_version": 1,
+  "generated_at": "2026-11-05T14:19:15.555Z",
   "overall": {
     "percent": 100,
     "color": "green"
@@ -11,91 +11,231 @@
     "red": 0,
     "black": 0
   },
-  "items": {
-    "cybra-manifest": {
-      "color": "green",
-      "score": 100,
-      "reason": "ok",
+  "resources": {
+    "total_mb": 3611.9,
+    "free_mb": 902.9,
+    "ram_avail_pct": 25,
+    "disk_total_mb": 108204,
+    "disk_used_mb": 57122.8,
+    "disk_mb": 50953.2,
+    "cpu_count": 0,
+    "load_average": [
+      30.32,
+      30.37,
+      29.79
+    ],
+    "pm2_cpu_pct": 8.1,
+    "pm2_memory_mb": 182.2,
+    "pm2_logs_mb": 90.9,
+    "queue_files": 0
+  },
+  "services": [
+    {
+      "name": "cybra-monolith",
       "status": "online",
-      "restarts": 0,
-      "mem_limit": "68157440"
+      "pid": 27989,
+      "cpu_pct": 0,
+      "memory_mb": 5.8,
+      "restarts": 60107,
+      "unstable_restarts": 0,
+      "uptime_ms": 3521767
     },
-    "cybra-reaper": {
-      "color": "green",
-      "score": 100,
-      "reason": "ok",
+    {
+      "name": "cybra-openid",
       "status": "online",
-      "restarts": 0,
-      "mem_limit": "68157440"
+      "pid": 12602,
+      "cpu_pct": 0.7,
+      "memory_mb": 43.9,
+      "restarts": 8,
+      "unstable_restarts": 0,
+      "uptime_ms": 1487985
     },
-    "cybra-stage": {
-      "color": "green",
-      "score": 100,
-      "reason": "ok",
+    {
+      "name": "cybra-openid-health",
       "status": "online",
-      "restarts": 0,
-      "mem_limit": "68157440"
+      "pid": 28069,
+      "cpu_pct": 0,
+      "memory_mb": 3.5,
+      "restarts": 74123,
+      "unstable_restarts": 0,
+      "uptime_ms": 3519563
     },
-    "cybra-locate": {
-      "color": "green",
-      "score": 100,
-      "reason": "ok",
+    {
+      "name": "cybra-metrics",
       "status": "online",
-      "restarts": 0,
-      "mem_limit": "68157440"
+      "pid": 20420,
+      "cpu_pct": 5,
+      "memory_mb": 47.7,
+      "restarts": 3124,
+      "unstable_restarts": 1,
+      "uptime_ms": 4340
     },
-    "cybra-sync": {
-      "color": "green",
-      "score": 100,
-      "reason": "ok",
+    {
+      "name": "redis",
       "status": "online",
+      "pid": 24471,
+      "cpu_pct": 1,
+      "memory_mb": 3.2,
       "restarts": 0,
-      "mem_limit": "68157440"
+      "unstable_restarts": 0,
+      "uptime_ms": 15522857
     },
-    "cybra-dump": {
-      "color": "green",
-      "score": 100,
-      "reason": "ok",
+    {
+      "name": "cybra-api",
       "status": "online",
-      "restarts": 0,
-      "mem_limit": "68157440"
+      "pid": 28226,
+      "cpu_pct": 0.7,
+      "memory_mb": 9.9,
+      "restarts": 15,
+      "unstable_restarts": 0,
+      "uptime_ms": 3515634
     },
-    "cybra-autogit": {
-      "color": "green",
-      "score": 100,
-      "reason": "ok",
+    {
+      "name": "parliament",
       "status": "online",
+      "pid": 28296,
+      "cpu_pct": 0.7,
+      "memory_mb": 10.8,
+      "restarts": 15,
+      "unstable_restarts": 0,
+      "uptime_ms": 3513594
+    },
+    {
+      "name": "cybra-evo-ctrl",
+      "status": "online",
+      "pid": 20534,
+      "cpu_pct": 0,
+      "memory_mb": 9.4,
+      "restarts": 88673,
+      "unstable_restarts": 0,
+      "uptime_ms": 516
+    },
+    {
+      "name": "cybra-evolution-ctrl",
+      "status": "online",
+      "pid": 20443,
+      "cpu_pct": 0,
+      "memory_mb": 17.1,
+      "restarts": 68786,
+      "unstable_restarts": 3,
+      "uptime_ms": 3068
+    },
+    {
+      "name": "cybra-neuro-ctrl",
+      "status": "online",
+      "pid": 20493,
+      "cpu_pct": 0,
+      "memory_mb": 16.3,
+      "restarts": 40653,
+      "unstable_restarts": 0,
+      "uptime_ms": 2220
+    },
+    {
+      "name": "taxi-events",
+      "status": "online",
+      "pid": 13809,
+      "cpu_pct": 0,
+      "memory_mb": 8.1,
+      "restarts": 63926,
+      "unstable_restarts": 0,
+      "uptime_ms": 3821756
+    },
+    {
+      "name": "level-tracker",
+      "status": "online",
+      "pid": 7590,
+      "cpu_pct": 0,
+      "memory_mb": 3.1,
       "restarts": 0,
-      "mem_limit": "68157440"
+      "unstable_restarts": 0,
+      "uptime_ms": 1595328
+    },
+    {
+      "name": "menu-worker",
+      "status": "online",
+      "pid": 7803,
+      "cpu_pct": 0,
+      "memory_mb": 3.4,
+      "restarts": 0,
+      "unstable_restarts": 0,
+      "uptime_ms": 1591002
+    },
+    {
+      "name": "runtime",
+      "status": "errored",
+      "pid": 0,
+      "cpu_pct": 0,
+      "memory_mb": 0,
+      "restarts": 30,
+      "unstable_restarts": 0,
+      "uptime_ms": 1514677
+    }
+  ],
+  "health": {
+    "openid": {
+      "ok": true,
+      "status": 200,
+      "latency_ms": 194,
+      "reason": "HTTP health check passed"
     }
   },
-  "resources": {
-    "ram_total_mb": 3601,
-    "ram_avail_mb": 664,
-    "ram_avail_pct": 18.4,
-    "disk_mb": 65634,
-    "queue_files": 0,
-    "color": "yellow"
+  "self_heal": {
+    "fail_count": 0,
+    "restart_count": 0,
+    "window_start": 1793888108,
+    "cooldown_until": 0
+  },
+  "items": {
+    "pm2": {
+      "color": "green",
+      "reason": "14 PM2 process(es) discovered"
+    },
+    "pm2:cybra-monolith": {
+      "color": "green",
+      "reason": "PM2 process online",
+      "pid": 27989,
+      "restarts": 60107,
+      "cpu_pct": 0,
+      "memory_mb": 5.8
+    },
+    "pm2:cybra-openid": {
+      "color": "green",
+      "reason": "PM2 process online",
+      "pid": 12602,
+      "restarts": 8,
+      "cpu_pct": 0.7,
+      "memory_mb": 43.9
+    },
+    "openid_health": {
+      "color": "green",
+      "reason": "HTTP health check passed",
+      "url": "http://127.0.0.1:8787/health",
+      "http_status": 200,
+      "latency_ms": 194
+    },
+    "ram": {
+      "color": "green",
+      "reason": "25% RAM available"
+    },
+    "disk": {
+      "color": "green",
+      "reason": "50953.2 MB disk available"
+    },
+    "logs": {
+      "color": "green",
+      "reason": "PM2 logs use 90.9 MB"
+    },
+    "queue": {
+      "color": "green",
+      "reason": "0 queued file(s)"
+    },
+    "self_heal": {
+      "color": "green",
+      "reason": "Self-heal active",
+      "restart_count": 0,
+      "fail_count": 0
+    }
   },
   "needs_cleanup": false,
-  "needs_throttle": false,
-  "ai": {
-    "enabled": true,
-    "auto_apply": true,
-    "target": 100,
-    "tolerance": 3,
-    "mode": "learning",
-    "last_health": 100,
-    "last_action": "none",
-    "last_decision": "healthy-zone",
-    "last_delta": 0,
-    "total_cycles": 48,
-    "total_actions": 0,
-    "rewards": 0,
-    "penalties": 0,
-    "neutral": 0,
-    "rollbacks": 0,
-    "cooldown_until": 0,
-    "updated_at": "2026-11-05T02:06:28.844Z"
-  }
+  "needs_throttle": false
 }

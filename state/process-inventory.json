@@ -1,0 +1,77 @@
+[
+  {
+    "name": "cybra-ai",
+    "exec": "/data/data/com.termux/files/home/CYBRA/ai/self-evolution.js",
+    "interp": "node"
+  },
+  {
+    "name": "cybra-api",
+    "exec": "/data/data/com.termux/files/home/CYBRA/api/run.sh",
+    "interp": "bash"
+  },
+  {
+    "name": "cybra-evo-ctrl",
+    "exec": "/data/data/com.termux/files/home/CYBRA/bin/cybra_evo_controller.py",
+    "interp": "python3"
+  },
+  {
+    "name": "cybra-evolution-ctrl",
+    "exec": "/data/data/com.termux/files/home/CYBRA/bin/cybra_evolution_controller.py",
+    "interp": "python3"
+  },
+  {
+    "name": "cybra-metrics",
+    "exec": "/data/data/com.termux/files/home/CYBRA/metrics/manifest-generator.js",
+    "interp": "node"
+  },
+  {
+    "name": "cybra-monolith",
+    "exec": "/data/data/com.termux/files/home/CYBRA/bin/cybra-monolith.py",
+    "interp": "python3"
+  },
+  {
+    "name": "cybra-neuro-ctrl",
+    "exec": "/data/data/com.termux/files/home/CYBRA/bin/cybra_neuro_controller.py",
+    "interp": "python3"
+  },
+  {
+    "name": "cybra-openid",
+    "exec": "/data/data/com.termux/files/home/CYBRA/openid/server.js",
+    "interp": "node"
+  },
+  {
+    "name": "cybra-openid-health",
+    "exec": "/data/data/com.termux/files/home/CYBRA/openid/health-check.sh",
+    "interp": "bash"
+  },
+  {
+    "name": "level-tracker",
+    "exec": "/data/data/com.termux/files/home/CYBRA/cybra_level_tracker.sh",
+    "interp": "bash"
+  },
+  {
+    "name": "menu-worker",
+    "exec": "/data/data/com.termux/files/home/CYBRA/parliament_menu_worker.sh",
+    "interp": "bash"
+  },
+  {
+    "name": "parliament",
+    "exec": "/data/data/com.termux/files/home/CYBRA/parliament_executor_v6.py",
+    "interp": "python3"
+  },
+  {
+    "name": "redis",
+    "exec": "/data/data/com.termux/files/usr/bin/redis-server",
+    "interp": "none"
+  },
+  {
+    "name": "runtime",
+    "exec": "/data/data/com.termux/files/home/CYBRA/cybra_codespace_runtime.py",
+    "interp": "python3"
+  },
+  {
+    "name": "taxi-events",
+    "exec": "/data/data/com.termux/files/home/CYBRA/bin/cybra_taxi_events.py",
+    "interp": "python3"
+  }
+]
