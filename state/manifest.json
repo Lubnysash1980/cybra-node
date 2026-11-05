@@ -2,7 +2,7 @@
   "ts": 1793812760.9555228,
   "iso": "2026-11-04T17:19:20.955546+00:00",
   "overall": {
-    "percent": 100.0,
+    "percent": 100,
     "color": "green"
   },
   "colors": {
@@ -78,5 +78,24 @@
     "color": "yellow"
   },
   "needs_cleanup": false,
-  "needs_throttle": false
+  "needs_throttle": false,
+  "ai": {
+    "enabled": true,
+    "auto_apply": true,
+    "target": 100,
+    "tolerance": 3,
+    "mode": "learning",
+    "last_health": 100,
+    "last_action": "none",
+    "last_decision": "healthy-zone",
+    "last_delta": 0,
+    "total_cycles": 48,
+    "total_actions": 0,
+    "rewards": 0,
+    "penalties": 0,
+    "neutral": 0,
+    "rollbacks": 0,
+    "cooldown_until": 0,
+    "updated_at": "2026-11-05T02:06:28.844Z"
+  }
 }
