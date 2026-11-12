@@ -1,0 +1,6 @@
+14103     1       05:45 /data/data/com.termux/files/home/CYBRA/modules/stats/bin/daemon.sh /data/data/com.termux/files/usr/bin/bash /data/data/com.termux/files/home/CYBRA/modules/stats/bin/daemon.sh
+14363     1       05:42 /data/data/com.termux/files/home/cybra_sync.sh /data/data/com.termux/files/usr/bin/bash /data/data/com.termux/files/home/cybra_sync.sh daemon
+17391 16815       04:27 bin/cybra_autogit.sh /data/data/com.termux/files/usr/bin/bash /data/data/com.termux/files/home/CYBRA/bin/cybra_autogit.sh --daemon 300
+18278 16815       03:42 bash /data/data/com.termux/files/usr/bin/bash /data/data/com.termux/files/home/CYBRA/bin/cybra_token_guard_loop.sh
+18295 16815       03:41 python3 /data/data/com.termux/files/usr/bin/python3 /data/data/com.termux/files/home/CYBRA/bin/cybra_taxi_events.py
+18322 16815       03:41 bash /data/data/com.termux/files/usr/bin/bash /data/data/com.termux/files/home/CYBRA/cybra_level_tracker.sh

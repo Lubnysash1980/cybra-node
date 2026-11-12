@@ -1,0 +1,26 @@
+# final state @ 2026-11-12T09:53:18+02:00
+
+## pm2 (12)
+cybra-autogit: online pid=17391 mem=2mb
+cybra-core: online pid=18255 mem=22mb
+redis: online pid=22079 mem=3mb
+cybra-token-guard: online pid=18278 mem=3mb
+menu-worker: online pid=null mem=0mb
+taxi-events: online pid=18295 mem=5mb
+cybra-locate: online pid=18297 mem=2mb
+cybra-sync: online pid=18299 mem=2mb
+cybra-manifest: online pid=18305 mem=3mb
+cybra-reaper: online pid=18313 mem=3mb
+cybra-dump: online pid=18317 mem=2mb
+level-tracker: online pid=18322 mem=3mb
+
+## nohup (6)
+autowatch: DEAD
+bg_dump: DEAD
+autodopomoga: DEAD
+parliament-auto: DEAD
+stats: RUNNING pid=14103 ppid=1
+sync: RUNNING pid=14363 ppid=1
+
+## redis
+PING: PONG

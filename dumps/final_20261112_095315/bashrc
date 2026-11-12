@@ -1,0 +1,107 @@
+
+# ── auto ssh-agent (gh-setup.sh) ──
+if [ -z "$SSH_AUTH_SOCK" ] && command -v ssh-agent >/dev/null 2>&1; then
+    eval "$(ssh-agent -s)" >/dev/null
+    [ -f "$HOME/.ssh/id_ed25519_github" ] && \
+        ssh-add "$HOME/.ssh/id_ed25519_github" 2>/dev/null
+fi
+# resurrect тільки якщо pm2 пустий І є що відновлювати
+if command -v pm2 >/dev/null 2>&1; then
+  _pm2cnt=$(pm2 jlist 2>/dev/null | jq 'length' 2>/dev/null || echo 0)
+  _dumpcnt=$(jq 'length' ~/.pm2/dump.pm2 2>/dev/null || echo 0)
+  if [ "$_pm2cnt" -eq 0 ] && [ "$_dumpcnt" -gt 0 ]; then
+    # resurrect тільки якщо pm2 пустий
+if command -v pm2 >/dev/null 2>&1; then
+  _c=$(pm2 jlist 2>/dev/null | jq 'length' 2>/dev/null || echo 0)
+  _d=$(jq 'length' ~/.pm2/dump.pm2 2>/dev/null || echo 0)
+  [ "$_c" -eq 0 ] && [ "$_d" -gt 0 ] && cd ~/CYBRA && pm2 resurrect 2>/dev/null
+  unset _c _d
+fi
+  fi
+  unset _pm2cnt _dumpcnt
+fi
+export PATH="$HOME/bin:$PATH"
+
+
+# ── @cybra v2 ──
+_cybra_status_auto(){
+  local v; v=$("$HOME/CYBRA/modules/autodopomoga/bin/verify.sh" 2>/dev/null)
+  if [ "${1:-short}" = "json" ]; then echo "$v"; return; fi
+  local dev un col d
+  dev=$(echo "$v" | jq -r '.deviation // "?"' 2>/dev/null || echo "?")
+  un=$(echo "$v"  | jq -r '.unhealthy | join(",")' 2>/dev/null)
+  col="green"; [ -n "$un" ] && col="red"
+  d=$(kill -0 "$(cat "$HOME/CYBRA/.cache/autodopomoga.pid" 2>/dev/null)" 2>/dev/null && echo D || echo -)
+  if [ -n "$un" ]; then printf '%s %s %s%% [%s]\n' "$col" "$d" "$dev" "$un"
+  else printf '%s %s %s%%\n' "$col" "$d" "$dev"; fi
+}
+_cybra_status_parl(){
+  local MOD="$HOME/CYBRA/modules/parliament"
+  if [ "${1:-short}" = "json" ]; then "$MOD/bin/parliament.sh" status; return; fi
+  local p a v r col d
+  p=$(cat "$MOD"/state/proposals/*.json 2>/dev/null | jq -s 'map(select(.status=="pending"))|length'  2>/dev/null || echo 0)
+  a=$(cat "$MOD"/state/proposals/*.json 2>/dev/null | jq -s 'map(select(.status=="approved"))|length' 2>/dev/null || echo 0)
+  v=$(cat "$MOD"/state/proposals/*.json 2>/dev/null | jq -s 'map(select(.status=="vetoed"))|length'   2>/dev/null || echo 0)
+  r=$(cat "$MOD"/state/proposals/*.json 2>/dev/null | jq -s 'map(select(.status=="rejected"))|length' 2>/dev/null || echo 0)
+  col="green"; [ "$p" -gt 0 ] && col="yellow"
+  d=$(kill -0 "$(cat "$HOME/CYBRA/.cache/parliament-auto.pid" 2>/dev/null)" 2>/dev/null && echo D || echo -)
+  printf '%s %s P%s A%s V%s R%s\n' "$col" "$d" "$p" "$a" "$v" "$r"
+}
+
+_cybra_status_stats(){
+  local v; v=$("$HOME/CYBRA/modules/stats/bin/report.sh" short 2>/dev/null)
+  if [ "${1:-short}" = "json" ]; then
+    "$HOME/CYBRA/modules/stats/bin/report.sh" json
+  else
+    echo "${v:-unknown}"
+  fi
+}
+_cybra_dispatch(){
+  local a="${1:-all}"
+  case "$a" in
+    all|"")
+      local v
+      v=$("$HOME/CYBRA/modules/stakeawtodump/bin/status.sh" short 2>/dev/null)
+      printf '%-15s %s\n' "stakeawtodump:" "${v:-?}"
+      v=$(_cybra_status_auto 2>/dev/null)
+      printf '%-15s %s\n' "autodopomoga:" "${v:-?}"
+      v=$(_cybra_status_parl 2>/dev/null)
+      printf '%-15s %s\n' "parliament:" "${v:-?}"
+      v=$(_cybra_status_stats 2>/dev/null)
+      printf '%-15s %s\n' "stats:" "${v:-?}"
+      ;;
+    -ds) "$HOME/CYBRA/modules/stakeawtodump/bin/status.sh" short ;;
+    -dj) "$HOME/CYBRA/modules/stakeawtodump/bin/status.sh" json  ;;
+    -d)  "$HOME/CYBRA/modules/stakeawtodump/bin/status.sh"       ;;
+    -as) _cybra_status_auto ;;
+    -aj) _cybra_status_auto json ;;
+    -a)  "$HOME/CYBRA/modules/autodopomoga/bin/ctl.sh" status ;;
+    -s|-st) _cybra_status_stats ;;
+    -sj)    _cybra_status_stats json ;;
+    -sf)    "$HOME/CYBRA/modules/stats/bin/report.sh" full ;;
+    -ps) _cybra_status_parl ;;
+    -pj) _cybra_status_parl json ;;
+    -p)  "$HOME/CYBRA/modules/parliament/bin/parliament.sh" status ;;
+    -h|--help|help)
+      cat <<HLP
+@cybra — CYBRA module dashboard
+
+  @cybra              all modules (short)
+  @cybra -d           stakeawtodump full
+  @cybra -ds          stakeawtodump short  (green ADG)
+  @cybra -dj          stakeawtodump JSON
+  @cybra -a           autodopomoga full     (ctl.sh status)
+  @cybra -as          autodopomoga short    (green D 0.0%)
+  @cybra -aj          autodopomoga JSON     (verify.sh)
+  @cybra -s           stats short      (green 0A)
+  @cybra -sj          stats JSON
+  @cybra -sf          stats full report
+  @cybra -p           parliament full
+  @cybra -ps          parliament short      (green D P0 A2 V1 R0)
+  @cybra -pj          parliament JSON       (status)
+HLP
+      ;;
+    *) echo "usage: @cybra [-d|-a|-p|...] — @cybra -h for help" ;;
+  esac
+}
+alias '@cybra=_cybra_dispatch'
