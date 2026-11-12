@@ -1,30 +1,30 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-11-12T07:52:42.222Z",
+  "generated_at": "2026-11-12T07:53:41.778Z",
   "overall": {
-    "percent": 41,
+    "percent": 45,
     "color": "black",
     "level": "critical",
     "sections": {
       "services": 0,
       "api": 0,
-      "resources": 11,
+      "resources": 15,
       "stability": 15,
       "self_heal": 10,
       "queue": 5
     }
   },
   "colors": {
-    "green": 1,
-    "yellow": 1,
+    "green": 2,
+    "yellow": 0,
     "red": 1,
     "black": 2
   },
   "resources": {
-    "ram_avail_pct": 19.8,
-    "disk_mb": 64692.6,
-    "pm2_memory_mb": 54.5,
-    "pm2_cpu_pct": 0
+    "ram_avail_pct": 23.3,
+    "disk_mb": 64692.1,
+    "pm2_memory_mb": 55.6,
+    "pm2_cpu_pct": 1.3
   },
   "services": [
     {
@@ -39,15 +39,15 @@
       "name": "cybra-core",
       "status": "online",
       "pid": 18255,
-      "cpu_pct": 0,
-      "memory_mb": 21.3,
+      "cpu_pct": 0.5,
+      "memory_mb": 22.4,
       "restarts": 0
     },
     {
       "name": "redis",
       "status": "online",
       "pid": 22079,
-      "cpu_pct": 0,
+      "cpu_pct": 0.5,
       "memory_mb": 3.2,
       "restarts": 20
     },
@@ -95,7 +95,7 @@
       "name": "cybra-manifest",
       "status": "online",
       "pid": 18305,
-      "cpu_pct": 0,
+      "cpu_pct": 0.1,
       "memory_mb": 3.2,
       "restarts": 0
     },
@@ -119,7 +119,7 @@
       "name": "level-tracker",
       "status": "online",
       "pid": 18322,
-      "cpu_pct": 0,
+      "cpu_pct": 0.2,
       "memory_mb": 3.2,
       "restarts": 0
     }
@@ -128,7 +128,7 @@
     "openid": {
       "ok": false,
       "status": 0,
-      "latency_ms": 4,
+      "latency_ms": 3,
       "reason": "connect ECONNREFUSED 127.0.0.1:8787"
     }
   },
@@ -146,12 +146,12 @@
       "reason": "connect ECONNREFUSED 127.0.0.1:8787"
     },
     "ram": {
-      "color": "yellow",
-      "reason": "19.8% RAM available"
+      "color": "green",
+      "reason": "23.3% RAM available"
     },
     "disk": {
       "color": "green",
-      "reason": "64692.6 MB disk available"
+      "reason": "64692.1 MB disk available"
     }
   },
   "ai": {
@@ -159,7 +159,7 @@
     "mode": "observing",
     "target": 100,
     "tolerance": 3,
-    "total_cycles": 181,
+    "total_cycles": 185,
     "total_actions": 0,
     "rewards": 0,
     "penalties": 0,
