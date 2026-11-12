@@ -171,3 +171,6 @@ bin/cybra_autowatch.sh: line 100: /data/data/com.termux/files/home/CYBRA/bin/cyb
 └────┴─────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
 [1m[36mhost metrics[39m[22m | [1mcpu[22m: 0% | [1mram usage[22m: [1m[33m81.5%[39m[22m | [1mdisk[22m: ⇓ 0mb/s ⇑ 0mb/s
 [2026-11-05 15:47:24] autoheal: restarted 1 process(es)
+[2026-11-12 09:45:59] ═══ AUTOWATCH START ═══ pid=8933 tick=15s
+[2026-11-12 09:45:59] bg_dump DEAD → start
+✓ started pid=8966

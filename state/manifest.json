@@ -1,159 +1,159 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-11-12T07:45:08.649Z",
+  "generated_at": "2026-11-12T07:46:24.206Z",
   "overall": {
-    "percent": 41,
+    "percent": 45,
     "color": "black",
     "level": "critical",
     "sections": {
       "services": 0,
       "api": 0,
-      "resources": 11,
+      "resources": 15,
       "stability": 15,
       "self_heal": 10,
       "queue": 5
     }
   },
   "colors": {
-    "green": 1,
-    "yellow": 1,
+    "green": 2,
+    "yellow": 0,
     "red": 1,
     "black": 2
   },
   "resources": {
-    "ram_avail_pct": 17.8,
-    "disk_mb": 64688.5,
-    "pm2_memory_mb": 119.80000000000003,
-    "pm2_cpu_pct": 0
+    "ram_avail_pct": 22.3,
+    "disk_mb": 64652.4,
+    "pm2_memory_mb": 93.89999999999998,
+    "pm2_cpu_pct": 0.6
   },
   "services": [
     {
       "name": "cybra-core",
       "status": "online",
       "pid": 29658,
-      "cpu_pct": 0,
-      "memory_mb": 56.1,
+      "cpu_pct": 0.3,
+      "memory_mb": 39.3,
       "restarts": 0
     },
     {
       "name": "redis",
       "status": "online",
       "pid": 31744,
-      "cpu_pct": 0,
-      "memory_mb": 5.8,
+      "cpu_pct": 0.3,
+      "memory_mb": 3.3,
       "restarts": 11
     },
     {
       "name": "cybra-api",
       "status": "waiting restart",
-      "pid": 6451,
+      "pid": 10246,
       "cpu_pct": 0,
       "memory_mb": 0,
-      "restarts": 39
+      "restarts": 63
     },
     {
       "name": "cybra-complex",
       "status": "waiting restart",
-      "pid": 6454,
+      "pid": 10271,
       "cpu_pct": 0,
       "memory_mb": 0,
-      "restarts": 39
+      "restarts": 63
     },
     {
       "name": "cybra-evo-ctrl",
       "status": "waiting restart",
-      "pid": 6590,
+      "pid": 10213,
       "cpu_pct": 0,
       "memory_mb": 0,
-      "restarts": 39
+      "restarts": 63
     },
     {
       "name": "cybra-evolution",
       "status": "waiting restart",
-      "pid": 6479,
+      "pid": 10274,
       "cpu_pct": 0,
       "memory_mb": 0,
-      "restarts": 39
+      "restarts": 63
     },
     {
       "name": "cybra-git-sync",
       "status": "waiting restart",
-      "pid": 6485,
+      "pid": 10280,
       "cpu_pct": 0,
       "memory_mb": 0,
-      "restarts": 39
+      "restarts": 63
     },
     {
       "name": "cybra-hotreload",
       "status": "waiting restart",
-      "pid": 6604,
+      "pid": 10234,
       "cpu_pct": 0,
       "memory_mb": 0,
-      "restarts": 39
+      "restarts": 62
     },
     {
       "name": "cybra-neuro-core",
       "status": "online",
-      "pid": 6637,
+      "pid": 10345,
       "cpu_pct": 0,
-      "memory_mb": 13.1,
-      "restarts": 28
+      "memory_mb": 17.2,
+      "restarts": 44
     },
     {
       "name": "cybra-oracle",
       "status": "waiting restart",
-      "pid": 6621,
+      "pid": 10257,
       "cpu_pct": 0,
       "memory_mb": 0,
-      "restarts": 39
+      "restarts": 62
     },
     {
       "name": "cybra-resurrect",
       "status": "waiting restart",
-      "pid": 6624,
+      "pid": 10268,
       "cpu_pct": 0,
       "memory_mb": 0,
-      "restarts": 39
+      "restarts": 62
     },
     {
       "name": "cybra-stage",
       "status": "waiting restart",
-      "pid": 6503,
+      "pid": 10292,
       "cpu_pct": 0,
       "memory_mb": 0,
-      "restarts": 39
+      "restarts": 63
     },
     {
       "name": "cybra-token-guard",
       "status": "online",
       "pid": 29678,
       "cpu_pct": 0,
-      "memory_mb": 4,
+      "memory_mb": 3.4,
       "restarts": 0
     },
     {
       "name": "hidl-notifier",
       "status": "waiting restart",
-      "pid": 6446,
+      "pid": 10299,
       "cpu_pct": 0,
       "memory_mb": 0,
-      "restarts": 39
+      "restarts": 62
     },
     {
       "name": "hidl-worker",
       "status": "waiting restart",
-      "pid": 6628,
+      "pid": 10273,
       "cpu_pct": 0,
       "memory_mb": 0,
-      "restarts": 39
+      "restarts": 62
     },
     {
       "name": "menu-autorobot",
       "status": "waiting restart",
-      "pid": 6450,
+      "pid": 10308,
       "cpu_pct": 0,
       "memory_mb": 0,
-      "restarts": 38
+      "restarts": 62
     },
     {
       "name": "menu-worker",
@@ -166,17 +166,17 @@
     {
       "name": "parliament",
       "status": "waiting restart",
-      "pid": 6453,
+      "pid": 10310,
       "cpu_pct": 0,
       "memory_mb": 0,
-      "restarts": 38
+      "restarts": 62
     },
     {
       "name": "taxi-events",
       "status": "online",
       "pid": 29686,
       "cpu_pct": 0,
-      "memory_mb": 13.3,
+      "memory_mb": 8.2,
       "restarts": 0
     },
     {
@@ -184,7 +184,7 @@
       "status": "online",
       "pid": 29687,
       "cpu_pct": 0,
-      "memory_mb": 3.9,
+      "memory_mb": 3.1,
       "restarts": 0
     },
     {
@@ -192,23 +192,23 @@
       "status": "online",
       "pid": 29689,
       "cpu_pct": 0,
-      "memory_mb": 3.9,
+      "memory_mb": 3.1,
       "restarts": 0
     },
     {
       "name": "cybra-heal",
       "status": "stopped",
-      "pid": 6641,
+      "pid": 10397,
       "cpu_pct": 0,
       "memory_mb": 0,
-      "restarts": 2179
+      "restarts": 3205
     },
     {
       "name": "cybra-manifest",
       "status": "online",
       "pid": 29698,
       "cpu_pct": 0,
-      "memory_mb": 4,
+      "memory_mb": 3.4,
       "restarts": 0
     },
     {
@@ -216,7 +216,7 @@
       "status": "online",
       "pid": 29706,
       "cpu_pct": 0,
-      "memory_mb": 3.9,
+      "memory_mb": 3.3,
       "restarts": 0
     },
     {
@@ -224,7 +224,7 @@
       "status": "online",
       "pid": 29707,
       "cpu_pct": 0,
-      "memory_mb": 3.9,
+      "memory_mb": 3.1,
       "restarts": 0
     },
     {
@@ -232,7 +232,7 @@
       "status": "online",
       "pid": 29714,
       "cpu_pct": 0,
-      "memory_mb": 3.9,
+      "memory_mb": 3.1,
       "restarts": 0
     },
     {
@@ -240,23 +240,23 @@
       "status": "online",
       "pid": 29719,
       "cpu_pct": 0,
-      "memory_mb": 4,
+      "memory_mb": 3.4,
       "restarts": 0
     },
     {
       "name": "runtime",
       "status": "stopped",
-      "pid": 6643,
+      "pid": 10396,
       "cpu_pct": 0,
       "memory_mb": 0,
-      "restarts": 2174
+      "restarts": 3199
     }
   ],
   "health": {
     "openid": {
       "ok": false,
       "status": 0,
-      "latency_ms": 4,
+      "latency_ms": 5,
       "reason": "connect ECONNREFUSED 127.0.0.1:8787"
     }
   },
@@ -274,12 +274,12 @@
       "reason": "connect ECONNREFUSED 127.0.0.1:8787"
     },
     "ram": {
-      "color": "yellow",
-      "reason": "17.8% RAM available"
+      "color": "green",
+      "reason": "22.3% RAM available"
     },
     "disk": {
       "color": "green",
-      "reason": "64688.5 MB disk available"
+      "reason": "64652.4 MB disk available"
     }
   },
   "ai": {
@@ -287,7 +287,7 @@
     "mode": "observing",
     "target": 100,
     "tolerance": 3,
-    "total_cycles": 155,
+    "total_cycles": 160,
     "total_actions": 0,
     "rewards": 0,
     "penalties": 0,

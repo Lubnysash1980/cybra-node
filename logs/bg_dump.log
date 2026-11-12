@@ -3116,3 +3116,12 @@ kept 3 dumps, best=dump_20261105_154035 score=206
 [15:48:37] comp_20261105_154835 1/1online 100.0%
   stakeawtodump: 1/1 score=100
 [2026-11-05 15:48:37] comp dump ok
+[2026-11-12 09:46:00] ═══ BG DUMP START ═══ pid=8966 comp=60s global=900s godcheck=30s
+[2026-11-12 09:46:02] wake-lock ok
+{"overall": 100.0, "components": {"stakeawtodump": {"score": 100, "pct": 100.0, "online": 1, "total": 1, "err": 0}}}
+[09:46:05] comp_20261112_094602 1/1online 100.0%
+  stakeawtodump: 1/1 score=100
+[2026-11-12 09:46:05] comp dump ok
+kept 3 dumps, best=dump_20261105_190405 score=256
+[09:46:10] dump_20261112_094605 () score=241 stage=2 12/28online 0err portable=false
+[2026-11-12 09:46:10] global dump ok
