@@ -3129,3 +3129,7 @@ kept 3 dumps, best=dump_20261105_190405 score=256
 [09:47:12] comp_20261112_094711 1/1online 100.0%
   stakeawtodump: 1/1 score=100
 [2026-11-12 09:47:12] comp dump ok
+{"overall": 100.0, "components": {"stakeawtodump": {"score": 100, "pct": 100.0, "online": 1, "total": 1, "err": 0}}}
+[09:48:15] comp_20261112_094813 1/1online 100.0%
+  stakeawtodump: 1/1 score=100
+[2026-11-12 09:48:15] comp dump ok
