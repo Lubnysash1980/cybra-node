@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-11-12T07:53:57.103Z",
+  "generated_at": "2026-11-12T07:55:11.867Z",
   "overall": {
     "percent": 45,
     "color": "black",
@@ -21,33 +21,33 @@
     "black": 2
   },
   "resources": {
-    "ram_avail_pct": 23.8,
-    "disk_mb": 64691.6,
-    "pm2_memory_mb": 55.900000000000006,
-    "pm2_cpu_pct": 2
+    "ram_avail_pct": 20.4,
+    "disk_mb": 64691.1,
+    "pm2_memory_mb": 52.199999999999996,
+    "pm2_cpu_pct": 1.5
   },
   "services": [
     {
       "name": "cybra-autogit",
       "status": "online",
       "pid": 17391,
-      "cpu_pct": 1,
-      "memory_mb": 3.3,
+      "cpu_pct": 0,
+      "memory_mb": 3.2,
       "restarts": 0
     },
     {
       "name": "cybra-core",
       "status": "online",
       "pid": 18255,
-      "cpu_pct": 0,
-      "memory_mb": 22.3,
+      "cpu_pct": 0.5,
+      "memory_mb": 19.4,
       "restarts": 0
     },
     {
       "name": "redis",
       "status": "online",
       "pid": 22079,
-      "cpu_pct": 1,
+      "cpu_pct": 0.5,
       "memory_mb": 3.3,
       "restarts": 20
     },
@@ -56,7 +56,7 @@
       "status": "online",
       "pid": 18278,
       "cpu_pct": 0,
-      "memory_mb": 3.2,
+      "memory_mb": 3,
       "restarts": 0
     },
     {
@@ -80,7 +80,7 @@
       "status": "online",
       "pid": 18297,
       "cpu_pct": 0,
-      "memory_mb": 2.9,
+      "memory_mb": 2.8,
       "restarts": 0
     },
     {
@@ -88,7 +88,7 @@
       "status": "online",
       "pid": 18299,
       "cpu_pct": 0,
-      "memory_mb": 2.9,
+      "memory_mb": 3,
       "restarts": 0
     },
     {
@@ -96,7 +96,7 @@
       "status": "online",
       "pid": 18305,
       "cpu_pct": 0,
-      "memory_mb": 3.2,
+      "memory_mb": 3,
       "restarts": 0
     },
     {
@@ -104,7 +104,7 @@
       "status": "online",
       "pid": 18313,
       "cpu_pct": 0,
-      "memory_mb": 3.1,
+      "memory_mb": 3,
       "restarts": 0
     },
     {
@@ -112,15 +112,15 @@
       "status": "online",
       "pid": 18317,
       "cpu_pct": 0,
-      "memory_mb": 2.9,
+      "memory_mb": 2.8,
       "restarts": 0
     },
     {
       "name": "level-tracker",
       "status": "online",
       "pid": 18322,
-      "cpu_pct": 0,
-      "memory_mb": 3.2,
+      "cpu_pct": 0.5,
+      "memory_mb": 3.1,
       "restarts": 0
     }
   ],
@@ -128,7 +128,7 @@
     "openid": {
       "ok": false,
       "status": 0,
-      "latency_ms": 6,
+      "latency_ms": 7,
       "reason": "connect ECONNREFUSED 127.0.0.1:8787"
     }
   },
@@ -147,11 +147,11 @@
     },
     "ram": {
       "color": "green",
-      "reason": "23.8% RAM available"
+      "reason": "20.4% RAM available"
     },
     "disk": {
       "color": "green",
-      "reason": "64691.6 MB disk available"
+      "reason": "64691.1 MB disk available"
     }
   },
   "ai": {
@@ -159,7 +159,7 @@
     "mode": "observing",
     "target": 100,
     "tolerance": 3,
-    "total_cycles": 186,
+    "total_cycles": 191,
     "total_actions": 0,
     "rewards": 0,
     "penalties": 0,
