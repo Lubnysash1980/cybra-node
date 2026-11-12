@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-11-12T07:56:26.814Z",
+  "generated_at": "2026-11-12T07:57:41.877Z",
   "overall": {
     "percent": 45,
     "color": "black",
@@ -21,10 +21,10 @@
     "black": 2
   },
   "resources": {
-    "ram_avail_pct": 21.8,
-    "disk_mb": 64689.8,
-    "pm2_memory_mb": 54.49999999999999,
-    "pm2_cpu_pct": 0
+    "ram_avail_pct": 24.5,
+    "disk_mb": 64641.7,
+    "pm2_memory_mb": 49.79999999999999,
+    "pm2_cpu_pct": 1.7000000000000002
   },
   "services": [
     {
@@ -39,15 +39,15 @@
       "name": "cybra-core",
       "status": "online",
       "pid": 18255,
-      "cpu_pct": 0,
-      "memory_mb": 22.2,
+      "cpu_pct": 0.3,
+      "memory_mb": 18,
       "restarts": 0
     },
     {
       "name": "redis",
       "status": "online",
       "pid": 22079,
-      "cpu_pct": 0,
+      "cpu_pct": 0.5,
       "memory_mb": 3.2,
       "restarts": 20
     },
@@ -71,8 +71,8 @@
       "name": "taxi-events",
       "status": "online",
       "pid": 18295,
-      "cpu_pct": 0,
-      "memory_mb": 5.6,
+      "cpu_pct": 0.3,
+      "memory_mb": 5.5,
       "restarts": 0
     },
     {
@@ -88,14 +88,14 @@
       "status": "online",
       "pid": 18299,
       "cpu_pct": 0,
-      "memory_mb": 3,
+      "memory_mb": 2.8,
       "restarts": 0
     },
     {
       "name": "cybra-manifest",
       "status": "online",
       "pid": 18305,
-      "cpu_pct": 0,
+      "cpu_pct": 0.3,
       "memory_mb": 3,
       "restarts": 0
     },
@@ -104,7 +104,7 @@
       "status": "online",
       "pid": 18313,
       "cpu_pct": 0,
-      "memory_mb": 3,
+      "memory_mb": 2.9,
       "restarts": 0
     },
     {
@@ -119,8 +119,8 @@
       "name": "level-tracker",
       "status": "online",
       "pid": 18322,
-      "cpu_pct": 0,
-      "memory_mb": 3.1,
+      "cpu_pct": 0.3,
+      "memory_mb": 3,
       "restarts": 0
     }
   ],
@@ -128,7 +128,7 @@
     "openid": {
       "ok": false,
       "status": 0,
-      "latency_ms": 3,
+      "latency_ms": 4,
       "reason": "connect ECONNREFUSED 127.0.0.1:8787"
     }
   },
@@ -147,11 +147,11 @@
     },
     "ram": {
       "color": "green",
-      "reason": "21.8% RAM available"
+      "reason": "24.5% RAM available"
     },
     "disk": {
       "color": "green",
-      "reason": "64689.8 MB disk available"
+      "reason": "64641.7 MB disk available"
     }
   },
   "ai": {
@@ -159,7 +159,7 @@
     "mode": "observing",
     "target": 100,
     "tolerance": 3,
-    "total_cycles": 196,
+    "total_cycles": 201,
     "total_actions": 0,
     "rewards": 0,
     "penalties": 0,
