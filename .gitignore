@@ -36,3 +36,8 @@ payer_identity*
 data/cybra_dashboard/dashboard_token.local
 
 # дозволити ключові дампи
+
+# дозволити ключові дампи
+!dumps/nohup_*/
+!dumps/web_*/
+!dumps/golden_*/
