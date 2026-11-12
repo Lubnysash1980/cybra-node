@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-11-12T07:51:27.033Z",
+  "generated_at": "2026-11-12T07:52:42.222Z",
   "overall": {
     "percent": 41,
     "color": "black",
@@ -21,9 +21,9 @@
     "black": 2
   },
   "resources": {
-    "ram_avail_pct": 17.2,
-    "disk_mb": 64693.2,
-    "pm2_memory_mb": 69.2,
+    "ram_avail_pct": 19.8,
+    "disk_mb": 64692.6,
+    "pm2_memory_mb": 54.5,
     "pm2_cpu_pct": 0
   },
   "services": [
@@ -32,7 +32,7 @@
       "status": "online",
       "pid": 17391,
       "cpu_pct": 0,
-      "memory_mb": 3.2,
+      "memory_mb": 3,
       "restarts": 0
     },
     {
@@ -40,7 +40,7 @@
       "status": "online",
       "pid": 18255,
       "cpu_pct": 0,
-      "memory_mb": 31.2,
+      "memory_mb": 21.3,
       "restarts": 0
     },
     {
@@ -48,7 +48,7 @@
       "status": "online",
       "pid": 22079,
       "cpu_pct": 0,
-      "memory_mb": 5.8,
+      "memory_mb": 3.2,
       "restarts": 20
     },
     {
@@ -56,32 +56,8 @@
       "status": "online",
       "pid": 18278,
       "cpu_pct": 0,
-      "memory_mb": 3.4,
+      "memory_mb": 3.2,
       "restarts": 0
-    },
-    {
-      "name": "hidl-notifier",
-      "status": "stopping",
-      "pid": 24248,
-      "cpu_pct": 0,
-      "memory_mb": 0,
-      "restarts": 34
-    },
-    {
-      "name": "hidl-worker",
-      "status": "waiting restart",
-      "pid": 24262,
-      "cpu_pct": 0,
-      "memory_mb": 0,
-      "restarts": 34
-    },
-    {
-      "name": "menu-autorobot",
-      "status": "waiting restart",
-      "pid": 24113,
-      "cpu_pct": 0,
-      "memory_mb": 0,
-      "restarts": 33
     },
     {
       "name": "menu-worker",
@@ -92,19 +68,11 @@
       "restarts": 0
     },
     {
-      "name": "parliament",
-      "status": "waiting restart",
-      "pid": 24115,
-      "cpu_pct": 0,
-      "memory_mb": 0,
-      "restarts": 33
-    },
-    {
       "name": "taxi-events",
       "status": "online",
       "pid": 18295,
       "cpu_pct": 0,
-      "memory_mb": 6.1,
+      "memory_mb": 5.6,
       "restarts": 0
     },
     {
@@ -112,7 +80,7 @@
       "status": "online",
       "pid": 18297,
       "cpu_pct": 0,
-      "memory_mb": 3.1,
+      "memory_mb": 2.9,
       "restarts": 0
     },
     {
@@ -120,23 +88,15 @@
       "status": "online",
       "pid": 18299,
       "cpu_pct": 0,
-      "memory_mb": 3.2,
+      "memory_mb": 2.9,
       "restarts": 0
-    },
-    {
-      "name": "cybra-heal",
-      "status": "stopped",
-      "pid": 24265,
-      "cpu_pct": 0,
-      "memory_mb": 0,
-      "restarts": 1664
     },
     {
       "name": "cybra-manifest",
       "status": "online",
       "pid": 18305,
       "cpu_pct": 0,
-      "memory_mb": 3.4,
+      "memory_mb": 3.2,
       "restarts": 0
     },
     {
@@ -144,7 +104,7 @@
       "status": "online",
       "pid": 18313,
       "cpu_pct": 0,
-      "memory_mb": 3.3,
+      "memory_mb": 3.1,
       "restarts": 0
     },
     {
@@ -152,7 +112,7 @@
       "status": "online",
       "pid": 18317,
       "cpu_pct": 0,
-      "memory_mb": 3.1,
+      "memory_mb": 2.9,
       "restarts": 0
     },
     {
@@ -160,23 +120,15 @@
       "status": "online",
       "pid": 18322,
       "cpu_pct": 0,
-      "memory_mb": 3.4,
+      "memory_mb": 3.2,
       "restarts": 0
-    },
-    {
-      "name": "runtime",
-      "status": "stopped",
-      "pid": 24266,
-      "cpu_pct": 0,
-      "memory_mb": 0,
-      "restarts": 1661
     }
   ],
   "health": {
     "openid": {
       "ok": false,
       "status": 0,
-      "latency_ms": 6,
+      "latency_ms": 4,
       "reason": "connect ECONNREFUSED 127.0.0.1:8787"
     }
   },
@@ -195,11 +147,11 @@
     },
     "ram": {
       "color": "yellow",
-      "reason": "17.2% RAM available"
+      "reason": "19.8% RAM available"
     },
     "disk": {
       "color": "green",
-      "reason": "64693.2 MB disk available"
+      "reason": "64692.6 MB disk available"
     }
   },
   "ai": {
@@ -207,7 +159,7 @@
     "mode": "observing",
     "target": 100,
     "tolerance": 3,
-    "total_cycles": 176,
+    "total_cycles": 181,
     "total_actions": 0,
     "rewards": 0,
     "penalties": 0,

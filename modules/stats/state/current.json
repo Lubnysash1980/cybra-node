@@ -1,7 +1,7 @@
 {
-  "ts": 1794469658,
+  "ts": 1794469962,
   "window_sec": 3600,
-  "window_cut": "2026-11-12 08:47:35",
+  "window_cut": "2026-11-12 08:52:39",
   "autowatch": {
     "kill_extras": 0,
     "god_dead": 0,
@@ -9,16 +9,18 @@
     "autogit_missing": 0
   },
   "bg_dump": {
-    "comp_ok": 2,
+    "comp_ok": 5,
     "comp_fail": 0,
     "global_ok": 1,
     "global_fail": 0,
     "resurrects": 0
   },
   "autodopomoga": {
-    "repair_cycles": 0,
-    "after_repairs": 0,
-    "by_component": {}
+    "repair_cycles": 2,
+    "after_repairs": 2,
+    "by_component": {
+      "autogit": 2
+    }
   },
   "autogit": {
     "push_ok": 0,
@@ -36,14 +38,14 @@
   },
   "pm2": {
     "god": 1,
-    "online": 14,
+    "online": 12,
     "errored": 0
   },
   "daemons": {
-    "autowatch": "running",
-    "bg_dump": "running",
-    "autodopomoga": "running",
-    "parliament-auto": "running",
+    "autowatch": "stopped",
+    "bg_dump": "stopped",
+    "autodopomoga": "stopped",
+    "parliament-auto": "stopped",
     "stats": "running"
   }
 }
