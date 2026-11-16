@@ -1,0 +1,32 @@
+{
+  "name": "cybra",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ai-pool-manager.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lubnysash1980/cybra-node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Lubnysash1980/cybra-node/issues"
+  },
+  "homepage": "https://github.com/Lubnysash1980/cybra-node#readme",
+  "dependencies": {
+    "@inquirer/prompts": "^8.8.0",
+    "@pancakeswap/chains": "^0.10.0",
+    "@pancakeswap/swap-sdk-core": "^1.6.1",
+    "@pancakeswap/v3-sdk": "^3.10.4",
+    "@walletconnect/sign-client": "^2.26.0",
+    "dotenv": "^18.0.10",
+    "ethers": "^6.17.0",
+    "nodemailer": "^10.5.0",
+    "qrcode-terminal": "^0.12.0"
+  }
+}

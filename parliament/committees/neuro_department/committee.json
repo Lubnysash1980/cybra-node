@@ -1,0 +1,23 @@
+{
+  "committee_id": "neuro_department",
+  "name": "CYBRA Neuro Department",
+  "status": "active",
+  "parent": "cybra_parliament",
+  "mission": "Інтелектуальний центр CYBRA. Аналізує код, генерує виправлення, оцінює ризики безпеки та прогнозує еволюцію системи.",
+  "subcommittees": [
+    "ai_fix_subcommittee",
+    "ai_security_subcommittee",
+    "ai_analytics_subcommittee"
+  ],
+  "safety_rules": [
+    "never_expose_private_keys",
+    "never_execute_transactions_directly",
+    "always_provide_find_replace_or_full_code",
+    "must_pass_security_controller"
+  ],
+  "models": {
+    "primary": "cybra-parliament",
+    "fallback": "deepseek-coder",
+    "local_endpoint": "http://127.0.0.1:11434/v1"
+  }
+}

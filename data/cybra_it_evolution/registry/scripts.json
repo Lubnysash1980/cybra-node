@@ -1,0 +1,19 @@
+{
+  "safe": {
+    "pool_status": {
+      "path": "bin/cybra_pool_ctl.sh",
+      "cmd": [
+        "bash",
+        "bin/cybra_pool_ctl.sh",
+        "status"
+      ]
+    },
+    "pool_worker": {
+      "path": "bin/cybra_pool_worker.js",
+      "cmd": [
+        "node",
+        "bin/cybra_pool_worker.js"
+      ]
+    }
+  }
+}
