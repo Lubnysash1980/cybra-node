@@ -1,0 +1,20 @@
+[
+  {
+    "file": "modules/pool_v3/index.js",
+    "only_in": "both_diff",
+    "a_sha": "b5c63d4105c27321",
+    "b_sha": "349d6a46af43e53c"
+  },
+  {
+    "file": "modules/pool_v3/index.js.bak",
+    "only_in": "both_diff",
+    "a_sha": "349d6a46af43e53c",
+    "b_sha": "5e1e9e349d362d29"
+  },
+  {
+    "file": "modules/pool_v3/index.js.orig",
+    "only_in": "B",
+    "a_sha": null,
+    "b_sha": "b5c63d4105c27321"
+  }
+]

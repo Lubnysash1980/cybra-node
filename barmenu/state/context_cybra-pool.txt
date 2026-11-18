@@ -1,0 +1,421 @@
+=== MODULE: cybra-pool ===
+=== TIME: 2026-11-17T23:35:53+02:00 ===
+
+--- SOURCE ---
+217357 total
+
+--- LOGS (last 200) ---
+[1m[90m[TAILING] Tailing last 200 lines for [cybra-pool] process (change the value with --lines option)[39m[22m
+[90m/data/data/com.termux/files/home/.pm2/logs/cybra-pool-out.log last 200 lines:[39m
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3A8983b804477dd5ae7f2494d319bafaa684df48045b03e8eecaf9eda53f2b1844%402%3FexpiryTimestamp%3D1794857013%26relay-protocol%3Dirn%26symKey%3Dafd99330d0b74509cde2aa71137e79129a92d768e506a3db9ad0b935c534aaf0
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3A8983b804477dd5ae7f2494d319bafaa684df48045b03e8eecaf9eda53f2b1844%402%3FexpiryTimestamp%3D1794857013%26relay-protocol%3Dirn%26symKey%3Dafd99330d0b74509cde2aa71137e79129a92d768e506a3db9ad0b935c534aaf0
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3A0afb7cc4cf423132e96657eea8d517dfffac2cdc570f9727714610a3d7bae441%402%3FexpiryTimestamp%3D1794857315%26relay-protocol%3Dirn%26symKey%3D0af5a1e1f8c1eba292330bf265cf43c981487c9e4620ba9c6d9e8bd3bccb342b
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3A0afb7cc4cf423132e96657eea8d517dfffac2cdc570f9727714610a3d7bae441%402%3FexpiryTimestamp%3D1794857315%26relay-protocol%3Dirn%26symKey%3D0af5a1e1f8c1eba292330bf265cf43c981487c9e4620ba9c6d9e8bd3bccb342b
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3A0b7818121eddfae0abb13e6ad7f2c07f1197c62f533edb761ad7d40ea95d77ba%402%3FexpiryTimestamp%3D1794857618%26relay-protocol%3Dirn%26symKey%3Dce273ac1f9ae932f99130de7de0ede616a5191ac39dc491f69ddad5cfbb0c3ed
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3A0b7818121eddfae0abb13e6ad7f2c07f1197c62f533edb761ad7d40ea95d77ba%402%3FexpiryTimestamp%3D1794857618%26relay-protocol%3Dirn%26symKey%3Dce273ac1f9ae932f99130de7de0ede616a5191ac39dc491f69ddad5cfbb0c3ed
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3A60d195d89cc648cda2b26b35202c6bd9ee0370d4f3f310119a103000c31602cf%402%3FexpiryTimestamp%3D1794857920%26relay-protocol%3Dirn%26symKey%3D0fb964749e7899cb3e52383f108d078bb89e1bcea4c7c2b5886138587a00b3e5
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3A60d195d89cc648cda2b26b35202c6bd9ee0370d4f3f310119a103000c31602cf%402%3FexpiryTimestamp%3D1794857920%26relay-protocol%3Dirn%26symKey%3D0fb964749e7899cb3e52383f108d078bb89e1bcea4c7c2b5886138587a00b3e5
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3Adbe8e9ab563b3ac7684f5bbde0f9366334ef944d7363e5b519d5a61b7b49f53f%402%3FexpiryTimestamp%3D1794858222%26relay-protocol%3Dirn%26symKey%3D6b142e59665540374cfcf67cae7d248dcde0fe2fbd01db1564e1e549b56a1096
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3Adbe8e9ab563b3ac7684f5bbde0f9366334ef944d7363e5b519d5a61b7b49f53f%402%3FexpiryTimestamp%3D1794858222%26relay-protocol%3Dirn%26symKey%3D6b142e59665540374cfcf67cae7d248dcde0fe2fbd01db1564e1e549b56a1096
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3Ada0a577ff35ab401e95d960a8d678764b8e22eeb9d8382db35242129db462a37%402%3FexpiryTimestamp%3D1794858524%26relay-protocol%3Dirn%26symKey%3D4ed1a0d16d99627d3b1f544c7bc9bd0e57fce3627bfe7562bfdbd4b6dc5f019a
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3Ada0a577ff35ab401e95d960a8d678764b8e22eeb9d8382db35242129db462a37%402%3FexpiryTimestamp%3D1794858524%26relay-protocol%3Dirn%26symKey%3D4ed1a0d16d99627d3b1f544c7bc9bd0e57fce3627bfe7562bfdbd4b6dc5f019a
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3Ab11222a09262d192f40db846be8524162093243571cfb2d70aacc01854e6171d%402%3FexpiryTimestamp%3D1794858826%26relay-protocol%3Dirn%26symKey%3Db3882f26968a6745480b8b20ea006a5ee43ec8582f0a31d59f48cc3007cdd858
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3Ab11222a09262d192f40db846be8524162093243571cfb2d70aacc01854e6171d%402%3FexpiryTimestamp%3D1794858826%26relay-protocol%3Dirn%26symKey%3Db3882f26968a6745480b8b20ea006a5ee43ec8582f0a31d59f48cc3007cdd858
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3A34196a8c8ef949095491eb962189faa3c89b7619c325c85563f9326c75647fc3%402%3FexpiryTimestamp%3D1794859129%26relay-protocol%3Dirn%26symKey%3De9b5e1a8f4bb7d45d3ea600f1e3e3c4926de7793064b81ad3f28492c442ba33e
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3A34196a8c8ef949095491eb962189faa3c89b7619c325c85563f9326c75647fc3%402%3FexpiryTimestamp%3D1794859129%26relay-protocol%3Dirn%26symKey%3De9b5e1a8f4bb7d45d3ea600f1e3e3c4926de7793064b81ad3f28492c442ba33e
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3Adf8d1ce8262780325e170d90fb329109d53f2ee4aaa439d1f892bd082aef6b28%402%3FexpiryTimestamp%3D1794859858%26relay-protocol%3Dirn%26symKey%3D6b9468ce34178945a6b9c7adf30ce4894ba4c55f054af9a0fb9ce5f77c99dc58
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3Adf8d1ce8262780325e170d90fb329109d53f2ee4aaa439d1f892bd082aef6b28%402%3FexpiryTimestamp%3D1794859858%26relay-protocol%3Dirn%26symKey%3D6b9468ce34178945a6b9c7adf30ce4894ba4c55f054af9a0fb9ce5f77c99dc58
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3A66fe98fcdc867edc1538ae398ca687f5180434e7ea83e6df6d32c5b4fde64334%402%3FexpiryTimestamp%3D1794860193%26relay-protocol%3Dirn%26symKey%3D408ccd9672bb1b9b82502bfaff8ba56729ff704cd8fe8265a827b627eb6dbefa
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3A66fe98fcdc867edc1538ae398ca687f5180434e7ea83e6df6d32c5b4fde64334%402%3FexpiryTimestamp%3D1794860193%26relay-protocol%3Dirn%26symKey%3D408ccd9672bb1b9b82502bfaff8ba56729ff704cd8fe8265a827b627eb6dbefa
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3A1562f98f358e7161a4ac81e79fad092adff95ac0abb5aef2142f50c6365793a5%402%3FexpiryTimestamp%3D1794860495%26relay-protocol%3Dirn%26symKey%3D1cebccbb47e7a7580e5ed9f4d1460cba228a5b67d6a6f0b719deb15a3c681662
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3A1562f98f358e7161a4ac81e79fad092adff95ac0abb5aef2142f50c6365793a5%402%3FexpiryTimestamp%3D1794860495%26relay-protocol%3Dirn%26symKey%3D1cebccbb47e7a7580e5ed9f4d1460cba228a5b67d6a6f0b719deb15a3c681662
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3A6b6b0fdf8540bcb75c2a64ef97e6cbd016022bde3214f1d6268521a9ab430029%402%3FexpiryTimestamp%3D1794860798%26relay-protocol%3Dirn%26symKey%3D3655fa65c8b719b93de984f893d9c29122e2d2b9bd3c4cdf6e0eb934036ced61
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3A6b6b0fdf8540bcb75c2a64ef97e6cbd016022bde3214f1d6268521a9ab430029%402%3FexpiryTimestamp%3D1794860798%26relay-protocol%3Dirn%26symKey%3D3655fa65c8b719b93de984f893d9c29122e2d2b9bd3c4cdf6e0eb934036ced61
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3Af242235c2580cbfc3898ef76f67d135680e5decab1bfc7e33280bb10ed1f4983%402%3FexpiryTimestamp%3D1794861100%26relay-protocol%3Dirn%26symKey%3D679d2d057f351fa8910230d80fffe76b36fbe3150be9876b44127abbd85aa8c6
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3Af242235c2580cbfc3898ef76f67d135680e5decab1bfc7e33280bb10ed1f4983%402%3FexpiryTimestamp%3D1794861100%26relay-protocol%3Dirn%26symKey%3D679d2d057f351fa8910230d80fffe76b36fbe3150be9876b44127abbd85aa8c6
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3A55340870b4b39169f9bc915d07decdfda0d948589df7c36fe32681ced015b125%402%3FexpiryTimestamp%3D1794861402%26relay-protocol%3Dirn%26symKey%3Da972adee566fb3ab513ec5fb6e492af6459b62d0c36b2ad4c31c3a3ddd31476c
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3A55340870b4b39169f9bc915d07decdfda0d948589df7c36fe32681ced015b125%402%3FexpiryTimestamp%3D1794861402%26relay-protocol%3Dirn%26symKey%3Da972adee566fb3ab513ec5fb6e492af6459b62d0c36b2ad4c31c3a3ddd31476c
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3Afff40d638288851a173ede21b2e421318276a62999882a9048c79eab276e1085%402%3FexpiryTimestamp%3D1794861704%26relay-protocol%3Dirn%26symKey%3D7eb0e953f5420f2a99da5ca20669c8b303bda8271b2c2dc0d0bb9e10cc4f8e08
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3Afff40d638288851a173ede21b2e421318276a62999882a9048c79eab276e1085%402%3FexpiryTimestamp%3D1794861704%26relay-protocol%3Dirn%26symKey%3D7eb0e953f5420f2a99da5ca20669c8b303bda8271b2c2dc0d0bb9e10cc4f8e08
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Failed to publish custom payload, please try again. id:1794861722175255296 tag:undefined. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Failed to publish custom payload, please try again. id:1794861820763296256 tag:undefined. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3A213196e313c40d1dacf1b1f5d43557cc3ed4960d6b3f35e694124c3e4bc61954%402%3FexpiryTimestamp%3D1794862410%26relay-protocol%3Dirn%26symKey%3D11e5f55ae5749f7cde53411a631cae6464adc9453e021faf9b8c2f6dcec8e282
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3A213196e313c40d1dacf1b1f5d43557cc3ed4960d6b3f35e694124c3e4bc61954%402%3FexpiryTimestamp%3D1794862410%26relay-protocol%3Dirn%26symKey%3D11e5f55ae5749f7cde53411a631cae6464adc9453e021faf9b8c2f6dcec8e282
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3Aeff124935a2b244230c52c4e809b58ceb884aaecb2de65189a57b84f0cbfd439%402%3FexpiryTimestamp%3D1794862720%26relay-protocol%3Dirn%26symKey%3De03f93090ffff39d4296ea012ba3649a50d8c57bcc055192f72f17fbbecb9413
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3Aeff124935a2b244230c52c4e809b58ceb884aaecb2de65189a57b84f0cbfd439%402%3FexpiryTimestamp%3D1794862720%26relay-protocol%3Dirn%26symKey%3De03f93090ffff39d4296ea012ba3649a50d8c57bcc055192f72f17fbbecb9413
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3A344ef51865a0d18b0e2459a76ba62870e4f21084ddac6b62f93daa7a68bc66e8%402%3FexpiryTimestamp%3D1794863025%26relay-protocol%3Dirn%26symKey%3D14fdbbe7a29f531214d7b3e9de062482f087a7dfa6883d2443830ce663e9e973
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3A344ef51865a0d18b0e2459a76ba62870e4f21084ddac6b62f93daa7a68bc66e8%402%3FexpiryTimestamp%3D1794863025%26relay-protocol%3Dirn%26symKey%3D14fdbbe7a29f531214d7b3e9de062482f087a7dfa6883d2443830ce663e9e973
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3A26c901008a086d96ebeb419870a0454bbabb86d4fa149d537083be9aa30fde5a%402%3FexpiryTimestamp%3D1794863328%26relay-protocol%3Dirn%26symKey%3Dd2a49f08aeff90a5146c25b3a0a0779570ffd82bb9ad57a5be168afbcd92c62a
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3A26c901008a086d96ebeb419870a0454bbabb86d4fa149d537083be9aa30fde5a%402%3FexpiryTimestamp%3D1794863328%26relay-protocol%3Dirn%26symKey%3Dd2a49f08aeff90a5146c25b3a0a0779570ffd82bb9ad57a5be168afbcd92c62a
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3A2e26e6548cbad267008a560015b846724967385670202d73322ab5437ff2e45d%402%3FexpiryTimestamp%3D1794863630%26relay-protocol%3Dirn%26symKey%3D0f433df8eaaddffd44f31fb17a5de9b3677e5af5d787cd43beef349d44f9c0c0
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3A2e26e6548cbad267008a560015b846724967385670202d73322ab5437ff2e45d%402%3FexpiryTimestamp%3D1794863630%26relay-protocol%3Dirn%26symKey%3D0f433df8eaaddffd44f31fb17a5de9b3677e5af5d787cd43beef349d44f9c0c0
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3A79bab75437a5605f3bb87af112d27d1373da9bcb2085c6990df3f955e7bc01e7%402%3FexpiryTimestamp%3D1794863932%26relay-protocol%3Dirn%26symKey%3Dc2ccca38a75f3546a78d59985000d4a4191cad215ef68fd15a9514df164ec254
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3A79bab75437a5605f3bb87af112d27d1373da9bcb2085c6990df3f955e7bc01e7%402%3FexpiryTimestamp%3D1794863932%26relay-protocol%3Dirn%26symKey%3Dc2ccca38a75f3546a78d59985000d4a4191cad215ef68fd15a9514df164ec254
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m🚀 [WORKER] Старт системи...
+[32m14|cybra-p | [39m[rpc] 🔌 https://bsc-rpc.publicnode.com...
+[32m14|cybra-p | [39m[rpc] ✅ https://bsc-rpc.publicnode.com
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3A28831b8b5a86332a6e8dce6da842da6cc7aa53f896184dd00f9c209bc66468db%402%3FexpiryTimestamp%3D1794864232%26relay-protocol%3Dirn%26symKey%3D9e159ae9007d5af3252c97e0461e962d148600a14c705e5df7636ccf4cc8181f
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3A28831b8b5a86332a6e8dce6da842da6cc7aa53f896184dd00f9c209bc66468db%402%3FexpiryTimestamp%3D1794864232%26relay-protocol%3Dirn%26symKey%3D9e159ae9007d5af3252c97e0461e962d148600a14c705e5df7636ccf4cc8181f
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m✅ Гаманець підключено: 0x9f6b6054d74052c98142a4c3797a078eddd48c58
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m🔄 Спроба створити/додати ліквідність...
+[32m14|cybra-p | [39m🧠 Логічна помилка. Передаємо Нейро (AI)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m[ai-fixer] 🏛️ Звертаємось до CYBRA Parliament (IT Department)...
+[32m14|cybra-p | [39m[ai-fixer] 📤 Відправка задачі в Redis-чергу Парламенту...
+[32m14|cybra-p | [39m[ai-fixer] ✅ Задача створена. Парламент аналізує...
+[32m14|cybra-p | [39m[notifier] ℹ️ Parliament Task Created
+[32m14|cybra-p | [39m⚠️ AI не зміг виправити (немає ключа або патч не застосовано).
+[32m14|cybra-p | [39m🔄 Повторна спроба через 15 секунд...
+[32m14|cybra-p | [39m🚀 [WORKER] Старт системи...
+[32m14|cybra-p | [39m[rpc] 🔌 https://bsc-rpc.publicnode.com...
+[32m14|cybra-p | [39m[rpc] ✅ https://bsc-rpc.publicnode.com
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3A526a501d2391ba9c9e75c2426cff3e17b5871b43016998ec8128ccbba0ff9eda%402%3FexpiryTimestamp%3D1794950795%26relay-protocol%3Dirn%26symKey%3D5907df8debdfa9b9773b649f3b706649a627924bd065af09448d0f9d383876fe
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3A526a501d2391ba9c9e75c2426cff3e17b5871b43016998ec8128ccbba0ff9eda%402%3FexpiryTimestamp%3D1794950795%26relay-protocol%3Dirn%26symKey%3D5907df8debdfa9b9773b649f3b706649a627924bd065af09448d0f9d383876fe
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3A30ef6401f7aceb5d30955b013b9d2da9a61818c81e7ce5059a308acae11af969%402%3FexpiryTimestamp%3D1794951097%26relay-protocol%3Dirn%26symKey%3Df42e7f2757714549eab9a116ed4c526f4cbf867de17a7e43619f21cfb0cd0530
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3A30ef6401f7aceb5d30955b013b9d2da9a61818c81e7ce5059a308acae11af969%402%3FexpiryTimestamp%3D1794951097%26relay-protocol%3Dirn%26symKey%3Df42e7f2757714549eab9a116ed4c526f4cbf867de17a7e43619f21cfb0cd0530
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m🚀 [WORKER] Старт системи...
+[32m14|cybra-p | [39m[rpc] 🔌 https://bsc-rpc.publicnode.com...
+[32m14|cybra-p | [39m[rpc] ✅ https://bsc-rpc.publicnode.com
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3A303abcda031e59368291f8f38b8f99e9f0199b6b2e6cb432ebc88aeb285bc5f0%402%3FexpiryTimestamp%3D1794951134%26relay-protocol%3Dirn%26symKey%3Df78534be05d2ae6029a35a647e9001e427a08b09d846cffd5ff603e95acac0cf
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3A303abcda031e59368291f8f38b8f99e9f0199b6b2e6cb432ebc88aeb285bc5f0%402%3FexpiryTimestamp%3D1794951134%26relay-protocol%3Dirn%26symKey%3Df78534be05d2ae6029a35a647e9001e427a08b09d846cffd5ff603e95acac0cf
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m⚠️ Помилка підключення: Proposal expired. Нове посилання...
+[32m14|cybra-p | [39m
+[32m14|cybra-p | [39m📱 НОВЕ ПОСИЛАННЯ ДЛЯ ПІДКЛЮЧЕННЯ:
+[32m14|cybra-p | [39m🦊 MetaMask: https://metamask.app.link/wc?uri=wc%3Aa5f8b0d75c5620fbcad93d4f766db2dece7d0f5d50e5f19ced615e97ee65b484%402%3FexpiryTimestamp%3D1794951436%26relay-protocol%3Dirn%26symKey%3D8600d2e63268bb0ef5564ed8582139d8f7b782a901b0d2b17384cf3e75b53a51
+[32m14|cybra-p | [39m🛡️ Trust Wallet: https://link.trustwallet.com/wc?uri=wc%3Aa5f8b0d75c5620fbcad93d4f766db2dece7d0f5d50e5f19ced615e97ee65b484%402%3FexpiryTimestamp%3D1794951436%26relay-protocol%3Dirn%26symKey%3D8600d2e63268bb0ef5564ed8582139d8f7b782a901b0d2b17384cf3e75b53a51
+[32m14|cybra-p | [39m⏳ Чекаємо на підтвердження (якщо згорить, згенеруємо нове)...
+
+[90m/data/data/com.termux/files/home/.pm2/logs/cybra-pool-error.log last 200 lines:[39m
+[31m14|cybra-p | [39m    at Object.<anonymous> (/data/data/com.termux/files/home/CYBRA/bin/cybra_pool_worker.js:7:20)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1854:14)
+[31m14|cybra-p | [39m◇ injected env (7) from .env
+[31m14|cybra-p | [39m/data/data/com.termux/files/home/CYBRA/modules/pool_v3/index.js:1
+[31m14|cybra-p | [39masync run(ctx) {
+[31m14|cybra-p | [39m      ^^^
+[31m14|cybra-p | [39m
+[31m14|cybra-p | [39mSyntaxError: Unexpected identifier 'run'
+[31m14|cybra-p | [39m    at wrapSafe (node:internal/modules/cjs/loader:1787:18)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1828:20)
+[31m14|cybra-p | [39m    at Module._extensions..js (node:internal/modules/cjs/loader:1985:10)
+[31m14|cybra-p | [39m    at Module.load (node:internal/modules/cjs/loader:1577:32)
+[31m14|cybra-p | [39m    at Module._load (node:internal/modules/cjs/loader:1379:12)
+[31m14|cybra-p | [39m    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+[31m14|cybra-p | [39m    at Module.require (node:internal/modules/cjs/loader:1600:12)
+[31m14|cybra-p | [39m    at require (node:internal/modules/helpers:153:16)
+[31m14|cybra-p | [39m    at Object.<anonymous> (/data/data/com.termux/files/home/CYBRA/bin/cybra_pool_worker.js:7:20)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1854:14)
+[31m14|cybra-p | [39m◇ injected env (7) from .env
+[31m14|cybra-p | [39m/data/data/com.termux/files/home/CYBRA/modules/pool_v3/index.js:1
+[31m14|cybra-p | [39masync run(ctx) {
+[31m14|cybra-p | [39m      ^^^
+[31m14|cybra-p | [39m
+[31m14|cybra-p | [39mSyntaxError: Unexpected identifier 'run'
+[31m14|cybra-p | [39m    at wrapSafe (node:internal/modules/cjs/loader:1787:18)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1828:20)
+[31m14|cybra-p | [39m    at Module._extensions..js (node:internal/modules/cjs/loader:1985:10)
+[31m14|cybra-p | [39m    at Module.load (node:internal/modules/cjs/loader:1577:32)
+[31m14|cybra-p | [39m    at Module._load (node:internal/modules/cjs/loader:1379:12)
+[31m14|cybra-p | [39m    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+[31m14|cybra-p | [39m    at Module.require (node:internal/modules/cjs/loader:1600:12)
+[31m14|cybra-p | [39m    at require (node:internal/modules/helpers:153:16)
+[31m14|cybra-p | [39m    at Object.<anonymous> (/data/data/com.termux/files/home/CYBRA/bin/cybra_pool_worker.js:7:20)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1854:14)
+[31m14|cybra-p | [39m◇ injected env (7) from .env
+[31m14|cybra-p | [39m/data/data/com.termux/files/home/CYBRA/modules/pool_v3/index.js:1
+[31m14|cybra-p | [39masync run(ctx) {
+[31m14|cybra-p | [39m      ^^^
+[31m14|cybra-p | [39m
+[31m14|cybra-p | [39mSyntaxError: Unexpected identifier 'run'
+[31m14|cybra-p | [39m    at wrapSafe (node:internal/modules/cjs/loader:1787:18)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1828:20)
+[31m14|cybra-p | [39m    at Module._extensions..js (node:internal/modules/cjs/loader:1985:10)
+[31m14|cybra-p | [39m    at Module.load (node:internal/modules/cjs/loader:1577:32)
+[31m14|cybra-p | [39m    at Module._load (node:internal/modules/cjs/loader:1379:12)
+[31m14|cybra-p | [39m    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+[31m14|cybra-p | [39m    at Module.require (node:internal/modules/cjs/loader:1600:12)
+[31m14|cybra-p | [39m    at require (node:internal/modules/helpers:153:16)
+[31m14|cybra-p | [39m    at Object.<anonymous> (/data/data/com.termux/files/home/CYBRA/bin/cybra_pool_worker.js:7:20)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1854:14)
+[31m14|cybra-p | [39m◇ injected env (7) from .env
+[31m14|cybra-p | [39m/data/data/com.termux/files/home/CYBRA/modules/pool_v3/index.js:1
+[31m14|cybra-p | [39masync run(ctx) {
+[31m14|cybra-p | [39m      ^^^
+[31m14|cybra-p | [39m
+[31m14|cybra-p | [39mSyntaxError: Unexpected identifier 'run'
+[31m14|cybra-p | [39m    at wrapSafe (node:internal/modules/cjs/loader:1787:18)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1828:20)
+[31m14|cybra-p | [39m    at Module._extensions..js (node:internal/modules/cjs/loader:1985:10)
+[31m14|cybra-p | [39m    at Module.load (node:internal/modules/cjs/loader:1577:32)
+[31m14|cybra-p | [39m    at Module._load (node:internal/modules/cjs/loader:1379:12)
+[31m14|cybra-p | [39m    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+[31m14|cybra-p | [39m    at Module.require (node:internal/modules/cjs/loader:1600:12)
+[31m14|cybra-p | [39m    at require (node:internal/modules/helpers:153:16)
+[31m14|cybra-p | [39m    at Object.<anonymous> (/data/data/com.termux/files/home/CYBRA/bin/cybra_pool_worker.js:7:20)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1854:14)
+[31m14|cybra-p | [39m◇ injected env (7) from .env
+[31m14|cybra-p | [39m/data/data/com.termux/files/home/CYBRA/modules/pool_v3/index.js:1
+[31m14|cybra-p | [39masync run(ctx) {
+[31m14|cybra-p | [39m      ^^^
+[31m14|cybra-p | [39m
+[31m14|cybra-p | [39mSyntaxError: Unexpected identifier 'run'
+[31m14|cybra-p | [39m    at wrapSafe (node:internal/modules/cjs/loader:1787:18)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1828:20)
+[31m14|cybra-p | [39m    at Module._extensions..js (node:internal/modules/cjs/loader:1985:10)
+[31m14|cybra-p | [39m    at Module.load (node:internal/modules/cjs/loader:1577:32)
+[31m14|cybra-p | [39m    at Module._load (node:internal/modules/cjs/loader:1379:12)
+[31m14|cybra-p | [39m    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+[31m14|cybra-p | [39m    at Module.require (node:internal/modules/cjs/loader:1600:12)
+[31m14|cybra-p | [39m    at require (node:internal/modules/helpers:153:16)
+[31m14|cybra-p | [39m    at Object.<anonymous> (/data/data/com.termux/files/home/CYBRA/bin/cybra_pool_worker.js:7:20)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1854:14)
+[31m14|cybra-p | [39m◇ injected env (7) from .env
+[31m14|cybra-p | [39m/data/data/com.termux/files/home/CYBRA/modules/pool_v3/index.js:1
+[31m14|cybra-p | [39masync run(ctx) {
+[31m14|cybra-p | [39m      ^^^
+[31m14|cybra-p | [39m
+[31m14|cybra-p | [39mSyntaxError: Unexpected identifier 'run'
+[31m14|cybra-p | [39m    at wrapSafe (node:internal/modules/cjs/loader:1787:18)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1828:20)
+[31m14|cybra-p | [39m    at Module._extensions..js (node:internal/modules/cjs/loader:1985:10)
+[31m14|cybra-p | [39m    at Module.load (node:internal/modules/cjs/loader:1577:32)
+[31m14|cybra-p | [39m    at Module._load (node:internal/modules/cjs/loader:1379:12)
+[31m14|cybra-p | [39m    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+[31m14|cybra-p | [39m    at Module.require (node:internal/modules/cjs/loader:1600:12)
+[31m14|cybra-p | [39m    at require (node:internal/modules/helpers:153:16)
+[31m14|cybra-p | [39m    at Object.<anonymous> (/data/data/com.termux/files/home/CYBRA/bin/cybra_pool_worker.js:7:20)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1854:14)
+[31m14|cybra-p | [39m◇ injected env (7) from .env
+[31m14|cybra-p | [39m/data/data/com.termux/files/home/CYBRA/modules/pool_v3/index.js:1
+[31m14|cybra-p | [39masync run(ctx) {
+[31m14|cybra-p | [39m      ^^^
+[31m14|cybra-p | [39m
+[31m14|cybra-p | [39mSyntaxError: Unexpected identifier 'run'
+[31m14|cybra-p | [39m    at wrapSafe (node:internal/modules/cjs/loader:1787:18)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1828:20)
+[31m14|cybra-p | [39m    at Module._extensions..js (node:internal/modules/cjs/loader:1985:10)
+[31m14|cybra-p | [39m    at Module.load (node:internal/modules/cjs/loader:1577:32)
+[31m14|cybra-p | [39m    at Module._load (node:internal/modules/cjs/loader:1379:12)
+[31m14|cybra-p | [39m    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+[31m14|cybra-p | [39m    at Module.require (node:internal/modules/cjs/loader:1600:12)
+[31m14|cybra-p | [39m    at require (node:internal/modules/helpers:153:16)
+[31m14|cybra-p | [39m    at Object.<anonymous> (/data/data/com.termux/files/home/CYBRA/bin/cybra_pool_worker.js:7:20)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1854:14)
+[31m14|cybra-p | [39m◇ injected env (7) from .env
+[31m14|cybra-p | [39m◇ injected env (7) from .env
+[31m14|cybra-p | [39mbigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+[31m14|cybra-p | [39m◇ injected env (7) from .env
+[31m14|cybra-p | [39mbigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)
+[31m14|cybra-p | [39m◇ injected env (7) from .env
+[31m14|cybra-p | [39m/data/data/com.termux/files/home/CYBRA/modules/pool_v3/index.js:1
+[31m14|cybra-p | [39masync run(ctx) {
+[31m14|cybra-p | [39m      ^^^
+[31m14|cybra-p | [39m
+[31m14|cybra-p | [39mSyntaxError: Unexpected identifier 'run'
+[31m14|cybra-p | [39m    at wrapSafe (node:internal/modules/cjs/loader:1787:18)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1828:20)
+[31m14|cybra-p | [39m    at Module._extensions..js (node:internal/modules/cjs/loader:1985:10)
+[31m14|cybra-p | [39m    at Module.load (node:internal/modules/cjs/loader:1577:32)
+[31m14|cybra-p | [39m    at Module._load (node:internal/modules/cjs/loader:1379:12)
+[31m14|cybra-p | [39m    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+[31m14|cybra-p | [39m    at Module.require (node:internal/modules/cjs/loader:1600:12)
+[31m14|cybra-p | [39m    at require (node:internal/modules/helpers:153:16)
+[31m14|cybra-p | [39m    at Object.<anonymous> (/data/data/com.termux/files/home/CYBRA/bin/cybra_pool_worker.js:7:20)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1854:14)
+[31m14|cybra-p | [39m◇ injected env (7) from .env
+[31m14|cybra-p | [39m/data/data/com.termux/files/home/CYBRA/modules/pool_v3/index.js:1
+[31m14|cybra-p | [39masync run(ctx) {
+[31m14|cybra-p | [39m      ^^^
+[31m14|cybra-p | [39m
+[31m14|cybra-p | [39mSyntaxError: Unexpected identifier 'run'
+[31m14|cybra-p | [39m    at wrapSafe (node:internal/modules/cjs/loader:1787:18)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1828:20)
+[31m14|cybra-p | [39m    at Module._extensions..js (node:internal/modules/cjs/loader:1985:10)
+[31m14|cybra-p | [39m    at Module.load (node:internal/modules/cjs/loader:1577:32)
+[31m14|cybra-p | [39m    at Module._load (node:internal/modules/cjs/loader:1379:12)
+[31m14|cybra-p | [39m    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+[31m14|cybra-p | [39m    at Module.require (node:internal/modules/cjs/loader:1600:12)
+[31m14|cybra-p | [39m    at require (node:internal/modules/helpers:153:16)
+[31m14|cybra-p | [39m    at Object.<anonymous> (/data/data/com.termux/files/home/CYBRA/bin/cybra_pool_worker.js:7:20)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1854:14)
+[31m14|cybra-p | [39m◇ injected env (7) from .env
+[31m14|cybra-p | [39m/data/data/com.termux/files/home/CYBRA/modules/pool_v3/index.js:1
+[31m14|cybra-p | [39masync run(ctx) {
+[31m14|cybra-p | [39m      ^^^
+[31m14|cybra-p | [39m
+[31m14|cybra-p | [39mSyntaxError: Unexpected identifier 'run'
+[31m14|cybra-p | [39m    at wrapSafe (node:internal/modules/cjs/loader:1787:18)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1828:20)
+[31m14|cybra-p | [39m    at Module._extensions..js (node:internal/modules/cjs/loader:1985:10)
+[31m14|cybra-p | [39m    at Module.load (node:internal/modules/cjs/loader:1577:32)
+[31m14|cybra-p | [39m    at Module._load (node:internal/modules/cjs/loader:1379:12)
+[31m14|cybra-p | [39m    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+[31m14|cybra-p | [39m    at Module.require (node:internal/modules/cjs/loader:1600:12)
+[31m14|cybra-p | [39m    at require (node:internal/modules/helpers:153:16)
+[31m14|cybra-p | [39m    at Object.<anonymous> (/data/data/com.termux/files/home/CYBRA/bin/cybra_pool_worker.js:7:20)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1854:14)
+[31m14|cybra-p | [39m◇ injected env (7) from .env
+[31m14|cybra-p | [39m/data/data/com.termux/files/home/CYBRA/modules/pool_v3/index.js:1
+[31m14|cybra-p | [39masync run(ctx) {
+[31m14|cybra-p | [39m      ^^^
+[31m14|cybra-p | [39m
+[31m14|cybra-p | [39mSyntaxError: Unexpected identifier 'run'
+[31m14|cybra-p | [39m    at wrapSafe (node:internal/modules/cjs/loader:1787:18)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1828:20)
+[31m14|cybra-p | [39m    at Module._extensions..js (node:internal/modules/cjs/loader:1985:10)
+[31m14|cybra-p | [39m    at Module.load (node:internal/modules/cjs/loader:1577:32)
+[31m14|cybra-p | [39m    at Module._load (node:internal/modules/cjs/loader:1379:12)
+[31m14|cybra-p | [39m    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+[31m14|cybra-p | [39m    at Module.require (node:internal/modules/cjs/loader:1600:12)
+[31m14|cybra-p | [39m    at require (node:internal/modules/helpers:153:16)
+[31m14|cybra-p | [39m    at Object.<anonymous> (/data/data/com.termux/files/home/CYBRA/bin/cybra_pool_worker.js:7:20)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1854:14)
+[31m14|cybra-p | [39m◇ injected env (7) from .env
+[31m14|cybra-p | [39m/data/data/com.termux/files/home/CYBRA/modules/pool_v3/index.js:1
+[31m14|cybra-p | [39masync run(ctx) {
+[31m14|cybra-p | [39m      ^^^
+[31m14|cybra-p | [39m
+[31m14|cybra-p | [39mSyntaxError: Unexpected identifier 'run'
+[31m14|cybra-p | [39m    at wrapSafe (node:internal/modules/cjs/loader:1787:18)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1828:20)
+[31m14|cybra-p | [39m    at Module._extensions..js (node:internal/modules/cjs/loader:1985:10)
+[31m14|cybra-p | [39m    at Module.load (node:internal/modules/cjs/loader:1577:32)
+[31m14|cybra-p | [39m    at Module._load (node:internal/modules/cjs/loader:1379:12)
+[31m14|cybra-p | [39m    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+[31m14|cybra-p | [39m    at Module.require (node:internal/modules/cjs/loader:1600:12)
+[31m14|cybra-p | [39m    at require (node:internal/modules/helpers:153:16)
+[31m14|cybra-p | [39m    at Object.<anonymous> (/data/data/com.termux/files/home/CYBRA/bin/cybra_pool_worker.js:7:20)
+[31m14|cybra-p | [39m    at Module._compile (node:internal/modules/cjs/loader:1854:14)
+[31m14|cybra-p | [39m◇ injected env (7) from .env
+
+
+--- ENV (redacted) ---
+WC_PROJECT_ID=e840ad8bf670b2ee4f9b841b965dedf4
+BSC_RPC_URL=https://bsc-rpc.publicnode.com
+TOKEN_ADDR=0x74dA52028E42A37bc89E05c2fD5c52daBE4CB48f
+QUOTE_ADDR=0x55d398326f99059fF775485246999027B3197955
+FEE_TIER=2500
+AMOUNT_HUMAN=100
+PRICE_INCREASE=100

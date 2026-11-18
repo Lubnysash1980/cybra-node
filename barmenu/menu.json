@@ -1,0 +1,10 @@
+{
+  "version": 4,
+  "items": [
+    {"id": "1", "label": "🚀 АВТО-СТВОРЕННЯ ПУЛУ (без гаманця)", "action": "auto_pool", "enabled": true},
+    {"id": "2", "label": "📊 Статус NFT / Позицій", "action": "positions", "enabled": true},
+    {"id": "3", "label": "🏛️ Парламент / Нейро (Задачі)", "action": "parliament", "enabled": true},
+    {"id": "4", "label": "💾 Snapshot / Autosave", "action": "snapshot", "enabled": true}
+  ],
+  "modules_watch": ["cybra-pool", "cybra-brain", "parliament", "redis", "mock-ai"]
+}

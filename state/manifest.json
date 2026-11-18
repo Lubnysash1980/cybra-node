@@ -1,54 +1,54 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-16T21:18:13.307Z",
+  "generated_at": "2026-11-18T09:59:42.681Z",
   "overall": {
-    "percent": 80,
+    "percent": 85,
     "color": "red"
   },
   "colors": {
     "green": 6,
-    "yellow": 1,
-    "red": 2,
+    "yellow": 2,
+    "red": 1,
     "black": 0
   },
   "resources": {
     "total_mb": 3619.6,
-    "free_mb": 813.4,
-    "ram_avail_pct": 22.5,
+    "free_mb": 824.5,
+    "ram_avail_pct": 22.8,
     "disk_total_mb": 108204,
-    "disk_used_mb": 57777.2,
-    "disk_mb": 50298.8,
+    "disk_used_mb": 58680.3,
+    "disk_mb": 49395.7,
     "cpu_count": 0,
     "load_average": [
-      28.52,
-      27.6,
-      27.61
+      33.24,
+      32.73,
+      32.5
     ],
-    "pm2_cpu_pct": 2.9,
-    "pm2_memory_mb": 161.7,
-    "pm2_logs_mb": 36.1,
+    "pm2_cpu_pct": 67,
+    "pm2_memory_mb": 261.5,
+    "pm2_logs_mb": 61.5,
     "queue_files": 0
   },
   "services": [
     {
       "name": "taxi-events",
       "status": "online",
-      "pid": 30021,
-      "cpu_pct": 0.3,
-      "memory_mb": 5.6,
+      "pid": 5600,
+      "cpu_pct": 0,
+      "memory_mb": 5.9,
       "restarts": 0,
       "unstable_restarts": 0,
-      "uptime_ms": 171663543
+      "uptime_ms": 129127330
     },
     {
       "name": "cybra-api",
       "status": "online",
-      "pid": 30022,
-      "cpu_pct": 0.3,
-      "memory_mb": 6.7,
-      "restarts": 0,
+      "pid": 18690,
+      "cpu_pct": 1,
+      "memory_mb": 7,
+      "restarts": 1,
       "unstable_restarts": 0,
-      "uptime_ms": 171663524
+      "uptime_ms": 128821885
     },
     {
       "name": "cybra-evo-ctrl",
@@ -58,7 +58,7 @@
       "memory_mb": 0,
       "restarts": 9134,
       "unstable_restarts": 0,
-      "uptime_ms": 187735495
+      "uptime_ms": 319825404
     },
     {
       "name": "cybra-evolution-ctrl",
@@ -68,27 +68,27 @@
       "memory_mb": 0,
       "restarts": 8752,
       "unstable_restarts": 0,
-      "uptime_ms": 187735886
+      "uptime_ms": 319825795
     },
     {
       "name": "cybra-metrics",
       "status": "online",
-      "pid": 8669,
+      "pid": 31227,
       "cpu_pct": 0,
-      "memory_mb": 47.4,
-      "restarts": 25520,
+      "memory_mb": 47.5,
+      "restarts": 16968,
       "unstable_restarts": 0,
-      "uptime_ms": 1258
+      "uptime_ms": 1896
     },
     {
       "name": "cybra-monolith",
       "status": "online",
-      "pid": 30025,
+      "pid": 5607,
       "cpu_pct": 0,
-      "memory_mb": 3.8,
+      "memory_mb": 3.6,
       "restarts": 0,
       "unstable_restarts": 0,
-      "uptime_ms": 171663453
+      "uptime_ms": 129127243
     },
     {
       "name": "cybra-neuro-ctrl",
@@ -98,67 +98,67 @@
       "memory_mb": 0,
       "restarts": 8969,
       "unstable_restarts": 0,
-      "uptime_ms": 187735310
+      "uptime_ms": 319825219
     },
     {
       "name": "cybra-openid",
-      "status": "errored",
-      "pid": 0,
-      "cpu_pct": 0,
-      "memory_mb": 0,
-      "restarts": 35113,
-      "unstable_restarts": 0,
-      "uptime_ms": 896932
+      "status": "online",
+      "pid": 31241,
+      "cpu_pct": 33,
+      "memory_mb": 55.2,
+      "restarts": 57391,
+      "unstable_restarts": 7,
+      "uptime_ms": 1408
     },
     {
       "name": "cybra-openid-health",
       "status": "online",
-      "pid": 30032,
+      "pid": 5614,
       "cpu_pct": 0,
-      "memory_mb": 2.5,
+      "memory_mb": 2.9,
       "restarts": 0,
       "unstable_restarts": 0,
-      "uptime_ms": 171663405
+      "uptime_ms": 129127185
     },
     {
       "name": "level-tracker",
       "status": "online",
-      "pid": 30034,
+      "pid": 5616,
       "cpu_pct": 0,
-      "memory_mb": 2.8,
+      "memory_mb": 3.2,
       "restarts": 0,
       "unstable_restarts": 0,
-      "uptime_ms": 171663399
+      "uptime_ms": 129127180
     },
     {
       "name": "menu-worker",
       "status": "online",
-      "pid": 30041,
-      "cpu_pct": 0.7,
-      "memory_mb": 3.4,
+      "pid": 5623,
+      "cpu_pct": 0,
+      "memory_mb": 3,
       "restarts": 0,
       "unstable_restarts": 0,
-      "uptime_ms": 171663326
+      "uptime_ms": 129127095
     },
     {
       "name": "parliament",
       "status": "online",
-      "pid": 30045,
-      "cpu_pct": 0.3,
+      "pid": 5630,
+      "cpu_pct": 0,
       "memory_mb": 7.5,
       "restarts": 0,
       "unstable_restarts": 0,
-      "uptime_ms": 171663321
+      "uptime_ms": 129127089
     },
     {
       "name": "redis",
       "status": "online",
-      "pid": 30055,
-      "cpu_pct": 0.3,
-      "memory_mb": 3,
-      "restarts": 0,
+      "pid": 18703,
+      "cpu_pct": 0,
+      "memory_mb": 3.3,
+      "restarts": 1,
       "unstable_restarts": 0,
-      "uptime_ms": 171663249
+      "uptime_ms": 45163471
     },
     {
       "name": "runtime",
@@ -168,80 +168,102 @@
       "memory_mb": 0,
       "restarts": 4787,
       "unstable_restarts": 0,
-      "uptime_ms": 254640512
-    },
-    {
-      "name": "cybra-brain",
-      "status": "online",
-      "pid": 15292,
-      "cpu_pct": 0.7,
-      "memory_mb": 30.4,
-      "restarts": 1,
-      "unstable_restarts": 0,
-      "uptime_ms": 171076293
+      "uptime_ms": 386730421
     },
     {
       "name": "cybra-pool",
       "status": "online",
-      "pid": 25621,
-      "cpu_pct": 0.3,
-      "memory_mb": 48.6,
+      "pid": 31207,
+      "cpu_pct": 33,
+      "memory_mb": 83.8,
+      "restarts": 21330,
+      "unstable_restarts": 0,
+      "uptime_ms": 2358
+    },
+    {
+      "name": "parliament",
+      "status": "errored",
+      "pid": 0,
+      "cpu_pct": 0,
+      "memory_mb": 0,
+      "restarts": 15,
+      "unstable_restarts": 0,
+      "uptime_ms": 129118782
+    },
+    {
+      "name": "cybra-brain",
+      "status": "online",
+      "pid": 16051,
+      "cpu_pct": 0,
+      "memory_mb": 33.7,
       "restarts": 4,
       "unstable_restarts": 0,
-      "uptime_ms": 138738634
+      "uptime_ms": 44355416
+    },
+    {
+      "name": "mock-ai",
+      "status": "online",
+      "pid": 18846,
+      "cpu_pct": 0,
+      "memory_mb": 4.9,
+      "restarts": 2,
+      "unstable_restarts": 0,
+      "uptime_ms": 44269388
     }
   ],
   "health": {
     "openid": {
       "ok": false,
       "status": 0,
-      "latency_ms": 28,
+      "latency_ms": 67,
       "reason": "connect ECONNREFUSED 127.0.0.1:8787"
     }
   },
   "self_heal": {
     "fail_count": 0,
     "restart_count": 5,
-    "window_start": 1794862557,
-    "cooldown_until": 1794863974
+    "window_start": 1794995375,
+    "cooldown_until": 1794996795
   },
   "items": {
     "pm2": {
       "color": "green",
-      "reason": "16 PM2 process(es) discovered"
+      "reason": "18 PM2 process(es) discovered"
     },
     "pm2:cybra-monolith": {
       "color": "green",
       "reason": "PM2 process online",
-      "pid": 30025,
+      "pid": 5607,
       "restarts": 0,
       "cpu_pct": 0,
-      "memory_mb": 3.8
+      "memory_mb": 3.6
     },
     "pm2:cybra-openid": {
-      "color": "red",
-      "reason": "PM2 status is errored",
-      "pid": 0,
-      "restarts": 35113
+      "color": "yellow",
+      "reason": "7 unstable restart(s)",
+      "pid": 31241,
+      "restarts": 57391,
+      "cpu_pct": 33,
+      "memory_mb": 55.2
     },
     "openid_health": {
       "color": "red",
       "reason": "connect ECONNREFUSED 127.0.0.1:8787",
       "url": "http://127.0.0.1:8787/health",
       "http_status": 0,
-      "latency_ms": 28
+      "latency_ms": 67
     },
     "ram": {
       "color": "green",
-      "reason": "22.5% RAM available"
+      "reason": "22.8% RAM available"
     },
     "disk": {
       "color": "green",
-      "reason": "50298.8 MB disk available"
+      "reason": "49395.7 MB disk available"
     },
     "logs": {
       "color": "green",
-      "reason": "PM2 logs use 36.1 MB"
+      "reason": "PM2 logs use 61.5 MB"
     },
     "queue": {
       "color": "green",
@@ -249,10 +271,10 @@
     },
     "self_heal": {
       "color": "yellow",
-      "reason": "Cooldown active for 80s",
+      "reason": "Cooldown active for 811s",
       "restart_count": 5,
       "fail_count": 0,
-      "cooldown_until": 1794863974
+      "cooldown_until": 1794996795
     }
   },
   "needs_cleanup": false,
