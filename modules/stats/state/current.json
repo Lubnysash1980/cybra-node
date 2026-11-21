@@ -1,0 +1,51 @@
+{
+  "ts": 1794470265,
+  "window_sec": 3600,
+  "window_cut": "2026-11-12 08:57:43",
+  "autowatch": {
+    "kill_extras": 0,
+    "god_dead": 0,
+    "bg_dump_dead": 1,
+    "autogit_missing": 0
+  },
+  "bg_dump": {
+    "comp_ok": 5,
+    "comp_fail": 0,
+    "global_ok": 1,
+    "global_fail": 0,
+    "resurrects": 0
+  },
+  "autodopomoga": {
+    "repair_cycles": 2,
+    "after_repairs": 2,
+    "by_component": {
+      "autogit": 2
+    }
+  },
+  "autogit": {
+    "push_ok": 0,
+    "push_fail": 0
+  },
+  "parliament_auto": {
+    "rollbacks": 1,
+    "proposals": 0
+  },
+  "parliament": {
+    "approved": 3,
+    "vetoed": 2,
+    "rejected": 2,
+    "pending": 1
+  },
+  "pm2": {
+    "god": 1,
+    "online": 12,
+    "errored": 0
+  },
+  "daemons": {
+    "autowatch": "stopped",
+    "bg_dump": "stopped",
+    "autodopomoga": "stopped",
+    "parliament-auto": "stopped",
+    "stats": "running"
+  }
+}

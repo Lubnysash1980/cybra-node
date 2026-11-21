@@ -1,0 +1,8 @@
+ 8933     1       02:30 bin/cybra_autowatch.sh /data/data/com.termux/files/usr/bin/bash bin/cybra_autowatch.sh
+ 8966     1       02:30 bin/cybra_bg_dump.sh /data/data/com.termux/files/usr/bin/bash bin/cybra_bg_dump.sh
+13687     1       01:00 /data/data/com.termux/files/home/CYBRA/modules/autodopomoga/bin/autodopomoga.sh /data/data/com.termux/files/usr/bin/bash /data/data/com.termux/files/home/CYBRA/modules/autodopomoga/bin/autodopomoga.sh
+13901     1       00:57 /data/data/com.termux/files/home/CYBRA/modules/parliament/bin/propose_auto.sh /data/data/com.termux/files/usr/bin/bash /data/data/com.termux/files/home/CYBRA/modules/parliament/bin/propose_auto.sh
+14103     1       00:54 /data/data/com.termux/files/home/CYBRA/modules/stats/bin/daemon.sh /data/data/com.termux/files/usr/bin/bash /data/data/com.termux/files/home/CYBRA/modules/stats/bin/daemon.sh
+14363     1       00:51 /data/data/com.termux/files/home/cybra_sync.sh /data/data/com.termux/files/usr/bin/bash /data/data/com.termux/files/home/cybra_sync.sh daemon
+29714     1       05:23 bin/cybra_autogit.sh /data/data/com.termux/files/usr/bin/bash /data/data/com.termux/files/home/CYBRA/bin/cybra_autogit.sh --daemon 300
+29719     1       05:23 bash /data/data/com.termux/files/usr/bin/bash /data/data/com.termux/files/home/CYBRA/cybra_level_tracker.sh

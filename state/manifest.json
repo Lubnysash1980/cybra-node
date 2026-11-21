@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "schema_version": 1,
   "generated_at": "2026-11-21T13:22:04.089Z",
   "overall": {
@@ -289,4 +290,186 @@
   },
   "needs_cleanup": true,
   "needs_throttle": false
+=======
+  "schema_version": 3,
+  "generated_at": "2026-11-12T07:58:56.974Z",
+  "overall": {
+    "percent": 45,
+    "color": "black",
+    "level": "critical",
+    "sections": {
+      "services": 0,
+      "api": 0,
+      "resources": 15,
+      "stability": 15,
+      "self_heal": 10,
+      "queue": 5
+    }
+  },
+  "colors": {
+    "green": 2,
+    "yellow": 0,
+    "red": 1,
+    "black": 2
+  },
+  "resources": {
+    "ram_avail_pct": 21.4,
+    "disk_mb": 64685.9,
+    "pm2_memory_mb": 52.89999999999999,
+    "pm2_cpu_pct": 1
+  },
+  "services": [
+    {
+      "name": "cybra-autogit",
+      "status": "online",
+      "pid": 17391,
+      "cpu_pct": 0.2,
+      "memory_mb": 3.1,
+      "restarts": 0
+    },
+    {
+      "name": "cybra-core",
+      "status": "online",
+      "pid": 18255,
+      "cpu_pct": 0.3,
+      "memory_mb": 20.6,
+      "restarts": 0
+    },
+    {
+      "name": "redis",
+      "status": "online",
+      "pid": 22079,
+      "cpu_pct": 0.5,
+      "memory_mb": 3.2,
+      "restarts": 20
+    },
+    {
+      "name": "cybra-token-guard",
+      "status": "online",
+      "pid": 18278,
+      "cpu_pct": 0,
+      "memory_mb": 3,
+      "restarts": 0
+    },
+    {
+      "name": "menu-worker",
+      "status": "online",
+      "pid": 0,
+      "cpu_pct": 0,
+      "memory_mb": 0,
+      "restarts": 0
+    },
+    {
+      "name": "taxi-events",
+      "status": "online",
+      "pid": 18295,
+      "cpu_pct": 0,
+      "memory_mb": 5.6,
+      "restarts": 0
+    },
+    {
+      "name": "cybra-locate",
+      "status": "online",
+      "pid": 18297,
+      "cpu_pct": 0,
+      "memory_mb": 2.8,
+      "restarts": 0
+    },
+    {
+      "name": "cybra-sync",
+      "status": "online",
+      "pid": 18299,
+      "cpu_pct": 0,
+      "memory_mb": 2.8,
+      "restarts": 0
+    },
+    {
+      "name": "cybra-manifest",
+      "status": "online",
+      "pid": 18305,
+      "cpu_pct": 0,
+      "memory_mb": 3,
+      "restarts": 0
+    },
+    {
+      "name": "cybra-reaper",
+      "status": "online",
+      "pid": 18313,
+      "cpu_pct": 0,
+      "memory_mb": 3,
+      "restarts": 0
+    },
+    {
+      "name": "cybra-dump",
+      "status": "online",
+      "pid": 18317,
+      "cpu_pct": 0,
+      "memory_mb": 2.8,
+      "restarts": 0
+    },
+    {
+      "name": "level-tracker",
+      "status": "online",
+      "pid": 18322,
+      "cpu_pct": 0,
+      "memory_mb": 3,
+      "restarts": 0
+    }
+  ],
+  "health": {
+    "openid": {
+      "ok": false,
+      "status": 0,
+      "latency_ms": 3,
+      "reason": "connect ECONNREFUSED 127.0.0.1:8787"
+    }
+  },
+  "items": {
+    "pm2:cybra-monolith": {
+      "color": "black",
+      "reason": "Required process not found"
+    },
+    "pm2:cybra-openid": {
+      "color": "black",
+      "reason": "Required process not found"
+    },
+    "openid_health": {
+      "color": "red",
+      "reason": "connect ECONNREFUSED 127.0.0.1:8787"
+    },
+    "ram": {
+      "color": "green",
+      "reason": "21.4% RAM available"
+    },
+    "disk": {
+      "color": "green",
+      "reason": "64685.9 MB disk available"
+    }
+  },
+  "ai": {
+    "enabled": true,
+    "mode": "observing",
+    "target": 100,
+    "tolerance": 3,
+    "total_cycles": 206,
+    "total_actions": 0,
+    "rewards": 0,
+    "penalties": 0,
+    "neutral": 0,
+    "last_action": "none",
+    "last_decision": "diagnose",
+    "last_delta": 0
+  },
+  "survival": {
+    "active": true,
+    "mode": "survival"
+  },
+  "circuits": {
+    "open": 0,
+    "names": []
+  },
+  "self_heal": {
+    "status": "active"
+  }
+>>>>>>> fd47209075645fbeab12ee27628b3990d03e7821
 }

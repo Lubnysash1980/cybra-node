@@ -1,0 +1,20 @@
+{
+  "id": "stats",
+  "name": "Stats",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "Statistics executor: collect metrics, detect recurring mistakes, propose root cause via parliament.",
+  "depends": [
+    "stakeawtodump",
+    "parliament",
+    "autodopomoga"
+  ],
+  "state_dir": "state",
+  "entrypoints": {
+    "ctl": "bin/ctl.sh",
+    "collect": "bin/collect.sh",
+    "analyze": "bin/analyze.sh",
+    "report": "bin/report.sh",
+    "install": "bin/install.sh"
+  }
+}

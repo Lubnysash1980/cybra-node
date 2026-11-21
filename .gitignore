@@ -1,7 +1,28 @@
+<<<<<<< HEAD
 runtime/
 logs/
 *.log
 *.pid
+=======
+dumps/
+queue/
+logs/
+state/snapshots/
+.cache/
+node/latest
+node/snap_*/
+node/best_*.json
+node/stage_history.jsonl
+.pm2/
+*.log
+*.pid
+api_jwt_secret.txt
+__pycache__/
+*.pyc
+.venv/
+venv/
+runtime/
+>>>>>>> fd47209075645fbeab12ee27628b3990d03e7821
 dump.rdb
 *.rdb
 .env
@@ -20,3 +41,13 @@ proofs/private/
 owner_identity*
 payer_identity*
 data/cybra_dashboard/dashboard_token.local
+<<<<<<< HEAD
+=======
+
+# дозволити ключові дампи
+
+# дозволити ключові дампи
+!dumps/nohup_*/
+!dumps/web_*/
+!dumps/golden_*/
+>>>>>>> fd47209075645fbeab12ee27628b3990d03e7821

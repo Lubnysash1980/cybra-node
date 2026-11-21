@@ -1,0 +1,4 @@
+{"id":"sync","name":"Sync","version":"1.0.0","license":"MIT",
+ "description":"Multi-channel sync: WiFi, SD, USB, BT, GitHub.",
+ "depends":["stakeawtodump"],"state_dir":"state",
+ "entrypoints":{"ctl":"bin/sync.sh"}}

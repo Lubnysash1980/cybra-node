@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "schema_version": 1,
   "enabled": true,
   "mode": "learning",
@@ -9,12 +10,25 @@
   "last_decision": "healthy-zone",
   "last_delta": 0,
   "total_cycles": 48,
+=======
+  "enabled": true,
+  "mode": "observing",
+  "target": 100,
+  "tolerance": 3,
+  "total_cycles": 206,
+>>>>>>> fd47209075645fbeab12ee27628b3990d03e7821
   "total_actions": 0,
   "rewards": 0,
   "penalties": 0,
   "neutral": 0,
+<<<<<<< HEAD
   "rollbacks": 0,
   "cooldown_until": 0,
   "updated_at": "2026-11-05T02:06:28.844Z",
   "actions": {}
+=======
+  "last_action": "none",
+  "last_decision": "diagnose",
+  "last_delta": 0
+>>>>>>> fd47209075645fbeab12ee27628b3990d03e7821
 }

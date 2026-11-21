@@ -1,5 +1,6 @@
 [
   {
+<<<<<<< HEAD
     "name": "cybra-api",
     "exec": "/data/data/com.termux/files/home/CYBRA/api/run.sh",
     "interp": "bash"
@@ -37,6 +38,45 @@
   {
     "name": "cybra-openid-health",
     "exec": "/data/data/com.termux/files/home/CYBRA/openid/health-check.sh",
+=======
+    "name": "cybra-autogit",
+    "exec": "/data/data/com.termux/files/home/CYBRA/bin/wrappers/run_autogit.sh",
+    "interp": "bash"
+  },
+  {
+    "name": "cybra-core",
+    "exec": "/data/data/com.termux/files/home/CYBRA/core/autonomous-core.js",
+    "interp": "node"
+  },
+  {
+    "name": "cybra-dump",
+    "exec": "/data/data/com.termux/files/home/CYBRA/bin/wrappers/run_dump.sh",
+    "interp": "bash"
+  },
+  {
+    "name": "cybra-locate",
+    "exec": "/data/data/com.termux/files/home/CYBRA/modules/cybra-locate/bin/scan_daemon.sh",
+    "interp": "bash"
+  },
+  {
+    "name": "cybra-manifest",
+    "exec": "/data/data/com.termux/files/home/CYBRA/bin/wrappers/run_manifest.sh",
+    "interp": "bash"
+  },
+  {
+    "name": "cybra-reaper",
+    "exec": "/data/data/com.termux/files/home/CYBRA/bin/wrappers/run_reaper.sh",
+    "interp": "bash"
+  },
+  {
+    "name": "cybra-stage",
+    "exec": "/data/data/com.termux/files/home/CYBRA/bin/wrappers/run_stage_analytics.sh",
+    "interp": "bash"
+  },
+  {
+    "name": "cybra-sync",
+    "exec": "/data/data/com.termux/files/home/CYBRA/modules/cybra-sync/bin/sync_daemon.sh",
+>>>>>>> fd47209075645fbeab12ee27628b3990d03e7821
     "interp": "bash"
   },
   {
@@ -63,10 +103,13 @@
     "name": "runtime",
     "exec": "/data/data/com.termux/files/home/CYBRA/cybra_codespace_runtime.py",
     "interp": "python3"
+<<<<<<< HEAD
   },
   {
     "name": "taxi-events",
     "exec": "/data/data/com.termux/files/home/CYBRA/bin/cybra_taxi_events.py",
     "interp": "python3"
+=======
+>>>>>>> fd47209075645fbeab12ee27628b3990d03e7821
   }
 ]

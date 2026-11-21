@@ -1,0 +1,18 @@
+{
+  "id": "autodopomoga",
+  "name": "AutoDopomoga",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "Contract-based self-repair: 3% deviation trigger → purpose-aware escalation → loop to 100%.",
+  "depends": [
+    "stakeawtodump",
+    "parliament"
+  ],
+  "state_dir": "state",
+  "entrypoints": {
+    "install": "bin/install.sh",
+    "ctl": "bin/ctl.sh",
+    "verify": "bin/verify.sh",
+    "repair": "bin/repair.sh"
+  }
+}
