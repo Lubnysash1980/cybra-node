@@ -1,2 +1,100 @@
 #!/data/data/com.termux/files/usr/bin/bash
-cd "$HOME/CYBRA" && bash barmenu/index.sh "$@"
+cd "$HOME/CYBRA" || exit 1
+set -u
+
+# ═══════════════════════════════════════════════════════════
+#  🏛️ CYBRA BAR LAUNCHER — Golden Auto-Pool Edition
+# ═══════════════════════════════════════════════════════════
+
+GREEN='\033[1;32m'; YELLOW='\033[1;33m'; RED='\033[1;31m'; CYAN='\033[1;36m'; NC='\033[0m'
+
+echo -e "${CYAN}╔══════════════════════════════════════════════╗${NC}"
+echo -e "${CYAN}║   🏛️  CYBRA BAR — Golden Auto-Pool          ║${NC}"
+echo -e "${CYAN}╚══════════════════════════════════════════════╝${NC}"
+echo ""
+
+# ── 1. Перевірка .env ──────────────────────────────────
+if [ ! -f ".env" ]; then
+    echo -e "${RED}❌ .env відсутній!${NC}"
+    exit 1
+fi
+if ! grep -q "^SECRET_RECOVERY_PHRASE=" .env && ! grep -q "^WALLET_PRIVATE_KEY=" .env; then
+    echo -e "${RED}❌ Немає ні SECRET_RECOVERY_PHRASE, ні WALLET_PRIVATE_KEY у .env${NC}"
+    exit 1
+fi
+echo -e "${GREEN}●${NC} .env OK"
+
+# ── 2. Redis ───────────────────────────────────────────
+if redis-cli ping >/dev/null 2>&1; then
+    echo -e "${GREEN}●${NC} Redis OK"
+else
+    echo -e "${YELLOW}●${NC} Redis запускаю..."
+    redis-server --daemonize yes --bind 127.0.0.1 --port 6379 >/dev/null 2>&1
+    sleep 1
+    redis-cli ping >/dev/null 2>&1 && echo -e "${GREEN}●${NC} Redis OK" || echo -e "${RED}●${NC} Redis FAIL"
+fi
+
+# ── 3. PM2 та модулі ───────────────────────────────────
+COUNT=$(pm2 jlist 2>/dev/null | python3 -c "import sys,json; print(len(json.load(sys.stdin)))" 2>/dev/null || echo 0)
+
+if [ "$COUNT" -lt 2 ]; then
+    echo -e "${YELLOW}●${NC} PM2 пустий ($COUNT), роблю resurrect..."
+    pm2 resurrect 2>/dev/null
+    sleep 2
+    COUNT=$(pm2 jlist 2>/dev/null | python3 -c "import sys,json; print(len(json.load(sys.stdin)))" 2>/dev/null || echo 0)
+fi
+
+# Автозапуск критичних модулів
+start_module() {
+    local name=$1 script=$2 interp=${3:-}
+    local status=$(pm2 jlist 2>/dev/null | python3 -c "
+import sys,json
+try:
+    d=json.load(sys.stdin); m=[x for x in d if x['name']=='$name']
+    print(m[0]['pm2_env']['status'] if m else 'missing')
+except: print('missing')
+")
+    if [ "$status" != "online" ]; then
+        if [ -f "$script" ]; then
+            if [ -n "$interp" ]; then
+                pm2 start "$script" --name "$name" --interpreter "$interp" >/dev/null 2>&1
+            else
+                pm2 start "$script" --name "$name" >/dev/null 2>&1
+            fi
+            echo -e "${GREEN}●${NC} $name (started)"
+        else
+            echo -e "${RED}●${NC} $name (missing $script)"
+        fi
+    else
+        echo -e "${GREEN}●${NC} $name"
+    fi
+}
+
+echo ""
+echo "── Модулі ──"
+start_module "cybra-pool"     "bin/cybra_pool_worker.js"
+start_module "cybra-brain"    "bin/cybra_ai_brain.js"
+start_module "parliament"     "cybra_it_evolution.py" "python3"
+start_module "mock-ai"        "mock_ai.py" "python3"
+
+pm2 save >/dev/null 2>&1
+
+# ── 4. Autosave (Stake-Nohup-Dump) ─────────────────────
+if [ ! -f "barmenu/state/autosave.pid" ] || ! kill -0 "$(cat barmenu/state/autosave.pid 2>/dev/null)" 2>/dev/null; then
+    mkdir -p barmenu/snapshots barmenu/state
+    setsid nohup bash -c 'cd ~/CYBRA; while true; do TS=$(date +%Y%m%d_%H%M%S); tar -czf "barmenu/snapshots/auto_$TS.tar.gz" --exclude=node_modules --exclude=.git --exclude=barmenu/snapshots modules bin barmenu .env 2>/dev/null; find barmenu/snapshots -name "auto_*.tar.gz" -mmin +2880 -delete 2>/dev/null; sleep 600; done' >/dev/null 2>&1 &
+    echo $! > barmenu/state/autosave.pid
+    echo -e "${GREEN}●${NC} Autosave ON (10 хв, 48 год retention)"
+else
+    echo -e "${GREEN}●${NC} Autosave вже працює"
+fi
+
+echo ""
+
+# ── 5. Запуск BAR-MENU ─────────────────────────────────
+if [ -f "barmenu/index.sh" ]; then
+    exec bash barmenu/index.sh "$@"
+else
+    echo -e "${RED}❌ barmenu/index.sh не знайдено${NC}"
+    exit 1
+fi
