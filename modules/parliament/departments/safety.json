@@ -1,0 +1,7 @@
+{
+  "id": "safety",
+  "name": "Safety Department",
+  "weight": 10,
+  "can_veto": true,
+  "judge": "bin/judges/safety.sh"
+}

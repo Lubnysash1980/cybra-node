@@ -1,0 +1,21 @@
+{
+  "id": "p_20261104_221559_2192923154",
+  "ts": 1793823359,
+  "goal": "wipe all",
+  "exec": "pm2 delete all",
+  "status": "rejected",
+  "votes": {
+    "it": {
+      "verdict": "reject",
+      "score": 0,
+      "reason": "destructive pattern detected"
+    },
+    "ops": {
+      "verdict": "approve",
+      "score": 60,
+      "reason": "no ops concern"
+    }
+  },
+  "decision": null,
+  "weighted": 24.0
+}

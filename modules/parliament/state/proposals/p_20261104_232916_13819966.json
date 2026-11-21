@@ -1,0 +1,27 @@
+{
+  "id": "p_20261104_232916_13819966",
+  "ts": 1793827756,
+  "goal": "wipe bin",
+  "exec": "rm -rf ~/CYBRA/bin",
+  "status": "vetoed",
+  "votes": {
+    "it": {
+      "verdict": "reject",
+      "score": 10,
+      "reason": "filesystem mutation"
+    },
+    "ops": {
+      "verdict": "approve",
+      "score": 60,
+      "reason": "no ops concern"
+    },
+    "safety": {
+      "verdict": "reject",
+      "score": 0,
+      "reason": "rm present — VETO"
+    }
+  },
+  "decision": null,
+  "weighted": 0,
+  "vetoed_by": "safety"
+}
