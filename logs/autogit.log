@@ -32469,3 +32469,66 @@ hint: the same ref. If you want to integrate the remote changes, use
 hint: 'git pull' before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 [2026-11-21 15:11:55] push fail
+[main dd78baa36] auto: 2026-11-21 15:17:01
+ 60 files changed, 33629 insertions(+), 93 deletions(-)
+ create mode 100755 cybra-compare.sh
+ delete mode 100644 dumps/components/comp_stakeawtodump_20261105_194112/pm2_cybra-autogit.txt
+ delete mode 100644 dumps/components/comp_stakeawtodump_20261105_194112/timestamp
+ delete mode 100644 dumps/components/comp_stakeawtodump_20261105_194222/pm2_cybra-autogit.txt
+ delete mode 100644 dumps/components/comp_stakeawtodump_20261105_194222/timestamp
+ delete mode 100644 dumps/components/comp_stakeawtodump_20261105_194332/pm2_cybra-autogit.txt
+ delete mode 100644 dumps/components/comp_stakeawtodump_20261105_194332/timestamp
+ delete mode 100644 dumps/components/comp_stakeawtodump_20261105_194441/pm2_cybra-autogit.txt
+ delete mode 100644 dumps/components/comp_stakeawtodump_20261105_194441/timestamp
+ delete mode 100644 dumps/components/comp_stakeawtodump_20261105_194550/pm2_cybra-autogit.txt
+ delete mode 100644 dumps/components/comp_stakeawtodump_20261105_194550/timestamp
+ delete mode 100644 dumps/components/comp_stakeawtodump_20261121_150758/pm2_cybra-autogit.txt
+ delete mode 100644 dumps/components/comp_stakeawtodump_20261121_150758/timestamp
+ create mode 100644 dumps/components/comp_stakeawtodump_20261121_151107/pm2_cybra-autogit.txt
+ create mode 100644 dumps/components/comp_stakeawtodump_20261121_151107/timestamp
+ create mode 100644 dumps/components/comp_stakeawtodump_20261121_151209/pm2_cybra-autogit.txt
+ create mode 100644 dumps/components/comp_stakeawtodump_20261121_151209/timestamp
+ create mode 100644 dumps/components/comp_stakeawtodump_20261121_151311/pm2_cybra-autogit.txt
+ create mode 100644 dumps/components/comp_stakeawtodump_20261121_151311/timestamp
+ create mode 100644 dumps/components/comp_stakeawtodump_20261121_151413/pm2_cybra-autogit.txt
+ create mode 100644 dumps/components/comp_stakeawtodump_20261121_151413/timestamp
+ create mode 100644 dumps/components/comp_stakeawtodump_20261121_151514/pm2_cybra-autogit.txt
+ create mode 100644 dumps/components/comp_stakeawtodump_20261121_151514/timestamp
+ create mode 100644 dumps/components/comp_stakeawtodump_20261121_151616/pm2_cybra-autogit.txt
+ create mode 100644 dumps/components/comp_stakeawtodump_20261121_151616/timestamp
+ create mode 100755 modules/parliament/bin/baseline.sh
+ create mode 100755 modules/parliament/bin/install.sh
+ create mode 100755 modules/parliament/bin/judges/it.sh
+ create mode 100755 modules/parliament/bin/judges/ops.sh
+ create mode 100755 modules/parliament/bin/judges/safety.sh
+ create mode 100755 modules/parliament/bin/measure.sh
+ create mode 100755 modules/parliament/bin/parliament.sh
+ create mode 100755 modules/parliament/bin/parliament_ctl.sh
+ create mode 100755 modules/parliament/bin/propose_auto.sh
+ create mode 100755 modules/parliament/bin/rollback.sh
+ create mode 100755 modules/parliament/bin/sanity.sh
+ create mode 100644 modules/parliament/departments/it.json
+ create mode 100644 modules/parliament/departments/ops.json
+ create mode 100644 modules/parliament/departments/safety.json
+ create mode 100644 modules/parliament/manifest.json
+ create mode 100644 modules/parliament/state/.last-auto-proposal.ts
+ create mode 100644 modules/parliament/state/.rollback-events.log
+ create mode 100644 modules/parliament/state/baseline.json
+ create mode 100644 modules/parliament/state/last-measure.json
+ create mode 100644 modules/parliament/state/proposals/p_20261104_221549_183231421.json
+ create mode 100644 modules/parliament/state/proposals/p_20261104_221559_2192923154.json
+ create mode 100644 modules/parliament/state/proposals/p_20261104_221617_250688968.json
+ create mode 100644 modules/parliament/state/proposals/p_20261104_221627_1600412365.json
+ create mode 100644 modules/parliament/state/proposals/p_20261104_232916_13819966.json
+ create mode 100644 modules/parliament/state/proposals/p_20261104_232918_1999719126.json
+ create mode 100644 modules/parliament/state/proposals/p_20261104_232930_3248423490.json
+ create mode 100644 modules/parliament/state/proposals/p_20261105_002206_2986528314.json
+ create mode 100644 modules/stakeawtodump/state/install.json
+To https://github.com/Lubnysash1980/cybra-node.git
+ ! [rejected]            main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/Lubnysash1980/cybra-node.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[2026-11-21 15:17:03] push fail

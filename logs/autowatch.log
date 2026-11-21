@@ -227,3 +227,63 @@ bin/cybra_autowatch.sh: line 100: /data/data/com.termux/files/home/CYBRA/bin/cyb
 └────┴─────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
 [1m[36mhost metrics[39m[22m | [1mcpu[22m: 0% | [1mram usage[22m: [1m[33m75.4%[39m[22m | [1mdisk[22m: ⇓ 0mb/s ⇑ 0mb/s
 [2026-11-21 15:16:03] autoheal: restarted 1 process(es)
+[2026-11-21 15:17:36] autoheal: restart parliament
+[1m[34mUse --update-env to update environment variables[39m[22m
+[32m[PM2] [39mApplying action restartProcessId on app [parliament](ids: [ 11, 15 ])
+[32m[PM2] [39m[parliament](11) ✓
+[32m[PM2] [39m[parliament](15) ✓
+┌────┬─────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                    │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ [1m[36m1[39m[22m  │ cybra-api               │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 21919    │ 87m    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 6.9mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m18[39m[22m │ cybra-autogit           │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 25345    │ 9m     │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 3.5mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m16[39m[22m │ cybra-brain             │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 22076    │ 87m    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 34.0mb   │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m2[39m[22m  │ cybra-evo-ctrl          │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ N/A      │ 0      │ 9134 │ [31m[1mstopped[22m[39m   │ 0%       │ 0b       │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m3[39m[22m  │ cybra-evolution-ctrl    │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ N/A      │ 0      │ 8752 │ [31m[1mstopped[22m[39m   │ 0%       │ 0b       │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m4[39m[22m  │ cybra-metrics           │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 19264    │ 0s     │ 1476 │ [32m[1monline[22m[39m    │ 11%      │ 30.2mb   │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m5[39m[22m  │ cybra-monolith          │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 21930    │ 87m    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 4.1mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m6[39m[22m  │ cybra-neuro-ctrl        │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ N/A      │ 0      │ 8969 │ [31m[1mstopped[22m[39m   │ 0%       │ 0b       │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m7[39m[22m  │ cybra-openid            │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 19273    │ 0s     │ 5201 │ [32m[1monline[22m[39m    │ 11%      │ 30.7mb   │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m8[39m[22m  │ cybra-openid-health     │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 21951    │ 87m    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 3.2mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m14[39m[22m │ cybra-pool              │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 19255    │ 0s     │ 2191 │ [32m[1monline[22m[39m    │ 10%      │ 33.6mb   │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m9[39m[22m  │ level-tracker           │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 21974    │ 87m    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 3.4mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m10[39m[22m │ menu-worker             │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 21980    │ 87m    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 3.6mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m17[39m[22m │ mock-ai                 │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 22090    │ 87m    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 5.3mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m11[39m[22m │ parliament              │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 19287    │ 0s     │ 7    │ [32m[1monline[22m[39m    │ 0%       │ 7.6mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m15[39m[22m │ parliament              │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 19289    │ 0s     │ 106  │ [32m[1monline[22m[39m    │ 0%       │ 6.0mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m12[39m[22m │ redis                   │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 22016    │ 87m    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 3.4mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m13[39m[22m │ runtime                 │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ N/A      │ 0      │ 4787 │ [31m[1mstopped[22m[39m   │ 0%       │ 0b       │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m0[39m[22m  │ taxi-events             │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 21914    │ 87m    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 6.1mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+└────┴─────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[1m[36mhost metrics[39m[22m | [1mcpu[22m: 0% | [1mram usage[22m: [32m69.9%[39m | [1mdisk[22m: ⇓ 0mb/s ⇑ 0mb/s
+[2026-11-21 15:17:38] autoheal: restarted 1 process(es)
+[2026-11-21 15:19:11] autoheal: restart parliament
+[1m[34mUse --update-env to update environment variables[39m[22m
+[32m[PM2] [39mApplying action restartProcessId on app [parliament](ids: [ 11, 15 ])
+[32m[PM2] [39m[parliament](11) ✓
+[32m[PM2] [39m[parliament](15) ✓
+┌────┬─────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                    │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼─────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ [1m[36m1[39m[22m  │ cybra-api               │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 21919    │ 88m    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 6.9mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m18[39m[22m │ cybra-autogit           │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 25345    │ 11m    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 3.5mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m16[39m[22m │ cybra-brain             │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 22076    │ 88m    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 33.7mb   │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m2[39m[22m  │ cybra-evo-ctrl          │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ N/A      │ 0      │ 9134 │ [31m[1mstopped[22m[39m   │ 0%       │ 0b       │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m3[39m[22m  │ cybra-evolution-ctrl    │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ N/A      │ 0      │ 8752 │ [31m[1mstopped[22m[39m   │ 0%       │ 0b       │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m4[39m[22m  │ cybra-metrics           │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 23331    │ 0s     │ 1502 │ [32m[1monline[22m[39m    │ 0%       │ 46.7mb   │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m5[39m[22m  │ cybra-monolith          │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 21930    │ 88m    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 4.1mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m6[39m[22m  │ cybra-neuro-ctrl        │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ N/A      │ 0      │ 8969 │ [31m[1mstopped[22m[39m   │ 0%       │ 0b       │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m7[39m[22m  │ cybra-openid            │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 23341    │ 0s     │ 5289 │ [32m[1monline[22m[39m    │ 0%       │ 32.1mb   │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m8[39m[22m  │ cybra-openid-health     │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 21951    │ 88m    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 3.2mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m14[39m[22m │ cybra-pool              │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 23272    │ 2s     │ 2226 │ [32m[1monline[22m[39m    │ 0%       │ 77.4mb   │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m9[39m[22m  │ level-tracker           │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 21974    │ 88m    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 3.4mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m10[39m[22m │ menu-worker             │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 21980    │ 88m    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 3.6mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m17[39m[22m │ mock-ai                 │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 22090    │ 88m    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 5.3mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m11[39m[22m │ parliament              │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 23364    │ 0s     │ 8    │ [32m[1monline[22m[39m    │ 0%       │ 7.6mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m15[39m[22m │ parliament              │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 23367    │ 0s     │ 121  │ [32m[1monline[22m[39m    │ 0%       │ 6.6mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m12[39m[22m │ redis                   │ default     │ N/A     │ [7m[1mfork[22m[27m    │ 22016    │ 88m    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 3.4mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m13[39m[22m │ runtime                 │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ N/A      │ 0      │ 4787 │ [31m[1mstopped[22m[39m   │ 0%       │ 0b       │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m0[39m[22m  │ taxi-events             │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 21914    │ 88m    │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 6.1mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+└────┴─────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[1m[36mhost metrics[39m[22m | [1mcpu[22m: 0% | [1mram usage[22m: [1m[33m76.4%[39m[22m | [1mdisk[22m: ⇓ 0mb/s ⇑ 0mb/s
+[2026-11-21 15:19:12] autoheal: restarted 1 process(es)
