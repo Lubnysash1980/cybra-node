@@ -452,3 +452,39 @@ bin/cybra_autowatch.sh: line 100: /data/data/com.termux/files/home/CYBRA/bin/cyb
 [2026-11-22 23:29:19] 3 gods → kill extras
 [2026-11-22 23:29:19] bg_dump DEAD → start
 ✓ started pid=23034
+[2026-11-22 23:30:58] autoheal: restart cybra-ai-dispatcher
+[1m[34mUse --update-env to update environment variables[39m[22m
+[32m[PM2] [39mApplying action restartProcessId on app [cybra-ai-dispatcher](ids: [ 1 ])
+[32m[PM2] [39m[cybra-ai-dispatcher](1) ✓
+┌────┬────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                   │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ [1m[36m1[39m[22m  │ cybra-ai-dispatcher    │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 26122    │ 0s     │ 15   │ [32m[1monline[22m[39m    │ 0%       │ 3.7mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m0[39m[22m  │ cybra-autogit          │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 22941    │ 100s   │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 3.4mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+└────┴────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[1m[36mhost metrics[39m[22m | [1mcpu[22m: 0% | [1mram usage[22m: [1m[33m75.3%[39m[22m | [1mdisk[22m: ⇓ 0mb/s ⇑ 0mb/s
+[2026-11-22 23:30:59] autoheal: restarted 1 process(es)
+[2026-11-22 23:32:32] autoheal: restart cybra-ai-dispatcher
+[1m[34mUse --update-env to update environment variables[39m[22m
+[32m[PM2] [39mApplying action restartProcessId on app [cybra-ai-dispatcher](ids: [ 2 ])
+[32m[PM2] [39m[cybra-ai-dispatcher](2) ✓
+┌────┬────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                   │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ [1m[36m2[39m[22m  │ cybra-ai-dispatcher    │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 28813    │ 0s     │ 15   │ [32m[1monline[22m[39m    │ 0%       │ 4.0mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m0[39m[22m  │ cybra-autogit          │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 22941    │ 3m     │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 3.4mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+└────┴────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[1m[36mhost metrics[39m[22m | [1mcpu[22m: 0% | [1mram usage[22m: [1m[33m78.3%[39m[22m | [1mdisk[22m: ⇓ 0mb/s ⇑ 0mb/s
+[2026-11-22 23:32:32] autoheal: restarted 1 process(es)
+[2026-11-22 23:34:05] autoheal: restart cybra-ai-dispatcher
+[1m[34mUse --update-env to update environment variables[39m[22m
+[32m[PM2] [39mApplying action restartProcessId on app [cybra-ai-dispatcher](ids: [ 2 ])
+[32m[PM2] [39m[cybra-ai-dispatcher](2) ✓
+┌────┬────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                   │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ [1m[36m2[39m[22m  │ cybra-ai-dispatcher    │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 29708    │ 0s     │ 30   │ [32m[1monline[22m[39m    │ 0%       │ 4.1mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+│ [1m[36m0[39m[22m  │ cybra-autogit          │ default     │ 1.0.0   │ [7m[1mfork[22m[27m    │ 22941    │ 4m     │ 0    │ [32m[1monline[22m[39m    │ 0%       │ 3.4mb    │ [1mu0_a434[22m  │ [90mdisabled[39m │
+└────┴────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[1m[36mhost metrics[39m[22m | [1mcpu[22m: 0% | [1mram usage[22m: [1m[33m76.6%[39m[22m | [1mdisk[22m: ⇓ 0mb/s ⇑ 0mb/s
+[2026-11-22 23:34:05] autoheal: restarted 1 process(es)
