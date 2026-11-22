@@ -1,11 +1,11 @@
 {
   "now": {
     "god": 3,
-    "online": 0,
-    "errored": 1,
+    "online": 1,
+    "errored": 0,
     "bg_dump": 0,
     "autowatch": 0
   },
-  "deviation": 1,
+  "deviation": 0.636364,
   "verdict": "ROLLBACK"
 }
