@@ -1,0 +1,14 @@
+{
+  "name": "module_207_module_207",
+  "version": "1.0.0",
+  "category": "taxi_core",
+  "description": "Модуль module_207_module_207",
+  "type": "redis-module",
+  "redis_prefix": "cybra:custom:data",
+  "entry": {
+    "main": true,
+    "bin_count": 0
+  },
+  "auto_generated": true,
+  "generated_at": "2026-11-22T10:08:09Z"
+}

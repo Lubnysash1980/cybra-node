@@ -1,0 +1,14 @@
+{
+  "name": "module_207_repeat_ride",
+  "version": "1.0.0",
+  "category": "taxi_core",
+  "description": "Повторна поїздка",
+  "type": "redis-module",
+  "redis_prefix": "cybra:module:repeat_ride:data",
+  "entry": {
+    "main": true,
+    "bin_count": 0
+  },
+  "auto_generated": true,
+  "generated_at": "2026-11-22T10:08:09Z"
+}

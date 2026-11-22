@@ -1,0 +1,14 @@
+{
+  "name": "cybra-locate",
+  "version": "1.0.0",
+  "category": "misc",
+  "description": "Модуль cybra-locate",
+  "type": "redis-module",
+  "redis_prefix": "cybra:module:cybra-locate:data",
+  "entry": {
+    "main": false,
+    "bin_count": 1
+  },
+  "auto_generated": true,
+  "generated_at": "2026-11-22T10:08:06Z"
+}

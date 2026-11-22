@@ -1,0 +1,14 @@
+{
+  "name": "cybra-sync",
+  "version": "1.0.0",
+  "category": "misc",
+  "description": "Модуль cybra-sync",
+  "type": "redis-module",
+  "redis_prefix": "cybra:module:cybra-sync:data",
+  "entry": {
+    "main": false,
+    "bin_count": 1
+  },
+  "auto_generated": true,
+  "generated_at": "2026-11-22T10:08:07Z"
+}
