@@ -1,0 +1,14 @@
+{
+  "name": "module_242_route_preference",
+  "version": "1.0.0",
+  "category": "taxi_media",
+  "description": "Переваги маршруту",
+  "type": "redis-module",
+  "redis_prefix": "${1:-}",
+  "entry": {
+    "main": true,
+    "bin_count": 0
+  },
+  "auto_generated": true,
+  "generated_at": "2026-11-22T10:08:20Z"
+}

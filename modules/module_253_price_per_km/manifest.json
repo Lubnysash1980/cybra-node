@@ -1,0 +1,14 @@
+{
+  "name": "module_253_price_per_km",
+  "version": "1.0.0",
+  "category": "taxi_payment",
+  "description": "Ціна за км",
+  "type": "redis-module",
+  "redis_prefix": "cybra:module:price_per_km:data",
+  "entry": {
+    "main": true,
+    "bin_count": 0
+  },
+  "auto_generated": true,
+  "generated_at": "2026-11-22T10:08:22Z"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "module_229_promo_code",
+  "version": "1.0.0",
+  "category": "taxi_core",
+  "description": "Промокод",
+  "type": "redis-module",
+  "redis_prefix": "cybra:module:promo_code:data",
+  "entry": {
+    "main": true,
+    "bin_count": 0
+  },
+  "auto_generated": true,
+  "generated_at": "2026-11-22T10:08:16Z"
+}

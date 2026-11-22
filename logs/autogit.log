@@ -51281,3 +51281,64 @@ fatal: unable to access 'https://github.com/Lubnysash1980/cybra-node.git/': Coul
  5 files changed, 40 insertions(+), 6 deletions(-)
 fatal: unable to access 'https://github.com/Lubnysash1980/cybra-node.git/': Could not resolve host: github.com
 [2026-11-22 12:03:11] push fail
+[main 3e90a076a] auto: 2026-11-22 12:08:15
+ 64 files changed, 991 insertions(+), 8 deletions(-)
+ create mode 100755 cybra-gen-manifests.sh
+ create mode 100644 modules/cybra-locate/manifest.json
+ create mode 100644 modules/cybra-sync/manifest.json
+ create mode 100644 modules/module_200_book_ride/manifest.json
+ create mode 100644 modules/module_200_module_200/manifest.json
+ create mode 100644 modules/module_200_taxi_menu/manifest.json
+ create mode 100644 modules/module_201_cancel_ride/manifest.json
+ create mode 100644 modules/module_201_module_201/manifest.json
+ create mode 100644 modules/module_202_module_202/manifest.json
+ create mode 100644 modules/module_202_ride_status/manifest.json
+ create mode 100644 modules/module_203_module_203/manifest.json
+ create mode 100644 modules/module_203_ride_history/manifest.json
+ create mode 100644 modules/module_204_estimate_price/manifest.json
+ create mode 100644 modules/module_204_module_204/manifest.json
+ create mode 100644 modules/module_205_module_205/manifest.json
+ create mode 100644 modules/module_205_select_tariff/manifest.json
+ create mode 100644 modules/module_206_module_206/manifest.json
+ create mode 100644 modules/module_206_schedule_ride/manifest.json
+ create mode 100644 modules/module_207_module_207/manifest.json
+ create mode 100644 modules/module_207_repeat_ride/manifest.json
+ create mode 100644 modules/module_208_favorite_route/manifest.json
+ create mode 100644 modules/module_208_module_208/manifest.json
+ create mode 100644 modules/module_209_module_209/manifest.json
+ create mode 100644 modules/module_209_saved_addresses/manifest.json
+ create mode 100644 modules/module_210_driver_register/manifest.json
+ create mode 100644 modules/module_210_module_210/manifest.json
+ create mode 100644 modules/module_211_driver_status/manifest.json
+ create mode 100644 modules/module_211_module_211/manifest.json
+ create mode 100644 modules/module_212_accept_ride/manifest.json
+ create mode 100644 modules/module_212_module_212/manifest.json
+ create mode 100644 modules/module_213_complete_ride/manifest.json
+ create mode 100644 modules/module_213_module_213/manifest.json
+ create mode 100644 modules/module_214_driver_earnings/manifest.json
+ create mode 100644 modules/module_214_module_214/manifest.json
+ create mode 100644 modules/module_215_driver_documents/manifest.json
+ create mode 100644 modules/module_215_module_215/manifest.json
+ create mode 100644 modules/module_216_driver_rating/manifest.json
+ create mode 100644 modules/module_216_module_216/manifest.json
+ create mode 100644 modules/module_217_dispatch_nearest/manifest.json
+ create mode 100644 modules/module_217_module_217/manifest.json
+ create mode 100644 modules/module_218_dispatch_batch/manifest.json
+ create mode 100644 modules/module_218_module_218/manifest.json
+ create mode 100644 modules/module_219_module_219/manifest.json
+ create mode 100644 modules/module_219_surge_pricing/manifest.json
+ create mode 100644 modules/module_220_module_220/manifest.json
+ create mode 100644 modules/module_220_ride_payment/manifest.json
+ create mode 100644 modules/module_221_module_221/manifest.json
+ create mode 100644 modules/module_221_ride_receipt/manifest.json
+ create mode 100644 modules/module_222_module_222/manifest.json
+ create mode 100644 modules/module_222_ride_refund/manifest.json
+ create mode 100644 modules/module_223_escrow_ride/manifest.json
+ create mode 100644 modules/module_223_module_223/manifest.json
+ create mode 100644 modules/module_224_driver_payout/manifest.json
+ create mode 100644 modules/module_224_module_224/manifest.json
+ create mode 100644 modules/module_225_module_225/manifest.json
+ create mode 100644 modules/module_225_tip_driver/manifest.json
+ create mode 100644 modules/module_226_module_226/manifest.json
+fatal: unable to access 'https://github.com/Lubnysash1980/cybra-node.git/': Could not resolve host: github.com
+[2026-11-22 12:08:22] push fail

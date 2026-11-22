@@ -1,0 +1,14 @@
+{
+  "name": "module_250_wallet_list",
+  "version": "1.0.0",
+  "category": "taxi_payment",
+  "description": "Список гаманців",
+  "type": "redis-module",
+  "redis_prefix": "cybra:module:wallet_list:data",
+  "entry": {
+    "main": true,
+    "bin_count": 0
+  },
+  "auto_generated": true,
+  "generated_at": "2026-11-22T10:08:21Z"
+}

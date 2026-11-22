@@ -1,0 +1,14 @@
+{
+  "name": "module_247_payment_commission",
+  "version": "1.0.0",
+  "category": "taxi_payment",
+  "description": "Комісія платежу",
+  "type": "redis-module",
+  "redis_prefix": "cybra:module:payment_commission:data",
+  "entry": {
+    "main": true,
+    "bin_count": 0
+  },
+  "auto_generated": true,
+  "generated_at": "2026-11-22T10:08:21Z"
+}

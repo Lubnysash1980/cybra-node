@@ -1,0 +1,16 @@
+{
+  "name": "module_233_module_233",
+  "version": "1.0.0",
+  "category": "taxi_ai",
+  "description": "Модуль module_233_module_233",
+  "type": "redis-module",
+  "redis_prefix": "cybra:custom:data",
+  "entry": {
+    "main": true,
+    "bin_count": 0
+  },
+  "auto_generated": true,
+  "generated_at": "2026-11-22T10:08:17Z",
+  "duplicate_of": "module_233_ai_demand_forecast",
+  "stub": true
+}

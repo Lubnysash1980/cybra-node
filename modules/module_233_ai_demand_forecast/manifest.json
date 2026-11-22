@@ -1,0 +1,14 @@
+{
+  "name": "module_233_ai_demand_forecast",
+  "version": "1.0.0",
+  "category": "taxi_ai",
+  "description": "AI прогноз попиту",
+  "type": "redis-module",
+  "redis_prefix": "cybra:module:ai_demand_forecast:data",
+  "entry": {
+    "main": true,
+    "bin_count": 0
+  },
+  "auto_generated": true,
+  "generated_at": "2026-11-22T10:08:17Z"
+}
