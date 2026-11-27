@@ -1,0 +1,40 @@
+name: Adaptive Controller Policy Validation
+
+on:
+  pull_request:
+    paths:
+      - "config/adaptive-controller.example.json"
+      - "docs/adaptive-controller/**"
+      - ".github/workflows/adaptive-controller-policy.yml"
+  push:
+    branches:
+      - "feature/adaptive-complexity-workflow-20261127"
+    paths:
+      - "config/adaptive-controller.example.json"
+      - "docs/adaptive-controller/**"
+      - ".github/workflows/adaptive-controller-policy.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-policy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate JSON syntax and required safety invariants
+        run: |
+          node -e '
+            const fs = require("fs");
+            const p = JSON.parse(fs.readFileSync("config/adaptive-controller.example.json", "utf8"));
+            const assert = require("node:assert/strict");
+            assert.equal(p.mode, "simulation");
+            assert.equal(p.levels.length, 7);
+            assert.equal(p.policy.max_active_levels, 1);
+            assert.equal(p.policy.promotion_requires_all_gates, true);
+            assert.equal(p.policy.require_readiness_before_handover, true);
+            assert.equal(p.policy.on_rollback_failure, "safe_halt");
+            assert.ok(p.policy.standby_resource_budget_percent >= 0);
+            assert.ok(p.policy.standby_resource_budget_percent <= 10);
+            console.log("Policy JSON valid; seven levels and safety invariants verified.");
+          '
