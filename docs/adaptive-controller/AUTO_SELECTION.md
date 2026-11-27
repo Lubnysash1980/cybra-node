@@ -101,3 +101,36 @@ A new dump must never overwrite an existing verified recovery point. A failed ba
 ## Safety boundary
 
 This branch is not connected to the live server by this document. Do not change main, frozen contracts, production PM2, Termux state, secrets, or LIVE data during implementation. Never claim automatic selection, backup protection, or recovery is active until code is installed and the corresponding tests and restore drills have succeeded.
+
+
+## Executor overlay cycle: apply, reconcile, install, verify, smooth
+
+The Executor must run a repeatable staged cycle for every candidate. It must never apply a layer directly to the live baseline.
+
+1. **PRECHECK** — acquire the component lock; record the current baseline hash, candidate ID, parent version, and dependency snapshot. Confirm the candidate is allowed by CONSTANT and Gate.
+2. **APPLY OVERLAY** — apply the proposed layer only to a disposable TEST worktree/container or isolated component copy. Preserve the original baseline unchanged.
+3. **SYNC** — reconcile the overlay with the current TEST tree and declared module versions. Detect stale updates, duplicate ownership, interface mismatches, and conflicting edits. Do not silently choose a winner for a semantic conflict.
+4. **DEPENDENCY RESOLUTION** — build the dependency graph; check version ranges, required/optional dependencies, cycles, ordering, and compatibility. Install only declared, pinned dependencies into the isolated TEST environment. Do not install packages or modify global/server environments.
+5. **CONFLICT CHECK** — require a single authoritative writer for each protected resource. Unresolved conflicts block the candidate. Record the exact resolution and resulting hash.
+6. **VALIDATE** — run syntax/static checks, unit tests, integration tests, regression tests, security/integrity checks, and resource-limit checks against the exact post-sync/post-install candidate.
+7. **SMOOTH** — apply bounded rate limiting and hysteresis to the *next change proposal* and filter telemetry jitter over a defined window. Preserve raw telemetry and critical events; smoothing must never conceal a failed test, crash, or safety threshold breach.
+8. **STABILITY OBSERVATION** — run the candidate for a configured TEST observation window and compare it to the baseline using the same workload.
+9. **DECIDE** — accept, reject, or reduce the next step size. Increase step size only after repeated stable passes; any error or variance spike shrinks the next step.
+10. **SEAL** — if accepted, freeze the exact tested artifact hash and dependency lockfile. Any subsequent edit, dependency change, or conflict resolution invalidates the seal and requires the full cycle again.
+
+### Idempotency and rollback
+
+- Each cycle has a unique `candidate_id` and `transition_id`; repeating a request must not apply the overlay twice.
+- Every stage writes an audit event with input/output hashes and status.
+- On any failed stage, discard the disposable overlay and keep the baseline unchanged.
+- If an isolated TEST component was already switched, restore its previous verified snapshot before retrying.
+- The Executor cannot authorize its own candidate, bypass Gate, modify CONSTANT, merge branches, or deploy LIVE.
+- SYNC and dependency installation are TEST-scoped. LIVE promotion remains a separate approval-gated workflow.
+
+### Additional acceptance tests
+
+- Dependency cycle, incompatible version, missing package, or install failure blocks the candidate and leaves baseline unchanged.
+- Concurrent overlays targeting the same file/resource are serialized or rejected.
+- A change after SEAL invalidates the seal and forces re-validation.
+- A failed smoothing/telemetry service does not weaken hard gates; it forces OBSERVE or SAFE_HALT.
+- The exact sealed hash and dependency lockfile are the ones used for merge preparation; no rebuild or dependency drift is allowed between validation and promotion.
