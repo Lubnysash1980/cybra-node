@@ -25,6 +25,17 @@
 - Missing, stale, or inconsistent metrics block automatic actions.
 - Restart requests are idempotent, rate-limited, audited, and require a healthy verified snapshot. A restart is not triggered by a display calculation alone.
 
+## Gradual evolutionary progression strategy
+
+- Development and runtime evolution must advance **crawlingly, in the smallest practical increments**: bit-sized changes rather than large jumps. Each increment has one bounded objective, a measurable expected result, and a rollback path.
+- Keep a constant, explicitly defined **progress cadence**: measure → propose one small change → validate → record the result → accept or revert. Do not increase the change size merely to make the progress indicator move faster.
+- Use a **seven-level complexity ladder**. Each level has its own entry criteria, permitted change scope, tests, exit criteria, and evidence. The system advances only when the current level passes its gates; otherwise it stays at that level or returns to the last accepted state.
+- The immediately lower complexity level may help diagnose, test, or propose a bounded correction for a higher-level component. It must not silently override that component, bypass its permissions, or deploy a change upward. The higher-level controller validates and explicitly accepts any proposed correction.
+- If a task is too large or fails at the current level, decompose it into smaller tasks and attempt the smallest safe step. Escalate complexity only when lower-level evidence shows that escalation is necessary.
+- Keep experiments isolated from production. Every accepted increment is versioned and logged with its before/after metrics, test results, responsible worker, and rollback reference.
+- Progress is measured from reproducible evidence, not from the number of edits, generated modules, or optimistic self-reported scores. No progress is recorded when required metrics are missing or contradictory.
+- Automatic self-correction is bounded by permissions and safety gates. A worker may recommend a fix; the supervisor/controller authorizes it; snapshot and rollback protections remain mandatory.
+
 ## Dashboard contract
 
 The server returns a summary containing:
