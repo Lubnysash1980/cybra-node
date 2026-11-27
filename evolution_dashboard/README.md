@@ -19,6 +19,12 @@ From the repository checkout:
 ```bash
 cd ~/CYBRA
 bash evolution_dashboard/cybra-evolution.sh start
+
+# Короткий статус у Termux
+bash evolution_dashboard/cybra-evolution.sh status
+
+# Повний JSON
+bash evolution_dashboard/cybra-evolution.sh json
 ```
 
 Open `http://127.0.0.1:8765/` in the phone browser.
