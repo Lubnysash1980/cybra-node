@@ -101,7 +101,7 @@ PAGE = r"""<!doctype html><html lang="uk"><meta charset="utf-8"><meta name="view
 <section class="card"><div class="muted">Модулі</div><div class="value" id="mods">—</div><div class="bar"><div class="fill" id="modBar"></div></div><p class="foot">Ціль: 500; рахуємо знайдені файли module_*</p></section>
 <section class="card"><div class="muted">Автостворення</div><div class="value" id="creation">—</div><p class="foot" id="created">Нових файлів: —</p></section>
 <section class="card"><div class="muted">Обсяг коду</div><div class="value" id="size">—</div><p class="foot" id="files">Файлів: —</p></section>
-<section class="card"><div class="muted">Здоров’я</div><div class="value warn" id="health">НЕ ВИМІРЮЄТЬСdiv><p class="foot">Не підміняємо реальний health-check вигаданим відсотком.</p></section>
+<section class="card"><div class="muted">Здоров’я</div><div class="value warn" id="health">НЕ ВИМІРЮЄТЬСЯ</div>div><p class="foot">Не підміняємо реальний health-check вигаданим відсотком.</p></section>
 <section class="card"><div class="muted">PM2</div><div class="value" id="pm2">—</div><p class="foot" id="restart">Рестарт: лише вручну</p></section></div>
 <section class="card"><h2>Еволюція за часом</h2><canvas id="chart" width="1000" height="220"></canvas><p class="foot" id="updated"></p></section>
 <section class="card"><h2>500 модулів · індикатори</h2><div class="modules" id="dots"></div><p class="foot">Зелений — знайдений файл модуля; жовтий — резерв до цілі; червоний — помилка health-check (поки не підключений).</p></section>
