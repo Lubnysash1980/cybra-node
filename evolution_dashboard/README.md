@@ -53,3 +53,14 @@ CYBRA_ROOT="$HOME/CYBRA_NEURO" bash evolution_dashboard/cybra-evolution.sh start
 ## Limitations / next integration
 
 The 500 indicators currently visualize discovered module files, not runtime health. The next safe integration step is to map the repository's authoritative module registry and real health-check outputs, then validate counts and statuses against CYBRA's existing manifest. Do not infer that the repository contains exactly 500 modules from this display.
+
+
+## Тести
+
+Запуск із кореня репозиторію:
+
+```bash
+bash evolution_dashboard/run-tests.sh
+```
+
+Тести використовують тимчасову директорію та підміняють виклик PM2. Вони не змінюють production-файли й не запускають/зупиняють процеси PM2.
