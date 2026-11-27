@@ -61,6 +61,15 @@ The UI must label unknown values as **N/A**, never as zero.
 5. Enable controlled restart actions only after health checks, authorization, and rollback tests pass.
 6. Install the Termux dashboard client last; it only connects to the server API.
 
+## Deferred connection to the main CYBRA node
+
+- The control plane is developed and tested separately first; it must not connect to or modify the production/main node during this phase.
+- Node integration is a later, explicit deployment phase. It may begin only after a **100% readiness gate** is independently verified and recorded.
+- The readiness gate requires: all required components inventoried; no unresolved critical/high-severity faults; health and evolution metrics fresh and reproducible; controller/worker isolation tests passed; encrypted snapshot and restore tested successfully in staging; restart/rollback tests passed; API authentication and authorization verified; and an operator-approved integration plan.
+- "100% ready" means every required gate has passed with evidence. It does **not** mean that an evolution progress bar happens to display 100%.
+- Until that gate passes, the main node remains disconnected, and no production credentials or node state are placed in this repository.
+- After approval, integrate through a versioned, authenticated API with least-privilege permissions, initially read-only. Enable write/control actions only after a separate validation and approval step.
+
 ## Current implementation status
 
 This document defines the target architecture. It does not claim that server processes are deployed, that 500 modules are online, or that automatic restarts are active. Those states must be confirmed by the server's live inventory and health API.
