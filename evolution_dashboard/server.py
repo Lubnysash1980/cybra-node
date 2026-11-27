@@ -123,7 +123,11 @@ def collect():
     new_paths = sorted(current_paths - baseline_paths)
     changed = sum(1 for x in files if x["path"] in baseline_files and x["bytes"] != baseline_files[x["path"]])
 
-    seen = set(load_json(SEEN, []))
+    seen_data = load_json(SEEN, None)
+    if seen_data is None:
+        seen = set(baseline_paths)
+    else:
+        seen = set(seen_data)
     fresh = sorted(current_paths - seen)
     for path in fresh:
         append_event({"at": now(), "event": "file_created", "path": path})
