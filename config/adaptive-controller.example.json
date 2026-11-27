@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "mode": "simulation",
+  "active_level": 1,
+  "levels": [
+    { "id": 1, "enabled": true, "role": "active-or-standby" },
+    { "id": 2, "enabled": true, "role": "active-or-standby" },
+    { "id": 3, "enabled": true, "role": "active-or-standby" },
+    { "id": 4, "enabled": true, "role": "active-or-standby" },
+    { "id": 5, "enabled": true, "role": "active-or-standby" },
+    { "id": 6, "enabled": true, "role": "active-or-standby" },
+    { "id": 7, "enabled": true, "role": "active-or-standby" }
+  ],
+  "policy": {
+    "promotion_requires_all_gates": true,
+    "require_verified_checkpoint_before_risky_handover": true,
+    "require_readiness_before_handover": true,
+    "allow_two_process_overlap": true,
+    "max_active_levels": 1,
+    "standby_resource_budget_percent": 5,
+    "transition_cooldown_seconds": 30,
+    "minimum_stable_window_seconds": 60,
+    "max_transition_attempts": 2,
+    "telemetry_stale_after_seconds": 10,
+    "on_rollback_failure": "safe_halt"
+  },
+  "thresholds": {
+    "cpu_soft_percent": null,
+    "cpu_hard_percent": null,
+    "memory_soft_percent": null,
+    "memory_hard_percent": null,
+    "error_rate_soft_percent": null,
+    "latency_p95_ms": null
+  },
+  "notes": [
+    "Example policy only; thresholds must be measured and configured for the target server.",
+    "Simulation mode must remain enabled until integration and acceptance tests pass.",
+    "Standby budget is a ceiling for lightweight readiness, not a promise of instantaneous capacity.",
+    "Do not connect this file to production PM2 without a reviewed adapter and rollback test."
+  ]
+}
