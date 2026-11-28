@@ -1811,12 +1811,13 @@
     }
   ],
   "summary": {
-    "totalEntries": 177,
+    "totalEntries": 182,
     "legacyMenuActions": 163,
     "soliditySources": 14,
     "deployedVerified": 0,
     "proposals": 0,
-    "targetCount": 500
+    "targetCount": 500,
+    "automationModules": 5
   },
   "updatedAt": "2026-11-28"
 }
