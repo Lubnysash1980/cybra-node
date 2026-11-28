@@ -30,6 +30,15 @@ contract UntestedModulesTest is Test {
         assertTrue(t.get(cancelId).cancelled);
     }
 
+    function test_TimeLockRejectsZeroBeneficiaryAndZeroValue() public {
+        TimeLock t = new TimeLock();
+        vm.deal(address(this), 1 ether);
+        vm.expectRevert(TimeLock.BadTimes.selector);
+        t.create{value: 1 ether}(keccak256("zero-beneficiary"), address(0), 1 days, 1 hours, "");
+        vm.expectRevert(TimeLock.BadTimes.selector);
+        t.create(keccak256("zero-value"), address(0xBEEF), 1 days, 1 hours, "");
+    }
+
     function test_AnchorIsImmutableAndVerifiable() public {
         Anchor a = new Anchor();
         bytes32 h = keccak256("document");
@@ -66,6 +75,61 @@ contract UntestedModulesTest is Test {
         assertEq(address(this).balance, beforeBal + 1 ether);
         (,,,,,,Escrow.State state,,) = e.deals(id);
         assertEq(uint256(state), uint256(Escrow.State.Refunded));
+    }
+
+    function test_ModuleEscrowRejectsInvalidPartiesAndZeroValue() public {
+        Escrow e = new Escrow();
+        address seller = address(0xBEEF);
+        address arbiter = address(0xCAFE);
+        uint64 deadline = uint64(block.timestamp + 1 days);
+        vm.deal(address(this), 1 ether);
+
+        vm.expectRevert(Escrow.NotParty.selector);
+        e.create{value: 1 ether}(keccak256("zero-seller"), address(0), arbiter, deadline, "");
+        vm.expectRevert(Escrow.NotParty.selector);
+        e.create{value: 1 ether}(keccak256("zero-arbiter"), seller, address(0), deadline, "");
+        vm.expectRevert(Escrow.BadState.selector);
+        e.create(keccak256("zero-value"), seller, arbiter, deadline, "");
+        vm.expectRevert(Escrow.TooLate.selector);
+        e.create{value: 1 ether}(keccak256("expired"), seller, arbiter, uint64(block.timestamp), "");
+    }
+
+    function test_ModuleEscrowSameBlockSameCIDCreatesDistinctDeals() public {
+        Escrow e = new Escrow();
+        address seller = address(0xBEEF);
+        address arbiter = address(0xCAFE);
+        bytes32 cid = keccak256("same-cid");
+        uint64 deadline = uint64(block.timestamp + 1 days);
+        vm.deal(address(this), 2 ether);
+        bytes32 first = e.create{value: 1 ether}(cid, seller, arbiter, deadline, "first");
+        bytes32 second = e.create{value: 1 ether}(cid, seller, arbiter, deadline, "second");
+        assertTrue(first != second);
+        assertEq(e.dealIds(0), first);
+        assertEq(e.dealIds(1), second);
+    }
+
+    function test_DualLicenseCannotOverwriteOrMutateAfterTRUE100() public {
+        address verifier1 = address(0xBEEF);
+        address verifier2 = address(0xCAFE);
+        CYBRADualLicenseRoyalty15 license = new CYBRADualLicenseRoyalty15(verifier1, verifier2);
+        bytes32 id = keccak256("license");
+        bytes32 evidence = keccak256("evidence");
+        license.registerLicense(id, keccak256("commit"), keccak256("repo"), address(0xD00D));
+        vm.expectRevert(bytes("LICENSE_ALREADY_REGISTERED"));
+        license.registerLicense(id, keccak256("other-commit"), keccak256("other-repo"), address(0xD00D));
+        vm.prank(verifier1); license.approveViolation(id, evidence);
+        vm.prank(verifier2); license.approveViolation(id, evidence);
+        license.confirmProfit(id, 100 ether);
+        license.updateConfirmation(id, 1, 1);
+        license.confirmTRUE100(id);
+        vm.expectRevert(bytes("LICENSE_FINALIZED"));
+        license.confirmProfit(id, 200 ether);
+        vm.expectRevert(bytes("LICENSE_FINALIZED"));
+        license.updateConfirmation(id, 2, 2);
+        assertTrue(license.isTRUE100(id));
+        (uint256 profit, uint256 royalty) = license.getRoyaltyState(id);
+        assertEq(profit, 100 ether);
+        assertEq(royalty, 15 ether);
     }
 
     function test_SelfLearningRequiresAllNineChecks() public {
