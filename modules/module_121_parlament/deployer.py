@@ -81,20 +81,21 @@ def compile_contract(sol_path, name=None, verbose=False):
     except Exception as e: return False, f"solc: {e}", None
 
     try:
+        source_key = sol.relative_to(H).as_posix()
         compiled = solcx.compile_standard({
             "language": "Solidity",
-            "sources": {f"{name}.sol": {"content": sol.read_text()}},
+            "sources": {source_key: {"content": sol.read_text()}},
             "settings": {
                 "optimizer": {"enabled": True, "runs": 200},
                 "outputSelection": {"*": {"*": ["abi", "evm.bytecode"]}},
             }
-        }, allow_paths=str(sol.parent))
+        }, base_path=str(H), allow_paths=str(H))
     except Exception as e:
         return False, f"compile: {str(e)[:200]}", None
 
-    c = compiled["contracts"][f"{name}.sol"][name]
+    c = compiled["contracts"][source_key][name]
     out = {
-        "name": name, "compiler": "0.8.20",
+        "name": name, "compiler": compiler_version, "source": source_key,
         "abi": c["abi"], "bytecode": "0x" + c["evm"]["bytecode"]["object"],
         "compiled_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "sol_hash": hashlib.sha256(sol.read_bytes()).hexdigest()[:16],
