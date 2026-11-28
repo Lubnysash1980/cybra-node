@@ -33,6 +33,11 @@ while :; do
       python3 "$NEURO" status
       read -r -p 'Enter…' _
       ;;
+    4)
+      read -r -p 'Ціль для NEURO (які функції/пункти додати): ' goal
+      [ -n "$goal" ] && python3 "$NEURO" plan --goal "$goal"
+      read -r -p 'Enter…' _
+      ;;
     0) exit 0 ;;
     *) echo 'Невідомий пункт'; sleep 1 ;;
   esac
