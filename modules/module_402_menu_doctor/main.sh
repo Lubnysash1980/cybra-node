@@ -11,6 +11,6 @@ while :; do
     1) continue ;;
     2) python3 "$D/doctor.py" fix; read -rp "Enter…" _ ;;
     3) python3 "$D/doctor.py" json | head -40; read -rp "Enter…" _ ;;
-    0) return ;;
+    0) exit 0 ;;
   esac
 done
