@@ -29,6 +29,7 @@ contract CYBRARefundClaim {
     uint256 private _nextId;
 
     mapping(uint256 => Claim) private _claims;
+    mapping(uint256 => bool) public claimExists;
     mapping(uint256 => address) public claimantOf;
     mapping(address => bool) public verifiers;
     mapping(uint256 => mapping(address => bool)) public confirmedBy;
@@ -46,6 +47,7 @@ contract CYBRARefundClaim {
     }
 
     modifier onlyAuthorized(uint256 id) {
+        require(claimExists[id], "claim not found");
         require(
             msg.sender == claimantOf[id] ||
             verifiers[msg.sender] ||
@@ -78,6 +80,7 @@ contract CYBRARefundClaim {
         uint256 id = _nextId++;
         Claim storage c = _claims[id];
         c.id = id;
+        claimExists[id] = true;
         c.merchant = merchant_;
         c.amount = amount_;
         c.orderHash = orderHash_;
@@ -109,6 +112,7 @@ contract CYBRARefundClaim {
     }
 
     function confirmClaim(uint256 id) external {
+        require(claimExists[id], "claim not found");
         Claim storage c = _claims[id];
         require(verifiers[msg.sender], "only verifier");
         require(msg.sender != claimantOf[id], "claimant cannot verify");
@@ -127,12 +131,14 @@ contract CYBRARefundClaim {
     }
 
     function isTRUE100(uint256 id) public view returns (bool) {
+        if (!claimExists[id]) return false;
         Claim storage c = _claims[id];
         return c.requiredConfirmations > 0 &&
                c.confirmations >= c.requiredConfirmations;
     }
 
     function authorizeRefund(uint256 id) external onlyOwner {
+        require(claimExists[id], "claim not found");
         Claim storage c = _claims[id];
         require(isTRUE100(id), "TRUE100 not reached");
         require(c.status == Status.CONFIRMED, "not CONFIRMED");
@@ -142,6 +148,7 @@ contract CYBRARefundClaim {
 
     /// @notice Records an externally completed refund; this function does not transfer funds.
     function markRefunded(uint256 id) external onlyOwner {
+        require(claimExists[id], "claim not found");
         Claim storage c = _claims[id];
         require(c.status == Status.REFUND_AUTHORIZED, "not authorized");
         require(!c.refundExecuted, "already refunded");
@@ -163,6 +170,7 @@ contract CYBRARefundClaim {
         Status,
         bool
     ) {
+        require(claimExists[id], "claim not found");
         Claim storage c = _claims[id];
         return (
             c.id,
