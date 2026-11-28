@@ -1763,6 +1763,42 @@
         "chainId": null,
         "reason": "У репозиторії є вихідний Solidity-файл; on-chain deployment не підтверджений."
       }
+    },
+    {
+      "id": "automation-402",
+      "name": "Menu Doctor",
+      "type": "automation-module",
+      "status": "present-needs-validation",
+      "description": "Діагностика головного TUI меню: перевірка action handlers, шляхів модулів та заглушок. Режим виправлення лише формує список проблем і не змінює файли.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh",
+      "handler": "modules/module_402_menu_doctor/main.sh"
+    },
+    {
+      "id": "automation-405",
+      "name": "Task Engine",
+      "type": "automation-module",
+      "status": "present-needs-validation",
+      "description": "Виявляє проблеми, створює JSON-задачі, копіює джерела в sandbox та запускає синтаксичні перевірки. Автоматичне застосування до робочих файлів вимкнено; задача очікує погодження.",
+      "source": "modules/module_405_task_engine/engine.py",
+      "handler": "modules/module_405_task_engine/main.sh"
+    },
+    {
+      "id": "automation-408",
+      "name": "Menu Tester",
+      "type": "automation-module",
+      "status": "present-needs-validation",
+      "description": "Перевіряє лише головні пункти меню, відокремлює підменю та класифікує handlers. Автоматичне редагування меню вимкнено.",
+      "source": "modules/module_408_menu_tester/tester.py",
+      "handler": "modules/module_408_menu_tester/main.sh"
+    },
+    {
+      "id": "automation-500",
+      "name": "CYBRA NEURO",
+      "type": "automation-module",
+      "status": "present-needs-validation",
+      "description": "AI-підготовка змін у staging, diff і SHA256, подання пропозицій до Parliament та застосування лише після окремого схвалення. Поточний генератор редагує тільки вже наявні файли modules/module_*/.",
+      "source": "modules/module_500_neuro/neuro.py",
+      "handler": "modules/module_500_neuro/main.sh"
     }
   ],
   "summary": {
@@ -1772,5 +1808,6 @@
     "deployedVerified": 0,
     "proposals": 0,
     "targetCount": 500
-  }
+  },
+  "updatedAt": "2026-11-28"
 }
