@@ -3,7 +3,7 @@ set -u
 HERE="$(cd "$(dirname "$0")" && pwd)"
 CLI="$HERE/cybra-evolution.sh"
 TARGET_ROOT="${CYBRA_ROOT:-$HOME/CYBRA_NEURO}"
-if [ ! -d "$TARGET_ROOT/.git" ]; then
+if [ ! -e "$TARGET_ROOT/.git" ]; then
   echo "Ізольована копія не знайдена: $TARGET_ROOT"
   echo "Створи окремий checkout CYBRA_NEURO; production ~/CYBRA не використовується."
   read -r -p "Enter…" _
