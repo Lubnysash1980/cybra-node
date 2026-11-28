@@ -8,7 +8,7 @@ Local web panel and Termux CLI for evolution tracking. This component is isolate
 - The first run captures a baseline in `state/evolution_dashboard/baseline.json`. Initial files are not counted as newly created.
 - When the measured byte volume crosses +3%, one timestamped JSON snapshot is written and a threshold event is added to the history.
 - A negative percentage means byte volume decreased; it is not automatically a quality failure.
-- Module count comes from the repository's authoritative `@cybra/index.json`. The current published registry has 83 entries, so the panel will show the actual count against the target of 500.
+- Module count comes from the repository's authoritative `@cybra/index.json`. The current published registry has 84 entries, so the panel will show the actual count against the target of 500.
 - Module dots: green = a real runtime health-check has passed; yellow = module exists but health is unknown; red = registry entry is missing on disk; grey = slot not yet registered. Until health checks are integrated, no module is falsely marked green.
 - File-creation percentage means files added since baseline divided by the current scanned file count. It is a size/activity indicator, not proof of autonomous AI creation.
 - Daily chart shows the last recorded evolution value, the count of newly observed files, and their paths for each day.
