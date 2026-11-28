@@ -150,19 +150,30 @@ def autosave_hash_record(result):
     return state
 
 \nif __name__ == "__main__":
-    import sys
-    G='\033[32m'; R='\033[31m'; B='\033[36m'; BOLD='\033[1m'; D='\033[2m'; N='\033[0m'
+    G='\033[32m'; B='\033[36m'; BOLD='\033[1m'; N='\033[0m'
     cmd = sys.argv[1] if len(sys.argv) > 1 else "show"
-    if cmd in ("show",""):
+    if cmd in ("show", ""):
         r = layers()
+        autosave_hash_record(r)
         print(f"\n  {B}{BOLD}═══ HASH ECOSYSTEM ═══{N}\n")
         print(f"  {B}Шар 1 · Cascade:{N}     {r['layers']['1_cascade'][:32]}…")
         print(f"  {B}Шар 2 · Contracts:{N}   {r['layers']['2_contracts'][:32]}…")
         print(f"  {B}Шар 3 · Health+Gate:{N} {r['layers']['3_health_gate'][:32]}…")
         print(f"  {B}Шар 4 · Parliament:{N}  {r['layers']['4_parliament'][:32]}…")
         print(f"\n  {B}{BOLD}MASTER HASH:{N}")
-        print(f"  {G}{r['master']}{N}\n")
+        print(f"  {r['master']}\n")
     elif cmd == "json":
-        r = layers()\n        autosave_hash_record(r)\n        print(json.dumps(r, indent=2, ensure_ascii=False))
+        r = layers()
+        autosave_hash_record(r)
+        print(json.dumps(r, indent=2, ensure_ascii=False))
     elif cmd == "hash":
-        r = layers()\n        autosave_hash_record(r)\n        print(r["master"])\n    elif cmd == "history":\n        if HASH_STORE.exists(): print(HASH_STORE.read_text(encoding="utf-8"))\n        else: print("No saved hashes yet")
+        r = layers()
+        autosave_hash_record(r)
+        print(r["master"])
+    elif cmd == "history":
+        if HASH_STORE.exists():
+            print(HASH_STORE.read_text(encoding="utf-8"))
+        else:
+            print("No saved hashes yet")
+    else:
+        raise SystemExit("Usage: eco.py [show|json|hash|history]")
