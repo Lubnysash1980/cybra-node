@@ -51,7 +51,16 @@ print("Root      : "+d["root"])
     PIDFILE="$ROOT/state/evolution-dashboard.pid"
     if [ -f "$PIDFILE" ]; then
       PID="$(cat "$PIDFILE")"
-      if kill -0 "$PID" 2>/dev/null; then kill "$PID"; echo "STOPPED PID=$PID"; else echo "Not running"; fi
+      if kill -0 "$PID" 2>/dev/null; then
+        if [ -r "/proc/$PID/cmdline" ] && tr '\\0' ' ' < "/proc/$PID/cmdline" | grep -Fq "$HERE/server.py"; then
+          kill "$PID"
+          echo "STOPPED DASHBOARD PID=$PID"
+        else
+          echo "REFUSED: PID file does not point to this dashboard process"
+        fi
+      else
+        echo "Not running"
+      fi
       rm -f "$PIDFILE"
     else
       echo "PID file not found"
