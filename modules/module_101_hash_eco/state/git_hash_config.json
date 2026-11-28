@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "enabled": true,
+  "limit": 100,
+  "store": "modules/module_101_hash_eco/state/git_hash_100.json",
+  "autosave_on": [
+    "show",
+    "json",
+    "hash"
+  ],
+  "atomic_write": true,
+  "hash_algorithm": "sha256",
+  "root_hash": "sha256(canonical ordered list of retained master_hash values)",
+  "retain_latest": 100
+}
