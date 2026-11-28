@@ -1,0 +1,38 @@
+name: Solidity source compile
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "src/**/*.sol"
+      - "modules/module_*/contracts/**/*.sol"
+      - ".github/workflows/solidity-compile.yml"
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Compile all production Solidity sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cybra-solc
+          mapfile -t files < <(find src modules -type f -path "*/contracts/*.sol" -o -type f -path "src/*.sol" | sort -u)
+          if [ "${#files[@]}" -eq 0 ]; then
+            echo "No Solidity source files found"
+            exit 1
+          fi
+          printf 'Found %s Solidity source files\n' "${#files[@]}"
+          npx --yes solc@0.8.24 --version
+          for file in "${files[@]}"; do
+            echo "::group::Compile ${file}"
+            npx --yes solc@0.8.24 --base-path . --include-path . --bin "${file}" -o /tmp/cybra-solc
+            echo "::endgroup::"
+          done
+          echo "SOLIDITY_COMPILE_OK files=${#files[@]}"
