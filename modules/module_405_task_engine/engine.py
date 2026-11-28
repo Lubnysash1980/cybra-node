@@ -11,7 +11,7 @@
   7. ROLLBACK  — якщо не OK → відкат
   8. LOG       — записати у журнал
 """
-import json, os, re, shutil, subprocess, sys, time
+import json, os, re, shutil, subprocess, sys, time, uuid
 from pathlib import Path
 
 H = Path.home() / "CYBRA"
@@ -102,7 +102,7 @@ def detect():
 # CREATE — створити task
 # ═══════════════════════════════════════════════════════════════
 def create_task(issue):
-    tid = f"T-{int(time.time())}-{hash(issue['target']) % 1000:03d}"
+    tid = f"T-{int(time.time())}-{uuid.uuid4().hex[:8]}"
     task = {
         "id": tid, "at": _now(),
         "status": "created",
@@ -275,43 +275,15 @@ def cycle(limit=5, verbose=True):
             (TASKS/f"{tid}.json").write_text(json.dumps(task, indent=2))
             continue
 
-        # APPLY
-        ok, info = apply_task(task, sb)
-        task["apply_result"] = {"ok": ok, "info": info}
-        if not ok:
-            task["status"] = "apply_failed"
-            results["failed"] += 1
-            _log_task(tid, f"apply failed: {info}", "warn")
-            (TASKS/f"{tid}.json").write_text(json.dumps(task, indent=2))
-            continue
-        results["applied"] += 1
-        _log_task(tid, f"applied, backup={Path(info).name}")
-
-        # VERIFY
-        v_ok, v_tests = verify_after_apply()
-        task["verify_result"] = {"ok": v_ok, "tests": [(n, r) for n, r in v_tests]}
-
-        if not v_ok:
-            # ROLLBACK
-            dst = Path(info).parent / Path(info).name.replace(".bak.engine."+info.split(".bak.engine.")[1], "")
-            # правильний dst — це оригінал
-            if issue["type"] == "menu_item":
-                dst = M / "module_19_contract_tui_menu/bin/cybra_menu.sh"
-            elif issue["type"] == "controller":
-                dst = M / "module_320_controllers/controllers.py"
-            if rollback(info, dst):
-                task["status"] = "rolled_back"
-                _log_task(tid, "VERIFY FAILED → ROLLBACK", "warn")
-                results["failed"] += 1
-            else:
-                task["status"] = "verify_failed_no_rollback"
-                _log_task(tid, "VERIFY FAILED, rollback error", "error")
-                results["failed"] += 1
-        else:
-            task["status"] = "done"
-            _log_task(tid, "✓ done")
-
-        (TASKS/f"{tid}.json").write_text(json.dumps(task, indent=2, ensure_ascii=False))
+        # APPLY is intentionally gated: cycle may create and test tasks, never edit live files.
+        task["status"] = "awaiting_approval"
+        task["apply_result"] = {
+            "ok": False,
+            "info": "automatic live apply disabled; create a reviewed NEURO patch and obtain Parliament approval"
+        }
+        results["skipped"] += 1
+        _log_task(tid, "sandbox tests passed; awaiting human/Parliament approval", "warn")
+        (TASKS / f"{tid}.json").write_text(json.dumps(task, indent=2, ensure_ascii=False))
 
     duration = int((time.time()-t0)*1000)
     stats = {
