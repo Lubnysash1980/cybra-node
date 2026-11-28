@@ -49,6 +49,7 @@ $("q").addEventListener("input",render);$("filter").addEventListener("change",re
 fetch("./contracts.json").then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(d=>{
  items=Array.isArray(d.items)?d.items:[];$("target").textContent=d.targetCount??500;
  $("total").textContent=items.length;
+ $("sourceCount").textContent=items.filter(x=>x.type==="solidity-source"||x.type==="automation-module").length;
  for(const s of ["confirmed","proposed","blocked"])$(s).textContent=items.filter(x=>x.status===s).length;
  $("notice").textContent=d.notice||"Кожен запис має бути підтверджений джерелом. Запропоновані модулі не є розгорнутими контрактами.";
  render();
