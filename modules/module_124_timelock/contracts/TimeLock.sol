@@ -40,6 +40,8 @@ contract TimeLock {
                     string calldata note)
         external payable returns (bytes32 lockId)
     {
+        if (beneficiary == address(0)) revert BadTimes();
+        if (msg.value == 0) revert BadTimes();
         lockId = keccak256(abi.encodePacked(cid, msg.sender, block.timestamp));
         if (locks[lockId].depositor != address(0)) revert AlreadyExists();
         if (delaySec == 0) revert BadTimes();
