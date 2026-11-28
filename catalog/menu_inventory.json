@@ -4,12 +4,12 @@
   "branch": "feature/cybra-readonly-contract-catalog-20261128",
   "source": {
     "path": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh",
-    "blobSha": "4b51162b6249106397a85e10687c10fcfd1f634c"
+    "blobSha": "a80214688ccf89da6d963de03b8e17fdaf623993"
   },
   "generatedAt": "2026-11-28",
-  "totalDisplayedItems": 145,
-  "functionalMenuItems": 144,
-  "dispatchCases": 144,
+  "totalDisplayedItems": 146,
+  "functionalMenuItems": 145,
+  "dispatchCases": 145,
   "duplicateDispatchIds": [],
   "note": "Наявність case означає лише підключений dispatch handler; не підтверджує повну працездатність функції. Перевірку виконують Menu Tester і Menu Doctor.",
   "items": [
@@ -875,6 +875,12 @@
       "id": 500,
       "name": "CYBRA NEURO — AI-патчі через Parliament",
       "handler": "bash \"$HOME/CYBRA/modules/module_500_neuro/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 501,
+      "name": "Evolution Dashboard — еволюція/реєстр",
+      "handler": "bash \"$HOME/CYBRA/evolution_dashboard/main.sh\"",
       "status": "dispatch-wired-unverified"
     },
     {
