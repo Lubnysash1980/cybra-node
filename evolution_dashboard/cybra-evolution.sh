@@ -2,6 +2,13 @@
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 ROOT="${CYBRA_ROOT:-$(cd "$HERE/.." && pwd)}"
+ROOT_REAL="$(cd "$ROOT" 2>/dev/null && pwd -P || true)"
+PRIMARY_REAL="$(cd "$HOME/CYBRA" 2>/dev/null && pwd -P || true)"
+if [ -n "$PRIMARY_REAL" ] && [ "$ROOT_REAL" = "$PRIMARY_REAL" ]; then
+  echo "REFUSED: run the Evolution Dashboard from an isolated checkout such as ~/CYBRA_NEURO"
+  echo "The primary ~/CYBRA root is protected."
+  exit 1
+fi
 PORT="${CYBRA_EVOLUTION_PORT:-8765}"
 mkdir -p "$ROOT/logs" "$ROOT/state"
 case "${1:-start}" in
