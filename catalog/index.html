@@ -26,7 +26,7 @@ table{width:100%;border-collapse:collapse;background:var(--panel);border-radius:
 <div class="card"><div class="muted">Ціль каталогу</div><div class="num" id="target">500</div></div><div class="card"><div class="muted">Пункти головного меню</div><div class="num" id="menuCount">—</div></div>
 <div class="card"><div class="muted">У реєстрі</div><div class="num" id="total">0</div></div>
 <div class="card"><div class="muted">Код у репозиторії</div><div class="num" id="sourceCount">0</div></div>
-<div class="card"><div class="muted">Розгортання підтверджено</div><div class="num" id="confirmed">0</div></div>
+<div class="card"><div class="muted">Розгортання підтверджено</div><div class="num" id="confirmed">0</div></div><div class="card"><div class="muted">Очікує перевірки</div><div class="num" id="needsValidation">0</div></div>
 <div class="card"><div class="muted">Запропоновано</div><div class="num" id="proposed">0</div></div>
 <div class="card"><div class="muted">Заблоковано</div><div class="num" id="blocked">0</div></div>
 </section>
@@ -50,7 +50,7 @@ fetch("./contracts.json").then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return
  items=Array.isArray(d.items)?d.items:[];$("target").textContent=d.targetCount??500;
  $("total").textContent=items.length;
  $("sourceCount").textContent=items.filter(x=>x.type==="solidity-source"||x.type==="automation-module").length;
- for(const s of ["confirmed","proposed","blocked"])$(s).textContent=items.filter(x=>x.status===s).length;
+ for(const s of ["confirmed","proposed","blocked"])$(s).textContent=items.filter(x=>x.status===s).length;\n $("needsValidation").textContent=items.filter(x=>x.status==="present-needs-validation").length;
  $("notice").textContent=d.notice||"Кожен запис має бути підтверджений джерелом. Запропоновані модулі не є розгорнутими контрактами.";
  render();
 }).catch(()=>{$("rows").innerHTML='<tr><td colspan="5" class="empty">Не вдалося завантажити contracts.json.</td></tr>';});
