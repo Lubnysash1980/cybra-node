@@ -89,16 +89,26 @@ contract CYBRALevelController {
 
         Level storage state = levels[currentLevel];
 
+        // Any evidence revision invalidates prior TRUE100, snapshot and LIVE approval,
+        // even when the revised counters still calculate to 100%.
+        bool evidenceChanged =
+            state.requiredChecks != requiredChecks ||
+            state.passedChecks != passedChecks ||
+            state.evidenceHash != evidenceHash;
+
         state.requiredChecks = requiredChecks;
         state.passedChecks = passedChecks;
         state.confirmationPercent = percent;
         state.evidenceHash = evidenceHash;
 
-        if (percent < 100) {
+        if (evidenceChanged || percent < 100) {
             state.true100 = false;
             state.snapshotCreated = false;
             state.liveEnabled = false;
             state.mainnetGateOpen = false;
+            state.snapshotHash = bytes32(0);
+            state.snapshotBlock = 0;
+            state.snapshotTimestamp = 0;
 
             true100 = false;
             mainnetGateOpen = false;
@@ -172,6 +182,7 @@ contract CYBRALevelController {
         require(state.true100, "CURRENT_LEVEL_NOT_TRUE100");
         require(state.snapshotCreated, "CURRENT_SNAPSHOT_REQUIRED");
         require(state.liveEnabled, "CURRENT_LIVE_REQUIRED");
+        require(state.mainnetGateOpen, "CURRENT_MAINNET_GATE_CLOSED");
 
         uint256 previousLevel = currentLevel;
         uint256 nextLevel = previousLevel + 1;

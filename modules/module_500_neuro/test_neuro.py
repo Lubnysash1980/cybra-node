@@ -1,5 +1,6 @@
 import importlib.util
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -22,6 +23,11 @@ class NeuroSafetyTests(unittest.TestCase):
             self.skipTest("running in primary CYBRA root")
         with self.assertRaises(neuro.NeuroError):
             neuro.apply("not-a-real-patch", "watchdog")
+
+    def test_menu_planner_requires_api_key(self):
+        with patch.dict(neuro.os.environ, {}, clear=True):
+            with self.assertRaisesRegex(neuro.NeuroError, "OPENAI_API_KEY"):
+                neuro.plan_items("додати нові модулі")
 
     def test_sha_is_deterministic(self):
         self.assertEqual(neuro.sha256_bytes(b"CYBRA"), neuro.sha256_bytes(b"CYBRA"))

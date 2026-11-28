@@ -11,7 +11,7 @@
   7. ROLLBACK  — якщо не OK → відкат
   8. LOG       — записати у журнал
 """
-import json, os, re, shutil, subprocess, sys, time
+import json, os, re, shutil, subprocess, sys, time, uuid
 from pathlib import Path
 
 H = Path.home() / "CYBRA"
@@ -102,7 +102,7 @@ def detect():
 # CREATE — створити task
 # ═══════════════════════════════════════════════════════════════
 def create_task(issue):
-    tid = f"T-{int(time.time())}-{hash(issue['target']) % 1000:03d}"
+    tid = f"T-{int(time.time())}-{uuid.uuid4().hex[:8]}"
     task = {
         "id": tid, "at": _now(),
         "status": "created",
@@ -158,11 +158,7 @@ def test_in_sandbox(task, sandbox_file):
         rc, out = _run(f"python3 -c 'import ast; ast.parse(open(\"{f}\").read())'")
         tests.append(("py_syntax", rc == 0, out[:100]))
 
-    # 2. Виконуваний?
-    if f.suffix == ".sh":
-        rc, out = _run(f"bash {f} </dev/null 2>&1 | head -5", timeout=5)
-        # не критично якщо щось прочитає — просто пробуємо
-        tests.append(("bash_run_head", True, out[:80]))
+    # Never execute menu scripts during audit; syntax-only checks avoid side effects.
 
     # 3. Не порожній
     tests.append(("not_empty", f.stat().st_size > 100, f"{f.stat().st_size} B"))
@@ -174,29 +170,9 @@ def test_in_sandbox(task, sandbox_file):
 # APPLY — застосування з backup
 # ═══════════════════════════════════════════════════════════════
 def apply_task(task, sandbox_file):
-    """Застосовує зміни. Backup перед."""
-    issue = task["issue"]
-    if issue["type"] == "menu_item":
-        dst = M / "module_19_contract_tui_menu/bin/cybra_menu.sh"
-    elif issue["type"] == "controller":
-        dst = M / "module_320_controllers/controllers.py"
-    else:
-        return False, "не підтримується"
+    """Disabled by policy: source changes must go through NEURO and Parliament."""
+    return False, "automatic Task Engine apply is disabled; use reviewed NEURO patch approval"
 
-    if not dst.exists(): return False, "немає target"
-
-    # Backup
-    bak = dst.with_suffix(dst.suffix + f".bak.engine.{int(time.time())}")
-    shutil.copy2(dst, bak)
-
-    # Тестова заміна
-    try:
-        shutil.copy2(sandbox_file, dst)
-        return True, str(bak)
-    except Exception as e:
-        # rollback
-        shutil.copy2(bak, dst)
-        return False, str(e)
 
 # ═══════════════════════════════════════════════════════════════
 # VERIFY — перевірка після apply
@@ -234,7 +210,7 @@ def rollback(bak_path, dst):
 # CYCLE — прогнати все
 # ═══════════════════════════════════════════════════════════════
 def cycle(limit=5, verbose=True):
-    """Повний цикл: detect → create → sandbox → test → apply → verify."""
+    """Безпечний цикл: detect → create → sandbox → test → awaiting_approval."""
     t0 = time.time()
     if verbose: print(f"\n{'='*60}\n  TASK ENGINE CYCLE\n{'='*60}")
 
@@ -275,43 +251,15 @@ def cycle(limit=5, verbose=True):
             (TASKS/f"{tid}.json").write_text(json.dumps(task, indent=2))
             continue
 
-        # APPLY
-        ok, info = apply_task(task, sb)
-        task["apply_result"] = {"ok": ok, "info": info}
-        if not ok:
-            task["status"] = "apply_failed"
-            results["failed"] += 1
-            _log_task(tid, f"apply failed: {info}", "warn")
-            (TASKS/f"{tid}.json").write_text(json.dumps(task, indent=2))
-            continue
-        results["applied"] += 1
-        _log_task(tid, f"applied, backup={Path(info).name}")
-
-        # VERIFY
-        v_ok, v_tests = verify_after_apply()
-        task["verify_result"] = {"ok": v_ok, "tests": [(n, r) for n, r in v_tests]}
-
-        if not v_ok:
-            # ROLLBACK
-            dst = Path(info).parent / Path(info).name.replace(".bak.engine."+info.split(".bak.engine.")[1], "")
-            # правильний dst — це оригінал
-            if issue["type"] == "menu_item":
-                dst = M / "module_19_contract_tui_menu/bin/cybra_menu.sh"
-            elif issue["type"] == "controller":
-                dst = M / "module_320_controllers/controllers.py"
-            if rollback(info, dst):
-                task["status"] = "rolled_back"
-                _log_task(tid, "VERIFY FAILED → ROLLBACK", "warn")
-                results["failed"] += 1
-            else:
-                task["status"] = "verify_failed_no_rollback"
-                _log_task(tid, "VERIFY FAILED, rollback error", "error")
-                results["failed"] += 1
-        else:
-            task["status"] = "done"
-            _log_task(tid, "✓ done")
-
-        (TASKS/f"{tid}.json").write_text(json.dumps(task, indent=2, ensure_ascii=False))
+        # APPLY is intentionally gated: cycle may create and test tasks, never edit live files.
+        task["status"] = "awaiting_approval"
+        task["apply_result"] = {
+            "ok": False,
+            "info": "automatic live apply disabled; create a reviewed NEURO patch and obtain Parliament approval"
+        }
+        results["skipped"] += 1
+        _log_task(tid, "sandbox tests passed; awaiting human/Parliament approval", "warn")
+        (TASKS / f"{tid}.json").write_text(json.dumps(task, indent=2, ensure_ascii=False))
 
     duration = int((time.time()-t0)*1000)
     stats = {

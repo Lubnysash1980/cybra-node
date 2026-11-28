@@ -305,7 +305,7 @@ contract CYBRAP2PPurchase {
 
         a.status = Status.PAID;
 
-        _safeTransfer(address(cybra), a.seller, a.amount);
+        _safeTransferExact(address(cybra), a.seller, a.amount);
 
         emit SellerPaid(id, a.amount);
     }
@@ -327,7 +327,7 @@ contract CYBRAP2PPurchase {
 
         a.status = Status.REFUNDED;
 
-        _safeTransfer(address(cybra), a.buyer, a.amount);
+        _safeTransferExact(address(cybra), a.buyer, a.amount);
 
         emit Refunded(id, a.amount);
     }
@@ -373,11 +373,15 @@ contract CYBRAP2PPurchase {
         }
     }
 
-    function _safeTransfer(address token, address to, uint256 amount) internal {
+    function _safeTransferExact(address token, address to, uint256 amount) internal {
+        uint256 beforeBalance = cybra.balanceOf(to);
         (bool ok, bytes memory data) = token.call(abi.encodeWithSelector(IERC20CYBRA.transfer.selector, to, amount));
         require(ok, "SAFE_TRANSFER_REVERT");
         if (data.length > 0) {
             require(abi.decode(data, (bool)), "SAFE_TRANSFER_FALSE");
         }
+        uint256 afterBalance = cybra.balanceOf(to);
+        require(afterBalance >= beforeBalance, "INVALID_RECIPIENT_BALANCE");
+        require(afterBalance - beforeBalance == amount, "INEXACT_RECIPIENT_AMOUNT");
     }
 }

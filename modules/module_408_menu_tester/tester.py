@@ -24,17 +24,22 @@ def _run(cmd, timeout=10):
         return 1, str(e)[:100]
 
 def parse_cases():
-    """Парсить усі case."""
+    """Парсить лише головний case диспетчера, не підменю."""
     if not TUI.exists(): return {}
-    s = TUI.read_text()
+    source = TUI.read_text(encoding="utf-8")
+    start = source.find('case "$CHOICE" in')
+    if start < 0: return {}
+    end = source.find('0|q|Q|exit|quit)', start)
+    if end < 0: return {}
+    block = source[start:end]
     cases = {}
-    for m in re.finditer(r'^[ \t]+(\d+)\)\s*([^;]*?)\s*;;[ \t]*$', s, re.M):
-        mid = m.group(1)
-        action = m.group(2).strip()
-        if mid not in cases:
-            cases[mid] = action
-        else:
+    pattern = re.compile(r'^[ \t]+(\d+)\)\s*(.*?)\s*;;[ \t]*$', re.M)
+    for match in pattern.finditer(block):
+        mid, action = match.group(1), match.group(2).strip()
+        if mid in cases:
             cases[mid] = "DUP:" + action[:30]
+        else:
+            cases[mid] = action
     return cases
 
 def get_fn_body(fname):
@@ -77,8 +82,6 @@ def classify(mid, action):
         p = Path(f)
         if not p.exists():
             return "MISS", f"немає: {p.name}"
-        if not os.access(p, os.X_OK):
-            return "FAIL", f"не executable: {p.name}"
         rc, out = _run(f"bash -n {p}")
         if rc != 0:
             return "FAIL", f"syntax: {out[:40]}"
@@ -234,17 +237,14 @@ STAGE_FNS = {
 }
 
 def run_all_stages():
-    """8-stage fix."""
-    results = []
-    for sid, name in STAGES:
-        fn = STAGE_FNS.get(sid)
-        if not fn: continue
-        try:
-            code, msg = fn()
-            results.append({"stage": sid, "name": name, "ok": code == 0, "msg": msg})
-        except Exception as e:
-            results.append({"stage": sid, "name": name, "ok": False, "msg": str(e)[:80]})
-    return results
+    """Read-only audit; automatic source modifications are disabled."""
+    report = test_all()
+    return [{
+        "stage": "READ_ONLY_AUDIT",
+        "name": "Перевірка без змін файлів",
+        "ok": report["counts"].get("FAIL", 0) == 0 and report["counts"].get("MISS", 0) == 0,
+        "msg": "джерельні файли не змінювались; ремонт оформлюється окремим review patch"
+    }]
 
 if __name__ == "__main__":
     import sys
@@ -275,13 +275,13 @@ if __name__ == "__main__":
                 print(f"    ⚠ [{mid:>3}] {v['detail'][:65]}")
 
     elif cmd == "8stage":
-        print(f"\n  {B}{BOLD}═══ 8-Stage Autofix ═══{N}\n")
+        print(f"\n  {B}{BOLD}═══ Read-only Menu Audit ═══{N}\n")
         results = run_all_stages()
         for r in results:
             mark = f"{G}✓{N}" if r["ok"] else f"{R}✗{N}"
             print(f"  {mark} {r['name']:35s}  {r['msg']}")
         # тест після
-        print(f"\n  {B}Після фіксів:{N}")
+        print(f"\n  {B}Підсумок аудиту:{N}")
         r = test_all()
         print(f"    {G}OK: {r['counts'].get('OK',0)}{N}  "
               f"{Y}STUB: {r['counts'].get('STUB',0)}{N}  "

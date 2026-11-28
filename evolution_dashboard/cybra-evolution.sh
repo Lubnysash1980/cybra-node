@@ -1,7 +1,14 @@
 #!/data/data/com.termux/files/usr/bin/bash
 set -euo pipefail
-ROOT="${CYBRA_ROOT:-$HOME/CYBRA}"
 HERE="$(cd "$(dirname "$0")" && pwd)"
+ROOT="${CYBRA_ROOT:-$(cd "$HERE/.." && pwd)}"
+ROOT_REAL="$(cd "$ROOT" 2>/dev/null && pwd -P || true)"
+PRIMARY_REAL="$(cd "$HOME/CYBRA" 2>/dev/null && pwd -P || true)"
+if [ -n "$PRIMARY_REAL" ] && [ "$ROOT_REAL" = "$PRIMARY_REAL" ]; then
+  echo "REFUSED: run the Evolution Dashboard from an isolated checkout such as ~/CYBRA_NEURO"
+  echo "The primary ~/CYBRA root is protected."
+  exit 1
+fi
 PORT="${CYBRA_EVOLUTION_PORT:-8765}"
 mkdir -p "$ROOT/logs" "$ROOT/state"
 case "${1:-start}" in
@@ -51,7 +58,16 @@ print("Root      : "+d["root"])
     PIDFILE="$ROOT/state/evolution-dashboard.pid"
     if [ -f "$PIDFILE" ]; then
       PID="$(cat "$PIDFILE")"
-      if kill -0 "$PID" 2>/dev/null; then kill "$PID"; echo "STOPPED PID=$PID"; else echo "Not running"; fi
+      if kill -0 "$PID" 2>/dev/null; then
+        if [ -r "/proc/$PID/cmdline" ] && tr '\0' ' ' < "/proc/$PID/cmdline" | grep -Fq "$HERE/server.py"; then
+          kill "$PID"
+          echo "STOPPED DASHBOARD PID=$PID"
+        else
+          echo "REFUSED: PID file does not point to this dashboard process"
+        fi
+      else
+        echo "Not running"
+      fi
       rm -f "$PIDFILE"
     else
       echo "PID file not found"

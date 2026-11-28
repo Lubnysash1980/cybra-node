@@ -38,12 +38,6 @@ run_cycle(){
     if [ $((i % REPORT_EVERY)) -eq 0 ]; then
       python3 "$D/telegram_report.py" 2>&1
     fi
-    python3 "$D/executor.py" auto 2>&1
-    python3 "$D/progress.py" tick 2>&1
-    python3 "$D/orchestrator.py" run 2>&1
-    python3 "$D/evolve.py" run 2>&1
-    python3 "$D/completion.py" run 2>&1
-    python3 "$HOME/CYBRA/modules/module_320_controllers/controllers.py" check 2>&1
     echo "── кінець циклу $i ──"
   } >> "$LOG" 2>&1
   # ротація
@@ -87,9 +81,15 @@ case "${1:-status}" in
     ;;
   stop)
     if running; then
-      kill "$(cat $PID)" 2>/dev/null
-      sleep 1
-      kill -9 "$(cat $PID)" 2>/dev/null
+      target_pid="$(cat "$PID" 2>/dev/null)"
+      kill "$target_pid" 2>/dev/null
+      for _ in 1 2 3 4 5 6 7 8 9 10; do
+        kill -0 "$target_pid" 2>/dev/null || break
+        sleep 1
+      done
+      if kill -0 "$target_pid" 2>/dev/null; then
+        kill -9 "$target_pid" 2>/dev/null
+      fi
       rm -f "$PID"
       echo "зупинено"
     else

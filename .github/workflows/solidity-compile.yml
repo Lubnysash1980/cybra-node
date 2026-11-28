@@ -1,0 +1,177 @@
+name: Solidity source compile
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "src/**/*.sol"
+      - "test/**/*.sol"
+      - "lib/forge-std"
+      - "modules/module_*/contracts/**/*.sol"
+      - ".github/workflows/solidity-compile.yml"
+      - "foundry.toml"
+      - "modules/module_*/**/*.py"
+      - "modules/module_*/**/*.sh"
+      - "modules/module_19_contract_tui_menu/bin/cybra_menu.sh"
+      - "catalog/contracts.json"
+      - "evolution_dashboard/**/*.py"
+      - "evolution_dashboard/*.sh"
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Compile all production Solidity sources (Foundry settings)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          files = sorted(
+              list(Path("src").glob("*.sol")) +
+              list(Path("modules").glob("module_*/contracts/*.sol"))
+          )
+          if not files:
+              raise SystemExit("No production Solidity sources found")
+
+          sources = {p.as_posix(): {"content": p.read_text()} for p in files}
+          settings = {
+              "optimizer": {"enabled": True, "runs": 200},
+              "viaIR": True,
+              "evmVersion": "shanghai",
+              "outputSelection": {"*": {"*": ["abi", "evm.bytecode.object"]}}
+          }
+          Path("/tmp/cybra-solc-input.json").write_text(
+              json.dumps({"language": "Solidity", "sources": sources, "settings": settings})
+          )
+          print(f"Found {len(files)} production Solidity source files")
+          PY
+          npx --yes solc@0.8.24 --standard-json < /tmp/cybra-solc-input.json > /tmp/cybra-solc-output.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          raw = Path("/tmp/cybra-solc-output.json").read_text()
+          start = raw.find("{")
+          if start < 0:
+              print(raw)
+              raise SystemExit("solc returned no JSON output")
+          result = json.loads(raw[start:])
+          errors = result.get("errors", [])
+          for item in errors:
+              if item.get("severity") == "error":
+                  print(item.get("formattedMessage", item.get("message", "Compiler error")))
+          failures = [e for e in errors if e.get("severity") == "error"]
+          if failures:
+              raise SystemExit(f"Solidity compilation failed: {len(failures)} error(s)")
+          contracts = sum(len(v) for v in result.get("contracts", {}).values())
+          print(f"SOLIDITY_COMPILE_OK contracts={contracts} viaIR=true optimizer=200")
+          PY
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+      - name: Restore pinned forge-std dependency
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf lib/forge-std
+          mkdir -p lib
+          git clone --filter=blob:none https://github.com/foundry-rs/forge-std.git lib/forge-std
+          git -C lib/forge-std checkout ba4733c33497dd0c0983dcc033d7645576cc46e5
+      - name: Run Foundry tests
+        run: forge test -vv
+
+  automation-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+      - name: Python syntax checks
+        run: |
+          python3 -m compileall -q \
+            modules/module_402_menu_doctor \
+            modules/module_405_task_engine \
+            modules/module_408_menu_tester \
+            modules/module_500_neuro \
+            modules/module_114_autonode \
+            modules/module_121_parlament \
+            evolution_dashboard/server.py
+      - name: Bash syntax checks
+        run: |
+          bash -n modules/module_121_parlament/watchdog.sh
+          bash -n modules/module_19_contract_tui_menu/bin/cybra_menu.sh
+          bash -n modules/module_402_menu_doctor/main.sh
+          bash -n modules/module_405_task_engine/main.sh
+          bash -n modules/module_405_task_engine/cron.sh
+          bash -n modules/module_408_menu_tester/main.sh
+          bash -n modules/module_500_neuro/main.sh
+          bash -n evolution_dashboard/cybra-evolution.sh
+          bash -n evolution_dashboard/main.sh
+          bash -n evolution_dashboard/run-tests.sh
+      - name: Validate PM2 ecosystem configuration
+        run: |
+          set -euo pipefail
+          node --check ecosystem.config.js
+          node - <<'NODE'
+          const { apps } = require("./ecosystem.config.js");
+          const names = new Set(apps.map(app => app.name));
+          for (const name of ["cybra-autonode", "cybra-watchdog", "cybra-orchestrator", "cybra-executor"]) {
+            if (!names.has(name)) throw new Error("Missing PM2 app: " + name);
+          }
+          const executor = apps.find(app => app.name === "cybra-executor");
+          if (executor.autorestart !== false) throw new Error("One-shot executor must not autorestart");
+          for (const app of apps) {
+            if (!app.script || !app.cwd || !app.out_file || !app.error_file) {
+              throw new Error("Incomplete PM2 app config: " + app.name);
+            }
+          }
+          console.log("PM2_CONFIG_OK apps=" + apps.length);
+          NODE
+      - name: Validate catalog and menu inventory
+        run: |
+          python3 - <<'PY'
+          import json, re, subprocess
+          from pathlib import Path
+          catalog = json.loads(Path("catalog/contracts.json").read_text())
+          inventory = json.loads(Path("catalog/menu_inventory.json").read_text())
+          menu_path = "modules/module_19_contract_tui_menu/bin/cybra_menu.sh"
+          menu = Path(menu_path).read_text()
+          blob = subprocess.check_output(["git", "hash-object", menu_path], text=True).strip()
+          assert inventory["source"]["blobSha"] == blob, "menu inventory source SHA is stale"
+          start = menu.index('case "$CHOICE" in')
+          end = menu.index("0|q|Q|exit|quit)", start)
+          block = menu[start:end]
+          dispatch = [int(x) for x in re.findall(r"(?m)^\s*(\d+)\)\s*.*?;;\s*$", block)]
+          expected = sorted(int(x["id"]) for x in inventory["items"] if int(x["id"]) != 0)
+          assert len(dispatch) == len(set(dispatch)), "duplicate main menu dispatch ID"
+          assert sorted(dispatch) == expected, "menu inventory does not match dispatch"
+          assert inventory["functionalMenuItems"] == len(dispatch)
+          assert inventory["totalDisplayedItems"] == len(inventory["items"])
+          assert len({x["id"] for x in catalog["items"]}) == len(catalog["items"]), "duplicate catalog IDs"
+          print(f"CATALOG_OK items={len(catalog['items'])} MENU_OK dispatch={len(dispatch)}")
+          PY
+      - name: Run NEURO and menu tester unit tests
+        run: |
+          python3 -m unittest discover -s modules/module_500_neuro -p 'test_*.py' -v
+          python3 -m unittest discover -s modules/module_405_task_engine -p 'test_*.py' -v
+          python3 -m unittest discover -s modules/module_408_menu_tester -p 'test_*.py' -v
+          bash evolution_dashboard/run-tests.sh

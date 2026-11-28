@@ -10,6 +10,7 @@ contract CYBRARefundClaimE2ETest is Test {
     address claimant = address(0x111);
     address merchant = address(0x222);
     address verifier = address(0x333);
+    address verifier2 = address(0x444);
 
     bytes32 orderHash = keccak256("E2E-ORDER-001");
     bytes32 paymentHash = keccak256("E2E-PAYMENT-PROOF");
@@ -19,6 +20,8 @@ contract CYBRARefundClaimE2ETest is Test {
     function setUp() public {
         claim = new CYBRARefundClaim();
         claim.setVerifier(verifier, true);
+        claim.setVerifier(verifier2, true);
+        claim.setVerifier(merchant, true);
     }
 
     function test_E2E_CompleteRefundLifecycle() public {
@@ -38,8 +41,11 @@ contract CYBRARefundClaimE2ETest is Test {
             "TRUE100 MUST START FALSE"
         );
 
-        vm.prank(claimant);
+        vm.prank(verifier);
+        vm.expectRevert(bytes("evidence required"));
+        claim.confirmClaim(id);
 
+        vm.prank(claimant);
         claim.recordEvidence(
             id,
             paymentHash,
@@ -47,15 +53,25 @@ contract CYBRARefundClaimE2ETest is Test {
             identityHash
         );
 
+        vm.prank(merchant);
+        vm.expectRevert(bytes("merchant cannot verify"));
         claim.confirmClaim(id);
 
-        assertFalse(
-            claim.isTRUE100(id),
-            "TRUE100 BEFORE ALL REQUIRED CONFIRMATIONS"
-        );
+        vm.prank(claimant);
+        vm.expectRevert(bytes("only verifier"));
+        claim.confirmClaim(id);
 
         vm.prank(verifier);
+        claim.confirmClaim(id);
+        vm.prank(verifier);
+        vm.expectRevert(bytes("already confirmed"));
+        claim.confirmClaim(id);
+        assertFalse(
+            claim.isTRUE100(id),
+            "ONE VERIFIER MUST NOT REACH TRUE100"
+        );
 
+        vm.prank(verifier2);
         claim.confirmClaim(id);
 
         assertTrue(
@@ -121,7 +137,7 @@ contract CYBRARefundClaimE2ETest is Test {
 
         assertTrue(
             refundExecuted,
-            "REFUND WAS NOT EXECUTED"
+            "REFUND STATUS WAS NOT RECORDED"
         );
 
         assertEq(

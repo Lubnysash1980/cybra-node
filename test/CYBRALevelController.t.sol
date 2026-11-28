@@ -51,6 +51,53 @@ contract CYBRALevelControllerTest is Test {
         assertTrue(controller.isTRUE100());
     }
 
+
+    function test_ChangingEvidenceAfterLiveInvalidatesAllApprovals() public {
+        controller.updateEvidence(10, 10, EVIDENCE);
+        controller.confirmTRUE100();
+        controller.createSnapshot(SNAPSHOT);
+        controller.enableLive();
+        controller.openMainnetGate();
+
+        assertTrue(controller.isTRUE100());
+
+        // Even a revised evidence set that still scores 100% must restart TEST.
+        controller.updateEvidence(20, 20, keccak256("REVISED_EVIDENCE"));
+
+        assertFalse(controller.true100());
+        assertFalse(controller.mainnetGateOpen());
+        assertFalse(controller.isTRUE100());
+
+        (
+            ,
+            ,
+            ,
+            ,
+            bool levelTRUE100,
+            bool snapshotCreated,
+            bool liveEnabled,
+            bool levelMainnetGateOpen,
+            CYBRALevelController.Mode currentMode,
+            ,
+        ) = controller.getCurrentState();
+
+        assertFalse(levelTRUE100);
+        assertFalse(snapshotCreated);
+        assertFalse(liveEnabled);
+        assertFalse(levelMainnetGateOpen);
+        assertEq(uint256(currentMode), uint256(CYBRALevelController.Mode.TEST));
+    }
+
+    function test_CannotAdvanceUntilMainnetGateIsOpen() public {
+        controller.updateEvidence(10, 10, EVIDENCE);
+        controller.confirmTRUE100();
+        controller.createSnapshot(SNAPSHOT);
+        controller.enableLive();
+
+        vm.expectRevert("CURRENT_MAINNET_GATE_CLOSED");
+        controller.advanceLevel();
+    }
+
     function test_NextLevelRequiresCurrentTRUE100() public {
         controller.updateEvidence(100, 99, EVIDENCE);
 
@@ -65,6 +112,7 @@ contract CYBRALevelControllerTest is Test {
         controller.confirmTRUE100();
         controller.createSnapshot(SNAPSHOT);
         controller.enableLive();
+        controller.openMainnetGate();
 
         controller.advanceLevel();
 

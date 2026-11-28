@@ -8,7 +8,7 @@
   6. Після deploy — верифікує, оновлює module artifacts
   7. Integration — модуль дізнається адресу через config/deployed.json
 """
-import json, os, sys, time, subprocess, hashlib, secrets
+import json, os, sys, time, subprocess, hashlib, secrets, re
 from pathlib import Path
 
 D = Path(__file__).resolve().parent
@@ -46,7 +46,9 @@ def _save_deployed(d):
 def discover_contracts():
     """Повертає [{name, sol_path, module_id, bytecode_ready, deployed}]."""
     out = []
-    for sol in M.glob("module_*/contracts/*.sol"):
+    candidates = list(M.glob("module_*/contracts/*.sol"))
+    candidates.extend((H / "src").glob("*.sol"))
+    for sol in candidates:
         name = sol.stem
         mod = sol.parent.parent.name
         mid = None
@@ -72,26 +74,28 @@ def compile_contract(sol_path, name=None, verbose=False):
         import solcx
     except ImportError:
         return False, "pip install py-solc-x", None
-    try: solcx.install_solc("0.8.20")
+    compiler_version = "0.8.24"
+    try: solcx.install_solc(compiler_version)
     except Exception: pass
-    try: solcx.set_solc_version("0.8.20")
+    try: solcx.set_solc_version(compiler_version)
     except Exception as e: return False, f"solc: {e}", None
 
     try:
+        source_key = sol.relative_to(H).as_posix()
         compiled = solcx.compile_standard({
             "language": "Solidity",
-            "sources": {f"{name}.sol": {"content": sol.read_text()}},
+            "sources": {source_key: {"content": sol.read_text()}},
             "settings": {
                 "optimizer": {"enabled": True, "runs": 200},
                 "outputSelection": {"*": {"*": ["abi", "evm.bytecode"]}},
             }
-        }, allow_paths=str(sol.parent))
+        }, base_path=str(H), allow_paths=str(H))
     except Exception as e:
         return False, f"compile: {str(e)[:200]}", None
 
-    c = compiled["contracts"][f"{name}.sol"][name]
+    c = compiled["contracts"][source_key][name]
     out = {
-        "name": name, "compiler": "0.8.20",
+        "name": name, "compiler": compiler_version, "source": source_key,
         "abi": c["abi"], "bytecode": "0x" + c["evm"]["bytecode"]["object"],
         "compiled_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "sol_hash": hashlib.sha256(sol.read_bytes()).hexdigest()[:16],
@@ -259,9 +263,9 @@ def module_can_use(name, chain_id):
 # AUTO-CYCLE — викликається з orchestrator
 # ═══════════════════════════════════════════════════════════════
 def auto_cycle(verbose=True):
-    """Парламент сам: compile → deploy (testnet) → register → verify.
-    Для mainnet — тільки створює пропозиції (не деплоїть без vote)."""
-    auto_testnet = _opt("deploy.auto_testnet", True)
+    """Парламент: compile за замовчуванням; testnet deploy лише при явному opt-in.
+    Для mainnet — тільки пропозиція (не деплоїть без vote)."""
+    auto_testnet = _opt("deploy.auto_testnet", False)
     do_compile   = _opt("deploy.auto_compile", True)
 
     result = {"compiled": [], "deployed": [], "proposed": [],
@@ -299,7 +303,7 @@ def auto_cycle(verbose=True):
             result["errors"].append({"name": name, "phase": "load_artifact", "msg": str(e)})
             continue
 
-        # деплой у testnet автоматично
+        # Testnet deployment вимкнений за замовчуванням; потрібен явний opt-in
         if auto_testnet:
             if verbose:
                 print(f"  {C_D}▸ deploy {name} → testnet{C_N}")

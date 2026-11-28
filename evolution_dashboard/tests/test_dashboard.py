@@ -25,6 +25,8 @@ class DashboardTests(unittest.TestCase):
             patch.object(server, "DATA", self.data),
             patch.object(server, "BASELINE", self.data / "baseline.json"),
             patch.object(server, "HISTORY", self.data / "history.jsonl"),
+            patch.object(server, "SEEN", self.data / "seen.json"),
+            patch.object(server, "LAST", self.data / "last.json"),
             patch.object(server.subprocess, "run", side_effect=FileNotFoundError("pm2 not installed")),
         ]
         for item in self.patches:
@@ -39,6 +41,7 @@ class DashboardTests(unittest.TestCase):
         state = server.collect()
         self.assertTrue(server.BASELINE.exists())
         self.assertEqual(state["evolution_pct"], 0.0)
+        self.assertEqual(state["new_files"], 0)
         self.assertEqual(state["restart_mode"], "MANUAL_ONLY")
         self.assertIsNone(state["health_pct"])
 
@@ -62,6 +65,19 @@ class DashboardTests(unittest.TestCase):
         self.assertLess(state["evolution_pct"], 0)
         self.assertEqual(state["restart_mode"], "MANUAL_ONLY")
         self.assertFalse(state["threshold_reached"])
+
+    def test_registry_drives_module_count_and_missing_status(self):
+        registry = self.root / "@cybra"
+        registry.mkdir()
+        (registry / "index.json").write_text(json.dumps({"modules": [
+            {"name": "module_000_master"}, {"name": "module_101_missing"}
+        ]}))
+        (self.root / "modules" / "module_000_master").mkdir(parents=True)
+        inventory, available = server.module_inventory()
+        self.assertTrue(available)
+        self.assertEqual(len(inventory), 2)
+        self.assertEqual(inventory[0]["status"], "yellow")
+        self.assertEqual(inventory[1]["status"], "red")
 
     def test_dashboard_health_label_is_complete(self):
         self.assertIn('id="health">НЕ ВИМІРЮЄТЬСЯ</div>', server.PAGE)

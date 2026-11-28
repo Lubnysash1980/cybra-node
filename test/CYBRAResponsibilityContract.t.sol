@@ -46,7 +46,7 @@ contract ResponsibilityTest is Test {
     }
     function _reject() internal {
         vm.prank(buyer);
-        r.buyerReject(VIOLATION, "x");
+        r.buyerReject(VIOLATION, keccak256("reason-x"));
     }
 
     function test_true100_fullPath() public {
@@ -108,7 +108,7 @@ contract ResponsibilityTest is Test {
         _seller(); _online(); _invoice(); _buyerConfirm();
         vm.prank(buyer);
         vm.expectRevert(CYBRAResponsibilityContract.ALREADY_TRUE100.selector);
-        r.buyerReject(VIOLATION, "late");
+        r.buyerReject(VIOLATION, keccak256("reason-late"));
     }
 
     function test_sellerCannotConfirmAfterDeadline() public {

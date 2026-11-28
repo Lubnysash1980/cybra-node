@@ -17,15 +17,17 @@ def _run(cmd, timeout=10):
         return 1, str(e)[:100]
 
 def parse_tui():
-    """Парсить TUI правильно."""
+    """Парсить лише головне меню, ігноруючи внутрішні підменю."""
     if not TUI.exists(): return {}
-    s = TUI.read_text()
+    s = TUI.read_text(encoding="utf-8")
+    start = s.find('case "$CHOICE" in')
+    if start < 0: return {}
+    end = s.find('0|q|Q|exit|quit)', start)
+    if end < 0: return {}
+    block = s[start:end]
     items = {}
-    # Match: `NNN)` на початку рядка, потім все до `;;`
-    for m in re.finditer(r'^[ \t]+(\d+)\)\s*(.*?)\s*;;[ \t]*$', s, re.M):
-        mid = m.group(1)
-        action = m.group(2).strip()
-        items[mid] = action
+    for m in re.finditer(r'^[ \t]+(\d+)\)\s*(.*?)\s*;;[ \t]*$', block, re.M):
+        items[m.group(1)] = m.group(2).strip()
     return items
 
 def get_function_body(fname):
@@ -75,8 +77,6 @@ def check_action(mid, action):
         p = Path(f)
         if not p.exists():
             return "fail", f"немає: {p.name}"
-        if not os.access(p, os.X_OK):
-            return "warn", f"не chmod+x: {p.name}"
         rc, out = _run(f"bash -n {p}")
         if rc != 0:
             return "fail", f"syntax: {out[:50]}"
@@ -116,37 +116,10 @@ def check_all():
     return out
 
 def fix_stubs():
-    """Замінює заглушки на корисні повідомлення з посиланням на модуль."""
-    s = TUI.read_text()
+    """Формує перелік проблем; автоматичний запис у меню заборонений."""
     data = json.loads(CACHE.read_text()) if CACHE.exists() else check_all()
-    stubs = [m for m, v in data["items"].items() if v["status"] in ("stub","fail")]
-    if not stubs: return 0, []
-    fixed = []
-    for mid in stubs:
-        info = data["items"][mid]
-        action = info["action"]
-        # витягнути ім'я функції
-        m = re.match(r'^(action_[a-z_0-9]+)', action)
-        if m:
-            fname = m.group(1)
-            # замінити тіло функції
-            pat = re.compile(rf'^{re.escape(fname)}\(\)\s*\{{.*?^\}}', re.M | re.DOTALL)
-            new_body = (
-                f'{fname}() {{\n'
-                f'  echo "⚠ Пункт [{mid}] ще не реалізовано"\n'
-                f'  echo "   Причина: {info["reason"][:50]}"\n'
-                f'  echo "   Модуль: module_{mid}_* (перевір чи встановлено)"\n'
-                f'  echo "   Стан:  python3 ~/CYBRA/modules/module_399_gate/gate.py status"\n'
-                f'  read -rp "Enter…" _\n'
-                f'}}'
-            )
-            s2 = pat.sub(new_body, s, count=1)
-            if s2 != s:
-                s = s2
-                fixed.append(mid)
-    if fixed:
-        TUI.write_text(s)
-    return len(fixed), fixed
+    blocked = [m for m, v in data["items"].items() if v["status"] in ("stub", "fail")]
+    return 0, blocked
 
 if __name__ == "__main__":
     import sys
@@ -176,7 +149,7 @@ if __name__ == "__main__":
 
     elif cmd == "fix":
         n, fixed = fix_stubs()
-        print(f"  {G}✓{N} виправлено заглушок: {n}")
+        print(f"  {G}✓{N} автоматичні зміни вимкнені; проблем для review: {len(fixed)}")
         if fixed:
             print(f"  IDs: {' '.join(fixed[:20])}")
         check_all()

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>CYBRA · Реєстр модулів</title>
+<style>
+:root{color-scheme:dark;--bg:#0d1117;--panel:#161b22;--line:#30363d;--text:#e6edf3;--muted:#8b949e;--blue:#58a6ff;--green:#3fb950;--yellow:#d29922;--red:#f85149}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px system-ui,sans-serif}
+main{max-width:1100px;margin:auto;padding:28px 18px}header{display:flex;justify-content:space-between;gap:18px;align-items:center;flex-wrap:wrap}
+h1{margin:0;font-size:clamp(24px,4vw,36px)}.sub,.muted{color:var(--muted)}.badge{border:1px solid var(--line);border-radius:99px;padding:6px 10px;color:var(--green)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:24px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}.num{font-size:28px;font-weight:700}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}input,select{background:var(--panel);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:11px;min-width:180px}
+table{width:100%;border-collapse:collapse;background:var(--panel);border-radius:10px;overflow:hidden}th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:600}
+.status{font-size:12px;border:1px solid var(--line);border-radius:99px;padding:4px 8px;white-space:nowrap}.confirmed{color:var(--green)}.proposed{color:var(--yellow)}.blocked{color:var(--red)}.source-present-not-deployed{color:var(--blue)}.present-needs-validation{color:var(--yellow)}
+.note{margin-top:18px;padding:14px;border-left:3px solid var(--yellow);background:var(--panel);color:var(--muted)}
+.empty{text-align:center;padding:34px;color:var(--muted)}footer{margin-top:28px;color:var(--muted);font-size:13px}
+@media(max-width:650px){table,tbody,tr,td{display:block}thead{display:none}tr{padding:10px;border-bottom:1px solid var(--line)}td{border:0;padding:5px 8px}td:before{content:attr(data-label) ": ";color:var(--muted)}}
+</style>
+</head>
+<body><main>
+<header><div><h1>CYBRA · Реєстр модулів</h1><div class="sub">Контракти, меню й автоматизація · режим лише читання</div><a href="./menu_inventory.json" style="color:var(--blue)">Перелік пунктів головного меню</a></div><span class="badge">READ-ONLY · без гаманця</span></header>
+<section class="stats">
+<div class="card"><div class="muted">Ціль каталогу</div><div class="num" id="target">500</div></div><div class="card"><div class="muted">Пункти головного меню</div><div class="num" id="menuCount">—</div></div>
+<div class="card"><div class="muted">У реєстрі</div><div class="num" id="total">0</div></div>
+<div class="card"><div class="muted">Код у репозиторії</div><div class="num" id="sourceCount">0</div></div>
+<div class="card"><div class="muted">Розгортання підтверджено</div><div class="num" id="confirmed">0</div></div><div class="card"><div class="muted">Очікує перевірки</div><div class="num" id="needsValidation">0</div></div>
+<div class="card"><div class="muted">Запропоновано</div><div class="num" id="proposed">0</div></div>
+<div class="card"><div class="muted">Заблоковано</div><div class="num" id="blocked">0</div></div>
+</section>
+<div class="controls"><input id="q" type="search" placeholder="Пошук за назвою, ID або описом" aria-label="Пошук"><select id="filter" aria-label="Фільтр статусу"><option value="">Усі статуси</option><option value="source-present-not-deployed">Код є, deployment не підтверджено</option><option value="present-needs-validation">Модуль є, очікує перевірки</option><option value="confirmed">Розгортання підтверджено</option><option value="proposed">Запропоновано</option><option value="blocked">Заблоковано</option></select></div>
+<div style="overflow-x:auto"><table><thead><tr><th>ID</th><th>Назва</th><th>Тип</th><th>Статус</th><th>Джерело / примітка</th></tr></thead><tbody id="rows"><tr><td colspan="5" class="empty">Завантаження реєстру…</td></tr></tbody></table></div>
+<div class="note" id="notice">Реєстр ще не наповнений перевіреними записами. Пункти не генеруються автоматично: кожен контракт має мати джерело, призначення та статус перевірки.</div>
+<footer>Інформаційна панель. Не підключає wallet, не запитує підписів, не надсилає транзакцій і не розгортає контракти.</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);let items=[];
+const labels={confirmed:"Розгортання підтверджено",proposed:"Запропоновано",blocked:"Заблоковано","source-present-not-deployed":"Код є · deployment не підтверджено","present-needs-validation":"Модуль є · очікує перевірки"};
+function sourceText(x){return typeof x.source==="string"?x.source:(x.source?.path||x.description||"—");}
+function render(){
+ const q=$("q").value.trim().toLowerCase(),f=$("filter").value;
+ const filtered=items.filter(x=>(!f||x.status===f)&&(!q||[x.id,x.name,x.type,x.description,sourceText(x)].join(" ").toLowerCase().includes(q)));
+ $("rows").innerHTML=filtered.length?filtered.map(x=>'<tr><td data-label="ID">'+esc(x.id)+'</td><td data-label="Назва">'+esc(x.name)+'</td><td data-label="Тип">'+esc(x.type||"—")+'</td><td data-label="Статус"><span class="status '+esc(x.status)+'">'+esc(labels[x.status]||"Невідомо")+'</span></td><td data-label="Джерело">'+esc(sourceText(x))+'</td></tr>').join(""):'<tr><td colspan="5" class="empty">Немає записів за цим фільтром.</td></tr>';
+}
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+$("q").addEventListener("input",render);$("filter").addEventListener("change",render);
+fetch("./contracts.json").then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(d=>{
+ items=Array.isArray(d.items)?d.items:[];$("target").textContent=d.targetCount??500;
+ $("total").textContent=items.length;
+ $("sourceCount").textContent=items.filter(x=>x.type==="solidity-source"||x.type==="automation-module").length;
+ for(const s of ["confirmed","proposed","blocked"])$(s).textContent=items.filter(x=>x.status===s).length;\n $("needsValidation").textContent=items.filter(x=>x.status==="present-needs-validation").length;
+ $("notice").textContent=d.notice||"Кожен запис має бути підтверджений джерелом. Запропоновані модулі не є розгорнутими контрактами.";
+ render();
+}).catch(()=>{$("rows").innerHTML='<tr><td colspan="5" class="empty">Не вдалося завантажити contracts.json.</td></tr>';});
+fetch("./menu_inventory.json").then(r=>r.json()).then(d=>{$("menuCount").textContent=d.functionalMenuItems??"—";}).catch(()=>{$("menuCount").textContent="—";});
+</script></body></html>

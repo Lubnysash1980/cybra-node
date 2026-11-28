@@ -20,6 +20,7 @@ contract TimeLock {
 
     mapping(bytes32 => Lock) public locks;
     bytes32[] public lockIds;
+    uint256 public nextLockNonce = 1;
 
     event LockCreated(bytes32 indexed cid, bytes32 indexed lockId,
                       address depositor, uint256 amount, uint64 activateAt);
@@ -40,7 +41,10 @@ contract TimeLock {
                     string calldata note)
         external payable returns (bytes32 lockId)
     {
-        lockId = keccak256(abi.encodePacked(cid, msg.sender, block.timestamp));
+        if (beneficiary == address(0)) revert BadTimes();
+        if (msg.value == 0) revert BadTimes();
+        uint256 nonce = nextLockNonce++;
+        lockId = keccak256(abi.encode(cid, msg.sender, nonce));
         if (locks[lockId].depositor != address(0)) revert AlreadyExists();
         if (delaySec == 0) revert BadTimes();
         if (cancelWindowSec > delaySec) revert BadTimes();

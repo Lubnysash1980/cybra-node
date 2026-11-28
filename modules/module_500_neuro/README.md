@@ -22,6 +22,11 @@ NEURO is a staged code-writing agent. Generation never edits live source files.
 5. List staged patches:
    python3 modules/module_500_neuro/neuro.py status
 
+## AI menu/task planner
+- From the CYBRA TUI choose `[500]`, then `4` to ask NEURO for up to 10 proposed menu/catalog capabilities.
+- NEURO stores a plan JSON under `modules/module_500_neuro/data/plans/` and creates review-only task JSON records under `modules/module_405_task_engine/data/tasks/`.
+- It does not edit the live menu or catalog, create source files, approve itself, or deploy. A proposal must be reviewed and implemented through the existing guarded workflow.
+
 ## Root isolation
 - NEURO, EVOLUTION, Metrics, the Test Suite, and PM Supervisor resolve the same root from `CYBRA_ROOT` when set, otherwise from their own repository location.
 - A worktree such as `~/CYBRA_NEURO` is a validation copy. NEURO `apply` is blocked there, and PM Supervisor start/stop actions are blocked there, so copied process configuration cannot operate on `~/CYBRA`.

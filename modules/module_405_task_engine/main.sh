@@ -21,6 +21,6 @@ while :; do
     2) python3 "$D/engine.py" cycle 5; read -rp "Enter…" _ ;;
     3) python3 "$D/engine.py" cycle 20; read -rp "Enter…" _ ;;
     4) python3 "$D/engine.py" tasks; read -rp "Enter…" _ ;;
-    0) return ;;
+    0) exit 0 ;;
   esac
 done

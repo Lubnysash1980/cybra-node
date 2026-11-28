@@ -110,6 +110,7 @@ contract CYBRADualLicenseRoyalty15 {
     ) external onlyAuthority {
 
         require(licenseId != bytes32(0), "EMPTY_LICENSE_ID");
+        require(!licenses[licenseId].registered, "LICENSE_ALREADY_REGISTERED");
         require(gitCommitHash != bytes32(0), "EMPTY_GIT_HASH");
         require(repositoryHash != bytes32(0), "EMPTY_REPOSITORY_HASH");
         require(rightsHolder != address(0), "EMPTY_RIGHTS_HOLDER");
@@ -206,6 +207,7 @@ contract CYBRADualLicenseRoyalty15 {
         License storage l = licenses[licenseId];
 
         require(l.registered, "LICENSE_NOT_REGISTERED");
+        require(!l.true100, "LICENSE_FINALIZED");
         require(
             l.violationConfirmed,
             "DUAL_VIOLATION_APPROVAL_REQUIRED"
@@ -235,6 +237,7 @@ contract CYBRADualLicenseRoyalty15 {
         License storage l = licenses[licenseId];
 
         require(l.registered, "LICENSE_NOT_REGISTERED");
+        require(!l.true100, "LICENSE_FINALIZED");
         require(requiredChecks > 0, "NO_REQUIRED_CHECKS");
         require(
             passedChecks <= requiredChecks,
