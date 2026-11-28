@@ -24,17 +24,21 @@ def _run(cmd, timeout=10):
         return 1, str(e)[:100]
 
 def parse_cases():
-    """Парсить усі case."""
+    """Парсить лише головний case диспетчера, не підменю."""
     if not TUI.exists(): return {}
-    s = TUI.read_text()
+    s = TUI.read_text(encoding="utf-8")
+    start = s.find('case "$CHOICE" in')
+    if start < 0: return {}
+    end = s.find('0|q|Q|exit|quit)', start)
+    if end < 0: return {}
+    block = s[start:end]
     cases = {}
-    for m in re.finditer(r'^[ \t]+(\d+)\)\s*([^;]*?)\s*;;[ \t]*$', s, re.M):
-        mid = m.group(1)
-        action = m.group(2).strip()
-        if mid not in cases:
-            cases[mid] = action
-        else:
+    for m in re.finditer(r'^[ \\t]+(\\d+)\\)\\s*(.*?)\\s*;;[ \\t]*$', block, re.M):
+        mid, action = m.group(1), m.group(2).strip()
+        if mid in cases:
             cases[mid] = "DUP:" + action[:30]
+        else:
+            cases[mid] = action
     return cases
 
 def get_fn_body(fname):
@@ -234,17 +238,14 @@ STAGE_FNS = {
 }
 
 def run_all_stages():
-    """8-stage fix."""
-    results = []
-    for sid, name in STAGES:
-        fn = STAGE_FNS.get(sid)
-        if not fn: continue
-        try:
-            code, msg = fn()
-            results.append({"stage": sid, "name": name, "ok": code == 0, "msg": msg})
-        except Exception as e:
-            results.append({"stage": sid, "name": name, "ok": False, "msg": str(e)[:80]})
-    return results
+    """Безпечний режим: лише аудит. Автозапис у головне меню вимкнено."""
+    report = test_all()
+    return [{
+        "stage": "READ_ONLY_AUDIT",
+        "name": "Перевірка без змін файлів",
+        "ok": report["counts"].get("FAIL", 0) == 0 and report["counts"].get("MISS", 0) == 0,
+        "msg": "джерельні файли не змінювались; ремонт створюється окремим review patch"
+    }]
 
 if __name__ == "__main__":
     import sys
