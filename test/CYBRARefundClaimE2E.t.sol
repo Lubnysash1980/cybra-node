@@ -49,15 +49,18 @@ contract CYBRARefundClaimE2ETest is Test {
             identityHash
         );
 
+        vm.prank(claimant);
+        vm.expectRevert(bytes("only verifier"));
         claim.confirmClaim(id);
 
+        vm.prank(verifier);
+        claim.confirmClaim(id);
         assertFalse(
             claim.isTRUE100(id),
-            "TRUE100 BEFORE ALL REQUIRED CONFIRMATIONS"
+            "ONE VERIFIER MUST NOT REACH TRUE100"
         );
 
-        vm.prank(verifier);
-
+        vm.prank(verifier2);
         claim.confirmClaim(id);
 
         assertTrue(
