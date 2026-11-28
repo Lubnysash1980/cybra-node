@@ -41,18 +41,17 @@ contract CYBRARefundClaimE2ETest is Test {
             "TRUE100 MUST START FALSE"
         );
 
-        vm.prank(claimant);
+        vm.prank(verifier);
+        vm.expectRevert(bytes("evidence required"));
+        claim.confirmClaim(id);
 
+        vm.prank(claimant);
         claim.recordEvidence(
             id,
             paymentHash,
             deliveryHash,
             identityHash
         );
-
-        vm.prank(verifier);
-        vm.expectRevert(bytes("evidence required"));
-        claim.confirmClaim(id);
 
         vm.prank(merchant);
         vm.expectRevert(bytes("merchant cannot verify"));
