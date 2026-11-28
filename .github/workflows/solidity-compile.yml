@@ -5,6 +5,8 @@ on:
   push:
     paths:
       - "src/**/*.sol"
+      - "test/**/*.sol"
+      - "lib/forge-std"
       - "modules/module_*/contracts/**/*.sol"
       - ".github/workflows/solidity-compile.yml"
       - "foundry.toml"
@@ -69,3 +71,23 @@ jobs:
           contracts = sum(len(v) for v in result.get("contracts", {}).values())
           print(f"SOLIDITY_COMPILE_OK contracts={contracts} viaIR=true optimizer=200")
           PY
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+      - name: Restore pinned forge-std dependency
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf lib/forge-std
+          mkdir -p lib
+          git clone --filter=blob:none https://github.com/foundry-rs/forge-std.git lib/forge-std
+          git -C lib/forge-std checkout ba4733c33497dd0c0983dcc033d7645576cc46e5
+      - name: Run Foundry tests
+        run: forge test -vv
