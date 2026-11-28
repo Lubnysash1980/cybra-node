@@ -120,9 +120,11 @@ jobs:
           bash -n modules/module_408_menu_tester/main.sh
           bash -n modules/module_500_neuro/main.sh
           bash -n evolution_dashboard/cybra-evolution.sh
+          bash -n evolution_dashboard/main.sh
           bash -n evolution_dashboard/run-tests.sh
       - name: Run NEURO and menu tester unit tests
         run: |
           python3 -m unittest discover -s modules/module_500_neuro -p 'test_*.py' -v
+          python3 -m unittest discover -s modules/module_405_task_engine -p 'test_*.py' -v
           python3 -m unittest discover -s modules/module_408_menu_tester -p 'test_*.py' -v
           bash evolution_dashboard/run-tests.sh
