@@ -124,6 +124,29 @@ jobs:
           bash -n evolution_dashboard/cybra-evolution.sh
           bash -n evolution_dashboard/main.sh
           bash -n evolution_dashboard/run-tests.sh
+      - name: Validate catalog and menu inventory
+        run: |
+          python3 - <<'PY'
+          import json, re, subprocess
+          from pathlib import Path
+          catalog = json.loads(Path("catalog/contracts.json").read_text())
+          inventory = json.loads(Path("catalog/menu_inventory.json").read_text())
+          menu_path = "modules/module_19_contract_tui_menu/bin/cybra_menu.sh"
+          menu = Path(menu_path).read_text()
+          blob = subprocess.check_output(["git", "hash-object", menu_path], text=True).strip()
+          assert inventory["source"]["blobSha"] == blob, "menu inventory source SHA is stale"
+          start = menu.index('case "$CHOICE" in')
+          end = menu.index("0|q|Q|exit|quit)", start)
+          block = menu[start:end]
+          dispatch = [int(x) for x in re.findall(r"(?m)^\\s*(\\d+)\\)\\s*.*?;;\\s*$", block)]
+          expected = sorted(int(x["id"]) for x in inventory["items"] if int(x["id"]) != 0)
+          assert len(dispatch) == len(set(dispatch)), "duplicate main menu dispatch ID"
+          assert sorted(dispatch) == expected, "menu inventory does not match dispatch"
+          assert inventory["functionalMenuItems"] == len(dispatch)
+          assert inventory["totalDisplayedItems"] == len(inventory["items"])
+          assert len({x["id"] for x in catalog["items"]}) == len(catalog["items"]), "duplicate catalog IDs"
+          print(f"CATALOG_OK items={len(catalog['items'])} MENU_OK dispatch={len(dispatch)}")
+          PY
       - name: Run NEURO and menu tester unit tests
         run: |
           python3 -m unittest discover -s modules/module_500_neuro -p 'test_*.py' -v
