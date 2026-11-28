@@ -16,6 +16,6 @@ while :; do
     1) python3 "$D/tester.py" list; read -rp "Enter…" _ ;;
     2) python3 "$D/tester.py" 8stage; read -rp "Enter…" _ ;;
     3) python3 "$D/tester.py" json | head -40; read -rp "Enter…" _ ;;
-    0) return ;;
+    0) exit 0 ;;
   esac
 done
