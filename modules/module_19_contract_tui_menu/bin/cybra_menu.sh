@@ -708,6 +708,7 @@ print_menu() {
     printf '  🟢 %s[405]%s Task Engine — автоматичні задачі\n' "$C_BOLD" "$C_RESET"
     printf '  🟢 %s[408]%s Menu Tester — перевірка пунктів\n' "$C_BOLD" "$C_RESET"
     printf '  🟢 %s[500]%s CYBRA NEURO — AI-патчі через Parliament\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[501]%s Evolution Dashboard — еволюція/реєстр\n' "$C_BOLD" "$C_RESET"
     printf '\n'
     printf '  %s[0]%s  Вихід\n\n' "$C_BOLD" "$C_RESET"
 }
@@ -1074,6 +1075,7 @@ while true; do
         405) bash "$HOME/CYBRA/modules/module_405_task_engine/main.sh" ;;
         408) bash "$HOME/CYBRA/modules/module_408_menu_tester/main.sh" ;;
         500) bash "$HOME/CYBRA/modules/module_500_neuro/main.sh" ;;
+        501) bash "$HOME/CYBRA/evolution_dashboard/main.sh" ;;
         0|q|Q|exit|quit)
             printf '%s\n' "${C_GREEN}До побачення.${C_RESET}"
             exit 0
