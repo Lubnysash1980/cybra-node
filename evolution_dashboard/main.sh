@@ -1,5 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
-set -euo pipefail
+set -u
 HERE="$(cd "$(dirname "$0")" && pwd)"
 CLI="$HERE/cybra-evolution.sh"
 while :; do
