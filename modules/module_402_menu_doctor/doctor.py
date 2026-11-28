@@ -17,15 +17,17 @@ def _run(cmd, timeout=10):
         return 1, str(e)[:100]
 
 def parse_tui():
-    """Парсить TUI правильно."""
+    """Парсить лише головне меню, ігноруючи внутрішні підменю."""
     if not TUI.exists(): return {}
-    s = TUI.read_text()
+    s = TUI.read_text(encoding="utf-8")
+    start = s.find('case "$CHOICE" in')
+    if start < 0: return {}
+    end = s.find('0|q|Q|exit|quit)', start)
+    if end < 0: return {}
+    block = s[start:end]
     items = {}
-    # Match: `NNN)` на початку рядка, потім все до `;;`
-    for m in re.finditer(r'^[ \t]+(\d+)\)\s*(.*?)\s*;;[ \t]*$', s, re.M):
-        mid = m.group(1)
-        action = m.group(2).strip()
-        items[mid] = action
+    for m in re.finditer(r'^[ \t]+(\d+)\)\s*(.*?)\s*;;[ \t]*$', block, re.M):
+        items[m.group(1)] = m.group(2).strip()
     return items
 
 def get_function_body(fname):
