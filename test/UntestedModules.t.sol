@@ -10,6 +10,7 @@ import "../src/CYBRASelfLearning.sol";
 import "../src/CYBRASelfLearningV2.sol";
 
 contract UntestedModulesTest is Test {
+    receive() external payable {}
     function test_TimeLockReleaseAndCancelRules() public {
         TimeLock t = new TimeLock();
         address beneficiary = address(0xBEEF);
