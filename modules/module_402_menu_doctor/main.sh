@@ -5,7 +5,7 @@ while :; do
   clear
   python3 "$D/doctor.py" check
   echo
-  echo "  1) Повторити перевірку  2) ${G}Fix broken${N}  3) JSON   0) Назад"
+  echo "  1) Повторити перевірку  2) Показати план проблем  3) JSON   0) Назад"
   read -rp "  Вибір: " c
   case "$c" in
     1) continue ;;
