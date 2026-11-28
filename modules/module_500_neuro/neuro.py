@@ -272,6 +272,154 @@ def apply(patch_id: str, restart_target: str) -> None:
     mf.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
     print(f"NEURO_APPLY=SUCCESS\nRESTARTED={restart_target}\n3%_GATE=PASS\nTEST_SUITE=PASS")
 
+def plan_items(goal: str) -> str:
+    """Use AI to propose menu/catalog items and create review-only Task Engine records."""
+    if not goal.strip():
+        raise NeuroError("потрібно описати ціль")
+    key = os.environ.get("OPENAI_API_KEY", "").strip()
+    if not key:
+        raise NeuroError("OPENAI_API_KEY не задано в середовищі Termux")
+
+    catalog_path = ROOT / "catalog" / "contracts.json"
+    menu_path = MODULES / "module_19_contract_tui_menu" / "bin" / "cybra_menu.sh"
+    if not catalog_path.is_file() or not menu_path.is_file():
+        raise NeuroError("не знайдено каталог або головне TUI меню")
+    try:
+        catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+        existing = [str(x.get("name", "")) for x in catalog.get("items", []) if isinstance(x, dict)]
+        menu_text = menu_path.read_text(encoding="utf-8")
+        menu_ids = sorted({int(x) for x in re.findall(r'(?m)^\s*(\d+)\)\s*', menu_text[menu_text.find('case "$CHOICE" in'):]) if x.isdigit()})
+    except Exception as exc:
+        raise NeuroError(f"не вдалося прочитати інвентар меню/каталогу: {exc}") from exc
+
+    model = os.environ.get("CYBRA_NEURO_MODEL", MODEL_DEFAULT).strip()
+    system = (
+        "You are CYBRA NEURO planning assistant. Return only JSON with an items array. "
+        "Propose useful new CYBRA menu/catalog capabilities and implementation tasks. "
+        "Do not output code, shell commands, secrets, wallet operations, transactions, deployment steps, "
+        "or claims that work is already implemented. Avoid duplicates of supplied existing names. "
+        "Each item must have name, purpose, category, priority, and acceptance_criteria."
+    )
+    user = {
+        "goal": goal,
+        "existing_catalog_names": existing[:250],
+        "occupied_menu_ids": menu_ids,
+        "limits": {"max_items": 10, "criteria_per_item": "1-6", "priority_values": ["low", "normal", "high"]},
+        "output_schema": {
+            "items": [{
+                "name": "string, <=80 chars",
+                "purpose": "string, <=400 chars",
+                "category": "string, <=40 chars",
+                "priority": "low|normal|high",
+                "acceptance_criteria": ["string, <=200 chars"]
+            }]
+        }
+    }
+    payload = json.dumps({
+        "model": model, "temperature": 0,
+        "response_format": {"type": "json_object"},
+        "messages": [
+            {"role": "system", "content": system},
+            {"role": "user", "content": json.dumps(user, ensure_ascii=False)}
+        ]
+    }).encode()
+    req = urllib.request.Request(
+        "https://api.openai.com/v1/chat/completions", data=payload,
+        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+        method="POST"
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=120) as response:
+            raw = response.read(MAX_RESPONSE_BYTES + 1)
+    except urllib.error.HTTPError as exc:
+        raise NeuroError(f"OpenAI API HTTP {exc.code}: {exc.read(2000).decode('utf-8', 'replace')}") from exc
+    except Exception as exc:
+        raise NeuroError(f"OpenAI API недоступний: {exc}") from exc
+    if len(raw) > MAX_RESPONSE_BYTES:
+        raise NeuroError("відповідь моделі перевищила ліміт")
+    try:
+        result = json.loads(json.loads(raw)["choices"][0]["message"]["content"])
+    except Exception as exc:
+        raise NeuroError(f"модель повернула некоректний JSON: {exc}") from exc
+    items = result.get("items") if isinstance(result, dict) else None
+    if not isinstance(items, list) or not 1 <= len(items) <= 10:
+        raise NeuroError("очікується від 1 до 10 пропозицій у items")
+
+    existing_norm = {x.strip().casefold() for x in existing if x.strip()}
+    clean = []
+    for index, item in enumerate(items, 1):
+        if not isinstance(item, dict):
+            raise NeuroError(f"пункт {index}: неправильний формат")
+        name = item.get("name")
+        purpose = item.get("purpose")
+        category = item.get("category", "general")
+        priority = item.get("priority", "normal")
+        criteria = item.get("acceptance_criteria")
+        if not isinstance(name, str) or not name.strip() or len(name.strip()) > 80:
+            raise NeuroError(f"пункт {index}: неправильна назва")
+        if name.strip().casefold() in existing_norm:
+            raise NeuroError(f"дубль назви каталогу: {name.strip()}")
+        if not isinstance(purpose, str) or not purpose.strip() or len(purpose) > 400:
+            raise NeuroError(f"пункт {index}: неправильний опис")
+        if not isinstance(category, str) or len(category) > 40:
+            raise NeuroError(f"пункт {index}: неправильна категорія")
+        if priority not in ("low", "normal", "high"):
+            raise NeuroError(f"пункт {index}: неправильний пріоритет")
+        if not isinstance(criteria, list) or not 1 <= len(criteria) <= 6:
+            raise NeuroError(f"пункт {index}: потрібно 1-6 критеріїв приймання")
+        if any(not isinstance(x, str) or not x.strip() or len(x) > 200 for x in criteria):
+            raise NeuroError(f"пункт {index}: некоректний критерій приймання")
+        clean.append({
+            "proposal_id": f"menu-proposal-{index:02d}",
+            "name": name.strip(), "purpose": purpose.strip(),
+            "category": category.strip(), "priority": priority,
+            "acceptance_criteria": [x.strip() for x in criteria]
+        })
+
+    plan_id = time.strftime("%Y%m%d_%H%M%S") + "_" + uuid.uuid4().hex[:8]
+    plan_dir = MODULES / "module_500_neuro" / "data" / "plans"
+    task_dir = MODULES / "module_405_task_engine" / "data" / "tasks"
+    plan_dir.mkdir(parents=True, exist_ok=True)
+    task_dir.mkdir(parents=True, exist_ok=True)
+    plan = {
+        "id": plan_id, "created": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "status": "proposed", "goal": goal[:1000], "items": clean,
+        "policy": "proposal-only; no menu, catalog, source, wallet, or deployment changes"
+    }
+    plan_path = plan_dir / f"{plan_id}.json"
+    plan_path.write_text(json.dumps(plan, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    created = []
+    for item in clean:
+        task_id = f"N-{int(time.time())}-{uuid.uuid4().hex[:8]}"
+        task = {
+            "id": task_id,
+            "at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "status": "created",
+            "issue": {
+                "type": "neuro_menu_proposal",
+                "target": item["proposal_id"],
+                "severity": item["priority"],
+                "detail": item["purpose"],
+                "source": "module_500_neuro"
+            },
+            "action": {"plan_id": plan_id, **item},
+            "sandbox_path": None, "test_result": None,
+            "apply_result": None, "verify_result": None
+        }
+        (task_dir / f"{task_id}.json").write_text(
+            json.dumps(task, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+        created.append(task_id)
+
+    print(f"NEURO_PLAN={plan_id}")
+    print(f"PROPOSALS={len(clean)}")
+    print(f"TASKS_CREATED={len(created)}")
+    print(f"PLAN_FILE={plan_path}")
+    print("STATUS=PROPOSED_ONLY; approval and implementation are separate steps")
+    return plan_id
+
+
 def status() -> None:
     manifests = sorted(STAGING.glob("*/manifest.json")) if STAGING.exists() else []
     baseline_path = PARLIAMENT_DIR / "data" / "evolve" / "baseline.json"
@@ -307,12 +455,14 @@ def main() -> int:
     g = sub.add_parser("generate"); g.add_argument("--task", required=True); g.add_argument("files", nargs="+")
     p = sub.add_parser("propose"); p.add_argument("patch_id")
     a = sub.add_parser("apply"); a.add_argument("patch_id"); a.add_argument("--restart", required=True)
+    pl = sub.add_parser("plan"); pl.add_argument("--goal", required=True)
     sub.add_parser("status")
     args = ap.parse_args()
     try:
         if args.cmd == "generate": generate(args.task, args.files)
         elif args.cmd == "propose": propose(args.patch_id)
         elif args.cmd == "apply": apply(args.patch_id, args.restart)
+        elif args.cmd == "plan": plan_items(args.goal)
         else: status()
         return 0
     except Exception as exc:
