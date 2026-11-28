@@ -10,6 +10,10 @@ on:
       - "modules/module_*/contracts/**/*.sol"
       - ".github/workflows/solidity-compile.yml"
       - "foundry.toml"
+      - "modules/module_*/**/*.py"
+      - "modules/module_*/**/*.sh"
+      - "modules/module_19_contract_tui_menu/bin/cybra_menu.sh"
+      - "catalog/contracts.json"
 
 jobs:
   compile:
@@ -91,3 +95,30 @@ jobs:
           git -C lib/forge-std checkout ba4733c33497dd0c0983dcc033d7645576cc46e5
       - name: Run Foundry tests
         run: forge test -vv
+
+  automation-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+      - name: Python syntax checks
+        run: |
+          python3 -m compileall -q \
+            modules/module_402_menu_doctor \
+            modules/module_405_task_engine \
+            modules/module_408_menu_tester \
+            modules/module_500_neuro
+      - name: Bash syntax checks
+        run: |
+          bash -n modules/module_19_contract_tui_menu/bin/cybra_menu.sh
+          bash -n modules/module_402_menu_doctor/main.sh
+          bash -n modules/module_405_task_engine/main.sh
+          bash -n modules/module_405_task_engine/cron.sh
+          bash -n modules/module_408_menu_tester/main.sh
+          bash -n modules/module_500_neuro/main.sh
+      - name: Run NEURO and menu tester unit tests
+        run: |
+          python3 -m unittest discover -s modules/module_500_neuro -p 'test_*.py' -v
+          python3 -m unittest discover -s modules/module_408_menu_tester -p 'test_*.py' -v
