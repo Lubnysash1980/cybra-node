@@ -1,0 +1,28 @@
+name: CYBRA Git Hash autosave checks
+
+on:
+  push:
+    branches:
+      - feature/cybra-process-automation-20261128
+    paths:
+      - "modules/module_101_hash_eco/**"
+      - ".github/workflows/cybra-git-hash.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  hash-autosave:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Compile Python source
+        run: python -m py_compile modules/module_101_hash_eco/eco.py modules/module_101_hash_eco/tests/test_git_hash_autosave.py
+      - name: Test 100-hash retention and atomic save
+        run: python -m unittest discover -s modules/module_101_hash_eco/tests -p "test_git_hash_autosave.py" -v
