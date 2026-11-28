@@ -7,6 +7,7 @@ on:
       - "src/**/*.sol"
       - "modules/module_*/contracts/**/*.sol"
       - ".github/workflows/solidity-compile.yml"
+      - "foundry.toml"
 
 jobs:
   compile:
@@ -14,25 +15,57 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          submodules: false
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
-      - name: Compile all production Solidity sources
+          node-version: "22"
+      - name: Compile all production Solidity sources (Foundry settings)
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p /tmp/cybra-solc
-          mapfile -t files < <(find src modules -type f -path "*/contracts/*.sol" -o -type f -path "src/*.sol" | sort -u)
-          if [ "${#files[@]}" -eq 0 ]; then
-            echo "No Solidity source files found"
-            exit 1
-          fi
-          printf 'Found %s Solidity source files\n' "${#files[@]}"
-          npx --yes solc@0.8.24 --version
-          for file in "${files[@]}"; do
-            echo "::group::Compile ${file}"
-            npx --yes solc@0.8.24 --base-path . --include-path . --bin "${file}" -o /tmp/cybra-solc
-            echo "::endgroup::"
-          done
-          echo "SOLIDITY_COMPILE_OK files=${#files[@]}"
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          files = sorted(
+              list(Path("src").glob("*.sol")) +
+              list(Path("modules").glob("module_*/contracts/*.sol"))
+          )
+          if not files:
+              raise SystemExit("No production Solidity sources found")
+
+          sources = {p.as_posix(): {"content": p.read_text()} for p in files}
+          settings = {
+              "optimizer": {"enabled": True, "runs": 200},
+              "viaIR": True,
+              "evmVersion": "shanghai",
+              "outputSelection": {"*": {"*": ["abi", "evm.bytecode.object"]}}
+          }
+          Path("/tmp/cybra-solc-input.json").write_text(
+              json.dumps({"language": "Solidity", "sources": sources, "settings": settings})
+          )
+          print(f"Found {len(files)} production Solidity source files")
+          PY
+          npx --yes solc@0.8.24 --standard-json < /tmp/cybra-solc-input.json > /tmp/cybra-solc-output.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          raw = Path("/tmp/cybra-solc-output.json").read_text()
+          start = raw.find("{")
+          if start < 0:
+              print(raw)
+              raise SystemExit("solc returned no JSON output")
+          result = json.loads(raw[start:])
+          errors = result.get("errors", [])
+          for item in errors:
+              if item.get("severity") == "error":
+                  print(item.get("formattedMessage", item.get("message", "Compiler error")))
+          failures = [e for e in errors if e.get("severity") == "error"]
+          if failures:
+              raise SystemExit(f"Solidity compilation failed: {len(failures)} error(s)")
+          contracts = sum(len(v) for v in result.get("contracts", {}).values())
+          print(f"SOLIDITY_COMPILE_OK contracts={contracts} viaIR=true optimizer=200")
+          PY
