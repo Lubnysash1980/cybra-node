@@ -109,7 +109,8 @@ jobs:
             modules/module_402_menu_doctor \
             modules/module_405_task_engine \
             modules/module_408_menu_tester \
-            modules/module_500_neuro
+            modules/module_500_neuro \
+            evolution_dashboard/server.py
       - name: Bash syntax checks
         run: |
           bash -n modules/module_19_contract_tui_menu/bin/cybra_menu.sh
@@ -118,7 +119,10 @@ jobs:
           bash -n modules/module_405_task_engine/cron.sh
           bash -n modules/module_408_menu_tester/main.sh
           bash -n modules/module_500_neuro/main.sh
+          bash -n evolution_dashboard/cybra-evolution.sh
+          bash -n evolution_dashboard/run-tests.sh
       - name: Run NEURO and menu tester unit tests
         run: |
           python3 -m unittest discover -s modules/module_500_neuro -p 'test_*.py' -v
           python3 -m unittest discover -s modules/module_408_menu_tester -p 'test_*.py' -v
+          bash evolution_dashboard/run-tests.sh
