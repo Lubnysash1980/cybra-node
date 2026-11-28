@@ -112,6 +112,7 @@ contract CYBRALevelControllerTest is Test {
         controller.confirmTRUE100();
         controller.createSnapshot(SNAPSHOT);
         controller.enableLive();
+        controller.openMainnetGate();
 
         controller.advanceLevel();
 
