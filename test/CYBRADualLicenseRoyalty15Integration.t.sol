@@ -302,8 +302,14 @@ contract CYBRADualLicenseRoyalty15IntegrationTest is Test {
         vm.prank(authority);
         controller.enableLive();
 
-        // Mainnet gate is not required by advanceLevel() in the
-        // current controller implementation.
+        // Level advancement requires the complete lifecycle, including the mainnet gate.
+        vm.prank(authority);
+        vm.expectRevert("CURRENT_MAINNET_GATE_CLOSED");
+        controller.advanceLevel();
+
+        vm.prank(authority);
+        controller.openMainnetGate();
+
         vm.prank(authority);
         controller.advanceLevel();
 
