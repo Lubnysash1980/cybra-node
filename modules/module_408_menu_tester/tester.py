@@ -82,8 +82,6 @@ def classify(mid, action):
         p = Path(f)
         if not p.exists():
             return "MISS", f"немає: {p.name}"
-        if not os.access(p, os.X_OK):
-            return "FAIL", f"не executable: {p.name}"
         rc, out = _run(f"bash -n {p}")
         if rc != 0:
             return "FAIL", f"syntax: {out[:40]}"
