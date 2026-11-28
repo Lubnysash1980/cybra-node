@@ -116,37 +116,10 @@ def check_all():
     return out
 
 def fix_stubs():
-    """Замінює заглушки на корисні повідомлення з посиланням на модуль."""
-    s = TUI.read_text()
+    """Формує перелік проблем; автоматичний запис у меню заборонений."""
     data = json.loads(CACHE.read_text()) if CACHE.exists() else check_all()
-    stubs = [m for m, v in data["items"].items() if v["status"] in ("stub","fail")]
-    if not stubs: return 0, []
-    fixed = []
-    for mid in stubs:
-        info = data["items"][mid]
-        action = info["action"]
-        # витягнути ім'я функції
-        m = re.match(r'^(action_[a-z_0-9]+)', action)
-        if m:
-            fname = m.group(1)
-            # замінити тіло функції
-            pat = re.compile(rf'^{re.escape(fname)}\(\)\s*\{{.*?^\}}', re.M | re.DOTALL)
-            new_body = (
-                f'{fname}() {{\n'
-                f'  echo "⚠ Пункт [{mid}] ще не реалізовано"\n'
-                f'  echo "   Причина: {info["reason"][:50]}"\n'
-                f'  echo "   Модуль: module_{mid}_* (перевір чи встановлено)"\n'
-                f'  echo "   Стан:  python3 ~/CYBRA/modules/module_399_gate/gate.py status"\n'
-                f'  read -rp "Enter…" _\n'
-                f'}}'
-            )
-            s2 = pat.sub(new_body, s, count=1)
-            if s2 != s:
-                s = s2
-                fixed.append(mid)
-    if fixed:
-        TUI.write_text(s)
-    return len(fixed), fixed
+    blocked = [m for m, v in data["items"].items() if v["status"] in ("stub", "fail")]
+    return 0, blocked
 
 if __name__ == "__main__":
     import sys
