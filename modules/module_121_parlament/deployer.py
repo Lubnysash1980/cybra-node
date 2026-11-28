@@ -46,7 +46,9 @@ def _save_deployed(d):
 def discover_contracts():
     """Повертає [{name, sol_path, module_id, bytecode_ready, deployed}]."""
     out = []
-    for sol in M.glob("module_*/contracts/*.sol"):
+    candidates = list(M.glob("module_*/contracts/*.sol"))
+    candidates.extend((H / "src").glob("*.sol"))
+    for sol in candidates:
         name = sol.stem
         mod = sol.parent.parent.name
         mid = None
