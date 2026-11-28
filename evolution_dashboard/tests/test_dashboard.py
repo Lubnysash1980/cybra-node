@@ -25,6 +25,8 @@ class DashboardTests(unittest.TestCase):
             patch.object(server, "DATA", self.data),
             patch.object(server, "BASELINE", self.data / "baseline.json"),
             patch.object(server, "HISTORY", self.data / "history.jsonl"),
+            patch.object(server, "SEEN", self.data / "seen.json"),
+            patch.object(server, "LAST", self.data / "last.json"),
             patch.object(server.subprocess, "run", side_effect=FileNotFoundError("pm2 not installed")),
         ]
         for item in self.patches:
