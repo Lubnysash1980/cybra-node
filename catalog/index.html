@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>CYBRA · Реєстр контрактів</title>
+<title>CYBRA · Реєстр модулів</title>
 <style>
 :root{color-scheme:dark;--bg:#0d1117;--panel:#161b22;--line:#30363d;--text:#e6edf3;--muted:#8b949e;--blue:#58a6ff;--green:#3fb950;--yellow:#d29922;--red:#f85149}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px system-ui,sans-serif}
@@ -21,9 +21,9 @@ table{width:100%;border-collapse:collapse;background:var(--panel);border-radius:
 </style>
 </head>
 <body><main>
-<header><div><h1>CYBRA · Реєстр контрактів</h1><div class="sub">Каталог контрактних модулів · режим лише читання</div></div><span class="badge">READ-ONLY · без гаманця</span></header>
+<header><div><h1>CYBRA · Реєстр модулів</h1><div class="sub">Контракти, меню й автоматизація · режим лише читання</div><a href="./menu_inventory.json" style="color:var(--blue)">Перелік пунктів головного меню</a></div><span class="badge">READ-ONLY · без гаманця</span></header>
 <section class="stats">
-<div class="card"><div class="muted">Ціль каталогу</div><div class="num" id="target">500</div></div>
+<div class="card"><div class="muted">Ціль каталогу</div><div class="num" id="target">500</div></div><div class="card"><div class="muted">Пункти головного меню</div><div class="num" id="menuCount">—</div></div>
 <div class="card"><div class="muted">У реєстрі</div><div class="num" id="total">0</div></div>
 <div class="card"><div class="muted">Код у репозиторії</div><div class="num" id="sourceCount">0</div></div>
 <div class="card"><div class="muted">Розгортання підтверджено</div><div class="num" id="confirmed">0</div></div>
@@ -37,7 +37,7 @@ table{width:100%;border-collapse:collapse;background:var(--panel);border-radius:
 </main>
 <script>
 const $=id=>document.getElementById(id);let items=[];
-const labels={confirmed:"Розгортання підтверджено",proposed:"Запропоновано",blocked:"Заблоковано","source-present-not-deployed":"Код є · deployment не підтверджено"};
+const labels={confirmed:"Розгортання підтверджено",proposed:"Запропоновано",blocked:"Заблоковано","source-present-not-deployed":"Код є · deployment не підтверджено","present-needs-validation":"Модуль є · очікує перевірки"};
 function sourceText(x){return typeof x.source==="string"?x.source:(x.source?.path||x.description||"—");}
 function render(){
  const q=$("q").value.trim().toLowerCase(),f=$("filter").value;
@@ -53,4 +53,5 @@ fetch("./contracts.json").then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return
  $("notice").textContent=d.notice||"Кожен запис має бути підтверджений джерелом. Запропоновані модулі не є розгорнутими контрактами.";
  render();
 }).catch(()=>{$("rows").innerHTML='<tr><td colspan="5" class="empty">Не вдалося завантажити contracts.json.</td></tr>';});
+fetch("./menu_inventory.json").then(r=>r.json()).then(d=>{$("menuCount").textContent=d.functionalMenuItems??"—";}).catch(()=>{$("menuCount").textContent="—";});
 </script></body></html>
