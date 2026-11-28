@@ -18,10 +18,15 @@ def log(event):
     with (BASE/"events.lock").open("w") as lock:
         fcntl.flock(lock,fcntl.LOCK_EX)
         with EVENTS.open("a") as f: f.write(json.dumps(event,ensure_ascii=False)+"\n")
-def classify(status,progress):
+def classify(status,progress,evidence=None):
+    evidence = evidence or []
     if status in ("failed","blocked"): return "red"
-    if status=="done" and progress==100: return "green"
-    if 0<progress<100 or status in ("in_progress","degraded"): return "yellow"
+    if status=="done" and progress==100 and evidence: return "green"
+    if status=="planned" and progress==0 and not evidence: return "not_checked"
+    if status=="degraded": return "yellow" if progress>=30 else "red"
+    if status=="in_progress": return "yellow" if progress>=30 else "red"
+    if progress>=30 and progress<100: return "yellow"
+    if progress<30 and (status not in ("planned",) or evidence): return "red"
     return "not_checked"
 def main():
     ap=argparse.ArgumentParser(prog="cybra-map")
@@ -45,7 +50,7 @@ def main():
             if not 0<=a.progress<=100: raise SystemExit("PROGRESS_OUT_OF_RANGE")
             t["progress"]=a.progress
         if a.executor is not None: t["executors"]=sorted(set(t.get("executors",[])+a.executor))
-        t["level"]=classify(t["status"],t["progress"])
+        t["level"]=classify(t["status"],t["progress"],t.get("evidence"))
         if t["level"]=="green" and not t.get("evidence"): raise SystemExit("GREEN_REQUIRES_EVIDENCE")
         atomic(TASKS,data)
         log({"id":str(uuid.uuid4()),"task":a.id,"kind":"status_update","executor":"cli","message":a.note,"status":t["status"],"progress":t["progress"],"level":t["level"],"ts":time.time()})
@@ -60,6 +65,8 @@ def main():
         for t in data["tasks"]:
             assert 0<=t["progress"]<=100
             assert t["level"] in ("green","yellow","red","not_checked")
+            if t["level"]=="yellow": assert t["progress"]>=30 and t["progress"]<100,t["id"]
+            if t["level"]=="red" and t["status"] not in ("failed","blocked"): assert t["progress"]<30,t["id"]
             if t["level"]=="green": assert t["status"]=="done" and t["progress"]==100 and t.get("evidence"),t["id"]
         print("TASK_MAP_OK",len(ids))
 if __name__=="__main__": main()
