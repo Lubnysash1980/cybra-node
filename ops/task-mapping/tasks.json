@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "project": "CYBRA BAR",
-  "updatedAtUtc": "2026-11-28T10:56:12.576Z",
+  "updatedAtUtc": "2026-11-28T10:58:10.849Z",
   "levels": {
     "green": {
       "meaning": "100% і всі критерії приймання підтверджені доказами",
@@ -244,12 +244,16 @@
       "progress": 0,
       "level": "not_checked",
       "acceptance": [
-        "User request or contract is mapped to one stable task ID",
+        "User request or contract maps to one stable task ID without duplicates",
         "Affected modules, dependencies and executors are identified",
-        "Neuro prepares isolated patch proposals and tests",
-        "CI evidence and executor events update the same task",
-        "Dashboard displays progress, evidence and approval gates",
-        "Merge, production deploy and irreversible actions require approval"
+        "Neuro prepares isolated patches and generates helper scripts when needed",
+        "Applicable npm install, lint, typecheck, tests, build, Solidity compile and smoke checks run with captured exit codes",
+        "On failure, Neuro retries at smaller safe granularity: GB, MB, KB, bytes, bits; pixel-level handling is limited to image assets",
+        "Every repair preserves checkpoints, diffs and rollback capability",
+        "Commit SHA, branch, changed paths and CI/test run evidence are attached to the same task ID",
+        "Commit proves versioned change only; functional completion requires passing tests or runtime evidence",
+        "Dashboard displays progress, executor activity, evidence and approval gates",
+        "Merge, production deploy, restart and irreversible actions require approval"
       ],
       "executors": [
         "neuro",
