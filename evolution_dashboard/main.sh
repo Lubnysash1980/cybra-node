@@ -2,6 +2,14 @@
 set -u
 HERE="$(cd "$(dirname "$0")" && pwd)"
 CLI="$HERE/cybra-evolution.sh"
+TARGET_ROOT="${CYBRA_ROOT:-$HOME/CYBRA_NEURO}"
+if [ ! -d "$TARGET_ROOT/.git" ]; then
+  echo "Ізольована копія не знайдена: $TARGET_ROOT"
+  echo "Створи окремий checkout CYBRA_NEURO; production ~/CYBRA не використовується."
+  read -r -p "Enter…" _
+  exit 1
+fi
+export CYBRA_ROOT="$TARGET_ROOT"
 while :; do
   clear
   printf '\033[36m═══ CYBRA EVOLUTION DASHBOARD ═══\033[0m\n\n'
