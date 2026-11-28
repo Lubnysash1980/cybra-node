@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 set -euo pipefail
-ROOT="${CYBRA_ROOT:-$HOME/CYBRA}"
 HERE="$(cd "$(dirname "$0")" && pwd)"
+ROOT="${CYBRA_ROOT:-$(cd "$HERE/.." && pwd)}"
 PORT="${CYBRA_EVOLUTION_PORT:-8765}"
 mkdir -p "$ROOT/logs" "$ROOT/state"
 case "${1:-start}" in
