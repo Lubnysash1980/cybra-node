@@ -1,7 +1,7 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "targetCount": 500,
-  "notice": "Знайдено 163 нумеровані пункти меню CYBRA (1–163) у commit 22b63edc. Вони внесені як legacy menu actions зі статусом proposed. Це НЕ 163 підтверджені on-chain смартконтракти. Історичний batch bar_menu_160 мав created=0, failed=160; не позначати як deployed.",
+  "notice": "Каталог CYBRA: legacy menu actions не є smart contracts. Solidity source означає наявність вихідного коду в репозиторії, але не доводить компіляцію, аудит або deployment. Адреса/мережа позначаються підтвердженими лише за незалежним on-chain доказом. Ціль 500 — обсяг каталогу, а не твердження про 500 розгорнутих контрактів.",
   "items": [
     {
       "id": "legacy-001",
@@ -1469,6 +1469,308 @@
       "description": "Знайдений пункт меню CYBRA №163. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
       "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
       "handler": "bin/cybra-7levels-pm2.py"
+    },
+    {
+      "id": "source-001",
+      "name": "TimeLock",
+      "type": "solidity-source",
+      "status": "source-present-not-deployed",
+      "description": "Timelock — відкладене виконання операцій",
+      "source": {
+        "repository": "Lubnysash1980/cybra-node",
+        "branch": "feature/cybra-readonly-contract-catalog-20261128",
+        "path": "modules/module_124_timelock/contracts/TimeLock.sol",
+        "blobSha": "7a041ed25204e40b8277c634e529fcf093fa0831",
+        "pragma": "^0.8.20",
+        "declaration": "contract TimeLock"
+      },
+      "deployment": {
+        "verified": false,
+        "address": null,
+        "chainId": null,
+        "reason": "У репозиторії є вихідний Solidity-файл; on-chain deployment не підтверджений."
+      }
+    },
+    {
+      "id": "source-002",
+      "name": "Anchor",
+      "type": "solidity-source",
+      "status": "source-present-not-deployed",
+      "description": "Anchor — фіксація/якір даних",
+      "source": {
+        "repository": "Lubnysash1980/cybra-node",
+        "branch": "feature/cybra-readonly-contract-catalog-20261128",
+        "path": "modules/module_125_anchor/contracts/Anchor.sol",
+        "blobSha": "4277fa4f7f6136101365e6b8858ac885d384e222",
+        "pragma": "^0.8.20",
+        "declaration": "contract Anchor"
+      },
+      "deployment": {
+        "verified": false,
+        "address": null,
+        "chainId": null,
+        "reason": "У репозиторії є вихідний Solidity-файл; on-chain deployment не підтверджений."
+      }
+    },
+    {
+      "id": "source-003",
+      "name": "Escrow",
+      "type": "solidity-source",
+      "status": "source-present-not-deployed",
+      "description": "Escrow — умовне зберігання та передача активів",
+      "source": {
+        "repository": "Lubnysash1980/cybra-node",
+        "branch": "feature/cybra-readonly-contract-catalog-20261128",
+        "path": "modules/module_137_escrow/contracts/Escrow.sol",
+        "blobSha": "ab57d2db19ca281cfbcfc47402facdd7d819ed95",
+        "pragma": "^0.8.20",
+        "declaration": "contract Escrow"
+      },
+      "deployment": {
+        "verified": false,
+        "address": null,
+        "chainId": null,
+        "reason": "У репозиторії є вихідний Solidity-файл; on-chain deployment не підтверджений."
+      }
+    },
+    {
+      "id": "source-004",
+      "name": "Reputation",
+      "type": "solidity-source",
+      "status": "source-present-not-deployed",
+      "description": "Reputation — облік репутації",
+      "source": {
+        "repository": "Lubnysash1980/cybra-node",
+        "branch": "feature/cybra-readonly-contract-catalog-20261128",
+        "path": "modules/module_147_reputation_v2/contracts/Reputation.sol",
+        "blobSha": "794736f69a7bb2d929c6935dcb27c844d824ea11",
+        "pragma": "^0.8.20",
+        "declaration": "contract Reputation"
+      },
+      "deployment": {
+        "verified": false,
+        "address": null,
+        "chainId": null,
+        "reason": "У репозиторії є вихідний Solidity-файл; on-chain deployment не підтверджений."
+      }
+    },
+    {
+      "id": "source-005",
+      "name": "CYBRABinaryMixerLicense",
+      "type": "solidity-source",
+      "status": "source-present-not-deployed",
+      "description": "Ліцензія CYBRA Binary Mixer",
+      "source": {
+        "repository": "Lubnysash1980/cybra-node",
+        "branch": "feature/cybra-readonly-contract-catalog-20261128",
+        "path": "src/CYBRABinaryMixerLicense.sol",
+        "blobSha": "808eae076cee6a091a15b121e0dbed0d5c5683d6",
+        "pragma": "^0.8.19",
+        "declaration": "contract CYBRABinaryMixerLicense"
+      },
+      "deployment": {
+        "verified": false,
+        "address": null,
+        "chainId": null,
+        "reason": "У репозиторії є вихідний Solidity-файл; on-chain deployment не підтверджений."
+      }
+    },
+    {
+      "id": "source-006",
+      "name": "CYBRADualLicenseRoyalty15",
+      "type": "solidity-source",
+      "status": "source-present-not-deployed",
+      "description": "Подвійна ліцензія з роялті 15%",
+      "source": {
+        "repository": "Lubnysash1980/cybra-node",
+        "branch": "feature/cybra-readonly-contract-catalog-20261128",
+        "path": "src/CYBRADualLicenseRoyalty15.sol",
+        "blobSha": "925db80fda17d5eba9cb50eb44794665410164d2",
+        "pragma": "^0.8.19",
+        "declaration": "contract CYBRADualLicenseRoyalty15"
+      },
+      "deployment": {
+        "verified": false,
+        "address": null,
+        "chainId": null,
+        "reason": "У репозиторії є вихідний Solidity-файл; on-chain deployment не підтверджений."
+      }
+    },
+    {
+      "id": "source-007",
+      "name": "CYBRAEscrow",
+      "type": "solidity-source",
+      "status": "source-present-not-deployed",
+      "description": "CYBRA escrow",
+      "source": {
+        "repository": "Lubnysash1980/cybra-node",
+        "branch": "feature/cybra-readonly-contract-catalog-20261128",
+        "path": "src/CYBRAEscrow.sol",
+        "blobSha": "5c74dc89355cf0a11efc0fbb8098e6e64049aaaf",
+        "pragma": "^0.8.20",
+        "declaration": "contract CYBRAEscrow"
+      },
+      "deployment": {
+        "verified": false,
+        "address": null,
+        "chainId": null,
+        "reason": "У репозиторії є вихідний Solidity-файл; on-chain deployment не підтверджений."
+      }
+    },
+    {
+      "id": "source-008",
+      "name": "CYBRAExoskeletonAIParliament",
+      "type": "solidity-source",
+      "status": "source-present-not-deployed",
+      "description": "Парламент AI-екзоскелета CYBRA",
+      "source": {
+        "repository": "Lubnysash1980/cybra-node",
+        "branch": "feature/cybra-readonly-contract-catalog-20261128",
+        "path": "src/CYBRAExoskeletonAIParliament.sol",
+        "blobSha": "3620345f8075d6b85e62ccec0017b68799d43050",
+        "pragma": "^0.8.19",
+        "declaration": "contract CYBRAExoskeletonAIParliament"
+      },
+      "deployment": {
+        "verified": false,
+        "address": null,
+        "chainId": null,
+        "reason": "У репозиторії є вихідний Solidity-файл; on-chain deployment не підтверджений."
+      }
+    },
+    {
+      "id": "source-009",
+      "name": "CYBRALevelController",
+      "type": "solidity-source",
+      "status": "source-present-not-deployed",
+      "description": "Контролер рівнів CYBRA",
+      "source": {
+        "repository": "Lubnysash1980/cybra-node",
+        "branch": "feature/cybra-readonly-contract-catalog-20261128",
+        "path": "src/CYBRALevelController.sol",
+        "blobSha": "4886c8479da569422575fa325e26396c1e9dc9e9",
+        "pragma": "^0.8.19",
+        "declaration": "contract CYBRALevelController"
+      },
+      "deployment": {
+        "verified": false,
+        "address": null,
+        "chainId": null,
+        "reason": "У репозиторії є вихідний Solidity-файл; on-chain deployment не підтверджений."
+      }
+    },
+    {
+      "id": "source-010",
+      "name": "CYBRAP2PPurchase",
+      "type": "solidity-source",
+      "status": "source-present-not-deployed",
+      "description": "P2P-покупка CYBRA",
+      "source": {
+        "repository": "Lubnysash1980/cybra-node",
+        "branch": "feature/cybra-readonly-contract-catalog-20261128",
+        "path": "src/CYBRAP2PPurchase.sol",
+        "blobSha": "2cdb06807cd0afea74de4bf9634b97681526fe02",
+        "pragma": "^0.8.24",
+        "declaration": "contract CYBRAP2PPurchase"
+      },
+      "deployment": {
+        "verified": false,
+        "address": null,
+        "chainId": null,
+        "reason": "У репозиторії є вихідний Solidity-файл; on-chain deployment не підтверджений."
+      }
+    },
+    {
+      "id": "source-011",
+      "name": "CYBRARefundClaim",
+      "type": "solidity-source",
+      "status": "source-present-not-deployed",
+      "description": "Повернення коштів / refund claim",
+      "source": {
+        "repository": "Lubnysash1980/cybra-node",
+        "branch": "feature/cybra-readonly-contract-catalog-20261128",
+        "path": "src/CYBRARefundClaim.sol",
+        "blobSha": "43da6db19d5c03d7bb845f3fdb8b5e820965af7d",
+        "pragma": "^0.8.19",
+        "declaration": "contract CYBRARefundClaim"
+      },
+      "deployment": {
+        "verified": false,
+        "address": null,
+        "chainId": null,
+        "reason": "У репозиторії є вихідний Solidity-файл; on-chain deployment не підтверджений."
+      }
+    },
+    {
+      "id": "source-012",
+      "name": "CYBRAResponsibilityContract",
+      "type": "solidity-source",
+      "status": "source-present-not-deployed",
+      "description": "Контракт відповідальності CYBRA",
+      "source": {
+        "repository": "Lubnysash1980/cybra-node",
+        "branch": "feature/cybra-readonly-contract-catalog-20261128",
+        "path": "src/CYBRAResponsibilityContract.sol",
+        "blobSha": "74c991ce167d42d90f00f20e210641a779a73d06",
+        "pragma": "^0.8.20",
+        "declaration": "contract CYBRAResponsibilityContract"
+      },
+      "deployment": {
+        "verified": false,
+        "address": null,
+        "chainId": null,
+        "reason": "У репозиторії є вихідний Solidity-файл; on-chain deployment не підтверджений."
+      }
+    },
+    {
+      "id": "source-013",
+      "name": "CYBRASelfLearning",
+      "type": "solidity-source",
+      "status": "source-present-not-deployed",
+      "description": "Самонавчання CYBRA",
+      "source": {
+        "repository": "Lubnysash1980/cybra-node",
+        "branch": "feature/cybra-readonly-contract-catalog-20261128",
+        "path": "src/CYBRASelfLearning.sol",
+        "blobSha": "a38c32b8dd77e59e20f2e213cbcc8531c90d1fab",
+        "pragma": "^0.8.19",
+        "declaration": "contract CYBRASelfLearning"
+      },
+      "deployment": {
+        "verified": false,
+        "address": null,
+        "chainId": null,
+        "reason": "У репозиторії є вихідний Solidity-файл; on-chain deployment не підтверджений."
+      }
+    },
+    {
+      "id": "source-014",
+      "name": "CYBRASelfLearningV2",
+      "type": "solidity-source",
+      "status": "source-present-not-deployed",
+      "description": "Самонавчання CYBRA V2",
+      "source": {
+        "repository": "Lubnysash1980/cybra-node",
+        "branch": "feature/cybra-readonly-contract-catalog-20261128",
+        "path": "src/CYBRASelfLearningV2.sol",
+        "blobSha": "ecdbd98921c1d21174c932db53a4f898d2f869eb",
+        "pragma": "^0.8.19",
+        "declaration": "contract CYBRASelfLearningV2"
+      },
+      "deployment": {
+        "verified": false,
+        "address": null,
+        "chainId": null,
+        "reason": "У репозиторії є вихідний Solidity-файл; on-chain deployment не підтверджений."
+      }
     }
-  ]
+  ],
+  "summary": {
+    "totalEntries": 177,
+    "legacyMenuActions": 163,
+    "soliditySources": 14,
+    "deployedVerified": 0,
+    "proposals": 0,
+    "targetCount": 500
+  }
 }
