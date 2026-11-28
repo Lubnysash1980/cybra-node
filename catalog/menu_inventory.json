@@ -1,0 +1,887 @@
+{
+  "schemaVersion": 1,
+  "repository": "Lubnysash1980/cybra-node",
+  "branch": "feature/cybra-readonly-contract-catalog-20261128",
+  "source": {
+    "path": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh",
+    "blobSha": "4b51162b6249106397a85e10687c10fcfd1f634c"
+  },
+  "generatedAt": "2026-11-28",
+  "totalDisplayedItems": 145,
+  "functionalMenuItems": 144,
+  "dispatchCases": 144,
+  "duplicateDispatchIds": [],
+  "note": "Наявність case означає лише підключений dispatch handler; не підтверджує повну працездатність функції. Перевірку виконують Menu Tester і Menu Doctor.",
+  "items": [
+    {
+      "id": 1,
+      "name": "Створити контракт",
+      "handler": "action_create_contract",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 2,
+      "name": "Список контрактів",
+      "handler": "action_list_contracts",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 3,
+      "name": "Статус контракту",
+      "handler": "action_show_status",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 4,
+      "name": "Згенерувати лінки",
+      "handler": "action_generate_links",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 5,
+      "name": "Підтвердити лінк",
+      "handler": "action_confirm_link",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 6,
+      "name": "Debug",
+      "handler": "action_debug",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 7,
+      "name": "DUAL-LICENSE ledger",
+      "handler": "action_dual_license_ledger",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 8,
+      "name": "CREATION-LICENSE ledger",
+      "handler": "action_creation_license",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 9,
+      "name": "Hardening",
+      "handler": "action_hardening",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 11,
+      "name": "Створити INVOICE",
+      "handler": "action_create_invoice",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 12,
+      "name": "Додати позицію",
+      "handler": "action_add_line",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 13,
+      "name": "Показати INVOICE",
+      "handler": "action_show_invoice",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 14,
+      "name": "Фіналізувати INVOICE",
+      "handler": "action_finalize_invoice",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 15,
+      "name": "Експорт PII-masked",
+      "handler": "action_export_masked",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 16,
+      "name": "Експорт усіх + git",
+      "handler": "action_export_all_masked",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 17,
+      "name": "Перевірити PII хеш",
+      "handler": "action_verify_pii",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 18,
+      "name": "Фінальне рішення покупця",
+      "handler": "action_buyer_final_decision",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 19,
+      "name": "Перевірити timeout",
+      "handler": "action_check_timeouts",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 20,
+      "name": "Статус refund",
+      "handler": "action_refund_status",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 21,
+      "name": "Додати умову",
+      "handler": "action_add_term",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 22,
+      "name": "Показати курси",
+      "handler": "action_show_rates",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 23,
+      "name": "Оновити курс",
+      "handler": "action_update_rate",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 24,
+      "name": "Конвертер",
+      "handler": "action_convert",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 30,
+      "name": "Preflight",
+      "handler": "action_preflight",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 31,
+      "name": "Self-heal",
+      "handler": "action_self_heal",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 32,
+      "name": "Dual-backend verify",
+      "handler": "action_dual_verify",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 33,
+      "name": "Ownership scan",
+      "handler": "action_ownership",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 40,
+      "name": "AI Аналіз",
+      "handler": "action_ai_review",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 41,
+      "name": "AI Парсинг рахунку",
+      "handler": "action_ai_parse",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 42,
+      "name": "AI Генерація умов",
+      "handler": "action_ai_terms",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 43,
+      "name": "AI Допомога",
+      "handler": "action_ai_help",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 44,
+      "name": "AI Вільне питання",
+      "handler": "action_ai_ask",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 45,
+      "name": "AI Task Bar",
+      "handler": "action_ai_taskbar",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 46,
+      "name": "Executor — повний",
+      "handler": "action_ai_exec_full",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 47,
+      "name": "Executor — scan",
+      "handler": "action_ai_exec_scan",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 48,
+      "name": "Executor — apply",
+      "handler": "action_ai_exec_apply",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 49,
+      "name": "Executor — список",
+      "handler": "action_ai_exec_list",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 50,
+      "name": "Додати адресу",
+      "handler": "action_addr_add",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 51,
+      "name": "Список адрес",
+      "handler": "action_addr_list",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 52,
+      "name": "Історія адрес",
+      "handler": "action_addr_history",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 53,
+      "name": "QR-код",
+      "handler": "action_qr",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 54,
+      "name": "Telegram — setup",
+      "handler": "action_tg_setup",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 55,
+      "name": "Telegram — test",
+      "handler": "action_tg_test",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 56,
+      "name": "Webhook — список",
+      "handler": "action_wh_list",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 57,
+      "name": "Webhook — додати",
+      "handler": "action_wh_add",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 58,
+      "name": "CSV — контракти",
+      "handler": "action_exp_csv",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 59,
+      "name": "CSV — ledger",
+      "handler": "action_exp_ledger",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 60,
+      "name": "TXT — звіт",
+      "handler": "action_exp_report",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 61,
+      "name": "Backup — локальний",
+      "handler": "action_bk_local",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 62,
+      "name": "Backup — хмара",
+      "handler": "action_bk_cloud",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 63,
+      "name": "Список мереж",
+      "handler": "action_chains",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 64,
+      "name": "Сканер-tx",
+      "handler": "action_scan_tx",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 65,
+      "name": "Відкрити спір",
+      "handler": "action_dp_open",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 66,
+      "name": "Список спорів",
+      "handler": "action_dp_list",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 67,
+      "name": "Голосувати",
+      "handler": "action_dp_vote",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 68,
+      "name": "Audit log",
+      "handler": "action_audit_show",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 69,
+      "name": "Audit — перевірити",
+      "handler": "action_audit_verify",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 70,
+      "name": "Сфотографувати",
+      "handler": "action_scan_photo",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 71,
+      "name": "OCR",
+      "handler": "action_scan_ocr",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 72,
+      "name": "PDF → текст",
+      "handler": "action_scan_pdf",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 73,
+      "name": "Повний pipeline",
+      "handler": "action_scan_full",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 74,
+      "name": "Пошук контракту",
+      "handler": "action_search_contract",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 75,
+      "name": "Auto-fill контракту",
+      "handler": "action_autofill_contract",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 76,
+      "name": "AI прогін умов",
+      "handler": "action_ai_terms",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 77,
+      "name": "Перевірка платежів",
+      "handler": "action_check_payment",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 78,
+      "name": "Додаткові умови",
+      "handler": "action_custom_terms",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 79,
+      "name": "Watchdog (супервізор)",
+      "handler": "action_watchdog",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 80,
+      "name": "Стан системи",
+      "handler": "action_gd_state",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 81,
+      "name": "Перевірка 100%%",
+      "handler": "action_gd_100",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 82,
+      "name": "Зареєструвати особу",
+      "handler": "action_gd_register",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 83,
+      "name": "Показати особу",
+      "handler": "action_gd_show",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 84,
+      "name": "Перевірити особу",
+      "handler": "action_gd_verify",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 85,
+      "name": "Пристрій",
+      "handler": "action_gd_device",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 86,
+      "name": "Snapshot",
+      "handler": "action_gd_snapshot",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 87,
+      "name": "Відновити з git",
+      "handler": "action_gd_restore_git",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 88,
+      "name": "Відновити з snapshot",
+      "handler": "action_gd_restore_snap",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 89,
+      "name": "AUTO-recovery",
+      "handler": "action_gd_auto",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 90,
+      "name": "Action log",
+      "handler": "action_gd_actions",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 91,
+      "name": "Log verify",
+      "handler": "action_gd_log_verify",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 92,
+      "name": "Зберегти контракт",
+      "handler": "action_as_save",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 93,
+      "name": "Статус autosave",
+      "handler": "action_as_status",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 94,
+      "name": "Останні архіви",
+      "handler": "action_as_recent",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 95,
+      "name": "Відновити контракт",
+      "handler": "action_as_restore",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 96,
+      "name": "EVO7 (7 рівнів)",
+      "handler": "action_evo7",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 97,
+      "name": "EVO CONTROLLER (4 SHA)",
+      "handler": "action_evo_ctl",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 98,
+      "name": "Parawatch (фон)",
+      "handler": "action_parawatch",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 99,
+      "name": "AUTOPATCH",
+      "handler": "action_autopatch_menu",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 100,
+      "name": "Node manager",
+      "handler": "action_node",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 101,
+      "name": "Hash ecosystem (5 layers)",
+      "handler": "action_hash_eco",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 102,
+      "name": "Binmix daemon",
+      "handler": "action_binmix",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 103,
+      "name": "Metrics (Prometheus)",
+      "handler": "action_metrics",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 104,
+      "name": "HTTP panel",
+      "handler": "action_http",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 105,
+      "name": "Schedule (cron)",
+      "handler": "action_schedule",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 106,
+      "name": "Cleanup (ротація)",
+      "handler": "action_cleanup",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 107,
+      "name": "Autopilot (авто-оновлення)",
+      "handler": "action_autopilot",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 121,
+      "name": "parlament",
+      "handler": "bash \"$HOME/CYBRA/modules/module_121_parlament/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 120,
+      "name": "ai guardian",
+      "handler": "bash \"$HOME/CYBRA/modules/module_120_ai_guardian/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 119,
+      "name": "qr sign",
+      "handler": "bash \"$HOME/CYBRA/modules/module_119_qr_sign/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 118,
+      "name": "net health",
+      "handler": "bash \"$HOME/CYBRA/modules/module_118_net_health/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 117,
+      "name": "tx lookup",
+      "handler": "bash \"$HOME/CYBRA/modules/module_117_tx_lookup/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 116,
+      "name": "gas monitor",
+      "handler": "bash \"$HOME/CYBRA/modules/module_116_gas_monitor/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 115,
+      "name": "rpc bench",
+      "handler": "bash \"$HOME/CYBRA/modules/module_115_rpc_bench/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 114,
+      "name": "autonode",
+      "handler": "bash \"$HOME/CYBRA/modules/module_114_autonode/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 113,
+      "name": "metamask batch",
+      "handler": "bash \"$HOME/CYBRA/modules/module_113_metamask_batch/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 112,
+      "name": "metamask deeplink",
+      "handler": "bash \"$HOME/CYBRA/modules/module_112_metamask_deeplink/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 111,
+      "name": "metamask settings",
+      "handler": "bash \"$HOME/CYBRA/modules/module_111_invoice/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 110,
+      "name": "metamask history",
+      "handler": "bash \"$HOME/CYBRA/modules/module_110_metamask_history/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 109,
+      "name": "metamask verify",
+      "handler": "bash \"$HOME/CYBRA/modules/module_109_metamask_verify/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 108,
+      "name": "metamask sign",
+      "handler": "bash \"$HOME/CYBRA/modules/module_108_metamask_sign/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 124,
+      "name": "timelock",
+      "handler": "bash \"$HOME/CYBRA/modules/module_124_timelock/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 123,
+      "name": "multisig",
+      "handler": "bash \"$HOME/CYBRA/modules/module_123_multisig/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 122,
+      "name": "contract validator",
+      "handler": "bash \"$HOME/CYBRA/modules/module_122_contract_validator/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 140,
+      "name": "analytics",
+      "handler": "bash \"$HOME/CYBRA/modules/module_140_analytics/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 139,
+      "name": "reputation",
+      "handler": "bash \"$HOME/CYBRA/modules/module_139_reputation/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 138,
+      "name": "arbitration",
+      "handler": "bash \"$HOME/CYBRA/modules/module_138_arbitration/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 137,
+      "name": "escrow",
+      "handler": "bash \"$HOME/CYBRA/modules/module_137_escrow/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 136,
+      "name": "templates",
+      "handler": "bash \"$HOME/CYBRA/modules/module_136_templates/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 135,
+      "name": "walletconnect",
+      "handler": "bash \"$HOME/CYBRA/modules/module_135_walletconnect/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 134,
+      "name": "discord",
+      "handler": "bash \"$HOME/CYBRA/modules/module_134_discord/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 133,
+      "name": "tokens",
+      "handler": "bash \"$HOME/CYBRA/modules/module_133_tokens/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 132,
+      "name": "compliance",
+      "handler": "bash \"$HOME/CYBRA/modules/module_132_compliance/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 131,
+      "name": "kyc",
+      "handler": "bash \"$HOME/CYBRA/modules/module_131_kyc/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 130,
+      "name": "test suite",
+      "handler": "bash \"$HOME/CYBRA/modules/module_130_test_suite/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 129,
+      "name": "voice",
+      "handler": "bash \"$HOME/CYBRA/modules/module_129_voice/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 128,
+      "name": "dashboard",
+      "handler": "bash \"$HOME/CYBRA/modules/module_128_dashboard/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 126,
+      "name": "zk",
+      "handler": "bash \"$HOME/CYBRA/modules/module_126_zk/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 125,
+      "name": "anchor",
+      "handler": "bash \"$HOME/CYBRA/modules/module_125_anchor/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 150,
+      "name": "Custom Scripts",
+      "handler": "bash \"$HOME/CYBRA/modules/module_150_scripts/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 149,
+      "name": "Advanced Analytics",
+      "handler": "bash \"$HOME/CYBRA/modules/module_149_analytics/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 148,
+      "name": "Multisig UI",
+      "handler": "bash \"$HOME/CYBRA/modules/module_148_multisig_ui/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 147,
+      "name": "On-chain Reputation v2",
+      "handler": "bash \"$HOME/CYBRA/modules/module_147_reputation_v2/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 146,
+      "name": "Merkle Batching",
+      "handler": "bash \"$HOME/CYBRA/modules/module_146_merkle/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 145,
+      "name": "IPFS Pinning",
+      "handler": "bash \"$HOME/CYBRA/modules/module_145_ipfs/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 144,
+      "name": "Bitcoin Lightning",
+      "handler": "bash \"$HOME/CYBRA/modules/module_144_lightning/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 143,
+      "name": "Email Notifications",
+      "handler": "bash \"$HOME/CYBRA/modules/module_143_email/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 142,
+      "name": "Invoice PDF Export",
+      "handler": "bash \"$HOME/CYBRA/modules/module_142_invoice_pdf/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 141,
+      "name": "Portfolio Tracker",
+      "handler": "bash \"$HOME/CYBRA/modules/module_141_portfolio/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 151,
+      "name": "Реклама (Ad Contract)",
+      "handler": "bash \"$HOME/CYBRA/modules/module_151_ad_contract/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 152,
+      "name": "Відкат до чистої ноти EVO",
+      "handler": "bash \"$HOME/CYBRA/modules/module_152_rollback_evo/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 154,
+      "name": "Менеджер посилань (Тунель)",
+      "handler": "bash \"$HOME/CYBRA/bin/cybra-link-manager.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 402,
+      "name": "Menu Doctor — діагностика меню",
+      "handler": "bash \"$HOME/CYBRA/modules/module_402_menu_doctor/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 405,
+      "name": "Task Engine — автоматичні задачі",
+      "handler": "bash \"$HOME/CYBRA/modules/module_405_task_engine/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 408,
+      "name": "Menu Tester — перевірка пунктів",
+      "handler": "bash \"$HOME/CYBRA/modules/module_408_menu_tester/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 500,
+      "name": "CYBRA NEURO — AI-патчі через Parliament",
+      "handler": "bash \"$HOME/CYBRA/modules/module_500_neuro/main.sh\"",
+      "status": "dispatch-wired-unverified"
+    },
+    {
+      "id": 0,
+      "name": "Вихід\\n",
+      "handler": null,
+      "status": "no-dispatch"
+    }
+  ]
+}
