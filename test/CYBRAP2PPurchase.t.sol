@@ -655,3 +655,66 @@ contract P2PPurchaseSafeTransferTest is Test {
         p2.fund(id);
     }
 }
+
+
+// Token transfers the full amount out of escrow but credits the recipient less.
+contract PayoutFeeToken {
+    mapping(address => uint256) public balanceOf;
+    mapping(address => mapping(address => uint256)) public allowance;
+
+    function mint(address to, uint256 amount) external { balanceOf[to] += amount; }
+    function approve(address spender, uint256 amount) external returns (bool) {
+        allowance[msg.sender][spender] = amount;
+        return true;
+    }
+    function transferFrom(address from, address to, uint256 amount) external returns (bool) {
+        require(balanceOf[from] >= amount, "BALANCE");
+        require(allowance[from][msg.sender] >= amount, "ALLOWANCE");
+        allowance[from][msg.sender] -= amount;
+        balanceOf[from] -= amount;
+        balanceOf[to] += amount;
+        return true;
+    }
+    function transfer(address to, uint256 amount) external returns (bool) {
+        require(balanceOf[msg.sender] >= amount, "BALANCE");
+        require(amount > 1, "AMOUNT");
+        balanceOf[msg.sender] -= amount;
+        balanceOf[to] += amount - 1;
+        return true;
+    }
+}
+
+contract CYBRAP2PPayoutExactnessTest is Test {
+    function test_feeOnPayoutCannotSilentlyShortPaySeller() public {
+        PayoutFeeToken token = new PayoutFeeToken();
+        address parliament = address(0xA12);
+        address buyer = address(0xB0B);
+        address seller = address(0x5E11E4);
+        uint256 amount = 1000e18;
+
+        CYBRAP2PPurchase p = new CYBRAP2PPurchase(address(token), parliament);
+        token.mint(buyer, amount);
+        vm.prank(parliament);
+        uint256 id = p.createAgreement(
+            buyer, seller, amount, keccak256("order-fee"), keccak256("terms-fee"),
+            block.timestamp + 1 days, 1
+        );
+
+        vm.prank(buyer); p.buyerSign(id);
+        vm.prank(seller); p.sellerSign(id);
+        vm.prank(buyer); token.approve(address(p), amount);
+        vm.prank(buyer); p.fund(id);
+
+        vm.prank(seller); p.submitEvidence(id, keccak256("delivery-fee"));
+        vm.prank(buyer); p.confirmEvidence(id, 0);
+
+        vm.prank(seller);
+        vm.expectRevert(bytes("INEXACT_RECIPIENT_AMOUNT"));
+        p.releaseToSeller(id);
+
+        assertEq(token.balanceOf(seller), 0, "SELLER MUST NOT RECEIVE A SHORT PAYMENT");
+        assertEq(token.balanceOf(address(p)), amount, "ESCROW MUST RETAIN FUNDS AFTER REVERT");
+        (, , , , , , , , , CYBRAP2PPurchase.Status status, ,) = p.agreements(id);
+        assertEq(uint256(status), uint256(CYBRAP2PPurchase.Status.TRUE_100));
+    }
+}
