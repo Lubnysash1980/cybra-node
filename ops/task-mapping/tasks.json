@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "project": "CYBRA BAR",
+  "updatedAtUtc": "2026-11-28T10:50:00Z",
+  "levels": {
+    "green": {
+      "meaning": "100% і критерії приймання перевірені",
+      "minProgress": 100
+    },
+    "yellow": {
+      "meaning": "Робота триває або є деградація",
+      "minProgress": 1,
+      "maxProgress": 99
+    },
+    "red": {
+      "meaning": "Є підтверджена помилка або блокер",
+      "trigger": "failed_or_blocked"
+    },
+    "not_checked": {
+      "meaning": "Немає достатніх даних; це не успіх і не підтверджений збій"
+    }
+  },
+  "tasks": [
+    {
+      "id": "CY-001",
+      "title": "Каталог контрактів і меню",
+      "status": "in_progress",
+      "progress": 70,
+      "level": "yellow",
+      "acceptance": [
+        "Каталог синхронізований з меню",
+        "Кожен пункт має тестовий результат"
+      ],
+      "executors": [
+        "github-actions",
+        "neuro"
+      ],
+      "evidence": [
+        "catalog/index.html",
+        "catalog/contracts.json",
+        "catalog/menu_inventory.json"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "CY-002",
+      "title": "Робочий журнал і handoff",
+      "status": "done",
+      "progress": 100,
+      "level": "green",
+      "acceptance": [
+        "WORKLOG.md існує",
+        "state/work_status.json існує"
+      ],
+      "executors": [
+        "github-actions"
+      ],
+      "evidence": [
+        "WORKLOG.md",
+        "state/work_status.json"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "CY-003",
+      "title": "CYBRA BAR dashboard",
+      "status": "in_progress",
+      "progress": 75,
+      "level": "yellow",
+      "acceptance": [
+        "Відображає задачі й виконавців",
+        "Показує рівні та історію",
+        "Локальний запуск перевірений"
+      ],
+      "executors": [
+        "github-actions",
+        "termux"
+      ],
+      "evidence": [
+        "ops/dashboard/index.html"
+      ],
+      "dependencies": [
+        "CY-002"
+      ]
+    },
+    {
+      "id": "CY-004",
+      "title": "65 MiB обмінний буфер",
+      "status": "in_progress",
+      "progress": 80,
+      "level": "yellow",
+      "acceptance": [
+        "Ліміт 65 MiB",
+        "SHA-256 і атомарний запис",
+        "Тести пройшли"
+      ],
+      "executors": [
+        "github-actions",
+        "termux"
+      ],
+      "evidence": [
+        "ops/tools/cybra-buffer.py"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "CY-005",
+      "title": "Аудит PM2/nohup/cron/stack dump/watchdog",
+      "status": "in_progress",
+      "progress": 35,
+      "level": "yellow",
+      "acceptance": [
+        "Знайдено всі наявні модулі",
+        "Є runtime matrix Termux/Oracle",
+        "Немає подвійних supervisor"
+      ],
+      "executors": [
+        "neuro",
+        "termux",
+        "github-actions"
+      ],
+      "evidence": [],
+      "dependencies": []
+    },
+    {
+      "id": "CY-006",
+      "title": "Єдиний supervisor Oracle VPS",
+      "status": "blocked",
+      "progress": 10,
+      "level": "red",
+      "acceptance": [
+        "Один supervisor обраний",
+        "Безпечний restart/backoff",
+        "VPS smoke test"
+      ],
+      "executors": [
+        "oracle-vps",
+        "github-actions"
+      ],
+      "evidence": [],
+      "dependencies": [
+        "CY-005"
+      ]
+    },
+    {
+      "id": "CY-007",
+      "title": "Recovery-рівні й автокорекція",
+      "status": "planned",
+      "progress": 0,
+      "level": "not_checked",
+      "acceptance": [
+        "Рівні складності визначені",
+        "Dry-run і тести",
+        "Bounded recovery без циклів"
+      ],
+      "executors": [
+        "neuro",
+        "github-actions",
+        "oracle-vps"
+      ],
+      "evidence": [],
+      "dependencies": [
+        "CY-005",
+        "CY-006"
+      ]
+    },
+    {
+      "id": "CY-008",
+      "title": "CI перевірка процесів і буфера",
+      "status": "in_progress",
+      "progress": 60,
+      "level": "yellow",
+      "acceptance": [
+        "Workflow успішний",
+        "Негативні тести проходять"
+      ],
+      "executors": [
+        "github-actions"
+      ],
+      "evidence": [
+        ".github/workflows/cybra-process-check.yml"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "CY-009",
+      "title": "Розгортання на Oracle VPS",
+      "status": "blocked",
+      "progress": 0,
+      "level": "red",
+      "acceptance": [
+        "Доступ перевірено",
+        "Deploy без втрати локальних змін",
+        "Health check успішний"
+      ],
+      "executors": [
+        "github-actions",
+        "oracle-vps"
+      ],
+      "evidence": [],
+      "dependencies": [
+        "CY-006"
+      ]
+    },
+    {
+      "id": "CY-010",
+      "title": "Оновлення журналу кожні 2 години",
+      "status": "done",
+      "progress": 100,
+      "level": "green",
+      "acceptance": [
+        "Workflow успішний",
+        "Timestamp оновлюється"
+      ],
+      "executors": [
+        "github-actions"
+      ],
+      "evidence": [
+        ".github/workflows/cybra-worklog-refresh.yml"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "CY-011",
+      "title": "Перевірка Namecheap",
+      "status": "not_checked",
+      "progress": 0,
+      "level": "not_checked",
+      "acceptance": [
+        "Визначені реально доступні продукти"
+      ],
+      "executors": [
+        "termux"
+      ],
+      "evidence": [],
+      "dependencies": []
+    }
+  ]
+}
