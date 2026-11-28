@@ -703,6 +703,12 @@ print_menu() {
     printf '  🟢 %s[152]%s Відкат до чистої ноти EVO\n' "$C_BOLD" "$C_RESET"
     printf '  🟢 %s[154]%s Менеджер посилань (Тунель)\n' "$C_BOLD" "$C_RESET"
     printf '\n'
+    printf '%s\n' "${C_MAGENTA}  ─── NEURO / AUTOMATION ───${C_RESET}"
+    printf '  🟢 %s[402]%s Menu Doctor — діагностика меню\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[405]%s Task Engine — автоматичні задачі\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[408]%s Menu Tester — перевірка пунктів\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[500]%s CYBRA NEURO — AI-патчі через Parliament\n' "$C_BOLD" "$C_RESET"
+    printf '\n'
     printf '  %s[0]%s  Вихід\n\n' "$C_BOLD" "$C_RESET"
 }
 
@@ -988,10 +994,6 @@ while true; do
         76) action_ai_terms ;;
         77) action_check_payment ;;
         78) action_custom_terms ;;
-        88) action_metrics ;;
-        89) action_http ;;
-        90) action_schedule ;;
-        87) action_cleanup ;;
         80) action_gd_state ;;
         81) action_gd_100 ;;
         82) action_gd_register ;;
@@ -1067,6 +1069,11 @@ while true; do
         151) bash "$HOME/CYBRA/modules/module_151_ad_contract/main.sh" ;;
         152) bash "$HOME/CYBRA/modules/module_152_rollback_evo/main.sh" ;;
         154) bash "$HOME/CYBRA/bin/cybra-link-manager.sh" ;;
+        79) action_watchdog ;;
+        402) bash "$HOME/CYBRA/modules/module_402_menu_doctor/main.sh" ;;
+        405) bash "$HOME/CYBRA/modules/module_405_task_engine/main.sh" ;;
+        408) bash "$HOME/CYBRA/modules/module_408_menu_tester/main.sh" ;;
+        500) bash "$HOME/CYBRA/modules/module_500_neuro/main.sh" ;;
         0|q|Q|exit|quit)
             printf '%s\n' "${C_GREEN}До побачення.${C_RESET}"
             exit 0
