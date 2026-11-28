@@ -151,7 +151,7 @@ if __name__ == "__main__":
 
     elif cmd == "fix":
         n, fixed = fix_stubs()
-        print(f"  {G}✓{N} виправлено заглушок: {n}")
+        print(f"  {G}✓{N} автоматичні зміни вимкнені; проблем для review: {len(fixed)}")
         if fixed:
             print(f"  IDs: {' '.join(fixed[:20])}")
         check_all()
