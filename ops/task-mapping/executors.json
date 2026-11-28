@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "executors": [
+    {
+      "id": "github-actions",
+      "name": "GitHub Actions",
+      "kind": "automation",
+      "status": "available_for_repo_checks",
+      "capabilities": [
+        "ci",
+        "scheduled_checks",
+        "mapping_validation"
+      ],
+      "live": false
+    },
+    {
+      "id": "oracle-vps",
+      "name": "Oracle VPS",
+      "kind": "runtime",
+      "status": "not_connected_or_verified",
+      "capabilities": [
+        "runtime",
+        "health_checks",
+        "service_supervision"
+      ],
+      "live": false
+    },
+    {
+      "id": "termux",
+      "name": "Termux",
+      "kind": "operator_environment",
+      "status": "not_live_checked",
+      "capabilities": [
+        "local_diagnostics",
+        "local_dashboard",
+        "manual_recovery"
+      ],
+      "live": false
+    },
+    {
+      "id": "neuro",
+      "name": "CYBRA Neuro",
+      "kind": "logical_executor",
+      "status": "planned_not_verified",
+      "capabilities": [
+        "task_decomposition",
+        "patch_proposal",
+        "test_plan"
+      ],
+      "live": false
+    }
+  ]
+}
