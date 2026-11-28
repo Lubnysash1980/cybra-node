@@ -138,7 +138,7 @@ jobs:
           start = menu.index('case "$CHOICE" in')
           end = menu.index("0|q|Q|exit|quit)", start)
           block = menu[start:end]
-          dispatch = [int(x) for x in re.findall(r"(?m)^\\s*(\\d+)\\)\\s*.*?;;\\s*$", block)]
+          dispatch = [int(x) for x in re.findall(r"(?m)^\s*(\d+)\)\s*.*?;;\s*$", block)]
           expected = sorted(int(x["id"]) for x in inventory["items"] if int(x["id"]) != 0)
           assert len(dispatch) == len(set(dispatch)), "duplicate main menu dispatch ID"
           assert sorted(dispatch) == expected, "menu inventory does not match dispatch"
