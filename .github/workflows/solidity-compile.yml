@@ -14,6 +14,8 @@ on:
       - "modules/module_*/**/*.sh"
       - "modules/module_19_contract_tui_menu/bin/cybra_menu.sh"
       - "catalog/contracts.json"
+      - "evolution_dashboard/**/*.py"
+      - "evolution_dashboard/*.sh"
 
 jobs:
   compile:
