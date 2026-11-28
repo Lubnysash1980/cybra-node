@@ -7,7 +7,9 @@ Static, read-only catalog interface.
 - Target: 500 catalog records.
 - Total records: 182 (163 legacy menu actions + 14 Solidity source files + 5 automation modules awaiting validation).
 - Legacy menu actions recovered from the historical CYBRA TUI: 163. These are menu actions, not proof of deployed smart contracts.
-- Solidity source files cataloged: 14.\n- Automation modules cataloged: 5 (`present-needs-validation`; not deployment-confirmed).\n- Current TUI inventory: 146 displayed items, 145 dispatch cases; duplicate dispatch IDs: 0.
+- Solidity source files cataloged: 14.
+- Automation modules cataloged: 5 (`present-needs-validation`; not deployment-confirmed).
+- Current TUI inventory: 146 displayed items, 145 dispatch cases; duplicate dispatch IDs: 0.
 - Confirmed on-chain deployments: 0 in this repository audit.
 - Solidity test files found separately: 11. Test files are not counted as deployable contracts.
 
