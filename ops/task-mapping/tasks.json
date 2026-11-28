@@ -1,23 +1,25 @@
 {
   "schemaVersion": 1,
   "project": "CYBRA BAR",
-  "updatedAtUtc": "2026-11-28T10:50:00Z",
+  "updatedAtUtc": "2026-11-28T10:51:12.763Z",
   "levels": {
     "green": {
-      "meaning": "100% і критерії приймання перевірені",
-      "minProgress": 100
+      "meaning": "100% і всі критерії приймання підтверджені доказами",
+      "minProgress": 100,
+      "maxProgress": 100
     },
     "yellow": {
-      "meaning": "Робота триває або є деградація",
-      "minProgress": 1,
+      "meaning": "Активна задача має 30–99% прогресу або зафіксована деградація",
+      "minProgress": 30,
       "maxProgress": 99
     },
     "red": {
-      "meaning": "Є підтверджена помилка або блокер",
+      "meaning": "Активна задача нижче 30%, або підтверджено failed/blocked",
+      "maxProgressExclusive": 30,
       "trigger": "failed_or_blocked"
     },
     "not_checked": {
-      "meaning": "Немає достатніх даних; це не успіх і не підтверджений збій"
+      "meaning": "Задачу ще не запускали або немає вимірювання; не є оцінкою успішності"
     }
   },
   "tasks": [
