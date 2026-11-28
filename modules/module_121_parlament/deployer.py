@@ -8,7 +8,7 @@
   6. Після deploy — верифікує, оновлює module artifacts
   7. Integration — модуль дізнається адресу через config/deployed.json
 """
-import json, os, sys, time, subprocess, hashlib, secrets
+import json, os, sys, time, subprocess, hashlib, secrets, re
 from pathlib import Path
 
 D = Path(__file__).resolve().parent
@@ -72,9 +72,10 @@ def compile_contract(sol_path, name=None, verbose=False):
         import solcx
     except ImportError:
         return False, "pip install py-solc-x", None
-    try: solcx.install_solc("0.8.20")
+    compiler_version = "0.8.24"
+    try: solcx.install_solc(compiler_version)
     except Exception: pass
-    try: solcx.set_solc_version("0.8.20")
+    try: solcx.set_solc_version(compiler_version)
     except Exception as e: return False, f"solc: {e}", None
 
     try:
@@ -261,7 +262,7 @@ def module_can_use(name, chain_id):
 def auto_cycle(verbose=True):
     """Парламент сам: compile → deploy (testnet) → register → verify.
     Для mainnet — тільки створює пропозиції (не деплоїть без vote)."""
-    auto_testnet = _opt("deploy.auto_testnet", True)
+    auto_testnet = _opt("deploy.auto_testnet", False)
     do_compile   = _opt("deploy.auto_compile", True)
 
     result = {"compiled": [], "deployed": [], "proposed": [],
