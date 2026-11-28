@@ -62,6 +62,7 @@ contract CYBRARefundClaim {
     }
 
     function setVerifier(address v, bool status) external onlyOwner {
+        require(v != address(0), "verifier=0");
         verifiers[v] = status;
         emit VerifierSet(v, status);
     }
@@ -116,11 +117,8 @@ contract CYBRARefundClaim {
         Claim storage c = _claims[id];
         require(verifiers[msg.sender], "only verifier");
         require(msg.sender != claimantOf[id], "claimant cannot verify");
-        require(
-            c.status == Status.PENDING ||
-            c.status == Status.EVIDENCE_RECORDED,
-            "cannot confirm now"
-        );
+        require(msg.sender != c.merchant, "merchant cannot verify");
+        require(c.status == Status.EVIDENCE_RECORDED, "evidence required");
         require(!confirmedBy[id][msg.sender], "already confirmed");
         confirmedBy[id][msg.sender] = true;
         c.confirmations += 1;
