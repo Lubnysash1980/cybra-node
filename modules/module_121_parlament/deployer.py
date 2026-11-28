@@ -263,8 +263,8 @@ def module_can_use(name, chain_id):
 # AUTO-CYCLE — викликається з orchestrator
 # ═══════════════════════════════════════════════════════════════
 def auto_cycle(verbose=True):
-    """Парламент сам: compile → deploy (testnet) → register → verify.
-    Для mainnet — тільки створює пропозиції (не деплоїть без vote)."""
+    """Парламент: compile за замовчуванням; testnet deploy лише при явному opt-in.
+    Для mainnet — тільки пропозиція (не деплоїть без vote)."""
     auto_testnet = _opt("deploy.auto_testnet", False)
     do_compile   = _opt("deploy.auto_compile", True)
 
@@ -303,7 +303,7 @@ def auto_cycle(verbose=True):
             result["errors"].append({"name": name, "phase": "load_artifact", "msg": str(e)})
             continue
 
-        # деплой у testnet автоматично
+        # Testnet deployment вимкнений за замовчуванням; потрібен явний opt-in
         if auto_testnet:
             if verbose:
                 print(f"  {C_D}▸ deploy {name} → testnet{C_N}")
