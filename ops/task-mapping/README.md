@@ -3,10 +3,12 @@
 One task is the unit of work. Any number of executors can be attached to it; each executor reports events against the same task ID. Executors do not create duplicate tasks for the same outcome.
 
 ## Levels
-- green: done, 100%, acceptance criteria met, evidence attached.
-- yellow: in progress or degrading (1–99%).
-- red: confirmed failed or blocked.
-- not_checked: no trustworthy probe/evidence yet. This is intentionally neutral.
+- green: exactly 100%, status done, acceptance criteria met and evidence attached.
+- yellow: 30–99% progress, or an explicitly recorded degradation at/above 30%.
+- red: progress below 30% for an active/measured task, or confirmed failed/blocked at any percentage.
+- not_checked: task has not started or has no measurement/evidence yet; this is not a failure score.
+
+The CLI enforces these thresholds when updating a task. A planned task at 0% stays not_checked until work starts; once active, below 30% is red.
 
 ## CLI
 From repository root:
