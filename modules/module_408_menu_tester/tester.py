@@ -33,7 +33,7 @@ def parse_cases():
     if end < 0: return {}
     block = s[start:end]
     cases = {}
-    pattern = re.compile(r'^[ \t]+(\d+)\)\s*(.*?)\s*;;[ \t]*
+    pattern = re.compile(r'^[ \t]+(\d+)\)\s*(.*?)\s*;;[ \t]*$', re.M)
     for m in pattern.finditer(block):
         mid, action = m.group(1), m.group(2).strip()
         if mid in cases:
