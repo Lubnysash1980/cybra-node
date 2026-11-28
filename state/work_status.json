@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "project": "CYBRA",
+  "repository": "Lubnysash1980/cybra-node",
+  "branch": "feature/cybra-process-automation-20261128",
+  "updatedAtUtc": "2026-11-28T10:25:00Z",
+  "updateIntervalHours": 2,
+  "status": "work_in_progress",
+  "runtime": {
+    "oracleVps": "not_connected_or_verified",
+    "githubActions": "repository_workflows_only",
+    "termux": "local_operator_environment_not_live_checked",
+    "namecheap": "capabilities_not_verified"
+  },
+  "summary": "Worklog, process automation and dashboard work is being tracked in this branch. A timestamp refresh does not imply that VPS or Termux is online.",
+  "tasks": [
+    {
+      "id": "CY-001",
+      "title": "Recover and index existing contract/menu catalog",
+      "status": "partially_done",
+      "evidence": [
+        "catalog/index.html",
+        "catalog/contracts.json",
+        "catalog/menu_inventory.json"
+      ]
+    },
+    {
+      "id": "CY-002",
+      "title": "Create persistent task list and next-session handoff",
+      "status": "done",
+      "evidence": [
+        "WORKLOG.md",
+        "state/work_status.json"
+      ]
+    },
+    {
+      "id": "CY-003",
+      "title": "Create separate work status dashboard",
+      "status": "done_needs_local_verification",
+      "evidence": [
+        "ops/dashboard/index.html"
+      ]
+    },
+    {
+      "id": "CY-004",
+      "title": "Add 65 MiB bounded artifact exchange buffer",
+      "status": "added_needs_ci",
+      "evidence": [
+        "ops/tools/cybra-buffer.py"
+      ]
+    },
+    {
+      "id": "CY-005",
+      "title": "Audit PM2, nohup, cron, stack dump and watchdog modules",
+      "status": "in_progress",
+      "evidence": []
+    },
+    {
+      "id": "CY-006",
+      "title": "Choose one primary VPS process supervisor",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "CY-007",
+      "title": "Implement bounded recovery, backoff and complexity tiers",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "CY-008",
+      "title": "Validate process and buffer GitHub Actions",
+      "status": "partially_done",
+      "evidence": [
+        ".github/workflows/cybra-process-check.yml"
+      ]
+    },
+    {
+      "id": "CY-009",
+      "title": "Deploy to Oracle VPS",
+      "status": "blocked_waiting_for_verified_access_and_secrets",
+      "evidence": []
+    },
+    {
+      "id": "CY-010",
+      "title": "Refresh repository worklog every two hours",
+      "status": "workflow_added_needs_first_run",
+      "evidence": [
+        ".github/workflows/cybra-worklog-refresh.yml"
+      ]
+    },
+    {
+      "id": "CY-011",
+      "title": "Verify Namecheap capabilities",
+      "status": "pending",
+      "evidence": []
+    }
+  ],
+  "lastAutomation": {
+    "type": "scheduled_repository_snapshot",
+    "result": "not_run_yet",
+    "note": "This job can update GitHub repository metadata and timestamp; it cannot inspect the user's phone or VPS unless a separately configured secure connection is available."
+  }
+}
