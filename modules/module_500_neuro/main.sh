@@ -9,6 +9,7 @@ while :; do
   printf '\n  1) Створити AI patch у staging\n'
   printf '  2) Передати patch до Parliament\n'
   printf '  3) Перевірити статус\n'
+  printf '  4) AI: створити пропозиції пунктів меню + задачі\n'
   printf '  0) Назад\n'
   read -r -p 'Вибір: ' choice
   case "$choice" in
