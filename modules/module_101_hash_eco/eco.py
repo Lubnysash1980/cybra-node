@@ -88,7 +88,68 @@ def layers():
         "parliament": p_info,
     }
 
-if __name__ == "__main__":
+
+# ─── Git Hash autosave: rolling 100-entry integrity ledger ───
+HASH_CONFIG = D / "state" / "git_hash_config.json"
+HASH_STORE = D / "state" / "git_hash_100.json"
+
+def _canonical_hash(value):
+    raw = json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+    return hashlib.sha256(raw).hexdigest()
+
+def load_hash_config():
+    defaults = {"enabled": True, "limit": 100, "store": str(HASH_STORE)}
+    try:
+        cfg = json.loads(HASH_CONFIG.read_text(encoding="utf-8"))
+        if not isinstance(cfg, dict): raise ValueError("config must be an object")
+        defaults.update(cfg)
+    except FileNotFoundError:
+        pass
+    limit = defaults.get("limit")
+    if not isinstance(limit, int) or isinstance(limit, bool) or limit != 100:
+        raise ValueError("hash history limit must be exactly 100")
+    if defaults.get("store") != str(HASH_STORE):
+        raise ValueError("custom hash store path is not allowed")
+    return defaults
+
+def autosave_hash_record(result):
+    """Append one integrity record; keep exactly the newest maximum of 100."""
+    cfg = load_hash_config()
+    if not cfg.get("enabled", True):
+        return None
+    HASH_STORE.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        state = json.loads(HASH_STORE.read_text(encoding="utf-8"))
+        if not isinstance(state, dict) or not isinstance(state.get("records"), list):
+            raise ValueError("invalid hash ledger structure")
+    except FileNotFoundError:
+        state = {"schema": 1, "records": []}
+    records = state["records"]
+    record = {
+        "sequence": (records[-1].get("sequence", 0) + 1) if records else 1,
+        "at": result["at"],
+        "layers": result["layers"],
+        "master_hash": result["master"],
+    }
+    records.append(record)
+    records = records[-100:]
+    # One root hash commits to the ordered list of all retained master hashes.
+    root_payload = [item["master_hash"] for item in records]
+    state = {
+        "schema": 1,
+        "limit": 100,
+        "count": len(records),
+        "records": records,
+        "root_hash": _canonical_hash(root_payload),
+        "updated_at": result["at"],
+        "note": "Hashes prove integrity; original source data must be retained separately."
+    }
+    tmp = HASH_STORE.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(state, sort_keys=True, indent=2, ensure_ascii=False) + "\\n", encoding="utf-8")
+    os.replace(tmp, HASH_STORE)
+    return state
+
+\nif __name__ == "__main__":
     import sys
     G='\033[32m'; R='\033[31m'; B='\033[36m'; BOLD='\033[1m'; D='\033[2m'; N='\033[0m'
     cmd = sys.argv[1] if len(sys.argv) > 1 else "show"
@@ -102,6 +163,6 @@ if __name__ == "__main__":
         print(f"\n  {B}{BOLD}MASTER HASH:{N}")
         print(f"  {G}{r['master']}{N}\n")
     elif cmd == "json":
-        print(json.dumps(layers(), indent=2, ensure_ascii=False))
+        r = layers()\n        autosave_hash_record(r)\n        print(json.dumps(r, indent=2, ensure_ascii=False))
     elif cmd == "hash":
-        print(layers()["master"])
+        r = layers()\n        autosave_hash_record(r)\n        print(r["master"])\n    elif cmd == "history":\n        if HASH_STORE.exists(): print(HASH_STORE.read_text(encoding="utf-8"))\n        else: print("No saved hashes yet")
