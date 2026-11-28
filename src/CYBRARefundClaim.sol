@@ -37,7 +37,7 @@ contract CYBRARefundClaim {
     event EvidenceRecorded(uint256 indexed id, bytes32 paymentHash, bytes32 nonDeliveryHash, bytes32 identityHash);
     event ClaimConfirmed(uint256 indexed id, address indexed confirmer, uint8 confirmations);
     event RefundAuthorized(uint256 indexed id, address indexed authorizer);
-    event RefundExecuted(uint256 indexed id, address indexed merchant, uint256 amount);
+    event RefundRecorded(uint256 indexed id, address indexed merchant, uint256 amount);
     event VerifierSet(address indexed verifier, bool status);
 
     modifier onlyOwner() {
@@ -72,7 +72,8 @@ contract CYBRARefundClaim {
     ) external returns (uint256) {
         require(merchant_ != address(0), "merchant=0");
         require(amount_ > 0, "amount=0");
-        require(requiredConfirmations_ > 0, "required=0");
+        require(requiredConfirmations_ >= 2, "minimum two confirmations");
+        require(orderHash_ != bytes32(0), "orderHash=0");
 
         uint256 id = _nextId++;
         Claim storage c = _claims[id];
@@ -88,6 +89,7 @@ contract CYBRARefundClaim {
         return id;
     }
 
+    /// @notice Stores evidence hashes only; it does not validate off-chain evidence.
     function recordEvidence(
         uint256 id,
         bytes32 paymentHash,
@@ -96,6 +98,9 @@ contract CYBRARefundClaim {
     ) external onlyAuthorized(id) {
         Claim storage c = _claims[id];
         require(c.status == Status.PENDING, "evidence already recorded");
+        require(paymentHash != bytes32(0), "paymentHash=0");
+        require(nonDeliveryHash != bytes32(0), "nonDeliveryHash=0");
+        require(identityHash != bytes32(0), "identityHash=0");
         c.paymentEvidenceHash = paymentHash;
         c.nonDeliveryEvidenceHash = nonDeliveryHash;
         c.identityEvidenceHash = identityHash;
@@ -103,8 +108,10 @@ contract CYBRARefundClaim {
         emit EvidenceRecorded(id, paymentHash, nonDeliveryHash, identityHash);
     }
 
-    function confirmClaim(uint256 id) external onlyAuthorized(id) {
+    function confirmClaim(uint256 id) external {
         Claim storage c = _claims[id];
+        require(verifiers[msg.sender], "only verifier");
+        require(msg.sender != claimantOf[id], "claimant cannot verify");
         require(
             c.status == Status.PENDING ||
             c.status == Status.EVIDENCE_RECORDED,
@@ -133,13 +140,14 @@ contract CYBRARefundClaim {
         emit RefundAuthorized(id, msg.sender);
     }
 
+    /// @notice Records an externally completed refund; this function does not transfer funds.
     function markRefunded(uint256 id) external onlyOwner {
         Claim storage c = _claims[id];
         require(c.status == Status.REFUND_AUTHORIZED, "not authorized");
         require(!c.refundExecuted, "already refunded");
         c.refundExecuted = true;
         c.status = Status.REFUNDED;
-        emit RefundExecuted(id, c.merchant, c.amount);
+        emit RefundRecorded(id, c.merchant, c.amount);
     }
 
     function claims(uint256 id) external view returns (
