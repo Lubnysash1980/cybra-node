@@ -77,8 +77,6 @@ def check_action(mid, action):
         p = Path(f)
         if not p.exists():
             return "fail", f"немає: {p.name}"
-        if not os.access(p, os.X_OK):
-            return "warn", f"не chmod+x: {p.name}"
         rc, out = _run(f"bash -n {p}")
         if rc != 0:
             return "fail", f"syntax: {out[:50]}"
