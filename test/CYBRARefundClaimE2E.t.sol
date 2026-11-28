@@ -21,6 +21,7 @@ contract CYBRARefundClaimE2ETest is Test {
         claim = new CYBRARefundClaim();
         claim.setVerifier(verifier, true);
         claim.setVerifier(verifier2, true);
+        claim.setVerifier(merchant, true);
     }
 
     function test_E2E_CompleteRefundLifecycle() public {
@@ -49,11 +50,22 @@ contract CYBRARefundClaimE2ETest is Test {
             identityHash
         );
 
+        vm.prank(verifier);
+        vm.expectRevert(bytes("evidence required"));
+        claim.confirmClaim(id);
+
+        vm.prank(merchant);
+        vm.expectRevert(bytes("merchant cannot verify"));
+        claim.confirmClaim(id);
+
         vm.prank(claimant);
         vm.expectRevert(bytes("only verifier"));
         claim.confirmClaim(id);
 
         vm.prank(verifier);
+        claim.confirmClaim(id);
+        vm.prank(verifier);
+        vm.expectRevert(bytes("already confirmed"));
         claim.confirmClaim(id);
         assertFalse(
             claim.isTRUE100(id),
