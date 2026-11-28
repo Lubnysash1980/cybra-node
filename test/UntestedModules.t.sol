@@ -31,6 +31,19 @@ contract UntestedModulesTest is Test {
         assertTrue(t.get(cancelId).cancelled);
     }
 
+
+    function test_TimeLockSameBlockSameCIDCreatesDistinctLocks() public {
+        TimeLock t = new TimeLock();
+        address beneficiary = address(0xBEEF);
+        vm.deal(address(this), 2 ether);
+        bytes32 cid = keccak256("same-time-lock-cid");
+        bytes32 first = t.create{value: 1 ether}(cid, beneficiary, 1 days, 1 hours, "first");
+        bytes32 second = t.create{value: 1 ether}(cid, beneficiary, 1 days, 1 hours, "second");
+        assertTrue(first != second);
+        assertEq(t.lockIds(0), first);
+        assertEq(t.lockIds(1), second);
+    }
+
     function test_TimeLockRejectsZeroBeneficiaryAndZeroValue() public {
         TimeLock t = new TimeLock();
         vm.deal(address(this), 1 ether);
