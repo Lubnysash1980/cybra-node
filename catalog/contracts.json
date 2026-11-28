@@ -1796,7 +1796,7 @@
       "name": "CYBRA NEURO",
       "type": "automation-module",
       "status": "present-needs-validation",
-      "description": "AI-підготовка змін у staging, diff і SHA256, подання пропозицій до Parliament та застосування лише після окремого схвалення. Поточний генератор редагує тільки вже наявні файли modules/module_*/.",
+      "description": "AI-планувальник створює до 10 пропозицій нових пунктів меню та окремі задачі Task Engine у статусі proposed; також готує staged patches для наявних файлів modules/module_*/. Не змінює меню/каталог напряму й не застосовує зміни без погодження Parliament.",
       "source": "modules/module_500_neuro/neuro.py",
       "handler": "modules/module_500_neuro/main.sh"
     },
