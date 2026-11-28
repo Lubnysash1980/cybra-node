@@ -69,7 +69,7 @@ contract EscrowTest is Test {
         vm.prank(seller);
         r.sellerConfirmExecution(SELLER_EV);
         vm.prank(buyer);
-        r.buyerReject(VIOLATION, "x");
+        r.buyerReject(VIOLATION, keccak256("reason-x"));
         assertTrue(r.responsibilityOpen());
     }
 
