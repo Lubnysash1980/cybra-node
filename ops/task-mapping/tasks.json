@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "project": "CYBRA BAR",
-  "updatedAtUtc": "2026-11-28T10:58:10.849Z",
+  "updatedAtUtc": "2026-11-28T11:02:28.901Z",
   "levels": {
     "green": {
       "meaning": "100% і всі критерії приймання підтверджені доказами",
@@ -270,6 +270,34 @@
         "CY-003",
         "CY-005",
         "CY-008"
+      ]
+    },
+    {
+      "id": "CY-013",
+      "title": "CYBRA Git Hash — automatic rolling 100-hash ledger",
+      "status": "in_progress",
+      "progress": 60,
+      "level": "yellow",
+      "acceptance": [
+        "Hash Eco autosaves on show/json/hash commands",
+        "One ledger retains no more than the latest 100 records",
+        "One root SHA-256 commits to the ordered list of retained master hashes",
+        "Ledger writes atomically and preserves a separate original state snapshot",
+        "Python tests verify 100-entry cap and atomic write",
+        "GitHub Actions CI passes for module syntax and unit tests"
+      ],
+      "executors": [
+        "neuro",
+        "github-actions"
+      ],
+      "evidence": [
+        "modules/module_101_hash_eco/eco.py",
+        "modules/module_101_hash_eco/state/git_hash_config.json",
+        "modules/module_101_hash_eco/tests/test_git_hash_autosave.py",
+        ".github/workflows/cybra-git-hash.yml"
+      ],
+      "dependencies": [
+        "CY-012"
       ]
     }
   ]
