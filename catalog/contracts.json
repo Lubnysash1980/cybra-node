@@ -1799,6 +1799,15 @@
       "description": "AI-підготовка змін у staging, diff і SHA256, подання пропозицій до Parliament та застосування лише після окремого схвалення. Поточний генератор редагує тільки вже наявні файли modules/module_*/.",
       "source": "modules/module_500_neuro/neuro.py",
       "handler": "modules/module_500_neuro/main.sh"
+    },
+    {
+      "id": "automation-501",
+      "name": "Evolution Dashboard",
+      "type": "automation-module",
+      "status": "present-needs-validation",
+      "description": "Ізольована read-only панель еволюції: baseline, щоденні створення файлів, реєстр модулів, PM2 лише для читання; автоматичний restart MANUAL_ONLY.",
+      "source": "evolution_dashboard/server.py",
+      "handler": "evolution_dashboard/main.sh"
     }
   ],
   "summary": {
