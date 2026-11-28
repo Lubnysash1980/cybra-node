@@ -228,7 +228,7 @@ def rollback(bak_path, dst):
 # CYCLE — прогнати все
 # ═══════════════════════════════════════════════════════════════
 def cycle(limit=5, verbose=True):
-    """Повний цикл: detect → create → sandbox → test → apply → verify."""
+    """Безпечний цикл: detect → create → sandbox → test → awaiting_approval."""
     t0 = time.time()
     if verbose: print(f"\n{'='*60}\n  TASK ENGINE CYCLE\n{'='*60}")
 
