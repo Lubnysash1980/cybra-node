@@ -158,7 +158,9 @@ def test_in_sandbox(task, sandbox_file):
         rc, out = _run(f"python3 -c 'import ast; ast.parse(open(\"{f}\").read())'")
         tests.append(("py_syntax", rc == 0, out[:100]))
 
-    # Never execute menu scripts during audit; syntax-only checks avoid side effects.\n\n    # 3. Не порожній
+    # Never execute menu scripts during audit; syntax-only checks avoid side effects.
+
+    # 3. Не порожній
     tests.append(("not_empty", f.stat().st_size > 100, f"{f.stat().st_size} B"))
 
     all_ok = all(t[1] for t in tests)
