@@ -112,9 +112,12 @@ jobs:
             modules/module_405_task_engine \
             modules/module_408_menu_tester \
             modules/module_500_neuro \
+            modules/module_114_autonode \
+            modules/module_121_parlament \
             evolution_dashboard/server.py
       - name: Bash syntax checks
         run: |
+          bash -n modules/module_121_parlament/watchdog.sh
           bash -n modules/module_19_contract_tui_menu/bin/cybra_menu.sh
           bash -n modules/module_402_menu_doctor/main.sh
           bash -n modules/module_405_task_engine/main.sh
@@ -124,6 +127,25 @@ jobs:
           bash -n evolution_dashboard/cybra-evolution.sh
           bash -n evolution_dashboard/main.sh
           bash -n evolution_dashboard/run-tests.sh
+      - name: Validate PM2 ecosystem configuration
+        run: |
+          set -euo pipefail
+          node --check ecosystem.config.js
+          node - <<'NODE'
+          const { apps } = require("./ecosystem.config.js");
+          const names = new Set(apps.map(app => app.name));
+          for (const name of ["cybra-autonode", "cybra-watchdog", "cybra-orchestrator", "cybra-executor"]) {
+            if (!names.has(name)) throw new Error("Missing PM2 app: " + name);
+          }
+          const executor = apps.find(app => app.name === "cybra-executor");
+          if (executor.autorestart !== false) throw new Error("One-shot executor must not autorestart");
+          for (const app of apps) {
+            if (!app.script || !app.cwd || !app.out_file || !app.error_file) {
+              throw new Error("Incomplete PM2 app config: " + app.name);
+            }
+          }
+          console.log("PM2_CONFIG_OK apps=" + apps.length);
+          NODE
       - name: Validate catalog and menu inventory
         run: |
           python3 - <<'PY'
