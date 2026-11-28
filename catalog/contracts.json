@@ -1,6 +1,1474 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "targetCount": 500,
-  "notice": "Вихідний перелік із 163 пунктів ще потрібно знайти у репозиторії та звірити. Поки що жоден пункт не позначено як підтверджений; не додавайте вигадані адреси або розгорнуті контракти.",
-  "items": []
+  "notice": "Знайдено 163 нумеровані пункти меню CYBRA (1–163) у commit 22b63edc. Вони внесені як legacy menu actions зі статусом proposed. Це НЕ 163 підтверджені on-chain смартконтракти. Історичний batch bar_menu_160 мав created=0, failed=160; не позначати як deployed.",
+  "items": [
+    {
+      "id": "legacy-001",
+      "name": "Створити контракт",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №1. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_1_base/main.sh"
+    },
+    {
+      "id": "legacy-002",
+      "name": "Список контрактів",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №2. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_2_base/main.sh"
+    },
+    {
+      "id": "legacy-003",
+      "name": "Статус контракту",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №3. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_3_base/main.sh"
+    },
+    {
+      "id": "legacy-004",
+      "name": "Згенерувати лінки",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №4. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_4_base/main.sh"
+    },
+    {
+      "id": "legacy-005",
+      "name": "Підтвердити лінк",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №5. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_5_base/main.sh"
+    },
+    {
+      "id": "legacy-006",
+      "name": "Debug",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №6. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_6_base/main.sh"
+    },
+    {
+      "id": "legacy-007",
+      "name": "DUAL-LICENSE ledger",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №7. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_7_base/main.sh"
+    },
+    {
+      "id": "legacy-008",
+      "name": "CREATION-LICENSE ledger",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №8. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_8_base/main.sh"
+    },
+    {
+      "id": "legacy-009",
+      "name": "Hardening",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №9. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_9_base/main.sh"
+    },
+    {
+      "id": "legacy-010",
+      "name": "Підписати INVOICE",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №10. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_10_base/main.sh"
+    },
+    {
+      "id": "legacy-011",
+      "name": "Створити INVOICE",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №11. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_11_base/main.sh"
+    },
+    {
+      "id": "legacy-012",
+      "name": "Додати позицію",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №12. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_12_base/main.sh"
+    },
+    {
+      "id": "legacy-013",
+      "name": "Показати INVOICE",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №13. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_13_base/main.sh"
+    },
+    {
+      "id": "legacy-014",
+      "name": "Фіналізувати INVOICE",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №14. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_14_base/main.sh"
+    },
+    {
+      "id": "legacy-015",
+      "name": "Експорт PII-masked",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №15. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_15_base/main.sh"
+    },
+    {
+      "id": "legacy-016",
+      "name": "Експорт усіх + git",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №16. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_16_base/main.sh"
+    },
+    {
+      "id": "legacy-017",
+      "name": "Перевірити PII хеш",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №17. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_17_base/main.sh"
+    },
+    {
+      "id": "legacy-018",
+      "name": "Рішення покупця (refund)",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №18. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_18_base/main.sh"
+    },
+    {
+      "id": "legacy-019",
+      "name": "Перевірити timeout",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №19. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_19_base/main.sh"
+    },
+    {
+      "id": "legacy-020",
+      "name": "Статус refund",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №20. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_20_base/main.sh"
+    },
+    {
+      "id": "legacy-021",
+      "name": "Додати умову",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №21. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_21_base/main.sh"
+    },
+    {
+      "id": "legacy-022",
+      "name": "Показати курси",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №22. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_22_base/main.sh"
+    },
+    {
+      "id": "legacy-023",
+      "name": "Оновити курс",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №23. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_23_base/main.sh"
+    },
+    {
+      "id": "legacy-024",
+      "name": "Конвертер",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №24. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_24_base/main.sh"
+    },
+    {
+      "id": "legacy-025",
+      "name": "Модуль 25",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №25. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_25_base/main.sh"
+    },
+    {
+      "id": "legacy-026",
+      "name": "Модуль 26",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №26. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_26_base/main.sh"
+    },
+    {
+      "id": "legacy-027",
+      "name": "Модуль 27",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №27. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_27_base/main.sh"
+    },
+    {
+      "id": "legacy-028",
+      "name": "Модуль 28",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №28. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_28_base/main.sh"
+    },
+    {
+      "id": "legacy-029",
+      "name": "Модуль 29",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №29. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_29_base/main.sh"
+    },
+    {
+      "id": "legacy-030",
+      "name": "Preflight",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №30. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_30_base/main.sh"
+    },
+    {
+      "id": "legacy-031",
+      "name": "Self-heal",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №31. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_31_base/main.sh"
+    },
+    {
+      "id": "legacy-032",
+      "name": "Dual-backend verify",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №32. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_32_base/main.sh"
+    },
+    {
+      "id": "legacy-033",
+      "name": "Ownership scan",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №33. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_33_base/main.sh"
+    },
+    {
+      "id": "legacy-034",
+      "name": "Модуль 34",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №34. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_34_base/main.sh"
+    },
+    {
+      "id": "legacy-035",
+      "name": "Модуль 35",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №35. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_35_base/main.sh"
+    },
+    {
+      "id": "legacy-036",
+      "name": "Модуль 36",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №36. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_36_base/main.sh"
+    },
+    {
+      "id": "legacy-037",
+      "name": "Модуль 37",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №37. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_37_base/main.sh"
+    },
+    {
+      "id": "legacy-038",
+      "name": "Модуль 38",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №38. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_38_base/main.sh"
+    },
+    {
+      "id": "legacy-039",
+      "name": "Модуль 39",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №39. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_39_base/main.sh"
+    },
+    {
+      "id": "legacy-040",
+      "name": "AI Аналіз",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №40. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_40_base/main.sh"
+    },
+    {
+      "id": "legacy-041",
+      "name": "AI Парсинг рахунку",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №41. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_41_base/main.sh"
+    },
+    {
+      "id": "legacy-042",
+      "name": "AI Генерація умов",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №42. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_42_base/main.sh"
+    },
+    {
+      "id": "legacy-043",
+      "name": "AI Допомога",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №43. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_43_base/main.sh"
+    },
+    {
+      "id": "legacy-044",
+      "name": "AI Вільне питання",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №44. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_44_base/main.sh"
+    },
+    {
+      "id": "legacy-045",
+      "name": "AI Task Bar",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №45. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_45_base/main.sh"
+    },
+    {
+      "id": "legacy-046",
+      "name": "Executor — повний",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №46. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_46_base/main.sh"
+    },
+    {
+      "id": "legacy-047",
+      "name": "Executor — scan",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №47. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_47_base/main.sh"
+    },
+    {
+      "id": "legacy-048",
+      "name": "Executor — apply",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №48. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_48_base/main.sh"
+    },
+    {
+      "id": "legacy-049",
+      "name": "Executor — список",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №49. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_49_base/main.sh"
+    },
+    {
+      "id": "legacy-050",
+      "name": "Додати адресу",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №50. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_50_base/main.sh"
+    },
+    {
+      "id": "legacy-051",
+      "name": "Список адрес",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №51. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_51_base/main.sh"
+    },
+    {
+      "id": "legacy-052",
+      "name": "Історія адрес",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №52. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_52_base/main.sh"
+    },
+    {
+      "id": "legacy-053",
+      "name": "QR-код",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №53. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_53_base/main.sh"
+    },
+    {
+      "id": "legacy-054",
+      "name": "Telegram setup",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №54. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_54_base/main.sh"
+    },
+    {
+      "id": "legacy-055",
+      "name": "Telegram test",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №55. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_55_base/main.sh"
+    },
+    {
+      "id": "legacy-056",
+      "name": "Webhook список",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №56. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_56_base/main.sh"
+    },
+    {
+      "id": "legacy-057",
+      "name": "Webhook додати",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №57. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_57_base/main.sh"
+    },
+    {
+      "id": "legacy-058",
+      "name": "CSV контракти",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №58. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_58_base/main.sh"
+    },
+    {
+      "id": "legacy-059",
+      "name": "CSV ledger",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №59. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_59_base/main.sh"
+    },
+    {
+      "id": "legacy-060",
+      "name": "TXT звіт",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №60. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_60_base/main.sh"
+    },
+    {
+      "id": "legacy-061",
+      "name": "Backup локальний",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №61. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_61_base/main.sh"
+    },
+    {
+      "id": "legacy-062",
+      "name": "Backup хмара",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №62. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_62_base/main.sh"
+    },
+    {
+      "id": "legacy-063",
+      "name": "Список мереж",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №63. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_63_base/main.sh"
+    },
+    {
+      "id": "legacy-064",
+      "name": "Сканер-tx",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №64. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_64_base/main.sh"
+    },
+    {
+      "id": "legacy-065",
+      "name": "Відкрити спір",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №65. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_65_base/main.sh"
+    },
+    {
+      "id": "legacy-066",
+      "name": "Список спорів",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №66. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_66_base/main.sh"
+    },
+    {
+      "id": "legacy-067",
+      "name": "Голосувати",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №67. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_67_base/main.sh"
+    },
+    {
+      "id": "legacy-068",
+      "name": "Audit log",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №68. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_68_base/main.sh"
+    },
+    {
+      "id": "legacy-069",
+      "name": "Audit перевірити",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №69. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_69_base/main.sh"
+    },
+    {
+      "id": "legacy-070",
+      "name": "Сфотографувати",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №70. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_70_base/main.sh"
+    },
+    {
+      "id": "legacy-071",
+      "name": "OCR",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №71. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_71_base/main.sh"
+    },
+    {
+      "id": "legacy-072",
+      "name": "PDF → текст",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №72. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_72_base/main.sh"
+    },
+    {
+      "id": "legacy-073",
+      "name": "Повний pipeline",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №73. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_73_base/main.sh"
+    },
+    {
+      "id": "legacy-074",
+      "name": "Пошук контракту",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №74. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_74_base/main.sh"
+    },
+    {
+      "id": "legacy-075",
+      "name": "Auto-fill контракту",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №75. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_75_base/main.sh"
+    },
+    {
+      "id": "legacy-076",
+      "name": "AI прогін умов",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №76. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_76_base/main.sh"
+    },
+    {
+      "id": "legacy-077",
+      "name": "Перевірка платежів",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №77. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_77_base/main.sh"
+    },
+    {
+      "id": "legacy-078",
+      "name": "Додаткові умови",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №78. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_78_base/main.sh"
+    },
+    {
+      "id": "legacy-079",
+      "name": "Watchdog (супервізор)",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №79. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_79_base/main.sh"
+    },
+    {
+      "id": "legacy-080",
+      "name": "Стан системи",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №80. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_80_base/main.sh"
+    },
+    {
+      "id": "legacy-081",
+      "name": "Перевірка 100%",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №81. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_81_base/main.sh"
+    },
+    {
+      "id": "legacy-082",
+      "name": "Зареєструвати особу",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №82. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_82_base/main.sh"
+    },
+    {
+      "id": "legacy-083",
+      "name": "Показати особу",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №83. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_83_base/main.sh"
+    },
+    {
+      "id": "legacy-084",
+      "name": "Перевірити особу",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №84. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_84_base/main.sh"
+    },
+    {
+      "id": "legacy-085",
+      "name": "Пристрій",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №85. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_85_base/main.sh"
+    },
+    {
+      "id": "legacy-086",
+      "name": "Snapshot",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №86. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_86_base/main.sh"
+    },
+    {
+      "id": "legacy-087",
+      "name": "Відновити з git",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №87. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_87_base/main.sh"
+    },
+    {
+      "id": "legacy-088",
+      "name": "Відновити з snapshot",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №88. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_88_base/main.sh"
+    },
+    {
+      "id": "legacy-089",
+      "name": "AUTO-recovery",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №89. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_89_base/main.sh"
+    },
+    {
+      "id": "legacy-090",
+      "name": "Action log",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №90. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_90_base/main.sh"
+    },
+    {
+      "id": "legacy-091",
+      "name": "Log verify",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №91. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_91_base/main.sh"
+    },
+    {
+      "id": "legacy-092",
+      "name": "Зберегти контракт",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №92. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_92_base/main.sh"
+    },
+    {
+      "id": "legacy-093",
+      "name": "Статус autosave",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №93. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_93_base/main.sh"
+    },
+    {
+      "id": "legacy-094",
+      "name": "Останні архіви",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №94. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_94_base/main.sh"
+    },
+    {
+      "id": "legacy-095",
+      "name": "Відновити контракт",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №95. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_95_base/main.sh"
+    },
+    {
+      "id": "legacy-096",
+      "name": "EVO7 (7 рівнів)",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №96. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_96_base/main.sh"
+    },
+    {
+      "id": "legacy-097",
+      "name": "EVO CONTROLLER",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №97. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_97_base/main.sh"
+    },
+    {
+      "id": "legacy-098",
+      "name": "Parawatch (фон)",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №98. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_98_base/main.sh"
+    },
+    {
+      "id": "legacy-099",
+      "name": "AUTOPATCH",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №99. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_99_base/main.sh"
+    },
+    {
+      "id": "legacy-100",
+      "name": "Node manager",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №100. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_100_base/main.sh"
+    },
+    {
+      "id": "legacy-101",
+      "name": "Hash ecosystem",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №101. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_101_base/main.sh"
+    },
+    {
+      "id": "legacy-102",
+      "name": "Binmix daemon",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №102. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_102_base/main.sh"
+    },
+    {
+      "id": "legacy-103",
+      "name": "Metrics",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №103. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_103_base/main.sh"
+    },
+    {
+      "id": "legacy-104",
+      "name": "HTTP panel",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №104. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_104_base/main.sh"
+    },
+    {
+      "id": "legacy-105",
+      "name": "Schedule (cron)",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №105. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_105_base/main.sh"
+    },
+    {
+      "id": "legacy-106",
+      "name": "Cleanup (ротація)",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №106. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_106_base/main.sh"
+    },
+    {
+      "id": "legacy-107",
+      "name": "Autopilot",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №107. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_107_base/main.sh"
+    },
+    {
+      "id": "legacy-108",
+      "name": "metamask sign",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №108. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_108_base/main.sh"
+    },
+    {
+      "id": "legacy-109",
+      "name": "metamask verify",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №109. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_109_base/main.sh"
+    },
+    {
+      "id": "legacy-110",
+      "name": "metamask history",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №110. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_110_base/main.sh"
+    },
+    {
+      "id": "legacy-111",
+      "name": "metamask settings",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №111. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_111_base/main.sh"
+    },
+    {
+      "id": "legacy-112",
+      "name": "metamask deeplink",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №112. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_112_base/main.sh"
+    },
+    {
+      "id": "legacy-113",
+      "name": "metamask batch",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №113. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_113_base/main.sh"
+    },
+    {
+      "id": "legacy-114",
+      "name": "autonode",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №114. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_114_base/main.sh"
+    },
+    {
+      "id": "legacy-115",
+      "name": "rpc bench",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №115. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_115_base/main.sh"
+    },
+    {
+      "id": "legacy-116",
+      "name": "gas monitor",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №116. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_116_base/main.sh"
+    },
+    {
+      "id": "legacy-117",
+      "name": "tx lookup",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №117. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_117_base/main.sh"
+    },
+    {
+      "id": "legacy-118",
+      "name": "net health",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №118. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_118_base/main.sh"
+    },
+    {
+      "id": "legacy-119",
+      "name": "qr sign",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №119. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_119_base/main.sh"
+    },
+    {
+      "id": "legacy-120",
+      "name": "ai guardian",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №120. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_120_base/main.sh"
+    },
+    {
+      "id": "legacy-121",
+      "name": "parlament",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №121. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_121_base/main.sh"
+    },
+    {
+      "id": "legacy-122",
+      "name": "contract validator",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №122. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_122_base/main.sh"
+    },
+    {
+      "id": "legacy-123",
+      "name": "multisig",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №123. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_123_base/main.sh"
+    },
+    {
+      "id": "legacy-124",
+      "name": "timelock",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №124. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_124_base/main.sh"
+    },
+    {
+      "id": "legacy-125",
+      "name": "anchor",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №125. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_125_base/main.sh"
+    },
+    {
+      "id": "legacy-126",
+      "name": "zk",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №126. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_126_base/main.sh"
+    },
+    {
+      "id": "legacy-127",
+      "name": "Модуль 127",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №127. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_127_base/main.sh"
+    },
+    {
+      "id": "legacy-128",
+      "name": "dashboard",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №128. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_128_base/main.sh"
+    },
+    {
+      "id": "legacy-129",
+      "name": "voice",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №129. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_129_base/main.sh"
+    },
+    {
+      "id": "legacy-130",
+      "name": "test suite",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №130. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_130_base/main.sh"
+    },
+    {
+      "id": "legacy-131",
+      "name": "kyc",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №131. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_131_base/main.sh"
+    },
+    {
+      "id": "legacy-132",
+      "name": "compliance",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №132. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_132_base/main.sh"
+    },
+    {
+      "id": "legacy-133",
+      "name": "tokens",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №133. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_133_base/main.sh"
+    },
+    {
+      "id": "legacy-134",
+      "name": "discord",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №134. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_134_base/main.sh"
+    },
+    {
+      "id": "legacy-135",
+      "name": "walletconnect",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №135. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_135_base/main.sh"
+    },
+    {
+      "id": "legacy-136",
+      "name": "templates",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №136. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_136_base/main.sh"
+    },
+    {
+      "id": "legacy-137",
+      "name": "escrow",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №137. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_137_base/main.sh"
+    },
+    {
+      "id": "legacy-138",
+      "name": "arbitration",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №138. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_138_base/main.sh"
+    },
+    {
+      "id": "legacy-139",
+      "name": "reputation",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №139. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_139_base/main.sh"
+    },
+    {
+      "id": "legacy-140",
+      "name": "analytics",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №140. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_140_base/main.sh"
+    },
+    {
+      "id": "legacy-141",
+      "name": "Portfolio Tracker",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №141. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_141_base/main.sh"
+    },
+    {
+      "id": "legacy-142",
+      "name": "Invoice PDF Export",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №142. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_142_base/main.sh"
+    },
+    {
+      "id": "legacy-143",
+      "name": "Email Notifications",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №143. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_143_base/main.sh"
+    },
+    {
+      "id": "legacy-144",
+      "name": "Bitcoin Lightning",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №144. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_144_base/main.sh"
+    },
+    {
+      "id": "legacy-145",
+      "name": "IPFS Pinning",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №145. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_145_base/main.sh"
+    },
+    {
+      "id": "legacy-146",
+      "name": "Merkle Batching",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №146. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_146_base/main.sh"
+    },
+    {
+      "id": "legacy-147",
+      "name": "On-chain Reputation v2",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №147. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_147_base/main.sh"
+    },
+    {
+      "id": "legacy-148",
+      "name": "Multisig UI",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №148. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_148_base/main.sh"
+    },
+    {
+      "id": "legacy-149",
+      "name": "Аналітика системи (AI)",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №149. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_149_base/main.sh"
+    },
+    {
+      "id": "legacy-150",
+      "name": "Custom Scripts",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №150. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_150_base/main.sh"
+    },
+    {
+      "id": "legacy-151",
+      "name": "Реклама (Ad Contract)",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №151. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_151_base/main.sh"
+    },
+    {
+      "id": "legacy-152",
+      "name": "Відкат до чистої ноти EVO",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №152. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_152_base/main.sh"
+    },
+    {
+      "id": "legacy-153",
+      "name": "Резерв 153",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №153. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_153_base/main.sh"
+    },
+    {
+      "id": "legacy-154",
+      "name": "Менеджер посилань (Тунель)",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №154. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_154_base/main.sh"
+    },
+    {
+      "id": "legacy-155",
+      "name": "Резерв 155",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №155. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_155_base/main.sh"
+    },
+    {
+      "id": "legacy-156",
+      "name": "Резерв 156",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №156. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_156_base/main.sh"
+    },
+    {
+      "id": "legacy-157",
+      "name": "Резерв 157",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №157. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_157_base/main.sh"
+    },
+    {
+      "id": "legacy-158",
+      "name": "Резерв 158",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №158. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_158_base/main.sh"
+    },
+    {
+      "id": "legacy-159",
+      "name": "Резерв 159",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №159. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_159_base/main.sh"
+    },
+    {
+      "id": "legacy-160",
+      "name": "FIDIC Контракти",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №160. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "modules/module_160_base/main.sh"
+    },
+    {
+      "id": "legacy-161",
+      "name": "EvoSafe (Контроль 3%)",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №161. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "bin/cybra-evo-safe.py"
+    },
+    {
+      "id": "legacy-162",
+      "name": "Absolute State (Трекер 100%)",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №162. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "bin/cybra-absolute-state.py"
+    },
+    {
+      "id": "legacy-163",
+      "name": "7 Levels (Рівні складності)",
+      "type": "legacy-menu-action",
+      "status": "proposed",
+      "description": "Знайдений пункт меню CYBRA №163. Це запис функції/модуля, а не підтвердження розгорнутого смартконтракту.",
+      "source": "modules/module_19_contract_tui_menu/bin/cybra_menu.sh @ 22b63edc272359891ddcf4d2b81c0026b615c483",
+      "handler": "bin/cybra-7levels-pm2.py"
+    }
+  ]
 }
