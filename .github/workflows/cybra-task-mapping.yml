@@ -1,0 +1,47 @@
+name: CYBRA BAR task mapping
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - feature/cybra-process-automation-20261128
+    paths:
+      - "ops/task-mapping/**"
+      - ".github/workflows/cybra-task-mapping.yml"
+  schedule:
+    - cron: "*/20 * * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cybra-task-mapping
+  cancel-in-progress: true
+
+jobs:
+  validate-map:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate task map and executor registry
+        run: |
+          python3 ops/task-mapping/cybra-map.py validate
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          tasks=json.loads(Path("ops/task-mapping/tasks.json").read_text())
+          executors=json.loads(Path("ops/task-mapping/executors.json").read_text())
+          ids={x["id"] for x in executors["executors"]}
+          for t in tasks["tasks"]:
+              unknown=set(t.get("executors",[]))-ids
+              assert not unknown, (t["id"],unknown)
+              if t["level"]=="green":
+                  assert t["status"]=="done" and t["progress"]==100 and t.get("evidence"),t["id"]
+          print("EXECUTOR_MAP_OK",len(ids),"TASKS",len(tasks["tasks"]))
+          PY
+      - name: JSON and Python syntax
+        run: |
+          python3 -m json.tool ops/task-mapping/tasks.json >/dev/null
+          python3 -m json.tool ops/task-mapping/executors.json >/dev/null
+          python3 -m py_compile ops/task-mapping/cybra-map.py
