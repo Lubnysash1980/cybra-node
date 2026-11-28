@@ -10,7 +10,7 @@ while :; do
   case "$c" in
     1) continue ;;
     2) python3 "$D/doctor.py" fix; read -rp "Enter…" _ ;;
-    3) python3 "$D/doctor.py" cache | head -40; read -rp "Enter…" _ ;;
+    3) python3 "$D/doctor.py" json | head -40; read -rp "Enter…" _ ;;
     0) return ;;
   esac
 done
