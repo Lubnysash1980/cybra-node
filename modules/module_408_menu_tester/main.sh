@@ -8,7 +8,7 @@ while :; do
   python3 "$D/tester.py" test
   echo
   echo "  1) Повний список"
-  echo "  2) ${G}8-Stage Autofix${N}"
+  echo "  2) ${G}Безпечний аудит (без запису)${N}"
   echo "  3) JSON"
   echo "  0) Назад"
   read -rp "  Вибір: " c
