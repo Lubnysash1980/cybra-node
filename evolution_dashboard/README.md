@@ -1,66 +1,60 @@
-# CYBRA Evolution Dashboard (isolated / read-only)
+# CYBRA NEURO Evolution Dashboard
 
-This package adds a local web dashboard and Termux CLI without changing the production CYBRA processes.
+Local web panel and Termux CLI for evolution tracking. This component is isolated from production and does not change PM2 state.
 
-## What it measures
+## What the panel shows
 
-- **Evolution %** = (current tracked source/config/documentation bytes - baseline bytes) / baseline bytes × 100.
-- The baseline is captured automatically on first run and stored at `$CYBRA_ROOT/state/evolution_dashboard/baseline.json`.
-- A +3% crossing writes a timestamped JSON snapshot and a history event.
-- Negative percentage means the tracked byte volume decreased. It is not automatically classified as a failure.
-- Module count is a discovery count of files whose basename starts with `module_`, compared with the requested target of 500. This is not proof that every module is healthy or running.
-- Auto-creation percentage is new tracked files divided by the current tracked file count.
-- Health is deliberately shown as **not measured** until real per-module health checks are integrated. No fabricated health percentage is reported.
+- Evolution percentage = (current selected source/config/documentation bytes - baseline bytes) / baseline bytes × 100.
+- The first run captures a baseline in `state/evolution_dashboard/baseline.json`. Initial files are not counted as newly created.
+- When the measured byte volume crosses +3%, one timestamped JSON snapshot is written and a threshold event is added to the history.
+- A negative percentage means byte volume decreased; it is not automatically a quality failure.
+- Module count comes from the repository's authoritative `@cybra/index.json`. The current published registry has 83 entries, so the panel will show the actual count against the target of 500.
+- Module dots: green = a real runtime health-check has passed; yellow = module exists but health is unknown; red = registry entry is missing on disk; grey = slot not yet registered. Until health checks are integrated, no module is falsely marked green.
+- File-creation percentage means files added since baseline divided by the current scanned file count. It is a size/activity indicator, not proof of autonomous AI creation.
+- Daily chart shows the last recorded evolution value, the count of newly observed files, and their paths for each day.
+- Health percentage remains "not measured" until genuine health-check results are connected.
 
-## Start in Termux
+## Run in Termux
 
-From the repository checkout:
+From the isolated checkout:
 
 ```bash
-cd ~/CYBRA
+cd ~/CYBRA_NEURO
 bash evolution_dashboard/cybra-evolution.sh start
-
-# Короткий статус у Termux
 bash evolution_dashboard/cybra-evolution.sh status
-
-# Повний JSON
-bash evolution_dashboard/cybra-evolution.sh json
 ```
 
-Open `http://127.0.0.1:8765/` in the phone browser.
+Open this address in the phone browser:
 
-Commands:
+```
+http://127.0.0.1:8765/
+```
+
+Other commands:
 
 ```bash
-bash evolution_dashboard/cybra-evolution.sh status
+bash evolution_dashboard/cybra-evolution.sh json
 bash evolution_dashboard/cybra-evolution.sh logs
 bash evolution_dashboard/cybra-evolution.sh stop
+bash evolution_dashboard/run-tests.sh
 ```
 
-To monitor a different checkout:
+To explicitly monitor another checkout, set `CYBRA_ROOT` before running the script. Do not point it at production until the isolated panel has been reviewed.
 
-```bash
-CYBRA_ROOT="$HOME/CYBRA_NEURO" bash evolution_dashboard/cybra-evolution.sh start
-```
+## Safety boundary
 
-## Safety
+- HTTP binds only to `127.0.0.1`; it is not exposed to the public network.
+- The dashboard only reads project files and reads PM2 status with `pm2 jlist`; it never starts, stops, deletes, saves, or restarts PM2 processes.
+- A +3% crossing automatically creates a JSON dump. Automatic restart remains `MANUAL_ONLY` until a real health gate, verified backup, explicit restart target, and tested rollback are implemented. The current registry has 83 modules and does not establish which production process is safe to restart.
+- Negative byte growth is logged as a size decrease only; it does not trigger restart or rollback.
+- Baseline reset is intentionally not exposed in the web UI. Back up the baseline before manually replacing it.
 
-- The HTTP server binds only to `127.0.0.1`; it is not exposed to the public network.
-- The dashboard does not execute code, alter files, create commits, or control PM2.
-- **Automatic restart is MANUAL_ONLY.** A +3% event creates a snapshot and log entry only. Restart automation must not be enabled until a separate health gate, backup verification, restart target, and rollback procedure are implemented and tested.
-- Baseline reset is intentionally not exposed in the web UI. To intentionally establish a new baseline, stop the server, back up the existing baseline, and remove `state/evolution_dashboard/baseline.json`; the next start will capture a new one.
+## Tests
 
-## Limitations / next integration
-
-The 500 indicators currently visualize discovered module files, not runtime health. The next safe integration step is to map the repository's authoritative module registry and real health-check outputs, then validate counts and statuses against CYBRA's existing manifest. Do not infer that the repository contains exactly 500 modules from this display.
-
-
-## Тести
-
-Запуск із кореня репозиторію:
+Run:
 
 ```bash
 bash evolution_dashboard/run-tests.sh
 ```
 
-Тести використовують тимчасову директорію та підміняють виклик PM2. Вони не змінюють production-файли й не запускають/зупиняють процеси PM2.
+Tests use temporary directories and mock PM2. They do not touch production files or PM2 processes.
