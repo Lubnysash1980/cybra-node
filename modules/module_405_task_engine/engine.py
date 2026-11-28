@@ -170,29 +170,9 @@ def test_in_sandbox(task, sandbox_file):
 # APPLY — застосування з backup
 # ═══════════════════════════════════════════════════════════════
 def apply_task(task, sandbox_file):
-    """Застосовує зміни. Backup перед."""
-    issue = task["issue"]
-    if issue["type"] == "menu_item":
-        dst = M / "module_19_contract_tui_menu/bin/cybra_menu.sh"
-    elif issue["type"] == "controller":
-        dst = M / "module_320_controllers/controllers.py"
-    else:
-        return False, "не підтримується"
+    """Disabled by policy: source changes must go through NEURO and Parliament."""
+    return False, "automatic Task Engine apply is disabled; use reviewed NEURO patch approval"
 
-    if not dst.exists(): return False, "немає target"
-
-    # Backup
-    bak = dst.with_suffix(dst.suffix + f".bak.engine.{int(time.time())}")
-    shutil.copy2(dst, bak)
-
-    # Тестова заміна
-    try:
-        shutil.copy2(sandbox_file, dst)
-        return True, str(bak)
-    except Exception as e:
-        # rollback
-        shutil.copy2(bak, dst)
-        return False, str(e)
 
 # ═══════════════════════════════════════════════════════════════
 # VERIFY — перевірка після apply
