@@ -1,0 +1,64 @@
+name: CYBRA worklog refresh
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */2 * * *"
+  push:
+    branches:
+      - feature/cybra-process-automation-20261128
+    paths:
+      - "WORKLOG.md"
+      - "state/work_status.json"
+      - "ops/dashboard/**"
+      - ".github/workflows/cybra-worklog-refresh.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cybra-worklog-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/cybra-process-automation-20261128
+      - name: Refresh repository snapshot timestamp
+        run: |
+          python3 - <<'PY'
+          import json, subprocess
+          from datetime import datetime, timezone
+          from pathlib import Path
+          p=Path("state/work_status.json")
+          d=json.loads(p.read_text())
+          now=datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z")
+          branch=subprocess.check_output(["git","branch","--show-current"],text=True).strip()
+          sha=subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip()
+          dirty=bool(subprocess.check_output(["git","status","--porcelain"],text=True).strip())
+          d["updatedAtUtc"]=now
+          d["branch"]=branch
+          d["lastAutomation"]={
+            "type":"scheduled_repository_snapshot",
+            "result":"completed",
+            "checkedCommit":sha,
+            "workingTreeDirtyBeforeCommit":dirty,
+            "note":"This confirms the GitHub repository snapshot only; it does not confirm VPS or Termux availability."
+          }
+          p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+"\n")
+          PY
+      - name: Commit snapshot when changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/work_status.json
+          if git diff --cached --quiet; then
+            echo "No worklog snapshot change."
+          else
+            git commit -m "chore: refresh CYBRA worklog snapshot"
+            git push origin HEAD:feature/cybra-process-automation-20261128
+          fi
