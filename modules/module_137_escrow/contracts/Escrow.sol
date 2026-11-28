@@ -19,6 +19,7 @@ contract Escrow {
 
     mapping(bytes32 => Deal) public deals;
     bytes32[] public dealIds;
+    uint256 public nextDealNonce = 1;
 
     event Created(bytes32 indexed cid, bytes32 indexed dealId, address buyer, uint256 amount);
     event Funded(bytes32 indexed cid, bytes32 indexed dealId);
@@ -37,7 +38,14 @@ contract Escrow {
                     uint64 deadline, string calldata note) external payable
         returns (bytes32 dealId)
     {
-        dealId = keccak256(abi.encodePacked(cid, msg.sender, block.timestamp));
+        if (seller == address(0) || arbiter == address(0)) revert NotParty();
+        if (seller == msg.sender || arbiter == msg.sender || arbiter == seller) revert NotParty();
+        if (msg.value == 0) revert BadState();
+        if (deadline <= block.timestamp) revert TooLate();
+
+        uint256 nonce = nextDealNonce++;
+        dealId = keccak256(abi.encode(cid, msg.sender, nonce));
+        if (deals[dealId].buyer != address(0)) revert BadState();
         deals[dealId] = Deal({
             buyer: msg.sender, seller: seller, arbiter: arbiter,
             amount: msg.value, createdAt: uint64(block.timestamp),
