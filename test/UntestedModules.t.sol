@@ -8,6 +8,7 @@ import "../modules/module_137_escrow/contracts/Escrow.sol";
 import "../modules/module_147_reputation_v2/contracts/Reputation.sol";
 import "../src/CYBRASelfLearning.sol";
 import "../src/CYBRASelfLearningV2.sol";
+import "../src/CYBRADualLicenseRoyalty15.sol";
 
 contract UntestedModulesTest is Test {
     receive() external payable {}
