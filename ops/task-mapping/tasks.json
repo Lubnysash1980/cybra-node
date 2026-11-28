@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "project": "CYBRA BAR",
-  "updatedAtUtc": "2026-11-28T10:51:12.763Z",
+  "updatedAtUtc": "2026-11-28T10:56:12.576Z",
   "levels": {
     "green": {
       "meaning": "100% і всі критерії приймання підтверджені доказами",
@@ -236,6 +236,37 @@
       ],
       "evidence": [],
       "dependencies": []
+    },
+    {
+      "id": "CY-012",
+      "title": "CYBRA Neuro binding and task-aware module evolution",
+      "status": "planned",
+      "progress": 0,
+      "level": "not_checked",
+      "acceptance": [
+        "User request or contract is mapped to one stable task ID",
+        "Affected modules, dependencies and executors are identified",
+        "Neuro prepares isolated patch proposals and tests",
+        "CI evidence and executor events update the same task",
+        "Dashboard displays progress, evidence and approval gates",
+        "Merge, production deploy and irreversible actions require approval"
+      ],
+      "executors": [
+        "neuro",
+        "github-actions",
+        "termux",
+        "oracle-vps"
+      ],
+      "evidence": [
+        "docs/NEURO_BINDING.md",
+        "ops/task-mapping/executors.json"
+      ],
+      "dependencies": [
+        "CY-002",
+        "CY-003",
+        "CY-005",
+        "CY-008"
+      ]
     }
   ]
 }
