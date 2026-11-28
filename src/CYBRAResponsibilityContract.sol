@@ -10,13 +10,6 @@ contract CYBRAResponsibilityContract {
     address public immutable seller;
     address public immutable eventController;
 
-    string public constant SUPPLIER_NAME = "TOV KOMFI TRADE";
-    string public constant BUYER_NAME    = "Hrabovskyi Oleksandr";
-    string public constant INVOICE_NUMBER = "RB0518-00742";
-    string public constant INVOICE_DATE   = "2026-10-06";
-
-    uint256 public constant INVOICE_AMOUNT_UAH_KOPECK = 13_747_500;
-
     enum Status {
         CREATED,
         CONFIRMATION_REQUIRED,
@@ -40,6 +33,7 @@ contract CYBRAResponsibilityContract {
 
     uint256 public immutable deadline;
 
+    /// @notice Use a salted commitment; never submit a plain hash of guessable invoice data.
     bytes32 public immutable invoiceHash;
     bytes32 public executionEvidenceHash;
     bytes32 public buyerEvidenceHash;
@@ -52,7 +46,7 @@ contract CYBRAResponsibilityContract {
     event SellerConfirmedExecution(bytes32 indexed evidenceHash);
     event ConfirmationRequired();
     event BuyerConfirmed(bytes32 indexed evidenceHash);
-    event BuyerRejected(bytes32 indexed evidenceHash, string reason);
+    event BuyerRejected(bytes32 indexed evidenceHash, bytes32 reasonHash);
     event ControllerStatusChanged(bool online);
     event InvoiceHashConfirmed(bytes32 indexed invoiceHash);
     event ResponsibilityOpened(bytes32 indexed violationHash);
@@ -174,17 +168,18 @@ contract CYBRAResponsibilityContract {
 
     function buyerReject(
         bytes32 _violationHash,
-        string calldata reason
+        bytes32 reasonHash
     ) external onlyBuyer {
         if (true100) revert ALREADY_TRUE100();
         if (responsibilityOpen) revert RESPONSIBILITY_ALREADY_OPEN();
         if (buyerDecision != Decision.NONE) revert ALREADY_DECIDED();
         if (_violationHash == bytes32(0)) revert MISSING_VIOLATION_HASH();
+        if (reasonHash == bytes32(0)) revert MISSING_VIOLATION_HASH();
 
         buyerDecision = Decision.REJECT;
         _openResponsibility(_violationHash);
 
-        emit BuyerRejected(_violationHash, reason);
+        emit BuyerRejected(_violationHash, reasonHash);
     }
 
     function openResponsibilityAfterDeadline(
