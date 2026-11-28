@@ -10,6 +10,7 @@ contract CYBRARefundClaimE2ETest is Test {
     address claimant = address(0x111);
     address merchant = address(0x222);
     address verifier = address(0x333);
+    address verifier2 = address(0x444);
 
     bytes32 orderHash = keccak256("E2E-ORDER-001");
     bytes32 paymentHash = keccak256("E2E-PAYMENT-PROOF");
@@ -19,6 +20,7 @@ contract CYBRARefundClaimE2ETest is Test {
     function setUp() public {
         claim = new CYBRARefundClaim();
         claim.setVerifier(verifier, true);
+        claim.setVerifier(verifier2, true);
     }
 
     function test_E2E_CompleteRefundLifecycle() public {
@@ -121,7 +123,7 @@ contract CYBRARefundClaimE2ETest is Test {
 
         assertTrue(
             refundExecuted,
-            "REFUND WAS NOT EXECUTED"
+            "REFUND STATUS WAS NOT RECORDED"
         );
 
         assertEq(
